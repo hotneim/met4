@@ -1,0 +1,13 @@
+--- 
+title: "MET4 - Empiriske Metoder"
+author: "Håkon Otneim og Geir Drage Berentsen"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+description: "Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole."
+---
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+bookdown::gitbook:
+  toc_depth: 2
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">MET4 - Empiriske Metoder</a></li>
