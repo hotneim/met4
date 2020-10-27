@@ -1,0 +1,126 @@
+
+# Introduksjon til R
+
+Vi skal i dette kurset bruke programmeringsspråket **R** til å gjøre beregninger og gjennomføre de ulike statistiske analysene som vi skal lære etter hvert. Dette vil være nytt for mange. Vi skal først og fremst skal skrive *kode* og *kommandolinjer* for å få ut resultater i R, noe som kan oppleves uvant siden vi ellers er vant med å klikke oss frem i et menysystem når vi jobber med ulike programmer. Trøsten kan være at ferdigheter i programmering blir stadig viktigere i mange yrker, spesielt innen økonomifaget. 
+
+Vi må installere to ting på maskinen vår før vi går videre; selve programeringsspråket R, samt programmet RStudio som vi skal bruke til å skrive og kjøre koden. Begge deler er gratis, og begge deler fungerer fint på både Windows og Mac (og Linux!). Det er greiest å gjøre dette i riktig rekkefølge:
+
+1. Gå til [r-project.org](https://cran.uib.no/) for å laste ned R til ditt operativsystem, og installer på vanlig måte uten å forandre på foreslåtte innstillinger.
+
+2. Gå til [rstudio.com](https://rstudio.com/), og naviger deg frem til siden for **RStudio**. Du skal der laste ned desktop-versjonen av programmet ("Open source edition") for ditt operativsystem og  installere på vanlig måte. Det er heller ikke her nødvendig å forandre på de foreslåtte innstillingene.
+
+Du kan så åpne RStudio, og følge sekvensen av videoforelesniger som følger under. Merk at disse videoene er lånt fra seminaret [BAN420 - Introduction to R](https://www.nhh.no/en/courses/introduction-to-r/) som gis på masterprogrammet ved NHH. De er derfor spilt inn på engelsk. Det resterende videomaterialet i kurset gis på norsk.
+
+## En gjennomgang av RStudio
+
+<iframe src="https://player.vimeo.com/video/472587681" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+I denne videoen åpner vi opp Rstudio og rusler gjennom det grafiske grensesnittet.
+
+## Enkle beregninger og variabler
+
+<iframe src="https://player.vimeo.com/video/472587696" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+Vi går videre og skriver våre første kommandoer i R. Det er kritisk at vi allerede nå setter i gang med å få programmeringen inn i fingrene, og det gjøres best ved å skrive inn kodelinjene slik det gjøres i videoen, og passe på at du får ut de samme resultatene. Når du er ferdig med det kan du prøve deg på følgende lille oppgave:
+
+**Oppgave:** Velg dine tre favorittall og lagre dem i tre forskjellige variabler. Beregn så ditt magiske tall, som er summen av favorittallene dine. Lagre ditt magiske tall i en ny variabel, og gi denne variabelen et informativt navn som identifiserer hva det er.
+
+Fikk du det til? Kikk på løsningen under for å sjekke.
+
+<details><summary>Løsning</summary>
+
+```{r, eval = FALSE}
+tall1 <- 1
+tall2 <- 87
+tall3 <- 101
+
+magisk_tall <- tall1 + tall2 + tall3
+```
+
+</details>
+
+## Vektorer
+
+<iframe src="https://player.vimeo.com/video/472587712" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+Vi introduserer begrepet *vektorer* som er svært viktig i statistikk generel og R spesielt. En vektor er ganske enkelt en samling med tall, og når vi senere begynner å jobbe med data kommer vi til å lagre observasjoner av ulikt slag i vektorer. Vi ser også at vi kan gjøre operasjoner på vektorer ved å bruke *funksjoner*. For eksempel bruker vi `sum()`-funksjonen til å regne ut summen av alle tallene som er lagret i en vektor.
+
+**Oppgave:** Beregn maksimum- og minimumsverdien av `vector1`, samt medianen, ved å bruke funksjoner i R. (**Hint:** en dårlig skjult hemmelighet i anvendt programmering er at dersom vi ikke vet navnet på funksjonen vi skal bruke, så er Google vår' beste venn!)
+
+<details><summary>Løsning</summary>
+```{r eval = FALSE}
+# Relevante Google-søk: "minimum value r", "maximum r", "median r"
+
+min(vector1)
+max(vector1)
+median(vector1)
+```
+</details>
+
+## Pakker
+
+<iframe src="https://player.vimeo.com/video/472587752" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+Vi lærer at når vi laster ned R så følger det med et grunnleggende sett av funksjoner ("base R"), men at det finnes et stort antall tilleggspakker. Vi kan enkelt laste ned og installere disse pakkene ved å skrive kommandoen `install.packages("pakkenavn")`. Det trenger vi bare gjøre en gang på datamaskinen vår. For å bruke pakken må vi skrive kommandoen `library(pakkenavn)`, og det må vi gjøre hver gang i restarter R.
+
+**Oppgave:** Installer følgende pakker, som vi kommer til å bruke senere i kurset:
+
+- `ggplot2`
+- `dplyr`
+- `stargazer`
+
+<details><summary>Løsning</summary>
+```{r, eval = FALSE}
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("stargazer")
+```
+</details>
+
+## Mappesti
+
+<iframe src="https://player.vimeo.com/video/472587759" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+Vi kommer til å forholde oss til *filer* på flere måter. Vi skal lese inn datafiler, og vi kommer til å produsere ulike former for output, slik som figurer og tabeller. Vi må da ha kontroll på hva R bruker som gjeldende mappesti ("working directory") der filer som skal leses inn ligger, og der ulike output-filer havner. Vi kan bruke funksjonen `getwd()` til å sjekke hva som er gjeldende mappesti. For å forandre mappestien kan vi bruke menysystemet (Session -> Set Working Directory -> Choose Directory), eventuelt funksjonen `setwd()` med ønsket mappesti som argument.
+
+**Oppgave:** Pass på at du har gjort følgende før du går videre til neste leksjon:
+
+- Du har laget en dedikert mappe på datamaskinen din der du skal samle alt materiale som vi bruker i dette kapitlet.
+- Du har lastet ned filen [testdata.xls](datasett/testdata.xls) og lagt den i den nye mappen din.
+- Du har endret gjeldende mappesti til denne mappen.
+- Du har **bekreftet** at gjeldende mappesti nå er korrekt.
+
+## Innlesing av data
+
+<iframe src="https://player.vimeo.com/video/472587809" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+Vi leser inn tabellen i excelfilen som en tabell ("data frame") i R ved hjelp av funksjonen `read_xls()` i `readxl`-pakken og ser på noen enkle kommandoer for å jobbe med en slik tabell. 
+
+**Oppgave:** 
+
+1. Hvor mange kolonner har datasettet vårt?
+2. Kan du finne en måte å skrive ut en vektor som inneholder summen av `X1`- og `X2`-kolonnene i datasettet? (Altså, vi vil vite summen av de to første elementene i `X1` og `X2`, summen av de to andre elementene, osv.) 
+3. Hva er summen av *alle* tallene i `X1`- og `X2`-kolonnene i`testdata`?
+
+<details><summary>Løsning</summary>
+```{r, eval = FALSE}
+# 1
+ncol(testdata)
+
+# 2 
+testdata$X1 + testdata$X2
+
+# 3
+sum(testdata$X1 + testdata$X2)
+```
+</details>
+
+## Statistiske analyser
+
+## Plotting
+
+## Script
+
+# Ekstra oppgaver
+
+

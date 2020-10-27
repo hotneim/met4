@@ -1,0 +1,7 @@
+introduksjon-til-r
+en-gjennomgang-av-rstudio
+enkle-beregninger-og-variabler
+vektorer
+pakker
+mappesti
+innlesing-av-data

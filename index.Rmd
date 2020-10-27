@@ -6,7 +6,13 @@ output: bookdown::gitbook
 description: "Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole."
 ---
 
+# Innledning {-}
 
+Velkommen til hjemmesiden for kurset [MET4 - Empiriske metoder](https://www.nhh.no/emner/empiriske-metoder/), som er et obligatorisk kurs på Bachelorprogrammet i Økonomi og Administrasjon ved Norges Handelshøyskole. Her vil du finne undervisningsmaterialet ...
+
+Videobasert.
+
+Innledning til kurset, detaljer om datoer, hvordan jobbe, hvor finne informasjon, følge med på Canvas osv.
 
 
 
