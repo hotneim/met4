@@ -5,3 +5,7 @@ vektorer
 pakker
 mappesti
 innlesing-av-data
+statistiske-analyser
+plotting
+script
+oppsummering-og-ekstra-oppgaver

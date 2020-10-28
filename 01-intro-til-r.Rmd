@@ -117,10 +117,124 @@ sum(testdata$X1 + testdata$X2)
 
 ## Statistiske analyser
 
+<iframe src="https://player.vimeo.com/video/472587826" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+Den første kommentaren i denne videoen er selvsagt ikke sann for MET4. For oss er det motsatt: Det er ikke R som er poenget med kurset, men de statistiske metodene som vi skal lære. R er bare verktøyet vi skal bruke. 
+
+Vi ser på et eksempel der vi kjører en enkel statistisk analyse (en $t$-test) på datasettet vårt, og hvordan vi kan gjøre ulike valg ved å endre argumenter i funksjonskallet. Vi bruker også hjelpefilene til å lese mer om funksjonen vi bruker.
+
+**Oppgave:** Hva er verdien av *testobservatoren* i testen som vi gjorde i denne videoen? Hint: Bruk hjelpefilene til `t.test()`-funksjonen.
+
+<details><summary>Løsning</summary>
+```{r, eval = FALSE}
+test_result$statistic
+```
+</details>
+
 ## Plotting
+
+<iframe src="https://player.vimeo.com/video/472587867" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+Vi lager vår første figur i R ved å bruke den innebygde `plot()`-funksjonen. Vi går så over til å se hvordan vi kan lage det samme plottet ved å bruke `ggplot`-pakken, som er det vi kommer til å bruke til å lage figurer i dette kurset. Vi ser også hvordan vi kan gå frem for å *lagre* plottet som en pdf-fil i arbeidsmappen vår.
+
+**Oppgave:** Klarer du, for eksempel ved å søke etter relevante ggplot-kommandoer på nettet, å få prikkene i plottet til å bli større, og samtidig gjøre dem blå?
+
+<details><summary>Løsning</summary>
+```{r, eval = FALSE}
+ggplot(testdata, aes(x = X1, y = X2)) + geom_point(colour = "blue", size = 5)
+```
+</details>
 
 ## Script
 
-# Ekstra oppgaver
+<iframe src="https://player.vimeo.com/video/472587939" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
+I stedet for å skrive kommandoene rett inn i konsollen, hopper vi nå over til teksteditoren i RStudio og lager et *script* i stedet. Her kan vi samle alle kommandoene våre i en fil, som vi kan lagre og kjøre igjen senere. Vi ser også hvordan vi enkelt kan kjøre enkeltlinjer i scriptet vårt i R-konsollen ved hjelp av Ctrl-Enter (Command-Enter på Mac). Vi ser at vi kan skrive kommentarer i scriptene våre ved å bruke `#-tegnet, som kan være nyttig for å holde oversikten. Til slutt lagrer vi scripet i arbeidsmappen.
 
+**Oppgave:** Pass på at du nå har lagret scriptet som en .R-fil i mappen som vi laget for denne R-leksjonen. Lukk RStudio. Naviger så til denne mappen i filutforskeren og dobbelklikk på skriptet. Forhåpentligvis åpnes RStudio nå (Hvis ikke, eller hvis filen åpnes i det som heter R GUI, høyreklikker du på filen og velger "Åpne i", og deretter RStudio. Du kan også gjerne sette RStudio som standarsprogram for .R-filer).
+
+Finn ut hva gjeldende arbeidsmappe nå er i RStudio. Hva skjedde nå? Hvorfor er dette nyttig?
+
+<details><summary>Løsning</summary>
+
+Når vi åpner RStudio ved å dobbeltklikke på skriptfilen, så blir arbeidsstien satt automastisk til mappen der skriptfilen ligger. Dette er veldig nyttig når vil kommer tilbake og skal jobbe videre med prosjektet vårt.
+
+</details>
+
+## Oppsummering og ekstra oppgaver
+
+I denne modulen har vi gått gjennom noen helt grunnleggende funksjoner i R. Du har lært at
+
+- R er navner på et programmeringsspråk, 
+- RStudio er navnet på et program der vi kan skrive og kjøre R-kode, og
+- identifisert fire forskjellige vindu i RStudio: konsollen (der R-koden kjøres), teksteditoren (der vi skriver script), samt to vinduer der vi kan se en oversikt over hva som er i dataminnet og få opp plott og figurer som vi lager.
+
+Videre har du 
+
+- kjørt noen enkle kommandoer,
+- lagret tall og vektorer ved hjelp av variabelnavn,
+- prøvd ut noen innebygde R-funksjoner for å regne ut f.eks. gjennomsnitt og standardavvik av tallvektorer,
+- laget et spredningsplott,
+- lært hva et *working directory* (arbeidsmappe) er, og 
+- installert R-pakker, f.eks `readxl` som vi brukte den til å lese inn et lite datasett i R. 
+
+Til slutt har du
+
+- kjørt en $t$-test, og
+- skrevet et *script* (et lite program om du vil) der vi har lagret flere av kommandoene over i en tekstfil.
+
+Dersom du har fulgt modulen selv har du nå kanskje skrevet et lite script i tekstvinduet som ser ut omtrent som koden under. Når du har gjort alt riktig, skal du nå kunne kjøre gjennom disse kodelinjene uten feilmeldinger ved hjelp av `Ctrl-Enter`.
+
+**Dette er helt grunnleggende (Spør om hjelp! Gi hjelp!). Har du problemer her, sørg for å få dem ordnet. Spør først en medstudent om hjelp, og deretter eventuelt studentassistent eller foreleser. Studenter som har god erfaring med data og/eller programmering, kan lære mye av å hjelpe medstudenter løse feilmeldinger.**
+
+```{r, eval = FALSE}
+# Introduksjon til R
+# -------------------
+
+# Laster inn readxl-pakken, og leser inn datasettet vårt
+library(readxl)
+ovelsesdata <- read_xls("ovelsesdata.xls")
+
+# Gjør t-testen til spørsmål F i den første dataøvingen
+testresultat <- t.test(ovelsesdata$X1, 
+                       ovelsesdata$X2, 
+                       var.equal = TRUE, 
+                       alternative = "two.sided")
+
+# Skriver ut resultatet av denne t-testen
+testresultat
+
+# Lager et plott av variabelen X1 mot X2
+pdf(file = "testplot.pdf")
+plot(ovelsesdata$X1, ovelsesdata$X2)
+dev.off()
+```
+
+1. Lagre scriptet ditt. I RStudio velger du `File -> Save` og trykker `Ok` dersom det kommer opp et vindu om *character encoding* e.l. Finn en fornuftig plassering (gjerne i samme mappe som øvelsesdatasettet) og gi filen et fornuftig navn. Standard filending for `R`-script er `.R`, men det er skjult for de fleste Windowsbrukere. Lukk RStudio.
+
+2. Du kan nå åpne skriptfilen i RStudio igjen. Enten ved å dobbeltklikke på den, eller ved å åpne RStudio, velge `File -> Open file`, og så videre (dersom skriptet ikke allerede ligger åpnet). Du kan også åpne skriptfilen i en hvilken som helst notatbok (Notebook e.l.) og se at det er en helt standard, *ren tekstfil*. Hva er fordelen med å lagre en analyse som *et skript* versus å gjøre ting i et menydrevet grafisk grensesnitt?
+
+3. Vi skal nå pynte på plottet og gjøre det riktig pent. Det gjør vi ved å legge til argumenter i `plot()`-funksjonen. erstatt den nest siste linjen i skriptet med kommandoen under, og se at du får en figur omtrent som den som følger under det igjen:
+
+```{r, echo = F}
+ovelsesdata <- readxl::read_xls("datasett/ovelsesdata.xls")
+```
+
+```{r, fig.height = 4, fig.width = 6}
+plot(ovelsesdata$X1, ovelsesdata$X2,
+     xlab = "Før omlegging",
+     ylab = "Etter omlegging",
+     main = "Poduksjonskvalitet",
+     pch = 20,
+     bty = "l",
+     col = "darkblue",
+     cex = 2)
+```
+
+4. Kan du finne ut hva hvert av disse argumentene styrer? Hint: ta bort et argument av gangen, og se hva som skjer. Pass på at det er et komma mellom hvert argument.
+
+5. Prøv å endre på noen av argumentene. For eksempel kan du lage din egen tittel og egne aksetitler, og du kan bruke tall fra 1-20 i `pch`, argumentet, `bty`-argumentet kan du endre til f.eks. `"l", "7", "c"` og `"u"`, du kan prøve andre fargenavn (`"red", "green",`...), eller skru på `cex`-argumentet (gjøre det større eller mindre). 
+
+6. Det følger med omfattende dokumentasjon med `R`. Du kan lese om alle `R`-funksjoner ved å skrive `?` før funksjonsnavnet i konsollen. Prøv for eksempel å skrive `?mean` i konsollen og trykk enter.
+
+7. Ved å skrive `?par` kan du lese om de grafiske argumentene vi lekte med i spørsmålene over, og mange, mange flere...
