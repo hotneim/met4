@@ -9,3 +9,9 @@ statistiske-analyser
 plotting
 script
 oppsummering-og-ekstra-oppgaver
+grunnleggende-statistikk
+deskriptiv-statistikk
+videoforelesninger
+kommentarer
+spørsmål-og-oppgaver
+utvalg-og-estimering

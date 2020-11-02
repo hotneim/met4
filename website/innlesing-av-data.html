@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MET4 - Empiriske Metoder</title>
+  <title>1.6 Innlesing av data | MET4 - Empiriske Metoder</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MET4 - Empiriske Metoder" />
+  <meta property="og:title" content="1.6 Innlesing av data | MET4 - Empiriske Metoder" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MET4 - Empiriske Metoder" />
+  <meta name="twitter:title" content="1.6 Innlesing av data | MET4 - Empiriske Metoder" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduksjon-til-r.html"/>
+<link rel="prev" href="mappesti.html"/>
+<link rel="next" href="statistiske-analyser.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -173,24 +173,36 @@ Proudly published with bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">MET4 - Empiriske Metoder</h1>
-<p class="author"><em>Håkon Otneim og Geir Drage Berentsen</em></p>
-</div>
-<div id="innledning" class="section level1 unnumbered">
-<h1>Innledning</h1>
-<p>Velkommen til hjemmesiden for kurset <a href="https://www.nhh.no/emner/empiriske-metoder/">MET4 - Empiriske metoder</a>, som er et obligatorisk kurs på Bachelorprogrammet i Økonomi og Administrasjon ved Norges Handelshøyskole. Her vil du finne undervisningsmaterialet …</p>
-<p>Videobasert.</p>
-<p>Innledning til kurset, detaljer om datoer, hvordan jobbe, hvor finne informasjon, følge med på Canvas osv.</p>
-
+<div id="innlesing-av-data" class="section level2">
+<h2><span class="header-section-number">1.6</span> Innlesing av data</h2>
+<iframe src="https://player.vimeo.com/video/472587809" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+</iframe>
+<p>Vi leser inn tabellen i excelfilen som en tabell (“data frame”) i R ved hjelp av funksjonen <code>read_xls()</code> i <code>readxl</code>-pakken og ser på noen enkle kommandoer for å jobbe med en slik tabell.</p>
+<p><strong>Oppgave:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Hvor mange kolonner har datasettet vårt?</li>
+<li>Kan du finne en måte å skrive ut en vektor som inneholder summen av <code>X1</code>- og <code>X2</code>-kolonnene i datasettet? (Altså, vi vil vite summen av de to første elementene i <code>X1</code> og <code>X2</code>, summen av de to andre elementene, osv.)</li>
+<li>Hva er summen av <em>alle</em> tallene i <code>X1</code>- og <code>X2</code>-kolonnene i<code>testdata</code>?</li>
+</ol>
+<details>
+<p><summary>Løsning</summary></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># 1</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">ncol</span>(testdata)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># 2 </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">testdata<span class="op">$</span>X1 <span class="op">+</span><span class="st"> </span>testdata<span class="op">$</span>X2</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># 3</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="kw">sum</span>(testdata<span class="op">$</span>X1 <span class="op">+</span><span class="st"> </span>testdata<span class="op">$</span>X2)</a></code></pre></div>
+</details>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduksjon-til-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="mappesti.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistiske-analyser.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MET4 - Empiriske Metoder</title>
+  <title>2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MET4 - Empiriske Metoder" />
+  <meta property="og:title" content="2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MET4 - Empiriske Metoder" />
+  <meta name="twitter:title" content="2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduksjon-til-r.html"/>
+<link rel="prev" href="grunnleggende-statistikk.html"/>
+<link rel="next" href="utvalg-og-estimering.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -173,24 +173,61 @@ Proudly published with bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">MET4 - Empiriske Metoder</h1>
-<p class="author"><em>Håkon Otneim og Geir Drage Berentsen</em></p>
+<div id="deskriptiv-statistikk" class="section level2">
+<h2><span class="header-section-number">2.1</span> Deskriptiv statistikk</h2>
+<div id="videoforelesninger" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Videoforelesninger</h3>
+<div style="padding:74.79% 0 0 0;position:relative;">
+<iframe src="https://vimeo.com/showcase/7748078/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+</iframe>
 </div>
-<div id="innledning" class="section level1 unnumbered">
-<h1>Innledning</h1>
-<p>Velkommen til hjemmesiden for kurset <a href="https://www.nhh.no/emner/empiriske-metoder/">MET4 - Empiriske metoder</a>, som er et obligatorisk kurs på Bachelorprogrammet i Økonomi og Administrasjon ved Norges Handelshøyskole. Her vil du finne undervisningsmaterialet …</p>
-<p>Videobasert.</p>
-<p>Innledning til kurset, detaljer om datoer, hvordan jobbe, hvor finne informasjon, følge med på Canvas osv.</p>
-
+</div>
+<div id="kommentarer" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Kommentarer</h3>
+<p>Deskriptiv statistikk handler ikke om analyse eller regning, men om å presentere kompleks informasjon på en effektiv måte. Det er altså noe ganske annet enn det vi ellers snakker om i kurset, men det er likevel et av de nyttigste læringspunktet vi har. Hvem kan ikke regne med å måtte presentere tall og resultater i løpet av sin karriere? Eller selge inn forslag og planer for overordnede i håp om å bli lyttet til? Det kan være direkte avgjørende for din egen gjennomslagskraft at du er i stand til å produsere overbevisende tabeller og figurer i slike situasjoner, og det er det dette temaet handler om.</p>
+<p>I læreboken er det kapitlene <strong>2–4</strong> som behandler deskriptiv statistikk, men det er veldig Excel-fokusert, som ikke er så relevant for oss. Det er likevel ikke dumt å lese gjennom stoffet for å se hva det går i, og legg spesielt merke til følgende punkter:</p>
+<ul>
+<li>Ulike datatyper i avsnitt <strong>2-1</strong>.</li>
+<li><strong>3-4</strong>: The art and science of graphical presentations. Hva er det som gjør en grafisk illustrasjon god? Prøv å ta inn over dere all informasjonen som vi lett kan lese ut av bildet på side 75 om Napoleons felttog mot Moskva. Her presenteres informasjon om tid, antall, geografi og temperatur på en helt eksepsjonelt effektiv måte! Videre er det noen grelle eksempler på hvordan vi kan bruke grafiske virkemidler til å gi skjeve fremstillinger. I videoforelesningen gir vi flere eksempler på dette.</li>
+<li>Kapittel <strong>4</strong> går litt mer i dypden om numeriske deskriptive teknikker, som gjennomsnitt, median, standardavvik, korrelasjon, osv. Dette skal være dekket greit i forelesningen, men boken går litt mer i dybden.</li>
+</ul>
+<p>Det kan være en fin øvelse å kikke på eksemplene i læreboken og forsøke å gjenskape noen av Excel-figurene i R. Se på eksempel 3.2, der man skal lage to histogrammer over historiske avkastninger for to ulike investeringsstrategier. Vi leser inn datasettet (last ned fra Canvas) som under og kikker på det:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">returns &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm03-02.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">returns</a></code></pre></div>
+<pre><code>## # A tibble: 50 x 2
+##    `Return A` `Return B`
+##         &lt;dbl&gt;      &lt;dbl&gt;
+##  1      30         30.3 
+##  2      -2.13     -30.4 
+##  3       4.3       -5.61
+##  4      25         29   
+##  5      12.9      -26.0 
+##  6     -20.2        0.46
+##  7       1.2        2.07
+##  8      -2.59      29.4 
+##  9      33         11   
+## 10      14.3      -25.9 
+## # … with 40 more rows</code></pre>
+<p>Hver stategi har sin kolonne. Merk at variabelnavnene har mellomrom i seg, noe som er upraktisk når vi jobber med et seriøst programmeringsspråk. En god vane er å rett og slett gi dem nye navn, ved f.eks. å kjøre <code>colnames(returns) &lt;- c(&quot;returnA&quot;, &quot;returnB&quot;)</code>, eller så må vi alltid referere til variabelnavnene ved å bruke slike “backticks” som vi ser under.</p>
+<p>Vi kan lage to enkle histogrammer slik vi gjorde det i forelesningen:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(returns, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Return A</span><span class="st">`</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">        </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw">ggplot</span>(returns, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Return B</span><span class="st">`</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">        </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</a></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-14-1.png" width="672" /><img src="met4_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+</div>
+<div id="spørsmål-og-oppgaver" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Spørsmål og oppgaver</h3>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduksjon-til-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="grunnleggende-statistikk.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="utvalg-og-estimering.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

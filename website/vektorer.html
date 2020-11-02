@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>MET4 - Empiriske Metoder</title>
+  <title>1.3 Vektorer | MET4 - Empiriske Metoder</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="MET4 - Empiriske Metoder" />
+  <meta property="og:title" content="1.3 Vektorer | MET4 - Empiriske Metoder" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="MET4 - Empiriske Metoder" />
+  <meta name="twitter:title" content="1.3 Vektorer | MET4 - Empiriske Metoder" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduksjon-til-r.html"/>
+<link rel="prev" href="enkle-beregninger-og-variabler.html"/>
+<link rel="next" href="pakker.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -173,24 +173,28 @@ Proudly published with bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">MET4 - Empiriske Metoder</h1>
-<p class="author"><em>Håkon Otneim og Geir Drage Berentsen</em></p>
-</div>
-<div id="innledning" class="section level1 unnumbered">
-<h1>Innledning</h1>
-<p>Velkommen til hjemmesiden for kurset <a href="https://www.nhh.no/emner/empiriske-metoder/">MET4 - Empiriske metoder</a>, som er et obligatorisk kurs på Bachelorprogrammet i Økonomi og Administrasjon ved Norges Handelshøyskole. Her vil du finne undervisningsmaterialet …</p>
-<p>Videobasert.</p>
-<p>Innledning til kurset, detaljer om datoer, hvordan jobbe, hvor finne informasjon, følge med på Canvas osv.</p>
-
+<div id="vektorer" class="section level2">
+<h2><span class="header-section-number">1.3</span> Vektorer</h2>
+<iframe src="https://player.vimeo.com/video/472587712" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+</iframe>
+<p>Vi introduserer begrepet <em>vektorer</em> som er svært viktig i statistikk generel og R spesielt. En vektor er ganske enkelt en samling med tall, og når vi senere begynner å jobbe med data kommer vi til å lagre observasjoner av ulikt slag i vektorer. Vi ser også at vi kan gjøre operasjoner på vektorer ved å bruke <em>funksjoner</em>. For eksempel bruker vi <code>sum()</code>-funksjonen til å regne ut summen av alle tallene som er lagret i en vektor.</p>
+<p><strong>Oppgave:</strong> Beregn maksimum- og minimumsverdien av <code>vector1</code>, samt medianen, ved å bruke funksjoner i R. (<strong>Hint:</strong> en dårlig skjult hemmelighet i anvendt programmering er at dersom vi ikke vet navnet på funksjonen vi skal bruke, så er Google vår’ beste venn!)</p>
+<details>
+<p><summary>Løsning</summary></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Relevante Google-søk: &quot;minimum value r&quot;, &quot;maximum r&quot;, &quot;median r&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">min</span>(vector1)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">max</span>(vector1)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">median</span>(vector1)</a></code></pre></div>
+</details>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduksjon-til-r.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="enkle-beregninger-og-variabler.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pakker.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
