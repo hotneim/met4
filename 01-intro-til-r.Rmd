@@ -191,13 +191,16 @@ Dersom du har fulgt modulen selv har du nå kanskje skrevet et lite script i tek
 # Introduksjon til R
 # -------------------
 
-# Laster inn readxl-pakken, og leser inn datasettet vårt
+# Laster inn nødvendige pakker
 library(readxl)
-ovelsesdata <- read_xls("ovelsesdata.xls")
+library(ggplot2)
+
+# Laster inn datasettet
+testdata <- read_xls("testdata.xls")
 
 # Gjør t-testen til spørsmål F i den første dataøvingen
-testresultat <- t.test(ovelsesdata$X1, 
-                       ovelsesdata$X2, 
+testresultat <- t.test(testdata$X1, 
+                       testdata$X2, 
                        var.equal = TRUE, 
                        alternative = "two.sided")
 
@@ -205,36 +208,57 @@ testresultat <- t.test(ovelsesdata$X1,
 testresultat
 
 # Lager et plott av variabelen X1 mot X2
-pdf(file = "testplot.pdf")
-plot(ovelsesdata$X1, ovelsesdata$X2)
-dev.off()
+p <- ggplot(testdata, aes(x = X1, y = X2)) +
+        geom_point()
+
+# Lagrer plottet
+ggsave("testplot.pdf", plot = p)
 ```
 
-1. Lagre scriptet ditt. I RStudio velger du `File -> Save` og trykker `Ok` dersom det kommer opp et vindu om *character encoding* e.l. Finn en fornuftig plassering (gjerne i samme mappe som øvelsesdatasettet) og gi filen et fornuftig navn. Standard filending for `R`-script er `.R`, men det er skjult for de fleste Windowsbrukere. Lukk RStudio.
+1. Lagre scriptet ditt. I RStudio velger du `File -> Save` og trykker `Ok` dersom det kommer opp et vindu om *character encoding* e.l. Finn en fornuftig plassering (gjerne i samme mappe som øvelsesdatasettet) og gi filen et fornuftig navn. Standard filending for R-script er `.R`, men det er skjult for de fleste Windowsbrukere. Lukk RStudio.
 
 2. Du kan nå åpne skriptfilen i RStudio igjen. Enten ved å dobbeltklikke på den, eller ved å åpne RStudio, velge `File -> Open file`, og så videre (dersom skriptet ikke allerede ligger åpnet). Du kan også åpne skriptfilen i en hvilken som helst notatbok (Notebook e.l.) og se at det er en helt standard, *ren tekstfil*. Hva er fordelen med å lagre en analyse som *et skript* versus å gjøre ting i et menydrevet grafisk grensesnitt?
 
-3. Vi skal nå pynte på plottet og gjøre det riktig pent. Det gjør vi ved å legge til argumenter i `plot()`-funksjonen. erstatt den nest siste linjen i skriptet med kommandoen under, og se at du får en figur omtrent som den som følger under det igjen:
+<details><summary>Løsning</summary>
 
-```{r, echo = F}
-ovelsesdata <- readxl::read_xls("datasett/ovelsesdata.xls")
+Når vi lagrer koden vår i et skript sørger vi for at *hele analysen vår er lagret*, ikke bare resultatene. Med andre ord, dersom du på et senere tidspunkt ønsker å komme tilbake til et analyseprosjekt og gjøre noen enkle forandringer, så er det fort gjort å gjøre det i skriptet, og så kjøre hele analysen på nytt. Dersom du i stedet hadde brukt et menydrevet system for å gjennomføre analysen (pek og klikk) kunne du risikere å måtte gjøre alt sammen på nytt (hvis du da husker hvordan du gjorde det), fordi du ikke like enkelt kan *lagre* hvert eneste museklikk. 
+
+</details>
+
+
+3. Vi skal nå pynte på plottet og gjøre det riktig pent. Det gjør vi ved å legge til nye linjer i ggplot-kommandoen. Erstatt den nest siste linjen i skriptet med kommandoen under, og se at du får en figur omtrent som den som følger under det igjen (vi bruker aksetitler i henhold til oppgavene i den første datalabben, der vi får vite at datasettet representerer kvalitet på kaffeavlingen før og etter en omlegging i produksjonsmetode):
+
+```{r, echo = F, warning = F}
+library(ggplot2)
+testdata <- readxl::read_xls("datasett/testdata.xls")
 ```
 
 ```{r, fig.height = 4, fig.width = 6}
-plot(ovelsesdata$X1, ovelsesdata$X2,
-     xlab = "Før omlegging",
-     ylab = "Etter omlegging",
-     main = "Poduksjonskvalitet",
-     pch = 20,
-     bty = "l",
-     col = "darkblue",
-     cex = 2)
+ggplot(testdata, aes(x = X1, y = X2)) +
+        geom_point(size = 2) +
+        xlab("Produksjonsmetode 1") +
+        ylab("Produksjonsmetode 2") +
+        theme_classic()
 ```
 
-4. Kan du finne ut hva hvert av disse argumentene styrer? Hint: ta bort et argument av gangen, og se hva som skjer. Pass på at det er et komma mellom hvert argument.
+4. Merk at vi pruker "+"-tegnet til å legge til flere "lag" med grafiske egenskaper til plottet. Hvert "lag" består av en funksjon, som ofte kan ta argumenter; f.eks. brukes funksjonen `geom_point()` til å lage prikker, og så kan vi f.eks. bruke argumentet `size` til å styre størrelsen på prikkene. Kan du finne ut hva hvert enkelt av disse "lagene" gjør? Hint: ta bort en linje av gangen, og se hva som skjer. Pass på at det er et pluss mellom hvert lag.
 
-5. Prøv å endre på noen av argumentene. For eksempel kan du lage din egen tittel og egne aksetitler, og du kan bruke tall fra 1-20 i `pch`, argumentet, `bty`-argumentet kan du endre til f.eks. `"l", "7", "c"` og `"u"`, du kan prøve andre fargenavn (`"red", "green",`...), eller skru på `cex`-argumentet (gjøre det større eller mindre). 
+5. Prøv å endre på noen av lagene eller legg til nye. For eksempel kan du lage en tittel ved å legge til funksjonen `ggtitle()` som et lag, og du kan endre aksetitlene. Prøv også å bruke argumentet `shape` i `geom_point()` til å bytte ut prikkene med en annen form. Det finnes flere andre "tema" i tillegg til `theme_classic()`, f.eks. `theme_bw()`, `theme_dark()`, etc. 
+
+<details><summary>Forslag</summary>
+
+Prøv for eksempel dette:
+
+```{r, fig.height = 4, fig.width = 6}
+ggplot(testdata, aes(x = X1, y = X2)) +
+        geom_point(size = 2, shape = 4) +
+        ggtitle("Produksjonskvalitet") +
+        xlab("Ny aksetittel") +
+        ylab("Enda en aksetittel") +
+        theme_light()
+```
+
+</details>
 
 6. Det følger med omfattende dokumentasjon med `R`. Du kan lese om alle `R`-funksjoner ved å skrive `?` før funksjonsnavnet i konsollen. Prøv for eksempel å skrive `?mean` i konsollen og trykk enter.
 
-7. Ved å skrive `?par` kan du lese om de grafiske argumentene vi lekte med i spørsmålene over, og mange, mange flere...
