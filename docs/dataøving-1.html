@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7.1 Dataøving 1 | MET4 - Empiriske Metoder</title>
+  <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7.1 Dataøving 1 | MET4 - Empiriske Metoder" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7.1 Dataøving 1 | MET4 - Empiriske Metoder" />
+  
+  <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  
+
+<meta name="author" content="Håkon Otneim og Geir Drage Berentsen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dataøvinger.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.nhh.no/"><img src="bilder/nhh.png" width="240"></a>
+<li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
+<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a><ul>
+<li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
+<li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
+<li class="chapter" data-level="1.4" data-path="pakker.html"><a href="pakker.html"><i class="fa fa-check"></i><b>1.4</b> Pakker</a></li>
+<li class="chapter" data-level="1.5" data-path="mappesti.html"><a href="mappesti.html"><i class="fa fa-check"></i><b>1.5</b> Mappesti</a></li>
+<li class="chapter" data-level="1.6" data-path="innlesing-av-data.html"><a href="innlesing-av-data.html"><i class="fa fa-check"></i><b>1.6</b> Innlesing av data</a></li>
+<li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
+<li class="chapter" data-level="1.8" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
+<li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
+<li class="chapter" data-level="1.10" data-path="oppsummering-og-ekstra-oppgaver.html"><a href="oppsummering-og-ekstra-oppgaver.html"><i class="fa fa-check"></i><b>1.10</b> Oppsummering og ekstra oppgaver</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a><ul>
+<li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
+<li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
+<li class="chapter" data-level="2.3" data-path="spørsmål-og-oppgaver.html"><a href="spørsmål-og-oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Spørsmål og oppgaver</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a></li>
+<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a></li>
+<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a></li>
+<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a></li>
+<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a><ul>
+<li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
+<li><a href="https://www.nhh.no/en/employees/faculty/geir-drage-berentsen/">Geir Drage Berentsen</a></li>
+<li><a href="https://github.com/rstudio/bookdown">
+Publisert ved hjelp av bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dataøving-1" class="section level2">
+<h2><span class="header-section-number">7.1</span> Dataøving 1</h2>
+<div id="innledning-1" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Innledning</h3>
+<p>Velkommen til den første dataøvelsen i MET4. I denne øvelsen skal vi bli litt kjent med verktøyene R og Rstudio som brukes i datalabbene. Disse verktøyene er også essensielle for gjennomføringen av den obligatoriske innleveringen og på hjemmeksamen. Den første delen av øvingen inneholder praktisk informasjon om bruk av R og Rstudio etterfølgt av oppgaver.</p>
+</div>
+<div id="om-r-og-rstudio" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Om R og Rstudio</h3>
+<p>R er et program/programmeringsspråk som er spesialdesignet til å utføre statistiske analyser. R er basert på at du må skrive forskjellige kommandoer for å utføre utregninger og analyser. Gjennomsnittet av 3, 2 og 5 finner man for eksempel ved å skrive:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>))</a></code></pre></div>
+<p>Dette kan for mange være litt uvant i starten, men datalabbene vil gi deg god trening på denne type tankegang.</p>
+<p>Rstudio er et program som gjør det enklere å bruke R. På samme måte som Word kan hjelpe deg til å lage fine og oversiktlige tekster, kan Rstudio hjelpe deg til å utføre fine og oversiktlige statistiske analyser. Rstudio er et redigeringsprogram som vi i dette kurset skal bruke til å redigere og utføre R-kommandoer.</p>
+<div id="installere-r-og-rstudio" class="section level4">
+<h4><span class="header-section-number">7.1.2.1</span> Installere R og Rstudio</h4>
+<p>Bruker du din egen datamaskin kan du enkelt laste ned og installere R og Rstudio. Begge programvarene er gratis og kan installeres med å følge instruksene under. Får du problemer kan du få en av studentassistentene til å hjelpe deg.</p>
+<ol style="list-style-type: decimal">
+<li>Start med å installere R:
+<ul>
+<li>Gå til <a href="https://cran.uib.no/">r-project.org</a></li>
+<li>Last ned versjonen som passer ditt operativsystem (Windows/Mac/Linux)</li>
+<li>Kjør installasjonsfilen og følg instruksene. Standard innstillingene skal være greie å bruke, så du kan trykke neste/ok til installasjonen er ferdig.</li>
+</ul></li>
+<li>Installer så RStudio:
+<ul>
+<li><a href="https://rstudio.com/">rstudio.com</a>, og naviger deg frem til siden for <strong>RStudio</strong>. Du skal der laste ned desktop-versjonen av programmet (“Open source edition”) for ditt operativsystem og installere på vanlig måte.</li>
+<li>Kjør installasjonsfilen som lastes ned og følg instruksene</li>
+</ul></li>
+</ol>
+</div>
+<div id="vinduene-i-rstudio-og-det-å-jobbe-med-r" class="section level4">
+<h4><span class="header-section-number">7.1.2.2</span> Vinduene i Rstudio og det å jobbe med R</h4>
+<p>Første gang du åpner Rstudio vil du se tre vinduer. Et fjerde vindu åpner du med å klikke på <strong>File</strong> i menyen, så <strong>New File</strong>, og så <strong>R Script</strong>. Figur <a href="dataøving-1.html#fig:rstudio1">7.1</a> viser en oversikt over de fire vinduene. Det er viktig at du forstår forskjellen på de to vinduene til venstre.</p>
+<div class="figure"><span id="fig:rstudio1"></span>
+<img src="bilder/Rstudio1.PNG" alt="Oversikt over vinduene i RStudio." width="590" />
+<p class="caption">
+Figur 7.1: Oversikt over vinduene i RStudio.
+</p>
+</div>
+<p>Nederste vindu til venstre (b) viser R-konsollen og det er her alle utregninger blir gjennomført. I dette vinduet kan du for eksempel skrive</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">(<span class="dv">3</span><span class="op">*</span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">4</span>)<span class="op">*</span>(<span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## [1] 57</code></pre>
+<p>Her er <span class="math inline">\((3*5 - 3/4)*(2 + 2)\)</span> en såkalt kommando og det er programmet R som finner ut hva du mener med kommandoen og gir deg svaret <span class="math inline">\(57\)</span> i retur. Du kan se at R tillater standard matteoperasjoner som gange, deling, pluss og minus (<code>*, /, +, -</code>).</p>
+<p>R er det vi kaller ‘objektbasert’, som betyr at du kan definere ‘objekter’. Utregningen over kan for eksempel også regnes ut ved å skrive:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="dv">3</span><span class="op">*</span><span class="dv">5</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span><span class="op">/</span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2">b &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">a<span class="op">*</span>b</a></code></pre></div>
+<pre><code>## [1] 57</code></pre>
+<p>Her er <code>a</code> og <code>b</code> objekter som vi definerer ved bruk av ‘tildelingspilen’ <code>&lt;-</code> (du kan også bruke <code>=</code>). Det går an å lagre objekter i egne filer, men vi skal se at det stort sett er smartere å lagre ‘oppskriften’ (selve koden) på hvordan de lages i en egen .R fil.</p>
+<p>Det øverste vinduet til venstre (a) viser en .R fil (et skript). En .R fil fungerer som et manuskript med R-kommandoer (kode) og kan lagres slik at du kan senere kan se hvilke kommandoer du har brukt i analysen og eventuelt fortsette der du slapp. I Del 2 av denne dataøvingen skal du selv lage en .R fil som inneholder alle kommandoer som brukes i en enkel analyse. Når du vil at R skal utføre noen av kommandoene du har skrevet i .R filen markerer du bare disse (eller lar pekeren stå i linjen du vil kjøre) og trykker <strong>ctrl + Enter</strong> (<strong>Cmd + Enter</strong> på Mac):</p>
+<div class="figure"><span id="fig:rstudiorun"></span>
+<img src="bilder/Rstudiorun.PNG" alt="Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk **ctrl + Enter** (**Cmd + Enter på Mac**)" width="238" />
+<p class="caption">
+Figur 7.2: Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk <strong>ctrl + Enter</strong> (<strong>Cmd + Enter på Mac</strong>)
+</p>
+</div>
+<p>Vinduet nederst til høyre (d) vil vise blant annet figurer du lager og hjelpetekst. Vinduet øverst til høyre (c) gir deg en oversikt over hvilke objekter du har laget og er spesielt nyttig hvis du vil ta en nærmere titt på et datasett du har lest inn.</p>
+<p>Vinduet nederst til høyre (d) vil vise blant annet figurer du lager og hjelpetekst. Vinduet øverst til høyre (c) gir deg en oversikt over hvilke objekter du har laget og er spesielt nyttig hvis du vil ta en nærmere titt på et datasett du har lest inn.</p>
+<p>Det er viktig at du forstår forskjellen på de to vinduene til venstre, altså .R filen og konsollen. R kode du ønsker å ta vare på og som er en essensiell del av analysen skriver og lagrer du i .R filen, mens små eksperimenter og undersøkelser kan du gjerne gjøre direkte i konsollen.</p>
+<p>For de av dere som er glad i hurtigtaster finnes det en oversikt i Rstudio som kommer opp dersom du trykker <strong>Alt + Shift + K</strong> (<strong>Option + Shift + K</strong> på Mac). Ofte vil man f.eks måtte skifte musepeker fra R-filen til konsoll og motsatt, og hurtigtaster for å veksle mellom disse er <strong>Ctrl + 1</strong> (R-fil) og <strong>Ctrl + 2</strong> (konsoll). Hurtigtasten du kommer til å bruke desidert mest er <strong>ctrl + Enter</strong> for å kjøre kode fra R-skriptet ditt i konsollen (På Mac erstatter du <strong>ctrl</strong> med <strong>command</strong> over alt).</p>
+</div>
+<div id="funksjoner-dokumentasjon-og-r-pakker" class="section level4">
+<h4><span class="header-section-number">7.1.2.3</span> Funksjoner, dokumentasjon og R-pakker</h4>
+<p>I R kan man lage egne funksjoner som utfører det en måtte ønske, f.eks en funksjon som regner ut t-observatoren gitt en vektor med observasjoner <code>x</code> og en gitt <span class="math inline">\(\mu_0\)</span>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">t.observator &lt;-<span class="st"> </span><span class="cf">function</span>(x, mu0){</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">  t &lt;-<span class="st"> </span>(<span class="kw">mean</span>(x) <span class="op">-</span><span class="st"> </span>mu0)<span class="op">/</span>(<span class="kw">sd</span>(x)<span class="op">/</span><span class="kw">sqrt</span>(<span class="kw">length</span>(x)))</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="kw">return</span>(t)</a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">}</a></code></pre></div>
+<p>R kommer med en rekke “innebygde” funksjoner som kan utføre ulike statistiske analyser. For eksempel kan en t-test utføres med å bruke en funksjon som heter nettopp <code>t.test</code>. Alle slike funksjoner kommer med en dokumentasjon som viser hva funksjonen gjør og hvordan den skal brukes. For å tilgang til denne dokumentasjonen skriver man <code>?</code> foran funksjonen i konsollen. Skriver du f.eks <code>?t.test</code> ser du at det dukker opp en side i vinduet nede til høyre:</p>
+<div class="figure"><span id="fig:dokumentasjon"></span>
+<img src="bilder/dokumentasjon.JPG" alt="Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. Dette vinduet kan åpnes til et større vindu som vist over" width="312" />
+<p class="caption">
+Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. Dette vinduet kan åpnes til et større vindu som vist over
+</p>
+</div>
+<p>Dokumentasjonen vil som hovedregel inneholder en kort beskrivelse av hva funksjonen gjør, hvilke argumenter funksjonen tar og hva den gir ut. Helt i slutten av dokumentasjonen er det ofte et eksempel på hvordan funksjonen kan brukes og er ofte svært nyttig å se på.</p>
+<p>Selv om det finnes mange funksjoner som allerede er innebygget i R, må man noen ganger installere ekstra ‘pakker’ for å få tilgang til spesielle funksjoner. I oppgave 2.2 i denne øvelsen vil vi gå gjennom hvordan dette gjøres for en bestemt pakke.</p>
+</div>
+<div id="skriv-pen-r-kode" class="section level4">
+<h4><span class="header-section-number">7.1.2.4</span> Skriv pen R-kode!</h4>
+<p>Det er viktig at R-koden du skriver er veldokumentert og skrevet på en oversiktlig og pen måte. Hvis vi ønsker å skrive kommentarer til koder som står i .R filen bruker vi tegnet <code>#</code> foran kommentaren. Dette gjør at R ikke prøver å evaluere kommentaren som en R-kode. Det finnes en rekke konvensjoner når det kommer til mellomrom, linjeskift, navngivning av objekter og lignende. Vi anbefaler tipsene som er oppsummert på (<a href="http://adv-r.had.co.nz/Style.html" class="uri">http://adv-r.had.co.nz/Style.html</a>)[<a href="http://adv-r.had.co.nz/Style.html" class="uri">http://adv-r.had.co.nz/Style.html</a>], men det er selvsagt lov å ha sine egne preferanser.</p>
+<p>Under ser du et eksempel på dårlig praksis ved R-koding. Her er det manglende dokumentasjon, dårlig navngivning og ingen ‘luft’ i form av mellomrom og linjeskift. Dette gjør at du eller andre vil måtte bruke unødvendig tid på å finne ut hva koden faktisk gjør på et senere tidspunkt.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="co"># Dårlig praksis:</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb25-5" data-line-number="5">d&lt;-<span class="kw">readxl</span>(<span class="dt">file=</span><span class="st">&quot;financedata.xlsx&quot;</span>,<span class="dt">sheetIndex =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb25-6" data-line-number="6"><span class="st">  </span><span class="kw">na.omit</span>()</a>
+<a class="sourceLine" id="cb25-7" data-line-number="7">Ø95&lt;-<span class="kw">mean</span>(d<span class="op">$</span>value)<span class="op">-</span><span class="kw">qt</span>(<span class="fl">0.975</span>,<span class="dt">df=</span><span class="kw">length</span>(d<span class="op">$</span>value)<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span><span class="kw">sd</span>(d<span class="op">$</span>value)  </a>
+<a class="sourceLine" id="cb25-8" data-line-number="8">N95&lt;-<span class="kw">mean</span>(d<span class="op">$</span>value)<span class="op">+</span><span class="kw">qt</span>(<span class="fl">0.975</span>,<span class="dt">df=</span><span class="kw">length</span>(d<span class="op">$</span>value)<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span><span class="kw">sd</span>(d<span class="op">$</span>value)</a></code></pre></div>
+<p>Følgende R kode gir det samme resultatet men er mye mer oversiktlig siden den er mer luftig, er brutt ned i biter, er godt dokumentert og har fornuftige objektnavn:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co"># God praksis:</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co"># ---------- Analyse av data</span></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="co"># Nødvendige pakker i analysen</span></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb26-7" data-line-number="7"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb26-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb26-9" data-line-number="9"><span class="co"># Les data, fjern NA-verdier og hent ut gjeld</span></a>
+<a class="sourceLine" id="cb26-10" data-line-number="10">my_data &lt;-<span class="st"> </span><span class="kw">readxl</span>(<span class="dt">file =</span> <span class="st">&quot;financedata.xlsx&quot;</span>, <span class="dt">sheetIndex =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb26-11" data-line-number="11"><span class="st">  </span><span class="kw">na.omit</span>()</a>
+<a class="sourceLine" id="cb26-12" data-line-number="12">debt &lt;-<span class="st"> </span>my_data<span class="op">$</span>debt</a>
+<a class="sourceLine" id="cb26-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb26-14" data-line-number="14"><span class="co"># Konfidensintervall</span></a>
+<a class="sourceLine" id="cb26-15" data-line-number="15">n_obs &lt;-<span class="st"> </span><span class="kw">length</span>(debt)     <span class="co"># antall observasjoner</span></a>
+<a class="sourceLine" id="cb26-16" data-line-number="16">alpha &lt;-<span class="st"> </span><span class="fl">0.05</span>             <span class="co"># signifikansnivå  </span></a>
+<a class="sourceLine" id="cb26-17" data-line-number="17">average &lt;-<span class="st"> </span><span class="kw">mean</span>(debt)     <span class="co"># gjennomsnitt</span></a>
+<a class="sourceLine" id="cb26-18" data-line-number="18">st_dev &lt;-<span class="st"> </span><span class="kw">sd</span>(debt)        <span class="co"># standardavvik</span></a>
+<a class="sourceLine" id="cb26-19" data-line-number="19">lower &lt;-<span class="st"> </span>average <span class="op">-</span><span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>alpha<span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> n_obs <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">*</span>st_dev<span class="op">/</span><span class="kw">sqrt</span>(n)  <span class="co"># nedre grense</span></a>
+<a class="sourceLine" id="cb26-20" data-line-number="20">upper &lt;-<span class="st"> </span>average <span class="op">+</span><span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>alpha<span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> n_obs <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">*</span>st_dev<span class="op">/</span><span class="kw">sqrt</span>(n)  <span class="co"># øvre grense</span></a></code></pre></div>
+<p>Vi oppfordrer deg til å prøve å skrive R-kode som er pen og oversiktlig i datalabbene fremover. Dårlige vaner kan være vonde å vende!</p>
+</div>
+</div>
+<div id="oppgaver-til-øvingen" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Oppgaver til øvingen</h3>
+<p><strong>Oppgave 1: Interaktiv øvelse.</strong> Her skal du bruke et læringsverktøy kalt <code>swirl</code> som vil ta deg gjennom en interaktive øvelse hvor du må utføre forskjellige oppgaver i konsollen. I flere av dataøvingene vil det være en slik interaktiv del. Her er tanken at du skal leke deg litt med R.</p>
+<p>Før du kan begynne må du installere swirl. Kopier derfor følgende tre linjer og lim dem inn i R-konsollen:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="kw">library</span>(swirl)</a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="kw">install_course</span>(<span class="st">&quot;R Programming&quot;</span>)</a></code></pre></div>
+<p>For å starte swirl skriver du så følgende i konsollen:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">swirl</span>()</a></code></pre></div>
+<p>Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du velge alternativet ‘R Programming’ (<strong>1</strong> og så <strong>enter</strong>). Du får så se alle modulene dette kurset inneholder:</p>
+<p><img src="bilder/swirl1.PNG" width="466" /></p>
+<p>I denne øvingen skal du prøve deg på modul 1 <strong>‘Basic Building Blocks’</strong>, modul 4 <strong>‘Vectors’</strong> (kun første halvdel), og modul 12 <strong>‘Looking at Data’</strong>. I modul 1 vil du lære litt om de mest grunnleggende operasjonene som kan gjøres i R. Modul 4 ser nærmere på vektorer og her er første halvdel av modulen mest relevant. Modul 12 tar for seg det å utforske strukturen på et datasett. Start med modul 1 (<strong>1</strong> og så <strong>enter</strong>). Du vil bli bedt om å gjøre enkle operasjoner i R og av og til må du svare på multiple choice spørsmål:</p>
+<p><img src="bilder/swirl2.PNG" width="461" /></p>
+<p>Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (<strong>esc</strong>) før du begynner på del to av øvingen. Lykke til!</p>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dataøvinger.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
