@@ -47,9 +47,164 @@ ggplot(returns, aes(x = `Return B`)) +
         geom_histogram(bins = 10)
 ```
 
-### Spørsmål og oppgaver
-
 ## Utvalg og estimering
 
+> You can, for example, never foretell what any one man will do, but you can say with presicion what an average number will be up to. Individuals vary, but percentages remain constant. So says the statistician.
+
+`r tufte::quote_footer('--- Sherlock Holmes')`
+
+### Videoforelesninger
+
+<div style='padding:74.93% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7774368/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
+
+### Kommentarer
 
 
+
+I videoforelesningene over gikk vi gjennom noen sentrale begreper i statistikk. Noen av dem skal vi bruke mye i fortsettelsen, mens andre er ment for å gi dere et solid teoretisk fundament når vi etter hvert skal begi oss ut på anvendt statistikk.
+
+Vi med å sette opp en liten agenda. Som et første steg kan du kikke på, og notere ned noen setninger til, disse punktene og se om du har fått med deg hva de betyr:
+
+- Samplingfordelinger
+- Forventning/varians
+- Sentralgrenseteoremet
+- Hva er samplingfordelingen til et gjennomsnitt?
+- Hva er samplingfordelingen til en andel?
+- Forventningsrett
+- Konsistens
+
+I Boken er det kapittel **9** (*Sampling distributions*) og **10** (*Introduction to estimation*) som gjelder. Kapittel 6-8 omhandler stoff skal skal være greit dekket i MET2 (Sannsynlighet, fordelinger, stokastiske variable, osv.), men det kan være nyttig å skumme gjennom likevel hvis disse begrepene ligger langt bak i bevissheten din. 
+
+Kapittel **9** starter med å diskutere samplingfordelingen til et gjennomsnitt. Dette er nyttig lesestoff, men de viktigste punktene er som følger:
+
+- Dersom observasjonene $X_1, X_2, \ldots, X_n$ er normalfordelt, er også gjennomsnittet $\overline X = \frac{1}{n}\sum_{i=1}^n X_i$ normalfordelt.
+- Dersom E$(X_i) = \mu$ og Var$(X_i) = \sigma^2$ for alle $i = 1,\ldots,n$, er E$(\overline X)=\mu$ og Var$(\overline X) = \sigma^2/n$. Dette regnet vi ut formelt.
+- Dersom $n$ er *stor*, er $\overline X$ tilnærmet normalfordelt, uavhengig av fordelingen til den enkelte $X_i$. Dette følger av **sentralgrensesetningen**. 
+
+Dette står i en boks på slutten av seksjon **9-1a**. Hvor stor må $n$ være for at denne tilnærmingen er god nok? Det finnes ikke et entydig svar på, men når vi passerer 50-100 observasjoner kan vi i våre MET4-problemer gjerne si at $n$ er «stor nok». I **9-1b** og **9-1c** brukes sentralgrenseteoremet til å regne på normalsannsynligheter i MET2-stil. I **9-1d** er det noen Excel-instruksjoner som du kan hoppe over hvis du vil.
+
+Tekstboksen i **9-2c** oppsummerer det vi fant ut om samplingfordelingen til en observert andel. I seksjon **9-3** snakkes det om samplingfordelingen til *differansen av to gjennomsnitt*. Vi gikk ikke gjennom det eksplisitt i forelesningen, men det er ikke noe substansielt nytt her. Vi skal bruke dette reultatet i neste modul når vi skal sammenligne to gjennomsnitt. I seksjon **9-4** får vi forklart hva vi skal bruke samplingfordelinger til fremover. Bør leses.
+
+Kapittel **10** omhandler *estimering*, dvs hvordan vi bruker data til å «gjette» på verdien til en ukjent parameter. Vi forsøkte i forelesningen å gi litt intuisjon til begrepene
+
+- forventningsrett estimator,
+- variansen til en estimator, og
+- konsistens.
+
+Vi kan lage et *punktestimat* av en forventningsverdi ved å ta gjennomsnittet av observasjoner, og vi kan lage et *konfidensintervall* ved å følge oppskriften i boksen på s. 316 (i 11. utgave).
+
+I eksempel 10.1 har vi 25 observasjoner fra en normalfordeling. Oppgaven er å estimere forventningsverdien med et tilhørende 95% konfidensuntervall. Pass på at du forstår den manuelle utregningen. I stedet for å bruke Excel (eller taste alle disse tallene inn på en kalkulator) kan du skrive et lite R-script som gjør det samme:
+
+```{r}
+# Vi skriver inn datasettet i en vektor
+demand <- c(235, 374, 309, 499, 253, 
+            421, 361, 514, 462, 369,
+            394, 439, 348, 344, 330,
+            261, 374, 302, 466, 535,
+            386, 316, 296, 332, 334)
+
+# Vi trenger 4 verdier for å regne ut konfidensintervallet:
+gj.snitt <- mean(demand)     # Regner ut gjennomsnittet
+z <- 1.96                    # Denne finner vi i tabellen
+sigma <- 75                  # Oppgitt i oppgaven
+n <- length(demand)          # Antall observasjoner
+
+# Vårt estimat av forventningsverdien er bare gjennomsnittet. 
+# Regner ut nedre og øvre grense i konfidensintervallet (LCL, UCL):
+LCL <- gj.snitt - z*sigma/sqrt(n)
+UCL <- gj.snitt + z*sigma/sqrt(n)
+
+# Samler de tre tallene i en vektor og skriver ut:
+c(LCL, gj.snitt, UCL)
+```
+ 
+ I seksjon **10-2a** forsøker boken å forklare fortolkningen av et konfidensintervall. Hovedpoengene her er at:
+ 
+ - Et 95%-konfidensintervall skal *ikke* tolkes som «sannsynligheten for at intervallet inneholder den sanne parameterverdien er 95%».
+ - Den korrekte tolkningen er: «Dersom vi hadde hatt tilgang til å trekke nye utvalg fra populasjonen med like mange observasjoner og bruker dem til å regne ut nye konfidensintervaller, vil 95 av 100 intervaller inneholde den sanne parameterverdien».
+ 
+Forskjellen på disse formuleringene er meget subtil, så subtil faktisk at det ikke er åpenbart at det er særlig god pedagogikk å peke på den. Problemet med den første formuleringen er at vi der kan få inntrykk av at det er den sanne parameterverdien som er stokastisk og avhengig av datasettet vi observerer, mens det strengt tatt er grensene til konfidensintervallet som er tilfeldige, og altså avhengige av datasettet. Det kommer klarere frem i den andre formuleringen.
+ 
+Bredden til et konfidensintervall er altså et uttrykk for *usikkerhet*, eller motsatt: *presisjon*.  
+
+Seksjon **10-2b** og **10-2c** kan skummes raskt gjennom. Seksjon **10-3** handler om at vi først bestemmer oss for et presisjonsnivå (dvs bredde på konfiensintervallet) $B$, og så regner ut hvor mange observasjoner vi trenger for å oppnå det. Vi kommer frem til en formelen
+
+$$n = \left(\frac{z_{\alpha/2}\sigma}{B}\right)^2,$$
+men problemet i praksis er at vi gjerne ikke kjenner $\sigma$, og vi kan heller ikke estimere den fordi vi ikke har samlet inn data enda. Løsningen er at vi enten på bruke fornuften, eller eventuelt et tidligere estimat av $\sigma$ dersom det er tilgjengelig.
+
+### Ekstra øving i R
+
+Som demonstrert i forelesningen kan vi i R simulere standard normalfordelte observasjoner (dvs normalfordelte observasjoner med $\mu = 0$ og $\sigma^2 = 1$) med kommandoen `rnorm(n)`, der `n` er antallet observasjoner vi ønsker. For eksempel kan vi kjøre følgende kode for å generere 10 observasjoner (du vil helt sikkert få andre verdier):
+
+```{r}
+n <- 10
+rnorm(n)
+```
+
+Ved å skrive `mean(dnorm(n))` i stedet regner vi ut gjennomsnittet av observasjonene direkte. 
+
+La oss gjøre dette 100 ganger og notere ned gjennomsnittet hver gang. I stedet for å gjøre det manuelt, kan vi skrive et lite program som gjør dette for oss ved å bruke en for-løkke. Det er ikke nødvendig (eller pendum) å forstå akkurat hvordan dette fungerer, men dersom du kjører følgende linjer vil du få en ny vektor `gj.snitt` som inneholder 100 slike gjennomsnitt:
+
+```{r}
+gj.snitt <- rep(NA, 100)
+for(i in 1:100) {
+    gj.snitt[i] <- mean(rnorm(n))
+}
+```
+
+Skriv ut denne vektoren og kontroller at det ser korrekt ut. Vi husker at funksjonen `sd()` regner ut standardavviket til en vektor. Hvilket tall forventer du å få ut dersom du nå kjører `sd(gj.snitt)` i konsollen? Stemmer det? 
+
+<details><summary>Hint</summary>
+
+Standardavviket til de enkelte observasjonene er $\sigma = 1$, og standardavviket til et gjennomsnitt bestående av 10 observasjoner er $\sigma/\sqrt{n} = 1/\sqrt{10} \approx 0.32$. Med andre ord skal det *empiriske* standardavviket `sd(gj.snitt)` være omtrent lik 0.32, pluss/minus en estimeringsfeil.
+
+</details>
+
+Du kan gjerne regne ut 1000 gjennomsnitt i stedet for 100 ved å erstatte erstatte `100` med `1000` på to steder i koden over. Stemmer det bedre da?
+
+<details><summary>Hint</summary>
+
+```{r, eval = F}
+gj.snitt <- rep(NA, 1000)            # Lager en tom vektor med 1000 plasser
+for(i in 1:1000) {                   # Fyller hver plass med et gjennomsnitt av
+    gj.snitt[i] <- mean(rnorm(n))    # 10 standard normalfordelte observasjoner.
+}
+```
+
+</details>
+
+Prøv å forklare.
+
+<details><summary>Svar</summary>
+
+Dette er ganske enkelt, men også litt vanskelig på en litt *inception*-aktig måte. På samme måte som at gjennomsnittet blir en mer og mer presis estimator for forventningsverdien når vi øker antall observasjoner (målt ved at standardavviket $\sigma/\sqrt{n}$ blir mindre når antall obserasjoner $n$ blir større), blir det empiriske standardavviket en mer og mer presis estimator av det sanne standardavviket når vi øker antall observasjoner. Altså; det empiriske standardavviket har *også* et standardavvik som går mot null som $1/\sqrt{n}$ `r knitr::asis_output("\U1F635")` 
+
+</details>
+
+## Spørsmål og oppgaver
+
+#### Kontrollspørsmål {-}
+
+1. Hva er forskjellen på deskriptiv statistikk og statistisk inferens?
+1. Deskriptiv statistikk kan gjøres grafisk eller numerisk, eventuelt som tabeller av ulike numeriske mål. Nevn noen fordeler og ulemper man må veie mot hverandre når vi skal velge mellom grafisk og numerisk deskriptiv statistikk.
+1. Hva er en samplingfordeling?
+2. Hva sier sentralgrenseteoremet?
+3. Hva mener en statistiker når hen sier at "gjennomsnittet konvergerer som $1/\sqrt{n}$"?
+4. Hva er samplingfordelingen til et gjennomsnitt?
+5. Hva er samplingfordelingen til en andel?
+6. Hva vil det si at et estimator er forventningsrett?
+7. Hva vil det si at et estimator er konsistent?
+
+#### Drilleoppgaver {-}
+
+Ting fra boken, eventuelt litt bearbeidet. Skal vi også lage til løsning her?
+
+#### Oppgaver på (ca) eksamensnivå {-}
+
+- (**EKS**) = Først og fremst relevant for skoleeksamen.
+- (**HEKS**) = Først og fremst relevant for hjemmeeksamen.
+
+- Finne frem oppgaver fra gamle skoleeksamenssett. 
+- Noen av datasettene fra hjemmeeksamen; mange av førsteoppgavene har vært av typen "Beskriv relevante deler av datasettet". 
+- Stargazer for summarytabeller.
+- Summarise fra dplyr?

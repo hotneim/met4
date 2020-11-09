@@ -8,13 +8,7 @@ output:
     config:
       toc:
         collapse: "section"
-        before: |
-          <li><a href="...">My Awesome Book</a></li>
-          <li><a href="...">John Smith</a></li>
-        after: |
-          <li><a href="https://github.com/rstudio/bookdown">
-          Proudly published with bookdown</a></li>
-    toc_depth: 3
+        toc_depth: 4
 description: "Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole."
 ---
 

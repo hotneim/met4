@@ -1,0 +1,176 @@
+
+# Dataøvinger
+
+Blabla intro til øvinger
+
+## Dataøving 1
+
+### Innledning
+
+Velkommen til den første dataøvelsen i MET4. I denne øvelsen skal vi bli litt kjent med verktøyene R og Rstudio som brukes i datalabbene. Disse verktøyene er også essensielle for gjennomføringen av den obligatoriske innleveringen og på hjemmeksamen. Den første delen av øvingen inneholder praktisk informasjon om bruk av R og Rstudio etterfølgt av oppgaver.
+
+### Om R og Rstudio
+
+R er et program/programmeringsspråk som er spesialdesignet til å utføre statistiske analyser. R er basert på at du må skrive forskjellige kommandoer for å utføre utregninger og analyser. Gjennomsnittet av 3, 2 og 5 finner man for eksempel ved å skrive:  
+
+```{r, eval = F}
+mean(c(3,2,5))
+```
+Dette kan for mange være litt uvant i starten, men datalabbene vil gi deg god trening på denne type tankegang.
+
+Rstudio er et program som gjør det enklere å bruke R. På samme måte som Word kan hjelpe deg til å lage fine og oversiktlige tekster, kan Rstudio hjelpe deg til å utføre fine og oversiktlige statistiske analyser. Rstudio er et redigeringsprogram som vi i dette kurset skal bruke til å redigere og utføre R-kommandoer.
+
+#### Installere R og Rstudio
+
+Bruker du din egen datamaskin kan du enkelt laste ned og installere R og Rstudio. Begge programvarene er gratis og kan installeres med å følge instruksene under. Får du problemer kan du få en av studentassistentene til å hjelpe deg.
+
+1. Start med å installere R:
+    - Gå til [r-project.org](https://cran.uib.no/)
+    - Last ned versjonen som passer ditt operativsystem (Windows/Mac/Linux) 
+    - Kjør installasjonsfilen og følg instruksene. Standard innstillingene skal være greie å bruke, så du kan trykke neste/ok til installasjonen er ferdig. 
+2. Installer så RStudio:
+    - [rstudio.com](https://rstudio.com/), og naviger deg frem til siden for **RStudio**. Du skal der laste ned desktop-versjonen av programmet ("Open source edition") for ditt operativsystem og  installere på vanlig måte.
+    - Kjør installasjonsfilen som lastes ned og følg instruksene 
+
+#### Vinduene i Rstudio og det å jobbe med R
+Første gang du åpner Rstudio vil du se tre vinduer. Et fjerde vindu åpner du med å klikke på **File** i menyen, så **New File**, og så **R Script**. Figur \@ref(fig:rstudio1) viser en oversikt over de fire vinduene. Det er viktig at du forstår forskjellen på de to vinduene til venstre. 
+
+```{r rstudio1, echo = F, fig.cap='Oversikt over vinduene i RStudio.'}
+knitr::include_graphics('bilder/Rstudio1.png')
+```
+
+
+Nederste vindu til venstre (b) viser R-konsollen og det er her alle utregninger blir gjennomført. I dette vinduet kan du for eksempel skrive
+```{r}
+(3*5 - 3/4)*(2 + 2)
+```
+
+Her er $(3*5 - 3/4)*(2 + 2)$ en såkalt kommando og det er programmet R som finner ut hva du mener med kommandoen og gir deg svaret $57$ i retur. Du kan se at R tillater standard matteoperasjoner som gange, deling, pluss og minus (`*, /, +, -`). 
+
+R er det vi kaller 'objektbasert', som betyr at du kan definere 'objekter'. Utregningen over kan for eksempel også regnes ut ved å skrive: 
+
+```{r}
+a <- 3*5 - 3/4
+b <- 2 + 2
+a*b
+```
+
+```{r, echo = F}
+rm(list=ls())
+```
+
+Her er `a` og `b` objekter som vi definerer ved bruk av 'tildelingspilen'  `<-` (du kan også bruke `=`). Det går an å lagre objekter i egne filer, men vi skal se at det stort sett er smartere å lagre 'oppskriften' (selve koden) på hvordan de lages i en egen .R fil. 
+
+Det øverste vinduet til venstre (a) viser en .R fil (et skript). En .R fil fungerer som et manuskript med R-kommandoer (kode) og kan lagres slik at du kan senere kan se hvilke kommandoer du har brukt i analysen og eventuelt fortsette der du slapp. I Del 2 av denne dataøvingen skal du selv lage en .R fil som inneholder alle kommandoer som brukes i en enkel analyse.  Når du vil at R skal utføre noen av kommandoene du har skrevet i .R filen markerer du bare disse (eller lar pekeren stå i linjen du vil kjøre) og trykker **ctrl + Enter** (**Cmd + Enter** på Mac):
+
+```{r rstudiorun, echo = F, fig.cap='Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk **ctrl + Enter** (**Cmd + Enter på Mac**)'}
+knitr::include_graphics('bilder/Rstudiorun.png')
+```
+
+Vinduet nederst til høyre (d) vil vise blant annet figurer du lager og hjelpetekst. Vinduet øverst til høyre (c) gir deg en oversikt over hvilke objekter du har laget og er spesielt nyttig hvis du vil ta en nærmere titt på et datasett du har lest inn. 
+
+Vinduet nederst til høyre (d) vil vise blant annet figurer du lager og hjelpetekst. Vinduet øverst til høyre (c) gir deg en oversikt over hvilke objekter du har laget og er spesielt nyttig hvis du vil ta en nærmere titt på et datasett du har lest inn. 
+
+Det er viktig at du forstår forskjellen på de to vinduene til venstre, altså .R filen og konsollen. R kode du ønsker å ta vare på og som er en essensiell del av analysen skriver og lagrer du i .R filen, mens små eksperimenter og undersøkelser kan du gjerne gjøre direkte i konsollen. 
+
+For de av dere som er glad i hurtigtaster finnes det en oversikt i Rstudio som kommer opp dersom du trykker **Alt + Shift + K** (**Option + Shift + K** på Mac). Ofte vil man f.eks måtte skifte musepeker fra R-filen til konsoll og motsatt, og hurtigtaster for å veksle mellom disse er **Ctrl + 1** (R-fil) og **Ctrl + 2** (konsoll). Hurtigtasten du kommer til å bruke desidert mest er **ctrl + Enter** for å kjøre kode fra R-skriptet ditt i konsollen (På Mac erstatter du **ctrl** med **command** over alt).
+
+#### Funksjoner, dokumentasjon og R-pakker
+
+I R kan man lage egne funksjoner som utfører det en måtte ønske, f.eks en funksjon som regner ut t-observatoren gitt en vektor med observasjoner `x` og en gitt $\mu_0$:
+
+```{r, eval = F}
+t.observator <- function(x, mu0){
+  t <- (mean(x) - mu0)/(sd(x)/sqrt(length(x)))
+  return(t)
+}
+```
+
+R kommer med en rekke "innebygde" funksjoner som kan utføre ulike statistiske analyser. For eksempel kan en t-test utføres med å bruke en funksjon som heter nettopp `t.test`. Alle slike funksjoner kommer med en dokumentasjon som viser hva funksjonen gjør og hvordan den skal brukes. For å tilgang til denne dokumentasjonen skriver man `?` foran funksjonen i konsollen. Skriver du f.eks `?t.test` ser du at det dukker opp en side i vinduet nede til høyre:
+
+```{r dokumentasjon, echo = F, fig.cap='Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. Dette vinduet kan åpnes til et større vindu som vist over'}
+knitr::include_graphics('bilder/Dokumentasjon.jpg')
+```
+
+Dokumentasjonen vil som hovedregel inneholder en kort beskrivelse av hva funksjonen gjør, hvilke argumenter funksjonen tar og hva den gir ut. Helt i slutten av dokumentasjonen er det ofte et eksempel på hvordan funksjonen kan brukes og er ofte svært nyttig å se på. 
+
+Selv om det finnes mange funksjoner som allerede er innebygget i R, må man noen ganger installere ekstra 'pakker' for å få tilgang til spesielle funksjoner. I oppgave 2.2 i denne øvelsen vil vi gå gjennom hvordan dette gjøres for en bestemt pakke. 
+
+#### Skriv pen R-kode!
+
+Det er viktig at R-koden du skriver er veldokumentert og skrevet på en oversiktlig og pen måte. Hvis vi ønsker å skrive kommentarer til koder som står i .R filen bruker vi tegnet `#` foran kommentaren. Dette gjør at R ikke prøver å evaluere kommentaren som en R-kode. Det finnes en rekke konvensjoner når det kommer til mellomrom, linjeskift, navngivning av objekter og lignende. Vi anbefaler tipsene som er oppsummert på (http://adv-r.had.co.nz/Style.html)[http://adv-r.had.co.nz/Style.html], men det er selvsagt lov å ha sine egne preferanser. 
+
+Under ser du et eksempel på dårlig praksis ved R-koding. Her er det manglende dokumentasjon, dårlig navngivning og ingen 'luft' i form av mellomrom og linjeskift. Dette gjør at du eller andre vil måtte bruke unødvendig tid på å finne ut hva koden faktisk gjør på et senere tidspunkt.
+
+```{r, eval = F}
+# Dårlig praksis:
+
+library(readxl)
+library(tidyverse)
+d<-readxl(file="financedata.xlsx",sheetIndex = 1) %>%
+  na.omit()
+Ø95<-mean(d$value)-qt(0.975,df=length(d$value)-1)*sd(d$value)  
+N95<-mean(d$value)+qt(0.975,df=length(d$value)-1)*sd(d$value)
+```
+
+Følgende R kode gir det samme resultatet men er mye mer oversiktlig siden den er mer luftig, er brutt ned i biter, er godt dokumentert og har fornuftige objektnavn:
+
+```{r, eval = F}
+# God praksis:
+
+# ---------- Analyse av data
+
+# Nødvendige pakker i analysen
+library(readxl)
+library(tidyverse)
+
+# Les data, fjern NA-verdier og hent ut gjeld
+my_data <- readxl(file = "financedata.xlsx", sheetIndex = 1) %>%
+  na.omit()
+debt <- my_data$debt
+
+# Konfidensintervall
+n_obs <- length(debt)     # antall observasjoner
+alpha <- 0.05             # signifikansnivå  
+average <- mean(debt)     # gjennomsnitt
+st_dev <- sd(debt)        # standardavvik
+lower <- average - qt(1 - alpha/2, df = n_obs - 1)*st_dev/sqrt(n)  # nedre grense
+upper <- average + qt(1 - alpha/2, df = n_obs - 1)*st_dev/sqrt(n)  # øvre grense
+```
+
+Vi oppfordrer deg til å prøve å skrive R-kode som er pen og oversiktlig i datalabbene fremover. Dårlige vaner kan være vonde å vende!
+
+### Oppgaver til øvingen
+
+**Oppgave 1: Interaktiv øvelse.** Her skal du bruke et læringsverktøy kalt `swirl` som vil ta deg gjennom en interaktive øvelse hvor du må utføre forskjellige oppgaver i konsollen. I flere av dataøvingene vil det være en slik interaktiv del. Her er tanken at du skal leke deg litt med R.
+
+Før du kan begynne må du installere swirl. Kopier derfor følgende tre linjer og lim dem inn i R-konsollen: 
+```{r, eval = F}
+install.packages("swirl")
+library(swirl)
+install_course("R Programming")
+```
+
+For å starte swirl skriver du så følgende i konsollen:
+
+```{r, eval = F}
+swirl()
+```
+
+Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du velge alternativet 'R Programming' (**1** og så **enter**). Du får så se alle modulene dette kurset inneholder:
+
+
+```{r, echo = F}
+knitr::include_graphics('bilder/swirl1.png')
+```
+
+I denne øvingen skal du prøve deg på modul 1 **'Basic Building Blocks'**, modul 4  **'Vectors'** (kun første halvdel), og modul 12 **'Looking at Data'**.  I modul 1 vil du lære litt om de mest grunnleggende operasjonene som kan gjøres i R. Modul 4 ser nærmere på vektorer og her er første halvdel av modulen mest relevant. Modul 12 tar for seg det å utforske strukturen på et datasett. Start med modul 1 (**1** og så **enter**). Du vil bli bedt om å gjøre enkle operasjoner i R og av og til må du svare på multiple choice spørsmål:
+
+```{r, echo = F}
+knitr::include_graphics('bilder/swirl2.png')
+```
+
+Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive `skip()` for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta 'credit' for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du `bye()`. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (**esc**) før du begynner på del to av øvingen. Lykke til!
+
+
+
