@@ -204,7 +204,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="kommentarer-1" class="section level3" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Kommentarer</h3>
 <p>I videoforelesningene over gikk vi gjennom noen sentrale begreper i statistikk. Noen av dem skal vi bruke mye i fortsettelsen, mens andre er ment for å gi dere et solid teoretisk fundament når vi etter hvert skal begi oss ut på anvendt statistikk.</p>
-<p>Vi med å sette opp en liten agenda. Som et første steg kan du kikke på, og notere ned noen setninger til, disse punktene og se om du har fått med deg hva de betyr:</p>
+<p>Vi startet med å sette opp en liten agenda. Som et første steg kan du kikke på, og notere ned noen setninger til, disse punktene og se om du har fått med deg hva de betyr:</p>
 <ul>
 <li>Samplingfordelinger</li>
 <li>Forventning/varians</li>
@@ -268,8 +268,8 @@ men problemet i praksis er at vi gjerne ikke kjenner <span class="math inline">\
 <p>Som demonstrert i forelesningen kan vi i R simulere standard normalfordelte observasjoner (dvs normalfordelte observasjoner med <span class="math inline">\(\mu = 0\)</span> og <span class="math inline">\(\sigma^2 = 1\)</span>) med kommandoen <code>rnorm(n)</code>, der <code>n</code> er antallet observasjoner vi ønsker. For eksempel kan vi kjøre følgende kode for å generere 10 observasjoner (du vil helt sikkert få andre verdier):</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="utvalg-og-estimering.html#cb15-1"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
 <span id="cb15-2"><a href="utvalg-og-estimering.html#cb15-2"></a><span class="kw">rnorm</span>(n)</span></code></pre></div>
-<pre><code>##  [1]  0.66116403  1.60886606  0.74055701  0.91610335  0.03587341 -1.68501482
-##  [7] -0.86968170  1.76830219  1.04153637  0.95132108</code></pre>
+<pre><code>##  [1]  0.95628520  1.14485712  0.57667881  1.34811312  0.42258832 -0.02876933
+##  [7] -0.58236141  1.82077094  0.44180828 -0.43918687</code></pre>
 <p>Ved å skrive <code>mean(dnorm(n))</code> i stedet regner vi ut gjennomsnittet av observasjonene direkte.</p>
 <p>La oss gjøre dette 100 ganger og notere ned gjennomsnittet hver gang. I stedet for å gjøre det manuelt, kan vi skrive et lite program som gjør dette for oss ved å bruke en for-løkke. Det er ikke nødvendig (eller pendum) å forstå akkurat hvordan dette fungerer, men dersom du kjører følgende linjer vil du få en ny vektor <code>gj.snitt</code> som inneholder 100 slike gjennomsnitt:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="utvalg-og-estimering.html#cb17-1"></a>gj.snitt &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">100</span>)</span>
@@ -292,7 +292,7 @@ men problemet i praksis er at vi gjerne ikke kjenner <span class="math inline">\
 <p>Prøv å forklare.</p>
 <details>
 <p><summary>Svar</summary></p>
-<p>Dette er ganske enkelt, men også litt vanskelig på en litt <em>inception</em>-aktig måte. På samme måte som at gjennomsnittet blir en mer og mer presis estimator for forventningsverdien når vi øker antall observasjoner (målt ved at standardavviket <span class="math inline">\(\sigma/\sqrt{n}\)</span> blir mindre når antall obserasjoner <span class="math inline">\(n\)</span> blir større), blir det empiriske standardavviket en mer og mer presis estimator av det sanne standardavviket når vi øker antall observasjoner. Altså; det empiriske standardavviket har <em>også</em> et standardavvik som går mot null som <span class="math inline">\(1/\sqrt{n}\)</span> 😵</p>
+<p>Dette er ganske enkelt, men også litt vanskelig på en <em>inception</em>-aktig måte. På samme måte som at gjennomsnittet blir en mer og mer presis estimator for forventningsverdien når vi øker antall observasjoner (målt ved at standardavviket <span class="math inline">\(\sigma/\sqrt{n}\)</span> blir mindre når antall obserasjoner <span class="math inline">\(n\)</span> blir større), blir det empiriske standardavviket en mer og mer presis estimator av det sanne standardavviket når vi øker antall observasjoner. Altså; det empiriske standardavviket har <em>også</em> et standardavvik som går mot null som <span class="math inline">\(1/\sqrt{n}\)</span> 😵</p>
 </details>
 </div>
 </div>
