@@ -1,3 +1,4 @@
+fig:to-histogrammer
 fig:rstudio1
 fig:rstudiorun
 fig:dokumentasjon
@@ -34,3 +35,5 @@ vinduene-i-rstudio-og-det-å-jobbe-med-r
 funksjoner-dokumentasjon-og-r-pakker
 skriv-pen-r-kode
 oppgaver-til-øvingen
+oppgave-1-interaktiv-øvelse
+oppgave-2-innlesning-av-data-og-deskriptiv-statistikk-i-r

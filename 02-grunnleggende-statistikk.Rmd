@@ -40,7 +40,7 @@ Hver stategi har sin kolonne. Merk at variabelnavnene har mellomrom i seg, noe s
 
 Vi kan lage to enkle histogrammer slik vi gjorde det i forelesningen:
 
-```{r, fig.show = "hold"}
+```{r to-histogrammer, fig.show = "hold", fig.cap="To histogrammer"}
 ggplot(returns, aes(x = `Return A`)) +
         geom_histogram(bins = 10)
 ggplot(returns, aes(x = `Return B`)) +

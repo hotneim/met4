@@ -36,7 +36,7 @@ Bruker du din egen datamaskin kan du enkelt laste ned og installere R og Rstudio
 Første gang du åpner Rstudio vil du se tre vinduer. Et fjerde vindu åpner du med å klikke på **File** i menyen, så **New File**, og så **R Script**. Figur \@ref(fig:rstudio1) viser en oversikt over de fire vinduene. Det er viktig at du forstår forskjellen på de to vinduene til venstre. 
 
 ```{r rstudio1, echo = F, fig.cap='Oversikt over vinduene i RStudio.'}
-knitr::include_graphics('bilder/Rstudio1.png')
+knitr::include_graphics('bilder/Rstudio1.PNG')
 ```
 
 
@@ -64,7 +64,7 @@ Her er `a` og `b` objekter som vi definerer ved bruk av 'tildelingspilen'  `<-` 
 Det øverste vinduet til venstre (a) viser en .R fil (et skript). En .R fil fungerer som et manuskript med R-kommandoer (kode) og kan lagres slik at du kan senere kan se hvilke kommandoer du har brukt i analysen og eventuelt fortsette der du slapp. I Del 2 av denne dataøvingen skal du selv lage en .R fil som inneholder alle kommandoer som brukes i en enkel analyse.  Når du vil at R skal utføre noen av kommandoene du har skrevet i .R filen markerer du bare disse (eller lar pekeren stå i linjen du vil kjøre) og trykker **ctrl + Enter** (**Cmd + Enter** på Mac):
 
 ```{r rstudiorun, echo = F, fig.cap='Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk **ctrl + Enter** (**Cmd + Enter på Mac**)'}
-knitr::include_graphics('bilder/Rstudiorun.png')
+knitr::include_graphics('bilder/Rstudiorun.PNG')
 ```
 
 Vinduet nederst til høyre (d) vil vise blant annet figurer du lager og hjelpetekst. Vinduet øverst til høyre (c) gir deg en oversikt over hvilke objekter du har laget og er spesielt nyttig hvis du vil ta en nærmere titt på et datasett du har lest inn. 
@@ -89,7 +89,7 @@ t.observator <- function(x, mu0){
 R kommer med en rekke "innebygde" funksjoner som kan utføre ulike statistiske analyser. For eksempel kan en t-test utføres med å bruke en funksjon som heter nettopp `t.test`. Alle slike funksjoner kommer med en dokumentasjon som viser hva funksjonen gjør og hvordan den skal brukes. For å tilgang til denne dokumentasjonen skriver man `?` foran funksjonen i konsollen. Skriver du f.eks `?t.test` ser du at det dukker opp en side i vinduet nede til høyre:
 
 ```{r dokumentasjon, echo = F, fig.cap='Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. Dette vinduet kan åpnes til et større vindu som vist over'}
-knitr::include_graphics('bilder/Dokumentasjon.jpg')
+knitr::include_graphics('bilder/Dokumentasjon.JPG')
 ```
 
 Dokumentasjonen vil som hovedregel inneholder en kort beskrivelse av hva funksjonen gjør, hvilke argumenter funksjonen tar og hva den gir ut. Helt i slutten av dokumentasjonen er det ofte et eksempel på hvordan funksjonen kan brukes og er ofte svært nyttig å se på. 
@@ -142,7 +142,9 @@ Vi oppfordrer deg til å prøve å skrive R-kode som er pen og oversiktlig i dat
 
 ### Oppgaver til øvingen
 
-**Oppgave 1: Interaktiv øvelse.** Her skal du bruke et læringsverktøy kalt `swirl` som vil ta deg gjennom en interaktive øvelse hvor du må utføre forskjellige oppgaver i konsollen. I flere av dataøvingene vil det være en slik interaktiv del. Her er tanken at du skal leke deg litt med R.
+#### Oppgave 1: Interaktiv øvelse 
+
+Her skal du bruke et læringsverktøy kalt `swirl` som vil ta deg gjennom en interaktive øvelse hvor du må utføre forskjellige oppgaver i konsollen. I flere av dataøvingene vil det være en slik interaktiv del. Her er tanken at du skal leke deg litt med R.
 
 Før du kan begynne må du installere swirl. Kopier derfor følgende tre linjer og lim dem inn i R-konsollen: 
 ```{r, eval = F}
@@ -161,16 +163,177 @@ Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om
 
 
 ```{r, echo = F}
-knitr::include_graphics('bilder/swirl1.png')
+knitr::include_graphics('bilder/swirl1.PNG')
 ```
 
 I denne øvingen skal du prøve deg på modul 1 **'Basic Building Blocks'**, modul 4  **'Vectors'** (kun første halvdel), og modul 12 **'Looking at Data'**.  I modul 1 vil du lære litt om de mest grunnleggende operasjonene som kan gjøres i R. Modul 4 ser nærmere på vektorer og her er første halvdel av modulen mest relevant. Modul 12 tar for seg det å utforske strukturen på et datasett. Start med modul 1 (**1** og så **enter**). Du vil bli bedt om å gjøre enkle operasjoner i R og av og til må du svare på multiple choice spørsmål:
 
 ```{r, echo = F}
-knitr::include_graphics('bilder/swirl2.png')
+knitr::include_graphics('bilder/swirl2.PNG')
 ```
 
 Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive `skip()` for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta 'credit' for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du `bye()`. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (**esc**) før du begynner på del to av øvingen. Lykke til!
 
+#### Oppgave 2: Innlesning av data og deskriptiv statistikk i R
 
+I denne oppgaven skal vi lese inn noen data og produsere enkel deskriptiv statistikk av disse dataene. Dataene kommer fra [et amerikansk forsøk](https://journals.sagepub.com/doi/10.1177/0956797619829688) hvor man ville undersøke påstanden om at voldelige dataspill fører til voldelig adferd ved la to grupper spille hvert sitt dataspill. I det "voldelige" dataspillet var oppdraget å *skyte* og *drepe* et romvesen,  mens i den ikke-voldelige varianten skulle man *finne* og *redde* romvesenet fra fare. Utover det var spillene helt likt utformet, og i etterkant av en spilleøkt ble deltakernes aggresjonsnivå målt på en skala fra 1 til 9 ved hjelp av en standard psykologisk test. Dette datasettet ble brukt i eksamensoppgaven vårsemesteret 2019.
+
+**Oppgave 2.1**
+
+[Last ned filen violence.xslx](datasett/violence.xlsx). Denne filen lagrer du fortrinnsvis i en egen mappe der du ønsker at filer fra denne øvingen skal ligge. Åpne så **RStudio**, velg  `File -> New File -> R Script` for å åpne et nytt Rscript.  Lagre så scriptet ditt i samme mappen som du har lagt datasettet, slik at du nå har en mappe som ser ut som figuren under:
+
+```{r, echo = F}
+knitr::include_graphics('bilder/mappe.JPG')
+```
+
+Når vi skal lese inn data, lagre figurer og andre ting har R en standard 'mappesti' (working directory) den leter/lagrer i. Du kan se hva denne stien peker på ved å skrive \textbf{getwd()} i konsollen. Du skal nå spesifisere denne mappestien til mappen du har opprettet. Dette gjør du raskest ved å velge `Session -> Set Working Directory -> To Source File Location`. Neste gang du skal jobbe med dette prosjektet kan du åpne **RStudio** ved å dobbeltklikke på `dataøving1.R`, og mappestien skal da settes automatisk til riktig mappe.
+
+Lag gjerne en liten overskrift ved hjelp av kommentartegnet `#` slik at .R filen din ser omtrent slik ut:
+
+```{r, echo = F}
+knitr::include_graphics('bilder/rstudio3.JPG')
+```
+
+**Oppgave 2.2** 
+
+Du skal nå lese inn excel filen du lagret i over i R. Selv om det finnes mange funksjoner som allerede er innebygget i R, må man noen ganger installere ekstra 'pakker' for å få tilgang til spesielle funksjoner. For å lese inn en excel fil trenger du nettopp en slik ikke standard funksjon. Denne finnes i pakken `readxl`. Selve installeringen kan du gjøre direkte i konsollen med å skrive (hvis du ikke har gjort det allerede):
+
+```{r, eval = F}
+install.packages("readxl")
+```
+
+Pakken legger seg da i en bibliotekmappe der R er installert. For å gi R beskjed om å laste inn funksjonene til pakken du nettopp installerte bruker du funksjonen `library`. Du har nå tilgang til en funksjon kalt `read_excel()` som du kan bruke til å lese inn excel filen:
+
+```{r, eval = F, warning=F}
+# MET4 - Dataøving 1
+# ------------------
+
+# les inn data
+library(readxl)
+violence <- read_excel("violence.xlsx")
+```
+
+```{r, echo = F, message=F}
+library(readxl)
+violence <- read_excel("datasett/violence.xlsx")
+```
+
+
+Marker linjene du nettopp skrev i R-skriptet ditt og trykk **ctrl + enter** (**cmd + enter**), for å opprette objektet `violence` som inneholder datasettet.  Funksjonen `ls` lister opp alle objekter som har blitt definert. Du kan prøve selv å skrive følgende i konsollen:
+
+```{r}
+ls()
+```
+
+Du ser at det har kommet et nytt objekt som heter `violence`. En tilsvarende oversikt finner du i vinduet øverst til   høyre i Rstudio (se Figur \@ref(fig:rstudio1)) hvor du også kan klikke på objektet for å se nærmere på det.
+
+**Oppgave 2.3**
+
+Ta en titt på strukturen til datasettet du nettopp leste inn. Husker du kanskje noe fra den interaktive øvelsen 'Looking at Data'? Når du gjør slike små utforskninger kan du gjerne jobbe direkte i konsollen, og det du gjør i dette punktet trenger nødvendigvis ikke være med i .R-filen din. Gå til konsollen og bruk funksjoner som `class`, `dim`, `names`, `head` og `str` for å utforske strukturen på dataene. Vi ser at det er 5 variabler:
+
+- `id` er bare et tall som identifiserer forsøkspersonen.
+- `aggression_level` er aggresjonsnivået som ble målt rett etter at forsøkspersonen hadde spilt en viss tid.
+- `violent_treatment` er varianten av dataspillet som forsøkspersonen ble utsatt for; enten `Violent` eller `Less Violent`.
+- `difficulty_treatment` er vanskelighetsgraden av spillet, som enten var `Easy` eller `Hard`. En mulig forklaring på aggressiv adferd er at vanskelige spill fører til høyere stressnivå, som igjen kan føre til aggressivitet.
+- `experienced_violence` er svaret til forsøkspersonen på spørsmålet om vedkommende *oppfattet* spillet som `Violent` eller `Less Violent`.  Forsøkspersonene visste ikke selv hva forssøket gikk ut på, eller at det var flere varianter av det samme spillet.
+
+**Oppgave 2.4**
+
+Vi skal se nærmere på om aggresjonsnivået er forskjellig i de to gruppene. Da må vi trekke ut de aktuelle tallene fra datasettet. Vi ønsker å velge ut *to vektorer* for å gjøre denne sammenligningen: en vektor som inneholder aggresjonsnivået til gruppen som har spilt det voldelige dataspillet, og en vektor som inneholder aggresjonsnivået til gruppen som har spilt det ikke-voldelige dataspillet. 
+
+La disse to vektorene få navn `voldelig` og `ikke_voldelig`, og lag dem ved å skrive følgende kodelinjer:
+
+```{r}
+# Vektorer med aggresjonsnivå til gruppen som har spilt voldelig/ikke-voldelig spill 
+voldelig      <- violence$aggression_level[violence$violent_treatment == "Violent"]      
+ikke_voldelig <- violence$aggression_level[violence$violent_treatment == "Less Violent"]
+```
+
+Sjekk nå at dette har fungert ved å skrive `voldelig` og `ikke_voldelig` inn i konsollen for å se at det faktisk er vektorer som inneholder tallene 1 -- 9. Bruk også noen minutter til å prøve å forstå hva kodelinjene over faktisk gjør. Her er noen punkter som kan hjelpe til med å obdusere den første linjen:
+
+1. `violence$aggression_level` henter ut kolonnen `aggression_level` fra datasettet `violence`.
+2. Vi kan bruke firkantparantes `[ ]` til å hente ut spesifikke elementer fra en vektor. Her skal vi hente ut bestemte elementer fra vektoren `violence$aggression_level`, og vi kan for eksempel skrive  `violence$aggression_level[1]`, `violence$aggression_level[1:10]` eller `violence$aggression_level[c(1, 5)]` for å hente ut henholdsvis det første, de ti første, eller det første og det femte tallet i vektoren. (Prøv!)
+3. Vi skal hente ut noen helt bestemte tall fra `violence$aggression`, nemlig de målingene som tilhører testpersonene som har `violent_treatment` lik `"Violent"`. Alle disse kan vi finne ved å skrive inn `violence$violent_treatment == "Violent"`. Prøv det. Du vil da få ut en vektor fylt med enten `TRUE` eller `FALSE`, alt etter om den tilhørende forsøkspersonen har `violent_treatment` lik `Violent` eller ikke.
+4. Denne vektoren kan vi bruke til å hente ut tall som svarer til `TRUE` fra `violence$aggression_level` ved å putte den i firkantparanteser. Det er det som står til høyre for tilordningen `<-`.
+5. Til slutt lagrer vi resultatet i vektoren `voldelig`.
+
+(**NB!** Pass på at du skriver `Violent` og `Less Violent` helt riktig med store og små bokstaver, ellers vil det ikke fungere!)
+
+**Oppgave 2.5**
+
+I eksamensoppgaven fra 2019 får vi oppgitt deskriptiv statistikk over aggresjonsnivået for de to gruppene i følgende tabell:
+
+```{r, echo = FALSE}
+knitr::include_graphics("bilder/descriptive.png")
+```
+
+Bruk funksjoner som `min()`, `max()`, `median()`, `mean()`, `length()` og `summary()` til å finne ut om tallene stemmer. Hvordan kan det ha seg at tallene ikke er identiske?
+
+**Oppgave 2.6** 
+
+Vi skal nå lage et histogram av hver av gruppene du lagret som vektorer i tidligere, og vi skal gjøre det på to måter:
+
+- Først skal vi bruke plottefunksjonene som følger med R ("Base R").
+- Så skal vi gjøre det samme ved hjelp av `ggplot`-pakken.
+
+Vi skal først bruke funksjonen `hist()` som altså følger med R-installasjonen din. De fleste R-funksjoner har flere argumenter slik de kan utføre forskjellige operasjoner. Om vi for eksempel ønsker at histogrammet skal vise andel og ikke frekvens, må vi angi dette i ett av argumentene. For å ta en titt på hvilke argument `hist()` har å tilby skriver `?hist`  i konsollen. Det vil da poppe opp en dokumentasjonside i vinduet nede til høyre. Skroll ned å les om argumentet 'freq'. Hva skal du erstatte spørsmålstegnene under med for at histogrammene skal vise andel? 
+
+```{r, eval = F}
+# Skalert Histogram, vi velger breaks = 9 fordi det er 9 mulige utfall: 1 -- 9.
+hist(voldelig, freq = ?, breaks = 9, main = "Voldelig")
+hist(ikke_voldelig, freq = ?, breaks = 9, main = "Ikke-voldelig")
+```
+
+De fullførte linjene over skal være med i .R-filen din. For å se histogrammene kan du kjøre kommandoene en etter en i konsoll med å trykke **ctrl + enter**. Figurene dukker da opp i vinduet nede til høyre. Du kan også prøve å eksperimentere med argumentet `breaks`.
+
+La oss så forsøke å gjenta denne operasjonen ved å bruke `ggplot`-pakken. Vi kan først kikke på Figur \@ref(fig:to-histogrammer) og koden som lagde disse figurene for å få en idé om hva vi må gjøre. Et svært viktig punkt er føgende:
+
+**`ggplot`-funksjonen skal alltid ha hele datasettet (en data frame) som argument!!**
+
+Det betyr at vi *ikke* skal bruke de to vektorene `voldelig` og `ikke_voldelig`, slik som i `hist()`-funksjonen, men bruke hele datasettet `violence`. Vi ser av oversikten over at variabelen som inneholder aggresjonsnivået er `aggression_level`, så det er den vi skal bruke som $x$-argument. Ved å ta utganspunkt i koden som lagde Figur \@ref(fig:to-histogrammer), kan vi gjøre et første forsøk (der vi husker å laste inn `ggplot2`-pakken først):
+
+```{r}
+library(ggplot2)
+ggplot(violence, aes(x = aggression_level)) +
+        geom_histogram(bins = 9)
+```
+
+Nesten! Det eneste problemet er at vi har ett histogram for alle observasjonene, mens det vi egebntlig ønsket var å lage et histogram for hver av gruppene. Dette er såre enkelt i `ggplot2`. Det eneste vi trenger å gjøre er å identifisere den variabelen i datasettet som angir gruppetilhørighet (sjekk variabeloversikten over, svaret er `experienced_violence`), og så plusse på en funksjon som heter `facet_wrap()` som vist under.
+
+```{r}
+ggplot(violence, aes(x = aggression_level)) +
+  geom_histogram(bins = 9) +
+  facet_wrap(~ experienced_violence)
+```
+
+Dersom vi i stedet ønsker et skalert histogram kan vi spesifisere `y`-argumentet på følgende vis:
+
+```{r, eval = FALSE}
+ggplot(violence, aes(x = aggression_level, y = ..density.. )) +
+  geom_histogram(bins = 9) +
+  facet_wrap(~ experienced_violence)
+```
+
+**Oppgave 2.7** 
+
+Når man skal sammenligne sentrum og spredning i to grupper er et boxplott et ypperlig alternativ og vi kan da bruke funksjonen `boxplot()` i "base R", eller funksjonen `geom_boxplot()` hvis vi heller ønsker å benytte `ggplot2`. Vi holder oss til det siste alternativet her, og ser at kodelinjene ligner på det vi laget over.
+
+Dersom vi ønsker å lage et enkelt boxplot av en variabel for å sammenligne spredingen i to eller flere grupper kan vi skrive
+
+```{r, eval = F}
+ggplot(a, aes(x = b, y = c)) +
+  geom_boxplot()
+```
+
+Her må du selv erstatte bokstavene a, b og c i henhold til følgende regel:
+
+- `a` er navnet på datasettet.
+- `b` er variabelen som inneholder gruppeinndelingen.
+- `c` er variabelen som inneholder målingene.
+
+De ferdige kodelinjene skal være med i .R-skriptet ditt. For å se boxplottet kan du som vanlig kjøre kommandoene med å trykke **ctrl + enter**. Ser det ut til å være noe forskjell på sentrum og spredning i de to gruppene?
+
+**Bonusoppgave**
+
+Bytt ut `geom_boxplot()` over med `geom_jitter()` og `geom_violin()`. Hva viser disse plottene?
 
