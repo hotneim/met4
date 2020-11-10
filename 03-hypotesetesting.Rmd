@@ -1,2 +1,412 @@
 
 # Hypotesetesting
+
+Hypotesetesting er et klassisk tema i statistikk. Vi skal først lære generelt om hva det egentlig vil si å *teste* en hypotese ved hjelp av statistikk, og kanskje like viktig: hva statistisk hypotesetesting *ikke* er. Vi går så videre til å lære noen vanlige anvendelser og ser hvordan alt dette kan implementeres i R.
+
+## Generelt om hypotesetesting
+
+### Videoforelesninger 
+
+<div style='padding:74.93% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7780028/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
+
+### Kommentarer
+
+Her snakker vi om kapittel **11** i læreboken. Hvis du kan svare på følgende spørsmål har du i all hovedsak fått med deg de viktigste begrepene:
+
+- Hva vil det si å gjennomføre en hypotesetest?
+- Hva er Type I-feil og hva er Type II-feil? (Seksjon **11-1** forklarer dette greit)
+- Hva er signifikansnivået ($\alpha$) til en test?
+- Styrken (the power) til en test er definert som $1-P(\textrm{Type II-feil})=1-\beta$. Hvordan tolker du denne størrelsen? Se også **11-3d**.
+- Hva er $p$-verdien til en test (Seksjon **11-2c**)? Les også **11-2d**, **e** og **f** om hvordan vi fortolker og snakker om $p$-verdien på en korrekt måte. Vi kommer tilbake til dette i kapittel \@ref(chap:enpop).
+
+## Inferens om en populasjon {#chap:enpop}
+
+### Videoforelesninger
+
+<div style='padding:74.93% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7780035/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
+
+### Kommentarer
+
+Dette er i hovedsak dekket av kapittel **12** i læreboken. Sjekk om du kan svare på følgende kontrollspørsmål:
+
+- Hva er det vi tester når vi gjennomfører en $t$-test for én populasjon? Hva forutsetter vi?
+- Hva er forskjellen på en ensidig og en tosidig test? (**11-2j**)
+
+Det kan også være greit å repetere konfidensintervaller i seksjon **11-2k** for de som har glemt det fra MET2.
+
+I Seksjon **11-2g** går boken gjennom en ett-utvalgs t-test i bokens Excel-plugin. La oss gjøre det samme i R. På kursets nettside finner du alle datasettene som følger med læreboken. I dette eksempelet er det snakk om `Xm11-01.xlsx`. Finn tak i denne filen (du kan også godt åpne den og se på den i Excel!), legg den i en mappe som du kan finne igjen, og åpne et nytt script i R-studio der du først sørger for å sette working directory til denne mappen slik vi gjorde i R-forelesningen.
+
+Etterpå leser du inn datasettet ved å bruke `read_xslx()`-funksjonen som under:
+
+```{r, eval = F}
+library(readxl)
+data <- read_xlsx("Xm11-01.xlsx")     # Vi bruker read_xslx() fordi det er en .xlsx-fil
+```
+
+```{r, echo = F}
+library(readxl)
+data <- read_xlsx("datasett/Xm11-01.xlsx")     # Vi bruker read_xslx() fordi det er en .xlsx-fil
+```
+
+Konteksten til datasettet er gitt i eksempel 11.1. Det er altså balansen på 400 tilfeldig utvalgte kredittkontoer i en butikk, og en lurer på om forventet balanse er større enn 170. Vi setter opp følgende test:
+
+\begin{align*}
+&H_0: \mu = 170 \\
+&H_A: \mu > 170,
+\end{align*}
+der vi legger merke til at det blir brukt en ensidig test (hvorfor?).
+
+For å regne ut testobservatoren for å enutvalgs $z$-test trenger vi fire tall: $\overline X$, $\mu_0$, $n$ og $\sigma$. Legger merke til at `data` har en kolonne som heter `Accounts`, og vi bruker dollartegnet til å hente den ut som en vektor. Regner ut observatoren:
+
+```{r}
+gj.snitt <- mean(data$Accounts)     # Gjennomsnittet av observasjonene
+mu0      <- 170                     # Henter fra teksten
+n        <- length(data$Accounts)   # Antall observasjoner
+sigma    <- 65                      # Henter fra teksten
+
+Z <- (gj.snitt - mu0)/(sigma/sqrt(n))   # Verdien av testobservatoren
+Z                                       # Skriver ut testobservatoren
+```
+Vi ser at testobservatoren har samme verdi som i Excel-gjennomgangen. Kritisk verdi finner vi fra tabell (ensidig, 5%), eller rett fra R:
+
+```{r}
+qnorm(0.95)
+```
+
+Uansett; vi forkaster $H_0$ siden testobservatoren er større enn kritisk verdi.
+
+Kapittel **11-3a-d** gir enda mer forståelse for hypotesetesting. Hopp over e og f om du vil. Kapittel 11-4 snakker litt om hvordan vi skal bruke hypotesetesting videre.
+
+**Kapittel 12** presenterer de tre testene (ett gjennomsnitt, en varians, en andel) i tur og orden. Det du først og fremst må kunne fra dette kapitlet er å gjennomføre disse testene, både for hånd med penn og papir, og i R. Under følger kode for å gjøre noen av bokens eksempler i R (les i boken for kontekst):
+
+**Eksempel 12.1:** 
+
+\begin{align*}
+&H_0: \mu = 2.0 \\
+&H_A: \mu > 2.0,
+\end{align*}
+
+```{r, eval = F}
+data <- read_xlsx("Xm12-01.xlsx")
+
+# Manuell utregning
+gj.snitt <- mean(data$Newspaper)
+mu0      <- 2.0
+n        <- length(data$Newspaper)
+s        <- sd(data$Newspaper)
+
+# Testobservator:
+(gj.snitt - mu0)/(s/sqrt(n))
+```
+
+```{r, echo = F}
+data <- read_xlsx("datasett/Xm12-01.xlsx")
+
+# Manuell utregning
+gj.snitt <- mean(data$Newspaper)
+mu0      <- 2.0
+n        <- length(data$Newspaper)
+s        <- sd(data$Newspaper)
+
+# Testobservator:
+(gj.snitt - mu0)/(s/sqrt(n))
+```
+
+Signifikansnivået er satt til $\alpha = 1\%$ i eksempelet. Kritisk verdi finner vi i $t$-tabell eller rett fra R:
+
+```{r}
+qt(0.99, df = n-1)
+```
+
+Altså forkaster vi **ikke** nullhypotesen. Sjekk gjerne verdiene vi regnet ut over og se at de stemmer overens med det som står i boken. Alternativt bruker vi `t.test()`-funksjonen direkte:
+
+```{r}
+t.test(data$Newspaper, alternative = "greater", mu = 2.0, conf.level = 0.99)
+```
+
+Resultatet blir selvsagt det samme. Når $p$-verdien er større enn signifikansnivået på 1%, kan vi ikke forkaste nullhypotesen. Eksempel 12.2 handler om å lage kondidensintervall, noe du også kan prøve å gjøre ved å regne ut de nødvendige tallene i R. De som synes dette er greit kan kikke på seksjonene **12-1b-e** for å utvikle forståelsen enda litt mer.
+
+**Eksempel 12.3:** 
+
+\begin{align*}
+&H_0: \sigma^2 = 1.0 \\
+&H_A: \sigma^2 < 1.0.
+\end{align*}
+
+Testobservator:
+
+$$\chi^2 = \frac{(n-1)s^2}{\sigma_0^2}.$$
+
+```{r, eval = F}
+data <- read_xlsx("Xm12-03.xlsx")
+
+# Regner ut testobservatoren direkte denne gangen, uten å lagre tallene underveis:
+(length(data$Fills) - 1)*var(data$Fills)/1
+
+# Kritisk verdi, 5% nivå, ensidig test, nedre hale:
+qchisq(0.05, df = length(data$Fills) - 1)     
+```
+
+```{r, echo = F}
+data <- read_xlsx("datasett/Xm12-03.xlsx")
+
+# Regner ut testobservatoren direkte denne gangen, uten å lagre tallene underveis:
+(length(data$Fills) - 1)*var(data$Fills)/1
+
+# Kritisk verdi, 5% nivå, ensidig test, nedre hale:
+qchisq(0.05, df = length(data$Fills) - 1)     
+```
+
+Vi kan altså ikke forkaste nullhypotesen. Igjen, les eksempelet i sin fulle lengde i boken for å forstå bedre hva som skjer. Figur 12.4 viser på en fin måte hva tallene betyr.
+
+**Eksempel 12.5** kan være grei å kikke på også. Vi kan selvsagt bruke R som kalkulator og regne ut det vi trenger. Vi skal teste:
+
+\begin{align*}
+&H_0: p = 0.5 \\
+&H_A: p > 0.5.
+\end{align*}
+
+Vi har en observert andel på $\widehat p = 407/765 = 0.532$ etter å ha spurt $n = 765$ personer. Testobservatoren er 
+$$Z = \frac{\widehat p - p}{\sqrt{p(1-p)/n}}.$$
+
+```{r}
+p.hatt <- 407/765
+p0     <- 0.5
+n      <- 765
+
+(p.hatt - p0)/sqrt(p0*(1-p0)/n)
+```
+
+Kritisk verdi for en ensidig z-test på 5% nivå er 1.645 (`qnorm(0.95)`), og vi kan forkaste nullhypotesen.
+
+Seksjonene **12-3d-f** bør leses på egen hånd, mens vi hopper over **12-3g**.
+
+## Inferens om to populasjoner
+
+### Videoforelesninger
+
+<div style='padding:74.64% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7780048/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
+
+### Kommentarer
+
+Vi har gått gjennom kapittel **13**, som i all hovedsak handler om å sammenligne to gjennomsnitt (som vi kan gjøre på tre forskjellige måter), to varianser og to andeler. Her følger noen kontrollspørsmål som du kan tenke over, og bruke som utgangspunkt for diskusjon i f.eks. kollokviegrupper:
+
+- Hva er nullhypotesen når vi skal gjennomføre en t-test for to populasjoner?
+- ... og hvilke antagelser må vi gjøre?
+- Hvordan ser testobservatoren ut for en to-utvalgs t-test, og kan du gi en intuitiv forklaring for hvorfor den ser ut som den gjør?
+- Når kan vi bruke matchede par, og hva er hensikten?
+- Hvilken testobservator brukes for sammenligning av to varianser, og hvilken fordeling har den under nullhypotesen?
+- Kan du gi en intuitiv forklaring for hvorfor den ser ut som den gjør?
+- Hvilken test brukes for å teste om to andeler er like, og hva må du anta?
+
+Videre bør du sjekke at du kan utføre **3** typer $t$-tester, test for like varianser og test for like andeler både for hånd (relevant for skoleeksamen) og i R (relevant til hjemmeeksamen og datalabber).
+
+Den enkleste måten å gjøre $t$-tester i R på er å bruke funksjonen `t.test()`. Kikk på eksempel 13.1 i lærebokens 11. utgave, der vi har observert årlige avkastninger til to aksjefond som er kjøpt henholdsvis med og uten megler. 
+
+```{r, eval = F}
+# Leser inn datasettet
+funds <- read_xlsx("Xm13-01.xlsx")
+
+# Ser at det er to kolonner, «Direct» og «Broker». Alternativhypotesen på s.433 spesifiserer at
+# differansen i forventninger er *større* enn null, signifikansnivået skal være 5%. Antar først 
+# ulik varians og at vi ikke skal gjøre en paret test:
+t.test(funds$Direct, funds$Broker,
+       alternative = "greater",
+       paired = FALSE,
+       var.equal = FALSE,
+       conf.level = 0.95) 
+```
+
+```{r, echo = F}
+# Leser inn datasettet
+funds <- read_xlsx("datasett/Xm13-01.xlsx")
+
+# Ser at det er to kolonner, «Direct» og «Broker». Alternativhypotesen på s.433 spesifiserer at
+# differansen i forventninger er *større* enn null, signifikansnivået skal være 5%. Antar først 
+# ulik varians og at vi ikke skal gjøre en paret test:
+t.test(funds$Direct, funds$Broker,
+       alternative = "greater",
+       paired = FALSE,
+       var.equal = FALSE,
+       conf.level = 0.95) 
+```
+
+Du kan så sjekke at du får ut de samme tallene på s. 434--435. Videre kan du skrive inn `?t.test` i R-konsollen i RStudio for å lese mer om hvilke argumenter vi kan bruke i `t.test()`-funksjonen. Der ser vi at argumentene `paired`, `var.equal` og `conf.level` som utgangspunkt allerede er satt til `FALSE`, `FALSE` og `0.95` henholdsvis, så det hadde vi strengt tatt ikke trengt å spesifisere i funksjonskallet over.
+
+Vi kan enkelt kjøre den samme testen under antakelsen om like varianser ved å sette `var.equal = TRUE`:
+
+```{r}
+# Ser at det er to kolonner, «Direct» og «Broker». Alternativhypotesen på s.433 spesifiserer at
+# differansen i forventninger er *større* enn null, signifikansnivået skal være 5%. Antar først 
+# ulik varians og at vi ikke skal gjøre en paret test:
+t.test(funds$Direct, funds$Broker,
+       alternative = "greater",
+       paired = FALSE,
+       var.equal = TRUE,
+       conf.level = 0.95) 
+```
+
+Resultatet bli akkurat det samme. Siden testens $p$-verdi er mindre enn 5%, kan vi forkaste nullhypotesen og slå fast at forskjellen i gjennomsnitt er statistisk signifikant.
+
+I kapittel 13-3 leser vi om matchede par. Datasettet i eksempel 13.1 har like mange observasjoner  i de to populasjonene, så vi kan tenke oss at målingene er gjort sekvensielt i tid, slik at vi kan matche dem, og heller se om *gjennomsittet av differansene* er signifikant forskjellig fra null. Enkelt:
+
+```{r}
+# Ser at det er to kolonner, «Direct» og «Broker». Alternativhypotesen på s.433 spesifiserer at
+# differansen i forventninger er *større* enn null, signifikansnivået skal være 5%. Antar først 
+# ulik varians og at vi ikke skal gjøre en paret test:
+t.test(funds$Direct, funds$Broker,
+       alternative = "greater",
+       paired = TRUE,
+       conf.level = 0.95) 
+```
+
+Da ser vi at $p$-verdien ble enda mindre. I eksemplene 13.4 og 13.5 kan du prøve selv. Pass på at du kan gjøre beregningene manuelt også, der du regner ut gjennomsnitt, testobservator, kritisk verdi osv, slik at du forstår hva som foregår. 
+
+Kapittel **13-2** omhandler forskjellen mellom observasjonsdata og eksperimentelle data. Det er i grunn ganske viktig å sette seg inn i den forskjellen fordi det ofte har betydning for tolkningen vår av statistiske resultater. Det er et eksplisitt krav for å lykkes i MET4 at du er i stand til å sette resultatene inn i en fornuftig kontekst.
+
+I kapittel **13-4** kan vi lese om varianstesten. Eksempel 13.7 ser slik ut i R:
+
+```{r, eval = F}
+bottle <- read_xlsx("Xm13-07.xlsx")
+var.test(bottle$`Machine 1`, bottle$`Machine 2`,
+         alternative = "greater")
+```
+
+```{r, echo = F}
+bottle <- read_xlsx("datasett/Xm13-07.xlsx")
+var.test(bottle$`Machine 1`, bottle$`Machine 2`,
+         alternative = "greater")
+```
+
+Også her kan du sammenligne med tallene som fremgår av bokens gjennomgang, og sørg for at du får til dette på egen hånd, *spesielt* det å finne frem i tabellen, for det *må* du kunne på eksamen.
+
+Til slutt har vi test for to andeler i kapittel **13-5**. De setter opp to varianter, en der vi sjekker om differansen mellom to andeler er *like* ($p_1 - p_2 = 0$), som er det vi har dett på i forelesning, men det går selvsagt like fint å sette opp en nullhypotese der differansen mellom andelene er lik et bestemt tall $D$. 
+
+Det finnes ingen ferdig prosedyre for denne testen i R, men vi kan sette den opp likevel ved å regne ut testobservatoren fra datasettet. Vi ser på eksempel 13.9, der vi får oppgitt salget av en del forskjellige varenummer, og vi ønsker å finne ut om andelen «9077» er større i Supermarked 1 enn i Supermarked 2:
+
+```{r, eval = F}
+# Laster inn data. Her er det to utvalg med forskjellig antall observasjoner, så jeg 
+# velger å lese inn de to kolonnene hver for seg:
+soap1 <- read_xlsx("Xm13-09.xlsx", range = cell_cols("A"))
+soap2 <- read_xlsx("Xm13-09.xlsx", range = cell_cols("B"))
+
+# Hvor stor andel utgjør «9077» i de to kolonnene?
+p1 <- mean(soap1 == 9077)
+p2 <- mean(soap2 == 9077)
+
+# De to utvalgsstørrelsene:
+n1 <- nrow(soap1)
+n2 <- nrow(soap2)
+
+# Felles estimat for p under nullhypotesen:
+p <- (n1*p1 + n2*p2)/(n1 + n2)
+
+# Testobservatoren:
+z <- (p1 - p2)/sqrt(p * (1-p)*(1/n1 + 1/n2))
+
+# Kritisk verdi på 5% nivå for en ensidig test:
+qnorm(0.95)
+```
+
+```{r, echo = F}
+# Laster inn data. Her er det to utvalg med forskjellig antall observasjoner, så jeg 
+# velger å lese inn de to kolonnene hver for seg:
+soap1 <- read_xlsx("datasett/Xm13-09.xlsx", range = cell_cols("A"))
+soap2 <- read_xlsx("datasett/Xm13-09.xlsx", range = cell_cols("B"))
+
+# Hvor stor andel utgjør «9077» i de to kolonnene?
+p1 <- mean(soap1 == 9077)
+p2 <- mean(soap2 == 9077)
+
+# De to utvalgsstørrelsene:
+n1 <- nrow(soap1)
+n2 <- nrow(soap2)
+
+# Felles estimat for p under nullhypotesen:
+p <- (n1*p1 + n2*p2)/(n1 + n2)
+
+# Testobservatoren:
+z <- (p1 - p2)/sqrt(p * (1-p)*(1/n1 + 1/n2))
+
+# Kritisk verdi på 5% nivå for en ensidig test:
+qnorm(0.95)
+```
+
+Siden $z = `r format(z, digits = 3)`$ forkaster vi nullhypotesen om at det er lik andel «9077» i de to populasjonene.
+
+## Kjikvadrattester
+
+### Videoforelesninger
+
+<div style='padding:74.43% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7780062/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
+
+### Kommentarer
+
+Vi må kunne *to* anvendelser av kjikvadrattester, der hver av de har sitt eget delkapittel i boken:
+
+1. Teste for om en gitt fordeling passer med obervasjoner (*"Goodness-of-fit"*).
+2. Teste for uavhengighet.
+
+I den første anvendelsen får vi oppgitt en *diskret* sannsynlighetsfordeling der vi har noen mulige utfall $u_1, \ldots, u_k$, med tilhørende sannsynligheter $p_1, \ldots,p_k$. Dersom vi skal observere $n$ utfall fra denne fordelingen, vil vi forvente $e_i = p_i\cdot n$ observasjoner av utfall $u_i$.
+
+Nå har det seg slik at vi *har* observert $n$ utfall fra fordelingen, og utfall $u_i$ har skjedd $f_i$ ganger. **Vi lurer da på om de observerte frekvensene ($f_i$) er så forskjellige fra de *forventede* frekvensene ($e_i$) at vi ikke lenger tror at $p_1, \ldots,p_k$ er den sanne sannsynlighetsfordelingen.**
+
+Vi kom frem til en fornuftig testobservator:
+
+$$\chi^2 = \sum_{i=1}^k \frac{(f_i - e_i)^2}{e_i},$$
+som er $\chi^2$-fordelt med $k-1$ frihetsgrader dersom nullhypotesen er sann. Det betyr at vi kan gå inn i $\chi^2$-tabellen for å sjekke om verdien av testobservatoren er for stor (dvs, $f$´ene er for forskjellige fra $e$`ene) at vi ikke lenger tror at $(p_1, \ldots, p_k)$ er den sanne sannsynlighetsfordelingen.
+
+Vi gjorde eksempelet i dette delkapitlet i forelesningen, og brukte følgende kommandoer:
+
+```{r}
+p0 <- c(0.45, 0.40, 0.15)  # Fordeling under H0
+f  <- c(102, 82, 16)       # Observerte frekvenser
+
+chisq.test(x = f, p = p0)
+```
+
+Den andre anvendelsen er å teste for om to kjennetegn opptrer uavhengig av hverandre. Ideen er den samme som over, fordi vi kan skrive sannsunligheten for «$A$ og $B$» som et produkt dersom de ar uavhengige: 
+
+$$P(A \cap B) = P(A)\cdot P(B).$$
+
+Vi kan regne ut hvor mange observasjoner vi forventer å se for hver kombinasjon av de to kjennetegnene ($e_{ij}$), og bruke kjikvadrattesten over til å sjekke om disse er langt fra det vi *faktisk* har observert ($f_{ij}$). Boken har et eksempel på dette som de regner ut både for hånd og i Excel. Slik kan vi gjøre det i R:
+
+```{r, eval = F}
+# Leser inn data
+mba <- read_xlsx("Xm15-02.xlsx")
+
+# Kikker på datasettet
+mba
+```
+
+```{r, echo = F}
+# Leser inn data
+mba <- read_xlsx("datasett/Xm15-02.xlsx")
+
+# Kikker på datasettet
+mba
+```
+
+Vi legger merke til at strukturen på datasettet er litt annerledes enn krysstabellen som er vist s. 601 i læreboken. I stedet for at vi har telt opp antall studenter i hver enkelt kominasjon av «bachelorgrad» og «masterprofil», har vi fått oppgitt en tabell der hver rad representerer en enkeltstudents fagkombinasjon. Vi kan dog enkelt lage en krysstabell i R:
+
+```{r}
+table(mba)
+```
+
+Det er denne som brukes som argument i `chisq.test()`:
+
+```{r}
+chisq.test(table(mba))
+```
+
+Her er det bare å sammenligne tallene med det som læreboken finner i Excel.
+
+Noen kontrollspørsmål:
+
+1. Vi har lært to veldig spesifikke anvendelser av kjikvadrattester. Hvilke?
+2. Kan du gi en intuitiv forklaring på hvorfor testobservatoren vår er fornuftig?
+3. **Litt mer vanskelig:** Kan du gi en intuitiv forklaring for hvorfor testobservatoren er tilnærmet kjikvadratfordelt?
+
+
+
+
