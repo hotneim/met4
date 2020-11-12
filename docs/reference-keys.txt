@@ -49,3 +49,11 @@ skriv-pen-r-kode
 oppgaver-til-øvingen
 oppgave-1-interaktiv-øvelse
 oppgave-2-innlesning-av-data-og-deskriptiv-statistikk-i-r
+dataøving-2
+interaktiv-øvelse
+data-til-dataøvelsen
+oppgaver-til-øvingen-1
+oppgave-1
+oppgave-2
+oppgave-3
+bonus-en-alternativ-teknikk-for-datamanipulering-gjør-bare-om-du-har-overskudd-til-det
