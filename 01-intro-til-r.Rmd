@@ -161,7 +161,7 @@ Når vi åpner RStudio ved å dobbeltklikke på skriptfilen, så blir arbeidssti
 
 </details>
 
-## Oppsummering og ekstra oppgaver
+## Oppsummering og ekstra oppgaver {#r-ekstra}
 
 I denne modulen har vi gått gjennom noen helt grunnleggende funksjoner i R. Du har lært at
 

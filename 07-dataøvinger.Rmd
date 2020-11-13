@@ -140,9 +140,7 @@ upper <- average + qt(1 - alpha/2, df = n_obs - 1)*st_dev/sqrt(n)  # øvre grens
 
 Vi oppfordrer deg til å prøve å skrive R-kode som er pen og oversiktlig i datalabbene fremover. Dårlige vaner kan være vonde å vende!
 
-### Oppgaver til øvingen
-
-#### Oppgave 1: Interaktiv øvelse 
+### Oppgave 1: Interaktiv øvelse 
 
 Her skal du bruke et læringsverktøy kalt `swirl` som vil ta deg gjennom en interaktive øvelse hvor du må utføre forskjellige oppgaver i konsollen. I flere av dataøvingene vil det være en slik interaktiv del. Her er tanken at du skal leke deg litt med R.
 
@@ -174,13 +172,11 @@ knitr::include_graphics('bilder/swirl2.PNG')
 
 Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive `skip()` for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta 'credit' for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du `bye()`. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (**esc**) før du begynner på del to av øvingen. Lykke til!
 
-#### Oppgave 2: Innlesning av data og deskriptiv statistikk i R
+### Oppgave 2: Innlesning av data og deskriptiv statistikk i R
 
 I denne oppgaven skal vi lese inn noen data og produsere enkel deskriptiv statistikk av disse dataene. Dataene kommer fra [et amerikansk forsøk](https://journals.sagepub.com/doi/10.1177/0956797619829688) hvor man ville undersøke påstanden om at voldelige dataspill fører til voldelig adferd ved la to grupper spille hvert sitt dataspill. I det "voldelige" dataspillet var oppdraget å *skyte* og *drepe* et romvesen,  mens i den ikke-voldelige varianten skulle man *finne* og *redde* romvesenet fra fare. Utover det var spillene helt likt utformet, og i etterkant av en spilleøkt ble deltakernes aggresjonsnivå målt på en skala fra 1 til 9 ved hjelp av en standard psykologisk test. Dette datasettet ble brukt i eksamensoppgaven vårsemesteret 2019.
 
-**Oppgave 2.1**
-
-[Last ned filen violence.xslx](datasett/violence.xlsx). Denne filen lagrer du fortrinnsvis i en egen mappe der du ønsker at filer fra denne øvingen skal ligge. Åpne så **RStudio**, velg  `File -> New File -> R Script` for å åpne et nytt Rscript.  Lagre så scriptet ditt i samme mappen som du har lagt datasettet, slik at du nå har en mappe som ser ut som figuren under:
+**Oppgave 2.1.** [Last ned filen violence.xslx](datasett/violence.xlsx). Denne filen lagrer du fortrinnsvis i en egen mappe der du ønsker at filer fra denne øvingen skal ligge. Åpne så **RStudio**, velg  `File -> New File -> R Script` for å åpne et nytt Rscript.  Lagre så scriptet ditt i samme mappen som du har lagt datasettet, slik at du nå har en mappe som ser ut som figuren under:
 
 ```{r, echo = F}
 knitr::include_graphics('bilder/mappe.JPG')
@@ -194,9 +190,7 @@ Lag gjerne en liten overskrift ved hjelp av kommentartegnet `#` slik at .R filen
 knitr::include_graphics('bilder/rstudio3.JPG')
 ```
 
-**Oppgave 2.2** 
-
-Du skal nå lese inn excel filen du lagret i over i R. Selv om det finnes mange funksjoner som allerede er innebygget i R, må man noen ganger installere ekstra 'pakker' for å få tilgang til spesielle funksjoner. For å lese inn en excel fil trenger du nettopp en slik ikke standard funksjon. Denne finnes i pakken `readxl`. Selve installeringen kan du gjøre direkte i konsollen med å skrive (hvis du ikke har gjort det allerede):
+**Oppgave 2.2.** Du skal nå lese inn excel filen du lagret i over i R. Selv om det finnes mange funksjoner som allerede er innebygget i R, må man noen ganger installere ekstra 'pakker' for å få tilgang til spesielle funksjoner. For å lese inn en excel fil trenger du nettopp en slik ikke standard funksjon. Denne finnes i pakken `readxl`. Selve installeringen kan du gjøre direkte i konsollen med å skrive (hvis du ikke har gjort det allerede):
 
 ```{r, eval = F}
 install.packages("readxl")
@@ -227,9 +221,7 @@ ls()
 
 Du ser at det har kommet et nytt objekt som heter `violence`. En tilsvarende oversikt finner du i vinduet øverst til   høyre i Rstudio (se Figur \@ref(fig:rstudio1)) hvor du også kan klikke på objektet for å se nærmere på det.
 
-**Oppgave 2.3**
-
-Ta en titt på strukturen til datasettet du nettopp leste inn. Husker du kanskje noe fra den interaktive øvelsen 'Looking at Data'? Når du gjør slike små utforskninger kan du gjerne jobbe direkte i konsollen, og det du gjør i dette punktet trenger nødvendigvis ikke være med i .R-filen din. Gå til konsollen og bruk funksjoner som `class`, `dim`, `names`, `head` og `str` for å utforske strukturen på dataene. Vi ser at det er 5 variabler:
+**Oppgave 2.3.** Ta en titt på strukturen til datasettet du nettopp leste inn. Husker du kanskje noe fra den interaktive øvelsen 'Looking at Data'? Når du gjør slike små utforskninger kan du gjerne jobbe direkte i konsollen, og det du gjør i dette punktet trenger nødvendigvis ikke være med i .R-filen din. Gå til konsollen og bruk funksjoner som `class`, `dim`, `names`, `head` og `str` for å utforske strukturen på dataene. Vi ser at det er 5 variabler:
 
 - `id` er bare et tall som identifiserer forsøkspersonen.
 - `aggression_level` er aggresjonsnivået som ble målt rett etter at forsøkspersonen hadde spilt en viss tid.
@@ -259,9 +251,7 @@ Sjekk nå at dette har fungert ved å skrive `voldelig` og `ikke_voldelig` inn i
 
 (**NB!** Pass på at du skriver `Violent` og `Less Violent` helt riktig med store og små bokstaver, ellers vil det ikke fungere!)
 
-**Oppgave 2.5**
-
-I eksamensoppgaven fra 2019 får vi oppgitt deskriptiv statistikk over aggresjonsnivået for de to gruppene i følgende tabell:
+**Oppgave 2.5.** I eksamensoppgaven fra 2019 får vi oppgitt deskriptiv statistikk over aggresjonsnivået for de to gruppene i følgende tabell:
 
 ```{r, echo = FALSE}
 knitr::include_graphics("bilder/descriptive.png")
@@ -269,9 +259,7 @@ knitr::include_graphics("bilder/descriptive.png")
 
 Bruk funksjoner som `min()`, `max()`, `median()`, `mean()`, `length()` og `summary()` til å finne ut om tallene stemmer. Hvordan kan det ha seg at tallene ikke er identiske?
 
-**Oppgave 2.6** 
-
-Vi skal nå lage et histogram av hver av gruppene du lagret som vektorer i tidligere, og vi skal gjøre det på to måter:
+**Oppgave 2.6.** Vi skal nå lage et histogram av hver av gruppene du lagret som vektorer i tidligere, og vi skal gjøre det på to måter:
 
 - Først skal vi bruke plottefunksjonene som følger med R ("Base R").
 - Så skal vi gjøre det samme ved hjelp av `ggplot`-pakken.
@@ -314,9 +302,7 @@ ggplot(violence, aes(x = aggression_level, y = ..density.. )) +
   facet_wrap(~ experienced_violence)
 ```
 
-**Oppgave 2.7** 
-
-Når man skal sammenligne sentrum og spredning i to grupper er et boxplott et ypperlig alternativ og vi kan da bruke funksjonen `boxplot()` i "base R", eller funksjonen `geom_boxplot()` hvis vi heller ønsker å benytte `ggplot2`. Vi holder oss til det siste alternativet her, og ser at kodelinjene ligner på det vi laget over.
+**Oppgave 2.7.** Når man skal sammenligne sentrum og spredning i to grupper er et boxplott et ypperlig alternativ og vi kan da bruke funksjonen `boxplot()` i "base R", eller funksjonen `geom_boxplot()` hvis vi heller ønsker å benytte `ggplot2`. Vi holder oss til det siste alternativet her, og ser at kodelinjene ligner på det vi laget over.
 
 Dersom vi ønsker å lage et enkelt boxplot av en variabel for å sammenligne spredingen i to eller flere grupper kan vi skrive
 
@@ -333,9 +319,7 @@ Her må du selv erstatte bokstavene a, b og c i henhold til følgende regel:
 
 De ferdige kodelinjene skal være med i .R-skriptet ditt. For å se boxplottet kan du som vanlig kjøre kommandoene med å trykke **ctrl + enter**. Ser det ut til å være noe forskjell på sentrum og spredning i de to gruppene?
 
-**Bonusoppgave**
-
-Bytt ut `geom_boxplot()` over med `geom_jitter()` og `geom_violin()`. Hva viser disse plottene?
+**Bonusoppgave.** Bytt ut `geom_boxplot()` over med `geom_jitter()` og `geom_violin()`. Hva viser disse plottene?
 
 ## Dataøving 2
 
@@ -643,4 +627,209 @@ swirl()
 ```
 
 Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du først velge alternativet 'Getting and Cleaning Data'. Du får så se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul 1 **'Manipulating Data with dplyr'**. 
+
+## Dataøving 3
+
+### Oppgave 1: Interaktiv øvelse
+
+Før vi tar fatt på dataanalysen begynner vi som vanlig med litt R-trening i swirl.  Har du allerede installert pakken swirl (skriv `install.packages("swirl")` i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:
+
+```{r, eval = FALSE}
+library(swirl)
+install_course("Regression_Models") # legger til nytt kursmateriale om regresjon
+swirl()
+```
+
+Du vil i starten bli bedt om å skrive inn ditt navn. Hvis du bruker samme navn som tidligere får du kanskje tilbud om å starte opp igjen der du slapp, men da kan du bare velge det nederste valget 'No. Let me start something new'. Du velger så alternativet 'Regression Models' hvor du får se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul modul 1 **'Introduction'**. Her vil du lære litt om hvordan du kan bruke R til å gjøre en regresjonsanalyse ved hjelp av et treningsdatasett. Noen av kommandoene som gjennomgås i denne modulen vil komme til nytte senere i datalabben. 
+
+Husk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive `skip()` for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta 'credit' for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du `bye()`. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (`esc`) før du begynner på del to av øvingen. Lykke til!
+
+### Oppgave 2: Regresjonsanalyse 
+
+Et rock-and-roll museum åpnet i Atlanta i 1990. Museet lå i en sentral del av byen i nærheten av mange ulike butikker. Mot slutten av juli måned i 1992 startet en stor brann i en av disse butikkene som ødela hele kvartalet, inkludert museet. Heldigvis var museet forsikret, både mot selve brannskadene, og mot tapte billettinntekter i gjennoppbyggingsperioden. 
+
+Vanligvis vil et forsikringsselskap beregne erstatningsbeløpet under antakelsen om at besøkstallene i gjenoppbyggingsperioden ville vært på samme nivå som besøkstallene i tiden før brannen. I dette tilfellet mente derimot eierne av museet at besøkstallene var *økende*, slik at de reelt sett hadde krav på et større erstatningsbeløp. Argumentet var basert på besøkstallene til en fornøyelsespark like ved. Fornøyelsesparken åpnet i desember 1991, slik at museet og parken opererte sammen i de siste fire ukene av 1991, og de første 28 ukene i 1992 før brannen ødela museet. 
+
+Museet åpnet igjen i april 1995, men var da betydelig større enn det var opprinnelig. Data for besøkstall for museet og fornøyelsesparken finner vi i regnearket [`C16-01.xlsx`](datasett/C16-01.xlsx). Som i de to foregående dataøvingene legger du denne filen i en mappe på maskinen din, og oppretter et tomt R-script der du lagrer koden for denne oppgaven. 
+
+**Oppgave 2.1:** Kikk raskt på datasettet i Excel eller tilsvarende. Du ser at det er tre kolonner, en som angir ukenummer (`Week`, teller fra 1 til 205), en som angir ukentlig besøkstall på museet (`Museum`) og en som angir ukentlig besøkstall i fornøyelsesparken (`A-Park`). Legg merke til at besøkstallet i museet er null fra og med uke 33, til og med uke 179, som er perioden fra brannen til nyåpning.
+
+**Oppgave 2.2:** Last så datasettet inn i R som før ved hjelp av `read_excel()`-funksjonen. Gi det et passelig navn (f.eks `visits`), og sjekk raskt at det har gått bra ved å taste inn datanavnet i konsollen. Da skal det se omtrent slik ut:
+
+```{r, echo = FALSE, fig.height = 2, warning = FALSE}
+library(readxl)
+visits <- read_excel("datasett/C16-01.xlsx")
+```
+
+```{r}
+visits
+```
+Legg merke til følgende:
+
+- Observasjonene ser ut til å være de samme som vi så da vi kikket på selve regnearket. Det er alltid en god vane å forsikre seg om at R har lest inn datasettet på riktig måte.
+- Et av variabelnavnene har fått noen rare tødler rundt seg. Grunnen til det er at `A-park` inneholder en bindestrek, så for at R ikke skal tolke det tegnet som et minustegn (og dermed gi oss et mareritt med feilmeldinger), må vi alltid bruke disse tødlene når vi refererer til denne variabelen. (På tastaturet som forfatteren av disse ord skriver på, er det `Shift +`  tasten til venstre for `Backspace`. 
+
+**Oppgave 2.3:** Før vi går videre, må vi få et bedre begrep om problemet ved å kikke grafisk på observasjonene. La oss plotte observasjonene i et linjeplott for å se hvordan de utvikler seg over tid, ved å ha ukenummer på $x$-aksen og besøkstall på $y$-aksen. Vi kan lage et enkelt plott for besøkstall for museet ved å skrive
+
+```{r, fig.height = 3.5}
+# Laster først ggplot-pakken (det trenger vi bare gjøre en gang i skriptet)
+library(ggplot2)        
+
+# Lager et enkelt linjeplott:
+ggplot(visits, aes(x = Week, y = Museum)) +
+  geom_line()
+```
+
+Du kan legge til besøkstall for fornøyelsesparken ved å plusse på en ny linje med `geom_line()`, men da må du spesifisere `y`-variabelen på nytt. Hele plottekommandoen blir da:
+
+```{r, fig.keep='last', fig.height = 3.5}
+ggplot(visits, aes(x = Week, y = Museum)) +
+  geom_line() +
+  geom_line(aes(y = `A-Park`))
+```
+
+Vi ser at det er en sterk sammenheng mellom besøkstallene til museet og parken, spesielt etter gjenåpningen i 1995, og det skal vi utnytte når vi senere skal beregne erstatningssummen.
+
+**Oppgave 2.4:** Juster på argumentene i `geom_line()`-funskjonene, og legg til flere "lag" på samme måte som vi gjorde for å pynte på figuren i oppgave 3 i kapittel \@ref(r-ekstra) (det er 100% lov å Google). Dette ser bedre ut:
+
+```{r, fig.keep='last', fig.height = 3.5, echo = FALSE}
+ggplot(visits, aes(x = Week, y = Museum)) +
+  geom_line(colour = "red") +
+  geom_line(aes(y = `A-Park`)) +
+  xlab("Ukenummer") +
+  ylab("Besøkstall") +
+  ggtitle("Besøkstall på museet (rødt) og i fornøyelsesparken (svart)") +
+  theme_classic()
+```
+
+**Oppgave 2.5:** La oss nå ta utgangspunkt i forsikringsselskapets påstand: besøkstallet i perioden der museet er stengt skal beregnes ved hjelp av observasjonene *før brannen*. Vi estimerer parametrene i en enkel regresjonsmodell
+
+$$y_i = \beta_0 + \beta_1x_i + \epsilon,$$
+der responsvariabelen $y_i$ er besøkstallet på museet på dag nr. *i*, og $x_i$ er besøkstallet i fornøyelsesparken samme dag. Datasettet vi skal bruke er altså *de 28 første radene* i datasettet `visits`. Da kan vi enten lage en ny tabell som består av de 28 første radene, eller så kan vi bruket argumentet `subset` i `lm()`-funkesjonen til å spesifisere hvilke observasjoner som skal brukes.
+
+Estimer regresjonsmodellen ved å kjøre følgende kall til `lm()`:
+
+```{r}
+reg1 <- lm(Museum ~ `A-Park`, data = visits, subset = 1:28)
+```
+
+**Oppgave 2.6:** Pakken `stargazer` inneholder funksjoner for å lage pene regesjonstabeller automatisk fra regresjonsobjekter i R. Pakken må installeres og lastes på vanlig måte:
+
+```{r, eval = FALSE}
+install.packages("stargazer")
+library(stargazer)
+```
+
+Inne i `stargazer`-pakken er det en funksjon som også heter `stargazer()`. Hvis du ikke har sett den brukt før (f.eks i forelesning), kan du lese mer om den ved hjelp av hjelpefunksjonen: `?stargazer`. Bruk så `stargazer()` til å lage følgende regresjonsutskrift (hint: bruk argumentet `type = text`):
+
+```{r, echo = FALSE, comment = ""}
+stargazer::stargazer(reg1, type = "text")
+```
+
+**Oppgave 2.7:** Lag tre diagnoseplott etter mal som er gitt i forelesningsnotatene: Et som viser residualene i regresjonsmodellen i et spredningsdiagram, et QQ-plott, og et histogram. Kan du gjøre en grov vurdering om hvorvidt forutsetningene for lineær regresjon er oppfylt?
+
+**Oppgave 2.8:** Bruk denne regresjonsmodellen til å beregne hva besøkstallet *hadde vært* dersom museet hadde vært åpent som vanlig. Dette kan vi gjøre ved å bruke `predict()`-funksjonen. Følg oppskriften under nå, så skal du prøve å gjøre det selv etterpå.
+
+```{r}
+# La oss bruke R til å finne ut hvilke uker museet var stengt. Kommandoen under
+# lager en vektor som viser hvilke uker museet var stengt:
+uker_stengt <- visits$Museum == 0
+
+# Så lager vi en ny data frame som inneholder verdiene av ukenummer og `A-Park`
+# de ukene museet var stengt. Vi velger rader før kommaet i firkantparantesene,
+# og vi velger kolonner etter kommaet:
+visits_pred <- visits[uker_stengt, c("Week", "A-Park")]
+
+# Bruker predict()-funksjonen til å predikere tilhørende y'er:
+predicted_visits1 <- predict(reg1, newdata = visits_pred)
+
+# Til slutt legger vi til de predikerte verdiene som en ny kolonne i visits_pred:
+visits_pred$predikert1 <- predicted_visits1
+```
+
+De predikerte besøkstallene er nå lagret som kolonne `predicted1` i datasettet `visits_pred`.
+
+**Oppgave 2.9** For å få bedre greie på hvordan prediksjonene egentlig ser ut kan vi legge dem til figuren vår fra over. La oss lage en blå stiplet linje, og det kan vi gjøre med å legge til enda et kall til `geom_lines()`. Denne gangen må vi bruke flere argumenter:
+
+- Vi må bruke argumentet `data` til å si at tallene vi skal plotte for den nye linjen nå ligger i datasettet `visits_pred`, og ikke `visits`.
+- Vi må bruke argumentet `colour` til å fortelle hvilken farge vi skal ha på linjen.
+- Vi må bruke argumentet `linetype` til å fortelle at vi vil ha en stiplet linje.
+
+Ta for deg figuren du lagde i oppgave 2.4, og legg til følgende linjer (husk å få med en `+` mellom hvert lag):
+
+```{r, eval = FALSE}
+geom_line(aes(x = Week, y = predikert1), 
+          data = visits_pred, 
+          colour = "blue", 
+          linetype = "dashed")
+```
+
+Da blir figuren min seende slik ut:
+
+```{r, fig.keep='last', fig.height = 3.5, echo = FALSE}
+ggplot(visits, aes(x = Week, y = Museum)) +
+  geom_line(colour = "red") +
+  geom_line(aes(y = `A-Park`)) +
+  xlab("Ukenummer") +
+  ylab("Besøkstall") +
+  ggtitle("Besøkstall på museet (rødt) og i fornøyelsesparken (svart)") +
+  theme_classic() +
+  geom_line(aes(x = Week, y = predikert1), data = visits_pred, colour = "blue", linetype = "dashed")
+```
+
+**Oppgave 2.10:** Kommenter kort regresjonsutskriften fra oppgave 2.6 og figuren fra oppgave 2.9. Ser det fornuftig ut?
+
+**Oppgave 2.11:** Se på saken heller fra museets side. De mener at det er besøkstallene fra *etter* åpningen i 2005 som skal brukes til å estimere regresjonsmodellen. Det er lett å forstå hvorfor de ønsker det, for da ser det ut som at det er omtrent like mange besøkende på museet som i fornøyelsesparken.
+
+```{r, echo = FALSE}
+# Setter subset manuelt her, men vi kunne ganske enkelt sluppet den jobben.
+reg2 <- lm(Museum ~ `A-Park`, data = visits, subset = 180:205)
+```
+
+Repeter oppgave 2.5, men nå bruker du altså besøkstallene fra etter åpningen til å estimere regresjonskoeffisientene. **Hint 1:** Det eneste du må endre er hva som skal inn i `subset`-argumentet. **Hint 2:** Stigningstallet i den nye modellen skal være `r format(reg2$coefficients[2], digits = 2)`.
+
+**Oppgave 2.12:** Beregn hvilke besøkstall museet hadde hatt i perioden det var stengt ved å legge til grunn den nye regresjonsmodellen etter mønster fra oppgave 2.8, og legg dem inn i figuren etter mønster fra oppgave 2.9. Figuren blir skal da se omtrent slik ut hvis vi bruker en finn grønnfarge (`forestgreen`) til den siste linjen:
+
+```{r, fig.keep='last', fig.height = 3.5, echo = FALSE}
+# Bruker predict()-funksjonen til å predikere tilhørende y'er:
+predicted_visits2 <- predict(reg2, newdata = visits_pred)
+
+# Til slutt legger vi til de predikerte verdiene som en ny kolonne i visits_pred:
+visits_pred$predikert2 <- predicted_visits2
+
+ggplot(visits, aes(x = Week, y = Museum)) +
+  geom_line(colour = "red") +
+  geom_line(aes(y = `A-Park`)) +
+  xlab("Ukenummer") +
+  ylab("Besøkstall") +
+  ggtitle("Besøkstall på museet (rødt) og i fornøyelsesparken (svart)") +
+  theme_classic() +
+  geom_line(aes(x = Week, y = predikert1), data = visits_pred, colour = "blue", linetype = "dashed") +
+  geom_line(aes(x = Week, y = predikert2), data = visits_pred, colour = "forestgreen", linetype = "dashed")
+```
+
+**Oppgave 2.13:** Når vi ser hvor tett de to besøkstallene beveger seg etter nyåpningen er det ikke rart at de beregnede besøkstallene basert på den nye modellen (markert i grønt over) følger observasjoenen fra fornøyelsesparken.  
+
+Anta at hver billett til museet koster $6.99. Hvor stor er differansen mellom erstatningskravet til museet og tilbudet til forsikringsselskapet?
+
+```{r, eval = FALSE, echo = FALSE}
+sum(6.99*(predicted_visits2 - predcted_visits1))
+```
+
+**Oppgave 2.14 (Diskusjon):** Det er ganske stor forskjell mellom tilbud og krav, men hvis vi tenker oss om skjønner vi fort at begger parter befinner seg i en klassisk *catch-22*. Hvis den ene partens argument fører til en utbetaling som er for stor eller for liten fordi de tar utgangspunkt i slutten eller starten på en stigende utvikling, må nødvendigvis det motsatte standpunkt også være galt av nøyaktig samme grunn. Kan du foreslå et kompromiss?
+
+### Oppgave 3: Rapporter basert på R-analyser
+
+Ofte er det ønskelig å bruke resultater fra R inn i rapporter, artikler og foredrag. I MET4 skal du blant annet levere både en obligatorisk innlevering og en hjemmeksamen. Det er fullt mulig å åpne et hvilken som helst tekstdokument (f.eks Word) for så å belage seg på en 'klipp og lim'-tilnærming. I R-studio kan man lagre figurer ved å trykke på 'Export' fanen i vinduet nede til høyre og så 'Save as', eventuelt bruke `ggsave()`-funksjonen til å lagre plott laget med `ggplot2`. Disse kan så åpnes i det samme dokumentet. 
+
+En klipp og lim-tilnærming kan være tidkrevende og det finnes verktøy som gjør det lett å lage ganske så elegante rapporter av R-analyser. I de følgende oppgavene gir vi to alternativer til å lage rapporter. Den første metoden er noe enklere enn den andre. 
+**Oppgave 3.1:**  Rstudio kan lage en enkel rapport ut av .R filen din ved at du trykker **ctrl + shift + k** (**cmd + shift + K** på mac).  Prøv det med .R filen du laget i Oppgave 2. Første gang du gjør dette blir du bedt om å installere noen pakker og det aksepterer du. Du får så opp et vindu som ber deg velge format på rapporten:
+
+```{r, echo = FALSE}
+knitr::include_graphics("bilder/compile.PNG")
+```
+
+Har du tilgang til 'Word' kan du velge 'MS word', hvis ikke velger du formatet HTML. For PDF format er du avhengig av å installere 'latex'. Rapporten vil da legge seg i mappen hvor du har lagret datasettet og .R filen. Fordelen med å velge 'MS word' formatet er at du kan bruke den samme word filen til å redigere og kommentere resultatene.     
+
+**Oppgave 3.2 (litt mer krevende):** Man kan også lage rapporter ved å bruke et tekstformat kalt R Markdown. Dette er nok litt mer utfordrende enn tilnærmingen i oppgaven over, men vil gi svært pene raporter/dokumenter. Ønsker du å utforske denne muligheten så ta en titt på [denne videoguiden](https://www.youtube.com/watch?v=tKUufzpoHDE).
 
