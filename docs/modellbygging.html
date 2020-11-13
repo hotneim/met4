@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 4 Regresjon | MET4 - Empiriske Metoder</title>
+  <title>4.3 Modellbygging | MET4 - Empiriske Metoder</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 4 Regresjon | MET4 - Empiriske Metoder" />
+  <meta property="og:title" content="4.3 Modellbygging | MET4 - Empiriske Metoder" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 4 Regresjon | MET4 - Empiriske Metoder" />
+  <meta name="twitter:title" content="4.3 Modellbygging | MET4 - Empiriske Metoder" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="kjikvadrattester.html"/>
-<link rel="next" href="enkel-regresjon.html"/>
+<link rel="prev" href="multippel-regresjon.html"/>
+<link rel="next" href="avansert-regresjon-og-maskinlæring.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,21 +198,46 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regresjon" class="section level1" number="4">
-<h1><span class="header-section-number"> 4</span> Regresjon</h1>
-<p>I forrige modul fokuserte vi på <em>binære</em> spørsmål av typen “Er det er forskjell mellom disse to populasjonene, eller ikke?”, “Er disse kjennetegnene uavhengige, eller ikke?”, og så videre. I denne modulen skal vi prøve å gå et steg lenger og tillate mer interessante spørsmål. I stedet for bare å spørre om en eller annen effekt er til stede (eller ikke), så vil vi heller finne ut hvor stor denne effekten er, hvilken retning den går, og kanskje om vi kan bruke kunnskapen vi får om statistiske sammenhenger til å si noe fornuftig om hva som vil skje for noe som vi enda ikke har observert. Da er det regresjon som gjelder, og mer spesifikt for vår del: <em>lineær regresjon</em>.</p>
-<p>Regresjon er et hovedtema i MET4. Vi innfører en <em>statistisk modell</em> som i sin enkleste form sier at en <em>forklaringsvariabel</em> <span class="math inline">\(X\)</span> henger sammen med en responsvariabel <span class="math inline">\(Y\)</span> på en helt bestemt måte, nemlig gjennom ligningen</p>
-<p><span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon.\]</span></p>
-<p>Ligningen over sier at det er en <em>lineær</em> sammenheng mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span>, men at det i tillegg kommer en uforutsigbar støyvariabel <span class="math inline">\(\epsilon\)</span> som gjør at vi ikke vil kunne observere den lineære sammenhengen direkte. Det vi derimot kan gjøre, er å bruke de observerte <span class="math inline">\(X\)</span>er og <span class="math inline">\(Y\)</span>er til å finne ut hvilke verdier av <span class="math inline">\(\beta_0\)</span> og <span class="math inline">\(\beta_1\)</span> som passer <em>best</em>. Til det bruker vi minste kvadraters metode, som beskrevet i videoforelesningene i denne modulen.</p>
-<p>Vi deler arbeidet med regresjon inn i tre deler. I den første (og største) delen går vi grundig gjennom ulike sider vi den enkle lineære regresjonsmodellen over. I den andre delen ser vi på <em>multippel regresjon</em> som er en utvidelse av enkel regresjon der vi tillater flere forklaringsvariabler på høyre side av likhetstegnet, og i den tredje delen ser vi på ulike praktiske aspekter ved regresjonsmodellering og modellbygging.</p>
+<div id="modellbygging" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Modellbygging</h2>
+<div id="videoforelesninger-8" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Videoforelesninger</h3>
+<div style="padding:75.21% 0 0 0;position:relative;">
+<iframe src="https://vimeo.com/showcase/7793253/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+</iframe>
 </div>
+</div>
+<div id="kommentarer-8" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Kommentarer</h3>
+<p>Kapittel <strong>18</strong> dekker de grunnleggende begrepene innen modellbygging. I kap. <strong>18.1</strong> snakkes det om polynomiske modeller, i kap. <strong>18.2</strong> behandles dummyvariabler. Kapittel <strong>18.3</strong> og <strong>18.4</strong> handler om hvordan vi i praksis kan jobbe for å velge ut variable i en gitt situasjon. Forelesningene dekker i grunn greit det vi skal få med oss her. Som en sjekk om du har fått med deg det vesentlige, kan du svare på følgende spørsmål:</p>
+<ul>
+<li>Vi har lært tre typer log-transformasjoner. Hva blir fortolkningen av koeffisientene for hver av disse?</li>
+<li>Kan du nevne tre gode grunner til at log-transformasjoner er nyttige?</li>
+<li>Hvorfor sier vi at følgende modell er lineær? <span class="math inline">\(Y = \beta_0 + \beta_1X + \beta_1X^2 + \varepsilon\)</span></li>
+<li>Vil vi ikke få problemer med multikolinearitet i modellen over?</li>
+<li>Nevn en veldig god grunn til at vi må være ytterst forsiktig med polynomtransformasjoner.</li>
+<li>Hva er en dummyvariabel?</li>
+<li>Hva er fortolkningen av regresjonskoeffisienten til en dummyvariabel?</li>
+<li>Hva er fortolkningen av regresjonskoeffisienten til et interaksjonsledd mellom målevariabelen <span class="math inline">\(X\)</span> og dummyvariabelen <span class="math inline">\(D\)</span>?</li>
+<li>Et utrolig viktig poeng, men bruk tid til å tenke over og formulere et svar: Hvorfor er det viktig å tenke på <em>multippel testing</em> i sammenheng med <em>variabelutvelgelse</em>?</li>
+</ul>
+<p>Grunnleggende ferdigheter: Klarer du dette?</p>
+<ul>
+<li>Bruke logtransformasjoner i ?</li>
+<li>Bruke poynomtransformasjner i ?</li>
+<li>Sette opp en fornuftig regresjonsmodell ved å ta utgangspunkt i et datasett og et analyseformål, og argumentere godt for dine valg? <strong>Denne ferdigheten har blitt testet på hver eneste hjemmeeksamen i manns minne!</strong></li>
+</ul>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="kjikvadrattester.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="enkel-regresjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="multippel-regresjon.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="avansert-regresjon-og-maskinlæring.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

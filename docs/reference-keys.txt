@@ -36,6 +36,15 @@ kjikvadrattester
 videoforelesninger-5
 kommentarer-5
 regresjon
+enkel-regresjon
+videoforelesninger-6
+kommentarer-6
+multippel-regresjon
+videoforelesninger-7
+kommentarer-7
+modellbygging
+videoforelesninger-8
+kommentarer-8
 avansert-regresjon-og-maskinlæring
 tidsrekker
 dataøvinger

@@ -1,2 +1,157 @@
 
 # Regresjon
+
+I forrige modul fokuserte vi på *binære* spørsmål av typen "Er det er forskjell mellom disse to populasjonene, eller ikke?", "Er disse kjennetegnene uavhengige, eller ikke?", og så videre. I denne modulen skal vi prøve å gå et steg lenger og tillate mer interessante spørsmål. I stedet for bare å spørre om en eller annen effekt er til stede (eller ikke), så vil vi heller finne ut hvor stor denne effekten er, hvilken retning den går, og kanskje om vi kan bruke kunnskapen vi får om statistiske sammenhenger til å si noe fornuftig om hva som vil skje for noe som vi enda ikke har observert. Da er det regresjon som gjelder, og mer spesifikt for vår del: *lineær regresjon*. 
+
+Regresjon er et hovedtema i MET4. Vi innfører en *statistisk modell* som i sin enkleste form sier at en *forklaringsvariabel* $X$ henger sammen med en responsvariabel $Y$ på en helt bestemt måte, nemlig gjennom ligningen
+
+$$Y = \beta_0 + \beta_1 X + \epsilon.$$
+
+Ligningen over sier at det er en *lineær* sammenheng mellom $X$ og $Y$, men at det i tillegg kommer en uforutsigbar støyvariabel $\epsilon$ som gjør at vi ikke vil kunne observere den lineære sammenhengen direkte. Det vi derimot kan gjøre, er å bruke de observerte $X$er og $Y$er til å finne ut hvilke verdier av $\beta_0$ og $\beta_1$ som passer *best*. Til det bruker vi minste kvadraters metode, som beskrevet i videoforelesningene i denne modulen.
+
+Vi deler arbeidet med regresjon inn i tre deler. I den første (og største) delen går vi grundig gjennom ulike sider vi den enkle lineære regresjonsmodellen over. I den andre delen ser vi på *multippel regresjon* som er en utvidelse av enkel regresjon der vi tillater flere forklaringsvariabler på høyre side av likhetstegnet, og i den tredje delen ser vi på ulike praktiske aspekter ved regresjonsmodellering og modellbygging.
+
+## Enkel regresjon
+
+### Videoforelesninger
+
+<div style='padding:75% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7781447/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
+
+### Kommentarer
+
+Vi har sett på en del figurer som illustrerer noen pedagogiske poenger, og lærebokens kapittel **16** går detaljert til verks når de beskriver de ulike læringsmomentene:
+
+I kapittel **16.1** kan vi lese mer om den statistiske modellen som vi kaller enkel regresjon. I kapittel **16.2** introduseres minste kvadraters metode for å estimere regresjonskoeffisientene ved hjelp av data. De viser til og med hvordan det kan gjøres manuelt ved hjelp av bildatasettet, men det er selvsagt kun for å illustrere hvodan formlene ser ut. Vi estimerer ved hjelp av R, og vi har sett i videoforelesningen hvordan vi gjør det ved hjelp av `lm()`-funksjonen.
+
+Det som gjør regresjon til et *statistisk* problem er feilleddet $\epsilon$. Vi tenker oss at for en gitt verdi av $X$, så vil «naturen» regne ut verdien av $Y$ ved å regne ut den lineære sammenhengen $Y = \beta_0 + \beta_1 X$, for legge til støyvariabelen $\epsilon$ som *trekkes* fra en sannsynlighetsfordeling. Vi kan ikke observere direkte hvilke $\epsilon$ som «naturen» har «trukket» (for da ville vi med en gang kunne regnet oss frem til verdiene av $\beta_0$ og $\beta_1$). For gitte estimater av regresjonskoeffisientene $\widehat \beta_0$ og $\widehat \beta_1$ (som vi kan finne f.eks. ved hjelp av minste kvadraters metode), så kan vi regne ut de *observerte residualene* 
+
+$$\widehat\epsilon_i = Y_i - \widehat Y_i = Y_i - (\widehat \beta_0 + \widehat \beta_1 X_i).$$
+
+Ved å analysere residualene kan vi si mer om f.eks
+
+1. Er det egentlig en lineær sammenheng mellom $X$ og $Y$? Hvis det er mønstre og sammenhenger i de observerte residualene, tyder det på at den enkle lineære modellen *ikke* fanger opp hele sammenhengen mellom $X$ og $Y$.
+2. Vi kan gå mer spesifikt til verks: nøyaktig *hvilke* antakelser om residualene er ser ut til å være brutt? I senere økonometrikurs vil dere kunne lære mer om hvordan vi håndterer de ulike problemene. 
+3. Hvor stor er variansen til $\epsilon$? Det brukes videre til å sette opp den viktige signifikanstesten for om stigningstallet i regresjonen er forskjellig fra null.
+
+Alt dette behandles grudig i bokens kapittel **16.3--16.6**. Her bør teksten leses godt. Kode til bileksempelet finnes i forelesningsnotatene.
+
+Når det gjelder enkel regresjon kan du sjekke om du har fått med deg det vesentligste ved å diskutere følgende spørsmål:
+
+- Hva er responsvariabelen og hva er forklaringsvariabelen i enkel regresjon?
+- Hva er fortolkningen av de to regresjonskoeffisientene?
+- Hvilket prinsipp er det vi legger til grunn når vi skal bestemme (estimere) verdien av koeffisientene ved hjelp av data?
+- Skriv opp formlene for koeffisientestimatene. Kan du gi en intuitiv fortolkning av disse? Er de rimelige? 
+- Kan du ved hjelp av formelen for $\widehat\beta_1$ utlede sammenhengen mellom *stigningstallet* $\beta_1$ og *korrelasjonskoeffisienten* mellom $X$ og $Y$?
+- Hvilken rolle spiller feilleddet ($\epsilon$)?
+- Skriv opp de 4 + 1 forutsetningene. Når må den siste være oppfylt? Når kan vi klare oss uten?
+- Hva er testobservatoren når vi tester H$_0: \beta_1 = 0$?
+- Kan du holde styr på de fire standardavvikene vi har jobbet med i denne forelesningen?
+- Hva mener vi med å diagnostisere en regresjonsmodell?
+- Hva er $R^2$, og hva måler den?
+- Hva sier $R^2$ *ikke* noe om?
+
+Her er noen grunnleggende ferdigheter fra kapittel 16. Klarer du dette? 
+
+- Bruke \texttt{R} til å tilpasse en enkel regresjonsmodell for et datasett?
+- Bruke \texttt{R} til å skrive ut oversiktlige regresjonstabeller?
+- Tolke en regresjonsutskrift?
+- Hente ut relevant informasjon etter en slik tilpasning?
+- Bruke informasjon fra regresjonsutskriften til å regne ut antall stjerner for hånd?
+- Lage diagnoseplott i \texttt{R}?
+- Diagnistisere en modell?
+- Identifisere innflytelsesrike observasjoner?
+
+## Multippel regresjon
+
+### Videoforelesninger
+
+<div style='padding:75.14% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7793207/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
+
+### Kommentarer
+
+I kapittel **17** utvides regresjonsbegrepet til *multippel* regresjon, som i prasis betyr at vi kan ha flere enn en forklaringsvariable:
+
+$$Y = \beta_0 + \beta_1X_1 + \cdots \beta_kX_k + \epsilon,$$
+men utover dette er alle detaljene vi har snakket om de samme. For eksempel:
+
+- Tolkningen av regresjonskoeffisienten: En endring på en enhet i forklaringsvariabelen $X_j$ henger sammen med $\beta_j$ enhets endring i responsvariabelen $Y$ (merk at jeg ikke brukker begrepet "fører til", vi kan ikke uten videre fortolke sammenhengen som kausal!).
+- Analysen av residualene $\widehat \epsilon_i = Y_i - \widehat Y_i$ er den samme og har samme formål 1--3 som over.
+- $R^2$ har samme fortolkning.
+- R-kommandoen er den samme, vi bare sette pluss mellom forklaringsvariablene, f.eks `reg <- lm(Y ~ X1 + ... + Xk, data = x)`
+
+I tillegg innfører vi noen nye begreper:
+
+**Justert** $R^2$: Vi viste i forelesningen at vi vil alltid klare å øke $R^2$ ved å legge til forklaringsvariable, selv om de ikke har noe med problemet å gjøre. Derfor innførte vi en *justert* $R^2$ som tar høyde for nettopp dette, ved å bli større bare dersom den aktuelle forklaringsvariebelen faktisk forklarer en reell mengde av variasjonen i responsvariabelen. Se avsnitt **17-2f** i læreboken.
+
+**Multikolinearitet**: Dersom en forklaringsvariabel er sterkt korrelert med en eller flere andre forklaringsvariabler har vi multikolinearitet. Det blir naturlig nok et problem å skille effekter fra hverandre når de i realiteten er helt eller nesten like. Ekstremtilfellet er *perfekt multikolinearitet* der en variabel er en eksakt lineær funksjon av en eller flere andre variable. Det typiske tilfellet er at vi har to kolonner der vi måler det samme fenomenet, men med to ulike enheter, f.eks. **cm** og **m**. Selvsagt kan vi ikke klare å identifisere en *separat* og *uavhengig* effekt av $X$ på  $Y$ om vi skifter måleenhet, og vi vil få en feilmelding dersom vi prøver på det. Det er ekvivalent med å dele på null (every time you divide by zero, God kills a kitten!). Løsning: fjern en av kolonnene fra regresjonsanalysen.
+
+Verre er det om to variable måler *nesten* det samme, men ikke helt, som i skoledataeksempelet der vi kunne bruke både innbyggertall og antall femteklassinger i kommunen som forklaringsvariabler. De henger tett sammen, men selvsagt ikke eksakt, og det virker rart å kunne knytte separate efekter til disse to variablene. I dette tilfellet får vi likevel ikke feilmeldinger, men konsekvensen kan fort bli at standardavvikene (usikkerheten!) til koeffisientestimatene eksploderer, og at ingen av variablene blir signifikant forskjellige fra null, selv det det faktisk er en sterk sammenheng mellom kommunestørrelse og prøveresultat (husk at testobservatoren: $t = \widehat \beta_k/\sigma_{\beta_k}$ blir liten når nevneren blir stor).
+
+**F-test for multiple sammenligninger**: Dette henger nøye sammen med *variansanalyse (analysis of variance, ANOVA)*, som nå er tatt ut av pensum i kurset. For å forstå dette kan vi sette opp et eksempel, med to forklaringsvariabler:
+$$Y = \beta_0 + \beta_1X_1 + \beta_2X_2.$$
+Etter å ha brukt miste kvadraters metode for å estimere de tre koeffisientene er vi kanskje interessert i å vurdere den statsistiske signifikansene til de to stigningstallene separat. Da tester vi de to nullhypotesene $\beta_1 = 0$ og $\beta_2 = 0$, som vi i praksis gjør ved å se på hvor mange stjerner de får i regresjonsutskriften. Men sett at ingen av koeffisientene er signifikant forskjellige fra null, kan vi da slutte at vi ikke kan forkaste hypotesen $\beta_1 = \beta_2 = 0$, dvs at *begge* koeffisientene er lik null, og at ingen av forklaringsvariablene forklarer variasjon i $Y$? **NEI**, det kan vi ikke. Vi kan for eksempel lett tenke oss at vi på grunn av multikolinearitet ikke får separate forkastninger av de to nullhypotesene, men at ved å fjerne en variabel, så blir den andre signifikant.
+
+For å virkelig forstå dette problemet kan du godt lese starten på kapittel **14.1** samt kapittel **14.2** om multiple sammenligninger (som strengt tatt ikke er pensum), men essensen er altså:
+
+$$\textrm{Å forkaste H}_0: \beta_1 = 0 \textrm{ og H}_0: \beta_2 = 0 \textrm{ er ikke det samme som å forkaste H}_0: \beta_1 = \beta_2 = 0!$$
+
+For å gjennomføre den siste testen må vi sette opp en egen testobservator, som viser seg å være $F$-fordelt. Læreboken lister opp noen detaljer i avsnitt **17-2f**, og essensen er at vi setter opp en brøk på formen
+$$F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellenmed } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.$$
+Dersom denne brøken viser seg å være stor (som definert av signifikansnivå og frihetsgrader, se lærebok), forkaster vi nullhypotesen om at begge koeffisientene begge kan være lik null. I en generell multippel regresjon med $k$ forklaringsvariable rapporterer R `F-statistic: ` etc, med verdien av $F$-observatoren i testen for
+$$H_0: \beta_1 = \cdots = \beta_k = 0,$$
+og dersom den oppgitte $p$-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv er signifikant forskjellig fra null).
+
+Som en såkalt *fun fact* kan vi nevne at det er enkelt å teste for signifikansen til *grupper* av variable på denne måten, f.eks hvis det er noen variable som måler lignende ting (si $X_2, X_4$ og $X_5$). I R kan du estimere to modeller, en modell som *inkluderer* variablene (f.eks. `reg_stor`) og en modell der du tar bort de aktuelle variablene (f.eks. `reg_liten`). Du kan da kjøre kommandoen `anova(reg_stor, reg_liten)` for å teste
+$$H_0: \beta_2 = \beta_4 = \beta_5 = 0.$$
+
+
+> **Kritikk av læreboken:** Læreboken har en tabell på s. 701 som viser sammenhengen mellom ulike statistiske størrelser som vi kan regne ut for en regresjonsmodell. $R^2$ kjenner vi som forklaringsgraden, $s_{\epsilon}$ er standardavviket til residualene, $F$ er testobservatoren for modellgyldighet som vi definerte uformelt over, og som er definert formelt nederst på s. 700, mens SSE (Sum of Squares Error) henger nøye sammen med standardavviket, som vi også kan se på s. 700. På disse sidene ser vi mange ligninger som viser hvordan disse størrelsene formelt henger sammen, og i tabellen på s. 701 ser vi blant annet at dersom SSE er liten, er også $s_{\epsilon}$ liten, $R^2$ er nær null, og $F$-observatoren er stor. Det er greit nok, **men** de har en ekstra kolonne som slår fast at regresjonsmodellen er *good*. 
+
+ > Her menes det **ikke** at regresjonsmodellen er *god* i den forstand at vi skal reagere med glede eller lettelse (slik noen gjerne gjør), men at variasjonen i datamaterialet i stor grad lar seg forklare av modellen vår. I et tenkt eksempel der den sanne sammenhengen mellom $Y$ og $X$ er gitt ved $Y = \beta_0 + \beta_1X + \epsilon$, men der $\beta_1$ er forholdsvis liten og $s_{\epsilon}$ er relativt stor, vil f.eks. $R^2$ bli *liten*, selv om den enkle lineære regresjonsmodellen repsesenterer sannheten og av alle tenkende mennesker må sies å være *god*. 
+
+> Det er desverre mange lærebøker som blander disse to fortolkningene, ikke gjør det!
+
+
+Her er enda noen grunnleggende begreper. Har du fått med deg dette?
+
+- Hva mener vi med at en observasjon er innflytelsesrik?
+- Hva er grunnen til at vi trenger *justert* $R^2$ med flere forklaringsvariable?
+- Hva er forskjellen på *perfekt* og *tilnærmet* multikolinearitet i lineær regresjon? Hva blir konsekvensen i hvert av tilfellene?
+- Kan du gi en praktisk og intuitiv forklaring på hvorfor multikolinearitet nødvendigvis må være et problem?
+- Hva er forskjellen på statistisk og økonomisk signifikans? Kan du sette opp konkrete eksempler der vi kan estimere statistisk signifikante, men ikke økonomisk signifikante effekter i multippel regresjon? Hva med den motsatte situasjonen, økonomisk signifikant, men ikke statistisk signifikant? 
+
+Grunnleggende ferdigheter: Klarer du dette?
+
+- Bruke R til å tilpasse en multippel regresjonsmodell for et datasett?
+- Bruke R til å finne særlig innflytelsesrike observasjoner?
+- Tolke en multippel regresjonsutskrift?
+
+## Modellbygging
+
+### Videoforelesninger
+
+<div style='padding:75.21% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7793253/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
+
+### Kommentarer
+
+Kapittel **18** dekker de grunnleggende begrepene innen modellbygging. I kap. **18.1** snakkes det om polynomiske modeller, i kap. **18.2** behandles dummyvariabler. Kapittel **18.3** og **18.4** handler om hvordan vi i praksis kan jobbe for å velge ut variable i en gitt situasjon. Forelesningene dekker i grunn greit det vi skal få med oss her. Som en sjekk om du har fått med deg det vesentlige, kan du svare på følgende spørsmål:
+
+- Vi har lært tre typer log-transformasjoner. Hva blir fortolkningen av koeffisientene for hver av disse?
+- Kan du nevne tre gode grunner til at log-transformasjoner er nyttige?
+- Hvorfor sier vi at følgende modell er lineær? $Y = \beta_0 + \beta_1X + \beta_1X^2 + \varepsilon$
+- Vil vi ikke få problemer med multikolinearitet i modellen over?
+- Nevn en veldig god grunn til at vi må være ytterst forsiktig med polynomtransformasjoner.
+- Hva er en dummyvariabel? 
+- Hva er fortolkningen av regresjonskoeffisienten til en dummyvariabel?
+- Hva er fortolkningen av regresjonskoeffisienten til et interaksjonsledd mellom målevariabelen $X$ og dummyvariabelen $D$?
+- Et utrolig viktig poeng, men bruk tid til å tenke over og formulere et svar: Hvorfor er det viktig å tenke på *multippel testing* i sammenheng med *variabelutvelgelse*?
+
+Grunnleggende ferdigheter: Klarer du dette?
+
+- Bruke logtransformasjoner i \texttt{R}?
+- Bruke poynomtransformasjner i \texttt{R}?
+- Sette opp en fornuftig regresjonsmodell ved å ta utgangspunkt i et datasett og et analyseformål, og argumentere godt for dine valg? **Denne ferdigheten har blitt testet på hver eneste hjemmeeksamen i manns minne!**
+
+
+
+

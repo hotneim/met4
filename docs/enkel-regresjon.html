@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 4 Regresjon | MET4 - Empiriske Metoder</title>
+  <title>4.1 Enkel regresjon | MET4 - Empiriske Metoder</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 4 Regresjon | MET4 - Empiriske Metoder" />
+  <meta property="og:title" content="4.1 Enkel regresjon | MET4 - Empiriske Metoder" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 4 Regresjon | MET4 - Empiriske Metoder" />
+  <meta name="twitter:title" content="4.1 Enkel regresjon | MET4 - Empiriske Metoder" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="kjikvadrattester.html"/>
-<link rel="next" href="enkel-regresjon.html"/>
+<link rel="prev" href="regresjon.html"/>
+<link rel="next" href="multippel-regresjon.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,21 +198,63 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regresjon" class="section level1" number="4">
-<h1><span class="header-section-number"> 4</span> Regresjon</h1>
-<p>I forrige modul fokuserte vi på <em>binære</em> spørsmål av typen “Er det er forskjell mellom disse to populasjonene, eller ikke?”, “Er disse kjennetegnene uavhengige, eller ikke?”, og så videre. I denne modulen skal vi prøve å gå et steg lenger og tillate mer interessante spørsmål. I stedet for bare å spørre om en eller annen effekt er til stede (eller ikke), så vil vi heller finne ut hvor stor denne effekten er, hvilken retning den går, og kanskje om vi kan bruke kunnskapen vi får om statistiske sammenhenger til å si noe fornuftig om hva som vil skje for noe som vi enda ikke har observert. Da er det regresjon som gjelder, og mer spesifikt for vår del: <em>lineær regresjon</em>.</p>
-<p>Regresjon er et hovedtema i MET4. Vi innfører en <em>statistisk modell</em> som i sin enkleste form sier at en <em>forklaringsvariabel</em> <span class="math inline">\(X\)</span> henger sammen med en responsvariabel <span class="math inline">\(Y\)</span> på en helt bestemt måte, nemlig gjennom ligningen</p>
-<p><span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon.\]</span></p>
-<p>Ligningen over sier at det er en <em>lineær</em> sammenheng mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span>, men at det i tillegg kommer en uforutsigbar støyvariabel <span class="math inline">\(\epsilon\)</span> som gjør at vi ikke vil kunne observere den lineære sammenhengen direkte. Det vi derimot kan gjøre, er å bruke de observerte <span class="math inline">\(X\)</span>er og <span class="math inline">\(Y\)</span>er til å finne ut hvilke verdier av <span class="math inline">\(\beta_0\)</span> og <span class="math inline">\(\beta_1\)</span> som passer <em>best</em>. Til det bruker vi minste kvadraters metode, som beskrevet i videoforelesningene i denne modulen.</p>
-<p>Vi deler arbeidet med regresjon inn i tre deler. I den første (og største) delen går vi grundig gjennom ulike sider vi den enkle lineære regresjonsmodellen over. I den andre delen ser vi på <em>multippel regresjon</em> som er en utvidelse av enkel regresjon der vi tillater flere forklaringsvariabler på høyre side av likhetstegnet, og i den tredje delen ser vi på ulike praktiske aspekter ved regresjonsmodellering og modellbygging.</p>
+<div id="enkel-regresjon" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Enkel regresjon</h2>
+<div id="videoforelesninger-6" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Videoforelesninger</h3>
+<div style="padding:75% 0 0 0;position:relative;">
+<iframe src="https://vimeo.com/showcase/7781447/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+</iframe>
+</div>
+</div>
+<div id="kommentarer-6" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Kommentarer</h3>
+<p>Vi har sett på en del figurer som illustrerer noen pedagogiske poenger, og lærebokens kapittel <strong>16</strong> går detaljert til verks når de beskriver de ulike læringsmomentene:</p>
+<p>I kapittel <strong>16.1</strong> kan vi lese mer om den statistiske modellen som vi kaller enkel regresjon. I kapittel <strong>16.2</strong> introduseres minste kvadraters metode for å estimere regresjonskoeffisientene ved hjelp av data. De viser til og med hvordan det kan gjøres manuelt ved hjelp av bildatasettet, men det er selvsagt kun for å illustrere hvodan formlene ser ut. Vi estimerer ved hjelp av R, og vi har sett i videoforelesningen hvordan vi gjør det ved hjelp av <code>lm()</code>-funksjonen.</p>
+<p>Det som gjør regresjon til et <em>statistisk</em> problem er feilleddet <span class="math inline">\(\epsilon\)</span>. Vi tenker oss at for en gitt verdi av <span class="math inline">\(X\)</span>, så vil «naturen» regne ut verdien av <span class="math inline">\(Y\)</span> ved å regne ut den lineære sammenhengen <span class="math inline">\(Y = \beta_0 + \beta_1 X\)</span>, for legge til støyvariabelen <span class="math inline">\(\epsilon\)</span> som <em>trekkes</em> fra en sannsynlighetsfordeling. Vi kan ikke observere direkte hvilke <span class="math inline">\(\epsilon\)</span> som «naturen» har «trukket» (for da ville vi med en gang kunne regnet oss frem til verdiene av <span class="math inline">\(\beta_0\)</span> og <span class="math inline">\(\beta_1\)</span>). For gitte estimater av regresjonskoeffisientene <span class="math inline">\(\widehat \beta_0\)</span> og <span class="math inline">\(\widehat \beta_1\)</span> (som vi kan finne f.eks. ved hjelp av minste kvadraters metode), så kan vi regne ut de <em>observerte residualene</em></p>
+<p><span class="math display">\[\widehat\epsilon_i = Y_i - \widehat Y_i = Y_i - (\widehat \beta_0 + \widehat \beta_1 X_i).\]</span></p>
+<p>Ved å analysere residualene kan vi si mer om f.eks</p>
+<ol style="list-style-type: decimal">
+<li>Er det egentlig en lineær sammenheng mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span>? Hvis det er mønstre og sammenhenger i de observerte residualene, tyder det på at den enkle lineære modellen <em>ikke</em> fanger opp hele sammenhengen mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span>.</li>
+<li>Vi kan gå mer spesifikt til verks: nøyaktig <em>hvilke</em> antakelser om residualene er ser ut til å være brutt? I senere økonometrikurs vil dere kunne lære mer om hvordan vi håndterer de ulike problemene.</li>
+<li>Hvor stor er variansen til <span class="math inline">\(\epsilon\)</span>? Det brukes videre til å sette opp den viktige signifikanstesten for om stigningstallet i regresjonen er forskjellig fra null.</li>
+</ol>
+<p>Alt dette behandles grudig i bokens kapittel <strong>16.3–16.6</strong>. Her bør teksten leses godt. Kode til bileksempelet finnes i forelesningsnotatene.</p>
+<p>Når det gjelder enkel regresjon kan du sjekke om du har fått med deg det vesentligste ved å diskutere følgende spørsmål:</p>
+<ul>
+<li>Hva er responsvariabelen og hva er forklaringsvariabelen i enkel regresjon?</li>
+<li>Hva er fortolkningen av de to regresjonskoeffisientene?</li>
+<li>Hvilket prinsipp er det vi legger til grunn når vi skal bestemme (estimere) verdien av koeffisientene ved hjelp av data?</li>
+<li>Skriv opp formlene for koeffisientestimatene. Kan du gi en intuitiv fortolkning av disse? Er de rimelige?</li>
+<li>Kan du ved hjelp av formelen for <span class="math inline">\(\widehat\beta_1\)</span> utlede sammenhengen mellom <em>stigningstallet</em> <span class="math inline">\(\beta_1\)</span> og <em>korrelasjonskoeffisienten</em> mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span>?</li>
+<li>Hvilken rolle spiller feilleddet (<span class="math inline">\(\epsilon\)</span>)?</li>
+<li>Skriv opp de 4 + 1 forutsetningene. Når må den siste være oppfylt? Når kan vi klare oss uten?</li>
+<li>Hva er testobservatoren når vi tester H<span class="math inline">\(_0: \beta_1 = 0\)</span>?</li>
+<li>Kan du holde styr på de fire standardavvikene vi har jobbet med i denne forelesningen?</li>
+<li>Hva mener vi med å diagnostisere en regresjonsmodell?</li>
+<li>Hva er <span class="math inline">\(R^2\)</span>, og hva måler den?</li>
+<li>Hva sier <span class="math inline">\(R^2\)</span> <em>ikke</em> noe om?</li>
+</ul>
+<p>Her er noen grunnleggende ferdigheter fra kapittel 16. Klarer du dette?</p>
+<ul>
+<li>Bruke  til å tilpasse en enkel regresjonsmodell for et datasett?</li>
+<li>Bruke  til å skrive ut oversiktlige regresjonstabeller?</li>
+<li>Tolke en regresjonsutskrift?</li>
+<li>Hente ut relevant informasjon etter en slik tilpasning?</li>
+<li>Bruke informasjon fra regresjonsutskriften til å regne ut antall stjerner for hånd?</li>
+<li>Lage diagnoseplott i ?</li>
+<li>Diagnistisere en modell?</li>
+<li>Identifisere innflytelsesrike observasjoner?</li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="kjikvadrattester.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="enkel-regresjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="regresjon.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multippel-regresjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

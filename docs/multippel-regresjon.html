@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 4 Regresjon | MET4 - Empiriske Metoder</title>
+  <title>4.2 Multippel regresjon | MET4 - Empiriske Metoder</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 4 Regresjon | MET4 - Empiriske Metoder" />
+  <meta property="og:title" content="4.2 Multippel regresjon | MET4 - Empiriske Metoder" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 4 Regresjon | MET4 - Empiriske Metoder" />
+  <meta name="twitter:title" content="4.2 Multippel regresjon | MET4 - Empiriske Metoder" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="kjikvadrattester.html"/>
-<link rel="next" href="enkel-regresjon.html"/>
+<link rel="prev" href="enkel-regresjon.html"/>
+<link rel="next" href="modellbygging.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -198,21 +198,74 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regresjon" class="section level1" number="4">
-<h1><span class="header-section-number"> 4</span> Regresjon</h1>
-<p>I forrige modul fokuserte vi på <em>binære</em> spørsmål av typen “Er det er forskjell mellom disse to populasjonene, eller ikke?”, “Er disse kjennetegnene uavhengige, eller ikke?”, og så videre. I denne modulen skal vi prøve å gå et steg lenger og tillate mer interessante spørsmål. I stedet for bare å spørre om en eller annen effekt er til stede (eller ikke), så vil vi heller finne ut hvor stor denne effekten er, hvilken retning den går, og kanskje om vi kan bruke kunnskapen vi får om statistiske sammenhenger til å si noe fornuftig om hva som vil skje for noe som vi enda ikke har observert. Da er det regresjon som gjelder, og mer spesifikt for vår del: <em>lineær regresjon</em>.</p>
-<p>Regresjon er et hovedtema i MET4. Vi innfører en <em>statistisk modell</em> som i sin enkleste form sier at en <em>forklaringsvariabel</em> <span class="math inline">\(X\)</span> henger sammen med en responsvariabel <span class="math inline">\(Y\)</span> på en helt bestemt måte, nemlig gjennom ligningen</p>
-<p><span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon.\]</span></p>
-<p>Ligningen over sier at det er en <em>lineær</em> sammenheng mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span>, men at det i tillegg kommer en uforutsigbar støyvariabel <span class="math inline">\(\epsilon\)</span> som gjør at vi ikke vil kunne observere den lineære sammenhengen direkte. Det vi derimot kan gjøre, er å bruke de observerte <span class="math inline">\(X\)</span>er og <span class="math inline">\(Y\)</span>er til å finne ut hvilke verdier av <span class="math inline">\(\beta_0\)</span> og <span class="math inline">\(\beta_1\)</span> som passer <em>best</em>. Til det bruker vi minste kvadraters metode, som beskrevet i videoforelesningene i denne modulen.</p>
-<p>Vi deler arbeidet med regresjon inn i tre deler. I den første (og største) delen går vi grundig gjennom ulike sider vi den enkle lineære regresjonsmodellen over. I den andre delen ser vi på <em>multippel regresjon</em> som er en utvidelse av enkel regresjon der vi tillater flere forklaringsvariabler på høyre side av likhetstegnet, og i den tredje delen ser vi på ulike praktiske aspekter ved regresjonsmodellering og modellbygging.</p>
+<div id="multippel-regresjon" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Multippel regresjon</h2>
+<div id="videoforelesninger-7" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Videoforelesninger</h3>
+<div style="padding:75.14% 0 0 0;position:relative;">
+<iframe src="https://vimeo.com/showcase/7793207/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+</iframe>
+</div>
+</div>
+<div id="kommentarer-7" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Kommentarer</h3>
+<p>I kapittel <strong>17</strong> utvides regresjonsbegrepet til <em>multippel</em> regresjon, som i prasis betyr at vi kan ha flere enn en forklaringsvariable:</p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1X_1 + \cdots \beta_kX_k + \epsilon,\]</span>
+men utover dette er alle detaljene vi har snakket om de samme. For eksempel:</p>
+<ul>
+<li>Tolkningen av regresjonskoeffisienten: En endring på en enhet i forklaringsvariabelen <span class="math inline">\(X_j\)</span> henger sammen med <span class="math inline">\(\beta_j\)</span> enhets endring i responsvariabelen <span class="math inline">\(Y\)</span> (merk at jeg ikke brukker begrepet “fører til”, vi kan ikke uten videre fortolke sammenhengen som kausal!).</li>
+<li>Analysen av residualene <span class="math inline">\(\widehat \epsilon_i = Y_i - \widehat Y_i\)</span> er den samme og har samme formål 1–3 som over.</li>
+<li><span class="math inline">\(R^2\)</span> har samme fortolkning.</li>
+<li>R-kommandoen er den samme, vi bare sette pluss mellom forklaringsvariablene, f.eks <code>reg &lt;- lm(Y ~ X1 + ... + Xk, data = x)</code></li>
+</ul>
+<p>I tillegg innfører vi noen nye begreper:</p>
+<p><strong>Justert</strong> <span class="math inline">\(R^2\)</span>: Vi viste i forelesningen at vi vil alltid klare å øke <span class="math inline">\(R^2\)</span> ved å legge til forklaringsvariable, selv om de ikke har noe med problemet å gjøre. Derfor innførte vi en <em>justert</em> <span class="math inline">\(R^2\)</span> som tar høyde for nettopp dette, ved å bli større bare dersom den aktuelle forklaringsvariebelen faktisk forklarer en reell mengde av variasjonen i responsvariabelen. Se avsnitt <strong>17-2f</strong> i læreboken.</p>
+<p><strong>Multikolinearitet</strong>: Dersom en forklaringsvariabel er sterkt korrelert med en eller flere andre forklaringsvariabler har vi multikolinearitet. Det blir naturlig nok et problem å skille effekter fra hverandre når de i realiteten er helt eller nesten like. Ekstremtilfellet er <em>perfekt multikolinearitet</em> der en variabel er en eksakt lineær funksjon av en eller flere andre variable. Det typiske tilfellet er at vi har to kolonner der vi måler det samme fenomenet, men med to ulike enheter, f.eks. <strong>cm</strong> og <strong>m</strong>. Selvsagt kan vi ikke klare å identifisere en <em>separat</em> og <em>uavhengig</em> effekt av <span class="math inline">\(X\)</span> på <span class="math inline">\(Y\)</span> om vi skifter måleenhet, og vi vil få en feilmelding dersom vi prøver på det. Det er ekvivalent med å dele på null (every time you divide by zero, God kills a kitten!). Løsning: fjern en av kolonnene fra regresjonsanalysen.</p>
+<p>Verre er det om to variable måler <em>nesten</em> det samme, men ikke helt, som i skoledataeksempelet der vi kunne bruke både innbyggertall og antall femteklassinger i kommunen som forklaringsvariabler. De henger tett sammen, men selvsagt ikke eksakt, og det virker rart å kunne knytte separate efekter til disse to variablene. I dette tilfellet får vi likevel ikke feilmeldinger, men konsekvensen kan fort bli at standardavvikene (usikkerheten!) til koeffisientestimatene eksploderer, og at ingen av variablene blir signifikant forskjellige fra null, selv det det faktisk er en sterk sammenheng mellom kommunestørrelse og prøveresultat (husk at testobservatoren: <span class="math inline">\(t = \widehat \beta_k/\sigma_{\beta_k}\)</span> blir liten når nevneren blir stor).</p>
+<p><strong>F-test for multiple sammenligninger</strong>: Dette henger nøye sammen med <em>variansanalyse (analysis of variance, ANOVA)</em>, som nå er tatt ut av pensum i kurset. For å forstå dette kan vi sette opp et eksempel, med to forklaringsvariabler:
+<span class="math display">\[Y = \beta_0 + \beta_1X_1 + \beta_2X_2.\]</span>
+Etter å ha brukt miste kvadraters metode for å estimere de tre koeffisientene er vi kanskje interessert i å vurdere den statsistiske signifikansene til de to stigningstallene separat. Da tester vi de to nullhypotesene <span class="math inline">\(\beta_1 = 0\)</span> og <span class="math inline">\(\beta_2 = 0\)</span>, som vi i praksis gjør ved å se på hvor mange stjerner de får i regresjonsutskriften. Men sett at ingen av koeffisientene er signifikant forskjellige fra null, kan vi da slutte at vi ikke kan forkaste hypotesen <span class="math inline">\(\beta_1 = \beta_2 = 0\)</span>, dvs at <em>begge</em> koeffisientene er lik null, og at ingen av forklaringsvariablene forklarer variasjon i <span class="math inline">\(Y\)</span>? <strong>NEI</strong>, det kan vi ikke. Vi kan for eksempel lett tenke oss at vi på grunn av multikolinearitet ikke får separate forkastninger av de to nullhypotesene, men at ved å fjerne en variabel, så blir den andre signifikant.</p>
+<p>For å virkelig forstå dette problemet kan du godt lese starten på kapittel <strong>14.1</strong> samt kapittel <strong>14.2</strong> om multiple sammenligninger (som strengt tatt ikke er pensum), men essensen er altså:</p>
+<p><span class="math display">\[\textrm{Å forkaste H}_0: \beta_1 = 0 \textrm{ og H}_0: \beta_2 = 0 \textrm{ er ikke det samme som å forkaste H}_0: \beta_1 = \beta_2 = 0!\]</span></p>
+<p>For å gjennomføre den siste testen må vi sette opp en egen testobservator, som viser seg å være <span class="math inline">\(F\)</span>-fordelt. Læreboken lister opp noen detaljer i avsnitt <strong>17-2f</strong>, og essensen er at vi setter opp en brøk på formen
+<span class="math display">\[F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellenmed } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.\]</span>
+Dersom denne brøken viser seg å være stor (som definert av signifikansnivå og frihetsgrader, se lærebok), forkaster vi nullhypotesen om at begge koeffisientene begge kan være lik null. I en generell multippel regresjon med <span class="math inline">\(k\)</span> forklaringsvariable rapporterer R <code>F-statistic:</code> etc, med verdien av <span class="math inline">\(F\)</span>-observatoren i testen for
+<span class="math display">\[H_0: \beta_1 = \cdots = \beta_k = 0,\]</span>
+og dersom den oppgitte <span class="math inline">\(p\)</span>-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv er signifikant forskjellig fra null).</p>
+<p>Som en såkalt <em>fun fact</em> kan vi nevne at det er enkelt å teste for signifikansen til <em>grupper</em> av variable på denne måten, f.eks hvis det er noen variable som måler lignende ting (si <span class="math inline">\(X_2, X_4\)</span> og <span class="math inline">\(X_5\)</span>). I R kan du estimere to modeller, en modell som <em>inkluderer</em> variablene (f.eks. <code>reg_stor</code>) og en modell der du tar bort de aktuelle variablene (f.eks. <code>reg_liten</code>). Du kan da kjøre kommandoen <code>anova(reg_stor, reg_liten)</code> for å teste
+<span class="math display">\[H_0: \beta_2 = \beta_4 = \beta_5 = 0.\]</span></p>
+<blockquote>
+<p><strong>Kritikk av læreboken:</strong> Læreboken har en tabell på s. 701 som viser sammenhengen mellom ulike statistiske størrelser som vi kan regne ut for en regresjonsmodell. <span class="math inline">\(R^2\)</span> kjenner vi som forklaringsgraden, <span class="math inline">\(s_{\epsilon}\)</span> er standardavviket til residualene, <span class="math inline">\(F\)</span> er testobservatoren for modellgyldighet som vi definerte uformelt over, og som er definert formelt nederst på s. 700, mens SSE (Sum of Squares Error) henger nøye sammen med standardavviket, som vi også kan se på s. 700. På disse sidene ser vi mange ligninger som viser hvordan disse størrelsene formelt henger sammen, og i tabellen på s. 701 ser vi blant annet at dersom SSE er liten, er også <span class="math inline">\(s_{\epsilon}\)</span> liten, <span class="math inline">\(R^2\)</span> er nær null, og <span class="math inline">\(F\)</span>-observatoren er stor. Det er greit nok, <strong>men</strong> de har en ekstra kolonne som slår fast at regresjonsmodellen er <em>good</em>.</p>
+</blockquote>
+<blockquote>
+<p>Her menes det <strong>ikke</strong> at regresjonsmodellen er <em>god</em> i den forstand at vi skal reagere med glede eller lettelse (slik noen gjerne gjør), men at variasjonen i datamaterialet i stor grad lar seg forklare av modellen vår. I et tenkt eksempel der den sanne sammenhengen mellom <span class="math inline">\(Y\)</span> og <span class="math inline">\(X\)</span> er gitt ved <span class="math inline">\(Y = \beta_0 + \beta_1X + \epsilon\)</span>, men der <span class="math inline">\(\beta_1\)</span> er forholdsvis liten og <span class="math inline">\(s_{\epsilon}\)</span> er relativt stor, vil f.eks. <span class="math inline">\(R^2\)</span> bli <em>liten</em>, selv om den enkle lineære regresjonsmodellen repsesenterer sannheten og av alle tenkende mennesker må sies å være <em>god</em>.</p>
+</blockquote>
+<blockquote>
+<p>Det er desverre mange lærebøker som blander disse to fortolkningene, ikke gjør det!</p>
+</blockquote>
+<p>Her er enda noen grunnleggende begreper. Har du fått med deg dette?</p>
+<ul>
+<li>Hva mener vi med at en observasjon er innflytelsesrik?</li>
+<li>Hva er grunnen til at vi trenger <em>justert</em> <span class="math inline">\(R^2\)</span> med flere forklaringsvariable?</li>
+<li>Hva er forskjellen på <em>perfekt</em> og <em>tilnærmet</em> multikolinearitet i lineær regresjon? Hva blir konsekvensen i hvert av tilfellene?</li>
+<li>Kan du gi en praktisk og intuitiv forklaring på hvorfor multikolinearitet nødvendigvis må være et problem?</li>
+<li>Hva er forskjellen på statistisk og økonomisk signifikans? Kan du sette opp konkrete eksempler der vi kan estimere statistisk signifikante, men ikke økonomisk signifikante effekter i multippel regresjon? Hva med den motsatte situasjonen, økonomisk signifikant, men ikke statistisk signifikant?</li>
+</ul>
+<p>Grunnleggende ferdigheter: Klarer du dette?</p>
+<ul>
+<li>Bruke R til å tilpasse en multippel regresjonsmodell for et datasett?</li>
+<li>Bruke R til å finne særlig innflytelsesrike observasjoner?</li>
+<li>Tolke en multippel regresjonsutskrift?</li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="kjikvadrattester.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="enkel-regresjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="enkel-regresjon.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="modellbygging.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
