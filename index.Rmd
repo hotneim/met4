@@ -5,6 +5,8 @@ site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
     split_by: "section"
+    includes:
+      in_header: google_analytics.html
     config:
       toc:
         collapse: "section"

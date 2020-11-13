@@ -53,6 +53,15 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HQFE74907Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HQFE74907Y');
+</script>
 
 
 <style type="text/css">
@@ -360,7 +369,7 @@ Publisert ved hjelp av bookdown</a></li>
 <p>I <code>dplyr</code>-pakken finnes en såkalt pipe-operator som gjør at vi kan skrive dette som kode i den rekkefølgen ting skal skje. Eksempelet over skrives slik:</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="dataøving-2.html#cb97-1"></a><span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span>sqrt <span class="op">%&gt;%</span><span class="st"> </span>log</span></code></pre></div>
 <pre><code>## [1] 0.3465736</code></pre>
-<p>Det som skjer er at R leser linjen fra venstre, og ved hver “pipe/<code>%&gt;%</code>” sendes det som står på venstre side inn som argument i funsksjonen på høyre side. Når du leser kode, kan denne operatoren uttales som <strong>så</strong> (<strong>then</strong> på engelsk): <strong>Først</strong> har vi tallet 2, <strong>så</strong> tar vi kvadratroten, <strong>så</strong> tar vi logaritmen.</p>
+<p>Det som skjer er at R leser linjen fra venstre, og ved hver “pipe/<code>%&gt;%</code>” sendes det som står på venstre side inn som argument i funksjonen på høyre side. Når du leser kode, kan denne operatoren uttales som <strong>så</strong> (<strong>then</strong> på engelsk): <strong>Først</strong> har vi tallet 2, <strong>så</strong> tar vi kvadratroten, <strong>så</strong> tar vi logaritmen.</p>
 <p>Tenk når vi har en sekvens av 10 eller 20 eller 50 steg (ikke uvanlig i den virkelige verden), hvor mye enklere det blir å kode på denne måten fremfor å ha 10, 20 eller 50 nivå med paranteser!</p>
 <p><strong>Tips:</strong> Hurtigtasten for <code>%&gt;%</code> i RStudio er <code>Ctrl - Shift - M</code> (Bytt ut <strong>Ctrl</strong> med <strong>Cmd</strong> på Mac).</p>
 </div>
