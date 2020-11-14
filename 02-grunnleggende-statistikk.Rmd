@@ -197,6 +197,7 @@ Dette er ganske enkelt, men også litt vanskelig på en *inception*-aktig måte.
 
 Ting fra boken, eventuelt litt bearbeidet. Skal vi også lage til løsning her?
 
+
 #### Oppgaver på (ca) eksamensnivå {-}
 
 - (**EKS**) = Først og fremst relevant for skoleeksamen.
@@ -206,3 +207,4 @@ Ting fra boken, eventuelt litt bearbeidet. Skal vi også lage til løsning her?
 - Noen av datasettene fra hjemmeeksamen; mange av førsteoppgavene har vært av typen "Beskriv relevante deler av datasettet". 
 - Stargazer for summarytabeller.
 - Summarise fra dplyr?
+- Datasaurus; lage deskriptiv statistikk, så plotte?
