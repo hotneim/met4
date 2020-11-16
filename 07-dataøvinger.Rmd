@@ -833,3 +833,195 @@ Har du tilgang til 'Word' kan du velge 'MS word', hvis ikke velger du formatet H
 
 **Oppgave 3.2 (litt mer krevende):** Man kan også lage rapporter ved å bruke et tekstformat kalt R Markdown. Dette er nok litt mer utfordrende enn tilnærmingen i oppgaven over, men vil gi svært pene raporter/dokumenter. Ønsker du å utforske denne muligheten så ta en titt på [denne videoguiden](https://www.youtube.com/watch?v=tKUufzpoHDE).
 
+## Dataøving 4
+
+### Oppgave 1: Interaktiv øvelse
+Før vi tar fatt på dataanalysens begynner vi som vanlig med litt R-trening i swirl.  Har du allerede installert pakken swirl (skriv `install.packages("swirl")` i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:
+
+```{r, eval = F}
+library(swirl)
+swirl()
+```
+
+Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du først velge alternativet 'R Programming'. Merk at du kanskje må trykke alternativet **'No. Let me start something new'** for å komme tilbake til hovedmenyen etter å ha brukt swirl tidligere. Du får så se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul 9 **'Functions'**. I denne modulen vil du lære litt om funksjoner i R.
+
+Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive `skip()` for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta 'credit' for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du `bye()`. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (`esc`) før du begynner på del to av øvingen. Lykke til!
+
+### Oppgave 2 - Maskinlæring: Logistisk regresjon og k nærmeste naboer
+
+I denne oppgaven skal vi se på de samme dataene som ble brukt i forelesningen om logistisk regresjon. Vi har data på 10000 kredittkortkunder og vi ønsker å kunne bygge og trene en best mulig modell til å predikere hvilke kunder som vil misligholde sin gjeld. 
+
+**Oppgave 2.1:** Vi starter med å få tak i dataene. Disse er integrert i pakken `ISLR`. Last inn pakken og ta en titt på dataene ved bruk av følgende linjer (hvordan du kommenterer er opp til deg):
+
+```{r,  echo=T, results='hide', warning = F}
+library(ISLR)       # Pakke som inneholder dataene     
+head(Default)       # Viser starten på dataframen
+str(Default)        # Viser hvilke typer variabler dataframen inneholder
+```
+ 
+* Responsvariabelen er
+    + \texttt{default}: Dette er en kategorisk variabel. Misligholdt kunden gjelden?
+* Forklaringsvariabler:
+    + \texttt{student}: Kategorisk
+    + \texttt{balance}: Kontinuerlig, størrelsen på gjelden ($)
+    + \texttt{income}: Kontinuerlig, kundens årlige inntekt ($)
+
+**Oppgave 2.2:** Det neste vi gjør er å visuelt undersøke avhengigheten mellom det å misligholde (`default`) og hvor stor gjeld (`balance`) kunden har . Vanligvis når vi visuelt skal inspisere sammenhengen mellom to variabler lager vi et spredningsplott. Men når den ene variabelen er kategorisk er det mer informativt å sammenligne to boksplott av den kontinuerlige variabelen for hver av gruppene den kategoriske variabelen representer. Dette kan gjøres på følgende måte:
+
+```{r, eval = FALSE}
+boxplot(balance ~ default, data = Default,
+        ylab = "balance", xlab = "default")
+```
+Her er det formelen `balance ~ default` som gjør at `boxplot()` funksjonen lager to boksplott av `balance`; et for gruppen som misligholdt ("Yes") og et for gruppen som ikke misligholdt ("No"). Reflekter over figuren og gjør deg opp en mening om sammenhengen mellom `default` og `balance`.
+
+**Oppgave 2.3:** Det er lurt å dele inn dataene i et treningssett og et testsett når vi driver med maskinlæring. Treningsettet bruker vi til å tilpasse (trene/lære) modellen, mens testsettet bruker vi til å se hvor godt forskjellige modeller presterer. Dette kan gjøres på flere måter, men vi velger her å bruke pakken `dplyr` som ble beskrevet i siste del av datalabb 2. 
+
+Først legger vi til en unik id til hver kunde. Vi lar id-nummeret være lik radnummeret til kunden og til dette bruker vi funksjonen `mutate`: 
+
+```{r, echo=T, results='hide', warning = F, message = F}
+library(dplyr)
+my_data <- Default %>%
+  mutate(id = row_number()) 
+```
+Siden vi nå skal trekke et utvalg av dataene våre kan det være lurt å sikre at resultatet er reprodusibelt ved å sette 
+```{r, echo=T, results='hide'}
+set.seed(123) 
+```
+foran koden som følger. Du kan gjerne velge et annet tall enn 123, men når en gjør dette i forkant av en tilfeldig trekning i R er trekningen bestemt.
+
+Så trekker vi et treningssett bestående av 70 % av dataene ved bruk av funksjonen `sample_frac`:
+```{r, echo=T, results='hide'}
+train <- my_data %>%  
+  sample_frac(.70)
+```
+De resterende kundene bruker vi som testsett ved bruk av funksjonen `anti_join`: 
+```{r, echo=T, results='hide'}
+test <- my_data %>%         # Treningssettet er da de resterende 30 % av dataene
+  anti_join(train, by = 'id')
+```
+Koden over trekker ut alle kunder som ikke har lik `id` som i treningssettet som derfor svarer til de resterende 30 % av dataene.
+
+**Oppgave 2.4:** Vi forklarer i denne oppgaven hvordan en logistisk regresjonsmodell kan estimeres, tolkes og brukes. Du vil måtte lage nye modeller med tilsvarende koder i oppgavene som følger.
+
+Vi lager en modell hvor vi bruker variabelen `balance` (gjeld) som forklaringsvariabel.  Vi bruker da funksjonen `glm`:
+```{r, echo=T, results='hide'}
+model1 <- glm(default ~ balance, data = train,
+              family = "binomial")
+```
+Syntaksen til `glm`-funksjonen er veldig lik den vi bruker i regresjon (`lm`-funksjonen) bortsett fra at vi på spesifisere argumentet `family = "binomial"` for at å fortelle `R` at vi ønsker å gjøre en logistisk regresjon. Merk at vi bruker treningssettet til å estimere (trene) modellen ved å spesifisere argumentet `data = train`. 
+
+Det kan være lurt å se om forklaringsvariabelen `balance` har en signifikant effekt på `default` ved å bruke `summary` funksjonen:
+```{r, eval = F}
+summary(model1)
+```
+
+For å tolke hvilken effekt `balance` (gjeld) har på `default` (mislighold) er det lurt å regne ut hva effekt en økning på 1 $ i  `balance` har på oddsen for `default` (Se forelesning): 
+```{r}
+exp(coef(model1))
+```
+Vi ser at oddsen for `default` øker med en faktor `r round(exp(coef(model1))[2], 4)` (en `r round((exp((coef(model1))[2]) - 1)*100, 2)` % økning) dersom `balance` øker med 1 $.
+
+Si at du ønsker å predikere sannsynligheten for hvorvidt to kunder med henholdsvis 1000 \$ og 2000 \$ i `balance`  vil misligholde sitt lån. Da kan vi bruke `predict`^[Funksjonen `predict`  er satt opp med litt forskjellige argumenter alt ettersom hvilken type modell vi bruker. Du kan lese dokumentasjonen `?predict.glm` for å se hvordan den er satt opp for `glm` objekter] på følgende måte:
+
+```{r}
+to_personer <- data.frame(balance = c(1000, 2000))
+pred <- predict(model1, newdata = to_personer, type = "response")
+pred
+```
+Det første argumentet i funksjonen `predict` er hvilken modell vi skal bruke i prediksjonen (`model1`). Det andre argumentet `newdata` er hvilke kunder vi ønsker å predikere misligholdsannsynligheter for. Vi setter dette argumentet til `data.frame`'n vi har kalt `to_personer` hvor hver rad svarer til en kunde med et sett forklaringsvariabler (i dette tilfellet to kunder og derfor to rader). Det er viktig at den inneholder en (eller flere) kolonne(r) med kolonnenavn som svarer til navnet til forklaringsvariabelen(e) vi har brukt i modellen.  Argumentet `type = "response"` gjør at vi får returnert sannsynligheten for mislighold og ikke bare verdien av det lineære leddet i modellen. 
+
+Hvis vi ut fra disse sannsynlighetene ønsker en klassifiseringsregel som klassifiserer om kunden vil misliholde eller ikke ("Yes/No") er det naturlig å tildele kunden "Yes" hvis misligholdsannsynligheten overstiger en hvis grense og "No" hvis ikke. Det kan det tenkes at kredittgiver vil være enten konservativ (sette grensen lavt, si 0.3) eller liberal (sette grensen høyt, si 0.7), men i eksempelet under bruker vi en "nøytral" grense på 0.5:
+
+```{r}
+ifelse(pred > 0.5, "Yes", "No")
+```
+Som navnet tilsier, vurderer `ifelse` funksjonen en logisk test i første argumentet (`pred > 0.5` hvor `pred` er misligholdsannsynlighetene vi predikerte) og hvis testen har verdi `TRUE` gir den ut det du skriver i det andre argumentet (`"Yes"`), og det tredje argumentet (`"No"`) ellers. Vi ser at individet med 1000 \$ i gjeld blir klassifisert som "`r ifelse(pred > 0.5, "Yes", "No")[1]`", mens individet med 2000 \$ i gjeld blir klassifisert som "`r ifelse(pred > 0.5, "Yes", "No")[2]`".    
+
+**Oppgave 2.4:** Lag en ny modell ved navn `model2` hvor du bruker den kategoriske variabelen `student` som forklaringsvariabel.
+
+* Hvilken effekt har det å være student på for oddsen for mislighold? 
+* Prediker sannsynligheten for at en student og en ikke-student misligholder gjelden sin.
+
+**Oppgave 2.5:** Lag en tredje model ved navn `model3` hvor du bruker alle forklaringsvariablene. 
+
+* Hvilken effekt har det å være student på for oddsen for mislighold nå? Sammenlign med forrige oppgave.
+* Undersøk visuelt om det er en sammenheng mellom `student` og `balance` med å lage et boxplot over `balance` for studenter og et for ikke-studenter (hint: se Oppgave 2.2). 
+* Prediker sannsynligheten for mislighold for en ikke-student og en student med lik `balance` og `income` på henholdsvis 1500 $ og 10000 $. Sammenlign med prediksjonen du gjorde i Oppgav 2.4. Basert på `model2` og `model3`, hvordan skal kredittgiver forholde seg til en student versus en ikke-student dersom a) Ingen informasjon om `balance` eller `income` er oppgitt og b) dersom en vet `balance` og `income`?  
+
+**Oppgave 2.6:** I denne oppgaven skal vi trene opp en knn (k-nærmeste-naboer) modell til å gjøre en tilsvarende klassifisering som den logistiske regresjonsmodellen gjorde over. Funksjonen `train` som vi trenger er inneholdt i pakken `caret` (som må installeres ved hjelp av `install.packages("caret")`). Vi velger å tilpasse en modell hvor antall naboer "k" velges automatisk med kryssvalidering vi argumentet "`trControl":  
+
+
+```{r, message = F, warning = F}
+library(caret)
+
+# R-kode dersom vi vil velge k automatisk
+set.seed(200)
+trControl <- trainControl(method  = "cv", # 5-fold kryssvalidering
+                          number  = 5)
+
+# Tilpasser modellen
+model4 <- train(default ~ balance + income + student,
+                 data = train,
+                 method = "knn",
+                 trControl  = trControl,
+                 metric     = "Accuracy")
+
+```
+
+Vi kan sjekke hvilken k som ble valgt på følgende måte (siden kryssvalidering bruker tilfeldige trekninger kan resultatet bli noe foreskjellig fra gang til gang, selv om datasettet er det samme):
+
+```{r}
+# Hvilken k valgte kryssvalideringen?
+k <- model4$finalModel$k
+k
+
+```
+Som for de andre modellene bruker vi funksjonen `predict` når vi skal predikere og syntaksen er helt lik:
+```{r}
+to_kunder <- data.frame(balance = c(1000, 2000), income = 10000, student = c("Yes", "Yes"))
+predict(model4, newdata = to_kunder)
+```
+Merk at i motsetning til de logistiske regresjonsmodellene som predikerte sannsynligheter klassifiserer knn modellen kundene direkte som "Yes"/"No". 
+
+**Oppgave 2.7:** Vi ønsker å vurdere hvilken av `model3` (logistisk regresjon) og `model4` (knn) som er best. Vi kan da sjekke hvor godt de klarer å klassifisere testsettet vårt hvor vi vet hvem som har misligholdt lånene sine. Vi starter med å hente ut de sanne verdiene av `default` i treningssettet: 
+
+```{r}
+sann <- test$default  # Den sanne verdien av default i testdataene
+```
+Disse skal vi så sammenligne med hvordan modellene klassifiserer de samme kundene basert på de andre variablene. Vi gjør først klassifiseringen med den logistiske regresjonsmodellen:
+
+```{r, include = F}
+model3 <- glm(default ~ balance + income + student, family = "binomial", data = train)
+```
+
+```{r}
+pred_logreg <- predict(model3, newdata = test, type = "response") # Predikert sannsynlighet
+klass_logreg <- ifelse(pred_logreg > 0.5, "Yes", "No")            # Klassifisering av kundene
+
+```
+En oversikt over hvor mange riktige/feil klassifiseringer modellen gjør kan lett oppsummeres med en kontigenstabell. For å lage en kontigenstabell i R bruker vi funksjonen `table`:
+
+```{r}
+logreg_tab <- table(sann, klass_logreg) # Kontigenstabell
+logreg_tab
+```
+Her kan vi f.eks se at `r logreg_tab[1,1]` kunder blir riktig klassifisert som "No", dvs at de ikke misligholdt lånet og modellen spår at de ikke vil misligholde lånet. Merk at diagonalen (`r logreg_tab[1,1]` og `r logreg_tab[2,2]`) representerer korrekte klassifiseringer, mens av-diagonal (`r logreg_tab[1,2]` og `r logreg_tab[2,1]`) representer feil klassifiseringer. 
+
+Det kan være en fordel å dele kontigenstabellen over med totalt antall kunder for å få andelel i stedet. Funksjonen `prop.table` gjør nettopp dette:
+
+```{r}
+logreg_tab_norm <- logreg_tab %>% 
+  prop.table %>%  # normaliser
+  round(3)        # rund av til 3 desimaler
+logreg_tab_norm
+```
+
+Summen av diagonalen på denne tabellen (`r logreg_tab_norm[1, 1]` og `r logreg_tab_norm[2, 2]`) gir da totalt andel korrekt klassifiseringer:
+
+```{r}
+logreg_tot <- sum(diag(logreg_tab_norm))               # Total andel korrekt klassfisering
+logreg_tot
+
+```
+
+**Oppgave 2.8:** Gjør en tilsvarende klassifisering av kundene i testsettet med knn modellen `model4` og sammenlign med resultatet over. Hvilken modell foretrekker du? Hvilke egenskaper ved klassifisering tror du kredittgiver vektlegger?
