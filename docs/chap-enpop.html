@@ -32,7 +32,6 @@
   
 <link rel="prev" href="generelt-om-hypotesetesting.html"/>
 <link rel="next" href="inferens-om-to-populasjoner.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,9 +49,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9FF1F0J0XQ"></script>
 <script>
@@ -65,26 +61,25 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -93,9 +88,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -146,8 +141,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
-<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
-<ul>
+<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a><ul>
 <li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
 <li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
@@ -159,34 +153,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
 <li class="chapter" data-level="1.10" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.10</b> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
-<ul>
+<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a><ul>
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
 <li class="chapter" data-level="2.3" data-path="spørsmål-og-oppgaver.html"><a href="spørsmål-og-oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Spørsmål og oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
-<ul>
+<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a><ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
 <li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
-<ul>
+<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a><ul>
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
-<ul>
+<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a><ul>
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a></li>
-<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
-<ul>
+<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a><ul>
+<li class="chapter" data-level="6.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>6.1</b> Introduksjon til tidsrekker</a></li>
+<li class="chapter" data-level="6.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>6.2</b> Trend og sesong</a></li>
+<li class="chapter" data-level="6.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>6.3</b> AR(p)</a></li>
+<li class="chapter" data-level="6.4" data-path="stasjonaritet.html"><a href="stasjonaritet.html"><i class="fa fa-check"></i><b>6.4</b> Stasjonaritet</a></li>
+<li class="chapter" data-level="6.5" data-path="autokorrelasjon.html"><a href="autokorrelasjon.html"><i class="fa fa-check"></i><b>6.5</b> Autokorrelasjon</a></li>
+<li class="chapter" data-level="6.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>6.6</b> MA(q)</a></li>
+<li class="chapter" data-level="6.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>6.7</b> ARMA og ARIMA</a></li>
+<li class="chapter" data-level="6.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>6.8</b> Modellbygging</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a><ul>
 <li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
 <li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
 <li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
@@ -214,16 +212,16 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap:enpop" class="section level2" number="3.2">
+<div id="chap:enpop" class="section level2">
 <h2><span class="header-section-number">3.2</span> Inferens om en populasjon</h2>
-<div id="videoforelesninger-3" class="section level3" number="3.2.1">
+<div id="videoforelesninger-3" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Videoforelesninger</h3>
 <div style="padding:74.93% 0 0 0;position:relative;">
 <iframe src="https://vimeo.com/showcase/7780035/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
 </div>
 </div>
-<div id="kommentarer-3" class="section level3" number="3.2.2">
+<div id="kommentarer-3" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Kommentarer</h3>
 <p>Dette er i hovedsak dekket av kapittel <strong>12</strong> i læreboken. Sjekk om du kan svare på følgende kontrollspørsmål:</p>
 <ul>
@@ -233,8 +231,8 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Det kan også være greit å repetere konfidensintervaller i seksjon <strong>11-2k</strong> for de som har glemt det fra MET2.</p>
 <p>I Seksjon <strong>11-2g</strong> går boken gjennom en ett-utvalgs t-test i bokens Excel-plugin. La oss gjøre det samme i R. På kursets nettside finner du alle datasettene som følger med læreboken. I dette eksempelet er det snakk om <code>Xm11-01.xlsx</code>. Finn tak i denne filen (du kan også godt åpne den og se på den i Excel!), legg den i en mappe som du kan finne igjen, og åpne et nytt script i R-studio der du først sørger for å sette working directory til denne mappen slik vi gjorde i R-forelesningen.</p>
 <p>Etterpå leser du inn datasettet ved å bruke <code>read_xslx()</code>-funksjonen som under:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chap-enpop.html#cb19-1"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb19-2"><a href="chap-enpop.html#cb19-2"></a>data &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm11-01.xlsx&quot;</span>)     <span class="co"># Vi bruker read_xslx() fordi det er en .xlsx-fil</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm11-01.xlsx&quot;</span>)     <span class="co"># Vi bruker read_xslx() fordi det er en .xlsx-fil</span></a></code></pre></div>
 <p>Konteksten til datasettet er gitt i eksempel 11.1. Det er altså balansen på 400 tilfeldig utvalgte kredittkontoer i en butikk, og en lurer på om forventet balanse er større enn 170. Vi setter opp følgende test:</p>
 <p><span class="math display">\[\begin{align*}
 &amp;H_0: \mu = 170 \\
@@ -242,16 +240,16 @@ Publisert ved hjelp av bookdown</a></li>
 \end{align*}\]</span>
 der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 <p>For å regne ut testobservatoren for å enutvalgs <span class="math inline">\(z\)</span>-test trenger vi fire tall: <span class="math inline">\(\overline X\)</span>, <span class="math inline">\(\mu_0\)</span>, <span class="math inline">\(n\)</span> og <span class="math inline">\(\sigma\)</span>. Legger merke til at <code>data</code> har en kolonne som heter <code>Accounts</code>, og vi bruker dollartegnet til å hente den ut som en vektor. Regner ut observatoren:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="chap-enpop.html#cb20-1"></a>gj.snitt &lt;-<span class="st"> </span><span class="kw">mean</span>(data<span class="op">$</span>Accounts)     <span class="co"># Gjennomsnittet av observasjonene</span></span>
-<span id="cb20-2"><a href="chap-enpop.html#cb20-2"></a>mu0      &lt;-<span class="st"> </span><span class="dv">170</span>                     <span class="co"># Henter fra teksten</span></span>
-<span id="cb20-3"><a href="chap-enpop.html#cb20-3"></a>n        &lt;-<span class="st"> </span><span class="kw">length</span>(data<span class="op">$</span>Accounts)   <span class="co"># Antall observasjoner</span></span>
-<span id="cb20-4"><a href="chap-enpop.html#cb20-4"></a>sigma    &lt;-<span class="st"> </span><span class="dv">65</span>                      <span class="co"># Henter fra teksten</span></span>
-<span id="cb20-5"><a href="chap-enpop.html#cb20-5"></a></span>
-<span id="cb20-6"><a href="chap-enpop.html#cb20-6"></a>Z &lt;-<span class="st"> </span>(gj.snitt <span class="op">-</span><span class="st"> </span>mu0)<span class="op">/</span>(sigma<span class="op">/</span><span class="kw">sqrt</span>(n))   <span class="co"># Verdien av testobservatoren</span></span>
-<span id="cb20-7"><a href="chap-enpop.html#cb20-7"></a>Z                                       <span class="co"># Skriver ut testobservatoren</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">gj.snitt &lt;-<span class="st"> </span><span class="kw">mean</span>(data<span class="op">$</span>Accounts)     <span class="co"># Gjennomsnittet av observasjonene</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">mu0      &lt;-<span class="st"> </span><span class="dv">170</span>                     <span class="co"># Henter fra teksten</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">n        &lt;-<span class="st"> </span><span class="kw">length</span>(data<span class="op">$</span>Accounts)   <span class="co"># Antall observasjoner</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">sigma    &lt;-<span class="st"> </span><span class="dv">65</span>                      <span class="co"># Henter fra teksten</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">Z &lt;-<span class="st"> </span>(gj.snitt <span class="op">-</span><span class="st"> </span>mu0)<span class="op">/</span>(sigma<span class="op">/</span><span class="kw">sqrt</span>(n))   <span class="co"># Verdien av testobservatoren</span></a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">Z                                       <span class="co"># Skriver ut testobservatoren</span></a></code></pre></div>
 <pre><code>## [1] 2.460462</code></pre>
 <p>Vi ser at testobservatoren har samme verdi som i Excel-gjennomgangen. Kritisk verdi finner vi fra tabell (ensidig, 5%), eller rett fra R:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="chap-enpop.html#cb22-1"></a><span class="kw">qnorm</span>(<span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">qnorm</span>(<span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>## [1] 1.644854</code></pre>
 <p>Uansett; vi forkaster <span class="math inline">\(H_0\)</span> siden testobservatoren er større enn kritisk verdi.</p>
 <p>Kapittel <strong>11-3a-d</strong> gir enda mer forståelse for hypotesetesting. Hopp over e og f om du vil. Kapittel 11-4 snakker litt om hvordan vi skal bruke hypotesetesting videre.</p>
@@ -261,22 +259,22 @@ der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 &amp;H_0: \mu = 2.0 \\
 &amp;H_A: \mu &gt; 2.0,
 \end{align*}\]</span></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="chap-enpop.html#cb24-1"></a>data &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm12-01.xlsx&quot;</span>)</span>
-<span id="cb24-2"><a href="chap-enpop.html#cb24-2"></a></span>
-<span id="cb24-3"><a href="chap-enpop.html#cb24-3"></a><span class="co"># Manuell utregning</span></span>
-<span id="cb24-4"><a href="chap-enpop.html#cb24-4"></a>gj.snitt &lt;-<span class="st"> </span><span class="kw">mean</span>(data<span class="op">$</span>Newspaper)</span>
-<span id="cb24-5"><a href="chap-enpop.html#cb24-5"></a>mu0      &lt;-<span class="st"> </span><span class="fl">2.0</span></span>
-<span id="cb24-6"><a href="chap-enpop.html#cb24-6"></a>n        &lt;-<span class="st"> </span><span class="kw">length</span>(data<span class="op">$</span>Newspaper)</span>
-<span id="cb24-7"><a href="chap-enpop.html#cb24-7"></a>s        &lt;-<span class="st"> </span><span class="kw">sd</span>(data<span class="op">$</span>Newspaper)</span>
-<span id="cb24-8"><a href="chap-enpop.html#cb24-8"></a></span>
-<span id="cb24-9"><a href="chap-enpop.html#cb24-9"></a><span class="co"># Testobservator:</span></span>
-<span id="cb24-10"><a href="chap-enpop.html#cb24-10"></a>(gj.snitt <span class="op">-</span><span class="st"> </span>mu0)<span class="op">/</span>(s<span class="op">/</span><span class="kw">sqrt</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm12-01.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="co"># Manuell utregning</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">gj.snitt &lt;-<span class="st"> </span><span class="kw">mean</span>(data<span class="op">$</span>Newspaper)</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">mu0      &lt;-<span class="st"> </span><span class="fl">2.0</span></a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">n        &lt;-<span class="st"> </span><span class="kw">length</span>(data<span class="op">$</span>Newspaper)</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">s        &lt;-<span class="st"> </span><span class="kw">sd</span>(data<span class="op">$</span>Newspaper)</a>
+<a class="sourceLine" id="cb24-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb24-9" data-line-number="9"><span class="co"># Testobservator:</span></a>
+<a class="sourceLine" id="cb24-10" data-line-number="10">(gj.snitt <span class="op">-</span><span class="st"> </span>mu0)<span class="op">/</span>(s<span class="op">/</span><span class="kw">sqrt</span>(n))</a></code></pre></div>
 <pre><code>## [1] 2.236869</code></pre>
 <p>Signifikansnivået er satt til <span class="math inline">\(\alpha = 1\%\)</span> i eksempelet. Kritisk verdi finner vi i <span class="math inline">\(t\)</span>-tabell eller rett fra R:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="chap-enpop.html#cb26-1"></a><span class="kw">qt</span>(<span class="fl">0.99</span>, <span class="dt">df =</span> n<span class="dv">-1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">qt</span>(<span class="fl">0.99</span>, <span class="dt">df =</span> n<span class="dv">-1</span>)</a></code></pre></div>
 <pre><code>## [1] 2.351983</code></pre>
 <p>Altså forkaster vi <strong>ikke</strong> nullhypotesen. Sjekk gjerne verdiene vi regnet ut over og se at de stemmer overens med det som står i boken. Alternativt bruker vi <code>t.test()</code>-funksjonen direkte:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="chap-enpop.html#cb28-1"></a><span class="kw">t.test</span>(data<span class="op">$</span>Newspaper, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="dt">mu =</span> <span class="fl">2.0</span>, <span class="dt">conf.level =</span> <span class="fl">0.99</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">t.test</span>(data<span class="op">$</span>Newspaper, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="dt">mu =</span> <span class="fl">2.0</span>, <span class="dt">conf.level =</span> <span class="fl">0.99</span>)</a></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -296,13 +294,13 @@ der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 \end{align*}\]</span></p>
 <p>Testobservator:</p>
 <p><span class="math display">\[\chi^2 = \frac{(n-1)s^2}{\sigma_0^2}.\]</span></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="chap-enpop.html#cb30-1"></a>data &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm12-03.xlsx&quot;</span>)</span>
-<span id="cb30-2"><a href="chap-enpop.html#cb30-2"></a></span>
-<span id="cb30-3"><a href="chap-enpop.html#cb30-3"></a><span class="co"># Regner ut testobservatoren direkte denne gangen, uten å lagre tallene underveis:</span></span>
-<span id="cb30-4"><a href="chap-enpop.html#cb30-4"></a>(<span class="kw">length</span>(data<span class="op">$</span>Fills) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">*</span><span class="kw">var</span>(data<span class="op">$</span>Fills)<span class="op">/</span><span class="dv">1</span></span>
-<span id="cb30-5"><a href="chap-enpop.html#cb30-5"></a></span>
-<span id="cb30-6"><a href="chap-enpop.html#cb30-6"></a><span class="co"># Kritisk verdi, 5% nivå, ensidig test, nedre hale:</span></span>
-<span id="cb30-7"><a href="chap-enpop.html#cb30-7"></a><span class="kw">qchisq</span>(<span class="fl">0.05</span>, <span class="dt">df =</span> <span class="kw">length</span>(data<span class="op">$</span>Fills) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)     </span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm12-03.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="co"># Regner ut testobservatoren direkte denne gangen, uten å lagre tallene underveis:</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">(<span class="kw">length</span>(data<span class="op">$</span>Fills) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)<span class="op">*</span><span class="kw">var</span>(data<span class="op">$</span>Fills)<span class="op">/</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb30-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb30-6" data-line-number="6"><span class="co"># Kritisk verdi, 5% nivå, ensidig test, nedre hale:</span></a>
+<a class="sourceLine" id="cb30-7" data-line-number="7"><span class="kw">qchisq</span>(<span class="fl">0.05</span>, <span class="dt">df =</span> <span class="kw">length</span>(data<span class="op">$</span>Fills) <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)     </a></code></pre></div>
 <pre><code>## [1] 15.2</code></pre>
 <pre><code>## [1] 13.84843</code></pre>
 <p>Vi kan altså ikke forkaste nullhypotesen. Igjen, les eksempelet i sin fulle lengde i boken for å forstå bedre hva som skjer. Figur 12.4 viser på en fin måte hva tallene betyr.</p>
@@ -313,11 +311,11 @@ der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 \end{align*}\]</span></p>
 <p>Vi har en observert andel på <span class="math inline">\(\widehat p = 407/765 = 0.532\)</span> etter å ha spurt <span class="math inline">\(n = 765\)</span> personer. Testobservatoren er
 <span class="math display">\[Z = \frac{\widehat p - p}{\sqrt{p(1-p)/n}}.\]</span></p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chap-enpop.html#cb33-1"></a>p.hatt &lt;-<span class="st"> </span><span class="dv">407</span><span class="op">/</span><span class="dv">765</span></span>
-<span id="cb33-2"><a href="chap-enpop.html#cb33-2"></a>p0     &lt;-<span class="st"> </span><span class="fl">0.5</span></span>
-<span id="cb33-3"><a href="chap-enpop.html#cb33-3"></a>n      &lt;-<span class="st"> </span><span class="dv">765</span></span>
-<span id="cb33-4"><a href="chap-enpop.html#cb33-4"></a></span>
-<span id="cb33-5"><a href="chap-enpop.html#cb33-5"></a>(p.hatt <span class="op">-</span><span class="st"> </span>p0)<span class="op">/</span><span class="kw">sqrt</span>(p0<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p0)<span class="op">/</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">p.hatt &lt;-<span class="st"> </span><span class="dv">407</span><span class="op">/</span><span class="dv">765</span></a>
+<a class="sourceLine" id="cb33-2" data-line-number="2">p0     &lt;-<span class="st"> </span><span class="fl">0.5</span></a>
+<a class="sourceLine" id="cb33-3" data-line-number="3">n      &lt;-<span class="st"> </span><span class="dv">765</span></a>
+<a class="sourceLine" id="cb33-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb33-5" data-line-number="5">(p.hatt <span class="op">-</span><span class="st"> </span>p0)<span class="op">/</span><span class="kw">sqrt</span>(p0<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p0)<span class="op">/</span>n)</a></code></pre></div>
 <pre><code>## [1] 1.771599</code></pre>
 <p>Kritisk verdi for en ensidig z-test på 5% nivå er 1.645 (<code>qnorm(0.95)</code>), og vi kan forkaste nullhypotesen.</p>
 <p>Seksjonene <strong>12-3d-f</strong> bør leses på egen hånd, mens vi hopper over <strong>12-3g</strong>.</p>
