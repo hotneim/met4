@@ -1,4 +1,5 @@
 fig:to-histogrammer
+fig:churn
 fig:rstudio1
 fig:rstudiorun
 fig:dokumentasjon
@@ -46,6 +47,15 @@ modellbygging
 videoforelesninger-8
 kommentarer-8
 avansert-regresjon-og-maskinlæring
+logistisk-regresjon
+videoforelesninger-9
+kommentarerer
+introduksjon-til-maskinlæring-med-knn
+videoforelesninger-10
+kommentarer-9
+paneldata
+videoforelesninger-11
+kommentarer-10
 tidsrekker
 dataøvinger
 dataøving-1
