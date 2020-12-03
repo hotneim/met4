@@ -32,7 +32,7 @@
   
 <link rel="prev" href="stasjonaritet.html"/>
 <link rel="next" href="ma.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -230,23 +228,23 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="r-øving-3" class="section level3" number="6.5.2">
 <h3><span class="header-section-number">6.5.2</span> R-øving</h3>
 <p><strong>1. Utregning av ACF</strong> I R bruker vi funsksjonen <code>acf()</code> til å lage autokorrelasjonsplott. La oss i første omgang gjenskape noen av figurene fra videoen ved hjelp av simuleringer. For eksempel kan vi laget til to tidsrekker som på forrige oppgavesett, en hvit støy og en AR(1):</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="autokorrelasjon.html#cb75-1"></a>n &lt;-<span class="st"> </span><span class="dv">50</span></span>
-<span id="cb75-2"><a href="autokorrelasjon.html#cb75-2"></a>hvit_støy &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)</span>
-<span id="cb75-3"><a href="autokorrelasjon.html#cb75-3"></a>ar1 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ar =</span> <span class="fl">0.95</span>), n)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="autokorrelasjon.html#cb76-1"></a>n &lt;-<span class="st"> </span><span class="dv">50</span></span>
+<span id="cb76-2"><a href="autokorrelasjon.html#cb76-2"></a>hvit_støy &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)</span>
+<span id="cb76-3"><a href="autokorrelasjon.html#cb76-3"></a>ar1 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ar =</span> <span class="fl">0.95</span>), n)</span></code></pre></div>
 <p>Autokorrelasjonsplottene til disse to tidsrekkene kan vi få frem ved å anvende <code>acf()</code>-funksjonen på dem:</p>
 <!-- ```{r fig.subcap=c('Autokorrelasjonsplott til en simulert hvit støy prosess', 'Autokorrelasjonsplott til en simulert AR(1)-prosess'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2} -->
 <!-- acf(hvit_støy) -->
 <!-- acf(ar1) -->
 <!-- ``` -->
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="autokorrelasjon.html#cb76-1"></a><span class="kw">acf</span>(hvit_støy)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="autokorrelasjon.html#cb77-1"></a><span class="kw">acf</span>(hvit_støy)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="autokorrelasjon.html#cb77-1"></a><span class="kw">acf</span>(ar1)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="autokorrelasjon.html#cb78-1"></a><span class="kw">acf</span>(ar1)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-69-2.png" width="672" /></p>
 <p>Vi ser igjen mønsteret fra videoen: Hvit støy består av ukorrelerte observasjoner, mens AR(1)-modellen består av observasjoner som bygger på forrige observasjon, slik at det er en viss korrelasjon, og dermed avhengighet fra dag til dag. Det ser vi igjen i autokorrelasjonsplottet som gir tydelig utslag, og der korrelasjonen går gradvis mot null med økende avstand mellom observasjonene.</p>
 <p><strong>2. ACF som sjekk av modell</strong> En sjekk vi gjerne gjør for å se om en estimert tidsrekkemodell passer dataene våre, er å se autokorrelasjonen til residualene i modellen er liten. Det betyr nemlig at modellen plukker opp den (lineære) avhengigheten i tidsrekken. For en AR(1) modell er residualene f.eks gitt ved <span class="math inline">\(\hat{u}_t = Y_t - \hat{\phi}Y_{t-1}\)</span>, men disse er tilgjengelig direkte fra modell estimeringen i R:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="autokorrelasjon.html#cb78-1"></a><span class="kw">library</span>(forecast)</span>
-<span id="cb78-2"><a href="autokorrelasjon.html#cb78-2"></a>ar1_estimat &lt;-<span class="st"> </span><span class="kw">Arima</span>(ar1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb78-3"><a href="autokorrelasjon.html#cb78-3"></a><span class="kw">acf</span>(ar1_estimat<span class="op">$</span>residuals)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="autokorrelasjon.html#cb79-1"></a><span class="kw">library</span>(forecast)</span>
+<span id="cb79-2"><a href="autokorrelasjon.html#cb79-2"></a>ar1_estimat &lt;-<span class="st"> </span><span class="kw">Arima</span>(ar1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb79-3"><a href="autokorrelasjon.html#cb79-3"></a><span class="kw">acf</span>(ar1_estimat<span class="op">$</span>residuals)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
 <p><strong>3. Oppgave:</strong> Prøv nå lage et plott av følgende tre tidsrekker, plott autokorrelasjonsfunksjonen, og knytt en kort kommentar til hver av dem om hva du lærer om tidsrekken ved å se på autokorrelasjonsplottet til:</p>
 <ol style="list-style-type: decimal">
