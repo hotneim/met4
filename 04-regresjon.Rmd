@@ -11,6 +11,12 @@ Ligningen over sier at det er en *lineær* sammenheng mellom $X$ og $Y$, men at 
 
 Vi deler arbeidet med regresjon inn i tre deler. I den første (og største) delen går vi grundig gjennom ulike sider vi den enkle lineære regresjonsmodellen over. I den andre delen ser vi på *multippel regresjon* som er en utvidelse av enkel regresjon der vi tillater flere forklaringsvariabler på høyre side av likhetstegnet, og i den tredje delen ser vi på ulike praktiske aspekter ved regresjonsmodellering og modellbygging.
 
+I videoforelesningene går vi gjennom noen slides, og vi skriver et R-skript. Du kan laste disse ned ved å klikke på lenkene under:
+
+[Slides til "Regresjon"](script-slides/regresjon/regresjon-slides.html)
+
+[R-script til "Regresjon"](script-slides/regresjon/regresjon-script.R)
+
 ## Enkel regresjon
 
 ### Videoforelesninger

@@ -5,7 +5,7 @@ I denne modulen introduserer vi en del grunnleggende statistiske begreper. Mye v
 
 I videoforelesningene går vi gjennom noen slides, og vi skriver et R-skript. Du kan laste disse ned ved å klikke på lenkene under:
 
-[Slides til "Grunnleggende statistikk"](script-slides/grunnleggende-stat/grunnleggende-stat-script.html)
+[Slides til "Grunnleggende statistikk"](script-slides/grunnleggende-stat/grunnleggende-stat-slides.html)
 
 [R-script til "Grunnleggende statistikk"](script-slides/grunnleggende-stat/grunnleggende-stat-script.R)
 
