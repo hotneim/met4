@@ -3,6 +3,12 @@
 
 I denne modulen introduserer vi en del grunnleggende statistiske begreper. Mye vil oppleves som repetisjon, mens noe vil være nytt. Noe er veldig praktisk ved at vi kan bruke det direkte i eksempler, mens andre ting er mer teoretisk av natur. Felles for det vi skal se på her er at vi kommer til å bruke mange av begrepene vi lærer senere i kurset.
 
+I videoforelesningene går vi gjennom noen slides, og vi skriver et R-skript. Du kan laste disse ned ved å klikke på lenkene under:
+
+[Slides til "Grunnleggende statistikk"](script-slides/grunnleggende-stat/grunnleggende-stat-script.html)
+
+[R-script til "Grunnleggende statistikk"](script-slides/grunnleggende-stat/grunnleggende-stat-script.R)
+
 ## Deskriptiv statistikk
 
 ### Videoforelesninger

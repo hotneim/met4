@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>MODUL 1 - GRUNNLEGGENDE STATISTIKK</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Håkon Otneim &amp; Geir Drage Berentsen" />
+    <script src="libs/header-attrs-2.5/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: middle, left, inverse, title-slide
+
+# MODUL 1 - GRUNNLEGGENDE STATISTIKK
+## MET4
+### Håkon Otneim &amp; Geir Drage Berentsen
+
+---
+
+
+
+class: center, middle, inverse
+
+# Del I: DESKRIPTIV STATISTIKK
+
+---
+
+## Beskrivende statistikk
+
+- Beskrivende statistikk **bearbeider og presenterer data** for å belyse faktiske forhold.
+- Lar dataene "fortelle sin egen historie"
+- Bruker ikke statistiske metoder til å vurdere resultatene
+    - Generaliserer ikke til populasjonen
+    - Tester ikke årsaksforhold
+- Beskrivende statistikk kan ha stor gjennomslagskraft
+    - I form av numeriske mål
+    - I form av tabeller
+    - I form av grafer
+- God beskrivende statistikk er **helt avgjørende** for å oppnå godt resultat på hjemmeeksamen
+
+---
+
+## Napoleon
+
+&lt;img src="fig-napoleon.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Napoleon
+
+&lt;img src="fig-felttog.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Et berømt eksempel på deskriptiv statistikk
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/jbkSRLYSojo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+## To hovedformål med deskriptiv statistikk
+
+1. Bli kjent med et nytt datasett
+
+--
+
+2. Presentere resultat av analyser
+
+---
+
+## Målenivå
+
+&lt;img src="fig-maleniva.png" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Beskrivelse av sentraltendens
+
+&lt;img src="grunnleggende-stat-script_files/figure-html/unnamed-chunk-4-1.png" width="720" /&gt;
+
+---
+
+## Beskrivelse av sentraltendens
+
+- Gjennomsnitt:
+
+`$$\overline X = \frac{1}{n}\sum_{i = 1}^n X_i$$`
+
+- Median:
+
+`$$\textrm{Den} \,\, \mathbf{midterste} \,\, \textrm{verdien}$$`
+
+- Typetall:
+
+`$$\textrm{Den} \,\, \mathbf{vanligste} \,\, \textrm{verdien}$$`
+
+- Hvorfor er median av og til å foretrekke foran gjennomsnitt selv for måledata? 
+    - Medianen er midre følsom for (mer robust mot) ekstremverdier
+
+---
+
+## Illustrasjon
+
+&lt;img src="fig-symmetri.png" width="800" /&gt;
+
+---
+
+## Beskrivelse av sentraltensens
+
+&lt;img src="fig-sjafor.png" width="700" /&gt;
+
+---
+
+## R-verktøykassen
+
+.pull-left[
+
+```r
+# Lese .csv-filer
+library(readr)
+read_csv()
+
+# Sjekke strukturen til et 
+# objekt, f.eks et datasett
+str()
+
+# Mål for sentraltendens
+mean()     # Gj.snitt
+median()   # Median
+table()    # Telle opp
+
+# Pakke som inneholder %&gt;%
+library(dplyr)
+
+# Telle opp og finne maks.
+table() %&gt;% which.max
+```
+]
+
+---
+
+## Beskrivelse av spredning
+
+
+&lt;img src="grunnleggende-stat-script_files/figure-html/unnamed-chunk-8-1.png" width="720" /&gt;
+
+---
+
+## Beskrivelse av spredning
+
+- Standardavvik:
+
+`$$s = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (X_i - \overline X)^2}$$`
+
+- Varians: `\(s^2\)`
+
+- Prosentil: 
+    - `\(p\)`-prosentilen er det tallet som har `\(p\)`% av verdiene under seg.
+  
+- Kvartiler:
+    - 25-, 50-, og 75-prosentilene
+    
+- IQR
+    - InterQuartile Range
+    - Avstanden mellom 75- og 25-prosentilene
+    
+---
+
+## Eksempel på bruk av kvantiler
+
+Verdsettelsesdebatten på unoterte selskaper (ligningsverdi/markedsverdi)
+
+&lt;img src="fig-kvantiler.png" width="700" style="display: block; margin: auto;" /&gt;
+
+*Kilde: Masteroppgave av Gobel og Hestdal (2015)*
+
+---
+
+## Eksempel på boksplot 
+
+Ligningsinntekter i Tippeligaen 2015
+
+&lt;img src="fig-tippeliga.png" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+
+## R-verktøykassen
+
+.pull-left[
+
+```r
+# Lese .csv-filer
+library(readr)
+read_csv()
+
+# Sjekke strukturen til et 
+# objekt, f.eks et datasett
+str()
+
+# Mål for sentraltendens
+mean()     # Gj.snitt
+median()   # Median
+table()    # Telle opp
+
+# Pakke som inneholder %&gt;%
+library(dplyr)
+
+# Telle opp og finne maks.
+table() %&gt;% which.max
+
+# Mål for spredning
+sd()       # St.avvik
+quantile() # Kvantiler
+```
+]
+
+.pull-right[
+
+```r
+# Boksplott
+library(ggplot2)
+data %&gt;% ggplot + 
+  geom_boxplot(
+    aes(x = gruppe,
+        y = variabel))
+
+# Søylediagram
+data %&gt;% ggplot + 
+  geom_bar(aes(x = variabel))
+
+# Histogram
+data %&gt;% ggplot +
+  geom_histogram(
+    aes(x = variabel))
+```
+]
+
+---
+
+## Beskrivelse av sammenhengen mellom to målevariabler
+
+- Grafisk: Spredningsdiagram
+- Numerisk: Korrelasjonskoeffisienten
+    - Korrelasjonskoeffisienten, `\(r\)`, forteller oss hvor nær vi er en **lineær** sammenheng. 
+    - `\(r\)` varierer mellom `\(-1\)` og `\(1\)`.
+    - `\(r\)` forteller oss om det er positiv eller negativ samvariasjon, men ikke stigningsforholdet. 
+    - Formel:
+    
+    `$$r = \frac{\sum_{i = 1}^n(X_i - \overline{X})(Y_i - \overline{Y})}{(n-1)S_XS_Y} = \frac{\textrm{Cov}(X,Y)}{S_XS_Y}$$`
+
+---
+
+## Positiv og negativ korrelasjon
+
+.pull-left[
+
+`$$r = 0.91$$`
+
+&lt;img src="fig-IQ1.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+Positiv korrelasjon: IQ-skår for tvillinger.
+]
+
+.pull-right[
+
+`$$r = -0.70$$`
+
+&lt;img src="fig-IQ2.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+Negativ korrelasjon: IQ og voldsepisoder
+]
+
+---
+
+## VIKTIG
+
+Med `\(r=0\)` kan det likevel være en sammenheng.
+
+- Ukorrelerthet medfører *ikke* uavhengighet
+- (Men **u**avhengighet medfører **u**korrelerthet)
+
+.pull-left[
+
+&lt;img src="fig-IQ3.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+&lt;img src="fig-IQ4.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+]
+---
+
+
+## R-verktøykassen
+
+.pull-left[
+
+```r
+# Lese .csv-filer
+library(readr)
+read_csv()
+
+# Sjekke strukturen til et 
+# objekt, f.eks et datasett
+str()
+
+# Mål for sentraltendens
+mean()     # Gj.snitt
+median()   # Median
+table()    # Telle opp
+
+# Pakke som inneholder %&gt;%
+library(dplyr)
+
+# Telle opp og finne maks.
+table() %&gt;% which.max
+
+# Mål for spredning
+sd()       # St.avvik
+quantile() # Kvantiler
+```
+]
+
+.pull-right[
+
+```r
+# Boksplott
+library(ggplot2)
+data %&gt;% ggplot + 
+  geom_boxplot(aes(x = gruppe,
+                   y = var))
+
+# Søylediagram
+data %&gt;% ggplot + 
+  geom_bar(aes(x = variabel))
+
+# Histogram
+data %&gt;% ggplot +
+  geom_histogram(
+    aes(x = variabel))
+
+# Spredningsplott
+data %&gt;% ggplot +
+  geom_point(
+    aes(x = var1, y = var2))
+
+# Korrelasjonskoeffisienten
+cor(var1, var2)
+```
+]
+
+---
+
+## Noen skrekkeksempler
+
+&lt;img src="fig-3dkake.jpg" width="300" style="display: block; margin: auto;" /&gt;
+
+&lt;img src="fig-3dsoyle.jpg" width="500" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Hva med denne?
+
+&lt;img src="fig-storesolberg.jpg" width="700" style="display: block; margin: auto;" /&gt;
+
+---
+
+## ...eller...?
+
+&lt;img src="fig-female.jpeg" width="500" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Hva vil vi få frem?
+
+&lt;img src="fig-ap.jpeg" width="600" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Eksempel på strålende grafikk
+
+Presentert av Morgenbaldet før stortingsvalget i 2017
+
+&lt;img src="fig-mb.png" width="600" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Enda et eksempel
+
+Fra Financial Times - 29. mars 2020
+
+&lt;img src="fig-ft.png" width="750" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Til slutt, råd om layout før hjemmeeksamen
+
+- Ikke rapporter programutskrifter uberarbeidet
+    - Lag dine egne tabeller eller bruk en passende R-funksjon
+- Tabeller skal inneholde så få streker som mulig
+    - 2--4 horisontale, ingen vertikale
+- Tabeller og figurer skal være selvforklarende!
+    - Merk grafer tydelig
+    - Skriv variabelnavn mest mulig ut i tekst
+    - Bruk undertekster til å oppgi utvalg, metode, variabeldefinisjoner, etc.
+- Unngå tredimensjonal grafikk om det ikke er **strengt** nødvendig
+
+---
+
+class: center, middle, inverse
+
+# Del II: UTVALG OG ESTIMERING
+
+---
+
+## Sannsynligetsmodell
+
+* En sannsynlighetsmodell består av 
+    + **Et utfallsrom** (diskret eller kontinuerlig)
+    + **Sannsynligheter tilordnet utfall eller kombinasjoner av utfall**
+        + Diskret utfallsrom: Summen av alle sannsynligheter = 1. Eks.: Terningkast, produktvalg.
+        + Kontinuerlig utfallsrom: Areal under tetthetskurven = 1. Eks.: Dagsomsetning
+* Stokastisk variabel
+    + En funksjon (regel) `\(X(u)\)` som tilordner en tallverdi, `\(x\)`, til ethvert utfall i en sannsynlighetsmodell.
+    
+---
+
+## Sannsynlighetsfordeling
+
+* En sannsynlighetsfordeling er
+    + en oppramsing av de mulige verdiene til `\(X\)` sammen med sannsynlighetene `\(P(X=x)\)` [forenklet: `\(p(x)\)`] for å observere hver enkelt verdi `\(x\)`.
+* En sannsynlighetsfordeling kan være 
+    + Diskret (Kapittel 7)
+        + Tegnes som søylediagram med punktsannsynligheter
+    + Kontinuerlig (Kapittel 8)
+        + Tegnes som tetthetsfunksjon
+        + Når `\(X\)` er kontinuerlig gir det bare mening å snakke om sannsynligheten for at `\(X\)` skal ligge i et intervall
+
+---
+
+## Eksempel: Terning
+
+Hva betyr det da at **X er antall øyne på en terning**?
+
+- Vi har et *utfallsrom*:
+
+&lt;img src="fig-terning1.png" style="display: block; margin: auto;" /&gt;
+
+- Vi har en *stokastisk variabel* `\(X\)`, som altså er en funksjon fra `\(U\)` til `\(\{1, 2, 3, 4, 5, 6\}\)`:
+
+&lt;img src="fig-terning2.png" style="display: block; margin: auto;" /&gt;
+
+- `\(X\)` har en *sannsynlighetsfordeling*, som i dette tilfellet er kjent og enkel:
+
+`$$P(X=1) = P(X=2)=\cdots=P(X=6) = \frac{1}{6}.$$`
+
+---
+
+## Eksempel: En laksemerd
+
+**Aktuelle stokastiske variabler:** Temperaturer, antall fisk, antall døde fisk, lusemengde, etc...
+
+
+&lt;img src="fig-laks.jpg" width="800" style="display: block; margin: auto;" /&gt;
+
+**Aktuelle stokastiske variabler:** Temperaturer, antall fisk, antall døde fisk, lusemengde, etc...
+
+---
+
+## En kjent fordeling
+
+&lt;img src="grunnleggende-stat-script_files/figure-html/unnamed-chunk-29-1.png" width="550" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Samplingfordelinger 
+
+* Når enkeltobservasjonene i et utvalg er stokastiske variable må også kjennetegn ved hele utvalget være stokastiske og ha en fordeling
+* Slike fordelinger kaller vi samplingfordelinger
+* Vi er spesielt interessert i 
+    + Fordelingen til gjennomsnittet
+    + Fordelingen til utvalgsvariansen
+* siden disse gir oss informasjon om forventningen og variansen til hele populasjonen
+
+---
+
+## Forventning og varians til et gjennomsnitt
+
+* Anta at `\(X_1, X_2, \ldots, X_n\)` er **uavhengige** stokastiske variable med forventning `\(\mu\)` og varians `\(\sigma^2\)` (*ikke nødvendigvis normalfordelt!*)
+* Vi regner ut gjennomsnittet i et utvalg av størelse `\(n\)`
+* Ved å bruke regnereglene for forventning og varians, finner vi at
+`$$\textrm{E}\left(\overline{X}\right) = \mu, \qquad \textrm{Var}\left(\overline{X}\right) = \frac{\sigma^2}{n} \Rightarrow \sigma\left(\overline X\right) = \frac{\sigma}{\sqrt{n}}$$`
+* Altså: Forventet utvalgsfeil (presisjonen) til gjennomsnittet påvirkes av størrelsen på utvalget
+
+---
+
+
+## Repetisjon: Forventning og varians
+
+* Definisjon av forventning
+`$$\textrm{E}(X) = \sum_{\textrm{alle } x} x\cdot p(x)$$`
+* Definisjon av varians
+
+`\begin{align*}
+\textrm{Var}(X) &amp;= \textrm{E}(X - \textrm{E}(X))^2 \\
+                &amp;= \textrm{E}(X^2) - \left(\textrm{E}(X)\right)^2
+\end{align*}`
+
+- Det forventede kvadratavviket fra forventningen
+- Standardavviket `\(\sigma\)` er kvadratroten til variansen slik at `\(\sigma^2 = \textrm{Var}(X)\)`
+
+* Definisjon av kovarians
+
+`\begin{align*}
+\textrm{Cov}(X,Y) &amp;= \textrm{E}\left(X - \textrm{E}(X)\right)\left(Y - \textrm{E}(Y)\right) \\ 
+                  &amp;= \textrm{E}(XY) - \textrm{E}(X)\textrm{E}(Y) 
+\end{align*}`
+
+---
+
+## Regneregler for forventning
+
+
+-  `\(\textrm{E}(k)=k\)`                                                                            
+-  `\(\textrm{E}(k+X) = k + \textrm{E}(X)\)` der `\(k\)` er en konstant                                 
+-  `\(\textrm{E}(kX) = k\cdot\textrm{E}(X)\)`                                                       
+-  `\(\textrm{E}(X+Y) = \textrm{E}(X) + \textrm{E}(Y)\)`                                            
+-  `\(\textrm{E}(X\cdot Y) = \textrm{E}(X)\cdot\textrm{E}(Y)\)`  hvis uavhengige                    
+-  `\(\textrm{E}(X\cdot Y) = \textrm{E}(X)\cdot\textrm{E}(Y) + \textrm{Cov}(X,Y)\)` hvis avhengige  
+-  `\(\textrm{E}\big(\phi(X)\big) = \sum_{\textrm{alle } x}\phi(x)\cdot p(x)\)`                     
+
+---
+
+## Regneregler for varians
+
+-  `\(\textrm{Var}(X) = \textrm{E}(X^2) - (EX)^2\)`                                                 
+-  `\(\textrm{Var}(k) = 0\)` der `\(k\)` er en konstant                                                 
+-  `\(\textrm{Var}(k+X) = \textrm{Var}(X)\)`                                                        
+-  `\(\textrm{Var}(kX) = k^2\cdot \textrm{Var}(X)\)`                                                
+-  `\(\textrm{Var}(X \pm Y) = \textrm{Var}(X) + \textrm{Var}(Y)\)`  hvis `\(X\)` og `\(Y\)` er uavhengige   
+-  `\(\textrm{Var}(X \pm Y) = \textrm{Var}(X) + \textrm{Var}(Y) \pm 2\textrm{Cov}(X,Y)\)` hvis `\(X\)` og `\(Y\)` er avhengige                                                                 
+---
+
+## Regneregler for kovarians
+
+- `\(\textrm{Cov}(X,Y) = \textrm{Cov}(Y,X)\)`                       
+- `\(\textrm{Cov} = 0\)` hvis `\(X\)` og `\(Y\)` er uavhengige              
+- `\(\textrm{Cov}(a,b) = 0\)` der `\(a\)` og `\(b\)` er konstanter          
+- `\(\textrm{Cov}(X,a) = 0\)`                                       
+- `\(\textrm{Cov}(X,X) = \textrm{Var}(X)\)`                         
+- `\(\textrm{Cov}(X+a,Y+b) = \textrm{Cov}(X,Y)\)`                   
+- `\(\textrm{Cov}(aX,bY) = ab\cdot\textrm{Cov}(x,Y)\)`              
+- `\(\textrm{Cov}(X+Y,Z) = \textrm{Cov}(X,Z) + \textrm{Cov}(Y,Z)\)` 
+
+---
+
+## Fordelingen til et gjennomsnitt
+
+* Dersom `\(X\)` er normalfordelt er `\(\overline X\)` normalfordelt
+    + Lineærkombinasjoner av normalfordelte variable er normalfordelte
+    + I eksperimentet vårt regnet vi ut gjennomsnitt av utalg på 100 observasjoner fra en normalfordeling med forventning `\(\mu = 0\)` og varians `\(\sigma^2 = 1\)`. 
+    + Altså var gjennomsnittene vi trakk normalfordelt med forventningsverdi `\(\mu = 0\)` og varians `\(\sigma^2/n = 1/100\)`.
+ 
+* Ofte kjenner vi ikke den den eksakte fordelingen til `\(X\)`
+    + Hvilken fordeling har gjennomsnittet dersom X ikke er normalfordelt?
+    + Fordelingen til gjennomsnittet vil **for alle praktiske formål** nærme seg normalfordelingen når `\(n\)` øker.
+    + Følger av **sentralgrenseteoremet**.
+    
+---
+
+## Sentralgrenseteoremet
+
+* Mange problemer kan studeres ved å uttrykke en stokastisk variabel som en sum av andre stokastiske variable
+    + **samlet** tid for å gjennomføre `\(n\)` trinn i en prosess
+    + **total** avkastning etter `\(n\)` perioder
+    + **samlet** etterspørsel over `\(n\)` perioder
+    + **samlet** etterspørsel etter en vare under varens (stokastiske) leveringstid
+* Problemstillingen kan uttrykkes
+`$$S_n = X_1 + X_2 +\ldots+X_n$$`
+* Hva kan vi si om `\(S_n\)` på grunnlag av kunnskap om `\(X\)`’ene?
+
+---
+
+## Antagelser om X'ene
+
+* Mulige antagelser om `\(X\)`’ene er
+    + uavhengighet
+    + samme fordeling
+    + bestemt type fordeling
+* Jo mer spesifikke antagelser, desto mer kan sies om `\(S_n\)`
+* Helt generelt gjelder
+`$$\textrm{E}(S_n) = \textrm{E}(X_1) + \textrm{E}(X_2) + \cdots + \textrm{E}(X_n)$$`
+ og
+`$$\textrm{Var}(S_n) = \sum_{\textrm{alle } i} \textrm{Var}(X_i) + \sum_{i\neq j} \textrm{Cov}(X_i ,X_j)$$`
+
+---
+
+## Antagelser om X'ene
+
+* Dersom `\(X\)`'ene er identisk fordelte er
+`$$\textrm{E}(S_n) = \textrm{E}(X) + \textrm{E}(X) + \cdots + \textrm{E}(X) = n\cdot \textrm{E}(X)$$`
+* Dersom `\(X\)`'ene i tillegg er uavhengige (*iid*) gjelder
+`$$\textrm{Var}(S_n) = n\cdot\textrm{Var}(X)$$`
+* Dersom `\(n\)` i tillegg er stor (og `\(\textrm{E}(X)\)` og `\(\textrm{Var}(X)\)` eksisterer) gjelder
+    + `\(S_n\)` er tilnærmet normalfordelt (eksakt når `\(n\rightarrow\infty\)`)
+    + Dette kalles **sentralgrensesetningen** og er et av statistikkfagets viktigste resultater
+
+---
+
+## En illustrasjon
+
+**På biblioteket:** *Probably not: future prediction using probability and statistical inference.* Lawrence N. Dworsky, 2008.
+
+
+
+Antall terningkast pr. eksperiment `\(N =\)` 1, 2 og 20
+
+Antall eksperimenter `\(k =\)` 5000
+
+&lt;img src="grunnleggende-stat-script_files/figure-html/unnamed-chunk-31-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Illustrasjon vha nedbørsdata
+
+
+&lt;img src="grunnleggende-stat-script_files/figure-html/unnamed-chunk-32-1.png" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+## Illustrasjon vha nedbørsdata
+
+
+
+&lt;img src="grunnleggende-stat-script_files/figure-html/unnamed-chunk-33-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Illustrasjon vha nedbørsdata
+
+
+&lt;img src="grunnleggende-stat-script_files/figure-html/unnamed-chunk-34-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Samplingfordelingen til en andel
+
+- Gjennomsnitt er bare meningsfylt for målevariabler
+- For nominale variabler er vi ofte interessert i den sanne **andelen** i en populasjon
+    - Andelen av en kundemasse som kjøper «vårt» produkt
+    - Andelen feilvare i en produksjonsprosess
+
+*Eksempel: hvor stor andel av befolkningen vil stemme på et bestemt parti?*
+
+- Andelen i et utvalg kan vi betrakte som resultatet av en binomisk forsøksrekke
+    - Observasjonene er tilfeldige trekninger fra populasjonen
+    - Utfallene er uavhengige (**!**)
+    - Hver observasjon klassifiseres som «suksess» eller «fiasko» (f.eks.: **SSSSFFFFFF**)
+    - Andel suksesser i vårt utvalg er stokastisk, men sannsynligheten for suksess, `\(p\)`, er den samme i hver trekning
+- Vi ønsker å finne fordelingen til den observerte andelen
+
+---
+
+## Samplingfordelingen til en andel
+
+- La utfallet av hver trekning være representert av en indikatorvariabel `\(I_j\)` der `\(j = 1,2,3,\ldots\)`
+    - `\(I_j = 1\)` hvis suksess, `\(I_j=0\)` ellers (altså fiasko)  
+- Prosessen `\(\{I_j: j=1,2,3,\ldots\}\)` er en binomisk forsøksrekke fordi
+
+|    |                                                                   |
+|----|-------------------------------------------------------------------|
+| 1. | `\(I_j\)` bare kan anta to verdier                                  |
+| 2. | Sannsynligheten for å observere `\(I_j=1\)` er `\(p\)` for alle `\(j\)` |
+| 3. | `\(I_j\)` og `\(I_k\)` er uavhengige for alle `\(j\)` og `\(k\)`          |
+
+
+Forventning og varians til hver enkelt observasjon er
+`$$\textrm{E}(I_j) = p\cdot 1 + (1-p)\cdot 0 = p$$`
+`$$\textrm{Var}(I_j) = \textrm{E}(I_j^2) - (\textrm{E}I_j)^2 = \textrm{E}(I_j) - (\textrm{E}I_j)^2 = p - p^2 = p(1-p)$$`
+
+---
+
+## Samplingfordelingen til en andel
+
+- Vi er interessert i antall suksesser i et utvalg på `\(n\)`
+`$$X_n = \sum_{j=1}^n I_j = I_1 + I_2 + \cdots + I_n$$`
+- Regnereglene for summer av stokastiske variable gir nå
+`$$\textrm{E}X_n = np$$`
+`$$\textrm{Var}(X_n) = np(1-p)$$`
+- Vi vet at `\(X_n\)` er binomisk fordelt `\((n,p)\)` fordi antall suksesser i en binomisk forsøksrekke er binomisk fordelt
+
+---
+
+## Samplingfordelingen til en andel
+
+- Vi kan nå regne ut forventning og varians for *andelen* suksesser, `\(X_n/n\)`:
+`$$\textrm{E}\left(\frac{X_n}{n}\right) = \frac{\textrm{E}(X_n)}{n} = \frac{np}{n} = p$$`
+`$$\textrm{Var}\left(\frac{X_n}{n}\right) = \frac{\textrm{Var}(X_n)}{n^2} = \frac{np(1-p)}{n^2} = \frac{p(1-p)}{n}$$`
+
+---
+
+## Normaltilnærming
+
+- Antall suksesser, `\(X_n\)`, er binomisk fordelt
+- Men den observerte andelen kan skrives som et gjennomsnitt:
+`$$\widehat p = \frac{X_n}{n} = \frac{1}{n}\sum_{j=1}^n I_j.$$`
+- Altså har vi følgende tilnærming fra sentralgrenseteoremet:
+`$$\frac{X_n}{n} = \widehat p \sim N\left(p, \frac{p(1-p)}{n}\right).$$`
+
+- **Dette er (tilnærmet) samplingfordelingen til en observert andel!**
+    - Tommelfingerregel: Tilnærmingen er god dersom `\(np&gt;5\)` og `\(n(1-p)&gt;5\)`.
+
+---
+
+## Eksempel
+
+Anta at den *sanne* fordelingen av velgere på partier i Norge akkurat nå er:
+
+|        |          |
+|--------|----------|
+| Rødt   | 4.6%     |
+| SV     | 7.2%     |
+| AP     | 27.9%    |
+| SP     | 12.2%    |
+| MDG    | 3.3%     |
+| V      | 3.6%     |
+| KrF    | 3%       |
+| H      | 24.2%    |
+| FrP    | 12%      |
+| Andre  | 2%       |
+
+---
+
+## Eksempel
+
+Anta at vi spør et representativt utvalg på `\(n = 1000\)` personer om foretrukket parti. Hva vil da være *fordelingen* til de *observerte* andelene? 
+
+--
+
+&lt;img src="grunnleggende-stat-script_files/figure-html/unnamed-chunk-35-1.png" width="720" style="display: block; margin: auto;" /&gt;
+
+## Eksempel
+
+Anta at vi spør et representativt utvalg på `\(n = 1000\)` personer om foretrukket parti. Hva vil da være *fordelingen* til de *observerte* andelene? 
+
+\pause
+
+![](grunnleggende-stat-script_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
+
+---
+
+## Inferens (slutningsstatistikk)
+
+Hva kan vi slutte om populasjonens parametre basert på det vi observerer i utvalget?
+
+&lt;img src="grunnleggende-stat-script_files/figure-html/unnamed-chunk-37-1.png" style="display: block; margin: auto;" /&gt;
+
+- En *ukjent* parameter: Andel røde prikker i populasjonen, `\(p = 20\)`%
+- En *observator*: Andel røde prikker i utvalget, `\(p \approx \widehat p = 4/11 = 0.364\)`
+
+---
+
+
+## Estimering, noen begreper
+
+- En estimator er en “regel” for bruk av observasjoner til å gjette verdien på ukjente parametre i en modell
+- Siden de observasjonene vi bruker er realisasjoner av stokastiske variabler vil estimatoren i seg selv være en stokastisk variabel
+- Kan hende finnes flere alternative estimatorer for en og samme parameter. Hvilken bør velges?
+
+---
+
+
+## Estimering, noen begreper
+
+- Vi ønsker at estimatoren skal ha en forventning som ligger nær den sanne verdien, og vi ønsker at estimatoren skal ha lav varians/standardavvik
+- Hvis vi lar `\(\widehat\theta\)` være en estimator for `\(\theta\)` så sier vi at estimatoren er forventingsrett dersom `\(\textrm{E}\widehat\theta = \theta\)`
+- Blant mulige forventingsrette estimatorer vil vi velge den med minst varians; den mest *effektive*
+- Vi kan være villige til å kompromisse på forventningsretthet hvis en forventningsskjev estimator kan redusere variansen/standardavviket
+- Noen ganger kan det være vanskelig å bedømme en estimators egenskaper i små utvalg. Da drøfter vi gjerne egenskapene når " `\(n \rightarrow \infty\)` "
+- Vi sier at en estimator er konsistent dersom forventet forskjell mellom estimatet og den sanne parameterverdien kan gjøres så liten en vil ved å øke utvalgsstørrelsen tilstrekkelig
+    - Merk: En estimator kan være konsistent uten å være forventningsrett og forventningsrett uten å være konsistent!
+
+---
+
+class: middle
+
+&lt;img src="fig-konsistens.jpg" width="800" /&gt;
+
+---
+
+class: middle
+
+## Korrelasjonsquiz
+
+Hvilket diagram hører til følgende korrelasjonskoeffisienter?
+
+`\(r = -0.98, r=0.86, r = 0.95, r = -0.96, r = -0.40\)`
+
+&lt;img src="fig-korrelasjon.jpg" width="800" /&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": " "
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
