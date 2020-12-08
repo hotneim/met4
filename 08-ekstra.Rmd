@@ -1,0 +1,16 @@
+
+# Diverse ekstrastoff
+
+## Tidligere eksamensoppgaver (skoleeksamen)
+
+```{r, echo = F}
+skoleeksamen <- readxl::read_excel("tidligere-eksamensoppgaver/skoleeksamen.xlsx")
+
+options(knitr.kable.NA = '')
+
+skoleeksamen %>% 
+  kableExtra::kbl() %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
+

@@ -53,6 +53,8 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -193,6 +195,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
 <li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/geir-drage-berentsen/">Geir Drage Berentsen</a></li>
@@ -254,18 +260,18 @@ Publisert ved hjelp av bookdown</a></li>
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -1.2989 -0.5706 -0.3242  0.5711  1.9959 
+## -1.7555 -0.6314 -0.2377  0.8621  1.8948 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  0.31102    0.14146   2.199   0.0329 *  
-## lagged_Y     0.90093    0.05956  15.126   &lt;2e-16 ***
+## (Intercept)  0.37812    0.23215   1.629     0.11    
+## lagged_Y     0.91529    0.05639  16.233   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.7939 on 47 degrees of freedom
-## Multiple R-squared:  0.8296, Adjusted R-squared:  0.826 
-## F-statistic: 228.8 on 1 and 47 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 0.9152 on 47 degrees of freedom
+## Multiple R-squared:  0.8486, Adjusted R-squared:  0.8454 
+## F-statistic: 263.5 on 1 and 47 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Vi ser at vårt estimat av <span class="math inline">\(\phi\)</span>, som i regresjonutskriften er koeffisienten til <code>lagged_Y</code>, er i nærheten av den sanne verdien 0.95, men med så få observasjoner kan det godt hende at ditt estimat er noe forskjellig. Poenget er: vi kan bruke lineær regresjon til å estimere koeffisientene i en AR-modell basert på observasjoner.</p>
 <p>Som i forrige oppgave er pakken <code>forecast</code> svært nyttig for estimering og predikering:</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="ar.html#cb70-1"></a><span class="kw">library</span>(forecast)</span></code></pre></div>
@@ -276,11 +282,11 @@ Publisert ved hjelp av bookdown</a></li>
 ## 
 ## Coefficients:
 ##          ar1    mean
-##       0.9580  1.3938
-## s.e.  0.0439  1.9845
+##       0.9195  3.3214
+## s.e.  0.0505  1.3150
 ## 
-## sigma^2 estimated as 0.6908:  log likelihood=-61.93
-## AIC=129.86   AICc=130.38   BIC=135.59</code></pre>
+## sigma^2 estimated as 0.8493:  log likelihood=-66.78
+## AIC=139.55   AICc=140.07   BIC=145.29</code></pre>
 <p>I første omgang kan vi legge merke til at vi har spesifisert <em>hvilken</em> modell vi ønsker å estimere gjennom argumentet <code>order = c(1, 0, 0)</code>, der ett-tallet angir AR-modellens orden <span class="math inline">\(p\)</span>, som i dette tilfellet er 1. Dersom du mistenker at AR(2)-modellen gir en bedre beskrivelse av tidsrekken din, kan du endre til <code>order = c(2, 0, 0)</code>. Vi kommer tilbake til spørsmålet om hvordan du kan velge den beste modellen for et gitt praktisk problem.</p>
 <p>Legg merke til at de to estimatene ikke er identiske selv om vi bruker det samme tidsrekken. Det er fordi <code>arima()</code>-funksjonen ikke bruker minste kvadraters metode til å regne ut estimatene (slik <code>lm()</code> gjør), men heller bruker en annen estimeringsteknikk som heter <em>maximum likelihood</em>.</p>
 <p><strong>3. Predikere.</strong> For predikering bruker vi funksjonen <code>forecast()</code>, som tar en estimert modell som input, og som bruker modellen til å skrive frem tidsrekken ved å estimere fremtidige verdier.</p>

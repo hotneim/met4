@@ -106,3 +106,5 @@ oppgave-3-rapporter-basert-på-r-analyser
 dataøving-4
 oppgave-1-interaktiv-øvelse-2
 oppgave-2---maskinlæring-logistisk-regresjon-og-k-nærmeste-naboer
+diverse-ekstrastoff
+tidligere-eksamensoppgaver-skoleeksamen
