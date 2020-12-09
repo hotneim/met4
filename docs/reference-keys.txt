@@ -108,3 +108,4 @@ oppgave-1-interaktiv-øvelse-2
 oppgave-2---maskinlæring-logistisk-regresjon-og-k-nærmeste-naboer
 diverse-ekstrastoff
 tidligere-eksamensoppgaver-skoleeksamen
+tidligere-eksamensoppgaver-hjemmeeksamen
