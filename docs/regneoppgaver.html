@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Spørsmål og oppgaver | MET4 - Empiriske Metoder - Vår 2021</title>
+  <title>5.4 Regneoppgaver | MET4 - Empiriske Metoder - Vår 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Spørsmål og oppgaver | MET4 - Empiriske Metoder - Vår 2021" />
+  <meta property="og:title" content="5.4 Regneoppgaver | MET4 - Empiriske Metoder - Vår 2021" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Spørsmål og oppgaver | MET4 - Empiriske Metoder - Vår 2021" />
+  <meta name="twitter:title" content="5.4 Regneoppgaver | MET4 - Empiriske Metoder - Vår 2021" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -176,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
-<li class="chapter" data-level="5.4" data-path="spørsmål-og-oppgaver.html"><a href="spørsmål-og-oppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Spørsmål og oppgaver</a></li>
+<li class="chapter" data-level="5.4" data-path="regneoppgaver.html"><a href="regneoppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Regneoppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
 <ul>
@@ -223,9 +223,290 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="spørsmål-og-oppgaver" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Spørsmål og oppgaver</h2>
+<div id="regneoppgaver" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Regneoppgaver</h2>
+<div id="oppgaver-om-logistisk-regresjon" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Oppgaver om logistisk regresjon</h3>
+<p>Kommentar: Oppgave 1 a) og oppgave 2) er svært like i <em>hva</em> du skal gjøre, bare at den siste er mer realistisk.</p>
+<p><strong>Oppgave 1 </strong></p>
+<p>Du har estimert en logistisk regresjonsmodell med to forklaringsvariabler <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span>. Koeffisientene i modellen er estimert til <span class="math inline">\(\hat{\beta}_0 = 0.4\)</span>, <span class="math inline">\(\hat{\beta}_1 = -0.1\)</span> og <span class="math inline">\(\hat{\beta}_2 = 0.3\)</span>. Du observerer så et nytt individ med forklaringsvariablene <span class="math inline">\(x_1 = 1\)</span> og <span class="math inline">\(x_2 = 2\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Prediker sannsynlighet for at <span class="math inline">\(Y=1\)</span> for dette individet.</li>
+</ol>
+<details>
+<p><summary>Løsning</summary></p>
+<p><span class="math display">\[z = \beta_0 + \beta_1x_1 + \beta_2x_2 = 0.4 -0.1\times1 + 0.3\times2 = 0.9\]</span>
+Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
+<span class="math display">\[P(Y=1|Z=z) = \frac{e^z}{1+e^z} = \frac{e^{0.9}}{1 + e^{0.9}} \approx 0.71.\]</span>
+</details>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Klassifiser det nye individet.</li>
+</ol>
+<details>
+<summary>Løsning</summary>
+Siden vi estimerer <span class="math inline">\(P(Y=1)\)</span> til å være <span class="math inline">\(0.71\)</span> som er større enn <span class="math inline">\(0.5\)</span> klassifiserer vi dette individet til <span class="math inline">\(\hat{y}=1\)</span>. Avhengig av kontekst, kan det være relevant å bruke enn høyere eller lavere terskel enn <span class="math inline">\(0.5\)</span>, men dette er altså standardverdien.
+</details>
+<p><strong>Oppgave 2 (Individuell Eksamen V2020 1 i))</strong></p>
+<p>Denne eksamensoppgaven handlet om luftforurensning der myndighetene bruker en målestasjon for å advare innbyggerne dersom konsentrasjonen av nitrogendioksid (NO<span class="math inline">\(_2\)</span>) overstiger 100 <span class="math inline">\(\mu\textrm{g}/\textrm{m}^3\)</span>. I en av deloppgavene tilpasses det en logistisk regresjonsmodell der responsvariabelen er en dummyvariabelen <code>danger_warning</code>, som indikerer om gjenomsnittskonsentrasjonen av NO<span class="math inline">\(_2\)</span> den aktuelle dagen oversteg 100 <span class="math inline">\(\mu\textrm{g}/\textrm{m}^3\)</span>. Dersom det skjer må myndighetene utstede et såkalt gult farevarsel. Den estimerte modellen er gitt i kolonne (2) i tabellen under.</p>
+<p>….. I morgen er det lørdag 16. mai, og i den aktuelle byen er det meldt en gjennomsnittlig temperatur på 19 <span class="math inline">\(^\circ\)</span>C og en gjennomsnittlig relativ luftfuktighet på 47%.</p>
+<ol style="list-style-type: lower-roman">
+<li>Bruk den logistiske regresjonsmodellen til å predikere <em>sannsynligheten</em> for at gjennomsnittlig NO<span class="math inline">\(\mathbf{_2}\)</span>-konsentrasjon overstiger 100 <span class="math inline">\(\mu\textrm{g}/\textrm{m}^3\)</span>. Gi en kort vurdering om myndighetene bør utstede gult farevarsel. (Husk at luftfuktigheten er gitt på skala 0–100, og ikke 0–1).</li>
+</ol>
+<p><img src="bilder/logistisk_output.JPG" /><!-- --></p>
+<details>
+<p><summary>Løsning</summary></p>
+<p>Den predikerte log-oddsen får vi ved å sette inn for variablene (lørdag, temperatur, fuktighet, vinterdummyen er null):</p>
+<p><span class="math display">\[z = 5.052 + -2.292 - 0.086*19 - 0.044*47 = -0.942.\]</span>
+Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
+<p><span class="math display">\[P(Y=1|Z=z) = \frac{e^z}{1+e^z} = \frac{e^{-0.942}}{1 + e^{-0.942}} \approx 0.28.\]</span></p>
+<p>Den predikerte sannsynligheten er klart under 50%, som passer godt med den tidlighere analysen vår. Det er snakk om en forholdsvis varm lørdag i sommerhalvåret, og vi vil nok ikke utstede farevarsel.</p>
+<p>Det kan også være gode argumenter for at vi ikke nødvendigvis bruker 50% som terskel for farevarsel. Kanskje er det mer alvorlig å <em>ikke</em> utstede et farevarsel som burde vært sendt ut fordi det kan være farlig for folk, enn å utstede et unødvendig farevarsel. Føre var osv., og det kan tilsi at vi f.eks. bruker 40% eller 30% sannsynlighet som grense. Det kommer litt an på situasjonen, som vi ikke har full oversikt over her.</p>
+</details>
+</div>
+<div id="oppgaver-om-knn" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Oppgaver om KNN</h3>
+<p><strong>Oppgave 1 (Individuell hjemmeeksamen H2020, oppgave 3)</strong></p>
+<p>Vi har følgende datasett med seks observasjoner bestående av en binær responsvariabel <span class="math inline">\(y\)</span> og to forklaringsvariabler <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span>:</p>
+<table>
+<caption>
+<span id="tab:knn">Tabell 5.1: </span>Datasett
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+y
+</th>
+<th style="text-align:right;">
+x1
+</th>
+<th style="text-align:right;">
+x2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+<p>Du observerer så forklaringsvariablene <span class="math inline">\((x_1, x_2) = (3, 3)\)</span> for et nytt individ.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Regn ut hva klassifiseringen av <span class="math inline">\(y\)</span> blir for det nye individet ved å bruke k-nearest neighbor (KNN), med <span class="math inline">\(k=3\)</span>.</li>
+</ol>
+<details>
+<p><summary>Løsning</summary></p>
+<p>Vi begynner med å regne ut den euklidske avstanden mellom <span class="math inline">\((3,3)\)</span> og alle punktene <span class="math inline">\((x_1, x_2)\)</span> i datasettet vårt. F.eks er avstanden mellom <span class="math inline">\((3,3)\)</span> og <span class="math inline">\((3,4)\)</span></p>
+<p><span class="math display">\[\begin{equation*}
+d((3,3), (3,4)) = \sqrt{(3 - 3)^2 + (3 - 4)^2} = 1
+\end{equation*}\]</span></p>
+<p>Vi kan så legge disse avstandene inn i en egen kolonne i tabellen:</p>
+<table>
+<caption>
+<span id="tab:knnfasit">Tabell 5.2: </span>Utregnede avstander
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+y
+</th>
+<th style="text-align:right;">
+x1
+</th>
+<th style="text-align:right;">
+x2
+</th>
+<th style="text-align:right;">
+avstand
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2.236
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2.000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+3.000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3.162
+</td>
+</tr>
+</tbody>
+</table>
+<p>Vi ser da at observasjon <span class="math inline">\(1\)</span>,<span class="math inline">\(3\)</span> og <span class="math inline">\(5\)</span> med avstander på h.h.v. <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span> og <span class="math inline">\(1\)</span> er de tre nærmeste naboene, og blant dem er det 2 mot 1 i flertall for å klassifisere <span class="math inline">\(y\)</span> som en 1’er. Altså er <span class="math inline">\(\hat{y}=1\)</span>.</p>
+<p>Det går selvsagt an å løse oppgaven visuelt også.</p>
+</details>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Hvordan fungerer KNN når <span class="math inline">\(k = n\)</span>, hvor <span class="math inline">\(n\)</span> er antall observajoner i datasettet? Hva vil skje dersom <span class="math inline">\(k = 6\)</span> for dette datasettet?</li>
+</ol>
+<details>
+<p><summary>Løsning</summary></p>
+<p>Siden vi bare har seks observasjoner vil alle verdier av <span class="math inline">\(k\geq 6\)</span> fullstendig ignorere informasjonen som ligger i forklaringsvariablene. Klassifiseringen vil da bare være basert på om det totalt sett er mest 1’ere eller 0’ere. I dette spesifikke datasettet har vi totalt tre 1’ere og tre 0’ere, så enhver majortetsavstemning med <span class="math inline">\(k\geq 6\)</span> blir uavgjort. Altså vil det her ikke være mulig å oppnå flertall for verken 0’er eller 1’er for store verdier av <span class="math inline">\(k\)</span>.</p>
+</details>
+</div>
+<div id="oppgaver-om-paneldata" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Oppgaver om paneldata</h3>
+<p><strong>Oppgave 1</strong></p>
+<p>For et paneldata bestående av en responsvariabel <span class="math inline">\(Y\)</span> og en forklaringsvariabel <span class="math inline">\(X\)</span> har du estimert modellen</p>
+<p><span class="math display">\[y_{it} =  \beta_1 x_{it}  + v_t + \alpha_i + \epsilon_{it} \]</span>
+der du har betraktet <span class="math inline">\(\alpha_i\)</span> som faste effekter og <span class="math inline">\(v_t\)</span> som kategoriske variabler. Estimatet av <span class="math inline">\(\beta_1\)</span> er <span class="math inline">\(\hat{\beta}_1 = 1.5\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>For individ <span class="math inline">\(4\)</span> i datasettet har du estimert <span class="math inline">\(\alpha_4\)</span> til å være <span class="math inline">\(0.2\)</span>. Videre er årseffekten for 2012, <span class="math inline">\(v_{2012}\)</span>, estimert til å være <span class="math inline">\(-0.5\)</span>. Prediker responsvariabelen til dette individet for 2012 dersom <span class="math inline">\(x_{4,2012} = 2\)</span>.</li>
+</ol>
+<details>
+<summary>Løsning</summary>
+<span class="math display">\[\hat{y}_{4,2012}=\hat{\beta}_1 x_{4,2012}  + \hat{v}_{2012} + \hat{\alpha}_4 = 1.5\times2 -0.5 + 0.2 = 2.7\]</span>
+</details>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Du tilpasser også en tilsvarende modell med tilfeldige effekter. En Hausman test gir en p-verdi på <span class="math inline">\(0.23\)</span>. Hvilken modell skal du da bruke?</li>
+</ol>
+<details>
+<p><summary>Løsning</summary></p>
+<p>Forenklet sett har denne testen som nullhypotese at modellen med tilfeldige effekter er gyldig. Her er p-verdien veldig stor og vi har lite bevis for at denne nullhypotesen er feil. Vi kan altså bruke modellen med tilfeldige effekter.</p>
+<p>Dersom vi hadde fått forkastning ville det vært lurt å bruke modellen med faste effekter.</p>
+</details>
+<p><strong>Oppgave 2</strong></p>
+<p>Prøv deg på Oppgave 2 i den individuelle hjemmeeksamen H2020 som du finner i kapittel <a href="skoleeksamen.html#skoleeksamen">8.1</a>. Det er spesielt oppgave e) og f) som er relatert til paneldata, men vi bemerker at oppgave f) var “nøtten” i det oppgavesettet.</p>
 
+</div>
 </div>
 <!-- </div> -->
             </section>

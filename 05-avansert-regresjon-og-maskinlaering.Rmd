@@ -1,7 +1,7 @@
 
 # Avansert regresjon og maskinlæring
 
-Blabla, innledning
+I denne modulen tar vi en titt på noen litt mer avanserte statistiske metoder. De to første temaene, logistisk regresjon og "K-nearest-neighbor" metoden, har til felles at de kan brukes når responsvariabelen er en kategorisk variabel med kun to kategorier. Begge disse metodene faller inn under det som populært kalles maskinlæring og er således en introduksjon til dette temaet. I det siste temaet, paneldata, skal vi se hvordan vi kan bygge regresjonsmodeller når vi har gjentatt observasjoner per individ. 
 
 ## Logistisk regresjon
 
@@ -9,7 +9,16 @@ Blabla, innledning
 
 <div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7802418/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
 
-### Kommentarerer
+### Kontrollspørsmål
+
+* I hvilke situasjoner bruker vi logistisk regresjon?
+* Hva er det vi modellerer?
+* Hvordan tolker vi èn enhets økning i forklaringsvariabelen?
+* Hvilken metode brukes til å estimere en logistisk regresjonsmodell?
+* Hva betyr klassifisering og hvordan gjøres dette?
+* Hvis vi har flere modeller, hvilke metode(r) kan vi bruker til å velge den beste?
+
+### Teori
 
 I denne forelesningen ser vi på situasjonen der vi ønsker å forklare utfallet av en *binær* variabel (en dummyvariabel) ved hjelp av et sett med forklaringsvariabler. Vi så at vanlig lineær regresjon ikke er særlig passende her fordi utfallet bare kan ta to verdier (0 eller 1, `FALSE` eller `TRUE` etc.), og fordi vi heller ikke kan tolke et kontinuerlig utfall direkte som en sannsynlighet fordi vi kan få ut verdier utenfor intervallet $[0, 1]$.
 
@@ -37,11 +46,19 @@ Når du er klar til å prøve selv, kan du se på oppg *10a*, *b* og første del
 
 <div style='padding:56.25% 0 0 0;position:relative;'><iframe src='https://vimeo.com/showcase/7802427/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe></div>
 
+### Kontrollspørsmål
+
+* For hvilke typer responsvariabler bruker vi KNN?
+* Hvordan fungerer KNN teoretisk sett?
+* Hva er den praktiske tolkningen av KNN?
+* Hvordan påvirker valget av $k$ måten KNN fungerer på?
+* Hvordan velger vi $k$?
+
 ### Teori
 
 Kanskje har du allerede hørt om maskinlæring, "data science", prediktiv modellering, "business analytics", etc., og kanskje har du fått med deg at disse tingene virkelig er i vinden for tiden. Som akademisk institusjon skal vi selvsagt være på vakt mot å la popularitet være en avgjørende faktor for hva vi driver med, men, som en kollega så treffende uttrykte seg: "Internett er kommet for å bli." Det skjer utrolig mye verdiskapning når vi får tak i den verdifulle informasjonen som ligger gjemt i de store datamengdene, og næringslivet skriker etter kompetanse. NHH har som svar på dette opprettet masterprofilen "Business Analytics (BAN)" (som ironisk nok er blitt superpopulær!), og det er naturlig å gi en liten smakebit på hva det går ut på i MET4. Det herlige er at vi ikke trenger å dykke så dypt i detaljene for å få brukbar innsikt i hva det går ut på.
 
-Overgangen fra logistisk regresjon er naturlig. Vi bruker det vi kan fra regresjonsanalyse til å sette opp en modell der vi *forklarer* utfallet i en dummyvariabel ved hjelp av et sett forklaringsvariable i allerede observerte data. I første omgang kan vi si at den moderne anvndelsen av logistisk regresjon (kall det gjerne en form for maskinlæring) er å bruke data til å estimere sammenhengen mellom $X$-ene og responsvariabelen $Y$, men bruke den til å predikere $Y$ for nye enheter.
+Overgangen fra logistisk regresjon er naturlig. Vi bruker det vi kan fra regresjonsanalyse til å sette opp en modell der vi *forklarer* utfallet i en dummyvariabel ved hjelp av et sett forklaringsvariable i allerede observerte data. I første omgang kan vi si at den moderne anvendelsen av logistisk regresjon (kall det gjerne en form for maskinlæring) er å bruke data til å estimere sammenhengen mellom $X$-ene og responsvariabelen $Y$, men bruke den til å predikere $Y$ for nye $X$.
 
 Artikkelen [*To explain or to predict* av Galit Shmueli](https://projecteuclid.org/euclid.ss/1294167961) forklarer denne distinksjonen godt, og skal være noenlunde lesbar for en interessert student.
 
@@ -105,7 +122,7 @@ I Figur \@ref(fig:churn) kan du prøve følgende: En liten $k$ svarer til å se 
 * Hva er den konseptuelle forskjellen mellom faste og tilfeldige effekter?
 * Når kan vi bruke faste effekter?
 * Når kan vi bruke tilfeldige effekter?
-* Finnes det en måte å formelt teste om man skal bruke faste eller tilfeldige effekter?
+* Finnes det en måte å formelt teste om man skal bruke faste eller tilfeldige effekter? (obs: se helt nederst på denne siden for svaret på denne.)
 
 ### Teori og R
 
@@ -369,4 +386,157 @@ phtest(reg.fe, reg.re)
 ```
 Siden vi får forkastning vil den beste modellen for dette (leke-) datasettet være modellen med faste effekter.
 
-## Spørsmål og oppgaver
+## Regneoppgaver
+
+### Oppgaver om logistisk regresjon
+
+Kommentar: Oppgave 1 a) og oppgave 2) er svært like i *hva* du skal gjøre, bare at den siste er mer realistisk.
+
+**Oppgave 1 **
+
+Du har estimert en logistisk regresjonsmodell med to forklaringsvariabler $x_1$ og $x_2$. Koeffisientene i modellen er estimert til $\hat{\beta}_0 = 0.4$, $\hat{\beta}_1 = -0.1$ og $\hat{\beta}_2 = 0.3$. Du observerer så et nytt individ med forklaringsvariablene $x_1 = 1$ og $x_2 = 2$. 
+
+a) Prediker sannsynlighet for at $Y=1$ for dette individet.
+
+<details><summary>Løsning</summary>
+
+$$z = \beta_0 + \beta_1x_1 + \beta_2x_2 = 0.4 -0.1\times1 + 0.3\times2 = 0.9$$
+Den predikerte *sannsynligheten* er gitt ved følgende sammenheng:
+
+$$P(Y=1|Z=z) = \frac{e^z}{1+e^z} = \frac{e^{0.9}}{1 + e^{0.9}} \approx 0.71.$$
+</details>
+
+
+
+b) Klassifiser det nye individet.
+
+<details><summary>Løsning</summary>
+Siden vi estimerer $P(Y=1)$ til å være $0.71$ som er større enn $0.5$ klassifiserer vi dette individet til $\hat{y}=1$. Avhengig av kontekst, kan det være relevant å bruke enn høyere eller lavere terskel enn $0.5$, men dette er altså standardverdien.
+</details>
+
+
+**Oppgave 2 (Individuell Eksamen V2020 1 i))**
+
+Denne eksamensoppgaven handlet om luftforurensning der myndighetene bruker en målestasjon for å advare innbyggerne dersom konsentrasjonen av nitrogendioksid (NO$_2$) overstiger 100 $\mu\textrm{g}/\textrm{m}^3$. I en av deloppgavene tilpasses det en logistisk regresjonsmodell der responsvariabelen er en dummyvariabelen `danger_warning`, som indikerer om gjenomsnittskonsentrasjonen av NO$_2$ den aktuelle dagen oversteg 100 $\mu\textrm{g}/\textrm{m}^3$. Dersom det skjer må myndighetene utstede et såkalt gult farevarsel. Den estimerte modellen er gitt i kolonne (2) i tabellen under.
+
+..... I morgen er det lørdag 16. mai, og i den aktuelle byen er det meldt en gjennomsnittlig temperatur på 19 $^\circ$C og en gjennomsnittlig relativ luftfuktighet på 47%. 
+
+i) Bruk den logistiske regresjonsmodellen til å predikere *sannsynligheten* for at gjennomsnittlig NO$\mathbf{_2}$-konsentrasjon overstiger 100 $\mu\textrm{g}/\textrm{m}^3$. Gi en kort vurdering om myndighetene bør utstede gult farevarsel. (Husk at luftfuktigheten er gitt på skala 0--100, og ikke 0--1).
+
+
+```{r, echo = FALSE}
+knitr::include_graphics("bilder/logistisk_output.jpg")
+```
+
+<details><summary>Løsning</summary>
+
+Den predikerte log-oddsen får vi ved å sette inn for variablene (lørdag, temperatur, fuktighet, vinterdummyen er null):
+
+$$z = 5.052 + -2.292 - 0.086*19 - 0.044*47 = -0.942.$$
+Den predikerte *sannsynligheten* er gitt ved følgende sammenheng:
+
+$$P(Y=1|Z=z) = \frac{e^z}{1+e^z} = \frac{e^{-0.942}}{1 + e^{-0.942}} \approx 0.28.$$
+
+
+Den predikerte sannsynligheten er klart under 50%, som passer godt med den tidlighere analysen vår. Det er snakk om en forholdsvis varm lørdag i sommerhalvåret, og vi vil nok ikke utstede farevarsel.
+
+Det kan også være gode argumenter for at vi ikke nødvendigvis bruker 50% som terskel for farevarsel. Kanskje er det mer alvorlig å *ikke* utstede et farevarsel som burde vært sendt ut fordi det kan være farlig for folk, enn å utstede et unødvendig farevarsel. Føre var osv., og det kan tilsi at vi f.eks. bruker 40% eller 30% sannsynlighet som grense. Det kommer litt an på situasjonen, som vi ikke har full oversikt over her.
+
+</details>
+
+### Oppgaver om KNN
+
+**Oppgave 1  (Individuell hjemmeeksamen H2020, oppgave 3)**
+
+Vi har følgende datasett med seks observasjoner bestående av en binær responsvariabel $y$ og to forklaringsvariabler $x_1$ og $x_2$:
+
+```{r knn, echo=F}
+library(knitr)
+library(ggplot2)
+x1 <- c(3, 4, 5, 3, 4, 6)
+x2 <- c(4, 5, 3, 6, 3, 2)
+y <- c(0, 0, 1,  0, 1, 1) 
+
+ny_x1 <- 3
+ny_x2 <- 3
+
+d <- sqrt((x1 - ny_x1)^2 + (x2 - ny_x2)^2)
+df <- data.frame(y = y, x1 = x1, x2 = x2)
+
+knitr::kable(df, caption = "Datasett")
+```
+
+Du observerer så forklaringsvariablene $(x_1, x_2) = (3, 3)$ for et nytt individ.
+
+(a) Regn ut hva klassifiseringen av $y$ blir for det nye individet ved å bruke k-nearest neighbor (KNN), med $k=3$.
+
+<details><summary>Løsning</summary>
+
+Vi begynner med å regne ut den euklidske avstanden mellom $(3,3)$ og alle punktene $(x_1, x_2)$ i datasettet vårt. F.eks er avstanden mellom $(3,3)$ og $(3,4)$ 
+
+\begin{equation*}
+d((3,3), (3,4)) = \sqrt{(3 - 3)^2 + (3 - 4)^2} = 1
+\end{equation*}
+
+Vi kan så legge disse avstandene inn i en egen kolonne i tabellen:
+
+```{r knnfasit, echo=F}
+library(knitr)
+library(ggplot2)
+x1 <- c(3, 4, 5, 3, 4, 6)
+x2 <- c(4, 5, 3, 6, 3, 2)
+y <- c(0, 0, 1,  0, 1, 1) 
+
+ny_x1 <- 3
+ny_x2 <- 3
+
+avstand <- round(sqrt((x1 - ny_x1)^2 + (x2 - ny_x2)^2),3)
+df <- data.frame(y = y, x1 = x1, x2 = x2, avstand = avstand)
+
+kable(df, caption = "Utregnede avstander")
+```
+
+Vi ser da at observasjon $1$,$3$ og $5$ med avstander på h.h.v. $1$, $2$ og $1$ er de tre nærmeste naboene, og blant dem er det 2 mot 1 i flertall for å klassifisere $y$ som en 1'er. Altså er $\hat{y}=1$. 
+  
+Det går selvsagt an å løse oppgaven visuelt også.
+
+</details>
+
+
+(b) Hvordan fungerer KNN når $k = n$, hvor $n$ er antall observajoner i datasettet? Hva vil skje dersom $k = 6$ for dette datasettet?
+
+<details><summary>Løsning</summary>
+
+Siden vi bare har seks observasjoner vil alle verdier av $k\geq 6$ fullstendig ignorere informasjonen som ligger i forklaringsvariablene. Klassifiseringen vil da bare være basert på om det totalt sett er mest 1'ere eller 0'ere. I dette spesifikke datasettet har vi totalt tre 1'ere og tre 0'ere, så enhver majortetsavstemning med $k\geq 6$ blir uavgjort. Altså vil det her ikke være mulig å oppnå flertall for verken 0'er eller 1'er for store verdier av $k$.
+
+</details>
+
+### Oppgaver om paneldata
+
+**Oppgave 1**
+
+For et paneldata bestående av en responsvariabel $Y$ og en forklaringsvariabel $X$ har du estimert modellen
+
+$$y_{it} =  \beta_1 x_{it}  + v_t + \alpha_i + \epsilon_{it} $$
+der du har betraktet $\alpha_i$ som faste effekter og $v_t$ som kategoriske variabler. Estimatet av $\beta_1$ er $\hat{\beta}_1 = 1.5$. 
+
+a) For individ $4$ i datasettet har du estimert $\alpha_4$ til å være $0.2$. Videre er årseffekten for 2012, $v_{2012}$, estimert til å være $-0.5$. Prediker responsvariabelen til dette individet for 2012 dersom $x_{4,2012} = 2$.
+
+<details><summary>Løsning</summary>
+$$\hat{y}_{4,2012}=\hat{\beta}_1 x_{4,2012}  + \hat{v}_{2012} + \hat{\alpha}_4 = 1.5\times2 -0.5 + 0.2 = 2.7$$
+</details>
+
+b) Du tilpasser også en tilsvarende modell med tilfeldige effekter. En Hausman test gir en p-verdi på $0.23$. Hvilken modell skal du da bruke?
+
+<details><summary>Løsning</summary>
+
+Forenklet sett har denne testen som nullhypotese at modellen med tilfeldige effekter er gyldig. Her er p-verdien veldig stor og vi har lite bevis for at denne nullhypotesen er feil. Vi kan altså bruke modellen med tilfeldige effekter. 
+
+Dersom vi hadde fått forkastning ville det vært lurt å bruke modellen med faste effekter.
+
+</details>
+
+**Oppgave 2**
+
+Prøv deg på Oppgave 2 i den individuelle hjemmeeksamen H2020 som du finner i kapittel \@ref(skoleeksamen). Det er spesielt oppgave e) og f) som er relatert til paneldata, men vi bemerker at oppgave f) var "nøtten" i det oppgavesettet.
+

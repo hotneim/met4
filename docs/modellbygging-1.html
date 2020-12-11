@@ -176,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
-<li class="chapter" data-level="5.4" data-path="spørsmål-og-oppgaver.html"><a href="spørsmål-og-oppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Spørsmål og oppgaver</a></li>
+<li class="chapter" data-level="5.4" data-path="regneoppgaver.html"><a href="regneoppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Regneoppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
 <ul>
@@ -235,7 +235,7 @@ Vi skal i denne øvingen prøve å finne en god modell for dax-indeksen:</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="modellbygging-1.html#cb113-1"></a><span class="kw">library</span>(forecast)</span>
 <span id="cb113-2"><a href="modellbygging-1.html#cb113-2"></a>dax &lt;-<span class="st"> </span>EuStockMarkets[ ,<span class="dv">1</span>]</span>
 <span id="cb113-3"><a href="modellbygging-1.html#cb113-3"></a><span class="kw">plot</span>(dax)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 <p><strong>2. Trening og test data</strong>
 Vi ønsker f.eks å teste hvor god modellen er til å predikere de 10 siste observasjonene i datasettet. Vi deler derfor dataene inn i et treningssett bestående av alle observasjoner utenom disse 10 siste observasjonene, og et testsett bestående av de 10 siste observasjonene:</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="modellbygging-1.html#cb114-1"></a>trening &lt;-<span class="st"> </span><span class="kw">head</span>(dax, <span class="kw">length</span>(dax) <span class="op">-</span><span class="st"> </span><span class="dv">10</span>)</span>
