@@ -163,6 +163,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
 <li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -221,11 +222,11 @@ ma1  &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class
 <p>Første kolonne inneholder informasjon om tidspunkt, og temperaturen er inneholdt i andre kolonne. La oss plotte både temperaturrekken og den <em>differensierte</em> temperaturrekken (dvs. forskjellen fra dag til dag). Hvis vi avslører at den differensierte tidsrekken kan regnes ut ved å kjøre <code>difftemp &lt;- diff(temp$Mean)</code>, skulle det nå være grei skuring å produsere følgende to enkle plott:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">difftemp &lt;-<span class="st"> </span><span class="kw">diff</span>(temp<span class="op">$</span>Mean)
 <span class="kw">plot</span>(temp<span class="op">$</span>Mean, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(difftemp, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-81-2.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-88-2.png" width="672" /></p>
 <p>Lag videre autokorrelasjonsplottet som vist i videoen for den differensierte tidsrekken:</p>
-<p><img src="met4_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <p>I autokorrelasjonsplottet ser vi nettopp et slikt MA-mønster som vi så i videoen; nemlig at autokorrelasjonen plutselig blir null (eller omtrent null) for et gitt lag. I dette tilfellet har vi at første ordens autokorrelasjon er klart forskjellig fra null, men at den fra og med <span class="math inline">\(k = 2\)</span> nesten ikke har utslag.</p>
 <p>Hvis de differensierte temperaturmålingene faktisk er MA(1), kan den skrives slik:</p>
 <p><span class="math display">\[Y_t = c + \theta u_{t-1} + u_t,\]</span> der <span class="math inline">\(\theta\)</span> er en ukjent parameter. Vi kan bruke datasettet vårt til å estimere <span class="math inline">\(\theta\)</span> ved å bruke <code>Arima()</code>-funksjenen på samme måte som da vi estimerte en AR(1)-modell. Den eneste forandringen vi må gjøre er å endre <code>order</code>-argumentet fra <code>c(1, 0, 0)</code> til <code>c(0, 0, 1)</code>:</p>

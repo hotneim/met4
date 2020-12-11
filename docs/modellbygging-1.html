@@ -163,6 +163,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
 <li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -197,7 +198,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(forecast)
 dax &lt;-<span class="st"> </span>EuStockMarkets[ ,<span class="dv">1</span>]
 <span class="kw">plot</span>(dax)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
 <p><strong>2. Trening og test data</strong> Vi ønsker f.eks å teste hvor god modellen er til å predikere de 10 siste observasjonene i datasettet. Vi deler derfor dataene inn i et treningssett bestående av alle observasjoner utenom disse 10 siste observasjonene, og et testsett bestående av de 10 siste observasjonene:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">trening &lt;-<span class="st"> </span><span class="kw">head</span>(dax, <span class="kw">length</span>(dax) <span class="op">-</span><span class="st"> </span><span class="dv">10</span>)
 test &lt;-<span class="st"> </span><span class="kw">tail</span>(dax, <span class="dv">10</span>)</code></pre></div>

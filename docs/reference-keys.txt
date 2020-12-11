@@ -1,5 +1,8 @@
 fig:to-histogrammer
 fig:churn
+eq:withb
+eq:withoutb
+eq:timemean
 fig:rstudio1
 fig:rstudiorun
 fig:dokumentasjon
@@ -63,6 +66,7 @@ generelt-oppsett-av-modell
 forskjellige-parameteriseringer
 faste-effekter
 tilfeldige-effekter
+hausman-test
 spørsmål-og-oppgaver-1
 tidsrekker
 intro
@@ -116,7 +120,4 @@ oppgave-1-interaktiv-øvelse-2
 oppgave-2---maskinlæring-logistisk-regresjon-og-k-nærmeste-naboer
 diverse-ekstrastoff
 tidligere-eksamensoppgaver-skoleeksamen
-eq:timemean
-eq:withb
-eq:withoutb
-hausman-test
+tidligere-eksamensoppgaver-hjemmeeksamen

@@ -3,6 +3,10 @@
 
 ## Tidligere eksamensoppgaver (skoleeksamen)
 
+I tabellen under finner du en lang rekke eksamenssett som er gitt tidligere i MET4 (og dets forløper INT010). Vi har lagt til en kolonne med oppgaver som åpenbart ligger utenfor pensum i dag. Utover det er selvsagt oppgavene relevante i større eller mindre grad for kurset i dag, uten at vi har mulighet til å gå nærmere inn på en slik detaljert rangering.
+
+Lenger nede på siden finner du noen kommentarer og rettelser til oppgavesett og løsningsforslag som har dukket opp i ettertid.
+
 ```{r, echo = F}
 skoleeksamen <- readxl::read_excel("tidligere-eksamensoppgaver/skoleeksamen.xlsx")
 
@@ -12,5 +16,121 @@ skoleeksamen %>%
   kableExtra::kbl() %>% 
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
+
+### Rettelser og kommentarer til oppgaver og løsningsforslag {-}
+
+Her vil du finne en del kommentarer og rettelser som er spesifikke for de enkelte oppgavesettene. Dette er basert på et dokument som Jarle Møen startet på i sin tid, og vil bli oppdatert med de nyeste årgangene etter hvert som det kommer inn spørsmål til eksamensoppgavene.
+
+<details><summary>Vår 2008</summary>
+
+**Spørsmål 1d:** *Vi skal regne ut forventet nytte. Hvorfor får vi $EX^2 =  20( var + \mu^2 )$?* 
+
+Det er tatt utgangspunkt i den første regneregelen for varians i forelesningsnotatene. $Var(X)=E(X^2)-(E(X))^2$. Derav $E(X^2)=Var(X) +(E(X))^2$
+
+**Spørsmål 2a:** *Jeg lurer jeg på hvordan man kommer frem til $S^2$*?
+
+Du regner ut variansen til de to observasjonsseriene som er gitt i oppgaven (evt. standardavviket slik det er oppgitt i løsningsforslaget). Det kan du gjøre på en lommeregner, eller du kan bruke den informasjonen som er oppgitt. For den første serien er $S^2=1,835/7$ hvor 7 er $n-1$ med $n=8$ observasjoner.
+
+**Spørsmål 2b:** *Jeg lurer på hvorfor en skal bruke ensidig test der. Har du tid til å forklare meg det, for jeg ser ikke helt hvorfor det skal være ensidig. Kan det ikke være tosidig også?*
+
+Jeg ser ingen dypere mening i dette. Oppgavegiver ber om ensidig test i b/c og tosidig i d - og i løsningsforslaget kommenterer vedkommende at man burde brukt ensidig test også i d for å sammenligne resultatet av testene. Pussig. Dersom jeg skal resonnerer utenfor oppgaven antar jeg at argumentet for ensidig test er at dersom sølvinnholdet endrer seg, knytter det seg til at de som lager penger har et incentiv til å begynne jukse med sølvinnholdet, mens det er vanskelig å se for seg hvorfor noen skulle øke sølvinnholdet i samme mynttype over tid. Dermed er man a priori villig til å se bort fra at sant sølvinnhold øker.
+
+**Spørsmål 3b:** *I oppgaven får vi oppgitt at det er 39 observasjoner. I oppgave b skal vi finne konfidensintervall. Hvorfor bruker vi 36 som frihetsgrader når det står at det er n-2? Og hvilken formel brukes for å komme fram til 0,083?*
+
+*(n-2)* har du nok fra plansjene om enkel regresjon dvs konstantledd pluss én variabel. Her blir det *n-3* (konstantledd pluss to forklaringsvariabler, *n-k-1*). *0,083* er oppgitt i regresjonsutskriften som standardavviket til koeffisienten.
+
+**Oppgave 3c:** *Skal man ikke her på $F$-testen bruke $(F, \alpha, k-1,n-k)$? Er ikke $k$ her 2? (arbeidskraft og kapital) og $n$ fortsatt 36? Fasiten sier frihetsgradene er 2 og 36.*
+
+$F$-testen er $(F, \alpha, k,n-k-1)$ dersom $k$ er antall forklaringsvariabler i tillegg til konstantleddet (slik det er i bokas og min notasjon). $n$ er 39.
+
+**Oppgave 3i** *Det spørres om hvordan man kan teste en hypotese om konstant skalautbytte! Jeg finner ikke ut av hvordan man gjør det! Kan du hjelpe meg med det?*
+
+Jeg tror ikke dette er et spørsmål jeg ville gitt i denne formen. Våren 2008 lå kurset i siste semester. Da kunne vi forutsette at studentene skulle vite at konstant skalautbytte med denne funksjonsformen innebærer at summen av koeffisientene er én (Det ligger også inne som et punkt i plansjene mine om multikolinearitet, tror jeg). Da vi gjennomgikk $F$-testen for regresjon (test for om alle koeffisientene er null samtidig) nevnte jeg muntlig at $F$-testen også kan brukes på mindre grupper av koeffisienter. Man kan altså teste uttrykk av typen $\alpha+\beta=1$. Det som kommer i klammeparentes i løsningsforslaget har dere ingen forutsetning for å forstå siden heller ikke boken har med noe om dette. Kanskje ble det sagt noe om det på forelesningene det semesteret, eller kanskje oppgavegiveren har tatt det med i løsningsforslaget for spesielt interesserte...
+ 
+</details>
+
+<details><summary>Høst 2008</summary>
+
+**Oppgave 1d:** *Med 0.05,3,144 (5 %, 3 og 144 frihetsgrader) burde grensen vært på 2.67, men i fasiten står det 2.60.*
+
+Enig. Det må være trykkfeil i løsningsforslaget.
+
+**Oppgave 2d:** *Når man skal lage et konfidensintervall for koeffisienten til en av de uavhengige variablene i en multippel regresjon, hva er da riktig antall frihetsgrader for t-verdien? I H09 oppgave 2g benyttes $(n-k-1)$ mens i H08 oppgave 2d benyttes $(n-2)$.*
+
+Det er $n-k-1$ som er riktig frihetsgradstall, så løsningsforslaget høst 2008 må være feil.
+
+**Oppgave 3c:** *I Tabellen for kjikvadrattesten er $(f_i-e_i)^2 /e_i$ oppgitt å være 0,04 og 0,05 i hhv. 1. og 2. rekke. Deler man 1/228 og 1/212 får man hhv. ca 0,004 og 0,005. Dette slår dog ikke ut på konklusjon til testen.*
+
+Du har rett.
+
+</details>
+
+<details><summary>Vår 2009</summary>
+
+**Oppgave 2c:** *Jeg lurer på hvorfor fasiten sier at frihetsgradene til $F$-testen er $F_{\alpha, k-1,n-1}$? Jeg trodde frihetsgradene ved denne testen var $F_{\alpha, k, n-k-1}?*
+
+Det ser for meg ut som om løsningsforslaget er riktig, og at du blander sammen denne F-testen med formelen for den nært beslektede F-testen knyttet til multippel regresjon.
+
+</details>
+
+<details><summary>Høst 2009</summary>
+
+**Oppgave 1a:** *”Population” brukes veldig fritt i boken, og kan, som jeg har forstått oversettes til både gruppe og populasjon. Eksempelvis i denne oppgaven med ”normalfordelte populasjoner”. Dette sjekkes jo vha dataene (fra utvalget?). Er det da snakk om hele populasjonen eller utvalget?*
+
+Populasjonene i den virkelige verden kan vi aldri observere, men det er de som har en fordeling. Så observerer vi utvalget som er trukket fra populasjonen til å teste hypoteser om populasjonen, for eksempel en hypotese om at populasjonen er normalfordelt. Du har sikkert rett i at vi noen ganger snakker om grupper for det som er en populasjon.
+
+**Oppgave 2c:** *Vi skal drøfte et residualplott. I fasiten her står det at histogram og normalscore antyder at residualene ikke er normalfordelt? Vi har da godkjent mye dårligere figurer tidligere, med ca. likt antall observasjoner? I samme eksamenssett oppgave1 b) skal vi teste for lik varians. her er n1=14 og n2=9. videre skal v1=n1-1=14-1=13 og v2=n2-2=9-2=7 (jf. formel s. 442 i pensumboken) fasiten her sier derimot at v2=8?*
+
+For å ta det siste først. Det er trykkfeil i boken på side 442. Når det gjelder residualplottet er jeg enig med deg. Man kunne like gjerne skrevet at det ikke er tydelig avvik fra normalitet.
+
+**Oppgave 2g:** *I kompendiet står det at man bruker $k$ fra $t$-tabell med $n-2$ frihetsgrader, i fasiten her ser det ut til at de har brukt $n-k-1$?*
+
+Også i forelesningsnotatene står det *n-k-1* under multippel regresjon (plansje 269).
+</details>
+
+<details><summary>Vår 2010</summary>
+
+**Oppgave 3d:** *Hvorfor blir det 12  F(12) - 10F(11)-(12-10) når $q=15$ og $\mu=10$?*
+
+Dette ser merkelig ut for meg også (Han som har laget oppgaven har sluttet.) Antar det skulle vært 15 og 14.
+
+</details>
+
+<details><summary>Høst 2010</summary>
+
+**Oppgave 1b:** *Har du mulighet til å sende meg utdypende forklaring på Eksamen H10 oppgave 1 b?*
+
+Her er det det er feil i løsningsforslaget. Jeg tror oppgavegiver endret modellen etter at førsteutkastet til løsningsforslaget var klar, og så har løsningsforslaget ikke blitt oppdatert tilsvarende. Rett svar skal være $-0,160 \pm 2,042*0,034$.
+
+
+</details>
+
+<details><summary>Høst 2012</summary>
+
+**Oppgave 1a:** *I løsningsforslaget er Analyse 2 omtalt som «enveis faktoranalyse». Er dette riktig?*
+
+Nei, det er en trykkfeil. Det skulle stått «enveis variansanalyse». Faktoranalyse er en helt annen metode som ligger utenfor pensum, men som noen ganger foreleses i forbindelse med hjemmeeksamen.
+
+**Oppgave 1d:** *Hvor en skal regne ut en kritisk grense for $F$ på 5% sign.nivå for v1= 175 og v2= 569. Hvorfor er det brukt en ensidig test her? (gir verdi 1,18) Er det ikke mer naturlig å bruke en tosidig her? En annen ting, er det nok å se på p-verdi eller må man regne ut en kritisk grense?*
+
+Enig med deg. Det er ikke noe holdepunkt for å bruke ensidig test her. Jeg har ment å bruke tosidig test, men brukt feil tabell – 0.05 i stedet for 0.025. Korrekt kritisk grense skulle dermed være 1,22. Det er ingen grunn til å regne ut kritisk grense hvis det er gitt en programutskrift med p-verdi
+
+</details>
+
+## Tidligere eksamensoppgaver (hjemmeeksamen)
+
+Her finner du oppgavene som er gitt ved hjemmeeksamen etter at eksamensformen ble lagt om i 2017. Merk at besvarelsen skal leveres som en sammenhengende rapport, og at løsningsforslagene under ikke oppfyller det kravet, men heller er en skisse av kodesnutter som *kan* brukes til å besvare spørsmålene. For vår 2018 har vi et sett med eksempelbesvarelser på ulike karakternivåer, med sensors kommentarer.
+
+```{r, echo = F}
+hjemmeeksamen <- readxl::read_excel("tidligere-eksamensoppgaver/hjemmeeksamen.xlsx")
+
+options(knitr.kable.NA = '')
+
+hjemmeeksamen %>% 
+  kableExtra::kbl() %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
+
 
 

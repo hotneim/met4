@@ -163,6 +163,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
 <li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -208,11 +209,11 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">50</span>
 hvit_støy &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)
 <span class="kw">plot</span>(hvit_støy, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 <p>Vi kan bruke funksjonen <code>arima.sim()</code> til å simulere tidsrekker fra AR-modellen (og den mer generelle ARIMA-modellen, mer om det senere). Du kan for eksempel simulere <span class="math inline">\(n\)</span> observasjoner fra en AR(1)-prosess med <span class="math inline">\(\phi = 0.95\)</span> ved hjelp av følgende kommandoer:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ar1 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ar =</span> <span class="fl">0.95</span>), n)
 <span class="kw">plot</span>(ar1, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 <p>I det siste eksempelet trekker <code>arima.sim()</code>-funskjonen hvit-støy-prosessen <span class="math inline">\(u_t\)</span> fra <code>rnorm()</code>-funksjonen, men det kan vi endre på hvis vi vil, se hjelpesiden <code>?arima.sim</code>. Videre kan vi bruke denne funksjonen til å simulere fra hvit støy ved å sette <code>model</code>-argumentet til en tom liste (<code>model = list()</code>), eller vi kan simulere fra en AR(2)-prosess med <span class="math inline">\(\phi_1 = 0.2\)</span> og <span class="math inline">\(\phi_2 = 0.1\)</span> ved å sette <code>model = list(ar = c(0.2, 0.1))</code>.</p>
 <p><strong>2. Estimere.</strong></p>
 <p>La oss i første omgang si at vi har observert tidsrekken <code>ar1</code> som vi simulerte over, at vi mistenker at den følger en AR(1)-prosess <span class="math inline">\(Y_t = \phi Y_{t-1} + u_t\)</span>, og at vi ønsker å estimere den ukjente parameteren <span class="math inline">\(\phi\)</span> ved hjelp av observasjonene. Som vi antydet i <strong>AR</strong>-videoen kan vi i dette tilfellet betrakte det som et regresjonsproblem med <span class="math inline">\(Y_t\)</span> som responsvariabel og <span class="math inline">\(Y_{t-1}\)</span> som forklaringsvariabel. La oss lage en <code>data.frame</code> med disse to kolonnene, og se hva vi får når vi bruker <code>lm()</code>-funksjonen. .</p>
@@ -224,19 +225,19 @@ hvit_støy &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)
 ## lm(formula = Y ~ lagged_Y, data = df)
 ## 
 ## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -2.21138 -0.53341 -0.09418  0.61566  2.47399 
+##     Min      1Q  Median      3Q     Max 
+## -1.5400 -0.6819 -0.1418  0.6725  1.9269 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -0.03864    0.13561  -0.285    0.777    
-## lagged_Y     0.83907    0.08269  10.147    2e-13 ***
+## (Intercept)  0.04664    0.13890   0.336    0.739    
+## lagged_Y     0.87116    0.06494  13.415   &lt;2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.9449 on 47 degrees of freedom
-## Multiple R-squared:  0.6866, Adjusted R-squared:  0.6799 
-## F-statistic:   103 on 1 and 47 DF,  p-value: 1.996e-13</code></pre>
+## Residual standard error: 0.9106 on 47 degrees of freedom
+## Multiple R-squared:  0.7929, Adjusted R-squared:  0.7885 
+## F-statistic:   180 on 1 and 47 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Vi ser at vårt estimat av <span class="math inline">\(\phi\)</span>, som i regresjonutskriften er koeffisienten til <code>lagged_Y</code>, er i nærheten av den sanne verdien 0.95, men med så få observasjoner kan det godt hende at ditt estimat er noe forskjellig. Poenget er: vi kan bruke lineær regresjon til å estimere koeffisientene i en AR-modell basert på observasjoner.</p>
 <p>Som i forrige oppgave er pakken <code>forecast</code> svært nyttig for estimering og predikering:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(forecast)</code></pre></div>
@@ -247,11 +248,11 @@ hvit_støy &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)
 ## 
 ## Coefficients:
 ##          ar1    mean
-##       0.8280  0.0309
-## s.e.  0.0768  0.6951
+##       0.8916  1.1769
+## s.e.  0.0601  1.0403
 ## 
-## sigma^2 estimated as 0.8847:  log likelihood=-67.44
-## AIC=140.89   AICc=141.41   BIC=146.62</code></pre>
+## sigma^2 estimated as 0.8496:  log likelihood=-66.64
+## AIC=139.29   AICc=139.81   BIC=145.03</code></pre>
 <p>I første omgang kan vi legge merke til at vi har spesifisert <em>hvilken</em> modell vi ønsker å estimere gjennom argumentet <code>order = c(1, 0, 0)</code>, der ett-tallet angir AR-modellens orden <span class="math inline">\(p\)</span>, som i dette tilfellet er 1. Dersom du mistenker at AR(2)-modellen gir en bedre beskrivelse av tidsrekken din, kan du endre til <code>order = c(2, 0, 0)</code>. Vi kommer tilbake til spørsmålet om hvordan du kan velge den beste modellen for et gitt praktisk problem.</p>
 <p>Legg merke til at de to estimatene ikke er identiske selv om vi bruker det samme tidsrekken. Det er fordi <code>arima()</code>-funksjonen ikke bruker minste kvadraters metode til å regne ut estimatene (slik <code>lm()</code> gjør), men heller bruker en annen estimeringsteknikk som heter <em>maximum likelihood</em>.</p>
 <p><strong>3. Predikere.</strong> For predikering bruker vi funksjonen <code>forecast()</code>, som tar en estimert modell som input, og som bruker modellen til å skrive frem tidsrekken ved å estimere fremtidige verdier.</p>
@@ -262,7 +263,7 @@ prediksjon  &lt;-<span class="st"> </span><span class="kw">forecast</span>(ar1_e
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plotter den opprinnerlige tidsrekken, sammen med prediksjon og</span>
 <span class="co"># prediksjonsintervall</span>
 <span class="kw">autoplot</span>(prediksjon)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 </div>
 </div>
             </section>

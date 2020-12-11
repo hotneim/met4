@@ -163,6 +163,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
 <li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -210,15 +211,15 @@ ar1 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class=
 <!-- acf(ar1) -->
 <!-- ``` -->
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">acf</span>(hvit_støy)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">acf</span>(ar1)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-73-2.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-80-2.png" width="672" /></p>
 <p>Vi ser igjen mønsteret fra videoen: Hvit støy består av ukorrelerte observasjoner, mens AR(1)-modellen består av observasjoner som bygger på forrige observasjon, slik at det er en viss korrelasjon, og dermed avhengighet fra dag til dag. Det ser vi igjen i autokorrelasjonsplottet som gir tydelig utslag, og der korrelasjonen går gradvis mot null med økende avstand mellom observasjonene.</p>
 <p><strong>2. ACF som sjekk av modell</strong> En sjekk vi gjerne gjør for å se om en estimert tidsrekkemodell passer dataene våre, er å se autokorrelasjonen til residualene i modellen er liten. Det betyr nemlig at modellen plukker opp den (lineære) avhengigheten i tidsrekken. For en AR(1) modell er residualene f.eks gitt ved <span class="math inline">\(\hat{u}_t = Y_t - \hat{\phi}Y_{t-1}\)</span>, men disse er tilgjengelig direkte fra modell estimeringen i R:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(forecast)
 ar1_estimat &lt;-<span class="st"> </span><span class="kw">Arima</span>(ar1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))
 <span class="kw">acf</span>(ar1_estimat<span class="op">$</span>residuals)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 <p><strong>3. Oppgave:</strong> Prøv nå lage et plott av følgende tre tidsrekker, plott autokorrelasjonsfunksjonen, og knytt en kort kommentar til hver av dem om hva du lærer om tidsrekken ved å se på autokorrelasjonsplottet til:</p>
 <ol style="list-style-type: decimal">
 <li>Prisen på Equinor-aksjen, som vi jobbet med i det første oppgavesettet.</li>
