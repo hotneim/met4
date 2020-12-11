@@ -1,7 +1,7 @@
 
 # Dataøvinger
 
-Blabla intro til øvinger
+Her finner du dataøvingene som skal gjennomføres i MET4. Se tidsplanen til kurset for en oversikt over når de ulike øvingene skal gjøres og hvilke uker studentassistentene gjennomfører øvingene på datasal.
 
 ## Dataøving 1
 
