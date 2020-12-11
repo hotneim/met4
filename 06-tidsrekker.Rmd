@@ -71,7 +71,7 @@ plot(pris, type = "l")
 
 Både glidende gjennomsnitt og eksponensiell glatting har flere ulike implementeringer i R. For glidende gjennomsnitt skal vi bruke funksjonen `rollmean()` i pakken `zoo`. Du må først installere pakken og laste den inn;
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, warning = FALSE}
 install.packages("zoo")
 library(zoo)
 ```

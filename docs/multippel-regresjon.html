@@ -126,18 +126,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a><ul>
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
-<li class="chapter" data-level="2.3" data-path="spørsmål-og-oppgaver.html"><a href="spørsmål-og-oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Spørsmål og oppgaver</a></li>
+<li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a><ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
 <li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
+<li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a><ul>
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
+<li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a><ul>
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
@@ -162,7 +164,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
-<li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -213,7 +215,7 @@ Publisert ved hjelp av bookdown</a></li>
 <p><strong>F-test for multiple sammenligninger</strong>: Dette henger nøye sammen med <em>variansanalyse (analysis of variance, ANOVA)</em>, som nå er tatt ut av pensum i kurset. For å forstå dette kan vi sette opp et eksempel, med to forklaringsvariabler: <span class="math display">\[Y = \beta_0 + \beta_1X_1 + \beta_2X_2.\]</span> Etter å ha brukt miste kvadraters metode for å estimere de tre koeffisientene er vi kanskje interessert i å vurdere den statsistiske signifikansene til de to stigningstallene separat. Da tester vi de to nullhypotesene <span class="math inline">\(\beta_1 = 0\)</span> og <span class="math inline">\(\beta_2 = 0\)</span>, som vi i praksis gjør ved å se på hvor mange stjerner de får i regresjonsutskriften. Men sett at ingen av koeffisientene er signifikant forskjellige fra null, kan vi da slutte at vi ikke kan forkaste hypotesen <span class="math inline">\(\beta_1 = \beta_2 = 0\)</span>, dvs at <em>begge</em> koeffisientene er lik null, og at ingen av forklaringsvariablene forklarer variasjon i <span class="math inline">\(Y\)</span>? <strong>NEI</strong>, det kan vi ikke. Vi kan for eksempel lett tenke oss at vi på grunn av multikolinearitet ikke får separate forkastninger av de to nullhypotesene, men at ved å fjerne en variabel, så blir den andre signifikant.</p>
 <p>For å virkelig forstå dette problemet kan du godt lese starten på kapittel <strong>14.1</strong> samt kapittel <strong>14.2</strong> om multiple sammenligninger (som strengt tatt ikke er pensum), men essensen er altså:</p>
 <p><span class="math display">\[\textrm{Å forkaste H}_0: \beta_1 = 0 \textrm{ og H}_0: \beta_2 = 0 \textrm{ er ikke det samme som å forkaste H}_0: \beta_1 = \beta_2 = 0!\]</span></p>
-<p>For å gjennomføre den siste testen må vi sette opp en egen testobservator, som viser seg å være <span class="math inline">\(F\)</span>-fordelt. Læreboken lister opp noen detaljer i avsnitt <strong>17-2f</strong>, og essensen er at vi setter opp en brøk på formen <span class="math display">\[F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellenmed } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.\]</span> Dersom denne brøken viser seg å være stor (som definert av signifikansnivå og frihetsgrader, se lærebok), forkaster vi nullhypotesen om at begge koeffisientene begge kan være lik null. I en generell multippel regresjon med <span class="math inline">\(k\)</span> forklaringsvariable rapporterer R <code>F-statistic:</code> etc, med verdien av <span class="math inline">\(F\)</span>-observatoren i testen for <span class="math display">\[H_0: \beta_1 = \cdots = \beta_k = 0,\]</span> og dersom den oppgitte <span class="math inline">\(p\)</span>-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv er signifikant forskjellig fra null).</p>
+<p>For å gjennomføre den siste testen må vi sette opp en egen testobservator, som viser seg å være <span class="math inline">\(F\)</span>-fordelt. Læreboken lister opp noen detaljer i avsnitt <strong>17-2f</strong>, og essensen er at vi setter opp en brøk på formen <span class="math display">\[F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen med } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.\]</span> Dersom denne brøken viser seg å være stor (som definert av signifikansnivå og frihetsgrader, se lærebok), forkaster vi nullhypotesen om at begge koeffisientene begge kan være lik null. I en generell multippel regresjon med <span class="math inline">\(k\)</span> forklaringsvariable rapporterer R <code>F-statistic:</code> etc, med verdien av <span class="math inline">\(F\)</span>-observatoren i testen for <span class="math display">\[H_0: \beta_1 = \cdots = \beta_k = 0,\]</span> og dersom den oppgitte <span class="math inline">\(p\)</span>-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv nødvendigvis er signifikant forskjellig fra null).</p>
 <p>Som en såkalt <em>fun fact</em> kan vi nevne at det er enkelt å teste for signifikansen til <em>grupper</em> av variable på denne måten, f.eks hvis det er noen variable som måler lignende ting (si <span class="math inline">\(X_2, X_4\)</span> og <span class="math inline">\(X_5\)</span>). I R kan du estimere to modeller, en modell som <em>inkluderer</em> variablene (f.eks. <code>reg_stor</code>) og en modell der du tar bort de aktuelle variablene (f.eks. <code>reg_liten</code>). Du kan da kjøre kommandoen <code>anova(reg_stor, reg_liten)</code> for å teste <span class="math display">\[H_0: \beta_2 = \beta_4 = \beta_5 = 0.\]</span></p>
 <blockquote>
 <p><strong>Kritikk av læreboken:</strong> Læreboken har en tabell på s. 701 som viser sammenhengen mellom ulike statistiske størrelser som vi kan regne ut for en regresjonsmodell. <span class="math inline">\(R^2\)</span> kjenner vi som forklaringsgraden, <span class="math inline">\(s_{\epsilon}\)</span> er standardavviket til residualene, <span class="math inline">\(F\)</span> er testobservatoren for modellgyldighet som vi definerte uformelt over, og som er definert formelt nederst på s. 700, mens SSE (Sum of Squares Error) henger nøye sammen med standardavviket, som vi også kan se på s. 700. På disse sidene ser vi mange ligninger som viser hvordan disse størrelsene formelt henger sammen, og i tabellen på s. 701 ser vi blant annet at dersom SSE er liten, er også <span class="math inline">\(s_{\epsilon}\)</span> liten, <span class="math inline">\(R^2\)</span> er nær null, og <span class="math inline">\(F\)</span>-observatoren er stor. Det er greit nok, <strong>men</strong> de har en ekstra kolonne som slår fast at regresjonsmodellen er <em>good</em>.</p>
@@ -225,19 +227,19 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Det er desverre mange lærebøker som blander disse to fortolkningene, ikke gjør det!</p>
 </blockquote>
 <p>Her er enda noen grunnleggende begreper. Har du fått med deg dette?</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Hva mener vi med at en observasjon er innflytelsesrik?</li>
 <li>Hva er grunnen til at vi trenger <em>justert</em> <span class="math inline">\(R^2\)</span> med flere forklaringsvariable?</li>
 <li>Hva er forskjellen på <em>perfekt</em> og <em>tilnærmet</em> multikolinearitet i lineær regresjon? Hva blir konsekvensen i hvert av tilfellene?</li>
 <li>Kan du gi en praktisk og intuitiv forklaring på hvorfor multikolinearitet nødvendigvis må være et problem?</li>
 <li>Hva er forskjellen på statistisk og økonomisk signifikans? Kan du sette opp konkrete eksempler der vi kan estimere statistisk signifikante, men ikke økonomisk signifikante effekter i multippel regresjon? Hva med den motsatte situasjonen, økonomisk signifikant, men ikke statistisk signifikant?</li>
-</ul>
+</ol>
 <p>Grunnleggende ferdigheter: Klarer du dette?</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Bruke R til å tilpasse en multippel regresjonsmodell for et datasett?</li>
 <li>Bruke R til å finne særlig innflytelsesrike observasjoner?</li>
 <li>Tolke en multippel regresjonsutskrift?</li>
-</ul>
+</ol>
 </div>
 </div>
             </section>

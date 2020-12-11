@@ -126,18 +126,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a><ul>
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
-<li class="chapter" data-level="2.3" data-path="spørsmål-og-oppgaver.html"><a href="spørsmål-og-oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Spørsmål og oppgaver</a></li>
+<li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a><ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
 <li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
+<li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a><ul>
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
+<li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a><ul>
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
@@ -162,7 +164,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
-<li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -208,12 +210,12 @@ Publisert ved hjelp av bookdown</a></li>
 equinor &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)
 pris &lt;-<span class="st"> </span><span class="kw">rev</span>(equinor<span class="op">$</span>Siste)
 <span class="kw">plot</span>(pris, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
 <p>Vi kan lage en figur av den differensierte tidsrekken på følgende måte:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sjekk av differanse </span>
 diff_pris &lt;-<span class="st"> </span><span class="kw">diff</span>(pris)
 <span class="kw">plot</span>(diff_pris, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 <p><strong>Oppgave:</strong> Vurder om en ARIMA modell er bedre egnet enn en ARMA modell ut fra de to figurene over.</p>
 <p><strong>2. Estimering av ARIMA modeller</strong> Vi bruker den samme funksjonen <code>Arima</code> fra <code>forecast</code> pakken til å estimere både ARMA og ARIMA modeller og spesifisering av modellen gjør vi via argumentet <code>order</code>. Skal du estimerer en ARMA(1,1) modell setter du f.eks dette argumentet til <code>c(1, 0, 1)</code>. Elementet i midten av denne vektoren spesifiserer hvor mange ganger tidsrekken skal differensieres i ARIMA modellen. Estimering av en ARIMA modell med en enkelt differensiering og ett MA og AR ledd kan gjøres slik:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(forecast)
@@ -261,7 +263,7 @@ arima111 &lt;-<span class="st"> </span><span class="kw">Arima</span>(pris, <span
 <p><strong>4. Prediksjon</strong> Prediksjon gjøres som tidligere med <code>forecast</code> funksjonen, så hvis en vil predikere 10 tidssteg frem i tid gjør man følgende:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pred_arima111 &lt;-<span class="st"> </span><span class="kw">forecast</span>(arima111, <span class="dt">h =</span>  <span class="dv">10</span>)
 <span class="kw">autoplot</span>(pred_arima111, <span class="dt">include =</span> <span class="dv">100</span>)</code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
 <p>merk at i <code>autoplot</code> har vi valgt å bare vise 100 observasjoner av tidsrekken sammen med prediksjonene</p>
 </div>
 </div>

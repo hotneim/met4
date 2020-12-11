@@ -1,7 +1,7 @@
 
 # Diverse ekstrastoff
 
-## Tidligere eksamensoppgaver (skoleeksamen)
+## Tidligere eksamensoppgaver (skoleeksamen) {#skoleeksamen}
 
 I tabellen under finner du en lang rekke eksamenssett som er gitt tidligere i MET4 (og dets forløper INT010). Vi har lagt til en kolonne med oppgaver som åpenbart ligger utenfor pensum i dag. Utover det er selvsagt oppgavene relevante i større eller mindre grad for kurset i dag, uten at vi har mulighet til å gå nærmere inn på en slik detaljert rangering.
 
