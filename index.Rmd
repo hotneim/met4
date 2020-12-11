@@ -33,11 +33,16 @@ På grunn av coronasituasjonen er store deler av kurset digitalisert. Det vil si
 
 Praktisk bruk av statistiske metoder stpr sentralt i MET4, og denne delen dekker vi gjenom kontakttimer, oppgaveseminarer med kursansvarlige, og dataøvinger med studentassistenter. Denne delen vil være digital dersom smittesituasjonen krever det, og fysisk på campus dersom smittesituasjonen tillater det. **Det vil være et fullgodt digitalt alternativ til MET4 gjennom hele semsteret**.
 
+### Fremdriftsplan {-}
+
 ### Kursets struktur {-}
 
-Oppklare misforståelse om R og hjemmeeksamen.
+<figure style="text-align:center">
+  <img alt="Håkon" src="bilder/struktur.jpg" width="600" height="700"/>
+  <figcaption>De ulike elementene i MET4, og hvodan de bidrar til de to vurderingsformene,</figcaption>
+</figure>
 
-### Fremdriftsplan {-}
+Oppklare misforståelse om R og hjemmeeksamen.
 
 ### Lærebok og pensum {-}
 
