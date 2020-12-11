@@ -22,7 +22,7 @@ utvalg-og-estimering
 videoforelesninger-1
 kommentarer-1
 ekstra-øving-i-r
-spørsmål-og-oppgaver
+oppgaver
 hypotesetesting
 generelt-om-hypotesetesting
 videoforelesninger-2
@@ -58,17 +58,17 @@ videoforelesninger-11
 kommentarer-10
 tidsrekker
 intro
-kontrollspørsmål-1
+kontrollspørsmål
 oppgaver-fra-lærebok
 r-øving
 trend-og-sesong
-kontrollspørsmål-2
+kontrollspørsmål-1
 r-øving-1
 ar
-kontrollspørsmål-3
+kontrollspørsmål-2
 r-øving-2
 stasjonaritet
-kontrollspørsmål-4
+kontrollspørsmål-3
 merk
 autokorrelasjon
 kontrollspørsmåldiskusjonsspørsmål
@@ -107,5 +107,5 @@ dataøving-4
 oppgave-1-interaktiv-øvelse-2
 oppgave-2---maskinlæring-logistisk-regresjon-og-k-nærmeste-naboer
 diverse-ekstrastoff
-tidligere-eksamensoppgaver-skoleeksamen
+skoleeksamen
 tidligere-eksamensoppgaver-hjemmeeksamen

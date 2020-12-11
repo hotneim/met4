@@ -23,7 +23,7 @@ I læreboken er det kapitlene **2--4** som behandler deskriptiv statistikk, men 
 
 - Ulike datatyper i avsnitt **2-1**.
 - **3-4**: The art and science of graphical presentations. Hva er det som gjør en grafisk illustrasjon god? Prøv å ta inn over dere all informasjonen som vi lett kan lese ut av bildet på side 75 om Napoleons felttog mot Moskva. Her presenteres informasjon om tid, antall, geografi og temperatur på en helt eksepsjonelt effektiv måte! Videre er det noen grelle eksempler på hvordan vi kan bruke grafiske virkemidler til å gi skjeve fremstillinger. I videoforelesningen gir vi flere eksempler på dette. 
-- Kapittel **4** går litt mer i dypden om numeriske deskriptive teknikker, som gjennomsnitt, median, standardavvik, korrelasjon, osv. Dette skal være dekket greit i forelesningen, men boken går litt mer i dybden.
+- Kapittel **4** går litt mer i dybden om numeriske deskriptive teknikker, som gjennomsnitt, median, standardavvik, korrelasjon, osv. Dette skal være dekket greit i forelesningen, men boken går litt lenger.
 
 Det kan være en fin øvelse å kikke på eksemplene i læreboken og forsøke å gjenskape noen av Excel-figurene i R. Se på eksempel 3.2, der man skal lage to histogrammer over historiske avkastninger for to ulike investeringsstrategier. Vi leser inn datasettet (last ned fra Canvas) som under og kikker på det:
 
@@ -53,6 +53,11 @@ ggplot(returns, aes(x = `Return B`)) +
         geom_histogram(bins = 10)
 ```
 
+Her er noen kontrollspørsmål som du kan prøve deg på:
+
+1. Hva er forskjellen på deskriptiv statistikk og statistisk inferens?
+1. Deskriptiv statistikk kan gjøres grafisk eller numerisk, eventuelt som tabeller av ulike numeriske mål. Nevn noen fordeler og ulemper man må veie mot hverandre når vi skal velge mellom grafisk og numerisk deskriptiv statistikk.
+
 ## Utvalg og estimering
 
 > You can, for example, never foretell what any one man will do, but you can say with presicion what an average number will be up to. Individuals vary, but percentages remain constant. So says the statistician.
@@ -65,7 +70,7 @@ ggplot(returns, aes(x = `Return B`)) +
 
 ### Kommentarer
 
-I videoforelesningene over gikk vi gjennom noen sentrale begreper i statistikk. Noen av dem skal vi bruke mye i fortsettelsen, mens andre er ment for å gi dere et solid teoretisk fundament når vi etter hvert skal begi oss ut på anvendt statistikk.
+I videoforelesningene over går vi gjennom noen sentrale begreper i statistikk. Noen av dem skal vi bruke mye i fortsettelsen, mens andre er ment for å gi dere et solid teoretisk fundament når vi etter hvert skal begi oss ut på anvendt statistikk.
 
 Vi startet med å sette opp en liten agenda. Som et første steg kan du kikke på, og notere ned noen setninger til, disse punktene og se om du har fått med deg hva de betyr:
 
@@ -77,7 +82,7 @@ Vi startet med å sette opp en liten agenda. Som et første steg kan du kikke p�
 - Forventningsrett
 - Konsistens
 
-I Boken er det kapittel **9** (*Sampling distributions*) og **10** (*Introduction to estimation*) som gjelder. Kapittel 6-8 omhandler stoff skal skal være greit dekket i MET2 (Sannsynlighet, fordelinger, stokastiske variable, osv.), men det kan være nyttig å skumme gjennom likevel hvis disse begrepene ligger langt bak i bevissheten din. 
+I Boken er det kapittel **9** (*Sampling distributions*) og **10** (*Introduction to estimation*) som gjelder. Kapittel **6**--**8** omhandler stoff skal skal være greit dekket i MET2 (Sannsynlighet, fordelinger, stokastiske variable, osv.), men det kan være nyttig å skumme gjennom likevel hvis disse begrepene ligger langt bak i bevissheten din. 
 
 Kapittel **9** starter med å diskutere samplingfordelingen til et gjennomsnitt. Dette er nyttig lesestoff, men de viktigste punktene er som følger:
 
@@ -124,7 +129,7 @@ c(LCL, gj.snitt, UCL)
  
  I seksjon **10-2a** forsøker boken å forklare fortolkningen av et konfidensintervall. Hovedpoengene her er at:
  
- - Et 95%-konfidensintervall skal *ikke* tolkes som «sannsynligheten for at intervallet inneholder den sanne parameterverdien er 95%».
+ - Et 95%-konfidensintervall skal *ikke* tolkes som «sannsynligheten for at den sanne parameterverdien ligger i intervallet er 95%».
  - Den korrekte tolkningen er: «Dersom vi hadde hatt tilgang til å trekke nye utvalg fra populasjonen med like mange observasjoner og bruker dem til å regne ut nye konfidensintervaller, vil 95 av 100 intervaller inneholde den sanne parameterverdien».
  
 Forskjellen på disse formuleringene er meget subtil, så subtil faktisk at det ikke er åpenbart at det er særlig god pedagogikk å peke på den. Problemet med den første formuleringen er at vi der kan få inntrykk av at det er den sanne parameterverdien som er stokastisk og avhengig av datasettet vi observerer, mens det strengt tatt er grensene til konfidensintervallet som er tilfeldige, og altså avhengige av datasettet. Det kommer klarere frem i den andre formuleringen.
@@ -135,6 +140,16 @@ Seksjon **10-2b** og **10-2c** kan skummes raskt gjennom. Seksjon **10-3** handl
 
 $$n = \left(\frac{z_{\alpha/2}\sigma}{B}\right)^2,$$
 men problemet i praksis er at vi gjerne ikke kjenner $\sigma$, og vi kan heller ikke estimere den fordi vi ikke har samlet inn data enda. Løsningen er at vi enten på bruke fornuften, eller eventuelt et tidligere estimat av $\sigma$ dersom det er tilgjengelig.
+
+Når du har vært gjennom dette stoffet skal du forhåpentligvis være i stand til å diskutere følgende spørsmål med f.eks. en medstudent:
+
+1. Hva er en samplingfordeling?
+2. Hva sier sentralgrenseteoremet?
+3. Hva mener en statistiker når hen sier at "gjennomsnittet konvergerer som $1/\sqrt{n}$"?
+4. Hva er samplingfordelingen til et gjennomsnitt?
+5. Hva er samplingfordelingen til en andel?
+6. Hva vil det si at et estimator er forventningsrett?
+7. Hva vil det si at et estimator er konsistent?
 
 ### Ekstra øving i R
 
@@ -147,7 +162,7 @@ rnorm(n)
 
 Ved å skrive `mean(dnorm(n))` i stedet regner vi ut gjennomsnittet av observasjonene direkte. 
 
-La oss gjøre dette 100 ganger og notere ned gjennomsnittet hver gang. I stedet for å gjøre det manuelt, kan vi skrive et lite program som gjør dette for oss ved å bruke en for-løkke. Det er ikke nødvendig (eller pendum) å forstå akkurat hvordan dette fungerer, men dersom du kjører følgende linjer vil du få en ny vektor `gj.snitt` som inneholder 100 slike gjennomsnitt:
+La oss gjøre dette 100 ganger og notere ned gjennomsnittet hver gang. I stedet for å gjøre det manuelt, kan vi skrive et lite program som gjør dette for oss ved å bruke en for-løkke. Det er ikke nødvendig (eller pensum) å forstå akkurat hvordan dette fungerer, men dersom du kjører følgende linjer vil du få en ny vektor `gj.snitt` som inneholder 100 slike gjennomsnitt:
 
 ```{r}
 gj.snitt <- rep(NA, 100)
@@ -185,32 +200,21 @@ Dette er ganske enkelt, men også litt vanskelig på en *inception*-aktig måte.
 
 </details>
 
-## Spørsmål og oppgaver
+## Oppgaver
 
-#### Kontrollspørsmål {-}
+I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen).
 
-1. Hva er forskjellen på deskriptiv statistikk og statistisk inferens?
-1. Deskriptiv statistikk kan gjøres grafisk eller numerisk, eventuelt som tabeller av ulike numeriske mål. Nevn noen fordeler og ulemper man må veie mot hverandre når vi skal velge mellom grafisk og numerisk deskriptiv statistikk.
-1. Hva er en samplingfordeling?
-2. Hva sier sentralgrenseteoremet?
-3. Hva mener en statistiker når hen sier at "gjennomsnittet konvergerer som $1/\sqrt{n}$"?
-4. Hva er samplingfordelingen til et gjennomsnitt?
-5. Hva er samplingfordelingen til en andel?
-6. Hva vil det si at et estimator er forventningsrett?
-7. Hva vil det si at et estimator er konsistent?
+Har du en eldre utgave av boken kan du laste ned [dette dokumentet]("oppgaver/Recommended exersices.doc") for en oversikt over oppgavenummer tilbake til 7. utgave.
 
-#### Drilleoppgaver {-}
+```{r, echo = FALSE, message = FALSE}
 
-Ting fra boken, eventuelt litt bearbeidet. Skal vi også lage til løsning her?
+library(dplyr)
+options(knitr.kable.NA = '')
 
+"oppgaver/oppgaver-grunnleggende-statistikk.xlsx" %>% 
+    readxl::read_excel() %>% 
+    kableExtra::kbl() %>% 
+    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 
-#### Oppgaver på (ca) eksamensnivå {-}
+```
 
-- (**EKS**) = Først og fremst relevant for skoleeksamen.
-- (**HEKS**) = Først og fremst relevant for hjemmeeksamen.
-
-- Finne frem oppgaver fra gamle skoleeksamenssett. 
-- Noen av datasettene fra hjemmeeksamen; mange av førsteoppgavene har vært av typen "Beskriv relevante deler av datasettet". 
-- Stargazer for summarytabeller.
-- Summarise fra dplyr?
-- Datasaurus; lage deskriptiv statistikk, så plotte?

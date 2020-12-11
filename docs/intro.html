@@ -32,7 +32,7 @@
   
 <link rel="prev" href="tidsrekker.html"/>
 <link rel="next" href="trend-og-sesong.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -156,7 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
-<li class="chapter" data-level="2.3" data-path="spørsmål-og-oppgaver.html"><a href="spørsmål-og-oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Spørsmål og oppgaver</a></li>
+<li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
@@ -197,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -228,7 +226,7 @@ Publisert ved hjelp av bookdown</a></li>
 <iframe src="https://vimeo.com/showcase/7660844/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
 </div>
-<div id="kontrollspørsmål-1" class="section level3" number="6.1.1">
+<div id="kontrollspørsmål" class="section level3" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> Kontrollspørsmål</h3>
 <ol style="list-style-type: decimal">
 <li>Hvilke forskjeller er det mellom en tidsrekke og et sett med samtidige observasjoner?</li>
@@ -264,10 +262,11 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Både glidende gjennomsnitt og eksponensiell glatting har flere ulike implementeringer i R. For glidende gjennomsnitt skal vi bruke funksjonen <code>rollmean()</code> i pakken <code>zoo</code>. Du må først installere pakken og laste den inn;</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="intro.html#cb56-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;zoo&quot;</span>)</span>
 <span id="cb56-2"><a href="intro.html#cb56-2"></a><span class="kw">library</span>(zoo)</span></code></pre></div>
+<pre><code>## Warning: package &#39;zoo&#39; was built under R version 4.0.3</code></pre>
 <p>Hvis du leser litt på dokumentasjonen til <code>rollmean()</code> ved å kjøre <code>?rollmean</code> vil du se at du kan regne ut f.eks et glidende gjennomsnitt for Equinoraksjen med vindusstørrelse 5 ved å kjøre</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="intro.html#cb57-1"></a>pris_glatt5 &lt;-<span class="st"> </span><span class="kw">rollmean</span>(pris, <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">fill =</span> <span class="ot">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="intro.html#cb58-1"></a>pris_glatt5 &lt;-<span class="st"> </span><span class="kw">rollmean</span>(pris, <span class="dt">k =</span> <span class="dv">5</span>, <span class="dt">fill =</span> <span class="ot">NA</span>)</span></code></pre></div>
 <p>Da får vi ut en ny vektor med lik lengde som den vi hadde, og som inneholder den glattede versjonen. Den fyller opp verdiene i starten og slutten som vi ikke kan regne ut med et glidende gjennomsnitt med NA, slik at vi kan tegne inn den glattede versjonen i samme plott som vi viste selve tidsrekken:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="intro.html#cb58-1"></a><span class="kw">lines</span>(pris_glatt5, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="intro.html#cb59-1"></a><span class="kw">lines</span>(pris_glatt5, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p>Dersom du er interessert kan du lese mer <a href="https://tradingsim.com/blog/simple-moving-average/">her</a> om hvordan det glidende gjennomsnittet blir brukt som en investeringsstrategi.</p>
 <p>Tanken er at det glidende gjennomsnittet representerer den langsiktige trenden. Dersom tidrekken ligger under det glidende gjennomsnittet tolkes det som at aksjen er på vei nedover, og motsatt: dersom prisen ligger over det glidende gjennomsnittet, så er det et tegn på at aksjen er på vei oppover. Når de to seriene krysser hverandre går “alarmen”, og man tar stilling til om man skal kjøpe eller selge.</p>
 <p>Vindusstørrelsen velger man ut fra hvor hyppig man handler. For profesjonelle investorer som driver med handel i høy hastighet kan kanskje 5-dagersviduet som vi regnet ut over være nok. Andre med mellomlang og lang sikt vil gjerne bruke et vindu på 50 eller 200 dager.</p>
@@ -275,9 +274,9 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Et problem med analysen over er at vi trenger <em>fremtidige observasjoner</em> til å regne ut den glattede tidsrekken. Det betyr at vi kjenner den glattede versjonen av tidsrekken ved tid <span class="math inline">\(t\)</span> først ved tid <span class="math inline">\(t+200\)</span>. Vi kan enkelt lage en annen variant der vi glatter tidsrekken ved tid <span class="math inline">\(t\)</span> ved å ta gjennomsnittet av <span class="math inline">\(Y_{t-200}, Y_{t-199}, \ldots, Y_{t-1}\)</span> i stedet for <span class="math inline">\(Y_{t-100}, \ldots, Y_{t}, \ldots, Y_{t+100}\)</span>, altså at vi bare bruker fortiden. Det gjør du i R ved å legge til det ekstra argumentet <code>align = "right"</code> i funksjonen <code>rollmean</code>. Fordelen nå er at vi ved hvert tidspunkt kjenner både prisen på aksjen og den glattede varianten.</p>
 <p><strong>Oppgave:</strong> Regn ut et glidende gjennomsnitt med vindusstørrelse 200 for Equinoraksjen som hele tiden bruker tidligere observasjoner i glattingen. Tegn glattingen inn i figuren. Hvordan ser investeringsstrategien din ut nå?</p>
 <p><strong>Eksponensiell glatting</strong> har også et annet navn: Holt Winters Metode. En funksjon for å gjennomføre den finnes innebygget i R, og heter <code>HoltWinters()</code>. I denne funksjonen er vektparameteren <span class="math inline">\(w\)</span> representert ved argumentet <code>alpha</code>. Funksjonen har noen flere argumenter som ikke vi skal bruke, så dersom vi ønsker å regne ut den eksponensielle glattingen for Equinoraksjen med <span class="math inline">\(w = 0.5\)</span>, kjører vi:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="intro.html#cb59-1"></a>pris_exp1 &lt;-<span class="st"> </span><span class="kw">HoltWinters</span>(pris, <span class="dt">alpha =</span> <span class="fl">.5</span>, <span class="dt">beta =</span> <span class="ot">FALSE</span>, <span class="dt">gamma =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="intro.html#cb60-1"></a>pris_exp1 &lt;-<span class="st"> </span><span class="kw">HoltWinters</span>(pris, <span class="dt">alpha =</span> <span class="fl">.5</span>, <span class="dt">beta =</span> <span class="ot">FALSE</span>, <span class="dt">gamma =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p>For å hente ut den glattede versjonen skriver vi</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="intro.html#cb60-1"></a>pris_exp1<span class="op">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="intro.html#cb61-1"></a>pris_exp1<span class="op">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>]</span></code></pre></div>
 <p><strong>Oppgave:</strong> Lag en ny figur der du tegner inn aksjeprisen, samt den eksponensielle glattingen med hhv. <span class="math inline">\(w = 0.5\)</span>, <span class="math inline">\(w = 0.01\)</span> og <span class="math inline">\(w = 0.99\)</span>.</p>
 </div>
 </div>

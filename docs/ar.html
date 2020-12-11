@@ -32,7 +32,7 @@
   
 <link rel="prev" href="trend-og-sesong.html"/>
 <link rel="next" href="stasjonaritet.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -156,7 +154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
-<li class="chapter" data-level="2.3" data-path="spørsmål-og-oppgaver.html"><a href="spørsmål-og-oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Spørsmål og oppgaver</a></li>
+<li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
@@ -197,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -228,7 +226,7 @@ Publisert ved hjelp av bookdown</a></li>
 <iframe src="https://vimeo.com/showcase/7661169/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
 </div>
-<div id="kontrollspørsmål-3" class="section level3" number="6.3.1">
+<div id="kontrollspørsmål-2" class="section level3" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Kontrollspørsmål</h3>
 <ol style="list-style-type: decimal">
 <li>Hva er definisjonen på en Hvit-støy-prosess?</li>
@@ -241,64 +239,64 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="r-øving-2" class="section level3" number="6.3.2">
 <h3><span class="header-section-number">6.3.2</span> R-øving</h3>
 <p><strong>1. Simulere.</strong> La oss først se hvordan vi kan simulere noen realiseringer fra disse tidsrekkene. Hvit støy består av ukorrelerte trekninger som alle har samme forventningsverdi og varians, noe vi kan simulere i R ved å bare trekke <span class="math inline">\(n\)</span> uavhengige observasjoner fra hvilken som helst fordeling og kalle det en tidsrekke. For eksempel har vi tidligere trukket standard normalfordelte observasjoner ved hjelp av <code>rnorm()</code>-funsksjonen. La oss gjøre det igjen, og plotte det som en tidsrekke. Merk at din trekning ikke vil være identisk som den under:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="ar.html#cb66-1"></a>n &lt;-<span class="st"> </span><span class="dv">50</span></span>
-<span id="cb66-2"><a href="ar.html#cb66-2"></a>hvit_støy &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)</span>
-<span id="cb66-3"><a href="ar.html#cb66-3"></a><span class="kw">plot</span>(hvit_støy, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
-<p>Vi kan bruke funksjonen <code>arima.sim()</code> til å simulere tidsrekker fra AR-modellen (og den mer generelle ARIMA-modellen, mer om det senere). Du kan for eksempel simulere <span class="math inline">\(n\)</span> observasjoner fra en AR(1)-prosess med <span class="math inline">\(\phi = 0.95\)</span> ved hjelp av følgende kommandoer:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="ar.html#cb67-1"></a>ar1 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ar =</span> <span class="fl">0.95</span>), n)</span>
-<span id="cb67-2"><a href="ar.html#cb67-2"></a><span class="kw">plot</span>(ar1, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="ar.html#cb67-1"></a>n &lt;-<span class="st"> </span><span class="dv">50</span></span>
+<span id="cb67-2"><a href="ar.html#cb67-2"></a>hvit_støy &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)</span>
+<span id="cb67-3"><a href="ar.html#cb67-3"></a><span class="kw">plot</span>(hvit_støy, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p>Vi kan bruke funksjonen <code>arima.sim()</code> til å simulere tidsrekker fra AR-modellen (og den mer generelle ARIMA-modellen, mer om det senere). Du kan for eksempel simulere <span class="math inline">\(n\)</span> observasjoner fra en AR(1)-prosess med <span class="math inline">\(\phi = 0.95\)</span> ved hjelp av følgende kommandoer:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="ar.html#cb68-1"></a>ar1 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ar =</span> <span class="fl">0.95</span>), n)</span>
+<span id="cb68-2"><a href="ar.html#cb68-2"></a><span class="kw">plot</span>(ar1, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 <p>I det siste eksempelet trekker <code>arima.sim()</code>-funskjonen hvit-støy-prosessen <span class="math inline">\(u_t\)</span> fra <code>rnorm()</code>-funksjonen, men det kan vi endre på hvis vi vil, se hjelpesiden <code>?arima.sim</code>. Videre kan vi bruke denne funksjonen til å simulere fra hvit støy ved å sette <code>model</code>-argumentet til en tom liste (<code>model = list()</code>), eller vi kan simulere fra en AR(2)-prosess med <span class="math inline">\(\phi_1 = 0.2\)</span> og <span class="math inline">\(\phi_2 = 0.1\)</span> ved å sette <code>model = list(ar = c(0.2, 0.1))</code>.</p>
 <p><strong>2. Estimere.</strong></p>
 <p>La oss i første omgang si at vi har observert tidsrekken <code>ar1</code> som vi simulerte over, at vi mistenker at den følger en AR(1)-prosess <span class="math inline">\(Y_t = \phi Y_{t-1} + u_t\)</span>, og at vi ønsker å estimere den ukjente parameteren <span class="math inline">\(\phi\)</span> ved hjelp av observasjonene. Som vi antydet i <strong>AR</strong>-videoen kan vi i dette tilfellet betrakte det som et regresjonsproblem med <span class="math inline">\(Y_t\)</span> som responsvariabel og <span class="math inline">\(Y_{t-1}\)</span> som forklaringsvariabel. La oss lage en <code>data.frame</code> med disse to kolonnene, og se hva vi får når vi bruker <code>lm()</code>-funksjonen. .</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="ar.html#cb68-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Y =</span> ar1[<span class="dv">2</span><span class="op">:</span>n],</span>
-<span id="cb68-2"><a href="ar.html#cb68-2"></a>                 <span class="dt">lagged_Y =</span> ar1[<span class="dv">1</span><span class="op">:</span>(n<span class="dv">-1</span>)])</span>
-<span id="cb68-3"><a href="ar.html#cb68-3"></a><span class="kw">summary</span>(<span class="kw">lm</span>(Y <span class="op">~</span><span class="st"> </span>lagged_Y, <span class="dt">data =</span> df))</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="ar.html#cb69-1"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Y =</span> ar1[<span class="dv">2</span><span class="op">:</span>n],</span>
+<span id="cb69-2"><a href="ar.html#cb69-2"></a>                 <span class="dt">lagged_Y =</span> ar1[<span class="dv">1</span><span class="op">:</span>(n<span class="dv">-1</span>)])</span>
+<span id="cb69-3"><a href="ar.html#cb69-3"></a><span class="kw">summary</span>(<span class="kw">lm</span>(Y <span class="op">~</span><span class="st"> </span>lagged_Y, <span class="dt">data =</span> df))</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Y ~ lagged_Y, data = df)
 ## 
 ## Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -2.06157 -0.56971 -0.01964  0.59977  2.46531 
+## -1.91745 -0.48429 -0.04545  0.51094  1.50763 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  0.31876    0.14662   2.174   0.0348 *  
-## lagged_Y     0.82139    0.06349  12.937   &lt;2e-16 ***
+## (Intercept)   0.2439     0.1416   1.722   0.0916 .  
+## lagged_Y      0.7310     0.1003   7.289 2.98e-09 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.8875 on 47 degrees of freedom
-## Multiple R-squared:  0.7808, Adjusted R-squared:  0.7761 
-## F-statistic: 167.4 on 1 and 47 DF,  p-value: &lt; 2.2e-16</code></pre>
+## Residual standard error: 0.7563 on 47 degrees of freedom
+## Multiple R-squared:  0.5306, Adjusted R-squared:  0.5206 
+## F-statistic: 53.13 on 1 and 47 DF,  p-value: 2.983e-09</code></pre>
 <p>Vi ser at vårt estimat av <span class="math inline">\(\phi\)</span>, som i regresjonutskriften er koeffisienten til <code>lagged_Y</code>, er i nærheten av den sanne verdien 0.95, men med så få observasjoner kan det godt hende at ditt estimat er noe forskjellig. Poenget er: vi kan bruke lineær regresjon til å estimere koeffisientene i en AR-modell basert på observasjoner.</p>
 <p>Som i forrige oppgave er pakken <code>forecast</code> svært nyttig for estimering og predikering:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="ar.html#cb70-1"></a><span class="kw">library</span>(forecast)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="ar.html#cb71-1"></a><span class="kw">library</span>(forecast)</span></code></pre></div>
 <p>Denne pakken inneholder en funskjon <code>Arima</code> for å estimere koeffisientene i en AR-modell (egentlig den mer generelle klasssen av ARIMA-modeller som vi kommer tilbake til senere). Denne funksjonen kan vi andvende direkte på tidsrekken ved å skrive</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="ar.html#cb71-1"></a><span class="kw">Arima</span>(ar1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="ar.html#cb72-1"></a><span class="kw">Arima</span>(ar1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
 <pre><code>## Series: ar1 
 ## ARIMA(1,0,0) with non-zero mean 
 ## 
 ## Coefficients:
 ##          ar1    mean
-##       0.9171  0.4377
-## s.e.  0.0598  1.3801
+##       0.7938  0.5362
+## s.e.  0.0990  0.5153
 ## 
-## sigma^2 estimated as 0.9022:  log likelihood=-68.27
-## AIC=142.55   AICc=143.07   BIC=148.28</code></pre>
+## sigma^2 estimated as 0.6038:  log likelihood=-57.81
+## AIC=121.62   AICc=122.14   BIC=127.36</code></pre>
 <p>I første omgang kan vi legge merke til at vi har spesifisert <em>hvilken</em> modell vi ønsker å estimere gjennom argumentet <code>order = c(1, 0, 0)</code>, der ett-tallet angir AR-modellens orden <span class="math inline">\(p\)</span>, som i dette tilfellet er 1. Dersom du mistenker at AR(2)-modellen gir en bedre beskrivelse av tidsrekken din, kan du endre til <code>order = c(2, 0, 0)</code>. Vi kommer tilbake til spørsmålet om hvordan du kan velge den beste modellen for et gitt praktisk problem.</p>
 <p>Legg merke til at de to estimatene ikke er identiske selv om vi bruker det samme tidsrekken. Det er fordi <code>arima()</code>-funksjonen ikke bruker minste kvadraters metode til å regne ut estimatene (slik <code>lm()</code> gjør), men heller bruker en annen estimeringsteknikk som heter <em>maximum likelihood</em>.</p>
 <p><strong>3. Predikere.</strong> For predikering bruker vi funksjonen <code>forecast()</code>, som tar en estimert modell som input, og som bruker modellen til å skrive frem tidsrekken ved å estimere fremtidige verdier.</p>
 <p>I kodesnutten under bruker vi den simulerte tidsrekken, og estimerer en AR(1)-modell som over som vi lagrer i objektet <code>ar1_estimat</code>. Så bruker vi det som argument i <code>forecast()</code>, der vi også spesifiserer hvor mange tidssteg fremover vi ønsker å predikere, her velger vi <code>h = 10</code>. I tillegg kan funksjonen regne ut prediksjonsintervall med en gitt dekningsgrad, her velger vi <code>level = 0.95</code> for <span class="math inline">\(95\%\)</span> prediksjonsintervall. Resultatet lagrer vi i objektet <code>prediksjon</code>.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="ar.html#cb73-1"></a>ar1_estimat &lt;-<span class="st"> </span><span class="kw">Arima</span>(ar1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb73-2"><a href="ar.html#cb73-2"></a>prediksjon  &lt;-<span class="st"> </span><span class="kw">forecast</span>(ar1_estimat, <span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="ar.html#cb74-1"></a>ar1_estimat &lt;-<span class="st"> </span><span class="kw">Arima</span>(ar1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb74-2"><a href="ar.html#cb74-2"></a>prediksjon  &lt;-<span class="st"> </span><span class="kw">forecast</span>(ar1_estimat, <span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">level =</span> <span class="fl">0.95</span>) </span></code></pre></div>
 <p>Vi kan plotte resultatet i en pen liten figur ved å bruke funksjonen <code>autoplot</code> som under:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="ar.html#cb74-1"></a><span class="co"># Plotter den opprinnerlige tidsrekken, sammen med prediksjon og</span></span>
-<span id="cb74-2"><a href="ar.html#cb74-2"></a><span class="co"># prediksjonsintervall</span></span>
-<span id="cb74-3"><a href="ar.html#cb74-3"></a><span class="kw">autoplot</span>(prediksjon)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="ar.html#cb75-1"></a><span class="co"># Plotter den opprinnerlige tidsrekken, sammen med prediksjon og</span></span>
+<span id="cb75-2"><a href="ar.html#cb75-2"></a><span class="co"># prediksjonsintervall</span></span>
+<span id="cb75-3"><a href="ar.html#cb75-3"></a><span class="kw">autoplot</span>(prediksjon)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 </div>
 </div>
             </section>
