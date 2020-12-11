@@ -50,6 +50,7 @@ kommentarer-7
 modellbygging
 videoforelesninger-8
 kommentarer-8
+oppgaver-2
 avansert-regresjon-og-maskinlæring
 logistisk-regresjon
 videoforelesninger-9

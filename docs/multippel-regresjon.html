@@ -169,6 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
+<li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
 <ul>
@@ -252,10 +253,10 @@ Etter å ha brukt miste kvadraters metode for å estimere de tre koeffisientene 
 <p>For å virkelig forstå dette problemet kan du godt lese starten på kapittel <strong>14.1</strong> samt kapittel <strong>14.2</strong> om multiple sammenligninger (som strengt tatt ikke er pensum), men essensen er altså:</p>
 <p><span class="math display">\[\textrm{Å forkaste H}_0: \beta_1 = 0 \textrm{ og H}_0: \beta_2 = 0 \textrm{ er ikke det samme som å forkaste H}_0: \beta_1 = \beta_2 = 0!\]</span></p>
 <p>For å gjennomføre den siste testen må vi sette opp en egen testobservator, som viser seg å være <span class="math inline">\(F\)</span>-fordelt. Læreboken lister opp noen detaljer i avsnitt <strong>17-2f</strong>, og essensen er at vi setter opp en brøk på formen
-<span class="math display">\[F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellenmed } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.\]</span>
+<span class="math display">\[F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen med } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.\]</span>
 Dersom denne brøken viser seg å være stor (som definert av signifikansnivå og frihetsgrader, se lærebok), forkaster vi nullhypotesen om at begge koeffisientene begge kan være lik null. I en generell multippel regresjon med <span class="math inline">\(k\)</span> forklaringsvariable rapporterer R <code>F-statistic:</code> etc, med verdien av <span class="math inline">\(F\)</span>-observatoren i testen for
 <span class="math display">\[H_0: \beta_1 = \cdots = \beta_k = 0,\]</span>
-og dersom den oppgitte <span class="math inline">\(p\)</span>-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv er signifikant forskjellig fra null).</p>
+og dersom den oppgitte <span class="math inline">\(p\)</span>-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv nødvendigvis er signifikant forskjellig fra null).</p>
 <p>Som en såkalt <em>fun fact</em> kan vi nevne at det er enkelt å teste for signifikansen til <em>grupper</em> av variable på denne måten, f.eks hvis det er noen variable som måler lignende ting (si <span class="math inline">\(X_2, X_4\)</span> og <span class="math inline">\(X_5\)</span>). I R kan du estimere to modeller, en modell som <em>inkluderer</em> variablene (f.eks. <code>reg_stor</code>) og en modell der du tar bort de aktuelle variablene (f.eks. <code>reg_liten</code>). Du kan da kjøre kommandoen <code>anova(reg_stor, reg_liten)</code> for å teste
 <span class="math display">\[H_0: \beta_2 = \beta_4 = \beta_5 = 0.\]</span></p>
 <blockquote>
@@ -268,19 +269,19 @@ og dersom den oppgitte <span class="math inline">\(p\)</span>-verdien er mindre 
 <p>Det er desverre mange lærebøker som blander disse to fortolkningene, ikke gjør det!</p>
 </blockquote>
 <p>Her er enda noen grunnleggende begreper. Har du fått med deg dette?</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Hva mener vi med at en observasjon er innflytelsesrik?</li>
 <li>Hva er grunnen til at vi trenger <em>justert</em> <span class="math inline">\(R^2\)</span> med flere forklaringsvariable?</li>
 <li>Hva er forskjellen på <em>perfekt</em> og <em>tilnærmet</em> multikolinearitet i lineær regresjon? Hva blir konsekvensen i hvert av tilfellene?</li>
 <li>Kan du gi en praktisk og intuitiv forklaring på hvorfor multikolinearitet nødvendigvis må være et problem?</li>
 <li>Hva er forskjellen på statistisk og økonomisk signifikans? Kan du sette opp konkrete eksempler der vi kan estimere statistisk signifikante, men ikke økonomisk signifikante effekter i multippel regresjon? Hva med den motsatte situasjonen, økonomisk signifikant, men ikke statistisk signifikant?</li>
-</ul>
+</ol>
 <p>Grunnleggende ferdigheter: Klarer du dette?</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Bruke R til å tilpasse en multippel regresjonsmodell for et datasett?</li>
 <li>Bruke R til å finne særlig innflytelsesrike observasjoner?</li>
 <li>Tolke en multippel regresjonsutskrift?</li>
-</ul>
+</ol>
 </div>
 </div>
             </section>

@@ -169,6 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
+<li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
 <ul>
@@ -244,11 +245,11 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="ar.html#cb85-1"></a>n &lt;-<span class="st"> </span><span class="dv">50</span></span>
 <span id="cb85-2"><a href="ar.html#cb85-2"></a>hvit_støy &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n)</span>
 <span id="cb85-3"><a href="ar.html#cb85-3"></a><span class="kw">plot</span>(hvit_støy, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <p>Vi kan bruke funksjonen <code>arima.sim()</code> til å simulere tidsrekker fra AR-modellen (og den mer generelle ARIMA-modellen, mer om det senere). Du kan for eksempel simulere <span class="math inline">\(n\)</span> observasjoner fra en AR(1)-prosess med <span class="math inline">\(\phi = 0.95\)</span> ved hjelp av følgende kommandoer:</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="ar.html#cb86-1"></a>ar1 &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ar =</span> <span class="fl">0.95</span>), n)</span>
 <span id="cb86-2"><a href="ar.html#cb86-2"></a><span class="kw">plot</span>(ar1, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 <p>I det siste eksempelet trekker <code>arima.sim()</code>-funskjonen hvit-støy-prosessen <span class="math inline">\(u_t\)</span> fra <code>rnorm()</code>-funksjonen, men det kan vi endre på hvis vi vil, se hjelpesiden <code>?arima.sim</code>. Videre kan vi bruke denne funksjonen til å simulere fra hvit støy ved å sette <code>model</code>-argumentet til en tom liste (<code>model = list()</code>), eller vi kan simulere fra en AR(2)-prosess med <span class="math inline">\(\phi_1 = 0.2\)</span> og <span class="math inline">\(\phi_2 = 0.1\)</span> ved å sette <code>model = list(ar = c(0.2, 0.1))</code>.</p>
 <p><strong>2. Estimere.</strong></p>
 <p>La oss i første omgang si at vi har observert tidsrekken <code>ar1</code> som vi simulerte over, at vi mistenker at den følger en AR(1)-prosess <span class="math inline">\(Y_t = \phi Y_{t-1} + u_t\)</span>, og at vi ønsker å estimere den ukjente parameteren <span class="math inline">\(\phi\)</span> ved hjelp av observasjonene. Som vi antydet i <strong>AR</strong>-videoen kan vi i dette tilfellet betrakte det som et regresjonsproblem med <span class="math inline">\(Y_t\)</span> som responsvariabel og <span class="math inline">\(Y_{t-1}\)</span> som forklaringsvariabel. La oss lage en <code>data.frame</code> med disse to kolonnene, og se hva vi får når vi bruker <code>lm()</code>-funksjonen. .</p>
@@ -298,7 +299,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="ar.html#cb93-1"></a><span class="co"># Plotter den opprinnerlige tidsrekken, sammen med prediksjon og</span></span>
 <span id="cb93-2"><a href="ar.html#cb93-2"></a><span class="co"># prediksjonsintervall</span></span>
 <span id="cb93-3"><a href="ar.html#cb93-3"></a><span class="kw">autoplot</span>(prediksjon)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
 </div>
 </div>
             </section>

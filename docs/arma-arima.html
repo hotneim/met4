@@ -169,6 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
+<li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
 <ul>
@@ -244,12 +245,12 @@ Vi tar en ny titt på <a href="datasett/equinor.xlsx">den daglige prisen på Eqi
 <span id="cb105-2"><a href="arma-arima.html#cb105-2"></a>equinor &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
 <span id="cb105-3"><a href="arma-arima.html#cb105-3"></a>pris &lt;-<span class="st"> </span><span class="kw">rev</span>(equinor<span class="op">$</span>Siste)</span>
 <span id="cb105-4"><a href="arma-arima.html#cb105-4"></a><span class="kw">plot</span>(pris, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
 <p>Vi kan lage en figur av den differensierte tidsrekken på følgende måte:</p>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="arma-arima.html#cb106-1"></a><span class="co"># Sjekk av differanse </span></span>
 <span id="cb106-2"><a href="arma-arima.html#cb106-2"></a>diff_pris &lt;-<span class="st"> </span><span class="kw">diff</span>(pris)</span>
 <span id="cb106-3"><a href="arma-arima.html#cb106-3"></a><span class="kw">plot</span>(diff_pris, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
 <p><strong>Oppgave:</strong> Vurder om en ARIMA modell er bedre egnet enn en ARMA modell ut fra de to figurene over.</p>
 <p><strong>2. Estimering av ARIMA modeller</strong>
 Vi bruker den samme funksjonen <code>Arima</code> fra <code>forecast</code> pakken til å estimere både ARMA og ARIMA modeller og spesifisering av modellen gjør vi via argumentet <code>order</code>. Skal du estimerer en ARMA(1,1) modell setter du f.eks dette argumentet til <code>c(1, 0, 1)</code>. Elementet i midten av denne vektoren spesifiserer hvor mange ganger tidsrekken skal differensieres i ARIMA modellen. Estimering av en ARIMA modell med en enkelt differensiering og ett MA og AR ledd kan gjøres slik:</p>
@@ -300,7 +301,7 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 Prediksjon gjøres som tidligere med <code>forecast</code> funksjonen, så hvis en vil predikere 10 tidssteg frem i tid gjør man følgende:</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="arma-arima.html#cb112-1"></a>pred_arima111 &lt;-<span class="st"> </span><span class="kw">forecast</span>(arima111, <span class="dt">h =</span>  <span class="dv">10</span>)</span>
 <span id="cb112-2"><a href="arma-arima.html#cb112-2"></a><span class="kw">autoplot</span>(pred_arima111, <span class="dt">include =</span> <span class="dv">100</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
 <p>merk at i <code>autoplot</code> har vi valgt å bare vise 100 observasjoner av tidsrekken sammen med prediksjonene</p>
 </div>
 </div>

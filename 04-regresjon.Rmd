@@ -29,7 +29,7 @@ Vi har sett på en del figurer som illustrerer noen pedagogiske poenger, og lær
 
 I kapittel **16.1** kan vi lese mer om den statistiske modellen som vi kaller enkel regresjon. I kapittel **16.2** introduseres minste kvadraters metode for å estimere regresjonskoeffisientene ved hjelp av data. De viser til og med hvordan det kan gjøres manuelt ved hjelp av bildatasettet, men det er selvsagt kun for å illustrere hvodan formlene ser ut. Vi estimerer ved hjelp av R, og vi har sett i videoforelesningen hvordan vi gjør det ved hjelp av `lm()`-funksjonen.
 
-Det som gjør regresjon til et *statistisk* problem er feilleddet $\epsilon$. Vi tenker oss at for en gitt verdi av $X$, så vil «naturen» regne ut verdien av $Y$ ved å regne ut den lineære sammenhengen $Y = \beta_0 + \beta_1 X$, for legge til støyvariabelen $\epsilon$ som *trekkes* fra en sannsynlighetsfordeling. Vi kan ikke observere direkte hvilke $\epsilon$ som «naturen» har «trukket» (for da ville vi med en gang kunne regnet oss frem til verdiene av $\beta_0$ og $\beta_1$). For gitte estimater av regresjonskoeffisientene $\widehat \beta_0$ og $\widehat \beta_1$ (som vi kan finne f.eks. ved hjelp av minste kvadraters metode), så kan vi regne ut de *observerte residualene* 
+Det som gjør regresjon til et *statistisk* problem er feilleddet $\epsilon$. Vi tenker oss at for en gitt verdi av $X$, så vil «naturen» regne ut verdien av $Y$ ved å regne ut den lineære sammenhengen $Y = \beta_0 + \beta_1 X$, og så legge til støyvariabelen $\epsilon$ som *trekkes* fra en sannsynlighetsfordeling. Vi kan ikke observere direkte hvilke $\epsilon$ som «naturen» har «trukket» (for da ville vi med en gang kunne regnet oss frem til verdiene av $\beta_0$ og $\beta_1$). For gitte estimater av regresjonskoeffisientene $\widehat \beta_0$ og $\widehat \beta_1$ (som vi kan finne f.eks. ved hjelp av minste kvadraters metode), så kan vi regne ut de *observerte residualene* 
 
 $$\widehat\epsilon_i = Y_i - \widehat Y_i = Y_i - (\widehat \beta_0 + \widehat \beta_1 X_i).$$
 
@@ -39,33 +39,33 @@ Ved å analysere residualene kan vi si mer om f.eks
 2. Vi kan gå mer spesifikt til verks: nøyaktig *hvilke* antakelser om residualene er ser ut til å være brutt? I senere økonometrikurs vil dere kunne lære mer om hvordan vi håndterer de ulike problemene. 
 3. Hvor stor er variansen til $\epsilon$? Det brukes videre til å sette opp den viktige signifikanstesten for om stigningstallet i regresjonen er forskjellig fra null.
 
-Alt dette behandles grudig i bokens kapittel **16.3--16.6**. Her bør teksten leses godt. Kode til bileksempelet finnes i forelesningsnotatene.
+Alt dette behandles grudig i bokens kapittel **16.3--16.6**. Her bør teksten leses godt. Kode til bileksempelet finnes i scriptet som følger med videoforelesningene.
 
 Når det gjelder enkel regresjon kan du sjekke om du har fått med deg det vesentligste ved å diskutere følgende spørsmål:
 
-- Hva er responsvariabelen og hva er forklaringsvariabelen i enkel regresjon?
-- Hva er fortolkningen av de to regresjonskoeffisientene?
-- Hvilket prinsipp er det vi legger til grunn når vi skal bestemme (estimere) verdien av koeffisientene ved hjelp av data?
-- Skriv opp formlene for koeffisientestimatene. Kan du gi en intuitiv fortolkning av disse? Er de rimelige? 
-- Kan du ved hjelp av formelen for $\widehat\beta_1$ utlede sammenhengen mellom *stigningstallet* $\beta_1$ og *korrelasjonskoeffisienten* mellom $X$ og $Y$?
-- Hvilken rolle spiller feilleddet ($\epsilon$)?
-- Skriv opp de 4 + 1 forutsetningene. Når må den siste være oppfylt? Når kan vi klare oss uten?
-- Hva er testobservatoren når vi tester H$_0: \beta_1 = 0$?
-- Kan du holde styr på de fire standardavvikene vi har jobbet med i denne forelesningen?
-- Hva mener vi med å diagnostisere en regresjonsmodell?
-- Hva er $R^2$, og hva måler den?
-- Hva sier $R^2$ *ikke* noe om?
+1. Hva er responsvariabelen og hva er forklaringsvariabelen i enkel regresjon?
+1. Hva er fortolkningen av de to regresjonskoeffisientene?
+1. Hvilket prinsipp er det vi legger til grunn når vi skal bestemme (estimere) verdien av koeffisientene ved hjelp av data?
+1. Skriv opp formlene for koeffisientestimatene. Kan du gi en intuitiv fortolkning av disse? Er de rimelige? 
+1. Kan du ved hjelp av formelen for $\widehat\beta_1$ utlede sammenhengen mellom *stigningstallet* $\beta_1$ og korrelasjonskoeffisienten* mellom $X$ og $Y$?
+1. Hvilken rolle spiller feilleddet ($\epsilon$)?
+1. Skriv opp de 4 + 1 forutsetningene. Når må den siste være oppfylt? Når kan vi klare oss uten?
+1. Hva er testobservatoren når vi tester H$_0: \beta_1 = 0$?
+1. Kan du holde styr på de fire standardavvikene vi har jobbet med i denne forelesningen?
+1. Hva mener vi med å diagnostisere en regresjonsmodell?
+1. Hva er $R^2$, og hva måler den?
+1. Hva sier $R^2$ *ikke* noe om?
 
 Her er noen grunnleggende ferdigheter fra kapittel 16. Klarer du dette? 
 
-- Bruke \texttt{R} til å tilpasse en enkel regresjonsmodell for et datasett?
-- Bruke \texttt{R} til å skrive ut oversiktlige regresjonstabeller?
-- Tolke en regresjonsutskrift?
-- Hente ut relevant informasjon etter en slik tilpasning?
-- Bruke informasjon fra regresjonsutskriften til å regne ut antall stjerner for hånd?
-- Lage diagnoseplott i \texttt{R}?
-- Diagnistisere en modell?
-- Identifisere innflytelsesrike observasjoner?
+1. Bruke \texttt{R} til å tilpasse en enkel regresjonsmodell for et datasett?
+1. Bruke \texttt{R} til å skrive ut oversiktlige regresjonstabeller?
+1. Tolke en regresjonsutskrift?
+1. Hente ut relevant informasjon etter en slik tilpasning?
+1. Bruke informasjon fra regresjonsutskriften til å regne ut antall stjerner for hånd?
+1. Lage diagnoseplott i \texttt{R}?
+1. Diagnistisere en modell?
+1. Identifisere innflytelsesrike observasjoner?
 
 ## Multippel regresjon
 
@@ -102,10 +102,10 @@ For å virkelig forstå dette problemet kan du godt lese starten på kapittel **
 $$\textrm{Å forkaste H}_0: \beta_1 = 0 \textrm{ og H}_0: \beta_2 = 0 \textrm{ er ikke det samme som å forkaste H}_0: \beta_1 = \beta_2 = 0!$$
 
 For å gjennomføre den siste testen må vi sette opp en egen testobservator, som viser seg å være $F$-fordelt. Læreboken lister opp noen detaljer i avsnitt **17-2f**, og essensen er at vi setter opp en brøk på formen
-$$F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellenmed } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.$$
+$$F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen med } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.$$
 Dersom denne brøken viser seg å være stor (som definert av signifikansnivå og frihetsgrader, se lærebok), forkaster vi nullhypotesen om at begge koeffisientene begge kan være lik null. I en generell multippel regresjon med $k$ forklaringsvariable rapporterer R `F-statistic: ` etc, med verdien av $F$-observatoren i testen for
 $$H_0: \beta_1 = \cdots = \beta_k = 0,$$
-og dersom den oppgitte $p$-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv er signifikant forskjellig fra null).
+og dersom den oppgitte $p$-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv nødvendigvis er signifikant forskjellig fra null).
 
 Som en såkalt *fun fact* kan vi nevne at det er enkelt å teste for signifikansen til *grupper* av variable på denne måten, f.eks hvis det er noen variable som måler lignende ting (si $X_2, X_4$ og $X_5$). I R kan du estimere to modeller, en modell som *inkluderer* variablene (f.eks. `reg_stor`) og en modell der du tar bort de aktuelle variablene (f.eks. `reg_liten`). Du kan da kjøre kommandoen `anova(reg_stor, reg_liten)` for å teste
 $$H_0: \beta_2 = \beta_4 = \beta_5 = 0.$$
@@ -120,17 +120,17 @@ $$H_0: \beta_2 = \beta_4 = \beta_5 = 0.$$
 
 Her er enda noen grunnleggende begreper. Har du fått med deg dette?
 
-- Hva mener vi med at en observasjon er innflytelsesrik?
-- Hva er grunnen til at vi trenger *justert* $R^2$ med flere forklaringsvariable?
-- Hva er forskjellen på *perfekt* og *tilnærmet* multikolinearitet i lineær regresjon? Hva blir konsekvensen i hvert av tilfellene?
-- Kan du gi en praktisk og intuitiv forklaring på hvorfor multikolinearitet nødvendigvis må være et problem?
-- Hva er forskjellen på statistisk og økonomisk signifikans? Kan du sette opp konkrete eksempler der vi kan estimere statistisk signifikante, men ikke økonomisk signifikante effekter i multippel regresjon? Hva med den motsatte situasjonen, økonomisk signifikant, men ikke statistisk signifikant? 
+1. Hva mener vi med at en observasjon er innflytelsesrik?
+1. Hva er grunnen til at vi trenger *justert* $R^2$ med flere forklaringsvariable?
+1. Hva er forskjellen på *perfekt* og *tilnærmet* multikolinearitet i lineær regresjon? Hva blir konsekvensen i hvert av tilfellene?
+1. Kan du gi en praktisk og intuitiv forklaring på hvorfor multikolinearitet nødvendigvis må være et problem?
+1. Hva er forskjellen på statistisk og økonomisk signifikans? Kan du sette opp konkrete eksempler der vi kan estimere statistisk signifikante, men ikke økonomisk signifikante effekter i multippel regresjon? Hva med den motsatte situasjonen, økonomisk signifikant, men ikke statistisk signifikant? 
 
 Grunnleggende ferdigheter: Klarer du dette?
 
-- Bruke R til å tilpasse en multippel regresjonsmodell for et datasett?
-- Bruke R til å finne særlig innflytelsesrike observasjoner?
-- Tolke en multippel regresjonsutskrift?
+1. Bruke R til å tilpasse en multippel regresjonsmodell for et datasett?
+1. Bruke R til å finne særlig innflytelsesrike observasjoner?
+1. Tolke en multippel regresjonsutskrift?
 
 ## Modellbygging
 
@@ -142,22 +142,39 @@ Grunnleggende ferdigheter: Klarer du dette?
 
 Kapittel **18** dekker de grunnleggende begrepene innen modellbygging. I kap. **18.1** snakkes det om polynomiske modeller, i kap. **18.2** behandles dummyvariabler. Kapittel **18.3** og **18.4** handler om hvordan vi i praksis kan jobbe for å velge ut variable i en gitt situasjon. Forelesningene dekker i grunn greit det vi skal få med oss her. Som en sjekk om du har fått med deg det vesentlige, kan du svare på følgende spørsmål:
 
-- Vi har lært tre typer log-transformasjoner. Hva blir fortolkningen av koeffisientene for hver av disse?
-- Kan du nevne tre gode grunner til at log-transformasjoner er nyttige?
-- Hvorfor sier vi at følgende modell er lineær? $Y = \beta_0 + \beta_1X + \beta_1X^2 + \varepsilon$
-- Vil vi ikke få problemer med multikolinearitet i modellen over?
-- Nevn en veldig god grunn til at vi må være ytterst forsiktig med polynomtransformasjoner.
-- Hva er en dummyvariabel? 
-- Hva er fortolkningen av regresjonskoeffisienten til en dummyvariabel?
-- Hva er fortolkningen av regresjonskoeffisienten til et interaksjonsledd mellom målevariabelen $X$ og dummyvariabelen $D$?
-- Et utrolig viktig poeng, men bruk tid til å tenke over og formulere et svar: Hvorfor er det viktig å tenke på *multippel testing* i sammenheng med *variabelutvelgelse*?
+1. Vi har lært tre typer log-transformasjoner. Hva blir fortolkningen av koeffisientene for hver av disse?
+1. Kan du nevne tre gode grunner til at log-transformasjoner er nyttige?
+1. Hvorfor sier vi at følgende modell er lineær? $Y = \beta_0 + \beta_1X + \beta_1X^2 + \varepsilon$
+1. Vil vi ikke få problemer med multikolinearitet i modellen over?
+1. Nevn en veldig god grunn til at vi må være ytterst forsiktig med polynomtransformasjoner.
+1. Hva er en dummyvariabel? 
+1. Hva er fortolkningen av regresjonskoeffisienten til en dummyvariabel?
+1. Hva er fortolkningen av regresjonskoeffisienten til et interaksjonsledd mellom målevariabelen $X$ og dummyvariabelen $D$?
+1. Et utrolig viktig poeng, men bruk tid til å tenke over og formulere et svar: Hvorfor er det viktig å tenke på *multippel testing* i sammenheng med *variabelutvelgelse*?
 
 Grunnleggende ferdigheter: Klarer du dette?
 
-- Bruke logtransformasjoner i \texttt{R}?
-- Bruke poynomtransformasjner i \texttt{R}?
-- Sette opp en fornuftig regresjonsmodell ved å ta utgangspunkt i et datasett og et analyseformål, og argumentere godt for dine valg? **Denne ferdigheten har blitt testet på hver eneste hjemmeeksamen i manns minne!**
+1. Bruke logtransformasjoner i R?
+1. Bruke poynomtransformasjner i R?
+1. Sette opp en fornuftig regresjonsmodell ved å ta utgangspunkt i et datasett og et analyseformål, og argumentere godt for dine valg? **Denne ferdigheten har blitt testet på hver eneste hjemmeeksamen i manns minne!**
 
+## Oppgaver
+
+I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen).
+
+Har du en eldre utgave av boken kan du laste ned [dette dokumentet]("oppgaver/Recommended exersices.doc") for en oversikt over oppgavenummer tilbake til 7. utgave.
+
+```{r, echo = FALSE, message = FALSE}
+
+library(dplyr)
+options(knitr.kable.NA = '')
+
+"oppgaver/oppgaver-regresjon.xlsx" %>% 
+    readxl::read_excel() %>% 
+    kableExtra::kbl() %>% 
+    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+```
 
 
 

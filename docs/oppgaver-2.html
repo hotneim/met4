@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.1 Logistisk regresjon | MET4 - Empiriske Metoder</title>
+  <title>4.4 Oppgaver | MET4 - Empiriske Metoder</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.1 Logistisk regresjon | MET4 - Empiriske Metoder" />
+  <meta property="og:title" content="4.4 Oppgaver | MET4 - Empiriske Metoder" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.1 Logistisk regresjon | MET4 - Empiriske Metoder" />
+  <meta name="twitter:title" content="4.4 Oppgaver | MET4 - Empiriske Metoder" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="avansert-regresjon-og-maskinlæring.html"/>
-<link rel="next" href="introduksjon-til-maskinlæring-med-knn.html"/>
+<link rel="prev" href="modellbygging.html"/>
+<link rel="next" href="avansert-regresjon-og-maskinlæring.html"/>
 <script src="libs/header-attrs-2.4/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -223,36 +223,92 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="logistisk-regresjon" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Logistisk regresjon</h2>
-<div id="videoforelesninger-9" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Videoforelesninger</h3>
-<div style="padding:56.25% 0 0 0;position:relative;">
-<iframe src="https://vimeo.com/showcase/7802418/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-</iframe>
+<div id="oppgaver-2" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Oppgaver</h2>
+<p>I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon <a href="skoleeksamen.html#skoleeksamen">8.1</a>.</p>
+<p>Har du en eldre utgave av boken kan du laste ned <a href="%22oppgaver/Recommended%20exersices.doc%22">dette dokumentet</a> for en oversikt over oppgavenummer tilbake til 7. utgave.</p>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Kapittel i læreboken
+</th>
+<th style="text-align:left;">
+<ol start="11" style="list-style-type: decimal">
+<li>Utgave
+</th>
+<th style="text-align:left;">
+<ol start="10" style="list-style-type: decimal">
+<li>Utgave
+</th>
+<th style="text-align:left;">
+Relevante eksamensoppgaver
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<ol start="16" style="list-style-type: decimal">
+<li>Enkel regresjon
+</td>
+<td style="text-align:left;">
+1, 4, 8, 17, 26, 30, 52, 61, 80 , 84, 93
+</td>
+<td style="text-align:left;">
+1, 4, 8, 26, 30, 48, 52, 70, 74, 83
+</td>
+<td style="text-align:left;">
+H10:1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<ol start="17" style="list-style-type: decimal">
+<li>Multippel regresjon
+</td>
+<td style="text-align:left;">
+2, 6, 10, 31, 50, 52, 54
+</td>
+<td style="text-align:left;">
+2, 6, 10, 29, 46, 48, 50
+</td>
+<td style="text-align:left;">
+H15:1, V13:2, H08:2, V11:1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<ol start="18" style="list-style-type: decimal">
+<li>Modellbygging
+</td>
+<td style="text-align:left;">
+2 8, 16, 19, 20, 34
+</td>
+<td style="text-align:left;">
+2 8, 16, 19, 20, 34
+</td>
+<td style="text-align:left;">
+V15:1, V12:2, V10, 2a-f
+</td>
+</tr>
+</tbody>
+</table></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol>
+
 </div>
-</div>
-<div id="kommentarerer" class="section level3" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Kommentarerer</h3>
-<p>I denne forelesningen ser vi på situasjonen der vi ønsker å forklare utfallet av en <em>binær</em> variabel (en dummyvariabel) ved hjelp av et sett med forklaringsvariabler. Vi så at vanlig lineær regresjon ikke er særlig passende her fordi utfallet bare kan ta to verdier (0 eller 1, <code>FALSE</code> eller <code>TRUE</code> etc.), og fordi vi heller ikke kan tolke et kontinuerlig utfall direkte som en sannsynlighet fordi vi kan få ut verdier utenfor intervallet <span class="math inline">\([0, 1]\)</span>.</p>
-<p>Løsningen er å heller forklare <em>log-oddsen til suksessansynligheten</em>. Sagt på en annen måte: på venstresiden i regresjonsligningen plasserer vi en <em>transformasjon</em> av suksessansynligheten, som gir oss en kontinuerlig variabel som kun kan variere mellom 0 og 1.</p>
-<p>Pensumboken vår behandler desverre ikke logistisk regresjon. Heldigvis finnes det et meget godt alternativ, <em>An Introduction to Statistical Learning</em> (ISLR) av James m.fl. finnes kan lastes ned gratis her:</p>
-<p><a href="http://faculty.marshall.usc.edu/gareth-james/ISL/">An introduction to statistical learning</a></p>
-<p>Denne boken er for øvrig pensum i <strong>BAN404</strong>. Logistisk regresjon er omhandlet i kapittel <em>4.3</em> (avsnitt 4.3.5 er ikke pensum). Eksempelet vårt er tatt herfra, og datasettet er, som vist i forelesningsscriptet, inkludert i bokens egen R-pakke <code>ISLR</code>.</p>
-<p>Bruk litt tid på å lese gjennom disse sidene, konseptet er ganske godt forklart. Bli også kjent med R-syntaksen, som ligner på den vi allerede kan for vanlig lineær regresjon. Vi bruker f.eks.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="logistisk-regresjon.html#cb53-1"></a>reg1 &lt;-<span class="st"> </span><span class="kw">glm</span>(default <span class="op">~</span><span class="st"> </span>balance, </span>
-<span id="cb53-2"><a href="logistisk-regresjon.html#cb53-2"></a>            <span class="dt">data =</span> Default,</span>
-<span id="cb53-3"><a href="logistisk-regresjon.html#cb53-3"></a>            <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
-<p>Når du er klar til å prøve selv, kan du se på oppg <em>10a</em>, <em>b</em> og første del av <em>d</em> på s. 171 i ISLR. Dette datasettet er også inneholdt i <code>ISLR</code>-pakken.</p>
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="avansert-regresjon-og-maskinlæring.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="introduksjon-til-maskinlæring-med-knn.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modellbygging.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="avansert-regresjon-og-maskinlæring.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
