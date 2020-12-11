@@ -1,7 +1,7 @@
 
 # Avansert regresjon og maskinlæring
 
-Blabla, innledning
+I denne modulen tar vi en titt på noen litt mer avanserte statistiske metoder. De to første temaene, logistisk regresjon og "K-nearest-neighbor" metoden, har til felles at de kan brukes når responsvariabelen er en kategorisk variabel med kun to kategorier. Begge disse metodene faller inn under det som populært kalles maskinlæring og er således en introduksjon til dette temaet. I det siste temaet, paneldata, skal vi se hvordan vi kan bygge regresjonsmodeller når vi har gjentatt observasjoner per individ. 
 
 ## Logistisk regresjon
 
@@ -14,9 +14,9 @@ Blabla, innledning
 * I hvilke situasjoner bruker vi logistisk regresjon?
 * Hva er det vi modellerer?
 * Hvordan tolker vi èn enhets økning i forklaringsvariabelen?
-* Hvilken metode brukes til estimere en logistisk regresjonsmodell?
+* Hvilken metode brukes til å estimere en logistisk regresjonsmodell?
 * Hva betyr klassifisering og hvordan gjøres dette?
-* Hvis vi har flere modeller, hvilke metoder kan vi bruker til å velge den beste?
+* Hvis vi har flere modeller, hvilke metode(r) kan vi bruker til å velge den beste?
 
 ### Teori
 
@@ -122,7 +122,7 @@ I Figur \@ref(fig:churn) kan du prøve følgende: En liten $k$ svarer til å se 
 * Hva er den konseptuelle forskjellen mellom faste og tilfeldige effekter?
 * Når kan vi bruke faste effekter?
 * Når kan vi bruke tilfeldige effekter?
-* Finnes det en måte å formelt teste om man skal bruke faste eller tilfeldige effekter?
+* Finnes det en måte å formelt teste om man skal bruke faste eller tilfeldige effekter? (obs: se helt nederst på denne siden for svaret på denne.)
 
 ### Teori og R
 
@@ -393,6 +393,7 @@ Siden vi får forkastning vil den beste modellen for dette (leke-) datasettet v�
 Kommentar: Oppgave 1 a) og oppgave 2) er svært like i *hva* du skal gjøre, bare at den siste er mer realistisk.
 
 **Oppgave 1 **
+
 Du har estimert en logistisk regresjonsmodell med to forklaringsvariabler $x_1$ og $x_2$. Koeffisientene i modellen er estimert til $\hat{\beta}_0 = 0.4$, $\hat{\beta}_1 = -0.1$ og $\hat{\beta}_2 = 0.3$. Du observerer så et nytt individ med forklaringsvariablene $x_1 = 1$ og $x_2 = 2$. 
 
 a) Prediker sannsynlighet for at $Y=1$ for dette individet.
@@ -512,5 +513,30 @@ Siden vi bare har seks observasjoner vil alle verdier av $k\geq 6$ fullstendig i
 
 ### Oppgaver om paneldata
 
+**Oppgave 1**
+
+For et paneldata bestående av en responsvariabel $Y$ og en forklaringsvariabel $X$ har du estimert modellen
+
+$$y_{it} =  \beta_1 x_{it}  + v_t + \alpha_i + \epsilon_{it} $$
+der du har betraktet $\alpha_i$ som faste effekter og $v_t$ som kategoriske variabler. Estimatet av $\beta_1$ er $\hat{\beta}_1 = 1.5$. 
+
+a) For individ $4$ i datasettet har du estimert $\alpha_4$ til å være $0.2$. Videre er årseffekten for 2012, $v_{2012}$, estimert til å være $-0.5$. Prediker responsvariabelen til dette individet for 2012 dersom $x_{4,2012} = 2$.
+
+<details><summary>Løsning</summary>
+$$\hat{y}_{4,2012}=\hat{\beta}_1 x_{4,2012}  + \hat{v}_{2012} + \hat{\alpha}_4 = 1.5\times2 -0.5 + 0.2 = 2.7$$
+</details>
+
+b) Du tilpasser også en tilsvarende modell med tilfeldige effekter. En Hausman test gir en p-verdi på $0.23$. Hvilken modell skal du da bruke?
+
+<details><summary>Løsning</summary>
+
+Forenklet sett har denne testen som nullhypotese at modellen med tilfeldige effekter er gyldig. Her er p-verdien veldig stor og vi har lite bevis for at denne nullhypotesen er feil. Vi kan altså bruke modellen med tilfeldige effekter. 
+
+Dersom vi hadde fått forkastning ville det vært lurt å bruke modellen med faste effekter.
+
+</details>
+
 **Oppgave 2**
-Se Oppgave 2 individuell hjemmeeksamen H2020 \@ref(skoleeksamen)
+
+Prøv deg på Oppgave 2 i den individuelle hjemmeeksamen H2020 som du finner i kapittel \@ref(skoleeksamen). Det er spesielt oppgave e) og f) som er relatert til paneldata, men vi bemerker at oppgave f) var "nøtten" i det oppgavesettet.
+

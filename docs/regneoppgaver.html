@@ -194,7 +194,8 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="oppgaver-om-logistisk-regresjon" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> Oppgaver om logistisk regresjon</h3>
 <p>Kommentar: Oppgave 1 a) og oppgave 2) er svært like i <em>hva</em> du skal gjøre, bare at den siste er mer realistisk.</p>
-<p><strong>Oppgave 1 </strong> Du har estimert en logistisk regresjonsmodell med to forklaringsvariabler <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span>. Koeffisientene i modellen er estimert til <span class="math inline">\(\hat{\beta}_0 = 0.4\)</span>, <span class="math inline">\(\hat{\beta}_1 = -0.1\)</span> og <span class="math inline">\(\hat{\beta}_2 = 0.3\)</span>. Du observerer så et nytt individ med forklaringsvariablene <span class="math inline">\(x_1 = 1\)</span> og <span class="math inline">\(x_2 = 2\)</span>.</p>
+<p><strong>Oppgave 1 </strong></p>
+<p>Du har estimert en logistisk regresjonsmodell med to forklaringsvariabler <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span>. Koeffisientene i modellen er estimert til <span class="math inline">\(\hat{\beta}_0 = 0.4\)</span>, <span class="math inline">\(\hat{\beta}_1 = -0.1\)</span> og <span class="math inline">\(\hat{\beta}_2 = 0.3\)</span>. Du observerer så et nytt individ med forklaringsvariablene <span class="math inline">\(x_1 = 1\)</span> og <span class="math inline">\(x_2 = 2\)</span>.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Prediker sannsynlighet for at <span class="math inline">\(Y=1\)</span> for dette individet.</li>
 </ol>
@@ -439,7 +440,22 @@ avstand
 </div>
 <div id="oppgaver-om-paneldata" class="section level3">
 <h3><span class="header-section-number">5.4.3</span> Oppgaver om paneldata</h3>
-<p><strong>Oppgave 2</strong> Se Oppgave 2 individuell hjemmeeksamen H2020 <a href="skoleeksamen.html#skoleeksamen">8.1</a></p>
+<p><strong>Oppgave 1</strong></p>
+<p>For et paneldata bestående av en responsvariabel <span class="math inline">\(Y\)</span> og en forklaringsvariabel <span class="math inline">\(X\)</span> har du estimert modellen</p>
+<p><span class="math display">\[y_{it} =  \beta_1 x_{it}  + v_t + \alpha_i + \epsilon_{it} \]</span> der du har betraktet <span class="math inline">\(\alpha_i\)</span> som faste effekter og <span class="math inline">\(v_t\)</span> som kategoriske variabler. Estimatet av <span class="math inline">\(\beta_1\)</span> er <span class="math inline">\(\hat{\beta}_1 = 1.5\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>For individ <span class="math inline">\(4\)</span> i datasettet har du estimert <span class="math inline">\(\alpha_4\)</span> til å være <span class="math inline">\(0.2\)</span>. Videre er årseffekten for 2012, <span class="math inline">\(v_{2012}\)</span>, estimert til å være <span class="math inline">\(-0.5\)</span>. Prediker responsvariabelen til dette individet for 2012 dersom <span class="math inline">\(x_{4,2012} = 2\)</span>.</li>
+</ol>
+<p><details><summary>Løsning</summary> <span class="math display">\[\hat{y}_{4,2012}=\hat{\beta}_1 x_{4,2012}  + \hat{v}_{2012} + \hat{\alpha}_4 = 1.5\times2 -0.5 + 0.2 = 2.7\]</span> </details></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Du tilpasser også en tilsvarende modell med tilfeldige effekter. En Hausman test gir en p-verdi på <span class="math inline">\(0.23\)</span>. Hvilken modell skal du da bruke?</li>
+</ol>
+<p><details><summary>Løsning</summary></p>
+<p>Forenklet sett har denne testen som nullhypotese at modellen med tilfeldige effekter er gyldig. Her er p-verdien veldig stor og vi har lite bevis for at denne nullhypotesen er feil. Vi kan altså bruke modellen med tilfeldige effekter.</p>
+<p>Dersom vi hadde fått forkastning ville det vært lurt å bruke modellen med faste effekter.</p>
+<p></details></p>
+<p><strong>Oppgave 2</strong></p>
+<p>Prøv deg på Oppgave 2 i den individuelle hjemmeeksamen H2020 som du finner i kapittel <a href="skoleeksamen.html#skoleeksamen">8.1</a>. Det er spesielt oppgave e) og f) som er relatert til paneldata, men vi bemerker at oppgave f) var &quot;nøtten&quot; i det oppgavesettet.</p>
 
 </div>
 </div>
