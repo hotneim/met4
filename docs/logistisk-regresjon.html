@@ -143,7 +143,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
-<li class="chapter" data-level="5.4" data-path="spørsmål-og-oppgaver-1.html"><a href="spørsmål-og-oppgaver-1.html"><i class="fa fa-check"></i><b>5.4</b> Spørsmål og oppgaver</a></li>
+<li class="chapter" data-level="5.4" data-path="regneoppgaver.html"><a href="regneoppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Regneoppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a><ul>
 <li class="chapter" data-level="6.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>6.1</b> Introduksjon til tidsrekker</a></li>
@@ -196,8 +196,19 @@ Publisert ved hjelp av bookdown</a></li>
 </iframe>
 </div>
 </div>
-<div id="kommentarerer" class="section level3">
-<h3><span class="header-section-number">5.1.2</span> Kommentarerer</h3>
+<div id="kontrollspørsmål-1" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Kontrollspørsmål</h3>
+<ul>
+<li>I hvilke situasjoner bruker vi logistisk regresjon?</li>
+<li>Hva er det vi modellerer?</li>
+<li>Hvordan tolker vi èn enhets økning i forklaringsvariabelen?</li>
+<li>Hvilken metode brukes til estimere en logistisk regresjonsmodell?</li>
+<li>Hva betyr klassifisering og hvordan gjøres dette?</li>
+<li>Hvis vi har flere modeller, hvilke metoder kan vi bruker til å velge den beste?</li>
+</ul>
+</div>
+<div id="teori" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Teori</h3>
 <p>I denne forelesningen ser vi på situasjonen der vi ønsker å forklare utfallet av en <em>binær</em> variabel (en dummyvariabel) ved hjelp av et sett med forklaringsvariabler. Vi så at vanlig lineær regresjon ikke er særlig passende her fordi utfallet bare kan ta to verdier (0 eller 1, <code>FALSE</code> eller <code>TRUE</code> etc.), og fordi vi heller ikke kan tolke et kontinuerlig utfall direkte som en sannsynlighet fordi vi kan få ut verdier utenfor intervallet <span class="math inline">\([0, 1]\)</span>.</p>
 <p>Løsningen er å heller forklare <em>log-oddsen til suksessansynligheten</em>. Sagt på en annen måte: på venstresiden i regresjonsligningen plasserer vi en <em>transformasjon</em> av suksessansynligheten, som gir oss en kontinuerlig variabel som kun kan variere mellom 0 og 1.</p>
 <p>Pensumboken vår behandler desverre ikke logistisk regresjon. Heldigvis finnes det et meget godt alternativ, <em>An Introduction to Statistical Learning</em> (ISLR) av James m.fl. finnes kan lastes ned gratis her:</p>
