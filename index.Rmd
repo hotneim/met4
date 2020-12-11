@@ -1,5 +1,5 @@
 --- 
-title: "MET4 - Empiriske Metoder"
+title: "MET4 - Empiriske Metoder - Vår 2021"
 author: "Håkon Otneim og Geir Drage Berentsen"
 site: bookdown::bookdown_site
 output: 
@@ -14,12 +14,39 @@ description: "Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis 
 
 # Innledning {-}
 
-Velkommen til hjemmesiden for kurset [MET4 - Empiriske metoder](https://www.nhh.no/emner/empiriske-metoder/), som er et obligatorisk kurs på Bachelorprogrammet i Økonomi og Administrasjon ved Norges Handelshøyskole. Her vil du finne undervisningsmaterialet ...
 
-Videobasert.
+<figure style="float:right; padding:10px; text-align:center">
+  <img alt="Håkon" src="bilder/hakon.jpg" width="130" height="130"/>
+  <figcaption>Håkon</figcaption>
+</figure>
+
+Velkommen til hjemmesiden for kurset [MET4 - Empiriske metoder](https://www.nhh.no/emner/empiriske-metoder/), som er et obligatorisk kurs på Bachelorprogrammet i Økonomi og Administrasjon ved Norges Handelshøyskole. Dette er et kurs i anvendt statistikk, spesielt tilpasset økonomistudiet, og vi skal fokusere på korrekt bruk av statistisk metodikk for å løse relevante problemstillinger i en verden der innsamlet data utgjør en stadig større del av beslutningsgrunlaget i bedrifts- og samfunnsstyring.
+
+Kursansvarlige er Håkon Otneim og Geir Drage Berentsen, som begge jobber ved Institutt for Foretaksøkonomi ved NHH.
+
+<figure style="float:right; padding:10px; text-align:center">
+  <img alt="Håkon" src="bilder/geir.jpg" width="130" height="130"/>
+  <figcaption>Geir</figcaption>
+</figure>
+
+På grunn av coronasituasjonen er store deler av kurset digitalisert. Det vil si at teorigjennomgang plenumsforelesniger i sin helhet er erstattet med videoforelesninger. På denne siden vil du finne alle videosnuttene sammen med kommentarer til lærebokens fremstilling, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset).
+
+Praktisk bruk av statistiske metoder stpr sentralt i MET4, og denne delen dekker vi gjenom kontakttimer, oppgaveseminarer med kursansvarlige, og dataøvinger med studentassistenter. Denne delen vil være digital dersom smittesituasjonen krever det, og fysisk på campus dersom smittesituasjonen tillater det. **Det vil være et fullgodt digitalt alternativ til MET4 gjennom hele semsteret**.
+
+### Kursets struktur {-}
+
+Oppklare misforståelse om R og hjemmeeksamen.
+
+### Fremdriftsplan {-}
+
+### Lærebok og pensum {-}
+
+### Viktige datoer {-}
+
+Viktige datoer.
+
+Hvordan arbeide.
 
 Innledning til kurset, detaljer om datoer, hvordan jobbe, hvor finne informasjon, følge med på Canvas osv.
 
 Hei og hå.
-
-
