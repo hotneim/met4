@@ -32,7 +32,6 @@
   
 <link rel="prev" href="enkel-regresjon.html"/>
 <link rel="next" href="modellbygging.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,7 +49,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -58,67 +56,41 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -139,8 +111,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
-<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
-<ul>
+<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a><ul>
 <li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
 <li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
@@ -152,33 +123,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
 <li class="chapter" data-level="1.10" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.10</b> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
-<ul>
+<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a><ul>
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
 <li class="chapter" data-level="2.3" data-path="spørsmål-og-oppgaver.html"><a href="spørsmål-og-oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Spørsmål og oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
-<ul>
+<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a><ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
 <li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
-<ul>
+<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a><ul>
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
-<ul>
+<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a><ul>
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
+<li class="chapter" data-level="5.4" data-path="spørsmål-og-oppgaver-1.html"><a href="spørsmål-og-oppgaver-1.html"><i class="fa fa-check"></i><b>5.4</b> Spørsmål og oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
-<ul>
+<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a><ul>
 <li class="chapter" data-level="6.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>6.1</b> Introduksjon til tidsrekker</a></li>
 <li class="chapter" data-level="6.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>6.2</b> Trend og sesong</a></li>
 <li class="chapter" data-level="6.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>6.3</b> AR(p)</a></li>
@@ -188,15 +155,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>6.7</b> ARMA og ARIMA</a></li>
 <li class="chapter" data-level="6.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>6.8</b> Modellbygging</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
-<ul>
+<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a><ul>
 <li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
 <li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
 <li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
 <li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a>
-<ul>
+<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
 <li class="chapter" data-level="8.1" data-path="tidligere-eksamensoppgaver-skoleeksamen.html"><a href="tidligere-eksamensoppgaver-skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -221,23 +186,22 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multippel-regresjon" class="section level2" number="4.2">
+<div id="multippel-regresjon" class="section level2">
 <h2><span class="header-section-number">4.2</span> Multippel regresjon</h2>
-<div id="videoforelesninger-7" class="section level3" number="4.2.1">
+<div id="videoforelesninger-7" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Videoforelesninger</h3>
 <div style="padding:75.14% 0 0 0;position:relative;">
 <iframe src="https://vimeo.com/showcase/7793207/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
 </div>
 </div>
-<div id="kommentarer-7" class="section level3" number="4.2.2">
+<div id="kommentarer-7" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Kommentarer</h3>
 <p>I kapittel <strong>17</strong> utvides regresjonsbegrepet til <em>multippel</em> regresjon, som i prasis betyr at vi kan ha flere enn en forklaringsvariable:</p>
-<p><span class="math display">\[Y = \beta_0 + \beta_1X_1 + \cdots \beta_kX_k + \epsilon,\]</span>
-men utover dette er alle detaljene vi har snakket om de samme. For eksempel:</p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1X_1 + \cdots \beta_kX_k + \epsilon,\]</span> men utover dette er alle detaljene vi har snakket om de samme. For eksempel:</p>
 <ul>
-<li>Tolkningen av regresjonskoeffisienten: En endring på en enhet i forklaringsvariabelen <span class="math inline">\(X_j\)</span> henger sammen med <span class="math inline">\(\beta_j\)</span> enhets endring i responsvariabelen <span class="math inline">\(Y\)</span> (merk at jeg ikke brukker begrepet “fører til”, vi kan ikke uten videre fortolke sammenhengen som kausal!).</li>
-<li>Analysen av residualene <span class="math inline">\(\widehat \epsilon_i = Y_i - \widehat Y_i\)</span> er den samme og har samme formål 1–3 som over.</li>
+<li>Tolkningen av regresjonskoeffisienten: En endring på en enhet i forklaringsvariabelen <span class="math inline">\(X_j\)</span> henger sammen med <span class="math inline">\(\beta_j\)</span> enhets endring i responsvariabelen <span class="math inline">\(Y\)</span> (merk at jeg ikke brukker begrepet &quot;fører til&quot;, vi kan ikke uten videre fortolke sammenhengen som kausal!).</li>
+<li>Analysen av residualene <span class="math inline">\(\widehat \epsilon_i = Y_i - \widehat Y_i\)</span> er den samme og har samme formål 1--3 som over.</li>
 <li><span class="math inline">\(R^2\)</span> har samme fortolkning.</li>
 <li>R-kommandoen er den samme, vi bare sette pluss mellom forklaringsvariablene, f.eks <code>reg &lt;- lm(Y ~ X1 + ... + Xk, data = x)</code></li>
 </ul>
@@ -245,18 +209,11 @@ men utover dette er alle detaljene vi har snakket om de samme. For eksempel:</p>
 <p><strong>Justert</strong> <span class="math inline">\(R^2\)</span>: Vi viste i forelesningen at vi vil alltid klare å øke <span class="math inline">\(R^2\)</span> ved å legge til forklaringsvariable, selv om de ikke har noe med problemet å gjøre. Derfor innførte vi en <em>justert</em> <span class="math inline">\(R^2\)</span> som tar høyde for nettopp dette, ved å bli større bare dersom den aktuelle forklaringsvariebelen faktisk forklarer en reell mengde av variasjonen i responsvariabelen. Se avsnitt <strong>17-2f</strong> i læreboken.</p>
 <p><strong>Multikolinearitet</strong>: Dersom en forklaringsvariabel er sterkt korrelert med en eller flere andre forklaringsvariabler har vi multikolinearitet. Det blir naturlig nok et problem å skille effekter fra hverandre når de i realiteten er helt eller nesten like. Ekstremtilfellet er <em>perfekt multikolinearitet</em> der en variabel er en eksakt lineær funksjon av en eller flere andre variable. Det typiske tilfellet er at vi har to kolonner der vi måler det samme fenomenet, men med to ulike enheter, f.eks. <strong>cm</strong> og <strong>m</strong>. Selvsagt kan vi ikke klare å identifisere en <em>separat</em> og <em>uavhengig</em> effekt av <span class="math inline">\(X\)</span> på <span class="math inline">\(Y\)</span> om vi skifter måleenhet, og vi vil få en feilmelding dersom vi prøver på det. Det er ekvivalent med å dele på null (every time you divide by zero, God kills a kitten!). Løsning: fjern en av kolonnene fra regresjonsanalysen.</p>
 <p>Verre er det om to variable måler <em>nesten</em> det samme, men ikke helt, som i skoledataeksempelet der vi kunne bruke både innbyggertall og antall femteklassinger i kommunen som forklaringsvariabler. De henger tett sammen, men selvsagt ikke eksakt, og det virker rart å kunne knytte separate efekter til disse to variablene. I dette tilfellet får vi likevel ikke feilmeldinger, men konsekvensen kan fort bli at standardavvikene (usikkerheten!) til koeffisientestimatene eksploderer, og at ingen av variablene blir signifikant forskjellige fra null, selv det det faktisk er en sterk sammenheng mellom kommunestørrelse og prøveresultat (husk at testobservatoren: <span class="math inline">\(t = \widehat \beta_k/\sigma_{\beta_k}\)</span> blir liten når nevneren blir stor).</p>
-<p><strong>F-test for multiple sammenligninger</strong>: Dette henger nøye sammen med <em>variansanalyse (analysis of variance, ANOVA)</em>, som nå er tatt ut av pensum i kurset. For å forstå dette kan vi sette opp et eksempel, med to forklaringsvariabler:
-<span class="math display">\[Y = \beta_0 + \beta_1X_1 + \beta_2X_2.\]</span>
-Etter å ha brukt miste kvadraters metode for å estimere de tre koeffisientene er vi kanskje interessert i å vurdere den statsistiske signifikansene til de to stigningstallene separat. Da tester vi de to nullhypotesene <span class="math inline">\(\beta_1 = 0\)</span> og <span class="math inline">\(\beta_2 = 0\)</span>, som vi i praksis gjør ved å se på hvor mange stjerner de får i regresjonsutskriften. Men sett at ingen av koeffisientene er signifikant forskjellige fra null, kan vi da slutte at vi ikke kan forkaste hypotesen <span class="math inline">\(\beta_1 = \beta_2 = 0\)</span>, dvs at <em>begge</em> koeffisientene er lik null, og at ingen av forklaringsvariablene forklarer variasjon i <span class="math inline">\(Y\)</span>? <strong>NEI</strong>, det kan vi ikke. Vi kan for eksempel lett tenke oss at vi på grunn av multikolinearitet ikke får separate forkastninger av de to nullhypotesene, men at ved å fjerne en variabel, så blir den andre signifikant.</p>
+<p><strong>F-test for multiple sammenligninger</strong>: Dette henger nøye sammen med <em>variansanalyse (analysis of variance, ANOVA)</em>, som nå er tatt ut av pensum i kurset. For å forstå dette kan vi sette opp et eksempel, med to forklaringsvariabler: <span class="math display">\[Y = \beta_0 + \beta_1X_1 + \beta_2X_2.\]</span> Etter å ha brukt miste kvadraters metode for å estimere de tre koeffisientene er vi kanskje interessert i å vurdere den statsistiske signifikansene til de to stigningstallene separat. Da tester vi de to nullhypotesene <span class="math inline">\(\beta_1 = 0\)</span> og <span class="math inline">\(\beta_2 = 0\)</span>, som vi i praksis gjør ved å se på hvor mange stjerner de får i regresjonsutskriften. Men sett at ingen av koeffisientene er signifikant forskjellige fra null, kan vi da slutte at vi ikke kan forkaste hypotesen <span class="math inline">\(\beta_1 = \beta_2 = 0\)</span>, dvs at <em>begge</em> koeffisientene er lik null, og at ingen av forklaringsvariablene forklarer variasjon i <span class="math inline">\(Y\)</span>? <strong>NEI</strong>, det kan vi ikke. Vi kan for eksempel lett tenke oss at vi på grunn av multikolinearitet ikke får separate forkastninger av de to nullhypotesene, men at ved å fjerne en variabel, så blir den andre signifikant.</p>
 <p>For å virkelig forstå dette problemet kan du godt lese starten på kapittel <strong>14.1</strong> samt kapittel <strong>14.2</strong> om multiple sammenligninger (som strengt tatt ikke er pensum), men essensen er altså:</p>
 <p><span class="math display">\[\textrm{Å forkaste H}_0: \beta_1 = 0 \textrm{ og H}_0: \beta_2 = 0 \textrm{ er ikke det samme som å forkaste H}_0: \beta_1 = \beta_2 = 0!\]</span></p>
-<p>For å gjennomføre den siste testen må vi sette opp en egen testobservator, som viser seg å være <span class="math inline">\(F\)</span>-fordelt. Læreboken lister opp noen detaljer i avsnitt <strong>17-2f</strong>, og essensen er at vi setter opp en brøk på formen
-<span class="math display">\[F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellenmed } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.\]</span>
-Dersom denne brøken viser seg å være stor (som definert av signifikansnivå og frihetsgrader, se lærebok), forkaster vi nullhypotesen om at begge koeffisientene begge kan være lik null. I en generell multippel regresjon med <span class="math inline">\(k\)</span> forklaringsvariable rapporterer R <code>F-statistic:</code> etc, med verdien av <span class="math inline">\(F\)</span>-observatoren i testen for
-<span class="math display">\[H_0: \beta_1 = \cdots = \beta_k = 0,\]</span>
-og dersom den oppgitte <span class="math inline">\(p\)</span>-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv er signifikant forskjellig fra null).</p>
-<p>Som en såkalt <em>fun fact</em> kan vi nevne at det er enkelt å teste for signifikansen til <em>grupper</em> av variable på denne måten, f.eks hvis det er noen variable som måler lignende ting (si <span class="math inline">\(X_2, X_4\)</span> og <span class="math inline">\(X_5\)</span>). I R kan du estimere to modeller, en modell som <em>inkluderer</em> variablene (f.eks. <code>reg_stor</code>) og en modell der du tar bort de aktuelle variablene (f.eks. <code>reg_liten</code>). Du kan da kjøre kommandoen <code>anova(reg_stor, reg_liten)</code> for å teste
-<span class="math display">\[H_0: \beta_2 = \beta_4 = \beta_5 = 0.\]</span></p>
+<p>For å gjennomføre den siste testen må vi sette opp en egen testobservator, som viser seg å være <span class="math inline">\(F\)</span>-fordelt. Læreboken lister opp noen detaljer i avsnitt <strong>17-2f</strong>, og essensen er at vi setter opp en brøk på formen <span class="math display">\[F = \frac{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellenmed } X_1 \textrm{ og }X_2}{\textrm{Variasjon i } Y \textrm{ som fanges opp av regresjonsmodellen uten } X_1 \textrm{ og }X_2}.\]</span> Dersom denne brøken viser seg å være stor (som definert av signifikansnivå og frihetsgrader, se lærebok), forkaster vi nullhypotesen om at begge koeffisientene begge kan være lik null. I en generell multippel regresjon med <span class="math inline">\(k\)</span> forklaringsvariable rapporterer R <code>F-statistic:</code> etc, med verdien av <span class="math inline">\(F\)</span>-observatoren i testen for <span class="math display">\[H_0: \beta_1 = \cdots = \beta_k = 0,\]</span> og dersom den oppgitte <span class="math inline">\(p\)</span>-verdien er mindre enn f. eks. 5%, kan vi slutte at ikke alle koeffisientene kan være null samtidig (selv om ingen av koeffisientene i seg selv er signifikant forskjellig fra null).</p>
+<p>Som en såkalt <em>fun fact</em> kan vi nevne at det er enkelt å teste for signifikansen til <em>grupper</em> av variable på denne måten, f.eks hvis det er noen variable som måler lignende ting (si <span class="math inline">\(X_2, X_4\)</span> og <span class="math inline">\(X_5\)</span>). I R kan du estimere to modeller, en modell som <em>inkluderer</em> variablene (f.eks. <code>reg_stor</code>) og en modell der du tar bort de aktuelle variablene (f.eks. <code>reg_liten</code>). Du kan da kjøre kommandoen <code>anova(reg_stor, reg_liten)</code> for å teste <span class="math display">\[H_0: \beta_2 = \beta_4 = \beta_5 = 0.\]</span></p>
 <blockquote>
 <p><strong>Kritikk av læreboken:</strong> Læreboken har en tabell på s. 701 som viser sammenhengen mellom ulike statistiske størrelser som vi kan regne ut for en regresjonsmodell. <span class="math inline">\(R^2\)</span> kjenner vi som forklaringsgraden, <span class="math inline">\(s_{\epsilon}\)</span> er standardavviket til residualene, <span class="math inline">\(F\)</span> er testobservatoren for modellgyldighet som vi definerte uformelt over, og som er definert formelt nederst på s. 700, mens SSE (Sum of Squares Error) henger nøye sammen med standardavviket, som vi også kan se på s. 700. På disse sidene ser vi mange ligninger som viser hvordan disse størrelsene formelt henger sammen, og i tabellen på s. 701 ser vi blant annet at dersom SSE er liten, er også <span class="math inline">\(s_{\epsilon}\)</span> liten, <span class="math inline">\(R^2\)</span> er nær null, og <span class="math inline">\(F\)</span>-observatoren er stor. Det er greit nok, <strong>men</strong> de har en ekstra kolonne som slår fast at regresjonsmodellen er <em>good</em>.</p>
 </blockquote>
@@ -344,7 +301,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
