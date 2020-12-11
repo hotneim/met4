@@ -162,6 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
+<li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
 <ul>
@@ -256,11 +257,11 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Første kolonne inneholder informasjon om tidspunkt, og temperaturen er inneholdt i andre kolonne. La oss plotte både temperaturrekken og den <em>differensierte</em> temperaturrekken (dvs. forskjellen fra dag til dag). Hvis vi avslører at den differensierte tidsrekken kan regnes ut ved å kjøre <code>difftemp &lt;- diff(temp$Mean)</code>, skulle det nå være grei skuring å produsere følgende to enkle plott:</p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="ma.html#cb101-1"></a>difftemp &lt;-<span class="st"> </span><span class="kw">diff</span>(temp<span class="op">$</span>Mean)</span>
 <span id="cb101-2"><a href="ma.html#cb101-2"></a><span class="kw">plot</span>(temp<span class="op">$</span>Mean, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="ma.html#cb102-1"></a><span class="kw">plot</span>(difftemp, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-89-2.png" width="672" /></p>
-<p>Lag videre autokorrelasjonsplottet som vist i videoen for den differensierte tidsrekken:</p>
 <p><img src="met4_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="ma.html#cb102-1"></a><span class="kw">plot</span>(difftemp, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-90-2.png" width="672" /></p>
+<p>Lag videre autokorrelasjonsplottet som vist i videoen for den differensierte tidsrekken:</p>
+<p><img src="met4_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 <p>I autokorrelasjonsplottet ser vi nettopp et slikt MA-mønster som vi så i videoen; nemlig at autokorrelasjonen plutselig blir null (eller omtrent null) for et gitt lag. I dette tilfellet har vi at første ordens autokorrelasjon er klart forskjellig fra null, men at den fra og med <span class="math inline">\(k = 2\)</span> nesten ikke har utslag.</p>
 <p>Hvis de differensierte temperaturmålingene faktisk er MA(1), kan den skrives slik:</p>
 <p><span class="math display">\[Y_t = c + \theta u_{t-1} + u_t,\]</span>

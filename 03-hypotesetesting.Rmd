@@ -35,14 +35,14 @@ Her snakker vi om kapittel **11** i læreboken. Hvis du kan svare på følgende 
 
 Dette er i hovedsak dekket av kapittel **12** i læreboken. Sjekk om du kan svare på følgende kontrollspørsmål:
 
-- Hva er det vi tester når vi gjennomfører en $t$-test for én populasjon? Hva forutsetter vi?
-- Hva er forskjellen på en ensidig og en tosidig test? (**11-2j**)
+1. Hva er det vi tester når vi gjennomfører en $t$-test for én populasjon? Hva forutsetter vi?
+2. Hva er forskjellen på en ensidig og en tosidig test? (**11-2j**)
 
 Det kan også være greit å repetere konfidensintervaller i seksjon **11-2k** for de som har glemt det fra MET2.
 
 I Seksjon **11-2g** går boken gjennom en ett-utvalgs t-test i bokens Excel-plugin. La oss gjøre det samme i R. På kursets nettside finner du alle datasettene som følger med læreboken. I dette eksempelet er det snakk om `Xm11-01.xlsx`. Finn tak i denne filen (du kan også godt åpne den og se på den i Excel!), legg den i en mappe som du kan finne igjen, og åpne et nytt script i R-studio der du først sørger for å sette working directory til denne mappen slik vi gjorde i R-forelesningen.
 
-Etterpå leser du inn datasettet ved å bruke `read_xslx()`-funksjonen som under:
+Etterpå leser du inn datasettet ved å bruke `read_xlsx()`-funksjonen som under:
 
 ```{r, eval = F}
 library(readxl)
@@ -413,6 +413,22 @@ Noen kontrollspørsmål:
 2. Kan du gi en intuitiv forklaring på hvorfor testobservatoren vår er fornuftig?
 3. **Litt mer vanskelig:** Kan du gi en intuitiv forklaring for hvorfor testobservatoren er tilnærmet kjikvadratfordelt?
 
+## Oppgaver
 
+I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen).
+
+Har du en eldre utgave av boken kan du laste ned [dette dokumentet]("oppgaver/Recommended exersices.doc") for en oversikt over oppgavenummer tilbake til 7. utgave.
+
+```{r, echo = FALSE, message = FALSE}
+
+library(dplyr)
+options(knitr.kable.NA = '')
+
+"oppgaver/oppgaver-hypotesetesting.xlsx" %>% 
+    readxl::read_excel() %>% 
+    kableExtra::kbl() %>% 
+    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+```
 
 

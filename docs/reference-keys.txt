@@ -39,6 +39,7 @@ kommentarer-4
 kjikvadrattester
 videoforelesninger-5
 kommentarer-5
+oppgaver-1
 regresjon
 enkel-regresjon
 videoforelesninger-6

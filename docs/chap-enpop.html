@@ -162,6 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
+<li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
 <ul>
@@ -233,13 +234,13 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="kommentarer-3" class="section level3" number="3.2.2">
 <h3><span class="header-section-number">3.2.2</span> Kommentarer</h3>
 <p>Dette er i hovedsak dekket av kapittel <strong>12</strong> i læreboken. Sjekk om du kan svare på følgende kontrollspørsmål:</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Hva er det vi tester når vi gjennomfører en <span class="math inline">\(t\)</span>-test for én populasjon? Hva forutsetter vi?</li>
 <li>Hva er forskjellen på en ensidig og en tosidig test? (<strong>11-2j</strong>)</li>
-</ul>
+</ol>
 <p>Det kan også være greit å repetere konfidensintervaller i seksjon <strong>11-2k</strong> for de som har glemt det fra MET2.</p>
 <p>I Seksjon <strong>11-2g</strong> går boken gjennom en ett-utvalgs t-test i bokens Excel-plugin. La oss gjøre det samme i R. På kursets nettside finner du alle datasettene som følger med læreboken. I dette eksempelet er det snakk om <code>Xm11-01.xlsx</code>. Finn tak i denne filen (du kan også godt åpne den og se på den i Excel!), legg den i en mappe som du kan finne igjen, og åpne et nytt script i R-studio der du først sørger for å sette working directory til denne mappen slik vi gjorde i R-forelesningen.</p>
-<p>Etterpå leser du inn datasettet ved å bruke <code>read_xslx()</code>-funksjonen som under:</p>
+<p>Etterpå leser du inn datasettet ved å bruke <code>read_xlsx()</code>-funksjonen som under:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="chap-enpop.html#cb19-1"></a><span class="kw">library</span>(readxl)</span>
 <span id="cb19-2"><a href="chap-enpop.html#cb19-2"></a>data &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm11-01.xlsx&quot;</span>)     <span class="co"># Vi bruker read_xslx() fordi det er en .xlsx-fil</span></span></code></pre></div>
 <p>Konteksten til datasettet er gitt i eksempel 11.1. Det er altså balansen på 400 tilfeldig utvalgte kredittkontoer i en butikk, og en lurer på om forventet balanse er større enn 170. Vi setter opp følgende test:</p>
