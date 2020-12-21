@@ -81,7 +81,7 @@ Eldre utgaver av læreboken går bra. Under anbefalte regneoppgaver refererer vi
 
 ### Kursets struktur {-}
 
-En variant av dette opplegget ble gjennomført høstsemesteret 2020, med positive tilbakemeldinger fra studentene (\*kremt\* bronsesvamp \*host\*), men det kom et knippe tilbakemeldinger fra studentene som vi bet oss merke i:
+En variant av dette opplegget ble gjennomført høstsemesteret 2020, med positive tilbakemeldinger fra studentene (\*kremt\* bronsesvamp \*host\*), men det kom et knippe tilbakemeldinger på kursevalueringen som vi bet oss merke i:
 
 ```{r, echo = F, message = FALSE, warning = FALSE}
 library(dplyr)
@@ -107,7 +107,7 @@ Det jeg tror noen kanskje misforstår er hvordan disse elementene fører frem ti
 
 For den praktiske delen er det noe  annerledes. Det er åpenbart at når vi løser oppgaver med penn og papir så er det mest relevant for den individuelle vurderingen (som pre- og post-corona er skoleeksamen), mens dataøvingene er mest relevant for gruppeeksamen, som jeg har forsøkt å illustrere med at de oransje og blå pilene har forskjellig tykkelse inn mot de to vurderingsformene. Hvis man da synes at den blå pilen er dominerende og fryktelig arbeidskrevende så kan vi saktens forstå tilbakemeldinger som over. 
 
-Det er da viktig å være følgende punkt:
+Det er da viktig å være klar over følgende punkt:
 
 - **Den gruppebaserte hjemmeeksamen er ikke en "programmeringseksamen" eller en "eksamen i R", men en eksamen i praktisk dataanalyse.**
 - **Vektingen mellom individuell og gruppebasert vurdering handler mest om at de individuelle ferdighetene skal veie tyngst.**
