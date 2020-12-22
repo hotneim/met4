@@ -1,7 +1,7 @@
 
 # Regresjon
 
-I forrige modul fokuserte vi på *binære* spørsmål av typen "Er det er forskjell mellom disse to populasjonene, eller ikke?", "Er disse kjennetegnene uavhengige, eller ikke?", og så videre. I denne modulen skal vi prøve å gå et steg lenger og tillate mer interessante spørsmål. I stedet for bare å spørre om en eller annen effekt er til stede (eller ikke), så vil vi heller finne ut hvor stor denne effekten er, hvilken retning den går, og kanskje om vi kan bruke kunnskapen vi får om statistiske sammenhenger til å si noe fornuftig om hva som vil skje for noe som vi enda ikke har observert. Da er det regresjon som gjelder, og mer spesifikt for vår del: *lineær regresjon*. 
+I forrige modul fokuserte vi på *binære* spørsmål av typen "Er det en forskjell mellom disse to populasjonene, eller ikke?", "Er disse kjennetegnene uavhengige, eller ikke?", og så videre. I denne modulen skal vi prøve å gå et steg lenger og tillate mer interessante spørsmål. I stedet for bare å spørre om en eller annen effekt er til stede (eller ikke), så vil vi heller finne ut hvor stor denne effekten er, hvilken retning den går, og kanskje om vi kan bruke kunnskapen vi får om statistiske sammenhenger til å si noe fornuftig om hva som vil skje for noe som vi enda ikke har observert. Da er det regresjon som gjelder, og mer spesifikt for vår del: *lineær regresjon*. 
 
 Regresjon er et hovedtema i MET4. Vi innfører en *statistisk modell* som i sin enkleste form sier at en *forklaringsvariabel* $X$ henger sammen med en responsvariabel $Y$ på en helt bestemt måte, nemlig gjennom ligningen
 

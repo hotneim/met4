@@ -45,7 +45,7 @@ Vi finner også hva vi skal gjøre i vår oppsatte forelesningstider. Som en hov
 
 Legg merke til følgende viktige datoer:
 
-- **12. februar:** Siste frist for oppmelding av grupper til hjemmeeksamen.
+- **1. mars:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
 - **26. mars:** Frist for innlevering av den obligatoriske innleveringen.
 - **23.--24. mars:** Undervisningsfri pga. NHH symposium.
 - **26.--28. april:** Gruppebasert hjemmeeksamen.
@@ -78,39 +78,3 @@ Vi bruker læreboken *Statistics for Management and Economics* av Gerald Keller,
 Eldre utgaver av læreboken går bra. Under anbefalte regneoppgaver refererer vi til nummer i 11. og 10. utgave. Oppgavenummer tilbake til 7. utgave finner du i [dette dokumentet](oppgaver/Recommended excercises.doc).
 
 **Merk: Fra og med neste semester kommer det en ny utgave av læreboken.**
-
-### Kursets struktur {-}
-
-En variant av dette opplegget ble gjennomført høstsemesteret 2020, med positive tilbakemeldinger fra studentene (\*kremt\* bronsesvamp \*host\*), men det kom et knippe tilbakemeldinger på kursevalueringen som vi bet oss merke i:
-
-```{r, echo = F, message = FALSE, warning = FALSE}
-library(dplyr)
-library(kableExtra)
-
-readxl::read_excel("diverse/evaluering-r.xlsx", col_names = " ") %>% 
-  kbl() %>%
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
-```
-
-Det virker som at noen opplevde at R-programmeringen tok for mye tid med tanke på at den gruppebaserte hjemmeeksamen, der man selv skal gjennomføre statistiske analyser, bare teller 30% av den totale karakteren. La oss forsøke å kommentere, og delvis imøtegå, disse tilbakemeldingene.
-
-Vi forstår selvsagt at det for mange oppleves som *nytt* og ikke minst *vanskelig* å jobbe med et programmeringsspråk som R. På den annen side så gjør vi dette fordi vi ønsker at kurset skal være *nyttig* og *relevant*. Desverre er livet ofte slik at relevante og nyttige ferdigheter gjerne ikke er det vi kan fra før, eller noe som er enkelt å lære seg. Er det ikke derfor vi går på NHH?
-
-La oss forsøke å forstå problemstillingen ved hjelp av en meget uformell fremstilling av MET4. Vi kan tenke oss at kurset består av praktiske ferdigheter med et teoretisk fundament, men i stedet for å tegne disse to tingene over hverandre på den klassiske måten, så kan det være nyttige å heller tenke på disse elementene som to likeverdige pillarer som begge må være til stede. Det er ikke noe vits med den ene uten den andre. Vi kan videre tenke oss at forelesninger og lærebok i all hovesak handler om å utvikle den teoretiske forsåelsen, mens oppgaver og dataøvinger utvikler praktiske ferdigheter:
-
-<figure style="text-align:center">
-  <img alt="Håkon" src="bilder/struktur.jpg" width="600" height="700"/>
-  <figcaption></figcaption>
-</figure>
-
-Det jeg tror noen kanskje misforstår er hvordan disse elementene fører frem til de to vurderingsformene. Det er nemlig *ikke* slik at den individuelle eksamenen bare tester "teori + regne med penn og papir", mens gruppeeksamenen bare tester "R-skills". Tvert i mot: den teoretiske delen er *minst* like viktig på gruppevurderingen. Det er ikke godt nok med tekniske programmeringsferdigheter hvis man ikke samtidig kan føre god argumentasjon og vise forståelse for teori. Jeg har prøvd å vise dette med de røde og grønne pilene i figuren over, som i like stor grad fører frem til de to vurderingene. 
-
-For den praktiske delen er det noe  annerledes. Det er åpenbart at når vi løser oppgaver med penn og papir så er det mest relevant for den individuelle vurderingen (som pre- og post-corona er skoleeksamen), mens dataøvingene er mest relevant for gruppeeksamen, som jeg har forsøkt å illustrere med at de oransje og blå pilene har forskjellig tykkelse inn mot de to vurderingsformene. Hvis man da synes at den blå pilen er dominerende og fryktelig arbeidskrevende så kan vi saktens forstå tilbakemeldinger som over. 
-
-Det er da viktig å være klar over følgende punkt:
-
-- **Den gruppebaserte hjemmeeksamen er ikke en "programmeringseksamen" eller en "eksamen i R", men en eksamen i praktisk dataanalyse.**
-- **Vektingen mellom individuell og gruppebasert vurdering handler mest om at de individuelle ferdighetene skal veie tyngst.**
-
-Når det er sagt så har vi nå muligheten nå til å tilby mer undervisning langs den "oransje pilen" til de som ønsker det, ved at vi tilbyr en serie oppgaveseminarer gjennom semesteret, der vi skal regne på oppgaver fra læreboken og gamle eksamensoppgaver med penn og papir, og tavle og kritt (og deres digitale motstykker).
-
