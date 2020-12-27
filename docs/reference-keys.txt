@@ -131,4 +131,6 @@ diverse-ekstrastoff
 skoleeksamen
 tidligere-eksamensoppgaver-hjemmeeksamen
 spørsmål-og-svar
-frihetsgrader
+hypotesetesting-og-frihetsgrader
+regresjon-1
+r-etc.

@@ -640,6 +640,10 @@ Også i forelesningsnotatene står det <em>n-k-1</em> under multippel regresjon 
 <p><summary>Høst 2015</summary></p>
 <p><strong>Oppgave 1b:</strong> <em>I H15-eksamen b) bruker vi en ensidig t-test for å se om koeffisienten er 0 eller negativ. Jeg lurer på hvordan fasiten kom fram til antall frihetsgrader. Antall observasjoner er 898. Er det sånn at antall frihetsgrader er 893 fordi vi har et konstantledd og 4 frihetsgrader? Dersom det hadde vært en tosidig test, hadde vi fått samme antall frihetsgrader?</em></p>
 <p>Det stemmer at man trekker fra antall estimerte parametre. Tosidig vs ensidig påvirker ikke antall frihetsgrader, men påvirker signifikansnivået du bruker.</p>
+<p><strong>Oppgave 1b og 1c:</strong> <em>I b) bruker man t-test for to utvalg, mens i c) bruker man t-test for matchede par. Kommer det av at i b) har man to utvalg, mens i c) tester man forventet poengsum i samme utvalg, men med ulike sensorer? Jeg vet ikke om jeg helt har skjønt når man skal bruke t-test for matchede par.</em></p>
+<p>Matchede par vil jo gi større presisjon til å vurdere om de to sensorene retter forskjellig. Vi kan bruke matchede par fordi de to sensorene har rettet nøyaktig de samme eksamensoppgavene. Altså har vi fjernet kilden til variasjon som ellers kommer av at ulike studenter scorer ulikt på prøven.</p>
+<p>I b) skal vi jo teste om den samme sensoren retter likt, men vi vet jo ikke om de to gruppene av studenter (som altså ikke er de samme, hver student har bare tatt eksamen en gang) egentlig burde gjøre det like godt på eksamen. Dermed er det to utvalg. Du kan se video om matchede par om dette.</p>
+<p>Man bruker T-test fordi standardavviket også må estimeres i analysen, det har ikke så mye med matchede par i seg selv å gjøre.</p>
 <p><strong>Oppgave 1e:</strong> <em>I oppgave e) blir vi bedt om å bruke modell 2 hvor vi har 3 koeffisienter og 1 konstantledd. hvorfor er antall frihetsgrader fortsatt 893 og ikke 894 (da vi har en mindre koeffisient i modell 2 sammenlignet med modell 5)? Men i oppgave e) bruker man tosidig test, men er usikker på om det har noe å si for antall frihetsgrader.</em></p>
 <p>Det har nok gått litt fort i fasit på oppgave e), det skal være 894 frihetsgrader, men fordi antallet er veldig stort (over 200) har det heller ikke noe å si.</p>
 </details>
@@ -654,9 +658,28 @@ Også i forelesningsnotatene står det <em>n-k-1</em> under multippel regresjon 
 <p>Den generelle regelen for lineær regresjon er at man trekker fra antall frihetsgrader som svarer til antall parametre man har estimert først, som så brukes i beregningen av standardavviket. I oppgave 2c på analyse (1) er det brukt 6 estimerte parametre (5 koeffisienter og ett konstantledd) dermed blir det <span class="math inline">\(n - 5 - 1\)</span>. I sliden du viser er det en koeffisient og ett konstantledd, dermed <span class="math inline">\(n - 2\)</span>.</p>
 </details>
 <details>
+<p><summary>Høst 2017</summary></p>
+<p><strong>Oppgave 1b:</strong> <em>“Viser resultatet av testen at studentene i gruppe A kanskje har plagiert?”. F-testen vil jo kun teste om variansene er den samme for gruppe A og gruppe B, eller ulik? Hvordan kan vi svare på dette spørsmålet ved hjelp av en F-test? I fasiten står det at studentene i gruppe A har kanskje plagiert. Er dette fordi variansen i gruppe A er minst, dermed har de mer like respons, noe som kan indikere plagiat?</em></p>
+<p>Ja, oppgave a og b henger tett sammen. Det stemmer at F-testen bare kan si om de er ulik. Man må tolke hva ulike standardavvik må bety utfra konteksten av “eksperimentet” for å komme frem til at det er juks på gang. Det stemmer som du sier at lavt standardavvik betyr plagiat. Poenget her er at gruppe B skal være representativt for studenter generelt, så ettersom standardavviket er signifikant forskjellig fra det det skulle vært (statistisk lik gruppe B) er det noe som foregår.</p>
+</details>
+<details>
+<p><summary>Vår 2018</summary></p>
+<p><strong>Oppgave 1b:</strong> <em>I fasiten står det at man også kan bruke T-test for å sammenligne forventningsverdiene i de to datasettene, er det fordi n er stor og dermed vil normal og t-fordeling være omtrent det lik?</em></p>
+<p>Vi kan gjøre to forskjellige argumenter når <span class="math inline">\(n\)</span> er stor i dette tilfellet:</p>
+<ul>
+<li>Når <span class="math inline">\(n\)</span> er stor er det ikke så farlig med normalitetsantakelsen for observasjonene, siden sentralgrenseteoremet sørger for at testobservatoren er tilnærmet normalfordelt uansett, og da kan vi bruke Z-test eller t-test avhengig av om vi kjenner det/de sanne standardavviket/standardavvikene eller ikke.</li>
+<li>I tillegg ser vi at når <span class="math inline">\(n\)</span> blir stor så er de kritiske verdiene for hypotesetesten nesten like. Det følger av at vi da kan estimere standardavviket mer presist, så de empiriske standandardavvikene <span class="math inline">\(s\)</span> (eventuelt (<span class="math inline">\(s_1\)</span> og <span class="math inline">\(s_2\)</span>) er nærme de sanne verdiene <span class="math inline">\(\sigma\)</span> (eventuelt <span class="math inline">\(\sigma_1\)</span> og <span class="math inline">\(\sigma_2\)</span>).</li>
+</ul>
+</details>
+<details>
 <p><summary>Høst 2018</summary></p>
 <p><strong>Oppgave 1c:</strong> <em>I oppgaven skal man se hvorvidt “… the trimmed mean of the offers is smaller in 2008 than in 2006.” De setter opp H0 = Mean(Libor2006) = Mean(Libor2008), men så setter de opp H1 : Mean(Libor2006) &lt; Mean(Libor2008). Burde det ikke være omvendt her ettersom vi skal se om gjennomsnittet er lavere i 2008 enn i 2006? altså at H1: Mean(Libor2006) &gt; Mean(Libor2008). Videre konkluderer man med at “The test indicates that the Libor in 2006 is lower than the Libor in 2008”. Men i summary tabellen får man oppgitt at gjennomsnittlig libor i 2006 = 3.09 og 2.00 i 2008. Hvordan kan det ha seg da at man konkluderer med at libor er lavere i 2006 enn i 2008?</em></p>
 <p>De har snudd ulikheten. Det er feil i fasiten og det skal egentlig være Mean(Libor2006) &gt; Mean(Libor2008). I konklusjonen skal det følgelig konkluderes med at Libor i 2006 er større enn i 2018.</p>
+</details>
+<details>
+<p><summary>Høst 2019</summary></p>
+<p><strong>Oppgave 1a:</strong> <em>Oppgaven spør om hvilke tester man kan utføre for å finne ut hvilket land som har den signifikant største andelen kjempelykkelige land. Er det ikke z-test man da bruker? Videre blir vi bedt om å gi et datatransformasjon for Norge, hva mener de med dette? Hvorfor har fasiten kun brukt det som står under brøkstreken i testobservatoren?</em></p>
+Det stemmer at de bruker en z-test i fasit, men det er også mulig å bruke en chi-squared goodness-of-fit test. Poenget her er at man skal finne ut hvem som er mest lykkelig i forhold til hverandre og dermed må man teste to og to land mot hverandre ved bruk av flere z-tester. Tanken med “transformasjonen” er at man tar tallene fra tabellen og beregner noe man enkelt kan sammenligne to og to land basert på, det blir da estimatet av “sannsynlighet for kjempelykkelig” med et empiriske standardavvik. Det empiriske standardavviket er da det som står i telleren for testobservatoren (se kap 12-3c i boken). Siden testen i teorien må gjennomføres 3 ganger er det bedre å regne p og empirisk standardavvik for så å sette disse tallene inn i uttrykket for testobservatoren etterpå.
 </details>
 </div>
 </div>
