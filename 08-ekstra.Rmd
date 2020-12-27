@@ -19,7 +19,7 @@ skoleeksamen %>%
 
 ### Rettelser og kommentarer til oppgaver og løsningsforslag {-}
 
-Her vil du finne en del kommentarer og rettelser som er spesifikke for de enkelte oppgavesettene. Dette er basert på et dokument som Jarle Møen startet på i sin tid, og vil bli oppdatert med de nyeste årgangene etter hvert som det kommer inn spørsmål til eksamensoppgavene.
+Her vil du finne en del kommentarer og rettelser som er spesifikke for de enkelte oppgavesettene. Dette er basert på et dokument som [Jarle Møen](https://www.nhh.no/en/employees/faculty/jarle-moen/) startet på i sin tid, og som senere er oppdatert av [Benjamin Narum](https://www.nhh.no/en/employees/faculty/benjamin-narum/). Vi vil oppdatere denne oversikten med de nyeste årgangene etter hvert som det kommer inn spørsmål til eksamensoppgavene.
 
 <details><summary>Vår 2008</summary>
 
@@ -98,6 +98,10 @@ Dette ser merkelig ut for meg også (Han som har laget oppgaven har sluttet.) An
 
 <details><summary>Høst 2010</summary>
 
+**Oppgave 1a:** *I høsteksamen i 2010 oppgave 1a) har de brukt antall frihetsgrader lik 31. Jeg lurte på hvorfor det ikke blir 34, altså n-2? Hvordan vet vi når frihetsgrader er $n - k - 1$, og når det er $n - 2$?*
+
+For lineær regresjon er antall frihetsgrader lik $n$ minus antall parametre du har estimert i analysen din. I enkel regresjon antar vi formen på uttrykket $Y = \beta_1 X + \beta_0$ og må estimere $\beta_1$ og $\beta_0$, altså 2 parametre. Derfor blir regelen $n - 2$. I Multippel regresjon antar vi f.eks. en form på uttrykket $Y = \beta_2 X_2 + \beta_1 X_1 + \beta_0$ og må estimere $\beta_2$, $\beta_1$ og $\beta_0$, altså 3 stk. I regelen $n - k - 1$ er $k$ antall variable vi estimerer en koeffisient for ($k = 2$) og den siste "1" er for $\beta_0$. I eksempelet mitt blir det da $n - 3$. I eksamensoppgaven blir det $n - 5$.
+
 **Oppgave 1b:** *Har du mulighet til å sende meg utdypende forklaring på Eksamen H10 oppgave 1 b?*
 
 Her er det det er feil i løsningsforslaget. Jeg tror oppgavegiver endret modellen etter at førsteutkastet til løsningsforslaget var klar, og så har løsningsforslaget ikke blitt oppdatert tilsvarende. Rett svar skal være $-0,160 \pm 2,042*0,034$.
@@ -117,6 +121,42 @@ Enig med deg. Det er ikke noe holdepunkt for å bruke ensidig test her. Jeg har 
 
 </details>
 
+<details><summary>Høst 2015</summary>
+
+**Oppgave 1b:** *I H15-eksamen b) bruker vi en ensidig t-test for å se om koeffisienten er 0 eller negativ. Jeg lurer på hvordan fasiten kom fram til antall frihetsgrader. Antall observasjoner er 898. Er det sånn at antall frihetsgrader er 893 fordi vi har et konstantledd og 4 frihetsgrader? Dersom det hadde vært en tosidig test, hadde vi fått samme antall frihetsgrader?*
+
+Det stemmer at man trekker fra antall estimerte parametre. Tosidig vs ensidig påvirker ikke antall frihetsgrader, men påvirker signifikansnivået du bruker.
+
+**Oppgave 1e:** *I oppgave e) blir vi bedt om å bruke modell 2 hvor vi har 3 koeffisienter og 1 konstantledd. hvorfor er antall frihetsgrader fortsatt 893 og ikke 894 (da vi har en mindre koeffisient i modell 2 sammenlignet med modell 5)? Men i oppgave e) bruker man tosidig test, men er usikker på om det har noe å si for antall frihetsgrader.*
+
+Det har nok gått litt fort i fasit på oppgave e), det skal være 894 frihetsgrader, men fordi antallet er veldig stort (over 200) har det heller ikke noe å si. 
+
+</details>
+
+<details><summary>Høst 2016</summary>
+
+**Oppgave 1h:** *I oppgave 1 h, eksamen høst 2016 bes det om å regne ut "... variansen til andelen klager (av kandidatene som møtte) våren 2014 og våren 2015." I løsningsforslaget bruker man imidlertid  data oppgitt for vår 2013 og 2014 til å regne variansen til andelen klager for henholdsvis våren 2014 og 2015. Hvorfor skal man her bruke fjoråret til å regne ut variansen til andel klager for gjeldende år?*
+
+De har bommet med året.
+
+</details>
+
+<details><summary>Vår 2017</summary>
+
+**Oppgave 2c:** *Eksamen V17, oppgave 2c): Man blir bedt om å regne ut om koeffisienten er signifikant, hvorfor er frihetsgraden 282 ($v = n - k - 1$) og ikke 286 ($n-2$)?*
+
+Den generelle regelen for lineær regresjon er at man trekker fra antall frihetsgrader som svarer til antall parametre man har estimert først, som så brukes i beregningen av standardavviket. I oppgave 2c på analyse (1) er det brukt 6 estimerte parametre (5 koeffisienter og ett konstantledd) dermed blir det $n - 5 - 1$. I sliden du viser er det en koeffisient og ett konstantledd, dermed $n - 2$.
+
+</details>
+
+<details><summary>Høst 2018</summary>
+
+**Oppgave 1c:** *I oppgaven skal man se hvorvidt "... the trimmed mean of the offers is smaller in 2008 than in 2006." De setter opp H0 = Mean(Libor2006) = Mean(Libor2008), men så setter de opp H1 : Mean(Libor2006) < Mean(Libor2008). Burde det ikke være omvendt her ettersom vi skal se om gjennomsnittet er lavere i 2008 enn i 2006? altså at H1: Mean(Libor2006) > Mean(Libor2008). Videre konkluderer man med at "The test indicates that the Libor in 2006 is lower than the Libor in 2008". Men i summary tabellen får man oppgitt at gjennomsnittlig libor i 2006 = 3.09 og 2.00 i 2008. Hvordan kan det ha seg da at man konkluderer med at libor er lavere i 2006 enn i 2008?*
+
+De har snudd ulikheten. Det er feil i fasiten og det skal egentlig være Mean(Libor2006) > Mean(Libor2008). I konklusjonen skal det følgelig konkluderes med at Libor i 2006 er større enn i 2018.
+
+</details>
+
 ## Tidligere eksamensoppgaver (hjemmeeksamen)
 
 Her finner du oppgavene som er gitt ved hjemmeeksamen etter at eksamensformen ble lagt om i 2017. Merk at besvarelsen skal leveres som en sammenhengende rapport, og at løsningsforslagene under ikke oppfyller det kravet, men heller er en skisse av kodesnutter som *kan* brukes til å besvare spørsmålene. For vår 2018 har vi et sett med eksempelbesvarelser på ulike karakternivåer, med sensors kommentarer.
@@ -131,6 +171,23 @@ hjemmeeksamen %>%
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
 ```
 
+## Spørsmål og svar
+
+På denne siden vil vi samle spørsmål som er kommet inn til kursansvarlige og studentassistenter, og som kan være nyttige for senere årganger av studenter.
+
+### Frihetsgrader
+
+<details><summary>Hvor mange frihetsgrader skal det være i andre, eller mer kompliserte modeller, enn dem vi går gjennom i faget?</summary>
+
+Det finnes en rekke forskjellige typer statistiske tester som har ulike formål. En tommelfingerregel som ofte fungerer i statistisk inferens (som for eksempel i en test for om en estimert parameter er signifikant forskjellig fra null) er:
+
+Antall frihetsgrader = Antall observasjoner - Antall parametre som er estimert i modellen. 
+
+I multippel regresjon estimerer vi $k+1$ regresjonskoeffisienter, ergo blir antall frihetsgrader i testene $n-(k+1) = n - k - 1$. Begrepet "frihetsgrader" har lange historiske røtter og spiller på denne type intuisjon (observasjonene gir oss frihet til å finne ut av ting med en viss presisjon, og denne friheten "bruker vi opp" når vi estimerer ukjente parametre), men det er ikke et idiotsikkert system. Det at testobservatoren i en ett-utvalgs $t$-test med ukjent varians er $t$-fordelt med $n-1$ frihetsgrader ($n$ observasjoner minus en estimert parameter $s^2 \approx \sigma^2$) er et presist matematisk resultat som bevises på vanlig måte ved hjelp av antakelsene i testen (dvs nullhypotesen om at observasjonene er trukket fra den samme normalfordelingen).
+
+
+
+</details>
 
 
 

@@ -189,6 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
 <li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li class="chapter" data-level="8.3" data-path="spørsmål-og-svar.html"><a href="spørsmål-og-svar.html"><i class="fa fa-check"></i><b>8.3</b> Spørsmål og svar</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -577,7 +578,7 @@ Ikke lenger pensum per 2021
 </table>
 <div id="rettelser-og-kommentarer-til-oppgaver-og-løsningsforslag" class="section level3 unnumbered">
 <h3>Rettelser og kommentarer til oppgaver og løsningsforslag</h3>
-<p>Her vil du finne en del kommentarer og rettelser som er spesifikke for de enkelte oppgavesettene. Dette er basert på et dokument som Jarle Møen startet på i sin tid, og vil bli oppdatert med de nyeste årgangene etter hvert som det kommer inn spørsmål til eksamensoppgavene.</p>
+<p>Her vil du finne en del kommentarer og rettelser som er spesifikke for de enkelte oppgavesettene. Dette er basert på et dokument som <a href="https://www.nhh.no/en/employees/faculty/jarle-moen/">Jarle Møen</a> startet på i sin tid, og som senere er oppdatert av <a href="https://www.nhh.no/en/employees/faculty/benjamin-narum/">Benjamin Narum</a>. Vi vil oppdatere denne oversikten med de nyeste årgangene etter hvert som det kommer inn spørsmål til eksamensoppgavene.</p>
 <details>
 <p><summary>Vår 2008</summary></p>
 <p><strong>Spørsmål 1d:</strong> <em>Vi skal regne ut forventet nytte. Hvorfor får vi <span class="math inline">\(EX^2 = 20( var + \mu^2 )\)</span>?</em></p>
@@ -623,6 +624,8 @@ Også i forelesningsnotatene står det <em>n-k-1</em> under multippel regresjon 
 </details>
 <details>
 <p><summary>Høst 2010</summary></p>
+<p><strong>Oppgave 1a:</strong> <em>I høsteksamen i 2010 oppgave 1a) har de brukt antall frihetsgrader lik 31. Jeg lurte på hvorfor det ikke blir 34, altså n-2? Hvordan vet vi når frihetsgrader er <span class="math inline">\(n - k - 1\)</span>, og når det er <span class="math inline">\(n - 2\)</span>?</em></p>
+<p>For lineær regresjon er antall frihetsgrader lik <span class="math inline">\(n\)</span> minus antall parametre du har estimert i analysen din. I enkel regresjon antar vi formen på uttrykket <span class="math inline">\(Y = \beta_1 X + \beta_0\)</span> og må estimere <span class="math inline">\(\beta_1\)</span> og <span class="math inline">\(\beta_0\)</span>, altså 2 parametre. Derfor blir regelen <span class="math inline">\(n - 2\)</span>. I Multippel regresjon antar vi f.eks. en form på uttrykket <span class="math inline">\(Y = \beta_2 X_2 + \beta_1 X_1 + \beta_0\)</span> og må estimere <span class="math inline">\(\beta_2\)</span>, <span class="math inline">\(\beta_1\)</span> og <span class="math inline">\(\beta_0\)</span>, altså 3 stk. I regelen <span class="math inline">\(n - k - 1\)</span> er <span class="math inline">\(k\)</span> antall variable vi estimerer en koeffisient for (<span class="math inline">\(k = 2\)</span>) og den siste “1” er for <span class="math inline">\(\beta_0\)</span>. I eksempelet mitt blir det da <span class="math inline">\(n - 3\)</span>. I eksamensoppgaven blir det <span class="math inline">\(n - 5\)</span>.</p>
 <p><strong>Oppgave 1b:</strong> <em>Har du mulighet til å sende meg utdypende forklaring på Eksamen H10 oppgave 1 b?</em></p>
 <p>Her er det det er feil i løsningsforslaget. Jeg tror oppgavegiver endret modellen etter at førsteutkastet til løsningsforslaget var klar, og så har løsningsforslaget ikke blitt oppdatert tilsvarende. Rett svar skal være <span class="math inline">\(-0,160 \pm 2,042*0,034\)</span>.</p>
 </details>
@@ -632,6 +635,28 @@ Også i forelesningsnotatene står det <em>n-k-1</em> under multippel regresjon 
 <p>Nei, det er en trykkfeil. Det skulle stått «enveis variansanalyse». Faktoranalyse er en helt annen metode som ligger utenfor pensum, men som noen ganger foreleses i forbindelse med hjemmeeksamen.</p>
 <p><strong>Oppgave 1d:</strong> <em>Hvor en skal regne ut en kritisk grense for <span class="math inline">\(F\)</span> på 5% sign.nivå for v1= 175 og v2= 569. Hvorfor er det brukt en ensidig test her? (gir verdi 1,18) Er det ikke mer naturlig å bruke en tosidig her? En annen ting, er det nok å se på p-verdi eller må man regne ut en kritisk grense?</em></p>
 <p>Enig med deg. Det er ikke noe holdepunkt for å bruke ensidig test her. Jeg har ment å bruke tosidig test, men brukt feil tabell – 0.05 i stedet for 0.025. Korrekt kritisk grense skulle dermed være 1,22. Det er ingen grunn til å regne ut kritisk grense hvis det er gitt en programutskrift med p-verdi</p>
+</details>
+<details>
+<p><summary>Høst 2015</summary></p>
+<p><strong>Oppgave 1b:</strong> <em>I H15-eksamen b) bruker vi en ensidig t-test for å se om koeffisienten er 0 eller negativ. Jeg lurer på hvordan fasiten kom fram til antall frihetsgrader. Antall observasjoner er 898. Er det sånn at antall frihetsgrader er 893 fordi vi har et konstantledd og 4 frihetsgrader? Dersom det hadde vært en tosidig test, hadde vi fått samme antall frihetsgrader?</em></p>
+<p>Det stemmer at man trekker fra antall estimerte parametre. Tosidig vs ensidig påvirker ikke antall frihetsgrader, men påvirker signifikansnivået du bruker.</p>
+<p><strong>Oppgave 1e:</strong> <em>I oppgave e) blir vi bedt om å bruke modell 2 hvor vi har 3 koeffisienter og 1 konstantledd. hvorfor er antall frihetsgrader fortsatt 893 og ikke 894 (da vi har en mindre koeffisient i modell 2 sammenlignet med modell 5)? Men i oppgave e) bruker man tosidig test, men er usikker på om det har noe å si for antall frihetsgrader.</em></p>
+<p>Det har nok gått litt fort i fasit på oppgave e), det skal være 894 frihetsgrader, men fordi antallet er veldig stort (over 200) har det heller ikke noe å si.</p>
+</details>
+<details>
+<p><summary>Høst 2016</summary></p>
+<p><strong>Oppgave 1h:</strong> <em>I oppgave 1 h, eksamen høst 2016 bes det om å regne ut “… variansen til andelen klager (av kandidatene som møtte) våren 2014 og våren 2015.” I løsningsforslaget bruker man imidlertid data oppgitt for vår 2013 og 2014 til å regne variansen til andelen klager for henholdsvis våren 2014 og 2015. Hvorfor skal man her bruke fjoråret til å regne ut variansen til andel klager for gjeldende år?</em></p>
+<p>De har bommet med året.</p>
+</details>
+<details>
+<p><summary>Vår 2017</summary></p>
+<p><strong>Oppgave 2c:</strong> <em>Eksamen V17, oppgave 2c): Man blir bedt om å regne ut om koeffisienten er signifikant, hvorfor er frihetsgraden 282 (<span class="math inline">\(v = n - k - 1\)</span>) og ikke 286 (<span class="math inline">\(n-2\)</span>)?</em></p>
+<p>Den generelle regelen for lineær regresjon er at man trekker fra antall frihetsgrader som svarer til antall parametre man har estimert først, som så brukes i beregningen av standardavviket. I oppgave 2c på analyse (1) er det brukt 6 estimerte parametre (5 koeffisienter og ett konstantledd) dermed blir det <span class="math inline">\(n - 5 - 1\)</span>. I sliden du viser er det en koeffisient og ett konstantledd, dermed <span class="math inline">\(n - 2\)</span>.</p>
+</details>
+<details>
+<p><summary>Høst 2018</summary></p>
+<p><strong>Oppgave 1c:</strong> <em>I oppgaven skal man se hvorvidt “… the trimmed mean of the offers is smaller in 2008 than in 2006.” De setter opp H0 = Mean(Libor2006) = Mean(Libor2008), men så setter de opp H1 : Mean(Libor2006) &lt; Mean(Libor2008). Burde det ikke være omvendt her ettersom vi skal se om gjennomsnittet er lavere i 2008 enn i 2006? altså at H1: Mean(Libor2006) &gt; Mean(Libor2008). Videre konkluderer man med at “The test indicates that the Libor in 2006 is lower than the Libor in 2008”. Men i summary tabellen får man oppgitt at gjennomsnittlig libor i 2006 = 3.09 og 2.00 i 2008. Hvordan kan det ha seg da at man konkluderer med at libor er lavere i 2006 enn i 2008?</em></p>
+<p>De har snudd ulikheten. Det er feil i fasiten og det skal egentlig være Mean(Libor2006) &gt; Mean(Libor2008). I konklusjonen skal det følgelig konkluderes med at Libor i 2006 er større enn i 2018.</p>
 </details>
 </div>
 </div>

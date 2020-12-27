@@ -130,3 +130,5 @@ oppgave-2---maskinlæring-logistisk-regresjon-og-k-nærmeste-naboer
 diverse-ekstrastoff
 skoleeksamen
 tidligere-eksamensoppgaver-hjemmeeksamen
+spørsmål-og-svar
+frihetsgrader
