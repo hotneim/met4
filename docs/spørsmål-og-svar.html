@@ -215,7 +215,7 @@ Publisert ved hjelp av bookdown</a></li>
             <section class="normal" id="section-">
 <div id="spørsmål-og-svar" class="section level2">
 <h2><span class="header-section-number">8.3</span> Spørsmål og svar</h2>
-<p>På denne siden vil vi samle spørsmål som er kommet inn til kursansvarlige og studentassistenter, og som kan være nyttige for senere årganger av studenter.</p>
+<p>På denne siden vil vi samle svar på spørsmål som er kommet inn til studentassistenter på e-post og gjennom snapmentor, og som kan være nyttige for senere årganger av studenter. Tusen takk til <a href="https://www.nhh.no/en/employees/faculty/benjamin-narum/">Benjamin Narum</a> for at han har samlet inn materiale til denne siden.</p>
 <div id="hypotesetesting-og-frihetsgrader" class="section level3">
 <h3><span class="header-section-number">8.3.1</span> Hypotesetesting og frihetsgrader</h3>
 <details>
@@ -250,9 +250,30 @@ Det blir det samme, ja. Det er også gitt i Tabell 3 i boken, men da er verdien 
 <p><summary> Hvordan finner man kritisk grense for <span class="math inline">\(F\)</span>-test i multippel regresjon? <span class="math inline">\(F\)</span>-observatoren er jo oppgitt i regresjonstabellen, men dersom det ikke er oppgitt signifikansnivå der, skal man finne forkatsningsgrense i normaltabell eller i <span class="math inline">\(F\)</span>-fordeling, og skal antall frihetsgrader være <span class="math inline">\(n-k-1\)</span>? </summary></p>
 <p>F-observatoren har to tall for frihetsgrader. For multippel regresjon tester den nullhypotesen om at alle koeffisientene er null <strong>samtidig</strong>. Den første frihetsgraden kommer av modellen og er lik antall koeffisienter, den andre kommer av frihetsgradene i datasettet som er$ n - k - 1$. Tabell 6 i boken viser kritisk grense for ulike signifikansnivå og kombinasjoner av de to frihetsgradene. Stargazer oppgir <code>df=x;y</code>, der <code>x</code> er første frihetsgrad og <code>y</code> er andre frihetsgrad.</p>
 </details>
+<details>
+<p><summary> Hva er en indikatorvariabel? Og hvordan kan man lage dette, eventuelt finne mer informasjon. Sikter til eksamen våren 2020 oppgave 2. </summary></p>
+<p>Indikatorvariabler er et annet ord for dummyvariabler, og tar verdien 0 eller 1. Det kan gjerne brukes til å gjøre statistisk analyse når noe enten er sant eller ikke-sant. I oppgaven på eksamen bruker de jo det til å si om NO2 oversteg faregrensen. Da bruker man gjerne en indikator fordi du har informasjon om hva som er farlig og ikke, altså bryr vi oss ikke så mye om akkurat hva nivået er, bare vi det om det er farlig eller ikke (i akkurat denne analysen i hvert fall). Indikatorvariabler er også interessante som verktøy for å danne “kategorier” i dataene.</p>
+Du kan se her eller google litt om du er interessert: <a href="https://en.wikipedia.org/wiki/Dummy_variable_(statistics)" class="uri">https://en.wikipedia.org/wiki/Dummy_variable_(statistics)</a>
+</details>
+<details>
+<p><summary> Om det ikke er multikolinearitet, er det slik at man da kan tolke koeffisienten som kausalt? </summary></p>
+<p>Nei, ikke nødvendigvis.</p>
+</details>
+<details>
+<p><summary> Hvordan tolker man et konfidensintervall for en koeffisient i en regresjonsmodell? Si for eksempel at et 95% konfidensintervall for koeffisienten er (-50,-30).
+</summary></p>
+På samme måte som andre konfidensintervaller for ukjente, men estimerte paramtetre: Dersom modellen er riktig (det vil si at det eksisterer en <em>sann</em> regresjonskoeffisient <span class="math inline">\(\beta\)</span>), og dersom vi hadde hatt mulighet til å trekke flere datasett av samme størrelse som det vi har, så ville 95% av konfidensintervallene inneholdt den sanne regresjonskoeffisienten.
+</details>
+</div>
+<div id="tidsrekker-1" class="section level3">
+<h3><span class="header-section-number">8.3.3</span> Tidsrekker</h3>
+<details>
+<p><summary> Jeg forstår ikke helt hvordan man kan se om det er autokorrelasjon i residualene eller ikke. F.eks i eksamen v20 oppgave 2g). </summary></p>
+På oppgave 2g er det nok vanskelig å se at det er autokorrelasjon rett fra residualene, men du kan set det på ACF plottet. Der er det signifikante (barer over den blå linjen) autokorrelasjoner for flere “lag” større enn 0. Se video om autokorrelasjon for en forklaring.
+</details>
 </div>
 <div id="r-etc." class="section level3">
-<h3><span class="header-section-number">8.3.3</span> R etc.</h3>
+<h3><span class="header-section-number">8.3.4</span> R etc.</h3>
 <details>
 <p><summary> Jeg skal gjøre noe i R, og får opp en feilkode. Hva kan jeg gjøre for å få den til å fungere? F.eks. kommer det opp «Error in plot.new()». </summary></p>
 <p>Koding kan ofte føre til mange forskjellige type feil og det kan være vanskelig å vite alltid hva som er galt. For denne type feil er Google din venn. Søk på feilkoden, i dette tilfellet “plot.new() figure margins too large”, så kommer det som regel opp en tråd men noen som opplever noe lignende og en løsning.</p>

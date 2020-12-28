@@ -1,6 +1,8 @@
 
 # Diverse ekstrastoff
 
+Her vil du finne diverse ekstrastoff somm kan være nyttig etter hvert som semesteret skrider frem. Per nå er det snakk om tidligere eksamensoppgaver, samt diverse (og lett redigert) korrespondanse mellom studenter og studentassistenter som kan være nyttig for senere årganger av studenter.
+
 ## Tidligere eksamensoppgaver (skoleeksamen) {#skoleeksamen}
 
 I tabellen under finner du en lang rekke eksamenssett som er gitt tidligere i MET4 (og dets forløper INT010). Vi har lagt til en kolonne med oppgaver som åpenbart ligger utenfor pensum i dag. Utover det er selvsagt oppgavene relevante i større eller mindre grad for kurset i dag, uten at vi har mulighet til å gå nærmere inn på en slik detaljert rangering.
@@ -106,6 +108,9 @@ For lineær regresjon er antall frihetsgrader lik $n$ minus antall parametre du 
 
 Her er det det er feil i løsningsforslaget. Jeg tror oppgavegiver endret modellen etter at førsteutkastet til løsningsforslaget var klar, og så har løsningsforslaget ikke blitt oppdatert tilsvarende. Rett svar skal være $-0,160 \pm 2,042*0,034$.
 
+**Oppgave 1d:** *Hvordan er fremgangsmåten for å forstå at dette er en loglog-modell, og ikke en log-lin eller lin-log? Fasiten slår fast at det er en loglog, men forstår ikke helt hvordan man går frem.*
+
+Modellen er loglog mellom pris (PG) og inntekt (I) fordi regresjonen er gjort med hensyn på logaritmen av disse to. I fasit tenker de nok at de isolerer de to variablene for å tolke dem for seg først. Vi har jo egentlig år lineært og kvadrert i modellen også. Kanskje man skal kalle hele modellen en log-log-lin-sq modell (ikke gjør det). Poenget er at loglog-forhold har tolkningen om at prosentvis økning i den ene svarer til prosentvis økning av den andre, som gjør seg fint i en diskusjon der man skal tolke en modell.
 
 </details>
 
@@ -126,6 +131,12 @@ Enig med deg. Det er ikke noe holdepunkt for å bruke ensidig test her. Jeg har 
 **Oppgave 1b:** *I H15-eksamen b) bruker vi en ensidig t-test for å se om koeffisienten er 0 eller negativ. Jeg lurer på hvordan fasiten kom fram til antall frihetsgrader. Antall observasjoner er 898. Er det sånn at antall frihetsgrader er 893 fordi vi har et konstantledd og 4 frihetsgrader? Dersom det hadde vært en tosidig test, hadde vi fått samme antall frihetsgrader?*
 
 Det stemmer at man trekker fra antall estimerte parametre. Tosidig vs ensidig påvirker ikke antall frihetsgrader, men påvirker signifikansnivået du bruker.
+
+**Oppgave 1b:** *Vi gjennomføre en t-test for koeffisienten i en regresjonsmodell. Hvorfor finner vi her testobservatoren ved å ta koeffisienten delt på standardavvik? Er dette en formel, eller kan du forklare nærmere intuisjonen bak dette?*
+
+Se kapittel 16-4d og 17-2h i boken for formelene. Altså, $t = \frac{\widehat \beta - \beta}{s_{b}}$ hvor $s_{b} = \frac{s_{\epsilon}}{\sqrt{(n-1) s_x^2}}$ er standardavviket til regresjonskoeffisienten.
+
+Dette minner om å sammenligne avvik i forventningen på en normalfordeling, ved å dele på standardavviket til estimatoren $\widehat \mu = \overline X$, som er $s/\sqrt{n}$.
 
 **Oppgave 1b og 1c:** *I b) bruker man t-test for to utvalg, mens i c) bruker man t-test for matchede par. Kommer det av at i b) har man to utvalg, mens i c) tester man forventet poengsum i samme utvalg, men med ulike sensorer? Jeg vet ikke om jeg helt har skjønt når man skal bruke t-test for matchede par.*
 
@@ -188,6 +199,26 @@ De har snudd ulikheten. Det er feil i fasiten og det skal egentlig være Mean(Li
 **Oppgave 1a:** *Oppgaven spør om hvilke tester man kan utføre for å finne ut hvilket land som har den signifikant største andelen kjempelykkelige land. Er det ikke z-test man da bruker? Videre blir vi bedt om å gi et datatransformasjon for Norge, hva mener de med dette? Hvorfor har fasiten kun brukt det som står under brøkstreken i testobservatoren?*
 
 Det stemmer at de bruker en z-test i fasit, men det er også mulig å bruke en chi-squared goodness-of-fit test. Poenget her er at man skal finne ut hvem som er mest lykkelig i forhold til hverandre og dermed må man teste to og to land mot hverandre ved bruk av flere z-tester. Tanken med "transformasjonen" er at man tar tallene fra tabellen og beregner noe man enkelt kan sammenligne to og to land basert på, det blir da estimatet av "sannsynlighet for kjempelykkelig" med et empiriske standardavvik. Det empiriske standardavviket er da det som står i telleren for testobservatoren (se kap 12-3c i boken). Siden testen i teorien må gjennomføres 3 ganger er det bedre å regne p og empirisk standardavvik for så å sette disse tallene inn i uttrykket for testobservatoren etterpå.
+
+
+**Oppgave 1b:** *Etter at $z = 5.33$ er regnet ut dukker det opp en $z = 0.11$ under. Hvor kommer denne fra og hva forklarer den? Den blir ikke kommentert videre.*
+
+I oppgave B har de først regnet ut z dersom man antar pooled standardavvik, deretter har de beregnet z med hvert sitt standardavvik og testet om disse to z-verdiene er ulike. Det er en litt knotete måte å gjøre det på. De kunne bare brukt den sistnevnte z og testet den ulik null heller enn lik førstnevnte z. Konklusjonen blir den samme. Se side 482, Case 2. I eksemplene i boken beregner de ikke D først slik de har gjort i fasit, men sier at den er kjent.
+
+**Oppgave 1j:** *Vi blir bedt om å skissere regresjonslinjen for råalders samlede påvirkning på lykkenivået. Jeg forstod fasiten, men dersom oppgaven hadde bedt om å skissere regresjonslijen for rettferdighet samlede påvirkning på rettferdighet, hadde linjen bare vært lineær med en stigningstall på 0.03? Måtte vi gjøre alle de beregningene igjen siden variabelen var logaritmen til alder?*
+
+Det stemmer. Rettferdighet-til-lykke-forholdet er linært, så det hadde bare blitt en linje. Her spørres det om en skisse nettopp fordi forholdet skal være ikke-lineært, så du ville nok ikke fått samme spørsmål for "rettferdighet" med mindre begge skulle inn i figuren samtidig som sammenligning. Beregningene var for å støtte at plottet ble riktig. I det lineære tilfellet kunne du jo bare ha funnet to punkter og dratt en linje imellom, det går jo ikke i det ikke-lineære tilfellet.
+
+</details>
+
+<details><summary>Vår 2020</summary>
+**Oppgave 3c:** *Jeg er litt usikker ifm oppgave c) hvor vi blir spurt om redisualserien er stasjonær. Jeg forstår resonnementet i fasiten, men er litt usikker når det kommer til denne figuren. Her ser det jo ut til at variansen øker med tiden? Et av forutsetningene for stasjonær tidsrekke er jo at variansen skal være konstant og uavhengig av t? Hvordan ser vi forresten om forventningen er konstant eller ikke?*
+
+Visuell inspeksjon kan gi deg en del innsikt, men noen ganger kan det være vanskelig å konkludere eksakt kun fra figuren. Om det er tvil må man støtte seg videre på beregninger.
+
+For residualserien er den litt kort til å konkludere bare fra plottet om variansen øker eller ikke. De laveste residualverdiene (på bunnen av plottet) ser ikke ut til å endre seg slik som det kanskje kan se ut for de høyeste (på toppen av plottet). Om du hadde plottet denne over lenger tid ville du kanskje ikke lenger tenkt at variansen endrer seg.
+
+Forventningen er konstant, og lik 0, om det er ca like mange punkter over som under 0-linjen over tid. Det ser ut til å være tilfelle her.
 </details>
 
 ## Tidligere eksamensoppgaver (hjemmeeksamen)
@@ -206,7 +237,7 @@ hjemmeeksamen %>%
 
 ## Spørsmål og svar
 
-På denne siden vil vi samle spørsmål som er kommet inn til kursansvarlige og studentassistenter, og som kan være nyttige for senere årganger av studenter.
+På denne siden vil vi samle  svar på spørsmål som er kommet inn til studentassistenter på e-post og gjennom snapmentor, og som kan være nyttige for senere årganger av studenter. Tusen takk til [Benjamin Narum](https://www.nhh.no/en/employees/faculty/benjamin-narum/) for at han har samlet inn materiale til denne siden.
 
 ### Hypotesetesting og frihetsgrader
 
@@ -251,6 +282,32 @@ Tabell 5 "Critical values of the chi^2 distribution" gir deg riktige verdier. Du
 
 F-observatoren har to tall for frihetsgrader. For multippel regresjon tester den nullhypotesen om at alle koeffisientene er null **samtidig**. Den første frihetsgraden kommer av modellen og er lik antall koeffisienter, den andre kommer av frihetsgradene i datasettet som er$ n - k - 1$. Tabell 6 i boken viser kritisk grense for ulike signifikansnivå og kombinasjoner av de to frihetsgradene. Stargazer oppgir `df=x;y`, der `x` er første frihetsgrad og `y` er andre frihetsgrad.
 
+</details>
+
+<details><summary> Hva er en indikatorvariabel? Og hvordan kan man lage dette, eventuelt finne mer informasjon. Sikter til eksamen våren 2020 oppgave 2. </summary>
+
+Indikatorvariabler er et annet ord for dummyvariabler, og tar verdien 0 eller 1. Det kan gjerne brukes til å gjøre statistisk analyse når noe enten er sant eller ikke-sant. I oppgaven på eksamen bruker de jo det til å si om NO2 oversteg faregrensen. Da bruker man gjerne en indikator fordi du har informasjon om hva som er farlig og ikke, altså bryr vi oss ikke så mye om akkurat hva nivået er, bare vi det om det er farlig eller ikke (i akkurat denne analysen i hvert fall). Indikatorvariabler er også interessante som verktøy for å danne "kategorier" i dataene.
+
+Du kan se her eller google litt om du er interessert: https://en.wikipedia.org/wiki/Dummy_variable_(statistics) 
+</details>
+
+<details><summary> Om det ikke er multikolinearitet, er det slik at man da kan tolke koeffisienten som kausalt?  </summary>
+
+Nei, ikke nødvendigvis.
+
+</details>
+
+<details><summary> Hvordan tolker man et konfidensintervall for en koeffisient i en regresjonsmodell? Si for eksempel at et 95% konfidensintervall for koeffisienten er (-50,-30).
+ </summary>
+
+På samme måte som andre konfidensintervaller for ukjente, men estimerte paramtetre: Dersom modellen er riktig (det vil si at det eksisterer en *sann* regresjonskoeffisient $\beta$), og dersom vi hadde hatt mulighet til å trekke flere datasett av samme størrelse som det vi har, så ville 95% av konfidensintervallene inneholdt den sanne regresjonskoeffisienten. 
+</details>
+
+### Tidsrekker
+
+<details><summary> Jeg forstår ikke helt hvordan man kan se om det er autokorrelasjon i residualene eller ikke. F.eks i eksamen v20 oppgave 2g). </summary>
+
+På oppgave 2g er det nok vanskelig å se at det er autokorrelasjon rett fra residualene, men du kan set det på ACF plottet. Der er det signifikante (barer over den blå linjen) autokorrelasjoner for flere "lag" større enn 0. Se video om autokorrelasjon for en forklaring. 
 </details>
 
 ### R etc.
