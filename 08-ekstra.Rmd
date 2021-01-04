@@ -280,7 +280,7 @@ Tabell 5 "Critical values of the chi^2 distribution" gir deg riktige verdier. Du
 
 <details><summary> Hvordan finner man kritisk grense for $F$-test i multippel regresjon? $F$-observatoren er jo oppgitt i regresjonstabellen, men dersom det ikke er oppgitt signifikansnivå der, skal man finne forkatsningsgrense i normaltabell eller i $F$-fordeling, og skal antall frihetsgrader være $n-k-1$?  </summary>
 
-F-observatoren har to tall for frihetsgrader. For multippel regresjon tester den nullhypotesen om at alle koeffisientene er null **samtidig**. Den første frihetsgraden kommer av modellen og er lik antall koeffisienter, den andre kommer av frihetsgradene i datasettet som er$ n - k - 1$. Tabell 6 i boken viser kritisk grense for ulike signifikansnivå og kombinasjoner av de to frihetsgradene. Stargazer oppgir `df=x;y`, der `x` er første frihetsgrad og `y` er andre frihetsgrad.
+F-observatoren har to tall for frihetsgrader. For multippel regresjon tester den nullhypotesen om at alle koeffisientene er null **samtidig**. Den første frihetsgraden kommer av modellen og er lik antall koeffisienter, den andre kommer av frihetsgradene i datasettet som er $n - k - 1$. Tabell 6 i boken viser kritisk grense for ulike signifikansnivå og kombinasjoner av de to frihetsgradene. Stargazer oppgir `df=x;y`, der `x` er første frihetsgrad og `y` er andre frihetsgrad.
 
 </details>
 

@@ -32,6 +32,7 @@
   
 <link rel="prev" href="ma.html"/>
 <link rel="next" href="modellbygging-1.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -49,30 +50,34 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -81,9 +86,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,7 +139,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
-<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a><ul>
+<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
 <li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
@@ -146,31 +152,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
 <li class="chapter" data-level="1.10" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.10</b> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a><ul>
+<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
 <li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a><ul>
+<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
 <li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a><ul>
+<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
 <li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a><ul>
+<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
 <li class="chapter" data-level="5.4" data-path="regneoppgaver.html"><a href="regneoppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Regneoppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a><ul>
+<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>6.1</b> Introduksjon til tidsrekker</a></li>
 <li class="chapter" data-level="6.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>6.2</b> Trend og sesong</a></li>
 <li class="chapter" data-level="6.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>6.3</b> AR(p)</a></li>
@@ -180,13 +191,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>6.7</b> ARMA og ARIMA</a></li>
 <li class="chapter" data-level="6.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>6.8</b> Modellbygging</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a><ul>
+<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
 <li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
 <li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
 <li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
+<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 <li class="chapter" data-level="8.3" data-path="spørsmål-og-svar.html"><a href="spørsmål-og-svar.html"><i class="fa fa-check"></i><b>8.3</b> Spørsmål og svar</a></li>
@@ -213,13 +226,13 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arma-arima" class="section level2">
+<div id="arma-arima" class="section level2" number="6.7">
 <h2><span class="header-section-number">6.7</span> ARMA og ARIMA</h2>
 <div style="padding:56.25% 0 0 0;position:relative;">
 <iframe src="https://vimeo.com/showcase/7661207/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
 </div>
-<div id="kontrollspørsmåldiskusjonsspørsmål-2" class="section level3">
+<div id="kontrollspørsmåldiskusjonsspørsmål-2" class="section level3" number="6.7.1">
 <h3><span class="header-section-number">6.7.1</span> Kontrollspørsmål/Diskusjonsspørsmål</h3>
 <ol style="list-style-type: decimal">
 <li>Hva er sammenhengen mellom AR-, MA-, og ARMA-modellene?</li>
@@ -227,29 +240,29 @@ Publisert ved hjelp av bookdown</a></li>
 <li>Hvilken modell er dette: <span class="math display">\[y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + \theta u_{t-1} + u_t\]</span></li>
 </ol>
 </div>
-<div id="r-øving-5" class="section level3">
+<div id="r-øving-5" class="section level3" number="6.7.2">
 <h3><span class="header-section-number">6.7.2</span> R-øving</h3>
 <p><strong>1. Data</strong>
 Vi tar en ny titt på <a href="datasett/equinor.xlsx">den daglige prisen på Eqinoraksjen</a> over en 5-års periode som vi så på i introduksjonen til tidsrekker. Vi laster inn datasettet som før ved hjelp av <code>readxl</code>-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker <code>rev()</code>-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien komme først:</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">library</span>(readxl)</a>
-<a class="sourceLine" id="cb104-2" data-line-number="2">equinor &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</a>
-<a class="sourceLine" id="cb104-3" data-line-number="3">pris &lt;-<span class="st"> </span><span class="kw">rev</span>(equinor<span class="op">$</span>Siste)</a>
-<a class="sourceLine" id="cb104-4" data-line-number="4"><span class="kw">plot</span>(pris, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="arma-arima.html#cb104-1"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb104-2"><a href="arma-arima.html#cb104-2"></a>equinor &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
+<span id="cb104-3"><a href="arma-arima.html#cb104-3"></a>pris &lt;-<span class="st"> </span><span class="kw">rev</span>(equinor<span class="op">$</span>Siste)</span>
+<span id="cb104-4"><a href="arma-arima.html#cb104-4"></a><span class="kw">plot</span>(pris, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
 <p>Vi kan lage en figur av den differensierte tidsrekken på følgende måte:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="co"># Sjekk av differanse </span></a>
-<a class="sourceLine" id="cb105-2" data-line-number="2">diff_pris &lt;-<span class="st"> </span><span class="kw">diff</span>(pris)</a>
-<a class="sourceLine" id="cb105-3" data-line-number="3"><span class="kw">plot</span>(diff_pris, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="arma-arima.html#cb105-1"></a><span class="co"># Sjekk av differanse </span></span>
+<span id="cb105-2"><a href="arma-arima.html#cb105-2"></a>diff_pris &lt;-<span class="st"> </span><span class="kw">diff</span>(pris)</span>
+<span id="cb105-3"><a href="arma-arima.html#cb105-3"></a><span class="kw">plot</span>(diff_pris, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
 <p><strong>Oppgave:</strong> Vurder om en ARIMA modell er bedre egnet enn en ARMA modell ut fra de to figurene over.</p>
 <p><strong>2. Estimering av ARIMA modeller</strong>
 Vi bruker den samme funksjonen <code>Arima</code> fra <code>forecast</code> pakken til å estimere både ARMA og ARIMA modeller og spesifisering av modellen gjør vi via argumentet <code>order</code>. Skal du estimerer en ARMA(1,1) modell setter du f.eks dette argumentet til <code>c(1, 0, 1)</code>. Elementet i midten av denne vektoren spesifiserer hvor mange ganger tidsrekken skal differensieres i ARIMA modellen. Estimering av en ARIMA modell med en enkelt differensiering og ett MA og AR ledd kan gjøres slik:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">library</span>(forecast)</a>
-<a class="sourceLine" id="cb106-2" data-line-number="2">arima111 &lt;-<span class="st"> </span><span class="kw">Arima</span>(pris, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span> , <span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="arma-arima.html#cb106-1"></a><span class="kw">library</span>(forecast)</span>
+<span id="cb106-2"><a href="arma-arima.html#cb106-2"></a>arima111 &lt;-<span class="st"> </span><span class="kw">Arima</span>(pris, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span> , <span class="dv">1</span>))</span></code></pre></div>
 <p><strong>3. Hvordan skal vi velge p, d og q i en ARIMA(p,d,q) modell?</strong>
 Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de samme observasjonene vi har brukt til å tilpasse modellen. Vi kan så sammenligne hvor nær prediksjoner fra forskjellige modeller er de sanne dataene. Dette heter på godt norsk å gjøre en “in-sample” vurdering av modellen.</p>
 <p>Når du har tilpasset en modell, kan du ved å bruke <code>summary</code> funksjonen få opp flere mål på hvor god modellen er in-sample under fanen “Training set error measure”:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb107-1" data-line-number="1"><span class="kw">summary</span>(arima111)</a></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="arma-arima.html#cb107-1"></a><span class="kw">summary</span>(arima111)</span></code></pre></div>
 <pre><code>## Series: pris 
 ## ARIMA(1,1,1) 
 ## 
@@ -268,8 +281,8 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 ## Training set 0.02035596</code></pre>
 <p>Her er f.eks <span class="math inline">\(RMSE = \sqrt{1/T\sum_{t = 1}^T (\hat{y}_t - y_t)^2}\)</span> et slags gjennomsnittlig avvik mellom prediksjonene og observasjonene. Litt lenger oppe i <code>summary</code> utskriften er det også en størrelse som heter AIC som måler hvor sannsynlig hver observasjon er gitt modelvalget ditt. Sammenligner du flere modeller er du på jakt etter den modellen som har minst RMSE og/eller AIC.</p>
 <p>Det krever en del arbeid skal du sammenligne mange ARIMA(p,d,q) modeller ettersom det er så mange måter å kombinere p,d og q på selv om du bestemmer en maksverdi for hver av dem. Det finnes heldigvis en veldig smart R funksjon kalt <code>auto.arima</code> som følger med pakken <code>forecast</code> som estimerer mange modeller og gir deg ut den modellen med minst AIC:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">arima_best_AIC &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(pris)</a>
-<a class="sourceLine" id="cb109-2" data-line-number="2"><span class="kw">summary</span>(arima_best_AIC)</a></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="arma-arima.html#cb109-1"></a>arima_best_AIC &lt;-<span class="st"> </span><span class="kw">auto.arima</span>(pris)</span>
+<span id="cb109-2"><a href="arma-arima.html#cb109-2"></a><span class="kw">summary</span>(arima_best_AIC)</span></code></pre></div>
 <pre><code>## Series: pris 
 ## ARIMA(0,1,2) 
 ## 
@@ -289,8 +302,8 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 <p>Hva slags modell har <code>auto.arima</code> valgt her?</p>
 <p><strong>4. Prediksjon</strong>
 Prediksjon gjøres som tidligere med <code>forecast</code> funksjonen, så hvis en vil predikere 10 tidssteg frem i tid gjør man følgende:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">pred_arima111 &lt;-<span class="st"> </span><span class="kw">forecast</span>(arima111, <span class="dt">h =</span>  <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb111-2" data-line-number="2"><span class="kw">autoplot</span>(pred_arima111, <span class="dt">include =</span> <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="arma-arima.html#cb111-1"></a>pred_arima111 &lt;-<span class="st"> </span><span class="kw">forecast</span>(arima111, <span class="dt">h =</span>  <span class="dv">10</span>)</span>
+<span id="cb111-2"><a href="arma-arima.html#cb111-2"></a><span class="kw">autoplot</span>(pred_arima111, <span class="dt">include =</span> <span class="dv">100</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 <p>merk at i <code>autoplot</code> har vi valgt å bare vise 100 observasjoner av tidsrekken sammen med prediksjonene</p>
 </div>
