@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.6 Innlesing av data | MET4 - Empiriske Metoder - Vår 2021</title>
+  <title>8.4 Oppgaver til seminarer | MET4 - Empiriske Metoder - Vår 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.6 Innlesing av data | MET4 - Empiriske Metoder - Vår 2021" />
+  <meta property="og:title" content="8.4 Oppgaver til seminarer | MET4 - Empiriske Metoder - Vår 2021" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.6 Innlesing av data | MET4 - Empiriske Metoder - Vår 2021" />
+  <meta name="twitter:title" content="8.4 Oppgaver til seminarer | MET4 - Empiriske Metoder - Vår 2021" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="mappesti.html"/>
-<link rel="next" href="statistiske-analyser.html"/>
+<link rel="prev" href="spørsmål-og-svar.html"/>
+
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -203,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 <li class="chapter" data-level="8.3" data-path="spørsmål-og-svar.html"><a href="spørsmål-og-svar.html"><i class="fa fa-check"></i><b>8.3</b> Spørsmål og svar</a></li>
-<li class="chapter" data-level="8.4" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8.4</b> Oppgaver til seminarer</a></li>
+<li class="chapter" data-level="8.4" data-path="oppgaver-til-seminarer.html"><a href="oppgaver-til-seminarer.html"><i class="fa fa-check"></i><b>8.4</b> Oppgaver til seminarer</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -227,36 +227,67 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="innlesing-av-data" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Innlesing av data</h2>
-<iframe src="https://player.vimeo.com/video/472587809" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-</iframe>
-<p>Vi leser inn tabellen i excelfilen som en tabell (“data frame”) i R ved hjelp av funksjonen <code>read_xls()</code> i <code>readxl</code>-pakken og ser på noen enkle kommandoer for å jobbe med en slik tabell.</p>
-<p><strong>Oppgave:</strong></p>
-<ol style="list-style-type: decimal">
-<li>Hvor mange kolonner har datasettet vårt?</li>
-<li>Kan du finne en måte å skrive ut en vektor som inneholder summen av <code>X1</code>- og <code>X2</code>-kolonnene i datasettet? (Altså, vi vil vite summen av de to første elementene i <code>X1</code> og <code>X2</code>, summen av de to andre elementene, osv.)</li>
-<li>Hva er summen av <em>alle</em> tallene i <code>X1</code>- og <code>X2</code>-kolonnene i<code>testdata</code>?</li>
-</ol>
+<div id="oppgaver-til-seminarer" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Oppgaver til seminarer</h2>
+<p>Under vil dere finne oppgavesettene som vi skal regne på oppgaveseminarene som vi i all hovedsak skal bruke torsdagstimene på.</p>
 <details>
-<p><summary>Løsning</summary></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="innlesing-av-data.html#cb4-1"></a><span class="co"># 1</span></span>
-<span id="cb4-2"><a href="innlesing-av-data.html#cb4-2"></a><span class="kw">ncol</span>(testdata)</span>
-<span id="cb4-3"><a href="innlesing-av-data.html#cb4-3"></a></span>
-<span id="cb4-4"><a href="innlesing-av-data.html#cb4-4"></a><span class="co"># 2 </span></span>
-<span id="cb4-5"><a href="innlesing-av-data.html#cb4-5"></a>testdata<span class="op">$</span>X1 <span class="op">+</span><span class="st"> </span>testdata<span class="op">$</span>X2</span>
-<span id="cb4-6"><a href="innlesing-av-data.html#cb4-6"></a></span>
-<span id="cb4-7"><a href="innlesing-av-data.html#cb4-7"></a><span class="co"># 3</span></span>
-<span id="cb4-8"><a href="innlesing-av-data.html#cb4-8"></a><span class="kw">sum</span>(testdata<span class="op">$</span>X1 <span class="op">+</span><span class="st"> </span>testdata<span class="op">$</span>X2)</span></code></pre></div>
+<p><summary> Oppgaver til seminar 28. januar 2021 </summary></p>
+<ol style="list-style-type: decimal">
+<li><strong>(V20, OPPG 1)</strong> Grafen ble publisert av klima- og miljøminister Ola Elvestuen fra Venstre på Twitter 1. november 2019 (men senere tatt bort), og viser norske CO<span class="math inline">\(_2\)</span>-utslipp (i 1000 tonn CO<span class="math inline">\(_2\)</span>-ekvivalenter) som funksjon av tid. Venstre gikk inn i regjering sammen med Høyre og Fremskrittspartiet i januar 2018. Denne figuren ble kritisert for å være <em>misvisende</em>. På hvilken måte er den det, og hvordan ville du forandret den for at den skulle være mindre misvisende?</li>
+</ol>
+<p><img src="bilder/venstre.PNG" width="277" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>(V20, OPPG 1)</strong> Figuren under ble publisert av Høyre på Facebook 1. november 2019, og viser norske CO<span class="math inline">\(_2\)</span>-utslipp (i 1000 tonn CO<span class="math inline">\(_2\)</span>-ekvivalenter) som funksjon av tid. Denne figuren ble <em>også</em> kritisert for å være misvisende. På hvilken måte er den det, og hvordan ville du forandret den for at den skulle blitt mindre misvisende?</li>
+</ol>
+<p><img src="bilder/hoyre.jpg" width="450" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>(V19, OPPG 3)</strong> I figuren under ser vi en graf over den norske styringsrenten siden 2013 og anslag over hvilken bane renten skal følge de neste tre årene med fire usikkerhetsintervaller. Bruk figuren til å anslå sannsynligheten for negativ styringsrente ved utgangen av 2022.</li>
+</ol>
+<p><img src="bilder/rente.jpg" width="364" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Florida innførte i 2005 en såkalt “Stand Your Ground”-lov, som i større grad tillater folk å bruke dødelig makt i selvforsvar. Grafen under, som viser utviklingen av dødsoffer i skyteepisoder i Florida, illustrerte mange nyhetsreportasjer etter et <a href="https://en.wikipedia.org/wiki/Shooting_of_Trayvon_Martin">drap i 2012</a>, men fikk skarp kritikk i ettertid. Hvorfor det tror du?</li>
+</ol>
+<p><img src="bilder/gun.PNG" width="306" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>(H13, OPPG 1)</strong>
+<ol style="list-style-type: lower-alpha">
+<li>Gjør oppgave 1a og 1b på dette oppgavesettet.</li>
+<li>Kan du foreslå en <em>grafisk</em> fremstilling som kan vise eventuelle forskjeller i responstid før og etter omleggingen?</li>
+</ol></li>
+<li>La oss anta at 50 avgangsstudenter som gikk ut av NHHs masterprogram i fjor svarte på et spørreskjema hvor mye de har i startlønn i sin første jobb. Gjennomsnittslønnen var 450.000, med et standardavvik på 120.000. Anta videre at lønnsfordeningen for årets studenter er den samme (og se bort fra inflasjon).
+<ol style="list-style-type: lower-alpha">
+<li>Estimer sannsynligheten for at gjennomsnittlig startlønn for 50 responenter i år vil være større enn 450.000.</li>
+<li>Estimer sannsynligheten for at gjennomsnittlig startlønn for 50 responenter i år vil være større enn 500.000.</li>
+</ol></li>
+<li>La <span class="math inline">\(X\)</span> være en stokastisk variabel med forventningsverdi lik 5 og varians lik 2. Definer to nye stokastiske variabler <span class="math inline">\(Y = 2X-1\)</span> og <span class="math inline">\(Z = X^2 + Y\)</span>. Regn ut:
+<ol style="list-style-type: lower-alpha">
+<li>E<span class="math inline">\((Y)\)</span> og Var<span class="math inline">\((Y)\)</span>.</li>
+<li>E<span class="math inline">\((Z)\)</span> og Var<span class="math inline">\((Z)\)</span>.</li>
+</ol></li>
+<li>La <span class="math inline">\(X\)</span> være en standard normalfordelt variabel. Du får oppgitt at det medfører at E<span class="math inline">\((X^3) = 0\)</span>. La <span class="math inline">\(Y = X^2\)</span>.
+<ol style="list-style-type: lower-alpha">
+<li>Vis at korrelasjonen mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> er lik null.</li>
+<li>Er <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> uavhengige?</li>
+</ol></li>
+</ol>
 </details>
+
 </div>
+<!-- </div> -->
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="mappesti.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="statistiske-analyser.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="spørsmål-og-svar.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

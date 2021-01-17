@@ -135,3 +135,4 @@ hypotesetesting-og-frihetsgrader
 regresjon-1
 tidsrekker-1
 r-etc.
+seminar
