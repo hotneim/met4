@@ -249,10 +249,10 @@ Publisert ved hjelp av bookdown</a></li>
 <p><span class="math display">\[\chi^2 = \sum_{i=1}^k \frac{(f_i - e_i)^2}{e_i},\]</span>
 som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math inline">\(k-1\)</span> frihetsgrader dersom nullhypotesen er sann. Det betyr at vi kan gå inn i <span class="math inline">\(\chi^2\)</span>-tabellen for å sjekke om verdien av testobservatoren er for stor (dvs, <span class="math inline">\(f\)</span>´ene er for forskjellige fra <span class="math inline">\(e\)</span>`ene) at vi ikke lenger tror at <span class="math inline">\((p_1, \ldots, p_k)\)</span> er den sanne sannsynlighetsfordelingen.</p>
 <p>Vi gjorde eksempelet i dette delkapitlet i forelesningen, og brukte følgende kommandoer:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="kjikvadrattester.html#cb45-1"></a>p0 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.45</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>)  <span class="co"># Fordeling under H0</span></span>
-<span id="cb45-2"><a href="kjikvadrattester.html#cb45-2"></a>f  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">102</span>, <span class="dv">82</span>, <span class="dv">16</span>)       <span class="co"># Observerte frekvenser</span></span>
-<span id="cb45-3"><a href="kjikvadrattester.html#cb45-3"></a></span>
-<span id="cb45-4"><a href="kjikvadrattester.html#cb45-4"></a><span class="kw">chisq.test</span>(<span class="dt">x =</span> f, <span class="dt">p =</span> p0)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="kjikvadrattester.html#cb46-1"></a>p0 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.45</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>)  <span class="co"># Fordeling under H0</span></span>
+<span id="cb46-2"><a href="kjikvadrattester.html#cb46-2"></a>f  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">102</span>, <span class="dv">82</span>, <span class="dv">16</span>)       <span class="co"># Observerte frekvenser</span></span>
+<span id="cb46-3"><a href="kjikvadrattester.html#cb46-3"></a></span>
+<span id="cb46-4"><a href="kjikvadrattester.html#cb46-4"></a><span class="kw">chisq.test</span>(<span class="dt">x =</span> f, <span class="dt">p =</span> p0)</span></code></pre></div>
 <pre><code>## 
 ##  Chi-squared test for given probabilities
 ## 
@@ -261,11 +261,11 @@ som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math
 <p>Den andre anvendelsen er å teste for om to kjennetegn opptrer uavhengig av hverandre. Ideen er den samme som over, fordi vi kan skrive sannsunligheten for «<span class="math inline">\(A\)</span> og <span class="math inline">\(B\)</span>» som et produkt dersom de ar uavhengige:</p>
 <p><span class="math display">\[P(A \cap B) = P(A)\cdot P(B).\]</span></p>
 <p>Vi kan regne ut hvor mange observasjoner vi forventer å se for hver kombinasjon av de to kjennetegnene (<span class="math inline">\(e_{ij}\)</span>), og bruke kjikvadrattesten over til å sjekke om disse er langt fra det vi <em>faktisk</em> har observert (<span class="math inline">\(f_{ij}\)</span>). Boken har et eksempel på dette som de regner ut både for hånd og i Excel. Slik kan vi gjøre det i R:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="kjikvadrattester.html#cb47-1"></a><span class="co"># Leser inn data</span></span>
-<span id="cb47-2"><a href="kjikvadrattester.html#cb47-2"></a>mba &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm15-02.xlsx&quot;</span>)</span>
-<span id="cb47-3"><a href="kjikvadrattester.html#cb47-3"></a></span>
-<span id="cb47-4"><a href="kjikvadrattester.html#cb47-4"></a><span class="co"># Kikker på datasettet</span></span>
-<span id="cb47-5"><a href="kjikvadrattester.html#cb47-5"></a>mba</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="kjikvadrattester.html#cb48-1"></a><span class="co"># Leser inn data</span></span>
+<span id="cb48-2"><a href="kjikvadrattester.html#cb48-2"></a>mba &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm15-02.xlsx&quot;</span>)</span>
+<span id="cb48-3"><a href="kjikvadrattester.html#cb48-3"></a></span>
+<span id="cb48-4"><a href="kjikvadrattester.html#cb48-4"></a><span class="co"># Kikker på datasettet</span></span>
+<span id="cb48-5"><a href="kjikvadrattester.html#cb48-5"></a>mba</span></code></pre></div>
 <pre><code>## # A tibble: 152 x 2
 ##    Degree `MBA Major`
 ##     &lt;dbl&gt;       &lt;dbl&gt;
@@ -281,7 +281,7 @@ som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math
 ## 10      2           2
 ## # ... with 142 more rows</code></pre>
 <p>Vi legger merke til at strukturen på datasettet er litt annerledes enn krysstabellen som er vist s. 601 i læreboken. I stedet for at vi har telt opp antall studenter i hver enkelt kominasjon av «bachelorgrad» og «masterprofil», har vi fått oppgitt en tabell der hver rad representerer en enkeltstudents fagkombinasjon. Vi kan dog enkelt lage en krysstabell i R:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="kjikvadrattester.html#cb49-1"></a><span class="kw">table</span>(mba)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="kjikvadrattester.html#cb50-1"></a><span class="kw">table</span>(mba)</span></code></pre></div>
 <pre><code>##       MBA Major
 ## Degree  1  2  3
 ##      1 31 13 16
@@ -289,7 +289,7 @@ som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math
 ##      3 12 10 17
 ##      4 10  5  7</code></pre>
 <p>Det er denne som brukes som argument i <code>chisq.test()</code>:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="kjikvadrattester.html#cb51-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(mba))</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="kjikvadrattester.html#cb52-1"></a><span class="kw">chisq.test</span>(<span class="kw">table</span>(mba))</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
