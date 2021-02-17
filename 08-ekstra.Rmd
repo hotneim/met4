@@ -9,7 +9,8 @@ I tabellen under finner du en lang rekke eksamenssett som er gitt tidligere i ME
 
 Lenger nede på siden finner du noen kommentarer og rettelser til oppgavesett og løsningsforslag som har dukket opp i ettertid.
 
-```{r, echo = F}
+```{r, echo = F, message = F}
+library(dplyr)
 skoleeksamen <- readxl::read_excel("tidligere-eksamensoppgaver/skoleeksamen.xlsx")
 
 options(knitr.kable.NA = '')
@@ -401,4 +402,69 @@ knitr::include_graphics("bilder/gun.PNG")
 </details>
 
 
+<details><summary> Oppgaver til seminar 25. februar 2021 </summary>
+
+1. Se på den estimerte regresjonskurven under:
+
+```{r, enkel oppgave, Message=F, echo=F}
+library(ggplot2)
+set.seed(1)
+x <- rnorm(100, mean = 5, sd = 3)
+Ey <- 10 - 2*x
+y <- Ey  + rnorm(100,0,2)
+df <- data.frame(x = x, y = y, Ey = Ey)
+ggplot(df) +
+  geom_point(aes(x = x, y = y)) + 
+  geom_line(aes(x = x, y = Ey), color = "red")
+#summary(lm(y ~ x))
+#cor(x,y)
+
+```
+
+a. Bestem hvilke av de følgende parameterestimatene som kan være riktig:
+    i. $\hat{\beta}_0 = 5$, $\hat{\beta}_1 = -3$ 
+    ii. $\hat{\beta}_0 = 10$, $\hat{\beta}_1 = 4$ 
+    iii. $\hat{\beta}_0 = -4$, $\hat{\beta}_1 = 2$ 
+    iv. $\hat{\beta}_0 = 10$, $\hat{\beta}_1 = -2$ 
+
+
+b. Bestem hvilke av de følgende utsagn om den estimerte korrelasjonen mellom $X$ og $Y$ og andel forklart variasjon ($R^2$) som er riktig:
+    i. Korrelasjonen er $-0.94$ andel forklart variasjon er $-0.88$.
+    ii. Korrelasjonen er $0.94$ andel forklart variasjon er $0.88$.
+    iii. Korrelasjonen er $-0.94$ andel forklart variasjon er $0.88$.
+    iv. Korrelasjonen er $1$ andel forklart variasjon er $0.88$.
+
+
+2. Under ser du et residualplott og et QQ-plot for en regresjonsanalyse. Hvilke brudd på antagelsene for lineær regresjon ser du? Dersom alle andre kriterier er oppfylt, hvilke konsekvenser har disse bruddene? 
+
+```{r, hetro, echo = F, message=F}
+library(lindia)
+set.seed(1)
+x=rep(1:300,2)
+a=0
+b = 1
+sigma2 = x^1.3
+eps = rnorm(300,mean=0,sd=sqrt(sigma2))
+y=a+b*x + eps
+mod <- lm(y ~ x)
+plots <- gg_diagnose(mod, plot.all = F)
+include <- plots[c(3, 4)]
+plot_all(include)
+
+```
+
+
+3. En student ønsker å undersøke sammenhengen mellom pris og størrelsen på leiligheter (m^2). Han bestemmer seg for å samle inn data på solgte leiligheter ukentlig over et helt år. Hva kan være problematisk for en slik strategi? 
+
+4. Anta $Y_i$ er forandring i BNP fra kvartal $i-1$ til kvartal $i$, mens $x_i$ er forandringen i arbeidsledighet fra kvartal $i$ til kvartal $i-1$. Du tilpasser så regresjonsmodellen
+\begin{equation}
+Y_i = \beta_0 + \beta_1 x_i + \epsilon_i
+\end{equation}
+Forklar hva forskjellen på et prediksjonsintervall og konfidensintervall er i denne sammenhengen dersom $x=0$, og hvorfor begge typer intervall er interessante.     
+
+5. Eksamen Vår 2019, Oppgave 2d) og e).
+
+
+
+</details>
 
