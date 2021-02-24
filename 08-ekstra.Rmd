@@ -464,7 +464,78 @@ Forklar hva forskjellen på et prediksjonsintervall og konfidensintervall er i d
 
 5. Eksamen Vår 2019, Oppgave 2d) og e).
 
-
-
 </details>
 
+<details><summary> Oppgaver til seminar 4. mars 2021 </summary>
+
+1. Vi har lyst til å forstå forskjellen på den statistiske *modellen* $Y = \beta_0 + \beta_1X + \epsilon$ der $\epsilon$ er normalfordelt med forventningsverdi 0 og varians $\sigma^2$, og det vi faktisk observerer, som er par av observasjoner $(X_1, Y_1), \ldots, (X_n, Y_n)$. Klarer du å illustrere denne forskjellen ved å fortsette på tegningen under? Her har vi satt $n=4$.
+
+```{r, echo = FALSE}
+knitr::include_graphics("bilder/oppg_regresjonsmodell.jpg")
+```
+
+2. Et lite firma som selger babyutstyr ser god effekt av å markedsføre produktene sine på Youtube. For å analysere denne sammenhengen nøyere samler de inn historiske data på hvor mye de har brukt på Youtube-reklame (`youtube`) i løpet av en måned, og omsetningen den måneden (`sales`), og gjennomfører så en enkel lineær regresjon med `youtube` som forklaringsvariabel og `sales` som responsvariabel. Gi en kort fortolkning av regresjonsutskriften under:
+
+```{r, echo = FALSE, message = FALSE}
+library(dplyr)
+library(ggplot2)
+
+data(marketing, package = "datarium")
+
+reg <- lm(sales ~ youtube, data = marketing)
+
+stargazer::stargazer(reg, type = "text")
+```
+
+
+3. I figuren under har vi plottet inn datasettet, den estimerte regresjonslinjen (rød heltrukken strek), samt linjen $y = x$ (sort stiplet linje). Hvordan skal babyutstyrforhandleren tolke denne figuren?
+
+```{r}
+marketing %>% 
+  ggplot(aes(x = youtube, y = sales)) +
+  geom_point() +
+  geom_abline(slope = reg$coefficients[2], intercept = reg$coefficients[1], 
+              colour = "red", size = 1.5) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", size = 1.5)
+```
+
+4. Ved hjelp av den estimerte regresjonsmodellen lager babyutstyrforhandleren følgende plott av residualene mot de predikerte verdiene for hver observasjon i datasettet. Hva sier denne figuren oss om lineær regresjon som modell for sammenhengen mellom penger brukt på markedsføring og omsetning? 
+
+```{r, echo = FALSE}
+tibble(fitted.values = reg$fitted.values,
+       residuals = reg$residuals) %>% 
+  ggplot(aes(x = fitted.values, y = residuals)) +
+  geom_point()
+
+```
+
+Det er gjort mange forsøk på å forklare hvorfor noen land er rike, mens andre land er fattige, se f.eks hjemmeeksamen i MET4, V17. En mulig forklaring kan ligge in landenes fysiske og geografiske egenskaper. For eksempel, kan det hende at land som har ulendt terreng kan ha større vanskeligheter med å bygge infrastruktur og frakte varer enn land som er helt flate, og dermed ende opp som fattigere av den grunn? 
+
+Vi ser på et lite datasett ([lånt fra boken *Statistical Rethinking*](https://xcelab.net/rm/statistical-rethinking/)) der vi har et mål på landenes rikdom (logaritmen av BNP, `log_gdp`), samt et mål på hvor ulendt terrenget er i det landet (`rugged`). Vi har også mer informasjon om landene, for eksempel om det ligger i Afrika eller ikke (`cont_africa`).
+
+Vi har gjort tre regresjonsanalyser i R, med følgende utskrifter:
+
+```{r, echo = FALSE}
+data("rugged", package = "rethinking")
+
+nations <-
+  rugged %>% 
+  mutate(
+    log_gdp = log(rgdppc_2000),
+    continent = ifelse(cont_africa, "Africa", "Other")
+  ) %>% 
+  filter(! is.na(log_gdp))
+
+reg1 <- lm(log_gdp ~ rugged, data = nations)
+reg2 <- lm(log_gdp ~ rugged + cont_africa, data = nations)
+reg3 <- lm(log_gdp ~ rugged * cont_africa, data = nations)
+
+stargazer::stargazer(reg1, reg2, reg3, type = "text")
+```
+5. Skriv opp de tre estimerte regresjonsmodellene.
+
+6. Gi en kort fortolkning av modell (2).
+
+7. Gi en forklaring på hva vi lærer ved å gå fra modell (2) til modell (3). Fokuser spesielt på rollen til interaksjonsleddet (`rugged:cont_africa`). Hvordan kan det ha seg at `rugged`-variabelen nå plutselig er statistisk signifikant forskjelig fra null? Kan du tenke deg en praktisk fortolkning av disse resultatene?
+
+</details>

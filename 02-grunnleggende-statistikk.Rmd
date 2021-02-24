@@ -9,6 +9,8 @@ I videoforelesningene går vi gjennom noen slides, og vi skriver et R-skript. Du
 
 [R-script til "Grunnleggende statistikk"](script-slides/grunnleggende-stat/grunnleggende-stat-script.R)
 
+**TIPS:** Hvis du ønsker å laste ned lysbildene som PDF trykker du på linken over, velger "Skriv ut", og så skriver du ut som PDF. Før du gjør det bør du scrolle gjennom alle sidene slik at ligningene vises korrekt.
+
 ## Deskriptiv statistikk
 
 ### Videoforelesninger
@@ -205,6 +207,8 @@ Dette er ganske enkelt, men også litt vanskelig på en *inception*-aktig måte.
 I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen).
 
 Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave.
+
+**På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.**
 
 ```{r, echo = FALSE, message = FALSE}
 
