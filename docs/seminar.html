@@ -357,12 +357,6 @@ Forklar hva forskjellen på et prediksjonsintervall og konfidensintervall er i d
 <ol start="3" style="list-style-type: decimal">
 <li>I figuren under har vi plottet inn datasettet, den estimerte regresjonslinjen (rød heltrukken strek), samt linjen <span class="math inline">\(y = x\)</span> (sort stiplet linje). Hvordan skal babyutstyrforhandleren tolke denne figuren?</li>
 </ol>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="seminar.html#cb213-1"></a>marketing <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb213-2"><a href="seminar.html#cb213-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> youtube, <span class="dt">y =</span> sales)) <span class="op">+</span></span>
-<span id="cb213-3"><a href="seminar.html#cb213-3"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
-<span id="cb213-4"><a href="seminar.html#cb213-4"></a><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> reg<span class="op">$</span>coefficients[<span class="dv">2</span>], <span class="dt">intercept =</span> reg<span class="op">$</span>coefficients[<span class="dv">1</span>], </span>
-<span id="cb213-5"><a href="seminar.html#cb213-5"></a>              <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span></span>
-<span id="cb213-6"><a href="seminar.html#cb213-6"></a><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> <span class="dv">1</span>, <span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>, <span class="dt">size =</span> <span class="fl">1.5</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-203-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Ved hjelp av den estimerte regresjonsmodellen lager babyutstyrforhandleren følgende plott av residualene mot de predikerte verdiene for hver observasjon i datasettet. Hva sier denne figuren oss om lineær regresjon som modell for sammenhengen mellom penger brukt på markedsføring og omsetning?</li>

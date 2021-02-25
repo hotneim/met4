@@ -490,7 +490,7 @@ stargazer::stargazer(reg, type = "text")
 
 3. I figuren under har vi plottet inn datasettet, den estimerte regresjonslinjen (rød heltrukken strek), samt linjen $y = x$ (sort stiplet linje). Hvordan skal babyutstyrforhandleren tolke denne figuren?
 
-```{r}
+```{r, echo = FALSE}
 marketing %>% 
   ggplot(aes(x = youtube, y = sales)) +
   geom_point() +
