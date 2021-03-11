@@ -516,7 +516,8 @@ Vi ser på et lite datasett ([lånt fra boken *Statistical Rethinking*](https://
 Vi har gjort tre regresjonsanalyser i R, med følgende utskrifter:
 
 ```{r, echo = FALSE}
-data("rugged", package = "rethinking")
+# data("rugged", package = "rethinking")
+load("datasett/rugged.Rdata")
 
 nations <-
   rugged %>% 
