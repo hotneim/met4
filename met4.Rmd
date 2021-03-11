@@ -1,3 +1,205 @@
+--- 
+title: "MET4 - Empiriske Metoder - Vår 2021"
+author: "Håkon Otneim og Geir Drage Berentsen"
+site: bookdown::bookdown_site
+output: 
+  bookdown::gitbook:
+    split_by: "section"
+    config:
+      toc:
+        collapse: "section"
+        toc_depth: 4
+description: "Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole."
+---
+
+# Innledning {-}
+
+Placeholder
+
+
+### Fremdriftsplan {-}
+### Lærebok og pensum {-}
+
+<!--chapter:end:index.Rmd-->
+
+
+# Introduksjon til R
+
+Placeholder
+
+
+## En gjennomgang av RStudio
+## Enkle beregninger og variabler
+## Vektorer
+## Pakker
+## Mappesti
+## Innlesing av data
+## Statistiske analyser
+## Plotting
+## Script
+## Oppsummering og ekstra oppgaver {#r-ekstra}
+
+<!--chapter:end:01-intro-til-r.Rmd-->
+
+
+# Grunnleggende statistikk
+
+Placeholder
+
+
+## Deskriptiv statistikk
+### Videoforelesninger
+### Kommentarer
+## Utvalg og estimering
+### Videoforelesninger
+### Kommentarer
+### Ekstra øving i R
+## Oppgaver
+
+<!--chapter:end:02-grunnleggende-statistikk.Rmd-->
+
+
+# Hypotesetesting
+
+Placeholder
+
+
+## Generelt om hypotesetesting
+### Videoforelesninger 
+### Kommentarer
+## Inferens om en populasjon {#chap:enpop}
+### Videoforelesninger
+### Kommentarer
+## Inferens om to populasjoner
+### Videoforelesninger
+### Kommentarer
+## Kjikvadrattester
+### Videoforelesninger
+### Kommentarer
+## Oppgaver
+
+<!--chapter:end:03-hypotesetesting.Rmd-->
+
+
+# Regresjon
+
+Placeholder
+
+
+## Enkel regresjon
+### Videoforelesninger
+### Kommentarer
+## Multippel regresjon
+### Videoforelesninger
+### Kommentarer
+## Modellbygging
+### Videoforelesninger
+### Kommentarer
+## Oppgaver
+
+<!--chapter:end:04-regresjon.Rmd-->
+
+
+# Avansert regresjon og maskinlæring
+
+Placeholder
+
+
+## Logistisk regresjon
+### Videoforelesninger
+### Kontrollspørsmål
+### Teori
+## Introduksjon til maskinlæring med kNN
+### Videoforelesninger
+### Kontrollspørsmål
+### Teori
+## Paneldata
+### Videoforelesninger
+### Kontrollspørsmål
+### Teori og R
+#### Struktur på Paneldata
+#### Hva må vi ta hensyn til?
+#### Generelt oppsett av modell
+#### Forskjellige parameteriseringer
+#### Faste effekter
+#### Tilfeldige effekter
+#### Hausman test
+## Regneoppgaver
+### Oppgaver om logistisk regresjon
+### Oppgaver om KNN
+### Oppgaver om paneldata
+
+<!--chapter:end:05-avansert-regresjon-og-maskinlaering.Rmd-->
+
+
+# Tidsrekker
+
+Placeholder
+
+
+## Introduksjon til tidsrekker {#intro}
+### Kontrollspørsmål
+### Oppgaver fra lærebok 
+### R-øving
+## Trend og sesong {#trend-og-sesong}
+### Kontrollspørsmål
+### R-øving
+## AR(p) {#ar}
+### Kontrollspørsmål
+### R-øving
+## Stasjonaritet {#stasjonaritet}
+### Kontrollspørsmål
+### Merk
+## Autokorrelasjon {#autokorrelasjon}
+### Kontrollspørsmål/Diskusjonsspørsmål
+### R-øving
+## MA(q) {#ma}
+### Kontrollspørsmål/Diskusjonsspørsmål
+### R-øving
+## ARMA og ARIMA {#arma-arima}
+### Kontrollspørsmål/Diskusjonsspørsmål
+### R-øving
+## Modellbygging 
+### R-øving
+
+<!--chapter:end:06-tidsrekker.Rmd-->
+
+
+# Dataøvinger
+
+Placeholder
+
+
+## Dataøving 1
+### Innledning
+### Om R og Rstudio
+#### Installere R og Rstudio
+#### Vinduene i Rstudio og det å jobbe med R
+#### Funksjoner, dokumentasjon og R-pakker
+#### Skriv pen R-kode!
+### Oppgave 1: Interaktiv øvelse 
+### Oppgave 2: Innlesning av data og deskriptiv statistikk i R
+## Dataøving 2
+### Interaktiv øvelse 
+### Data til dataøvelsen
+### Oppgaver til øvingen:
+#### Oppgave 1
+#### Oppgave 2
+#### Oppgave 3
+### BONUS: En alternativ teknikk for datamanipulering (Gjør bare om du har overskudd til det!)
+#### KONSEPT 1: Pipe-operatoren `%>%` {-}
+#### KONSEPT 2: Datamanipuleringsfunksjoner i `dplyr` {-}
+#### Interaktiv øving i `dplyr` {-}
+## Dataøving 3
+### Oppgave 1: Interaktiv øvelse
+### Oppgave 2: Regresjonsanalyse 
+### Oppgave 3: Rapporter basert på R-analyser
+## Dataøving 4
+### Oppgave 1: Interaktiv øvelse
+### Oppgave 2 - Maskinlæring: Logistisk regresjon og k nærmeste naboer
+
+<!--chapter:end:07-dataøvinger.Rmd-->
+
 
 # Diverse ekstrastoff
 
@@ -542,15 +744,11 @@ stargazer::stargazer(reg1, reg2, reg3, type = "text")
 
 <details><summary> Oppgaver til seminar 18. mars 2021 </summary>
 
-Refleksjonsoppgaver:
-
-1. Nevn minst to grunner til at en ønsker å utføre en regresjons- eller en logistisk regresjonsanalyse. 
-2. Tegn et sett med observasjoner bestående av en dummyvariabel Y og en kontinuerlig variabel X i et xy-koordinatsystemet 
-hvor en ville fått bedre prediksjoner av Y med KNN-metoden enn med logistisk-regresjon. 
-
-Vi vil ellers diskutere eventuelle spørsmål som dukker opp samt se på oppgavene i seksjon 5.4.
-
+1. 
 
 
 </details>
+
+
+<!--chapter:end:08-ekstra.Rmd-->
 
