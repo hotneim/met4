@@ -545,11 +545,13 @@ stargazer::stargazer(reg1, reg2, reg3, type = "text")
 
 Refleksjonsoppgaver:
 
-1. Nevn minst to grunner til at en ønsker å utføre en regresjons- eller en logistisk regresjonsanalyse. 
-2. Tegn et sett med observasjoner bestående av en dummyvariabel Y og en kontinuerlig variabel X i et xy-koordinatsystemet 
-hvor en ville fått bedre prediksjoner av Y med KNN-metoden enn med logistisk-regresjon. 
 
-Vi vil ellers diskutere eventuelle spørsmål som dukker opp samt se på oppgavene i seksjon 5.4.
+1. Nevn minst to grunner til at en ønsker å utføre en vanlig regresjonsanalyse. Reflekter så over hva hovedgrunnen er med å lage henholdsvis en KNN-modell og en regresjonsmodell for paneldata.  
+
+2. Tegn et sett med observasjoner bestående av en dummy-variabel $Y$ og en kontinuerlig variabel $X$ i et xy-koordinatsystemet 
+hvor en ville fått bedre prediksjoner av $Y$ med KNN-metoden enn med logistisk-regresjon. 
+
+Vi vil ellers diskutere noen av oppgavene i seksjon 5.4 og eventuelle spørsmål som dukker opp.
 
 
 
