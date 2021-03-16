@@ -705,12 +705,12 @@ ggplot(visits, aes(x = Week, y = Museum)) +
 **Oppgave 2.5:** La oss nå ta utgangspunkt i forsikringsselskapets påstand: besøkstallet i perioden der museet er stengt skal beregnes ved hjelp av observasjonene *før brannen*. Vi estimerer parametrene i en enkel regresjonsmodell
 
 $$y_i = \beta_0 + \beta_1x_i + \epsilon,$$
-der responsvariabelen $y_i$ er besøkstallet på museet på dag nr. *i*, og $x_i$ er besøkstallet i fornøyelsesparken samme dag. Datasettet vi skal bruke er altså *de 28 første radene* i datasettet `visits`. Da kan vi enten lage en ny tabell som består av de 28 første radene, eller så kan vi bruket argumentet `subset` i `lm()`-funkesjonen til å spesifisere hvilke observasjoner som skal brukes.
+der responsvariabelen $y_i$ er besøkstallet på museet på dag nr. *i*, og $x_i$ er besøkstallet i fornøyelsesparken samme dag. Datasettet vi skal bruke er altså *de 32 første radene* i datasettet `visits`. Da kan vi enten lage en ny tabell som består av de 32 første radene, eller så kan vi bruket argumentet `subset` i `lm()`-funkesjonen til å spesifisere hvilke observasjoner som skal brukes.
 
 Estimer regresjonsmodellen ved å kjøre følgende kall til `lm()`:
 
 ```{r}
-reg1 <- lm(Museum ~ `A-Park`, data = visits, subset = 1:28)
+reg1 <- lm(Museum ~ `A-Park`, data = visits, subset = 1:32)
 ```
 
 **Oppgave 2.6:** Pakken `stargazer` inneholder funksjoner for å lage pene regesjonstabeller automatisk fra regresjonsobjekter i R. Pakken må installeres og lastes på vanlig måte:

@@ -283,9 +283,9 @@ Publisert ved hjelp av bookdown</a></li>
 <p><img src="met4_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
 <p><strong>Oppgave 2.5:</strong> La oss nå ta utgangspunkt i forsikringsselskapets påstand: besøkstallet i perioden der museet er stengt skal beregnes ved hjelp av observasjonene <em>før brannen</em>. Vi estimerer parametrene i en enkel regresjonsmodell</p>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1x_i + \epsilon,\]</span>
-der responsvariabelen <span class="math inline">\(y_i\)</span> er besøkstallet på museet på dag nr. <em>i</em>, og <span class="math inline">\(x_i\)</span> er besøkstallet i fornøyelsesparken samme dag. Datasettet vi skal bruke er altså <em>de 28 første radene</em> i datasettet <code>visits</code>. Da kan vi enten lage en ny tabell som består av de 28 første radene, eller så kan vi bruket argumentet <code>subset</code> i <code>lm()</code>-funkesjonen til å spesifisere hvilke observasjoner som skal brukes.</p>
+der responsvariabelen <span class="math inline">\(y_i\)</span> er besøkstallet på museet på dag nr. <em>i</em>, og <span class="math inline">\(x_i\)</span> er besøkstallet i fornøyelsesparken samme dag. Datasettet vi skal bruke er altså <em>de 32 første radene</em> i datasettet <code>visits</code>. Da kan vi enten lage en ny tabell som består av de 32 første radene, eller så kan vi bruket argumentet <code>subset</code> i <code>lm()</code>-funkesjonen til å spesifisere hvilke observasjoner som skal brukes.</p>
 <p>Estimer regresjonsmodellen ved å kjøre følgende kall til <code>lm()</code>:</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="dataøving-3.html#cb178-1"></a>reg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Museum <span class="op">~</span><span class="st"> `</span><span class="dt">A-Park</span><span class="st">`</span>, <span class="dt">data =</span> visits, <span class="dt">subset =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">28</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="dataøving-3.html#cb178-1"></a>reg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Museum <span class="op">~</span><span class="st"> `</span><span class="dt">A-Park</span><span class="st">`</span>, <span class="dt">data =</span> visits, <span class="dt">subset =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">32</span>)</span></code></pre></div>
 <p><strong>Oppgave 2.6:</strong> Pakken <code>stargazer</code> inneholder funksjoner for å lage pene regesjonstabeller automatisk fra regresjonsobjekter i R. Pakken må installeres og lastes på vanlig måte:</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="dataøving-3.html#cb179-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;stargazer&quot;</span>)</span>
 <span id="cb179-2"><a href="dataøving-3.html#cb179-2"></a><span class="kw">library</span>(stargazer)</span></code></pre></div>
@@ -296,18 +296,18 @@ der responsvariabelen <span class="math inline">\(y_i\)</span> er besøkstallet 
                     ---------------------------
                               Museum           
 -----------------------------------------------
-`A-Park`                     0.712***          
-                              (0.035)          
+`A-Park`                     0.693***          
+                              (0.018)          
                                                
-Constant                      -63.489          
-                             (160.948)         
+Constant                      16.229           
+                             (114.695)         
                                                
 -----------------------------------------------
-Observations                    28             
-R2                             0.941           
-Adjusted R2                    0.938           
-Residual Std. Error      355.223 (df = 26)     
-F Statistic           411.512*** (df = 1; 26)  
+Observations                    32             
+R2                             0.979           
+Adjusted R2                    0.979           
+Residual Std. Error      355.588 (df = 30)     
+F Statistic          1,424.094*** (df = 1; 30) 
 ===============================================
 Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <p><strong>Oppgave 2.7:</strong> Lag tre diagnoseplott etter mal som er gitt i forelesningsnotatene: Et som viser residualene i regresjonsmodellen i et spredningsdiagram, et QQ-plott, og et histogram. Kan du gjøre en grov vurdering om hvorvidt forutsetningene for lineær regresjon er oppfylt?</p>
