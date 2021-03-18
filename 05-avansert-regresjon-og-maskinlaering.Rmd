@@ -3,6 +3,13 @@
 
 I denne modulen tar vi en titt på noen litt mer avanserte statistiske metoder. De to første temaene, logistisk regresjon og "K-nearest-neighbor"-metoden (kNN), har til felles at de kan brukes når responsvariabelen er en kategorisk variabel med kun to kategorier. Begge disse metodene faller inn under det som populært kalles maskinlæring og er således en introduksjon til dette temaet. I det siste temaet, paneldata, skal vi se hvordan vi kan bygge regresjonsmodeller når hvert individ er observert flere ganger etter hverandre i tid. 
 
+[R-script til "Logistisk Regresjon"](script-slides/logistisk/Logistisk regresjon i R.R)
+
+[R-script til "KNN"](script-slides/logistisk/knn.R)
+
+[R-script til "Paneldata"](script-slides/logistisk/Paneldata i R.R)
+
+
 ## Logistisk regresjon
 
 ### Videoforelesninger
@@ -130,7 +137,7 @@ I denne forelesningen introduserer vi en ny datastruktur. Vi observerer flere in
 
 I gjennomgangen under bruker vi et liten del av dataene fra eksempelet som er beskrevet i videoene. Ønsker du å følge R-gjennomgangen laster du ned følgende datasett:
 
-- [`panel_liten.xls`](datasett/panel_liten.xls)
+- [`panel_liten.csv`](datasett/panel_liten.csv)
 
 #### Struktur på Paneldata
 
