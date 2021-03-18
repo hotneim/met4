@@ -286,12 +286,12 @@ ggplot(violence, aes(x = aggression_level)) +
         geom_histogram(bins = 9)
 ```
 
-Nesten! Det eneste problemet er at vi har ett histogram for alle observasjonene, mens det vi egebntlig ønsket var å lage et histogram for hver av gruppene. Dette er såre enkelt i `ggplot2`. Det eneste vi trenger å gjøre er å identifisere den variabelen i datasettet som angir gruppetilhørighet (sjekk variabeloversikten over, svaret er `experienced_violence`), og så plusse på en funksjon som heter `facet_wrap()` som vist under.
+Nesten! Det eneste problemet er at vi har ett histogram for alle observasjonene, mens det vi egebntlig ønsket var å lage et histogram for hver av gruppene. Dette er såre enkelt i `ggplot2`. Det eneste vi trenger å gjøre er å identifisere den variabelen i datasettet som angir gruppetilhørighet (sjekk variabeloversikten over, svaret er `violent_treatment`), og så plusse på en funksjon som heter `facet_wrap()` som vist under.
 
 ```{r}
 ggplot(violence, aes(x = aggression_level)) +
   geom_histogram(bins = 9) +
-  facet_wrap(~ experienced_violence)
+  facet_wrap(~ violent_treatment)
 ```
 
 Dersom vi i stedet ønsker et skalert histogram kan vi spesifisere `y`-argumentet på følgende vis:
@@ -299,7 +299,7 @@ Dersom vi i stedet ønsker et skalert histogram kan vi spesifisere `y`-argumente
 ```{r, eval = FALSE}
 ggplot(violence, aes(x = aggression_level, y = ..density.. )) +
   geom_histogram(bins = 9) +
-  facet_wrap(~ experienced_violence)
+  facet_wrap(~ violent_treatment)
 ```
 
 **Oppgave 2.7.** Når man skal sammenligne sentrum og spredning i to grupper er et boxplott et ypperlig alternativ og vi kan da bruke funksjonen `boxplot()` i "base R", eller funksjonen `geom_boxplot()` hvis vi heller ønsker å benytte `ggplot2`. Vi holder oss til det siste alternativet her, og ser at kodelinjene ligner på det vi laget over.
