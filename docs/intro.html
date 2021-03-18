@@ -260,7 +260,7 @@ Publisert ved hjelp av bookdown</a></li>
 </div>
 <div id="r-øving" class="section level3" number="6.1.3">
 <h3><span class="header-section-number">6.1.3</span> R-øving</h3>
-<p>Vi har lastet <a href="./equinor.xlsx">ned den daglige prisen på Eqinoraksjen</a> over en 5-års periode fra Oslo Børs’ hjemmeside. Vi laster inn datasettet som før ved hjelp av <code>readxl</code>-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker <code>rev()</code>-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien komme først:</p>
+<p>Vi har lastet <a href="datasett/equinor.xlsx">ned den daglige prisen på Eqinoraksjen</a> over en 5-års periode fra Oslo Børs’ hjemmeside. Vi laster inn datasettet som før ved hjelp av <code>readxl</code>-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker <code>rev()</code>-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien komme først:</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="intro.html#cb73-1"></a><span class="kw">library</span>(readxl)</span>
 <span id="cb73-2"><a href="intro.html#cb73-2"></a>equinor &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
 <span id="cb73-3"><a href="intro.html#cb73-3"></a>pris &lt;-<span class="st"> </span><span class="kw">rev</span>(equinor<span class="op">$</span>Siste)                </span></code></pre></div>

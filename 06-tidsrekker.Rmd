@@ -50,7 +50,7 @@ Lykke til!
 
 ### R-øving
 
-Vi har lastet [ned den daglige prisen på Eqinoraksjen](./equinor.xlsx) over en 5-års periode fra Oslo Børs' hjemmeside. Vi laster inn datasettet som før ved hjelp av `readxl`-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker `rev()`-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien komme først:
+Vi har lastet [ned den daglige prisen på Eqinoraksjen](datasett/equinor.xlsx) over en 5-års periode fra Oslo Børs' hjemmeside. Vi laster inn datasettet som før ved hjelp av `readxl`-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker `rev()`-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien komme først:
 
 ```{r, message = FALSE, warning = FALSE, eval = FALSE}
 library(readxl)
