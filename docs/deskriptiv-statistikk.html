@@ -32,7 +32,7 @@
   
 <link rel="prev" href="grunnleggende-statistikk.html"/>
 <link rel="next" href="utvalg-og-estimering.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -246,10 +244,9 @@ Publisert ved hjelp av bookdown</a></li>
 <li>Kapittel <strong>4</strong> går litt mer i dybden om numeriske deskriptive teknikker, som gjennomsnitt, median, standardavvik, korrelasjon, osv. Dette skal være dekket greit i forelesningen, men boken går litt lenger.</li>
 </ul>
 <p>Det kan være en fin øvelse å kikke på eksemplene i læreboken og forsøke å gjenskape noen av Excel-figurene i R. Se på eksempel 3.2, der man skal lage to histogrammer over historiske avkastninger for to ulike investeringsstrategier. Vi leser inn datasettet (last ned fra Canvas) som under og kikker på det:</p>
-<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.0.3</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="deskriptiv-statistikk.html#cb11-1"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb11-2"><a href="deskriptiv-statistikk.html#cb11-2"></a>returns &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm03-02.xlsx&quot;</span>)</span>
-<span id="cb11-3"><a href="deskriptiv-statistikk.html#cb11-3"></a>returns</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="deskriptiv-statistikk.html#cb10-1"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb10-2"><a href="deskriptiv-statistikk.html#cb10-2"></a>returns &lt;-<span class="st"> </span><span class="kw">read_xlsx</span>(<span class="st">&quot;Xm03-02.xlsx&quot;</span>)</span>
+<span id="cb10-3"><a href="deskriptiv-statistikk.html#cb10-3"></a>returns</span></code></pre></div>
 <pre><code>## # A tibble: 50 x 2
 ##    `Return A` `Return B`
 ##         &lt;dbl&gt;      &lt;dbl&gt;
@@ -266,10 +263,10 @@ Publisert ved hjelp av bookdown</a></li>
 ## # ... with 40 more rows</code></pre>
 <p>Hver stategi har sin kolonne. Merk at variabelnavnene har mellomrom i seg, noe som er upraktisk når vi jobber med et seriøst programmeringsspråk. En god vane er å rett og slett gi dem nye navn, ved f.eks. å kjøre <code>colnames(returns) &lt;- c("returnA", "returnB")</code>, eller så må vi alltid referere til variabelnavnene ved å bruke slike “backticks” som vi ser under.</p>
 <p>Vi kan lage to enkle histogrammer slik vi gjorde det i forelesningen:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="deskriptiv-statistikk.html#cb13-1"></a><span class="kw">ggplot</span>(returns, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Return A</span><span class="st">`</span>)) <span class="op">+</span></span>
-<span id="cb13-2"><a href="deskriptiv-statistikk.html#cb13-2"></a><span class="st">        </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</span>
-<span id="cb13-3"><a href="deskriptiv-statistikk.html#cb13-3"></a><span class="kw">ggplot</span>(returns, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Return B</span><span class="st">`</span>)) <span class="op">+</span></span>
-<span id="cb13-4"><a href="deskriptiv-statistikk.html#cb13-4"></a><span class="st">        </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="deskriptiv-statistikk.html#cb12-1"></a><span class="kw">ggplot</span>(returns, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Return A</span><span class="st">`</span>)) <span class="op">+</span></span>
+<span id="cb12-2"><a href="deskriptiv-statistikk.html#cb12-2"></a><span class="st">        </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</span>
+<span id="cb12-3"><a href="deskriptiv-statistikk.html#cb12-3"></a><span class="kw">ggplot</span>(returns, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="st">`</span><span class="dt">Return B</span><span class="st">`</span>)) <span class="op">+</span></span>
+<span id="cb12-4"><a href="deskriptiv-statistikk.html#cb12-4"></a><span class="st">        </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:to-histogrammer"></span>
 <img src="met4_files/figure-html/to-histogrammer-1.png" alt="To histogrammer" width="672" /><img src="met4_files/figure-html/to-histogrammer-2.png" alt="To histogrammer" width="672" />
 <p class="caption">

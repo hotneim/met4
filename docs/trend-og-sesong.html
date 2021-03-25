@@ -32,7 +32,7 @@
   
 <link rel="prev" href="intro.html"/>
 <link rel="next" href="ar.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -240,23 +238,23 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="r-øving-1" class="section level3" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> R-øving</h3>
 <p><strong>1. Data.</strong> I pakken <code>fpp</code> finnes en tidsrekke som heter <code>ausbeer</code>, som er den kvartalsvise produksjonen av øl i Australia fra 1956 til 2008. Du kan få tak i det og se på tidsrekken ved å kjøre følgende kommandoer:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="trend-og-sesong.html#cb80-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;fpp&quot;</span>)</span>
-<span id="cb80-2"><a href="trend-og-sesong.html#cb80-2"></a><span class="kw">library</span>(fpp)</span>
-<span id="cb80-3"><a href="trend-og-sesong.html#cb80-3"></a><span class="kw">plot</span>(ausbeer)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="trend-og-sesong.html#cb79-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;fpp&quot;</span>)</span>
+<span id="cb79-2"><a href="trend-og-sesong.html#cb79-2"></a><span class="kw">library</span>(fpp)</span>
+<span id="cb79-3"><a href="trend-og-sesong.html#cb79-3"></a><span class="kw">plot</span>(ausbeer)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 <p>Vi ser at det er en klar trendkomponent, selv om den ikke er lineær, samt en årlig sesongvariasjon.</p>
 <p><strong>2. Dekomponering.</strong> Funksjonen <code>stl</code> <em>dekomponerer</em> tidsrekken i de tre komponentene: trend, sesong, og tilfeldig variasjon. For å få tilgang på denne funskjonen trenger vi pakken <code>forecast</code>:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="trend-og-sesong.html#cb81-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;forecast&quot;</span>)</span>
-<span id="cb81-2"><a href="trend-og-sesong.html#cb81-2"></a><span class="kw">library</span>(forecast)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="trend-og-sesong.html#cb80-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;forecast&quot;</span>)</span>
+<span id="cb80-2"><a href="trend-og-sesong.html#cb80-2"></a><span class="kw">library</span>(forecast)</span></code></pre></div>
 <p>Vi så kan kjøre funksjonen slik:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="trend-og-sesong.html#cb82-1"></a>dekomponert &lt;-<span class="st"> </span><span class="kw">stl</span>(ausbeer, <span class="dt">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="trend-og-sesong.html#cb81-1"></a>dekomponert &lt;-<span class="st"> </span><span class="kw">stl</span>(ausbeer, <span class="dt">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span></code></pre></div>
 <p>Vi kan hente ut de ulike komponentene ved å bruke dollartegnet: <code>dekomponert$time.series</code>. Pakken <code>forecast</code> har en egen plottefunksjon, <code>autoplot</code> som er spesialdesignet for tidsrekkeobjekter. Prøv å plotte de tre komponentene hver for seg ved å kjøre:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="trend-og-sesong.html#cb83-1"></a><span class="kw">autoplot</span>(dekomponert)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="trend-og-sesong.html#cb82-1"></a><span class="kw">autoplot</span>(dekomponert)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 <p><strong>3. Predikere.</strong> For predikering bruker vi funksjonen <code>forecast()</code>, som tar en estimert modell som input, og som bruker modellen til å skrive frem tidsrekken ved å estimere fremtidige verdier. Dekomponeringen over utgjør også en modell som vi kan bruke til å predikere fremtidige observasjoner med.</p>
 <p>Kodesnutten under viser hvordan man predikerer <span class="math inline">\(10\)</span> tidssteg frem i tid ved å sette <code>h = 10</code> i funksjonen. I tillegg kan funksjonen regne ut prediksjonsintervall med en gitt dekningsgrad, her velger vi <code>level = 0.95</code> for <span class="math inline">\(95\%\)</span> prediksjonsintervall. Resultatet lagrer vi i objektet <code>prediksjon</code>. Dette objektet kan vi plotte ved bruk av <code>autoplot</code>-funksjonen:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="trend-og-sesong.html#cb84-1"></a>prediksjon &lt;-<span class="st"> </span><span class="kw">forecast</span>(dekomponert, <span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb84-2"><a href="trend-og-sesong.html#cb84-2"></a><span class="kw">autoplot</span>(prediksjon)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="trend-og-sesong.html#cb83-1"></a>prediksjon &lt;-<span class="st"> </span><span class="kw">forecast</span>(dekomponert, <span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb83-2"><a href="trend-og-sesong.html#cb83-2"></a><span class="kw">autoplot</span>(prediksjon)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 </div>
 </div>
