@@ -1,4 +1,4 @@
-
+?
 # Tidsrekker
 
 Vi er nå klare for den siste modulen i MET4 som handler om tidsrekker. Opplegget er ganske likt det vi har hatt så langt i semesteret, men siden læreboken behandler dette stoffet særs stemoderlig, har vi valgt å lage en litt annen variant.
@@ -32,21 +32,168 @@ Lykke til!
 **a)** Regn ut et glidende gjennomsnitt med vindusstørrelse 3 for følgende tidsrekke:
 
 ![](bilder/oppgave1.jpg){#id .class width=80% height=80%}
+<details><summary>Løsning</summary>
+
+|t|     Glidende gjennomsnitt   |
+|---|:--------------------:|
+| 1 |  NA |
+| 2 |  (48+41+37)/3 = 42.00  |
+| 3 |  (41+37+32)/3 = 36.67 |
+| 4 |  (37+32+36)/3 = 35.00 |
+| 5 |  (32+36+31)/3 = 33.00 |
+| 6 |  (36+31+43)/3 = 36.67 |
+| 7 |  (31+43+52)/3 = 42.00 |
+| 8 |  (43+52+60)/3 = 51.67 |
+| 9 |  (52+60+48)/3 = 53.33 |
+| 10 | (60+48+41)/3 = 49.67|
+| 11 | (48+41+30)/3 = 39.67 |
+| 12 | NA |
+
+
+</details>
+
 
 **b)** Regn ut et glidende gjennomsnitt med vindusstørrelse 5 for tidsrekken over.
 
+<details><summary>Løsning</summary>
+
+|t|     Glidende gjennomsnitt   |
+|---|:--------------------:|
+| 1 |  NA |
+| 2 |  NA  |
+| 3 |(48 +41+37+32+36)/5 = 38.8 |
+| 4 | (41+37+32+36+31)/5 = 35.4  |
+| 5 | (37+32+36+31+43)/5 = 35.8 |
+| 6 | (32+36+31+43+52)/5 = 38.8 |
+| 7 | (36+31+43+52+60)/5 = 44.4  |
+| 8 | (31+43+52+60+48)/5 = 46.8 |
+| 9 | (43+52+60+48+41)/5 = 48.8|
+| 10 | (52+60+48+41+30)/5 = 46.2 |
+| 11 | NA |
+| 12 | NA |
+
+
+
+</details>
+
+
+
 **c)** Tegn inn tidsrekken over med de to glattingene inn i samme figur.
+
+<details><summary>Løsning</summary>
+
+"Manuelt" i R: 
+
+```{r, warning=F}
+# Les først inn dine utregninger
+time <- seq(12)
+y <- c(48, 41, 37, 32, 36, 31, 43, 52, 60, 48, 41, 30)
+glatt3 <- c(NA, 42, 36.67, 35, 33, 36.67, 42, 51.67, 53.33, 49.67, 39.67, NA)
+glatt5 <- c(NA, NA, 38.8, 35.4, 35.8, 38.8, 44.4, 46.8, 48.8, 46.2, NA, NA) 
+
+# Med base-R plot
+plot(time, y)
+lines(time, glatt3, col = "red")
+lines(time, glatt5, col = "blue")
+
+# eller med ggplot
+library(ggplot2)
+df <- data.frame(time = rep(time, 2),
+                 y = rep(y, 2),
+                glatting = c(glatt3, glatt5),
+                      vindulengde = factor(c(rep("3", 12), rep("5", 12))))
+ggplot(df) +
+  geom_point(aes(x = time , y = y)) +
+  geom_line(aes(x = time, y = glatting, color = vindulengde))
+```
+
+</details>
 
 
 **d)** Regn ut eksponensiell glatting for tidsrekken under med glattefaktor $w = 0.1$:
 
 ![](bilder/oppgave1b.jpg){#id .class width=80% height=80%}
 
+<details><summary>Løsning</summary>
+
+|t|     Eksponensiell glatting   |
+|---|:--------------------:|
+| 1 | 38.00 |
+| 2 | 0.1(43) + 0.9(38) = 38.50  |
+| 3 |0.1(42) + 0.9(38.50) = 38.85|
+| 4 | 0.1(45) + 0.9(38.85) = 39.47  |
+| 5 |0.1(46) + 0.9(39.47) = 40.12 |
+| 6 | 0.1(48) + 0.9(40.12) = 40.91 |
+| 7 | 0.1(50) + 0.9(40.91) = 41.82  |
+| 8 | 0.1(49) + 0.9(41.82) = 42.53 |
+| 9 | 0.1(46) + 0.9(42.53) = 42.88|
+| 10 | 0.1(45) + 0.9(42.88) = 43.09 |
+
+
+
+</details>
+
 **e)** Gjenta oppgaven over med glattefaktor $w = 0.8$.
+
+<details><summary>Løsning</summary>
+
+|t|     Glidende gjennomsnitt   |
+|---|:--------------------:|
+| 1 |  38 |
+| 2 |  0.8(43) + 0.2(38) = 42.00  |
+| 3 |0.8(42) + 0.2(42.00) = 42.00|
+| 4 | 0.8(45) + 0.2(42.00) = 44.40  |
+| 5 |0.8(46) + 0.2(44.40) = 45.68 |
+| 6 | 0.8(48) + 0.2(45.68) = 47.54 |
+| 7 | 0.8(50) + 0.2(47.54) = 49.51  |
+| 8 | 0.8(49) + 0.2(49.51) = 49.10 |
+| 9 | 0.8(46) + 0.2(49.10) = 46.62|
+| 10 | 0.8(45) + 0.2(46.62) = 45.32 |
+
+
+
+</details>
 
 **f)** Tegn tidsrekken over inn i samme figur som de to glattede versjonene. Ser det ut til å være en trend i denne tidsrekken?
 
+<details><summary>Løsning</summary>
+
+"Manuelt" i R: 
+
+```{r, warning=F}
+# Les først inn dine utregninger
+time <- seq(10)
+y <- c(38, 43, 42, 45, 46, 48, 50, 49, 46, 45)
+exp01 <- c(38, 38.50, 38.85, 39.47, 40.12, 40.91, 41.82, 42.53, 42.88, 43.09)
+exp08 <- c(38, 42, 42, 44.40, 45.68, 47.54, 49.51, 49.10, 46.62, 45.32) 
+
+# Med base-R plot
+plot(time, y)
+lines(time, exp01, col = "red")
+lines(time, exp08, col = "blue")
+
+# eller med ggplot
+library(ggplot2)
+df <- data.frame(time = rep(time, 2),
+                 y = rep(y, 2),
+                glatting = c(exp01, exp08),
+                      glattefaktor = factor(c(rep("0.1", 10), rep("0.9", 10))))
+ggplot(df) +
+  geom_point(aes(x = time , y = y)) +
+  geom_line(aes(x = time, y = glatting, color = glattefaktor))
+
+```
+Det ser ut til at det er en stigende trend som avtar mot de siste observasjonene i tidsrekken.
+
+</details>
+
 **bonusspørsmål)** Hva blir prediksjonen av $Y_{11}$ når du bruker modellen i henholdsvis oppgave d) og e)? 
+
+<details><summary>Løsning</summary>
+
+Våre prediksjoner av $Y_{11}$ blir da henholdsvis $43.09$ og $45.32$. 
+
+</details>
 
 ### R-øving
 
@@ -59,6 +206,7 @@ pris <- rev(equinor$Siste)
 ```
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE}
+library(readxl)
 equinor <- read_excel("datasett/equinor.xlsx")
 pris <- rev(equinor$Siste)                
 ```
@@ -99,9 +247,38 @@ Vindusstørrelsen velger man ut fra hvor hyppig man handler. For profesjonelle i
 
 **Oppgave:** Regn ut et glidende gjennomsnitt med vindusstørrelse 200 for Equinoraksjen, og tegn det inn i figuren du har laget. Hjelper denne figuren deg til å lage en investeringsstrategi?
 
+
+<details><summary>Løsning</summary>
+
+Forutsatt at du har gjort det over kan du skrive
+
+```{r, message = FALSE, warning = FALSE}
+pris_glatt200 <- rollmean(pris, k = 200, fill = NA)
+plot(pris, type = "l")
+lines(pris_glatt200, col = "red")
+```
+
+Nå kan vi jo ikke se det glidende gjennomsnittet for de siste observasjonene, så ved bare å sammenligne de siste observasjonene hvor vi også har det glidende gjennomsnittet så ligger prisen under det glidende gjennomsnittet, altså bør vi ikke investere (evt. selge, shorte etc.).
+
+</details>
+
 Et problem med analysen over  er at vi trenger *fremtidige observasjoner* til å regne ut den glattede tidsrekken. Det betyr at vi kjenner den glattede versjonen av tidsrekken ved tid $t$ først ved tid $t+200$. Vi kan enkelt lage en annen variant der vi glatter tidsrekken ved tid $t$ ved å ta gjennomsnittet av $Y_{t-200}, Y_{t-199}, \ldots, Y_{t-1}$ i stedet for $Y_{t-100}, \ldots, Y_{t}, \ldots, Y_{t+100}$, altså at vi bare bruker fortiden. Det gjør du i R ved å legge til det ekstra argumentet `align = "right"` i funksjonen `rollmean`. Fordelen nå er at vi ved hvert tidspunkt kjenner både prisen på aksjen og den glattede varianten.
 
 **Oppgave:** Regn ut et glidende gjennomsnitt med vindusstørrelse 200 for Equinoraksjen som hele tiden bruker tidligere observasjoner i glattingen. Tegn glattingen inn i figuren. Hvordan ser investeringsstrategien din ut nå?
+
+<details><summary>Løsning</summary>
+
+
+```{r, message = FALSE, warning = FALSE}
+pris_glatt200 <- rollmean(pris, k = 200, fill = NA, align = "right")
+plot(pris, type = "l")
+lines(pris_glatt200, col = "red")
+```
+
+I denne figuren ligger de siste prisene over det glidende gjennomsnittet noe som er indikasjon på en stigende trend. Altså kan en strategi være å investere i aksjen. 
+
+</details>
+
 
 **Eksponensiell glatting** har også et annet navn: Holt Winters Metode. En funksjon for å gjennomføre den finnes innebygget i R, og heter `HoltWinters()`. I denne funksjonen er vektparameteren $w$ representert ved argumentet `alpha`. Funksjonen har noen flere argumenter som ikke vi skal bruke, så dersom vi ønsker å regne ut den eksponensielle glattingen for Equinoraksjen med $w = 0.5$, kjører vi:
 
@@ -116,6 +293,24 @@ pris_exp1$fitted[,"xhat"]
 ```
 
 **Oppgave:** Lag en ny figur der du tegner inn aksjeprisen, samt den eksponensielle glattingen med hhv. $w = 0.5$, $w = 0.01$ og $w = 0.99$.
+
+<details><summary>Løsning</summary>
+
+
+```{r, message = FALSE, warning = FALSE}
+pris_exp1 <- HoltWinters(pris, alpha = .5, beta = FALSE, gamma = FALSE)
+pris_exp2 <- HoltWinters(pris, alpha = .01, beta = FALSE, gamma = FALSE)
+pris_exp3 <- HoltWinters(pris, alpha = .99, beta = FALSE, gamma = FALSE)
+
+plot(pris, type = "l")
+lines(pris_exp1$fitted[,"xhat"], col = "red")
+lines(pris_exp2$fitted[,"xhat"], col = "blue")
+lines(pris_exp3$fitted[,"xhat"], col = "green")
+
+```
+
+
+</details>
 
 ## Trend og sesong {#trend-og-sesong}
 
@@ -309,11 +504,71 @@ acf(ar1_estimat$residuals)
 ```
 
 
-**3. Oppgave:** Prøv nå lage et plott av følgende tre tidsrekker, plott autokorrelasjonsfunksjonen, og knytt en kort kommentar til hver av dem om hva du lærer om tidsrekken ved å se på autokorrelasjonsplottet til:
+**3. Oppgave:** Prøv nå å plotte autokorrelasjonsfunksjonen for for følgende tre tidsrekker, og knytt en kort kommentar til hver av dem om hva du lærer om tidsrekken ved å se på autokorrelasjonsplottet til:
 
 1. Prisen på Equinor-aksjen, som vi jobbet med i det første oppgavesettet.
-2. Equinoraksjens *prosentvise avkastning* (som er tilnærmet lik `diff(log(pris))`) fra dag til dag.
+
+<details><summary>Løsning</summary>
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
+library(readxl)
+equinor <- read_excel("equinor.xlsx")
+pris <- rev(equinor$Siste)
+acf(pris)
+```
+
+
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+library(readxl)
+equinor <- read_excel("datasett/equinor.xlsx")
+pris <- rev(equinor$Siste) 
+acf(pris)
+```
+
+Vi ser at det er høy positiv autokorrelasjon selv for store avstander (lag).  En lav pris (historisk sett) vil være assosiert med lave priser de foregående dagene og tilsvarende for høye priser. Dette stemmer bra med teorien med at dersom markedet er effisient (ikke pensum, slapp av!) skal prisen følge en tilfeldig gang, selv om dette ikke alltid er tilfellet. Det kan altså se ut til at prisen idag er tilnærmet prisen i går pluss ny støy. 
+
+
+</details>
+
+2. Equinoraksjens *prosentvise avkastning* (som er tilnærmet lik `diff(log(pris))` fra dag til dag.
+
+<details><summary>Løsning</summary>
+
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
+pr_avkastning <- diff(log(pris)))
+acf(pr_avkastning)
+```
+
+
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+library(readxl)
+equinor <- read_excel("datasett/equinor.xlsx")
+pris <- rev(equinor$Siste) 
+pr_avkastning <- diff(log(pris))
+acf(pr_avkastning)
+```
+
+Her ser vi at autokorrelasjon er svært lav uansett lag. Det virker altså ikke å være noen lineær sammenheng mellom avkastningen fra en dag til den neste (og den om 2, 3, .. dagen). Dette stemmer bra med at prisen i teorien skal følge en tilfeldig gang og at det i et effisient marked ikke skal gå an å predikere avkastningen for en aksje, noe som i teorien hadde vært mulige hadde det vært en positiv autokorrelasjon.   
+
+</details>
+
+
 3. Tidsrekken som er igjen etter at du fjernet trend og sesong fra ølproduksjonstidsrekken i det andre oppgavesettet.
+
+<details><summary>Løsning</summary>
+
+```{r, message = FALSE, warning = FALSE}
+library(fpp)
+library(forecast)
+
+dekomponert <- stl(ausbeer, s.window = "periodic")
+
+acf(dekomponert$time.series[ ,3], na.action = na.pass)
+```
+
+Figuren er litt misvisende siden ett lag i figuren svarer til ett år, og siden vi har kvartalsvise observasjoner har vi 4 acf verdier per år. Det kan se ut til at det er en årlig sesongvariasjon som ikke har blitt dekomponert fullt ut av tidsrekken pga av disse toppene i acf som kommer 1,2,3. .. året. 
+</details>
+
 
 Til slutt: husk at også autokorrelasjonsplottene må pyntes og ordnes på hvis vi skal vise dem til andre i rapporter, innleveringer etc. Du kan stort sett bruke de samme argumetene som i vanlige plott: `xlab = `, `ylab = `, `main = ` osv.
 
@@ -460,6 +715,11 @@ plot(diff_pris, type = "l")
 
 **Oppgave:** Vurder om en ARIMA modell er bedre egnet enn en ARMA modell ut fra de to figurene over.
 
+<details><summary>Løsning</summary>
+
+I forhold til prisen ser den differensierte prisen stasjonær ut og det er derfor rimelig med en ARIMA model. I et effisient marked skal prisen i teorien følge en tilfeldig gang slik at den differensierte tidsrekken bare er støy, altså at prisen følger en ARIMA(0, 1, 0) modell. 
+
+</details>
 
 **2. Estimering av ARIMA modeller**
 Vi bruker den samme funksjonen `Arima` fra `forecast` pakken til å estimere både ARMA og ARIMA modeller og spesifisering av modellen gjør vi via argumentet `order`. Skal du estimerer en ARMA(1,1) modell setter du f.eks dette argumentet til `c(1, 0, 1)`. Elementet i midten av denne vektoren spesifiserer hvor mange ganger tidsrekken skal differensieres i ARIMA modellen. Estimering av en ARIMA modell med en enkelt differensiering og ett MA og AR ledd kan gjøres slik:
@@ -495,7 +755,9 @@ pred_arima111 <- forecast(arima111, h =  10)
 autoplot(pred_arima111, include = 100)
 ```
 
-merk at i `autoplot` har vi valgt å bare vise 100 observasjoner av tidsrekken sammen med prediksjonene
+merk at i `autoplot` har vi valgt å bare vise 100 observasjoner av tidsrekken sammen med prediksjonene.
+
+Kommentar: I et effisient marked skal prisutviklingen i teorien følge en tilfeldig gang og dagens pris vil da være det beste du kan tippe på for morgendagens pris. Vi ser her at dette blir reflektert i prediksjonen gjort av Arima(1,1,1) modellen.  
 
 ## Modellbygging 
 
