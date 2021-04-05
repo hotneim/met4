@@ -557,3 +557,16 @@ Vi vil ellers diskutere noen av oppgavene i seksjon 5.4 og eventuelle spørsmål
 
 </details>
 
+<details><summary> Oppgaver til seminar 8. april 2021 </summary>
+
+Vi skal jobbe oss gjennom en serie tidligere eksamensoppgaver om tidsrekker:
+
+- V17, oppgave 1g
+- V18, oppgave 2a--2b
+- H19, opppgave m--n
+- V20, oppgave 3
+
+Oppgaveformuleringene finner du i seksjon \@ref(skoleeksamen).
+
+</details>
+

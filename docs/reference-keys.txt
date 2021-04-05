@@ -1,3 +1,13 @@
+fig:to-histogrammer
+fig:churn
+eq:withb
+eq:withoutb
+eq:timemean
+tab:knn
+tab:knnfasit
+fig:rstudio1
+fig:rstudiorun
+fig:dokumentasjon
 introduksjon-til-r
 en-gjennomgang-av-rstudio
 enkle-beregninger-og-variabler
