@@ -77,6 +77,7 @@ regneoppgaver
 oppgaver-om-logistisk-regresjon
 oppgaver-om-knn
 oppgaver-om-paneldata
+tidsrekker
 intro
 kontrollspørsmål-3
 oppgaver-fra-lærebok
@@ -132,6 +133,6 @@ tidligere-eksamensoppgaver-hjemmeeksamen
 spørsmål-og-svar
 hypotesetesting-og-frihetsgrader
 regresjon-1
-tidsrekker
+tidsrekker-1
 r-etc.
 seminar
