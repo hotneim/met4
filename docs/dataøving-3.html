@@ -32,7 +32,6 @@
   
 <link rel="prev" href="dataøving-2.html"/>
 <link rel="next" href="dataøving-4.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,32 +49,30 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -84,9 +81,9 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  {  }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+a.sourceLine::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -137,8 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
-<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
-<ul>
+<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a><ul>
 <li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
 <li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
@@ -150,36 +146,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
 <li class="chapter" data-level="1.10" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.10</b> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
-<ul>
+<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a><ul>
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
 <li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
-<ul>
+<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a><ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
 <li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
-<ul>
+<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a><ul>
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
 <li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
-<ul>
+<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a><ul>
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
 <li class="chapter" data-level="5.4" data-path="regneoppgaver.html"><a href="regneoppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Regneoppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
-<ul>
+<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a><ul>
 <li class="chapter" data-level="6.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>6.1</b> Introduksjon til tidsrekker</a></li>
 <li class="chapter" data-level="6.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>6.2</b> Trend og sesong</a></li>
 <li class="chapter" data-level="6.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>6.3</b> AR(p)</a></li>
@@ -189,15 +180,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>6.7</b> ARMA og ARIMA</a></li>
 <li class="chapter" data-level="6.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>6.8</b> Modellbygging</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
-<ul>
+<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a><ul>
 <li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
 <li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
 <li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
 <li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a>
-<ul>
+<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
 <li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 <li class="chapter" data-level="8.3" data-path="spørsmål-og-svar.html"><a href="spørsmål-og-svar.html"><i class="fa fa-check"></i><b>8.3</b> Spørsmål og svar</a></li>
@@ -225,25 +214,25 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dataøving-3" class="section level2" number="7.3">
+<div id="dataøving-3" class="section level2">
 <h2><span class="header-section-number">7.3</span> Dataøving 3</h2>
-<div id="oppgave-1-interaktiv-øvelse-1" class="section level3" number="7.3.1">
+<div id="oppgave-1-interaktiv-øvelse-1" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Oppgave 1: Interaktiv øvelse</h3>
-<p>Før vi tar fatt på dataanalysen begynner vi som vanlig med litt R-trening i swirl. Har du allerede installert pakken swirl (skriv <code>install.packages("swirl")</code> i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="dataøving-3.html#cb182-1"></a><span class="kw">library</span>(swirl)</span>
-<span id="cb182-2"><a href="dataøving-3.html#cb182-2"></a><span class="kw">install_course</span>(<span class="st">&quot;Regression_Models&quot;</span>) <span class="co"># legger til nytt kursmateriale om regresjon</span></span>
-<span id="cb182-3"><a href="dataøving-3.html#cb182-3"></a><span class="kw">swirl</span>()</span></code></pre></div>
+<p>Før vi tar fatt på dataanalysen begynner vi som vanlig med litt R-trening i swirl. Har du allerede installert pakken swirl (skriv <code>install.packages(&quot;swirl&quot;)</code> i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb182-1" data-line-number="1"><span class="kw">library</span>(swirl)</a>
+<a class="sourceLine" id="cb182-2" data-line-number="2"><span class="kw">install_course</span>(<span class="st">&quot;Regression_Models&quot;</span>) <span class="co"># legger til nytt kursmateriale om regresjon</span></a>
+<a class="sourceLine" id="cb182-3" data-line-number="3"><span class="kw">swirl</span>()</a></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn. Hvis du bruker samme navn som tidligere får du kanskje tilbud om å starte opp igjen der du slapp, men da kan du bare velge det nederste valget ‘No. Let me start something new’. Du velger så alternativet ‘Regression Models’ hvor du får se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul modul 1 <strong>‘Introduction’</strong>. Her vil du lære litt om hvordan du kan bruke R til å gjøre en regresjonsanalyse ved hjelp av et treningsdatasett. Noen av kommandoene som gjennomgås i denne modulen vil komme til nytte senere i datalabben.</p>
 <p>Husk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (<code>esc</code>) før du begynner på del to av øvingen. Lykke til!</p>
 </div>
-<div id="oppgave-2-regresjonsanalyse" class="section level3" number="7.3.2">
+<div id="oppgave-2-regresjonsanalyse" class="section level3">
 <h3><span class="header-section-number">7.3.2</span> Oppgave 2: Regresjonsanalyse</h3>
 <p>Et rock-and-roll museum åpnet i Atlanta i 1990. Museet lå i en sentral del av byen i nærheten av mange ulike butikker. Mot slutten av juli måned i 1992 startet en stor brann i en av disse butikkene som ødela hele kvartalet, inkludert museet. Heldigvis var museet forsikret, både mot selve brannskadene, og mot tapte billettinntekter i gjennoppbyggingsperioden.</p>
 <p>Vanligvis vil et forsikringsselskap beregne erstatningsbeløpet under antakelsen om at besøkstallene i gjenoppbyggingsperioden ville vært på samme nivå som besøkstallene i tiden før brannen. I dette tilfellet mente derimot eierne av museet at besøkstallene var <em>økende</em>, slik at de reelt sett hadde krav på et større erstatningsbeløp. Argumentet var basert på besøkstallene til en fornøyelsespark like ved. Fornøyelsesparken åpnet i desember 1991, slik at museet og parken opererte sammen i de siste fire ukene av 1991, og de første 28 ukene i 1992 før brannen ødela museet.</p>
 <p>Museet åpnet igjen i april 1995, men var da betydelig større enn det var opprinnelig. Data for besøkstall for museet og fornøyelsesparken finner vi i regnearket <a href="datasett/C16-01.xlsx"><code>C16-01.xlsx</code></a>. Som i de to foregående dataøvingene legger du denne filen i en mappe på maskinen din, og oppretter et tomt R-script der du lagrer koden for denne oppgaven.</p>
 <p><strong>Oppgave 2.1:</strong> Kikk raskt på datasettet i Excel eller tilsvarende. Du ser at det er tre kolonner, en som angir ukenummer (<code>Week</code>, teller fra 1 til 205), en som angir ukentlig besøkstall på museet (<code>Museum</code>) og en som angir ukentlig besøkstall i fornøyelsesparken (<code>A-Park</code>). Legg merke til at besøkstallet i museet er null fra og med uke 33, til og med uke 179, som er perioden fra brannen til nyåpning.</p>
 <p><strong>Oppgave 2.2:</strong> Last så datasettet inn i R som før ved hjelp av <code>read_excel()</code>-funksjonen. Gi det et passelig navn (f.eks <code>visits</code>), og sjekk raskt at det har gått bra ved å taste inn datanavnet i konsollen. Da skal det se omtrent slik ut:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="dataøving-3.html#cb183-1"></a>visits</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb183-1" data-line-number="1">visits</a></code></pre></div>
 <pre><code>## # A tibble: 205 x 3
 ##     Week Museum `A-Park`
 ##    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
@@ -257,24 +246,24 @@ Publisert ved hjelp av bookdown</a></li>
 ##  8     8   1399     2086
 ##  9     9   1528     2503
 ## 10    10   1788     2553
-## # ... with 195 more rows</code></pre>
+## # … with 195 more rows</code></pre>
 <p>Legg merke til følgende:</p>
 <ul>
 <li>Observasjonene ser ut til å være de samme som vi så da vi kikket på selve regnearket. Det er alltid en god vane å forsikre seg om at R har lest inn datasettet på riktig måte.</li>
 <li>Et av variabelnavnene har fått noen rare tødler rundt seg. Grunnen til det er at <code>A-park</code> inneholder en bindestrek, så for at R ikke skal tolke det tegnet som et minustegn (og dermed gi oss et mareritt med feilmeldinger), må vi alltid bruke disse tødlene når vi refererer til denne variabelen. (På tastaturet som forfatteren av disse ord skriver på, er det <code>Shift +</code> tasten til venstre for <code>Backspace</code>.</li>
 </ul>
 <p><strong>Oppgave 2.3:</strong> Før vi går videre, må vi få et bedre begrep om problemet ved å kikke grafisk på observasjonene. La oss plotte observasjonene i et linjeplott for å se hvordan de utvikler seg over tid, ved å ha ukenummer på <span class="math inline">\(x\)</span>-aksen og besøkstall på <span class="math inline">\(y\)</span>-aksen. Vi kan lage et enkelt plott for besøkstall for museet ved å skrive</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="dataøving-3.html#cb185-1"></a><span class="co"># Laster først ggplot-pakken (det trenger vi bare gjøre en gang i skriptet)</span></span>
-<span id="cb185-2"><a href="dataøving-3.html#cb185-2"></a><span class="kw">library</span>(ggplot2)        </span>
-<span id="cb185-3"><a href="dataøving-3.html#cb185-3"></a></span>
-<span id="cb185-4"><a href="dataøving-3.html#cb185-4"></a><span class="co"># Lager et enkelt linjeplott:</span></span>
-<span id="cb185-5"><a href="dataøving-3.html#cb185-5"></a><span class="kw">ggplot</span>(visits, <span class="kw">aes</span>(<span class="dt">x =</span> Week, <span class="dt">y =</span> Museum)) <span class="op">+</span></span>
-<span id="cb185-6"><a href="dataøving-3.html#cb185-6"></a><span class="st">  </span><span class="kw">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb185-1" data-line-number="1"><span class="co"># Laster først ggplot-pakken (det trenger vi bare gjøre en gang i skriptet)</span></a>
+<a class="sourceLine" id="cb185-2" data-line-number="2"><span class="kw">library</span>(ggplot2)        </a>
+<a class="sourceLine" id="cb185-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb185-4" data-line-number="4"><span class="co"># Lager et enkelt linjeplott:</span></a>
+<a class="sourceLine" id="cb185-5" data-line-number="5"><span class="kw">ggplot</span>(visits, <span class="kw">aes</span>(<span class="dt">x =</span> Week, <span class="dt">y =</span> Museum)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb185-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_line</span>()</a></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-171-1.png" width="672" /></p>
 <p>Du kan legge til besøkstall for fornøyelsesparken ved å plusse på en ny linje med <code>geom_line()</code>, men da må du spesifisere <code>y</code>-variabelen på nytt. Hele plottekommandoen blir da:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="dataøving-3.html#cb186-1"></a><span class="kw">ggplot</span>(visits, <span class="kw">aes</span>(<span class="dt">x =</span> Week, <span class="dt">y =</span> Museum)) <span class="op">+</span></span>
-<span id="cb186-2"><a href="dataøving-3.html#cb186-2"></a><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></span>
-<span id="cb186-3"><a href="dataøving-3.html#cb186-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="st">`</span><span class="dt">A-Park</span><span class="st">`</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb186-1" data-line-number="1"><span class="kw">ggplot</span>(visits, <span class="kw">aes</span>(<span class="dt">x =</span> Week, <span class="dt">y =</span> Museum)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb186-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb186-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="st">`</span><span class="dt">A-Park</span><span class="st">`</span>))</a></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-172-1.png" width="672" /></p>
 <p>Vi ser at det er en sterk sammenheng mellom besøkstallene til museet og parken, spesielt etter gjenåpningen i 1995, og det skal vi utnytte når vi senere skal beregne erstatningssummen.</p>
 <p><strong>Oppgave 2.4:</strong> Juster på argumentene i <code>geom_line()</code>-funskjonene, og legg til flere “lag” på samme måte som vi gjorde for å pynte på figuren i oppgave 3 i kapittel <a href="r-ekstra.html#r-ekstra">1.10</a> (det er 100% lov å Google). Dette ser bedre ut:</p>
@@ -283,10 +272,10 @@ Publisert ved hjelp av bookdown</a></li>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1x_i + \epsilon,\]</span>
 der responsvariabelen <span class="math inline">\(y_i\)</span> er besøkstallet på museet på dag nr. <em>i</em>, og <span class="math inline">\(x_i\)</span> er besøkstallet i fornøyelsesparken samme dag. Datasettet vi skal bruke er altså <em>de 32 første radene</em> i datasettet <code>visits</code>. Da kan vi enten lage en ny tabell som består av de 32 første radene, eller så kan vi bruket argumentet <code>subset</code> i <code>lm()</code>-funkesjonen til å spesifisere hvilke observasjoner som skal brukes.</p>
 <p>Estimer regresjonsmodellen ved å kjøre følgende kall til <code>lm()</code>:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="dataøving-3.html#cb187-1"></a>reg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Museum <span class="op">~</span><span class="st"> `</span><span class="dt">A-Park</span><span class="st">`</span>, <span class="dt">data =</span> visits, <span class="dt">subset =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">32</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb187-1" data-line-number="1">reg1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Museum <span class="op">~</span><span class="st"> `</span><span class="dt">A-Park</span><span class="st">`</span>, <span class="dt">data =</span> visits, <span class="dt">subset =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">32</span>)</a></code></pre></div>
 <p><strong>Oppgave 2.6:</strong> Pakken <code>stargazer</code> inneholder funksjoner for å lage pene regesjonstabeller automatisk fra regresjonsobjekter i R. Pakken må installeres og lastes på vanlig måte:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="dataøving-3.html#cb188-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;stargazer&quot;</span>)</span>
-<span id="cb188-2"><a href="dataøving-3.html#cb188-2"></a><span class="kw">library</span>(stargazer)</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb188-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;stargazer&quot;</span>)</a>
+<a class="sourceLine" id="cb188-2" data-line-number="2"><span class="kw">library</span>(stargazer)</a></code></pre></div>
 <p>Inne i <code>stargazer</code>-pakken er det en funksjon som også heter <code>stargazer()</code>. Hvis du ikke har sett den brukt før (f.eks i forelesning), kan du lese mer om den ved hjelp av hjelpefunksjonen: <code>?stargazer</code>. Bruk så <code>stargazer()</code> til å lage følgende regresjonsutskrift (hint: bruk argumentet <code>type = text</code>):</p>
 <pre><code>
 ===============================================
@@ -310,20 +299,20 @@ F Statistic          1,424.094*** (df = 1; 30)
 Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <p><strong>Oppgave 2.7:</strong> Lag tre diagnoseplott etter mal som er gitt i forelesningsnotatene: Et som viser residualene i regresjonsmodellen i et spredningsdiagram, et QQ-plott, og et histogram. Kan du gjøre en grov vurdering om hvorvidt forutsetningene for lineær regresjon er oppfylt?</p>
 <p><strong>Oppgave 2.8:</strong> Bruk denne regresjonsmodellen til å beregne hva besøkstallet <em>hadde vært</em> dersom museet hadde vært åpent som vanlig. Dette kan vi gjøre ved å bruke <code>predict()</code>-funksjonen. Følg oppskriften under nå, så skal du prøve å gjøre det selv etterpå.</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="dataøving-3.html#cb190-1"></a><span class="co"># La oss bruke R til å finne ut hvilke uker museet var stengt. Kommandoen under</span></span>
-<span id="cb190-2"><a href="dataøving-3.html#cb190-2"></a><span class="co"># lager en vektor som viser hvilke uker museet var stengt:</span></span>
-<span id="cb190-3"><a href="dataøving-3.html#cb190-3"></a>uker_stengt &lt;-<span class="st"> </span>visits<span class="op">$</span>Museum <span class="op">==</span><span class="st"> </span><span class="dv">0</span></span>
-<span id="cb190-4"><a href="dataøving-3.html#cb190-4"></a></span>
-<span id="cb190-5"><a href="dataøving-3.html#cb190-5"></a><span class="co"># Så lager vi en ny data frame som inneholder verdiene av ukenummer og `A-Park`</span></span>
-<span id="cb190-6"><a href="dataøving-3.html#cb190-6"></a><span class="co"># de ukene museet var stengt. Vi velger rader før kommaet i firkantparantesene,</span></span>
-<span id="cb190-7"><a href="dataøving-3.html#cb190-7"></a><span class="co"># og vi velger kolonner etter kommaet:</span></span>
-<span id="cb190-8"><a href="dataøving-3.html#cb190-8"></a>visits_pred &lt;-<span class="st"> </span>visits[uker_stengt, <span class="kw">c</span>(<span class="st">&quot;Week&quot;</span>, <span class="st">&quot;A-Park&quot;</span>)]</span>
-<span id="cb190-9"><a href="dataøving-3.html#cb190-9"></a></span>
-<span id="cb190-10"><a href="dataøving-3.html#cb190-10"></a><span class="co"># Bruker predict()-funksjonen til å predikere tilhørende y&#39;er:</span></span>
-<span id="cb190-11"><a href="dataøving-3.html#cb190-11"></a>predicted_visits1 &lt;-<span class="st"> </span><span class="kw">predict</span>(reg1, <span class="dt">newdata =</span> visits_pred)</span>
-<span id="cb190-12"><a href="dataøving-3.html#cb190-12"></a></span>
-<span id="cb190-13"><a href="dataøving-3.html#cb190-13"></a><span class="co"># Til slutt legger vi til de predikerte verdiene som en ny kolonne i visits_pred:</span></span>
-<span id="cb190-14"><a href="dataøving-3.html#cb190-14"></a>visits_pred<span class="op">$</span>predikert1 &lt;-<span class="st"> </span>predicted_visits1</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="co"># La oss bruke R til å finne ut hvilke uker museet var stengt. Kommandoen under</span></a>
+<a class="sourceLine" id="cb190-2" data-line-number="2"><span class="co"># lager en vektor som viser hvilke uker museet var stengt:</span></a>
+<a class="sourceLine" id="cb190-3" data-line-number="3">uker_stengt &lt;-<span class="st"> </span>visits<span class="op">$</span>Museum <span class="op">==</span><span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb190-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb190-5" data-line-number="5"><span class="co"># Så lager vi en ny data frame som inneholder verdiene av ukenummer og `A-Park`</span></a>
+<a class="sourceLine" id="cb190-6" data-line-number="6"><span class="co"># de ukene museet var stengt. Vi velger rader før kommaet i firkantparantesene,</span></a>
+<a class="sourceLine" id="cb190-7" data-line-number="7"><span class="co"># og vi velger kolonner etter kommaet:</span></a>
+<a class="sourceLine" id="cb190-8" data-line-number="8">visits_pred &lt;-<span class="st"> </span>visits[uker_stengt, <span class="kw">c</span>(<span class="st">&quot;Week&quot;</span>, <span class="st">&quot;A-Park&quot;</span>)]</a>
+<a class="sourceLine" id="cb190-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb190-10" data-line-number="10"><span class="co"># Bruker predict()-funksjonen til å predikere tilhørende y&#39;er:</span></a>
+<a class="sourceLine" id="cb190-11" data-line-number="11">predicted_visits1 &lt;-<span class="st"> </span><span class="kw">predict</span>(reg1, <span class="dt">newdata =</span> visits_pred)</a>
+<a class="sourceLine" id="cb190-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb190-13" data-line-number="13"><span class="co"># Til slutt legger vi til de predikerte verdiene som en ny kolonne i visits_pred:</span></a>
+<a class="sourceLine" id="cb190-14" data-line-number="14">visits_pred<span class="op">$</span>predikert1 &lt;-<span class="st"> </span>predicted_visits1</a></code></pre></div>
 <p>De predikerte besøkstallene er nå lagret som kolonne <code>predicted1</code> i datasettet <code>visits_pred</code>.</p>
 <p><strong>Oppgave 2.9</strong> For å få bedre greie på hvordan prediksjonene egentlig ser ut kan vi legge dem til figuren vår fra over. La oss lage en blå stiplet linje, og det kan vi gjøre med å legge til enda et kall til <code>geom_lines()</code>. Denne gangen må vi bruke flere argumenter:</p>
 <ul>
@@ -332,10 +321,10 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <li>Vi må bruke argumentet <code>linetype</code> til å fortelle at vi vil ha en stiplet linje.</li>
 </ul>
 <p>Ta for deg figuren du lagde i oppgave 2.4, og legg til følgende linjer (husk å få med en <code>+</code> mellom hvert lag):</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="dataøving-3.html#cb191-1"></a><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Week, <span class="dt">y =</span> predikert1), </span>
-<span id="cb191-2"><a href="dataøving-3.html#cb191-2"></a>          <span class="dt">data =</span> visits_pred, </span>
-<span id="cb191-3"><a href="dataøving-3.html#cb191-3"></a>          <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, </span>
-<span id="cb191-4"><a href="dataøving-3.html#cb191-4"></a>          <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb191-1" data-line-number="1"><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Week, <span class="dt">y =</span> predikert1), </a>
+<a class="sourceLine" id="cb191-2" data-line-number="2">          <span class="dt">data =</span> visits_pred, </a>
+<a class="sourceLine" id="cb191-3" data-line-number="3">          <span class="dt">colour =</span> <span class="st">&quot;blue&quot;</span>, </a>
+<a class="sourceLine" id="cb191-4" data-line-number="4">          <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</a></code></pre></div>
 <p>Da blir figuren min seende slik ut:</p>
 <p><img src="met4_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
 <p><strong>Oppgave 2.10:</strong> Kommenter kort regresjonsutskriften fra oppgave 2.6 og figuren fra oppgave 2.9. Ser det fornuftig ut?</p>
@@ -347,7 +336,7 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <p>Anta at hver billett til museet koster $6.99. Hvor stor er differansen mellom erstatningskravet til museet og tilbudet til forsikringsselskapet?</p>
 <p><strong>Oppgave 2.14 (Diskusjon):</strong> Det er ganske stor forskjell mellom tilbud og krav, men hvis vi tenker oss om skjønner vi fort at begger parter befinner seg i en klassisk <em>catch-22</em>. Hvis den ene partens argument fører til en utbetaling som er for stor eller for liten fordi de tar utgangspunkt i slutten eller starten på en stigende utvikling, må nødvendigvis det motsatte standpunkt også være galt av nøyaktig samme grunn. Kan du foreslå et kompromiss?</p>
 </div>
-<div id="oppgave-3-rapporter-basert-på-r-analyser" class="section level3" number="7.3.3">
+<div id="oppgave-3-rapporter-basert-på-r-analyser" class="section level3">
 <h3><span class="header-section-number">7.3.3</span> Oppgave 3: Rapporter basert på R-analyser</h3>
 <p>Ofte er det ønskelig å bruke resultater fra R inn i rapporter, artikler og foredrag. I MET4 skal du blant annet levere både en obligatorisk innlevering og en hjemmeksamen. Det er fullt mulig å åpne et hvilken som helst tekstdokument (f.eks Word) for så å belage seg på en ‘klipp og lim’-tilnærming. I R-studio kan man lagre figurer ved å trykke på ‘Export’ fanen i vinduet nede til høyre og så ‘Save as’, eventuelt bruke <code>ggsave()</code>-funksjonen til å lagre plott laget med <code>ggplot2</code>. Disse kan så åpnes i det samme dokumentet.</p>
 <p>En klipp og lim-tilnærming kan være tidkrevende og det finnes verktøy som gjør det lett å lage ganske så elegante rapporter av R-analyser. I de følgende oppgavene gir vi to alternativer til å lage rapporter. Den første metoden er noe enklere enn den andre.
