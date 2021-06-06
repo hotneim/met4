@@ -136,3 +136,7 @@ regresjon-1
 tidsrekker-1
 r-etc.
 seminar
+standard-oppgaver
+nøtter
+standard-oppgaver-1
+nøtter-1
