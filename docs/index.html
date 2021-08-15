@@ -32,6 +32,7 @@
   
 
 <link rel="next" href="introduksjon-til-r.html"/>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,68 +54,6 @@
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
-<style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,7 +73,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
-<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a><ul>
+<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
 <li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
 <li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
@@ -146,31 +86,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
 <li class="chapter" data-level="1.10" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.10</b> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a><ul>
+<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
 <li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a><ul>
+<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
 <li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a><ul>
+<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
 <li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a><ul>
+<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
 <li class="chapter" data-level="5.4" data-path="regneoppgaver.html"><a href="regneoppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Regneoppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a><ul>
+<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>6.1</b> Introduksjon til tidsrekker</a></li>
 <li class="chapter" data-level="6.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>6.2</b> Trend og sesong</a></li>
 <li class="chapter" data-level="6.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>6.3</b> AR(p)</a></li>
@@ -180,13 +125,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>6.7</b> ARMA og ARIMA</a></li>
 <li class="chapter" data-level="6.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>6.8</b> Modellbygging</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a><ul>
+<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
 <li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
 <li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
 <li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a><ul>
+<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 <li class="chapter" data-level="8.3" data-path="spørsmål-og-svar.html"><a href="spørsmål-og-svar.html"><i class="fa fa-check"></i><b>8.3</b> Spørsmål og svar</a></li>
@@ -234,21 +181,21 @@ Håkon
 Geir
 </figcaption>
 </figure>
-<p>På grunn av coronasituasjonen er store deler av kurset digitalisert. Det vil si at teorigjennomgang plenumsforelesniger i sin helhet er erstattet med videoforelesninger. På denne siden vil du finne alle videosnuttene sammen med kommentarer til lærebokens fremstilling, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset).</p>
-<p>Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom kontakttimer, oppgaveseminarer med kursansvarlige, og dataøvinger med studentassistenter. Denne delen vil være digital dersom smittesituasjonen krever det, og fysisk på campus dersom smittesituasjonen tillater det. <strong>Det vil være et fullgodt digitalt alternativ til MET4 gjennom hele semsteret</strong>.</p>
+<p>Selv om det tilsynelatende går mot et relativt normalt semester med tanke på coronasituasjonen har vi valgt å beholde store deler av digitaliseringen vi gjorde i kurset de foregående semestre. Det vil si at tradisjonell teorigjennomgang i plenumsforelesninger i sin helhet er erstattet med videoforelesninger. Forelesningstiden velger vi i stedet å bruke på kontakttimer, oppgaveseminar og oversiktsforelesninger.</p>
+<p>På denne siden vil du finne alle videosnuttene sammen med kommentarer til lærebokens fremstilling, regneoppgaver, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset). Merk at regneoppgaver (med fasit) foreløpig bare er tilgjengelig for de første temaene i kurset, men vi tar mål av oss å få disse på plass digitalt fortløpende i løpet av semesteret. Merk også at seminaroppgavene ((Se <a href="seminar.html#seminar">8.4</a>) ikke har fasit, men notater fra disse seminarene vil bli lagt ut fortløpende.</p>
+<p>Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. Disse vil være fysisk dersom smittesituasjonen tillater det.</p>
 <div id="fremdriftsplan" class="section level3 unnumbered">
 <h3>Fremdriftsplan</h3>
-<p>I et tradisjonelt kursopplegg ville forventet progresjon blitt definert av forelesningstempoet, og forelesningene ville vært den strukturen som mange trenger for å jobbe seg jevnt og trutt gjennom pensum.</p>
-<p>I et digitalisert opplegg blir ikke pensumgjennomgang lenger gjort i fellesskap, men heller individuelt, der studenten selv kan bestemme tempo og progresjon tilpasset sin egen timeplan og studieteknikk. Prisen for økt fleksibilitet er derimot mindre struktur, og det kan oppleves som en ekstra belastning. Selv om det alltid har vært studentens eget ansvar å følge progresjonen i et kurs blir dette ansvaret enda mer tydelig i et heldigitalt kurs. Vi vil derfor minne om det åpenbare: <strong>MET4 er et krevende kurs som krever full innsats fra første til siste dag.</strong></p>
+<p>I et tradisjonelt kursopplegg ville forventet progresjon blitt definert av forelesningstempoet, og forelesningene ville vært den strukturen som mange trenger for å jobbe seg jevnt og trutt gjennom pensum. Selv om det nå legges opp til et fleksibelt undervisningsopplegg der tempo og progresjon i utgangspunktet kan tilpasses den enkeltes timeplan og studieteknikk er det viktig å jobbe jevnt med kurset. <strong>MET4 er et krevende kurs som krever full innsats fra første til siste dag.</strong> For eksempel får en mye bedre utbytte av oppgaveseminarene dersom man på forhånd har sett videoene og gjort noen av de enkle oppgavene relatert til temaet.</p>
 <p>Vi har laget et forslag til progresjon i tabellen under. Kolonnen “jobbe med” refererer til avsnitt på denne siden som dere finner igjen i menyen til høyre. Der finnes også alle dataøvingene. Ukene med grønn farge betyr at vi har tid på datasal med studentassistenter (så sant vi kan møtes fysisk, ellers vil disse selvsagt gjennomføres digitalt).</p>
-<p>Vi finner også hva vi skal gjøre i vår oppsatte forelesningstider. Som en hovedregel vil vi bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (detaljer blir publisert på Canvas etter hvert). Begge disse aktivitetene er digitale i starten av semesteret, og så får vi se om det blir muligheter for å møtes fysisk etter hvert.</p>
+<p>Når det gjelder forelesningstiden vi som en hovedregel bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (Se <a href="seminar.html#seminar">8.4</a> for seminar oppgavene) og oversiktsforelesninger. Begge disse aktivitetene er fysiske i starten av semesteret, og vi håper at vi kan fortsette med.</p>
 <p>Legg merke til følgende viktige datoer:</p>
 <ul>
-<li><strong>1. mars:</strong> Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.</li>
-<li><strong>26. mars:</strong> Frist for innlevering av den obligatoriske innleveringen.</li>
-<li><strong>23.–24. mars:</strong> Undervisningsfri pga. NHH symposium.</li>
-<li><strong>26.–28. april:</strong> Gruppebasert hjemmeeksamen.</li>
-<li><strong>12. mai:</strong> Individuell hjemmeeksamen.</li>
+<li><strong>27. september:</strong> Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.</li>
+<li><strong>22. oktober:</strong> Frist for innlevering av den obligatoriske innleveringen.</li>
+<li><strong>Uke 36:</strong> Ingen undervisning pga. karrieredagene.</li>
+<li><strong>15.–17. November:</strong> Gruppebasert hjemmeeksamen.</li>
+<li><strong>26. November:</strong> Individuell hjemmeeksamen.</li>
 </ul>
 <table class="table table-condensed table-hover" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -260,211 +207,381 @@ Uke
 Jobbe med
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Tirsdag 08:15 - 10:00
+Mandag 10:15 - 12:00
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
-Torsdag 10:15 - 12:00
+Torsdag 12:15 - 14:00
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+…5
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+…6
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+…7
+</th>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+…8
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:right;">
-3
+34
 </td>
 <td style="text-align:left;">
 Introduksjon til R
 </td>
 <td style="text-align:left;">
-19.01: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+23.08: Kursopplegget i Met4
 </td>
 <td style="text-align:left;">
-21.01: Introduksjon til R på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+26.08: Introduksjon til R i Aud Max
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-4
+35
 </td>
 <td style="text-align:left;">
 Grunnleggende statistikk
 </td>
 <td style="text-align:left;">
-26.01: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+30.08: Kontakttime, kursansvarlig tilgjengelig i Aud A/zoom
 </td>
 <td style="text-align:left;">
-28.01: Oppgaveseminar på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+02.09: Oppgaveseminar Aud Max. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:right;background-color: rgba(46, 139, 87, 0.31) !important;">
-5
+36
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-Dataøving 1
+Hypotesetesting og Dataøving 1
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-02.02: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+Karrieredager NHH - ingen forelesninger
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-04.02: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-6
+37
 </td>
 <td style="text-align:left;">
 Hypotesetesting
 </td>
 <td style="text-align:left;">
-09.02: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+13.09: Kontakttime, kkursansvarlig tilgjengelig i Aud A/zoom
 </td>
 <td style="text-align:left;">
-11.02: Oppgaveseminar på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+16.09: Oppgaveseminar Aud Max. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:right;background-color: rgba(46, 139, 87, 0.31) !important;">
-7
+38
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-Hypotesetesting og Dataøving 2
+Regresjon og Dataøving 2
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-16.02: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+20.09: Kontakttime, kursansvarlig tilgjengelig i Aud A/zoom
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-18.02: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+23.09: Kontakttime, kursansvarlig tilgjengelig på Aud Max/Zoom
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-8
+39
 </td>
 <td style="text-align:left;">
 Regresjon
 </td>
 <td style="text-align:left;">
-23.02: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+Ingen aktivitet
 </td>
 <td style="text-align:left;">
-25.02: Oppgaveseminar på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-9
+30.09: Oppgaveseminar Aud Max. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
 </td>
 <td style="text-align:left;">
-Regresjon
 </td>
 <td style="text-align:left;">
-02.03: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
 </td>
 <td style="text-align:left;">
-04.03: Oppgaveseminar på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:right;background-color: rgba(46, 139, 87, 0.31) !important;">
-10
+40
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-Dataøving 3/Obligatorisk innlevering
+Dataøving 3 og Obligatorisk innlevering
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-09.03: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+04.10: Kontakttime, kursansvarlig tilgjengelig i Aud A/zoom
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-11.03: <strong>Oversiktsforelesning: Hypotesetesting</strong> på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+07.10: Oppgaveseminar Aud Max. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
+</td>
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-11
+41
 </td>
 <td style="text-align:left;">
 Avansert regresjon og maskinlæring
 </td>
 <td style="text-align:left;">
-16.03: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+11.10: Kontakttime, kursansvarlig tilgjengelig i Aud A/zoom
 </td>
 <td style="text-align:left;">
-18.03: Oppgaveseminar på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+14.10: <strong>Oversiktsforelesning: Hypotesetesting</strong> i Aud Max
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
 <td style="text-align:right;background-color: rgba(46, 139, 87, 0.31) !important;">
-12
+42
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-Dataøving 4
+Avansert regresjon og maskinlæring / Dataøving 4
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-23.03: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+18.10: Kontakttime, kursansvarlig tilgjengelig i Aud A/zoom
 </td>
 <td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-25.03: <strong>Oversiktsforelesning: Regresjon</strong> på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+21.10: Oppgaveseminar Aud Max. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
 </td>
-</tr>
-<tr>
-<td style="text-align:right;font-weight: bold;color: white !important;background-color: DarkRed !important;">
-13
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
 </td>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: DarkRed !important;">
-PÅSKE
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
 </td>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: DarkRed !important;">
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
 </td>
-<td style="text-align:left;font-weight: bold;color: white !important;background-color: DarkRed !important;">
+<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
 </td>
 </tr>
 <tr>
 <td style="text-align:right;">
-14
+43
 </td>
 <td style="text-align:left;">
 Tidsrekker
 </td>
 <td style="text-align:left;">
-06.04: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+25.10: Kontakttime, kursansvarlig tilgjengelig i Aud A/zoom
 </td>
 <td style="text-align:left;">
-08.04: Oppgaveseminar på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+28.10: <strong>Oversiktsforelesning: Regresjon</strong> i Aud Max
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 <tr>
-<td style="text-align:right;background-color: rgba(46, 139, 87, 0.31) !important;">
-15
+<td style="text-align:right;">
+44
 </td>
-<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-Tidsrekker (Tid på datasal)
+<td style="text-align:left;">
+Tidsrekker
 </td>
-<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-13.04: Kontakttime, kursansvarlig tilgjengelig på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+<td style="text-align:left;">
+1.11: Kontakttime, kursansvarlig tilgjengelig i Aud A/zoom
 </td>
-<td style="text-align:left;background-color: rgba(46, 139, 87, 0.31) !important;">
-15.04: Gjesteforelesning med Ole-Petter Hansen, Tryg Forsikring på <a href="https://nhh.zoom.us/j/63633653066?pwd=cTVNV0JvOXl4NnUrMHVKdkw2b0pCZz09">Zoom</a>.
+<td style="text-align:left;">
+4.11: <strong>Oversiktsforelesning: Tidsrekker</strong> i Aud Max
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:left;">
+Forberedelse til eksamen
+</td>
+<td style="text-align:left;">
+08.11: Kontakttime, kursansvarlig tilgjengelig i Aud A/zoom
+</td>
+<td style="text-align:left;">
+11.11 Oppgaveseminar Aud Max. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:left;">
+Forberedelse/HEKS
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:left;">
+Forberedelse/IEKS
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
 </td>
 </tr>
 </tbody>
 </table>
-<p><em>Passord til Zoom-møtene finnes på kursets Canvas-side.</em></p>
+<p><em>Link og Passord til Zoom vil komme på kursets Canvas-side.</em></p>
 </div>
 <div id="lærebok-og-pensum" class="section level3 unnumbered">
 <h3>Lærebok og pensum</h3>
 <figure style="float:right; padding:10px; text-align:center">
-<img alt="Håkon" src="bilder/bok.jpeg" width="130" height="170"/>
+<img alt="Håkon" src="bilder/keller.JPG" width="130" height="170"/>
 <figcaption>
 <ol start="11" style="list-style-type: decimal">
 <li>utgave
 </figcaption>
 </figure></li>
 </ol>
-<p>Vi bruker læreboken <em>Statistics for Management and Economics</em> av Gerald Keller, som nå foreligger i 11. utgave. I utgangspunktet er følgende kapitler pensum: 1–5, 9–13, 15–18 og 20. Mot slutten av kurset går vi gjennom noen tema som ikke er dekket i læreboken (logistisk regresjon, maskinlæring, paneldatamodeller, tidrekkemodeller). Der finner du referanser til andre kilder, samt en del materiale som vi har skrevet selv. I pensumgjennomgangen på denne siden finner du også en del kommentarer til læreboken, som for eksempel hva som er viktig, og hva som er mindre viktig for oss.</p>
-<p>Eldre utgaver av læreboken går bra. Under anbefalte regneoppgaver refererer vi til nummer i 11. og 10. utgave. Oppgavenummer tilbake til 7. utgave finner du i <a href="oppgaver/Recommended%20excercises.doc">dette dokumentet</a>.</p>
-<p><strong>Merk: Fra og med neste semester kommer det en ny utgave av læreboken.</strong></p>
+<p>Vi bruker læreboken <em>Statistics for Management and Economics</em> av Gerald Keller, som nå foreligger i en relansert førsteutgave. I utgangspunktet er følgende kapitler pensum: 1–5, 9–13, 15–18 og 20. Mot slutten av kurset går vi gjennom noen tema som ikke er dekket i læreboken (logistisk regresjon, maskinlæring, paneldatamodeller, tidrekkemodeller). Der finner du referanser til andre kilder, samt en del materiale som vi har skrevet selv. I pensumgjennomgangen på denne siden finner du også en del kommentarer til læreboken, som for eksempel hva som er viktig, og hva som er mindre viktig for oss.</p>
+<p>Eldre utgaver av læreboken går bra (Ifjor brukte vi 11. utgave). Men vi går i år bort fra å gi regneoppgaver fra boken og legger heller oppgaver fortløpende ut på denne siden under hvert tema.</p>
 
 </div>
 </div>
@@ -525,20 +642,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

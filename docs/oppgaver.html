@@ -776,16 +776,16 @@ Løsning
 For å finne variansen finner vi først
 <span class="math display">\[E(X^2) = \sum_{i = 1}^2 x_{i}^2 P(X = x_i) = 1^2\cdot(18/37) + (-1)^2\cdot(19/37) = 1\]</span>
 og bruker regneregelen
-<span class="math display">\[\sigma^2 = \text{Var}(X) = E(X^2) - (E(X))^2 = 1 - (-0.27)^2 = 0.9271\]</span>
+<span class="math display">\[\sigma^2 = \text{Var}(X) = E(X^2) - (E(X))^2 = 1 - (-0.027)^2 = 0.999\]</span>
 Sannsynligheten for positiv gevinst svarer til sannsynligheten for at ballen treffer rød, altså <span class="math inline">\(18/37 = 0.4864\)</span>.</p>
 </blockquote>
 <blockquote>
 <ol start="2" style="list-style-type: lower-alpha">
-<li>Sentralgrenseteoremet sier at når vi spiller et relativt stort antall runder så er <span class="math inline">\(\bar{X}\)</span> normalfordelt med forventning <span class="math inline">\(E(\bar{X}) = \mu = -0.027\)</span> og varians <span class="math inline">\(\text{Var}(\bar{X})=\sigma^2/n = 0.9271/50 = 0.0185\)</span>. Sannsynligheten for at den gjennomsnittlige gevinsten er positiv blir altså
+<li>Sentralgrenseteoremet sier at når vi spiller et relativt stort antall runder så er <span class="math inline">\(\bar{X}\)</span> normalfordelt med forventning <span class="math inline">\(E(\bar{X}) = \mu = -0.027\)</span> og varians <span class="math inline">\(\text{Var}(\bar{X})=\sigma^2/n = 0.999/50 = 0.02\)</span>. Sannsynligheten for at den gjennomsnittlige gevinsten er positiv blir altså
 <span class="math display">\[\begin{equation*}
 \begin{split}
-P(\bar{X}&gt;0) &amp;= P\left(\frac{\bar{X} - \mu}{\sigma^2/n} &gt; \frac{0 - \mu}{\sigma^2/n}\right) = P\left(Z &gt; \frac{0 - (-0.027)}{0.9271/50}\right)\\
-&amp;= P(Z&gt;1.4561) = 1 - P(Z &lt; 1.4561) = 0.0727
+P(\bar{X}&gt;0) &amp;= P\left(\frac{\bar{X} - \mu}{\sigma^2/n} &gt; \frac{0 - \mu}{\sigma^2/n}\right) = P\left(Z &gt; \frac{0 - (-0.027)}{0.999/50}\right)\\
+&amp;= P(Z&gt;1.35) = 1 - P(Z &lt; 1.35) = 0.0885
 \end{split}
 \end{equation*}\]</span>
 Kasinoer vet med andre ord å utnytte sentralgrenseteoremet. Har du noen penger (som du har råd til å tape) så sett hele beløpet på rødt og spill 1 gang, framfor å plassere småbeløp over lang tid.</li>

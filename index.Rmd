@@ -29,52 +29,52 @@ Kursansvarlige er Håkon Otneim og Geir Drage Berentsen, som begge jobber ved In
   <figcaption>Geir</figcaption>
 </figure>
 
-På grunn av coronasituasjonen er store deler av kurset digitalisert. Det vil si at teorigjennomgang plenumsforelesniger i sin helhet er erstattet med videoforelesninger. På denne siden vil du finne alle videosnuttene sammen med kommentarer til lærebokens fremstilling, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset).
+Selv om det tilsynelatende går mot et relativt normalt semester med tanke på coronasituasjonen har vi valgt å beholde store deler av digitaliseringen vi gjorde i kurset de foregående semestre. Det vil si at tradisjonell teorigjennomgang i plenumsforelesninger i sin helhet er erstattet med videoforelesninger. Forelesningstiden velger vi i stedet å bruke på kontakttimer, oppgaveseminar og oversiktsforelesninger. 
 
-Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom kontakttimer, oppgaveseminarer med kursansvarlige, og dataøvinger med studentassistenter. Denne delen vil være digital dersom smittesituasjonen krever det, og fysisk på campus dersom smittesituasjonen tillater det. **Det vil være et fullgodt digitalt alternativ til MET4 gjennom hele semsteret**.
+ På denne siden vil du finne alle videosnuttene sammen med kommentarer til lærebokens fremstilling, regneoppgaver, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset). Merk at regneoppgaver (med fasit) foreløpig bare er tilgjengelig for de første temaene i kurset, men vi tar mål av oss å få disse på plass digitalt fortløpende i løpet av semesteret. Merk også at seminaroppgavene ((Se \@ref(seminar)) ikke har fasit, men notater fra disse seminarene vil bli lagt ut fortløpende.    
+
+Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. Disse vil være fysisk dersom smittesituasjonen tillater det. 
 
 ### Fremdriftsplan {-}
 
-I et tradisjonelt kursopplegg ville forventet progresjon blitt definert av forelesningstempoet, og forelesningene ville vært den strukturen som mange trenger for å jobbe seg jevnt og trutt gjennom pensum.
-
-I et digitalisert opplegg blir ikke pensumgjennomgang lenger gjort i fellesskap, men heller individuelt, der studenten selv kan bestemme tempo og progresjon tilpasset sin egen timeplan og studieteknikk. Prisen for økt fleksibilitet er derimot mindre struktur, og det kan oppleves som en ekstra belastning. Selv om det alltid har vært studentens eget ansvar å følge progresjonen i et kurs blir dette ansvaret enda mer tydelig i et heldigitalt kurs. Vi vil derfor minne om det åpenbare: **MET4 er et krevende kurs som krever full innsats fra første til siste dag.** 
+I et tradisjonelt kursopplegg ville forventet progresjon blitt definert av forelesningstempoet, og forelesningene ville vært den strukturen som mange trenger for å jobbe seg jevnt og trutt gjennom pensum. Selv om det nå legges opp til et fleksibelt undervisningsopplegg der tempo og progresjon i utgangspunktet kan tilpasses den enkeltes timeplan og studieteknikk er det viktig å jobbe jevnt med kurset. **MET4 er et krevende kurs som krever full innsats fra første til siste dag.** For eksempel får en mye bedre utbytte av oppgaveseminarene dersom man på forhånd har sett videoene og gjort noen av de enkle oppgavene relatert til temaet.
 
 Vi har laget et forslag til progresjon i tabellen under. Kolonnen "jobbe med" refererer til avsnitt på denne siden som dere finner igjen i menyen til høyre. Der finnes også alle dataøvingene. Ukene med grønn farge betyr at vi har tid på datasal med studentassistenter (så sant vi kan møtes fysisk, ellers vil disse selvsagt gjennomføres digitalt). 
 
-Vi finner også hva vi skal gjøre i vår oppsatte forelesningstider. Som en hovedregel vil vi bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (detaljer blir publisert på Canvas etter hvert). Begge disse aktivitetene er digitale i starten av semesteret, og så får vi se om det blir muligheter for å møtes fysisk etter hvert.
+Når det gjelder forelesningstiden vi som en hovedregel  bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (Se \@ref(seminar) for seminar oppgavene) og oversiktsforelesninger. Begge disse aktivitetene er fysiske i starten av semesteret, og vi håper at vi kan fortsette med.
 
 Legg merke til følgende viktige datoer:
 
-- **1. mars:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
-- **26. mars:** Frist for innlevering av den obligatoriske innleveringen.
-- **23.--24. mars:** Undervisningsfri pga. NHH symposium.
-- **26.--28. april:** Gruppebasert hjemmeeksamen.
-- **12. mai:** Individuell hjemmeeksamen.
+- **27. september:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
+- **22. oktober:** Frist for innlevering av den obligatoriske innleveringen.
+- **Uke 36:** Ingen undervisning pga. karrieredagene.
+- **15.--17. November:** Gruppebasert hjemmeeksamen.
+- **26. November:** Individuell hjemmeeksamen.
 
 ```{r, echo = F, message = FALSE, warning = FALSE}
 options(knitr.kable.NA = '')
 library(dplyr)
 library(kableExtra)
 
-readxl::read_excel("diverse/tidsplan-v21.xlsx") %>% 
+readxl::read_excel("diverse/tidsplan-H21.xlsx") %>% 
   kbl() %>%
   kable_styling(bootstrap_options = c("condensed", "hover"),
                 fixed_thead = T) %>%
-  row_spec(c(3, 5, 8, 10, 13) , background = "#2E8B5750") %>% 
-  row_spec(11, bold = T, background = "DarkRed", color = "white")
+  row_spec(c(3, 5, 7, 9) , background = "#2E8B5750") #%>% 
+  # row_spec(11, bold = T, background = "DarkRed", color = "white")
 ```
 
-*Passord til Zoom-møtene finnes på kursets Canvas-side.*
+*Link og Passord til Zoom vil komme på kursets Canvas-side.*
 
 ### Lærebok og pensum {-}
 
 <figure style="float:right; padding:10px; text-align:center">
-  <img alt="Håkon" src="bilder/bok.jpeg" width="130" height="170"/>
+  <img alt="Håkon" src="bilder/keller.jpg" width="130" height="170"/>
   <figcaption>11. utgave</figcaption>
 </figure>
 
-Vi bruker læreboken *Statistics for Management and Economics* av Gerald Keller, som nå foreligger i 11. utgave. I utgangspunktet er følgende kapitler pensum: 1--5, 9--13, 15--18 og 20. Mot slutten av kurset går vi gjennom noen tema som ikke er dekket i læreboken (logistisk regresjon, maskinlæring, paneldatamodeller, tidrekkemodeller). Der finner du referanser til andre kilder, samt en del materiale som vi har skrevet selv. I pensumgjennomgangen på denne siden finner du også en del kommentarer til læreboken, som for eksempel hva som er viktig, og hva som er mindre viktig for oss. 
+Vi bruker læreboken *Statistics for Management and Economics* av Gerald Keller, som nå foreligger i en relansert førsteutgave. I utgangspunktet er følgende kapitler pensum: 1--5, 9--13, 15--18 og 20. Mot slutten av kurset går vi gjennom noen tema som ikke er dekket i læreboken (logistisk regresjon, maskinlæring, paneldatamodeller, tidrekkemodeller). Der finner du referanser til andre kilder, samt en del materiale som vi har skrevet selv. I pensumgjennomgangen på denne siden finner du også en del kommentarer til læreboken, som for eksempel hva som er viktig, og hva som er mindre viktig for oss. 
 
-Eldre utgaver av læreboken går bra. Under anbefalte regneoppgaver refererer vi til nummer i 11. og 10. utgave. Oppgavenummer tilbake til 7. utgave finner du i [dette dokumentet](oppgaver/Recommended excercises.doc).
+Eldre utgaver av læreboken går bra (Ifjor brukte vi 11. utgave). Men vi går i år bort fra å gi regneoppgaver fra boken og legger heller oppgaver fortløpende ut på denne siden under hvert tema. 
 
-**Merk: Fra og med neste semester kommer det en ny utgave av læreboken.**
+

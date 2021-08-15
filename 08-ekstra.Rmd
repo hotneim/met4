@@ -335,7 +335,7 @@ Selve regresjonsanalysen gjøres i Excel under: Data > Data Analysis > Regressio
 
 Under vil dere finne oppgavesettene som vi skal regne på oppgaveseminarene som vi i all hovedsak skal bruke torsdagstimene på. 
 
-<details><summary> Oppgaver til seminar 28. januar 2021 </summary>
+<details><summary> Oppgaver til seminar 02. september 2021 </summary>
 
 1. **(V20, OPPG 1)** Grafen ble publisert av klima- og miljøminister Ola Elvestuen fra Venstre på Twitter 1. november 2019 (men senere tatt bort), og viser norske CO$_2$-utslipp (i 1000 tonn CO$_2$-ekvivalenter) som funksjon av tid. Venstre gikk inn i regjering sammen med Høyre og Fremskrittspartiet i januar 2018. Denne figuren ble kritisert for å være *misvisende*. På hvilken måte er den det, og hvordan ville du forandret den for at den skulle være mindre misvisende?
 
@@ -379,7 +379,7 @@ knitr::include_graphics("bilder/gun.PNG")
 </details>
 
 
-<details><summary> Oppgaver til seminar 11. februar 2021 </summary>
+<details><summary> Oppgaver til seminar 16. september 2021 </summary>
 
 1. Sett opp en generell regel/oppskrift som du kan følge *alle* gangene du skal gjennomføre en hypotesetest.
 
@@ -404,7 +404,7 @@ knitr::include_graphics("bilder/gun.PNG")
 </details>
 
 
-<details><summary> Oppgaver til seminar 25. februar 2021 </summary>
+<details><summary> Oppgaver til seminar 30. september 2021 </summary>
 
 1. Se på den estimerte regresjonskurven under:
 
@@ -468,7 +468,7 @@ Forklar hva forskjellen på et prediksjonsintervall og konfidensintervall er i d
 
 </details>
 
-<details><summary> Oppgaver til seminar 4. mars 2021 </summary>
+<details><summary> Oppgaver til seminar 7. oktober 2021 </summary>
 
 1. Vi har lyst til å forstå forskjellen på den statistiske *modellen* $Y = \beta_0 + \beta_1X + \epsilon$ der $\epsilon$ er normalfordelt med forventningsverdi 0 og varians $\sigma^2$, og det vi faktisk observerer, som er par av observasjoner $(X_1, Y_1), \ldots, (X_n, Y_n)$. Klarer du å illustrere denne forskjellen ved å fortsette på tegningen under? Her har vi satt $n=4$.
 
@@ -543,7 +543,7 @@ stargazer::stargazer(reg1, reg2, reg3, type = "text")
 
 </details>
 
-<details><summary> Oppgaver til seminar 18. mars 2021 </summary>
+<details><summary> Oppgaver til seminar 21. oktober 2021 </summary>
 
 Refleksjonsoppgaver:
 
@@ -559,7 +559,7 @@ Vi vil ellers diskutere noen av oppgavene i seksjon 5.4 og eventuelle spørsmål
 
 </details>
 
-<details><summary> Oppgaver til seminar 8. april 2021 </summary>
+<details><summary> Oppgaver til seminar 11. November 2021 </summary>
 
 Vi skal jobbe oss gjennom en serie tidligere eksamensoppgaver om tidsrekker:
 

@@ -419,6 +419,16 @@ Noen kontrollspørsmål:
 
 ### Standard oppgaver
 
+1. For hvert av scenarioene A og B, gjør følgende:
+  -	Sett opp relevant nullhypotese og alternativhypotese (hint: nullhypotese avhenger av hvor ‘bevisbyrden’ bør ligge)
+  -	Definer type I-og type II-feil. 
+  -	Diskuter konsekvensene av type I-feil og type II-feil i det aktuelle scenarioet. 
+
+  a. En ny type medisin skal vurderes for kommersialisering. Du sitter i et vurderingspanel som skal vurdere om medisinen kan     bli godkjent eller ikke. 
+
+  b. Du blir presentert to ulike investeringer å velge mellom. En av dem er veldig risikabel, men med stor potensiell             profitt. Den andre er mindre risikabel, men med lavere potensiell profitt. 
+
+
 ### Nøtter
 
 

@@ -701,14 +701,14 @@ $$\mu = E(X) = \sum_{i = 1}^2 x_i P(X = x_i) = 1\cdot(18/37) + (-1)\cdot(19/37) 
 For å finne variansen finner vi først 
 $$E(X^2) = \sum_{i = 1}^2 x_{i}^2 P(X = x_i) = 1^2\cdot(18/37) + (-1)^2\cdot(19/37) = 1$$
 og bruker regneregelen
-$$\sigma^2 = \text{Var}(X) = E(X^2) - (E(X))^2 = 1 - (-0.27)^2 = 0.9271$$
+$$\sigma^2 = \text{Var}(X) = E(X^2) - (E(X))^2 = 1 - (-0.027)^2 = 0.999$$
 Sannsynligheten for positiv gevinst svarer til sannsynligheten for at ballen treffer rød, altså $18/37 = 0.4864$.
 
->b. Sentralgrenseteoremet sier at når vi spiller et relativt stort antall runder så er $\bar{X}$ normalfordelt med forventning $E(\bar{X}) = \mu = -0.027$ og varians $\text{Var}(\bar{X})=\sigma^2/n = 0.9271/50 = 0.0185$. Sannsynligheten for at den gjennomsnittlige gevinsten er positiv blir altså
+>b. Sentralgrenseteoremet sier at når vi spiller et relativt stort antall runder så er $\bar{X}$ normalfordelt med forventning $E(\bar{X}) = \mu = -0.027$ og varians $\text{Var}(\bar{X})=\sigma^2/n = 0.999/50 = 0.02$. Sannsynligheten for at den gjennomsnittlige gevinsten er positiv blir altså
 \begin{equation*}
 \begin{split}
-P(\bar{X}>0) &= P\left(\frac{\bar{X} - \mu}{\sigma^2/n} > \frac{0 - \mu}{\sigma^2/n}\right) = P\left(Z > \frac{0 - (-0.027)}{0.9271/50}\right)\\
-&= P(Z>1.4561) = 1 - P(Z < 1.4561) = 0.0727
+P(\bar{X}>0) &= P\left(\frac{\bar{X} - \mu}{\sigma^2/n} > \frac{0 - \mu}{\sigma^2/n}\right) = P\left(Z > \frac{0 - (-0.027)}{0.999/50}\right)\\
+&= P(Z>1.35) = 1 - P(Z < 1.35) = 0.0885
 \end{split}
 \end{equation*}
 Kasinoer vet med andre ord å utnytte sentralgrenseteoremet. Har du noen penger (som du har råd til å tape) så sett hele beløpet på rødt og spill 1 gang, framfor å plassere småbeløp over lang tid.  

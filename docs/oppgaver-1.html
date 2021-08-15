@@ -228,48 +228,21 @@ Publisert ved hjelp av bookdown</a></li>
 <h2><span class="header-section-number">3.5</span> Oppgaver</h2>
 <div id="standard-oppgaver-1" class="section level3" number="3.5.1">
 <h3><span class="header-section-number">3.5.1</span> Standard oppgaver</h3>
+<ol style="list-style-type: decimal">
+<li>For hvert av scenarioene A og B, gjør følgende:</li>
+</ol>
+<ul>
+<li>Sett opp relevant nullhypotese og alternativhypotese (hint: nullhypotese avhenger av hvor ‘bevisbyrden’ bør ligge)</li>
+<li>Definer type I-og type II-feil.</li>
+<li>Diskuter konsekvensene av type I-feil og type II-feil i det aktuelle scenarioet.</li>
+</ul>
+<ol style="list-style-type: lower-alpha">
+<li><p>En ny type medisin skal vurderes for kommersialisering. Du sitter i et vurderingspanel som skal vurdere om medisinen kan bli godkjent eller ikke.</p></li>
+<li><p>Du blir presentert to ulike investeringer å velge mellom. En av dem er veldig risikabel, men med stor potensiell profitt. Den andre er mindre risikabel, men med lavere potensiell profitt.</p></li>
+</ol>
 </div>
 <div id="nøtter-1" class="section level3" number="3.5.2">
 <h3><span class="header-section-number">3.5.2</span> Nøtter</h3>
-<ol start="9" style="list-style-type: decimal">
-<li>Tilsvarende som at utvalgsgjennomsnittet <span class="math inline">\(\bar{x}\)</span> er et estimat på populasjonsgjennomsnittet <span class="math inline">\(\mu\)</span>, er utvalgskorrelasjonen</li>
-</ol>
-<p><span class="math display">\[r = s_{xy}/(s_xs_y)=\frac{\frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})^2\frac{1}{n-1}\sum_{i = 1}^n(y_i - \bar{y})^2}}\]</span></p>
-<p>et estimat på populasjonskorrelasjonen</p>
-<p><span class="math display">\[\rho = \frac{\text{cov}(X,Y)}{\sigma_x\sigma_y} = \frac{E\left[(X - E(X))(Y - E(Y))\right]}{\sigma_x\sigma_y}\]</span>.</p>
-<p>Det betyr i praksis at <span class="math inline">\(r\)</span> kommer med en usikkerhet siden den er et estimat av <span class="math inline">\(\rho\)</span> basert på data. Det kan vises at dersom den simultane fordelingen til <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> er en såkalt <em>bivariat normalfordeling</em> så vil vi for store utvalg ha at samplingfordelingen til <span class="math inline">\(r\)</span> er tilnærmet normalfordelt med forventning <span class="math inline">\(\rho\)</span> og standardavvik <span class="math inline">\(\frac{(1 - \rho^2)}{\sqrt{n}}\)</span>:</p>
-<p><span class="math display">\[r\sim N\left(\rho, \frac{(1 - \rho^2)^2}{n}\right)\]</span></p>
-<p>Anta at <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> er bivariat normalfordelt.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p>Hva kan du si om forholdet mellom <span class="math inline">\(r\)</span> og <span class="math inline">\(\rho\)</span> når utvalget <span class="math inline">\(n\)</span> blir stort?</p></li>
-<li><p>Hva kjennetegner populasjoner hvor <span class="math inline">\(\rho\)</span> kan estimeres med stor sikkerhet ved hjelp av <span class="math inline">\(r\)</span> fra et utvalg?</p></li>
-<li><p>Beskriv en test av <span class="math inline">\(H_0: \rho = 0\)</span>, mot <span class="math inline">\(H_1: \rho \neq 0\)</span>.</p></li>
-</ol>
-<details>
-<summary>
-Løsning
-</summary>
-<blockquote>
-<ol style="list-style-type: lower-alpha">
-<li>Vi ser at når <span class="math inline">\(n\)</span> blir stor går standardavviket til <span class="math inline">\(r\)</span> mot null, og <span class="math inline">\(r\)</span> vil derfor nærme seg den sanne korrelasjonen i populasjonen.</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Vi ser også at standardavviket til <span class="math inline">\(r\)</span> er mindre jo nærmere <span class="math inline">\(rho\)</span> er <span class="math inline">\(\pm 1\)</span>. Utregninger av <span class="math inline">\(r\)</span> basert på utvalg fra
-populasjoner med sterk positiv eller negativ lineær avhengighet ($nær <span class="math inline">\(\pm 1\)</span>) kommer derfor med mindre usikkerhet.</li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>En test observator som vil være tilnærmet normalfordelt er da:</li>
-</ol>
-</blockquote>
-<blockquote>
-<p><span class="math display">\[Z^* = \frac{r - 0}{\frac{(1 - r^2)}{\sqrt{n}}}\]</span>
-og ved et <span class="math inline">\(5\%\)</span> signifikansnivå forkaster vi <span class="math inline">\(H_0\)</span> dersom <span class="math inline">\(|Z^*|&gt;1.96\)</span>. Merk at sammenlignet med det sanne standardavviket har vi her erstattet <span class="math inline">\(\rho\)</span> med <span class="math inline">\(r\)</span>. Dette er litt som når vi erstatter <span class="math inline">\(\sigma\)</span> med <span class="math inline">\(s\)</span> i den vanlige <span class="math inline">\(Z\)</span> observatoren (<span class="math inline">\(T\)</span> observatoren). Pga av sentralgrenseteoremet går dette fint for store utvalg.</p>
-</blockquote>
-</details>
 <p>I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon <a href="skoleeksamen.html#skoleeksamen">8.1</a>.</p>
 <p>Har du en eldre utgave av boken kan du laste ned <a href="oppgaver/Recommended%20excercises.doc">dette dokumentet</a> for en oversikt over oppgavenummer tilbake til 7. utgave.</p>
 <p><strong>På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.</strong></p>
