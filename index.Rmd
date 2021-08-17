@@ -64,7 +64,7 @@ readxl::read_excel("diverse/tidsplan-H21.xlsx") %>%
   # row_spec(11, bold = T, background = "DarkRed", color = "white")
 ```
 
-*Link og Passord til Zoom vil komme på kursets Canvas-side.*
+*Passord til Zoom finner du på kursets Canvas-side.*
 
 ### Lærebok og pensum {-}
 
