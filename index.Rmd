@@ -49,7 +49,7 @@ Legg merke til følgende viktige datoer:
 - **22. oktober:** Frist for innlevering av den obligatoriske innleveringen.
 - **Uke 36:** Ingen undervisning pga. karrieredagene.
 - **15.--17. November:** Gruppebasert hjemmeeksamen.
-- **26. November:** Individuell hjemmeeksamen.
+- **26. November:** Individuell skoleeksamen.
 
 ```{r, echo = F, message = FALSE, warning = FALSE}
 options(knitr.kable.NA = '')
