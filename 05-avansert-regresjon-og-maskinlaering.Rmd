@@ -393,7 +393,7 @@ phtest(reg.fe, reg.re)
 ```
 Siden vi får forkastning vil den beste modellen for dette (leke-) datasettet være modellen med faste effekter.
 
-## Regneoppgaver
+## Oppgaver
 
 ### Oppgaver om logistisk regresjon
 

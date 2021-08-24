@@ -162,23 +162,26 @@ Grunnleggende ferdigheter: Klarer du dette?
 
 ## Oppgaver
 
-I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen).
 
-Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave.
+**Oppgaver kommer**
 
-**På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.**
+<!-- I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen). -->
 
-```{r, echo = FALSE, message = FALSE}
+<!-- Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave. -->
 
-library(dplyr)
-options(knitr.kable.NA = '')
+<!-- **På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.** -->
 
-"oppgaver/oppgaver-regresjon.xlsx" %>% 
-    readxl::read_excel() %>% 
-    kableExtra::kbl() %>% 
-    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+<!-- ```{r, echo = FALSE, message = FALSE} -->
 
-```
+<!-- library(dplyr) -->
+<!-- options(knitr.kable.NA = '') -->
+
+<!-- "oppgaver/oppgaver-regresjon.xlsx" %>%  -->
+<!--     readxl::read_excel() %>%  -->
+<!--     kableExtra::kbl() %>%  -->
+<!--     kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed")) -->
+
+<!-- ``` -->
 
 
 

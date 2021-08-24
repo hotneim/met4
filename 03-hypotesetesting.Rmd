@@ -438,18 +438,20 @@ I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke 
 
 Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave.
 
-**På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.**
+  
+  **Flere oppgaver kommer!**
+<!-- **På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.** -->
 
-```{r, echo = FALSE, message = FALSE}
+<!-- ```{r, echo = FALSE, message = FALSE} -->
 
-library(dplyr)
-options(knitr.kable.NA = '')
+<!-- library(dplyr) -->
+<!-- options(knitr.kable.NA = '') -->
 
-"oppgaver/oppgaver-hypotesetesting.xlsx" %>% 
-    readxl::read_excel() %>% 
-    kableExtra::kbl() %>% 
-    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+<!-- "oppgaver/oppgaver-hypotesetesting.xlsx" %>%  -->
+<!--     readxl::read_excel() %>%  -->
+<!--     kableExtra::kbl() %>%  -->
+<!--     kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed")) -->
 
-```
+<!-- ``` -->
 
 

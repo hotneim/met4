@@ -140,3 +140,4 @@ standard-oppgaver
 nøtter
 standard-oppgaver-1
 nøtter-1
+oppgaver-3
