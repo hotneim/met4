@@ -33,7 +33,7 @@ Selv om det tilsynelatende går mot et relativt normalt semester med tanke på c
 
  På denne siden vil du finne alle videosnuttene sammen med kommentarer til lærebokens fremstilling, regneoppgaver, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset). Merk at regneoppgaver (med fasit) foreløpig bare er tilgjengelig for de første temaene i kurset, men vi tar mål av oss å få disse på plass digitalt fortløpende. Merk også at seminaroppgavene ((Se \@ref(seminar)) ikke har fasit, men notater fra disse seminarene vil bli lagt ut etter gjennomgang.    
 
-Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. Disse vil være fysisk dersom smittesituasjonen tillater det, men en av studentassistentene vil uansett være tilgjengelig på det samme zoom-rommet som vi bruker til kontakttimer på tidspunktet for gruppene.
+Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. Disse vil være fysisk dersom smittesituasjonen tillater det, men en av studentassistentene vil uansett være tilgjengelig på det samme zoom-rommet som vi bruker til kontakttimer i perioden gruppene holdes.
 
 ### Fremdriftsplan {-}
 
