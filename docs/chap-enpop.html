@@ -173,7 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
-<li class="chapter" data-level="5.4" data-path="regneoppgaver.html"><a href="regneoppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Regneoppgaver</a></li>
+<li class="chapter" data-level="5.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>5.4</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
 <ul>
@@ -243,6 +243,7 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Etterpå leser du inn datasettet ved å bruke <code>read_xlsx()</code>-funksjonen som under:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="chap-enpop.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb1-2"><a href="chap-enpop.html#cb1-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm11-01.xlsx&quot;</span>)     <span class="co"># Vi bruker read_xslx() fordi det er en .xlsx-fil</span></span></code></pre></div>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.0.5</code></pre>
 <p>Konteksten til datasettet er gitt i eksempel 11.1. Det er altså balansen på 400 tilfeldig utvalgte kredittkontoer i en butikk, og en lurer på om forventet balanse er større enn 170. Vi setter opp følgende test:</p>
 <p><span class="math display">\[\begin{align*}
 &amp;H_0: \mu = 170 \\
@@ -250,16 +251,16 @@ Publisert ved hjelp av bookdown</a></li>
 \end{align*}\]</span>
 der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 <p>For å regne ut testobservatoren for å enutvalgs <span class="math inline">\(z\)</span>-test trenger vi fire tall: <span class="math inline">\(\overline X\)</span>, <span class="math inline">\(\mu_0\)</span>, <span class="math inline">\(n\)</span> og <span class="math inline">\(\sigma\)</span>. Legger merke til at <code>data</code> har en kolonne som heter <code>Accounts</code>, og vi bruker dollartegnet til å hente den ut som en vektor. Regner ut observatoren:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="chap-enpop.html#cb2-1" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>Accounts)     <span class="co"># Gjennomsnittet av observasjonene</span></span>
-<span id="cb2-2"><a href="chap-enpop.html#cb2-2" aria-hidden="true" tabindex="-1"></a>mu0      <span class="ot">&lt;-</span> <span class="dv">170</span>                     <span class="co"># Henter fra teksten</span></span>
-<span id="cb2-3"><a href="chap-enpop.html#cb2-3" aria-hidden="true" tabindex="-1"></a>n        <span class="ot">&lt;-</span> <span class="fu">length</span>(data<span class="sc">$</span>Accounts)   <span class="co"># Antall observasjoner</span></span>
-<span id="cb2-4"><a href="chap-enpop.html#cb2-4" aria-hidden="true" tabindex="-1"></a>sigma    <span class="ot">&lt;-</span> <span class="dv">65</span>                      <span class="co"># Henter fra teksten</span></span>
-<span id="cb2-5"><a href="chap-enpop.html#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="chap-enpop.html#cb2-6" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> (gj.snitt <span class="sc">-</span> mu0)<span class="sc">/</span>(sigma<span class="sc">/</span><span class="fu">sqrt</span>(n))   <span class="co"># Verdien av testobservatoren</span></span>
-<span id="cb2-7"><a href="chap-enpop.html#cb2-7" aria-hidden="true" tabindex="-1"></a>Z                                       <span class="co"># Skriver ut testobservatoren</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="chap-enpop.html#cb3-1" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>Accounts)     <span class="co"># Gjennomsnittet av observasjonene</span></span>
+<span id="cb3-2"><a href="chap-enpop.html#cb3-2" aria-hidden="true" tabindex="-1"></a>mu0      <span class="ot">&lt;-</span> <span class="dv">170</span>                     <span class="co"># Henter fra teksten</span></span>
+<span id="cb3-3"><a href="chap-enpop.html#cb3-3" aria-hidden="true" tabindex="-1"></a>n        <span class="ot">&lt;-</span> <span class="fu">length</span>(data<span class="sc">$</span>Accounts)   <span class="co"># Antall observasjoner</span></span>
+<span id="cb3-4"><a href="chap-enpop.html#cb3-4" aria-hidden="true" tabindex="-1"></a>sigma    <span class="ot">&lt;-</span> <span class="dv">65</span>                      <span class="co"># Henter fra teksten</span></span>
+<span id="cb3-5"><a href="chap-enpop.html#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="chap-enpop.html#cb3-6" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> (gj.snitt <span class="sc">-</span> mu0)<span class="sc">/</span>(sigma<span class="sc">/</span><span class="fu">sqrt</span>(n))   <span class="co"># Verdien av testobservatoren</span></span>
+<span id="cb3-7"><a href="chap-enpop.html#cb3-7" aria-hidden="true" tabindex="-1"></a>Z                                       <span class="co"># Skriver ut testobservatoren</span></span></code></pre></div>
 <pre><code>## [1] 2.460462</code></pre>
 <p>Vi ser at testobservatoren har samme verdi som i Excel-gjennomgangen. Kritisk verdi finner vi fra tabell (ensidig, 5%), eller rett fra R:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="chap-enpop.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="chap-enpop.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## [1] 1.644854</code></pre>
 <p>Uansett; vi forkaster <span class="math inline">\(H_0\)</span> siden testobservatoren er større enn kritisk verdi.</p>
 <p>Kapittel <strong>11-3a-d</strong> gir enda mer forståelse for hypotesetesting. Hopp over e og f om du vil. Kapittel 11-4 snakker litt om hvordan vi skal bruke hypotesetesting videre.</p>
@@ -269,22 +270,22 @@ der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 &amp;H_0: \mu = 2.0 \\
 &amp;H_A: \mu &gt; 2.0,
 \end{align*}\]</span></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="chap-enpop.html#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm12-01.xlsx&quot;</span>)</span>
-<span id="cb6-2"><a href="chap-enpop.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="chap-enpop.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Manuell utregning</span></span>
-<span id="cb6-4"><a href="chap-enpop.html#cb6-4" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>Newspaper)</span>
-<span id="cb6-5"><a href="chap-enpop.html#cb6-5" aria-hidden="true" tabindex="-1"></a>mu0      <span class="ot">&lt;-</span> <span class="fl">2.0</span></span>
-<span id="cb6-6"><a href="chap-enpop.html#cb6-6" aria-hidden="true" tabindex="-1"></a>n        <span class="ot">&lt;-</span> <span class="fu">length</span>(data<span class="sc">$</span>Newspaper)</span>
-<span id="cb6-7"><a href="chap-enpop.html#cb6-7" aria-hidden="true" tabindex="-1"></a>s        <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>Newspaper)</span>
-<span id="cb6-8"><a href="chap-enpop.html#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="chap-enpop.html#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Testobservator:</span></span>
-<span id="cb6-10"><a href="chap-enpop.html#cb6-10" aria-hidden="true" tabindex="-1"></a>(gj.snitt <span class="sc">-</span> mu0)<span class="sc">/</span>(s<span class="sc">/</span><span class="fu">sqrt</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="chap-enpop.html#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm12-01.xlsx&quot;</span>)</span>
+<span id="cb7-2"><a href="chap-enpop.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="chap-enpop.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Manuell utregning</span></span>
+<span id="cb7-4"><a href="chap-enpop.html#cb7-4" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">mean</span>(data<span class="sc">$</span>Newspaper)</span>
+<span id="cb7-5"><a href="chap-enpop.html#cb7-5" aria-hidden="true" tabindex="-1"></a>mu0      <span class="ot">&lt;-</span> <span class="fl">2.0</span></span>
+<span id="cb7-6"><a href="chap-enpop.html#cb7-6" aria-hidden="true" tabindex="-1"></a>n        <span class="ot">&lt;-</span> <span class="fu">length</span>(data<span class="sc">$</span>Newspaper)</span>
+<span id="cb7-7"><a href="chap-enpop.html#cb7-7" aria-hidden="true" tabindex="-1"></a>s        <span class="ot">&lt;-</span> <span class="fu">sd</span>(data<span class="sc">$</span>Newspaper)</span>
+<span id="cb7-8"><a href="chap-enpop.html#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="chap-enpop.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Testobservator:</span></span>
+<span id="cb7-10"><a href="chap-enpop.html#cb7-10" aria-hidden="true" tabindex="-1"></a>(gj.snitt <span class="sc">-</span> mu0)<span class="sc">/</span>(s<span class="sc">/</span><span class="fu">sqrt</span>(n))</span></code></pre></div>
 <pre><code>## [1] 2.236869</code></pre>
 <p>Signifikansnivået er satt til <span class="math inline">\(\alpha = 1\%\)</span> i eksempelet. Kritisk verdi finner vi i <span class="math inline">\(t\)</span>-tabell eller rett fra R:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="chap-enpop.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.99</span>, <span class="at">df =</span> n<span class="dv">-1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="chap-enpop.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.99</span>, <span class="at">df =</span> n<span class="dv">-1</span>)</span></code></pre></div>
 <pre><code>## [1] 2.351983</code></pre>
 <p>Altså forkaster vi <strong>ikke</strong> nullhypotesen. Sjekk gjerne verdiene vi regnet ut over og se at de stemmer overens med det som står i boken. Alternativt bruker vi <code>t.test()</code>-funksjonen direkte:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="chap-enpop.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(data<span class="sc">$</span>Newspaper, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">mu =</span> <span class="fl">2.0</span>, <span class="at">conf.level =</span> <span class="fl">0.99</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="chap-enpop.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(data<span class="sc">$</span>Newspaper, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>, <span class="at">mu =</span> <span class="fl">2.0</span>, <span class="at">conf.level =</span> <span class="fl">0.99</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -304,13 +305,13 @@ der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 \end{align*}\]</span></p>
 <p>Testobservator:</p>
 <p><span class="math display">\[\chi^2 = \frac{(n-1)s^2}{\sigma_0^2}.\]</span></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="chap-enpop.html#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm12-03.xlsx&quot;</span>)</span>
-<span id="cb12-2"><a href="chap-enpop.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="chap-enpop.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Regner ut testobservatoren direkte denne gangen, uten å lagre tallene underveis:</span></span>
-<span id="cb12-4"><a href="chap-enpop.html#cb12-4" aria-hidden="true" tabindex="-1"></a>(<span class="fu">length</span>(data<span class="sc">$</span>Fills) <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span><span class="fu">var</span>(data<span class="sc">$</span>Fills)<span class="sc">/</span><span class="dv">1</span></span>
-<span id="cb12-5"><a href="chap-enpop.html#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="chap-enpop.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, ensidig test, nedre hale:</span></span>
-<span id="cb12-7"><a href="chap-enpop.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qchisq</span>(<span class="fl">0.05</span>, <span class="at">df =</span> <span class="fu">length</span>(data<span class="sc">$</span>Fills) <span class="sc">-</span> <span class="dv">1</span>)     </span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="chap-enpop.html#cb13-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm12-03.xlsx&quot;</span>)</span>
+<span id="cb13-2"><a href="chap-enpop.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="chap-enpop.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Regner ut testobservatoren direkte denne gangen, uten å lagre tallene underveis:</span></span>
+<span id="cb13-4"><a href="chap-enpop.html#cb13-4" aria-hidden="true" tabindex="-1"></a>(<span class="fu">length</span>(data<span class="sc">$</span>Fills) <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span><span class="fu">var</span>(data<span class="sc">$</span>Fills)<span class="sc">/</span><span class="dv">1</span></span>
+<span id="cb13-5"><a href="chap-enpop.html#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="chap-enpop.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, ensidig test, nedre hale:</span></span>
+<span id="cb13-7"><a href="chap-enpop.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">qchisq</span>(<span class="fl">0.05</span>, <span class="at">df =</span> <span class="fu">length</span>(data<span class="sc">$</span>Fills) <span class="sc">-</span> <span class="dv">1</span>)     </span></code></pre></div>
 <pre><code>## [1] 15.2</code></pre>
 <pre><code>## [1] 13.84843</code></pre>
 <p>Vi kan altså ikke forkaste nullhypotesen. Igjen, les eksempelet i sin fulle lengde i boken for å forstå bedre hva som skjer. Figur 12.4 viser på en fin måte hva tallene betyr.</p>
@@ -321,11 +322,11 @@ der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 \end{align*}\]</span></p>
 <p>Vi har en observert andel på <span class="math inline">\(\widehat p = 407/765 = 0.532\)</span> etter å ha spurt <span class="math inline">\(n = 765\)</span> personer. Testobservatoren er
 <span class="math display">\[Z = \frac{\widehat p - p}{\sqrt{p(1-p)/n}}.\]</span></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="chap-enpop.html#cb15-1" aria-hidden="true" tabindex="-1"></a>p.hatt <span class="ot">&lt;-</span> <span class="dv">407</span><span class="sc">/</span><span class="dv">765</span></span>
-<span id="cb15-2"><a href="chap-enpop.html#cb15-2" aria-hidden="true" tabindex="-1"></a>p0     <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb15-3"><a href="chap-enpop.html#cb15-3" aria-hidden="true" tabindex="-1"></a>n      <span class="ot">&lt;-</span> <span class="dv">765</span></span>
-<span id="cb15-4"><a href="chap-enpop.html#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="chap-enpop.html#cb15-5" aria-hidden="true" tabindex="-1"></a>(p.hatt <span class="sc">-</span> p0)<span class="sc">/</span><span class="fu">sqrt</span>(p0<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p0)<span class="sc">/</span>n)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="chap-enpop.html#cb16-1" aria-hidden="true" tabindex="-1"></a>p.hatt <span class="ot">&lt;-</span> <span class="dv">407</span><span class="sc">/</span><span class="dv">765</span></span>
+<span id="cb16-2"><a href="chap-enpop.html#cb16-2" aria-hidden="true" tabindex="-1"></a>p0     <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb16-3"><a href="chap-enpop.html#cb16-3" aria-hidden="true" tabindex="-1"></a>n      <span class="ot">&lt;-</span> <span class="dv">765</span></span>
+<span id="cb16-4"><a href="chap-enpop.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="chap-enpop.html#cb16-5" aria-hidden="true" tabindex="-1"></a>(p.hatt <span class="sc">-</span> p0)<span class="sc">/</span><span class="fu">sqrt</span>(p0<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p0)<span class="sc">/</span>n)</span></code></pre></div>
 <pre><code>## [1] 1.771599</code></pre>
 <p>Kritisk verdi for en ensidig z-test på 5% nivå er 1.645 (<code>qnorm(0.95)</code>), og vi kan forkaste nullhypotesen.</p>
 <p>Seksjonene <strong>12-3d-f</strong> bør leses på egen hånd, mens vi hopper over <strong>12-3g</strong>.</p>

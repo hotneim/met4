@@ -41,7 +41,7 @@ I et tradisjonelt kursopplegg ville forventet progresjon blitt definert av forel
 
 Vi har laget et forslag til progresjon i tabellen under. Kolonnen "jobbe med" refererer til avsnitt på denne siden som dere finner igjen i menyen til høyre. Der finnes også alle dataøvingene. Ukene med grønn farge betyr at vi har tid på datasal med studentassistenter (så sant vi kan møtes fysisk, ellers vil disse selvsagt gjennomføres digitalt). 
 
-Når det gjelder forelesningstiden vi som en hovedregel  bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (Se \@ref(seminar) for seminar oppgavene) og oversiktsforelesninger. Begge disse aktivitetene er fysiske i starten av semesteret, og vi håper at vi kan fortsette med det.
+Når det gjelder forelesningstiden vi som en hovedregel  bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (Se \@ref(seminar) for seminar oppgavene) og oversiktsforelesninger. Begge disse aktivitetene er fysiske i starten av semesteret, men vi er tilgjengelig på zoom under kontakttimene og oppgaveseminarene kan også følges over zoom.
 
 Legg merke til følgende viktige datoer:
 

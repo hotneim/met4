@@ -671,10 +671,8 @@ Hva sier dette resultatet oss om korrelasjon?
 
 \begin{equation*}
 \begin{split}
-\text{cov}(X,Y) &= E\left[(X - E(X))(Y - E(Y))\right] = E\left[(X - E(X))(X^2 - E(X^2))\right]\\
-&= E\left[X^3 - X\cdot E(X^2) - X^2\cdot E(X) + E(X)\cdot E(X^2) \right]\\
-&= E(X^3) - E(X)\cdot E(X^2) - E(X^2)\cdot E(X) + E(X)\cdot E(X^2)\\
-&= 0 - 0\cdot E(X^2) - E(X^2)\cdot 0 + 0\cdot E(X^2)=0
+\text{cov}(X,Y) &= E(XY) - E(X)E(Y)\\
+&= E(X^3)- E(X)E(X^2)= 0 + 0*E(X^2)=0
 \end{split}
 \end{equation*}
 

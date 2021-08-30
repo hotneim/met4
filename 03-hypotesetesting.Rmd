@@ -419,7 +419,9 @@ Noen kontrollspørsmål:
 
 ### Standard oppgaver
 
-1. For hvert av scenarioene A og B, gjør følgende:
+Introduksjon til hypotesetesting
+
+1. For hvert av scenarioene i a og b, gjør følgende:
   -	Sett opp relevant nullhypotese og alternativhypotese (hint: nullhypotese avhenger av hvor ‘bevisbyrden’ bør ligge)
   -	Definer type I-og type II-feil. 
   -	Diskuter konsekvensene av type I-feil og type II-feil i det aktuelle scenarioet. 
@@ -428,15 +430,103 @@ Noen kontrollspørsmål:
 
   b. Du blir presentert to ulike investeringer å velge mellom. En av dem er veldig risikabel, men med stor potensiell             profitt. Den andre er mindre risikabel, men med lavere potensiell profitt. 
 
+<details><summary>Løsning</summary>
+
+>a. $H_0$: Den nye medisinen er ikke trygg og effektiv. $H_1$: Den nye medisinen er trygg og effektiv. Type I-feil: Forkaste $H_0$ når $H_0$     er sann. Konsekvens: Risikerer at vi begynner å produsere en medisin som ikke er trygg og effektiv. Type II-feil: Forkaster *ikke* $H_0$     når $H_1$ er sann. Konsekvens: Vi lar være å produsere en medisin som faktisk er trygg og effektiv.
+>
+>Kommentar: Signifikansnivået ved produksjon av medisiner settes ofte lavt fordi konsekvensene av en type I-feil kan være svært alvorlige.
+
+
+>b. $H_0$: Den mest risikable investeringen er mest lønnsom. $H_1$: Den mest risikable investeringen er ikke mest lønnsom. Type I-feil:          Forkaste $H_0$ når $H_0$ er sann. Konsekvens:Vi investerer i den minst risikable investeringen, som ikke er mest lønnsom. Type II-feil:      Forkaster *ikke* $H_0$ når $H_1$ er sann. Konsekvens: Vi investerer i den mest risikable investeringen, som ikke er mest lønnsom.
+
+
+</details>
+
+2. Vi har følgende hypoteser og informasjon om dataene:
+
+   $H_0: \mu = 150$ mot $H_1: \mu \neq 150$.
+
+    $\sigma = 10$, $n =100$, $\bar{x} = 150$
+
+    Bestem verdi av testobservator, forkastelsesområde dersom signifikansnivået er $\alpha = 0.05$, og p-verdi. Konkluder.
+
+<details><summary>Løsning</summary>
+
+>Her er $\sigma$ kjent så vi kan bruke en z-observator. Forkastelsesområde $Z < -z_{0.025}=-1.96$ eller $Z> z_{0.025}=1.96$.
+>
+>$$Z = \frac{\bar{x} - \mu}{\sigma/\sqrt{n}} = \frac{150 - 150}{10/\sqrt{100}}=0$$
+>
+> p-verdi$=2P(Z > 0) = 2\times0.5=1$. Vi kan ikke forkaste nullhypotesen $H_0: \mu = 0$. Faktisk er det ekstremt sannsynlig (p-verdi = 1) å observere det vi har observert dersom nullhypotesen er sann. 
+
+</details>
+
+3. Vi har følgende hypoteser og informasjon om dataene:
+
+    $H_0: \mu = 60$ mot $H_1: \mu > 60$.
+
+    $\sigma = 20$, $n = 25$, $\bar{x} = 72$
+
+a.	Regn ut testobservatoren $Z$.
+
+b.	Regn ut p-verdi.
+
+c. 	Regn ut p-verdi, denne gangen med $\bar{x}$ = 68.
+
+d. 	Regn ut p-verdi, denne gangen med $\bar{x}$ = 64.
+
+e. 	Fastslå hva som skjer med verdien av testobservatoren (Z) og p-verdien når $\bar{x}$ nærmer seg $60$ (verdien av $\mu$ under $H_0$. 
+
+<details><summary>Løsning</summary>
+
+>a. $$Z = \frac{\bar{x} - \mu}{\sigma/\sqrt{n}} = \frac{72 - 60}{20/\sqrt{25}}=3$$
+>
+>b. $\text{p-verdi} = P(Z > 3.00) = 1 – P(Z<3) = 1 – 0.9987 = 0.0013$. Kommentar: Her kan du bruke `pnorm(3)` i R til å regne ut $P(Z<3)$.
+
+>c. Ny verdi av testobservator blir da $Z = 2$. 
+> $\text{p-verdi} = P(Z > 2.00) = 1 – 0.9772 = 0.0228$.
+
+> d. Ny verdi av testobservator blir da $Z = 1$. 
+> $\text{p-verdi} = P(Z > 1.00) = 1 – 0.8413 = 0.1587$.
+
+> e. Vi ser at testobservatoren minker og p-verdien øker når $\bar{x}$ nærmer seg $60$. 
+>
+>Forklaring: La $\mu_0 = 60$ være verdien av $\mu$ under $H_0$. Z-observatoren måler avviket mellom antagelsen under $H_0$ og dataene vi observerer og avtar derfor når vår observasjon av $\bar{x}$ nærmer seg $\mu_0$. P-verdien sier hvor sannsynlig det er å observere de dataene vi har dersom $H_0$ er sann og øker følgelig når $\bar{x}$ nærmer seg $\mu_0$.  
+
+</details>
+
+
+4. Annta at vi har følgende hypoteser og informasjon om dataene:
+
+    $H_0: \mu = 50$ mot $H_1: \mu > 50$.
+
+    $\sigma = 10$, $n = 40$, $\alpha = 0.05$
+
+    Bestem $\beta$, altså sannsynligheten for en type-II feil, under antagelsen at $\mu = 55$. 
+
+<details><summary>Løsning</summary>
+
+> Forkastningsområdet blir da
+>
+>$$Z = \frac{\bar{X} - 50}{10/\sqrt{40}} > Z_{0.05} = 1.645 $$
+>dvs at vi forkaster $H_0$ når
+> $$\bar{X} > 50 + 1.645\times\frac{10}{\sqrt{40}}=52.6$$
+>En type-II feil svarer til å *ikke* forkaste $H_0$ når $H_1$ er sann. For å regne på sannsynligheten for type-II feil må vi ikke bare anta at $H_1$ er sann, men være spesifike på hva verdien til $\mu$ er (i dette tilfellet 55). Vi lurer altså på hva sannsynligheten for at vi *ikke* er i forkastnings området ($\bar{X} < 52.6$) gitt at $\mu = 55$: 
+> \begin{equation*}
+\begin{split}
+\beta &= P(\bar{X} < 52.6\quad\text{gitt at $\mu = 55$})\\
+&= P(\frac{\bar{X} - 55}{10/\sqrt{40}} < \frac{52.6 - 55}{10/\sqrt{40}})\\
+&=P(Z < -1.52) = 0.064
+\end{split}
+\end{equation*}
+> Merk: Et begrep som ofte blir brukt om tester er *styrken* til testen $1-\beta$ som da er sannsynligheten for å forkaste $H_0$ når $H_1$ er sann. En god test har god (stor) styrke. Hadde vi gjentatt denne testen mange ganger ville vi ha forkastet $H_0$  i $(100 - 6.4)\% = 93.6\%$ av gangene dersom det faktisk er slik at sann $\mu$ er 55. 
+</details>
+
 
 ### Nøtter
 
 
 
 
-I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen).
-
-Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave.
 
   
   **Flere oppgaver kommer!**

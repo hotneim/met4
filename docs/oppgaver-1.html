@@ -173,7 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
-<li class="chapter" data-level="5.4" data-path="regneoppgaver.html"><a href="regneoppgaver.html"><i class="fa fa-check"></i><b>5.4</b> Regneoppgaver</a></li>
+<li class="chapter" data-level="5.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>5.4</b> Oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
 <ul>
@@ -227,7 +227,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="standard-oppgaver-1" class="section level3" number="3.5.1">
 <h3><span class="header-section-number">3.5.1</span> Standard oppgaver</h3>
 <ol style="list-style-type: decimal">
-<li>For hvert av scenarioene A og B, gjør følgende:</li>
+<li>For hvert av scenarioene i a og b, gjør følgende:</li>
 </ol>
 <ul>
 <li>Sett opp relevant nullhypotese og alternativhypotese (hint: nullhypotese avhenger av hvor ‘bevisbyrden’ bør ligge)</li>
@@ -238,11 +238,108 @@ Publisert ved hjelp av bookdown</a></li>
 <li><p>En ny type medisin skal vurderes for kommersialisering. Du sitter i et vurderingspanel som skal vurdere om medisinen kan bli godkjent eller ikke.</p></li>
 <li><p>Du blir presentert to ulike investeringer å velge mellom. En av dem er veldig risikabel, men med stor potensiell profitt. Den andre er mindre risikabel, men med lavere potensiell profitt.</p></li>
 </ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(H_0\)</span>: Den nye medisinen er ikke trygg og effektiv. <span class="math inline">\(H_1\)</span>: Den nye medisinen er trygg og effektiv. Type I-feil: Forkaste <span class="math inline">\(H_0\)</span> når <span class="math inline">\(H_0\)</span> er sann. Konsekvens: Risikerer at vi begynner å produsere en medisin som ikke er trygg og effektiv. Type II-feil: Forkaster <em>ikke</em> <span class="math inline">\(H_0\)</span> når <span class="math inline">\(H_1\)</span> er sann. Konsekvens: Vi lar være å produsere en medisin som faktisk er trygg og effektiv.</li>
+</ol>
+<p>Kommentar: Signifikansnivået ved produksjon av medisiner settes ofte lavt fordi konsekvensene av en type I-feil kan være svært alvorlige.</p>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(H_0\)</span>: Den mest risikable investeringen er mest lønnsom. <span class="math inline">\(H_1\)</span>: Den mest risikable investeringen er ikke mest lønnsom. Type I-feil: Forkaste <span class="math inline">\(H_0\)</span> når <span class="math inline">\(H_0\)</span> er sann. Konsekvens:Vi investerer i den minst risikable investeringen, som ikke er mest lønnsom. Type II-feil: Forkaster <em>ikke</em> <span class="math inline">\(H_0\)</span> når <span class="math inline">\(H_1\)</span> er sann. Konsekvens: Vi investerer i den mest risikable investeringen, som ikke er mest lønnsom.</li>
+</ol>
+</blockquote>
+</details>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Vi har følgende hypoteser og informasjon om dataene:</p>
+<p><span class="math inline">\(H_0: \mu = 150\)</span> mot <span class="math inline">\(H_1: \mu \neq 150\)</span>.</p>
+<p><span class="math inline">\(\sigma = 10\)</span>, <span class="math inline">\(n =100\)</span>, <span class="math inline">\(\bar{x} = 150\)</span></p>
+<p>Bestem verdi av testobservator, forkastelsesområde dersom signifikansnivået er <span class="math inline">\(\alpha = 0.05\)</span>, og p-verdi. Konkluder.</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Her er <span class="math inline">\(\sigma\)</span> kjent så vi kan bruke en z-observator. Forkastelsesområde <span class="math inline">\(Z &lt; -z_{0.025}=-1.96\)</span> eller <span class="math inline">\(Z&gt; z_{0.025}=1.96\)</span>.</p>
+<p><span class="math display">\[Z = \frac{\bar{x} - \mu}{\sigma/\sqrt{n}} = \frac{150 - 150}{10/\sqrt{100}}=0\]</span></p>
+<p>p-verdi<span class="math inline">\(=2P(Z &gt; 0) = 2\times0.5=1\)</span>. Vi kan ikke forkaste nullhypotesen <span class="math inline">\(H_0: \mu = 0\)</span>. Faktisk er det ekstremt sannsynlig (p-verdi = 1) å observere det vi har observert dersom nullhypotesen er sann.</p>
+</blockquote>
+</details>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Vi har følgende hypoteser og informasjon om dataene:</p>
+<p><span class="math inline">\(H_0: \mu = 60\)</span> mot <span class="math inline">\(H_1: \mu &gt; 60\)</span>.</p>
+<p><span class="math inline">\(\sigma = 20\)</span>, <span class="math inline">\(n = 25\)</span>, <span class="math inline">\(\bar{x} = 72\)</span></p></li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li><p>Regn ut testobservatoren <span class="math inline">\(Z\)</span>.</p></li>
+<li><p>Regn ut p-verdi.</p></li>
+<li><p>Regn ut p-verdi, denne gangen med <span class="math inline">\(\bar{x}\)</span> = 68.</p></li>
+<li><p>Regn ut p-verdi, denne gangen med <span class="math inline">\(\bar{x}\)</span> = 64.</p></li>
+<li><p>Fastslå hva som skjer med verdien av testobservatoren (Z) og p-verdien når <span class="math inline">\(\bar{x}\)</span> nærmer seg <span class="math inline">\(60\)</span> (verdien av <span class="math inline">\(\mu\)</span> under <span class="math inline">\(H_0\)</span>.</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math display">\[Z = \frac{\bar{x} - \mu}{\sigma/\sqrt{n}} = \frac{72 - 60}{20/\sqrt{25}}=3\]</span></p></li>
+<li><p><span class="math inline">\(\text{p-verdi} = P(Z &gt; 3.00) = 1 – P(Z&lt;3) = 1 – 0.9987 = 0.0013\)</span>. Kommentar: Her kan du bruke <code>pnorm(3)</code> i R til å regne ut <span class="math inline">\(P(Z&lt;3)\)</span>.</p></li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Ny verdi av testobservator blir da <span class="math inline">\(Z = 2\)</span>.
+<span class="math inline">\(\text{p-verdi} = P(Z &gt; 2.00) = 1 – 0.9772 = 0.0228\)</span>.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Ny verdi av testobservator blir da <span class="math inline">\(Z = 1\)</span>.
+<span class="math inline">\(\text{p-verdi} = P(Z &gt; 1.00) = 1 – 0.8413 = 0.1587\)</span>.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Vi ser at testobservatoren minker og p-verdien øker når <span class="math inline">\(\bar{x}\)</span> nærmer seg <span class="math inline">\(60\)</span>.</li>
+</ol>
+<p>Forklaring: La <span class="math inline">\(\mu_0 = 60\)</span> være verdien av <span class="math inline">\(\mu\)</span> under <span class="math inline">\(H_0\)</span>. Z-observatoren måler avviket mellom antagelsen under <span class="math inline">\(H_0\)</span> og dataene vi observerer og avtar derfor når vår observasjon av <span class="math inline">\(\bar{x}\)</span> nærmer seg <span class="math inline">\(\mu_0\)</span>. P-verdien sier hvor sannsynlig det er å observere de dataene vi har dersom <span class="math inline">\(H_0\)</span> er sann og øker følgelig når <span class="math inline">\(\bar{x}\)</span> nærmer seg <span class="math inline">\(\mu_0\)</span>.</p>
+</blockquote>
+</details>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Annta at vi har følgende hypoteser og informasjon om dataene:</p>
+<p><span class="math inline">\(H_0: \mu = 50\)</span> mot <span class="math inline">\(H_1: \mu &gt; 50\)</span>.</p>
+<p><span class="math inline">\(\sigma = 10\)</span>, <span class="math inline">\(n = 40\)</span>, <span class="math inline">\(\alpha = 0.05\)</span></p>
+<p>Bestem <span class="math inline">\(\beta\)</span>, altså sannsynligheten for en type-II feil, under antagelsen at <span class="math inline">\(\mu = 55\)</span>.</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Forkastningsområdet blir da</p>
+<p><span class="math display">\[Z = \frac{\bar{X} - 50}{10/\sqrt{40}} &gt; Z_{0.05} = 1.645 \]</span>
+dvs at vi forkaster <span class="math inline">\(H_0\)</span> når
+<span class="math display">\[\bar{X} &gt; 50 + 1.645\times\frac{10}{\sqrt{40}}=52.6\]</span>
+En type-II feil svarer til å <em>ikke</em> forkaste <span class="math inline">\(H_0\)</span> når <span class="math inline">\(H_1\)</span> er sann. For å regne på sannsynligheten for type-II feil må vi ikke bare anta at <span class="math inline">\(H_1\)</span> er sann, men være spesifike på hva verdien til <span class="math inline">\(\mu\)</span> er (i dette tilfellet 55). Vi lurer altså på hva sannsynligheten for at vi <em>ikke</em> er i forkastnings området (<span class="math inline">\(\bar{X} &lt; 52.6\)</span>) gitt at <span class="math inline">\(\mu = 55\)</span>:
+<span class="math display">\[\begin{equation*}
+\begin{split}
+\beta &amp;= P(\bar{X} &lt; 52.6\quad\text{gitt at $\mu = 55$})\\
+&amp;= P(\frac{\bar{X} - 55}{10/\sqrt{40}} &lt; \frac{52.6 - 55}{10/\sqrt{40}})\\
+&amp;=P(Z &lt; -1.52) = 0.064
+\end{split}
+\end{equation*}\]</span>
+Merk: Et begrep som ofte blir brukt om tester er <em>styrken</em> til testen <span class="math inline">\(1-\beta\)</span> som da er sannsynligheten for å forkaste <span class="math inline">\(H_0\)</span> når <span class="math inline">\(H_1\)</span> er sann. En god test har god (stor) styrke. Hadde vi gjentatt denne testen mange ganger ville vi ha forkastet <span class="math inline">\(H_0\)</span> i <span class="math inline">\((100 - 6.4)\% = 93.6\%\)</span> av gangene dersom det faktisk er slik at sann <span class="math inline">\(\mu\)</span> er 55.</p>
+</blockquote>
+</details>
 </div>
 <div id="nøtter-1" class="section level3" number="3.5.2">
 <h3><span class="header-section-number">3.5.2</span> Nøtter</h3>
-<p>I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon <a href="skoleeksamen.html#skoleeksamen">8.1</a>.</p>
-<p>Har du en eldre utgave av boken kan du laste ned <a href="oppgaver/Recommended%20excercises.doc">dette dokumentet</a> for en oversikt over oppgavenummer tilbake til 7. utgave.</p>
 <p><strong>Flere oppgaver kommer!</strong>
 <!-- **På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.** --></p>
 <!-- ```{r, echo = FALSE, message = FALSE} -->
