@@ -28,6 +28,8 @@ videoforelesninger-1
 kommentarer-1
 ekstra-øving-i-r
 oppgaver
+standard-oppgaver
+nøtter
 hypotesetesting
 generelt-om-hypotesetesting
 videoforelesninger-2
@@ -42,6 +44,8 @@ kjikvadrattester
 videoforelesninger-5
 kommentarer-5
 oppgaver-1
+standard-oppgaver-1
+nøtter-1
 regresjon
 enkel-regresjon
 videoforelesninger-6
@@ -73,7 +77,7 @@ forskjellige-parameteriseringer
 faste-effekter
 tilfeldige-effekter
 hausman-test
-regneoppgaver
+oppgaver-3
 oppgaver-om-logistisk-regresjon
 oppgaver-om-knn
 oppgaver-om-paneldata
@@ -136,8 +140,3 @@ regresjon-1
 tidsrekker-1
 r-etc.
 seminar
-standard-oppgaver
-nøtter
-standard-oppgaver-1
-nøtter-1
-oppgaver-3
