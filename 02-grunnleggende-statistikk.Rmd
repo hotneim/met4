@@ -442,16 +442,16 @@ ggplot(df) +
 14. La $X_1, X_2,\dots X_n$ være utfallet av en rekke kast med en tilfeldig terning.
 
   a. Hva er $P(X_1 = 1)$ og $P(X_1 = 6)$?
-  b. Hva er $P(\bar{X} = 1)$ og $P(\bar{X} = 6)$ dersom $n = 2$?
-  c. Hva er $P(\bar{X} = 1)$ og $P(\bar{X} = 6)$ dersom $n = 5$?
+  b. Hva er $P(\overline{X} = 1)$ og $P(\overline{X} = 6)$ dersom $n = 2$?
+  c. Hva er $P(\overline{X} = 1)$ og $P(\overline{X} = 6)$ dersom $n = 5$?
 
 <details><summary>Løsning</summary>
  
 >	a. $P(X_1 = 1) = P(X_2 = 6) = 1/6$
-  b. Det er bare en måte at gjennomsnittet av to kast kan bli $1$ og det er at begge kastene blir $1$: $P(\bar{X} = 1) = P(X_1 = 1, X_2 = 1) = P(X_1 = 1)P(X_2 = 1) = 1/36$, og tilsvarende for $P(\bar{X} = 6)$.
-  c.  Det er bare en måte at gjennomsnittet av 5 kast kan bli $1$ og det er at alle fem kastene blir $1$:$P(\bar{X} = 1) = P(X_1 = 1)P(X_2 = 1)P(X_3 = 1)P(X_4 = 1)P(X_5 = 1) = 0.00013$, og tilsvarende for $P(\bar{X} = 6)$.
+  b. Det er bare en måte at gjennomsnittet av to kast kan bli $1$ og det er at begge kastene blir $1$: $P(\overline{X} = 1) = P(X_1 = 1, X_2 = 1) = P(X_1 = 1)P(X_2 = 1) = 1/36$, og tilsvarende for $P(\overline{X} = 6)$.
+  c.  Det er bare en måte at gjennomsnittet av 5 kast kan bli $1$ og det er at alle fem kastene blir $1$:$P(\overline{X} = 1) = P(X_1 = 1)P(X_2 = 1)P(X_3 = 1)P(X_4 = 1)P(X_5 = 1) = 0.00013$, og tilsvarende for $P(\overline{X} = 6)$.
 
-> Denne oppgaven illustrerer hvordan gjennomsnittet, uavhengig av fordelingen til $X$ som i dette tilfellet er uniformt fordelt på ${1,2,3,4,5,6}$, er normalfordelt $\bar{X}\sim N(\mu, \sigma^2/n)$ og beveger seg mot forventningen til $X$ (som i dette tilfellet er $\mu = 3.5$). Det at variansen til gjennomsnittet $\sigma^2/n$ blir mindre når $n$ øker ser vi er svært logisk her: Det er værre for gjennomsnittet til terningkastene å oppnå "ekstreme" verdier som $\bar{X} = 1$ eller $\bar{X} = 6$ siden dette innebærer at alle kastene må enten være 1 eller 6. Derimot er det en hel rekke kombinasjoner av kast som gir et gjennomsnitt nær $3.5$, så slike verdier av gjennomsnittet er mye mer sannsynlig.  
+> Denne oppgaven illustrerer hvordan gjennomsnittet, uavhengig av fordelingen til $X$ som i dette tilfellet er uniformt fordelt på ${1,2,3,4,5,6}$, er normalfordelt $\overline{X}\sim N(\mu, \sigma^2/n)$ og beveger seg mot forventningen til $X$ (som i dette tilfellet er $\mu = 3.5$). Det at variansen til gjennomsnittet $\sigma^2/n$ blir mindre når $n$ øker ser vi er svært logisk her: Det er værre for gjennomsnittet til terningkastene å oppnå "ekstreme" verdier som $\overline{X} = 1$ eller $\overline{X} = 6$ siden dette innebærer at alle kastene må enten være 1 eller 6. Derimot er det en hel rekke kombinasjoner av kast som gir et gjennomsnitt nær $3.5$, så slike verdier av gjennomsnittet er mye mer sannsynlig.  
 
 >Under ser du et histogram over gjennomsnittene dersom vi gjentar terningkasteksperimentet med henholdsvis $n=1,2, 5$ kast 2000 ganger. Allerede for $n=5$ ser vi at de fleste gjennomsnitt ligger nær det sanne gjennomsnittet på 3.5.  
 
@@ -519,10 +519,10 @@ P(\hat{p} > 0.60) &= P\left(\frac{\hat{p} - p}{\sqrt{p(1 - p)/n}} > \frac{0.60 -
 
 <details><summary>Løsning</summary>
 
-> Vi vet da at $\bar{X}_1 - \bar{X}_2 > 0$ og utnytter at denne størrelsen er normalfordelt:
+> Vi vet da at $\overline{X}_1 - \overline{X}_2 > 0$ og utnytter at denne størrelsen er normalfordelt:
 \begin{equation*}
 \begin{split}
-P(\bar{X}_1 - \bar{X}_2 > 0) &= P\left(\frac{\bar{X}_1 - \bar{X}_2 - (40 - 38)}{\sqrt{\frac{6^2}{25} + \frac{8^2}{25}}} > \frac{0 - (40 - 38)}{\sqrt{\frac{6^2}{25} + \frac{8^2}{25}}} \right)\\
+P(\overline{X}_1 - \overline{X}_2 > 0) &= P\left(\frac{\overline{X}_1 - \overline{X}_2 - (40 - 38)}{\sqrt{\frac{6^2}{25} + \frac{8^2}{25}}} > \frac{0 - (40 - 38)}{\sqrt{\frac{6^2}{25} + \frac{8^2}{25}}} \right)\\
 &= P(Z > -1) = 1 - P(Z < -1) = 1 - 0.1587 = 0.8413
 \end{split}
 \end{equation*}
@@ -536,7 +536,7 @@ b. Kommenter påstanden til produsenten.
 
 <details><summary>Løsning</summary>
 
-> a. $$P(\bar{X} < 64) = P\left(\frac{\bar{X} - 65.5}{3.6/\sqrt{40}} < \frac{64 - 65.5}{3.6/\sqrt{40}}\right) = P(Z < - 2.63) = 0.004$$
+> a. $$P(\overline{X} < 64) = P\left(\frac{\overline{X} - 65.5}{3.6/\sqrt{40}} < \frac{64 - 65.5}{3.6/\sqrt{40}}\right) = P(Z < - 2.63) = 0.004$$
 b. Det er svært usannsynlig at vi observerer et gjennomsnitt mindre enn 64 dersom det er sant at maskinen produserer tuber som er normalfordelt med gjennomsnitt 65.5 og standardavvik 3.6. Så påstanden er nok feil. Enten produserer maskinen vekter som er mindre, eller så er standardavviket større.
 
 </details>
@@ -576,7 +576,7 @@ P(\hat{p}>0.06) &= P\left(\frac{\hat{p} - 0.04}{\sqrt{0.04(1-0.04)/300}}> \frac{
 
 19. Forventningsrette estimatorer.
 a. Hva vil det si at en estimator er forventningsrett?
-b. Vis at hvis $X_1, X_2,\dots X_n$ er observasjoner fra en populasjon der $E(X_i) = \mu$ så er gjennomsnittet $\bar{X}$ en forventningsrett estimator av $\mu$.
+b. Vis at hvis $X_1, X_2,\dots X_n$ er observasjoner fra en populasjon der $E(X_i) = \mu$ så er gjennomsnittet $\overline{X}$ en forventningsrett estimator av $\mu$.
 c. Vis at hvis $X$ er et binomisk forsøk med $n$ forsøk og suksessannsynlighet $p$ så er $\hat{p} = X/n$ en forventningsett estimator av $p$. 
 
 <details><summary>Løsning</summary>
@@ -585,7 +585,7 @@ c. Vis at hvis $X$ er et binomisk forsøk med $n$ forsøk og suksessannsynlighet
 b.
 \begin{equation*}
 \begin{split}
-E(\bar{X}) &= E\left(\frac{1}{n}(X_1 + X_2 + .. + X_n)\right) = \frac{1}{n}(E(X_1) + E(X_2) + ... + E(X_n))\\
+E(\overline{X}) &= E\left(\frac{1}{n}(X_1 + X_2 + .. + X_n)\right) = \frac{1}{n}(E(X_1) + E(X_2) + ... + E(X_n))\\
 &= \frac{1}{n}(\mu + \mu + ... + \mu) = \frac{1}{n}\cdot n\mu = \mu
 \end{split}
 \end{equation*}
@@ -595,7 +595,7 @@ $$E\left(\frac{X}{n}\right) = \frac{1}{n}E(X) = \frac{1}{n}\cdot np = p$$
 
 20. Konsistente estimatorer.
 a. Hva vil det si at en estimator er konsistent?
-b. Vis at hvis $X_1, X_2,\dots X_n$ er observasjoner fra en populasjon der $\text{Var}(X_i) = \sigma^2$ så er $\text{Var}(\bar{X}) = \sigma^2/n$. Bruk dette resultatet sammen med resultatet i 19 b til å forklare at $\bar{X}$ er en konsistent estimator av $\mu$.  
+b. Vis at hvis $X_1, X_2,\dots X_n$ er observasjoner fra en populasjon der $\text{Var}(X_i) = \sigma^2$ så er $\text{Var}(\overline{X}) = \sigma^2/n$. Bruk dette resultatet sammen med resultatet i 19 b til å forklare at $\overline{X}$ er en konsistent estimator av $\mu$.  
 c. Vis at hvis $X$ er et binomisk forsøk med $n$ forsøk og suksessannsynlighet $p$ så er $\text{Var}(\hat{p}) = p(1-p)/n$. Bruk dette resultatet sammen med resultatet fra 19 c til å forklare at $\hat{p}$ er en konsistent estimator av $p$. 
 
 <details><summary>Løsning</summary>
@@ -604,11 +604,11 @@ c. Vis at hvis $X$ er et binomisk forsøk med $n$ forsøk og suksessannsynlighet
 b.  
 \begin{equation*}
 \begin{split}
-\text{Var}(\bar{X}) &= \text{Var}\left(\frac{1}{n}(X_1 + X_2 + .. + X_n)\right) = \left(\frac{1}{n}\right)^2(\text{Var}(X_1) + \text{Var}(X_2) + \dots + \text{Var}(X_n))\\
+\text{Var}(\overline{X}) &= \text{Var}\left(\frac{1}{n}(X_1 + X_2 + .. + X_n)\right) = \left(\frac{1}{n}\right)^2(\text{Var}(X_1) + \text{Var}(X_2) + \dots + \text{Var}(X_n))\\
 &= \left(\frac{1}{n}\right)^2(\sigma^2 + \sigma^2 + ... + \sigma^2) = \left(\frac{1}{n}\right)^2\cdot n\sigma^2 = \frac{\sigma^2}{n}
 \end{split}
 \end{equation*}
-Vi vet fra før at $E(\bar{X}) = \mu$. Vi ser av utrykket over at variansen til $\bar{X}$ avtar når $n$ øker altså vil forskjellen mellom $\bar{X}$ og $\mu$ bli mindre jo større utvalg vi får. 
+Vi vet fra før at $E(\overline{X}) = \mu$. Vi ser av utrykket over at variansen til $\overline{X}$ avtar når $n$ øker altså vil forskjellen mellom $\overline{X}$ og $\mu$ bli mindre jo større utvalg vi får. 
 c. Vi husker at en binomisk variabel har varians $\text{Var}(X) = np(1 - p)$. Altså er 
 $$\text{Var}(\hat{p}) = \text{Var}\left(\frac{X}{n}\right) = \left(\frac{1}{n}\right)^2 \cdot\text{Var}(X) = \left(\frac{1}{n}\right)^2\cdot np(1 - p) = \frac{p(1 - p)}{n}$$
 Igjen ser vi at variansen avtar når $n$ øker altså vil forskjellen mellom $\hat{p}$ og $p$ bli mindre jo større utvalg vi får.
@@ -621,7 +621,7 @@ Igjen ser vi at variansen avtar når $n$ øker altså vil forskjellen mellom $\h
 
 Nøtt 1. Korrelasjon er enten knyttet til et bestemt utvalg, eller en populasjon/modell, men vi sier sjelden "utvalgskorrelasjon" eller "populasjonskorrelasjon" og vi må ofte bare forstå dette ut fra situasjonen eller notasjonen ($r$ versus $\rho$). Men utvalgskorrelasjonen  
 
-$$r = s_{xy}/(s_xs_y)=\frac{\frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\frac{1}{n-1}\sum_{i = 1}^n(x_i - \bar{x})^2\frac{1}{n-1}\sum_{i = 1}^n(y_i - \bar{y})^2}}$$
+$$r = s_{xy}/(s_xs_y)=\frac{\frac{1}{n-1}\sum_{i = 1}^n(x_i - \overline{x})(y_i - \overline{y})}{\sqrt{\frac{1}{n-1}\sum_{i = 1}^n(x_i - \overline{x})^2\frac{1}{n-1}\sum_{i = 1}^n(y_i - \overline{y})^2}}$$
 
 et altså en  *estimator* av populasjonskorrelasjonen 
 
@@ -702,10 +702,10 @@ og bruker regneregelen
 $$\sigma^2 = \text{Var}(X) = E(X^2) - (E(X))^2 = 1 - (-0.027)^2 = 0.999$$
 Sannsynligheten for positiv gevinst svarer til sannsynligheten for at ballen treffer rød, altså $18/37 = 0.4864$.
 
->b. Sentralgrenseteoremet sier at når vi spiller et relativt stort antall runder så er $\bar{X}$ normalfordelt med forventning $E(\bar{X}) = \mu = -0.027$ og varians $\text{Var}(\bar{X})=\sigma^2/n = 0.999/50 = 0.02$. Sannsynligheten for at den gjennomsnittlige gevinsten er positiv blir altså
+>b. Sentralgrenseteoremet sier at når vi spiller et relativt stort antall runder så er $\overline{X}$ normalfordelt med forventning $E(\overline{X}) = \mu = -0.027$ og varians $\text{Var}(\overline{X})=\sigma^2/n = 0.999/50 = 0.02$. Sannsynligheten for at den gjennomsnittlige gevinsten er positiv blir altså
 \begin{equation*}
 \begin{split}
-P(\bar{X}>0) &= P\left(\frac{\bar{X} - \mu}{\sigma^2/n} > \frac{0 - \mu}{\sigma^2/n}\right) = P\left(Z > \frac{0 - (-0.027)}{0.999/50}\right)\\
+P(\overline{X}>0) &= P\left(\frac{\overline{X} - \mu}{\sigma^2/n} > \frac{0 - \mu}{\sigma^2/n}\right) = P\left(Z > \frac{0 - (-0.027)}{0.999/50}\right)\\
 &= P(Z>1.35) = 1 - P(Z < 1.35) = 0.0885
 \end{split}
 \end{equation*}

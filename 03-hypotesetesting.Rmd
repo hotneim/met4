@@ -422,105 +422,277 @@ Noen kontrollspørsmål:
 Introduksjon til hypotesetesting
 
 1. For hvert av scenarioene i a og b, gjør følgende:
-  -	Sett opp relevant nullhypotese og alternativhypotese (hint: nullhypotese avhenger av hvor ‘bevisbyrden’ bør ligge)
-  -	Definer type I-og type II-feil. 
-  -	Diskuter konsekvensene av type I-feil og type II-feil i det aktuelle scenarioet. 
+   -	Sett opp relevant nullhypotese og alternativhypotese (hint: nullhypotese avhenger av hvor ‘bevisbyrden’ bør ligge)
+   -	Definer type I-og type II-feil. 
+   -	Diskuter konsekvensene av type I-feil og type II-feil i det aktuelle scenarioet. 
 
-  a. En ny type medisin skal vurderes for kommersialisering. Du sitter i et vurderingspanel som skal vurdere om medisinen kan     bli godkjent eller ikke. 
+   a. En ny type medisin skal vurderes for kommersialisering. Du sitter i et vurderingspanel som skal vurdere om medisinen kan     bli godkjent eller ikke. 
 
-  b. Du blir presentert to ulike investeringer å velge mellom. En av dem er veldig risikabel, men med stor potensiell             profitt. Den andre er mindre risikabel, men med lavere potensiell profitt. 
+   b. Du blir presentert to ulike investeringer å velge mellom. En av dem er veldig risikabel, men med stor potensiell             profitt. Den andre er mindre risikabel, men med lavere potensiell profitt. 
 
 <details><summary>Løsning</summary>
 
->a. $H_0$: Den nye medisinen er ikke trygg og effektiv. $H_1$: Den nye medisinen er trygg og effektiv. Type I-feil: Forkaste $H_0$ når $H_0$     er sann. Konsekvens: Risikerer at vi begynner å produsere en medisin som ikke er trygg og effektiv. Type II-feil: Forkaster *ikke* $H_0$     når $H_1$ er sann. Konsekvens: Vi lar være å produsere en medisin som faktisk er trygg og effektiv.
+> a. $H_0$: Den nye medisinen er ikke trygg og effektiv. $H_1$: Den nye medisinen er trygg og effektiv. Type I-feil: Forkaste $H_0$ når $H_0$     er sann. Konsekvens: Risikerer at vi begynner å produsere en medisin som ikke er trygg og effektiv. Type II-feil: Forkaster *ikke* $H_0$     når $H_1$ er sann. Konsekvens: Vi lar være å produsere en medisin som faktisk er trygg og effektiv.
 >
 >Kommentar: Signifikansnivået ved produksjon av medisiner settes ofte lavt fordi konsekvensene av en type I-feil kan være svært alvorlige.
 
 
->b. $H_0$: Den mest risikable investeringen er mest lønnsom. $H_1$: Den mest risikable investeringen er ikke mest lønnsom. Type I-feil:          Forkaste $H_0$ når $H_0$ er sann. Konsekvens:Vi investerer i den minst risikable investeringen, som ikke er mest lønnsom. Type II-feil:      Forkaster *ikke* $H_0$ når $H_1$ er sann. Konsekvens: Vi investerer i den mest risikable investeringen, som ikke er mest lønnsom.
+> b. $H_0$: Den mest risikable investeringen er mest lønnsom. $H_1$: Den mest risikable investeringen er ikke mest lønnsom. Type I-feil:          Forkaste $H_0$ når $H_0$ er sann. Konsekvens:Vi investerer i den minst risikable investeringen, som ikke er mest lønnsom. Type II-feil:      Forkaster *ikke* $H_0$ når $H_1$ er sann. Konsekvens: Vi investerer i den mest risikable investeringen, som ikke er mest lønnsom.
 
 
 </details>
 
-2. Vi har følgende hypoteser og informasjon om dataene:
+2. Vi har følgende hypoteser og informasjon om dataene: $H_0: \mu = 150$ mot $H_1: \mu \neq 150$. $\sigma = 10$, $n =100$, $\overline{x} = 150$.
 
-   $H_0: \mu = 150$ mot $H_1: \mu \neq 150$.
-
-    $\sigma = 10$, $n =100$, $\bar{x} = 150$
-
-    Bestem verdi av testobservator, forkastelsesområde dersom signifikansnivået er $\alpha = 0.05$, og p-verdi. Konkluder.
+   Bestem verdi av testobservator, forkastelsesområde dersom signifikansnivået er $\alpha = 0.05$, og p-verdi. Konkluder.
 
 <details><summary>Løsning</summary>
 
 >Her er $\sigma$ kjent så vi kan bruke en z-observator. Forkastelsesområde $Z < -z_{0.025}=-1.96$ eller $Z> z_{0.025}=1.96$.
 >
->$$Z = \frac{\bar{x} - \mu}{\sigma/\sqrt{n}} = \frac{150 - 150}{10/\sqrt{100}}=0$$
+>$$Z = \frac{\overline{x} - \mu}{\sigma/\sqrt{n}} = \frac{150 - 150}{10/\sqrt{100}}=0$$
 >
 > p-verdi$=2P(Z > 0) = 2\times0.5=1$. Vi kan ikke forkaste nullhypotesen $H_0: \mu = 0$. Faktisk er det ekstremt sannsynlig (p-verdi = 1) å observere det vi har observert dersom nullhypotesen er sann. 
 
 </details>
 
-3. Vi har følgende hypoteser og informasjon om dataene:
+3. Vi har følgende hypoteser og informasjon om dataene: $H_0: \mu = 55$ mot $H_1: \mu > 55$.
+  $\sigma = 20$, $n = 25$, $\overline{x} = 67$.
 
-    $H_0: \mu = 60$ mot $H_1: \mu > 60$.
+    a.	Regn ut testobservatoren $Z$.
 
-    $\sigma = 20$, $n = 25$, $\bar{x} = 72$
+    b.	Regn ut p-verdi.
 
-a.	Regn ut testobservatoren $Z$.
+    c. 	Regn ut p-verdi, denne gangen med $\overline{x}$ = 63.
 
-b.	Regn ut p-verdi.
+    d. 	Regn ut p-verdi, denne gangen med $\overline{x}$ = 59.
 
-c. 	Regn ut p-verdi, denne gangen med $\bar{x}$ = 68.
-
-d. 	Regn ut p-verdi, denne gangen med $\bar{x}$ = 64.
-
-e. 	Fastslå hva som skjer med verdien av testobservatoren (Z) og p-verdien når $\bar{x}$ nærmer seg $60$ (verdien av $\mu$ under $H_0$. 
+    e. 	Fastslå hva som skjer med verdien av testobservatoren (Z) og p-verdien når $\overline{x}$ nærmer seg $55$ (verdien av $\mu$ under $H_0$). 
 
 <details><summary>Løsning</summary>
 
->a. $$Z = \frac{\bar{x} - \mu}{\sigma/\sqrt{n}} = \frac{72 - 60}{20/\sqrt{25}}=3$$
+> a. $$Z = \frac{\overline{x} - \mu}{\sigma/\sqrt{n}} = \frac{67 - 55}{20/\sqrt{25}}=3$$
 >
->b. $\text{p-verdi} = P(Z > 3.00) = 1 – P(Z<3) = 1 – 0.9987 = 0.0013$. Kommentar: Her kan du bruke `pnorm(3)` i R til å regne ut $P(Z<3)$.
-
->c. Ny verdi av testobservator blir da $Z = 2$. 
+> b. $\text{p-verdi} = P(Z > 3.00) = 1 – P(Z<3) = 1 – 0.9987 = 0.0013$. Kommentar: Her kan du bruke `pnorm(3)` i R til å regne ut $P(Z<3)$.
+>
+> c. Ny verdi av testobservator blir da $Z = 2$. 
 > $\text{p-verdi} = P(Z > 2.00) = 1 – 0.9772 = 0.0228$.
-
+>
 > d. Ny verdi av testobservator blir da $Z = 1$. 
 > $\text{p-verdi} = P(Z > 1.00) = 1 – 0.8413 = 0.1587$.
-
-> e. Vi ser at testobservatoren minker og p-verdien øker når $\bar{x}$ nærmer seg $60$. 
 >
->Forklaring: La $\mu_0 = 60$ være verdien av $\mu$ under $H_0$. Z-observatoren måler avviket mellom antagelsen under $H_0$ og dataene vi observerer og avtar derfor når vår observasjon av $\bar{x}$ nærmer seg $\mu_0$. P-verdien sier hvor sannsynlig det er å observere de dataene vi har dersom $H_0$ er sann og øker følgelig når $\bar{x}$ nærmer seg $\mu_0$.  
+> e. Vi ser at testobservatoren minker og p-verdien øker når $\overline{x}$ nærmer seg $55$. 
+>
+>Forklaring: La $\mu_0 = 55$ være verdien av $\mu$ under $H_0$. Z-observatoren måler avviket mellom antagelsen under $H_0$ og dataene vi observerer og avtar derfor når vår observasjon av $\overline{x}$ nærmer seg $\mu_0$. P-verdien sier hvor sannsynlig det er å observere de dataene vi har dersom $H_0$ er sann og øker følgelig når $\overline{x}$ nærmer seg $\mu_0$.  
 
 </details>
 
 
-4. Annta at vi har følgende hypoteser og informasjon om dataene:
+4. Annta at vi har følgende hypoteser og informasjon om dataene: $H_0: \mu = 50$ mot $H_1: \mu > 50$. $\sigma = 10$, $n = 40$, $\alpha = 0.05$.
 
-    $H_0: \mu = 50$ mot $H_1: \mu > 50$.
-
-    $\sigma = 10$, $n = 40$, $\alpha = 0.05$
-
-    Bestem $\beta$, altså sannsynligheten for en type-II feil, under antagelsen at $\mu = 55$. 
+   Bestem $\beta$, altså sannsynligheten for en type-II feil, under antagelsen at $\mu = 55$. 
 
 <details><summary>Løsning</summary>
 
 > Forkastningsområdet blir da
 >
->$$Z = \frac{\bar{X} - 50}{10/\sqrt{40}} > Z_{0.05} = 1.645 $$
+>$$Z = \frac{\overline{X} - 50}{10/\sqrt{40}} > Z_{0.05} = 1.645 $$
 >dvs at vi forkaster $H_0$ når
-> $$\bar{X} > 50 + 1.645\times\frac{10}{\sqrt{40}}=52.6$$
->En type-II feil svarer til å *ikke* forkaste $H_0$ når $H_1$ er sann. For å regne på sannsynligheten for type-II feil må vi ikke bare anta at $H_1$ er sann, men være spesifike på hva verdien til $\mu$ er (i dette tilfellet 55). Vi lurer altså på hva sannsynligheten for at vi *ikke* er i forkastnings området ($\bar{X} < 52.6$) gitt at $\mu = 55$: 
+> $$\overline{X} > 50 + 1.645\times\frac{10}{\sqrt{40}}=52.6$$
+>En type-II feil svarer til å *ikke* forkaste $H_0$ når $H_1$ er sann. For å regne på sannsynligheten for type-II feil må vi ikke bare anta at $H_1$ er sann, men være spesifike på hva verdien til $\mu$ er (i dette tilfellet 55). Vi lurer altså på hva sannsynligheten for at vi *ikke* er i forkastnings området ($\overline{X} < 52.6$) gitt at $\mu = 55$: 
 > \begin{equation*}
 \begin{split}
-\beta &= P(\bar{X} < 52.6\quad\text{gitt at $\mu = 55$})\\
-&= P(\frac{\bar{X} - 55}{10/\sqrt{40}} < \frac{52.6 - 55}{10/\sqrt{40}})\\
+\beta &= P(\overline{X} < 52.6\quad\text{gitt at $\mu = 55$})\\
+&= P(\frac{\overline{X} - 55}{10/\sqrt{40}} < \frac{52.6 - 55}{10/\sqrt{40}})\\
 &=P(Z < -1.52) = 0.064
 \end{split}
 \end{equation*}
 > Merk: Et begrep som ofte blir brukt om tester er *styrken* til testen $1-\beta$ som da er sannsynligheten for å forkaste $H_0$ når $H_1$ er sann. En god test har god (stor) styrke. Hadde vi gjentatt denne testen mange ganger ville vi ha forkastet $H_0$  i $(100 - 6.4)\% = 93.6\%$ av gangene dersom det faktisk er slik at sann $\mu$ er 55. 
+
 </details>
 
+5.  En leder frykter at den gjennomsnittlige tiden ansatte daglig bruker på sosiale medier overstiger 45 minutter. For å teste denne mistanken, plukker han ut et tilfeldig utvalg på 15 personer, og spør om tid brukt på sosiale medier etter en tilfeldig arbeidsdag. Resultatene er oppsummert nedenfor. 
+
+          70, 96, 58, 88, 34, 42, 34, 56, 68, 46, 26, 18, 22, 60, 84
+
+    a. Hvis samlingen av tider er normalfordelt med standardavvik på 20 minutter, kan lederen hevde at mistanken hans stemmer på et 1 % signifikans-nivå?
+
+    b. Tror du observasjonene over er et representativt utvalg? Hva kunne lederen gjort annerledes?
+
+<details><summary>Løsning</summary>
+
+>   a. Lederen ønsker altså å teste $H_0: \mu = 45$ mot alternativ hypotesen $H_1: \mu > 45$. Testobservatoren er da gitt ved 
+>
+>$$Z = \frac{\overline{X} - \mu_0}{\sigma/\sqrt{n}} = \frac{53.46 - 45}{20/\sqrt{15}} = 1.64$$ 
+>
+>Sannsynligheten for å observerer noe minst like ekstremt og til fordel for $H_1$ (p-verdien) er da
+>
+>$$P-verdi = P(Z > 1.645) \approx 0.05 > 0.01$$.
+>
+> Lederen kan altså ikke trekke denne konklusjonen på 1 % signifikansnivå. For å forkaste null hypotesen på et 1 % signifikansnivå, måtte vi hatt p-verdi lavere enn 1 %. 
+>
+>   b. Dersom lederen spør ansatte fjes til fjes er det nærliggende å tro at de ansatte vil underdrive sin bruk av sosiale medier. En anonym spørreundersøkelse ville nok gitt et mer representativt utvalg.
+
+</details>
+
+6. Gjennomsnitt og standardavvik i et utvalg på $n=100$ er $\overline{x} = 20$ og $s = 2$.
+
+    a. Finn 95 % konfidensintervall av gjennomsnitt ($\mu$) i populasjonen.
+
+    b. Gjenta a. med $s = 5$.
+
+    c. Gjenta a. med $s = 10$.
+
+    d. Fastslå hvordan det estimerte konfidensintervallet endrer seg når vi øker $s$.
+
+    e. Anta at $s=5$ og regn et 95 % konfidensintervall dersom størrelsen på utvalget er henholdsvis $n = 50$ og $n=10$. 
+
+    f. Fastlå hvordan det estimerte konfidensintervallet endrer seg når vi øker $n$.
+
+<details><summary>Løsning</summary>
+
+>   a. $$\overline{x} \pm t_{\alpha/2, n - 1}s/\sqrt{n} = 20 \pm 1.984\times 2/\sqrt{100} = [19.60 ,20.40]$$
+>
+>   b. $$ 20 \pm 1.984\times 5/\sqrt{100} = [19.01 ,20.99]$$
+> 
+>   c. $$ 20 \pm 1.984\times 10/\sqrt{100} = [18.02 ,21.98]$$
+>
+>   d. Konfidensintervallet blir større når $s$ øker.
+> 
+>   e. $$\overline{x} \pm t_{\alpha/2, n - 1}s/\sqrt{n} = 20 \pm 2.09\times 5/\sqrt{50} = [18.58 ,21.42]$$
+>    $$\overline{x} \pm t_{\alpha/2, n - 1}s/\sqrt{n} = 20 \pm 2.26\times 5/\sqrt{10} = [16.42 ,23.58]$$
+>   
+>   f. Vi ser at jo større $n$ er jo mindre blir konfidensintervallet. Flere observasjoner gjør at vi med større sikkerhet (smalere intervall) kan si hvor $\mu$ ligger.  
+
+</details>
+
+7. Med sterkt fall i flyreiser og passasjerer på grunn av koronakrisen virker det sannsynlig at det blir færre forsinkelser i flytrafikken. Før krisen hevdet et flyselskap at de landet presist 92 % av flyreisene. I et tilfeldig utvalg flyreiser hos det samme selskapet under krisen ble 143 av 165 vurdert til å være presise. Kan vi konkludere på 5 % signifikansnivå at det er færre forsinkelser under koronakrisen? 
+
+
+<details><summary>Løsning</summary>
+>La $p$ være den sanne andelen av flyreiser som blir forsinket under krisen. Vi skal da teste $H_0: p = 0.92$ mot $H_1: p < 0.92$. Vårt estimat på $p$ er $\hat{p}=148/165 \approx 0.90$ og testobservatoren er gitt ved
+
+>$$z = \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)/n}} = \frac{0.90 - 0.92}{\sqrt{0.92(1 - 0.92)/165}} \approx -0.80$$
+>Dersom vi bruker kritisk verdi ville forkastningsområdet vært $z < -1.645$ og siden $z> -1.645$ kan vi altså ikke forkaste $H_0$. Alternativt kan vi regne ut p-verdien som er "sannsynligheten for det vi har observert eller noe enda mer til fordel for $H_1$. En enda mer negativ verdi enn -0.80 ville vært til fordel for $H_1$, derfor er 
+
+>$$p-verdi = P(Z < - 0.8) = 0.21$$
+>og vi derfor *ikke* forkaste $H_0$ siden p-verdien *ikke* er mindre enn 0.05.
+
+</details>
+
+8. Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: $\overline{x}_1 = 400$, $s_1 = 100$, $n_1 = 130$, $\overline{x}_2 = 390$, $s_2 = 50$, $n_2 = 130$. 
+
+ a.	Kan vi hevde på et 5 % signifikansnivå at $\mu_1$ er større enn $\mu_2$? Det oppgis at
+    
+  $$\nu =  \frac{\left(\frac{s^2_{1}}{n_1} + \frac{s^2_{2}}{n_2}\right)^2}{\left(\frac{s^2_{1}}{n_1}\right)^2/(n_1 - 1) + \left(\frac{s^2_{2}}{n_2}\right)^2/(n_2 - 1)}\approx 166$$
+
+ b.  Gjenta a., denne gangen med $s_1 = 30$ og $s_2 = 15$. Som over, oppgis det at $\nu \approx 190$.  
+	 
+ c.  Fastslå hva som skjer hvis utvalgenes standardavvik blir mindre.
+	  
+ d.  Gjenta a., denne gangen med utvalg på $n_1 = n_2 = 20$ observasjoner. Som over, oppgis det at $\nu \approx 28$. 
+	  
+ e.  Fastslå effekten av å redusere utvalgsstørrelser. 
+	  
+<details><summary>Løsning</summary>
+
+a. Vi skal altså teste $H_0: \mu_1 - \mu_2 = 0$ mot $H_1: \mu_1 - \mu_2 > 0$. Siden variansene i utvalget er såpass ulike antar vi at vi må bruke varianten av testen med ulik varians. Testobservatoren er da gitt ved
+
+$$T = \frac{\overline{x}_1 - \overline{x}_2 - 0}{\sqrt{\frac{s^2_{1}}{n_1} + \frac{s^2_{2}}{n_2}}}=\frac{400 - 390}{\sqrt{\frac{130^2}{130} + \frac{50^2}{130}}} = 0.82$$
+Antall frihetsgrader oppgis til å være $v \approx 166$. Vi forkaster $H_0$ dersom $T > t_{0.05, 166} = 1.654$, og siden dette *ikke* er tilfelle her kan vi *ikke* forkaste $H_0$ ved 5 % signifikansnivå. 
+
+b. Testobservatoren blir i dette tilfellet
+
+$$T = \frac{\overline{x}_1 - \overline{x}_2 - 0}{\sqrt{\frac{s^2_{1}}{n_1} + \frac{s^2_{2}}{n_2}}}=\frac{400 - 390}{\sqrt{\frac{30^2}{130} + \frac{15^2}{130}}} = 3.40$$
+Antall frihetsgrader oppgis til å være $v \approx 190$. Siden $T = 3.40 > t_{0.05, 190} = 1.653$ forkaster vi $H_0$ på 5 % signifikansnivå.   
+
+c. Når standardavvikene i utvalgene blir mindre øker verdien av testobservatoren. Mindre standardavvik betyr at vi er mer sikre på at $\overline{x}_1 - \overline{x}_2$ ligger nær $\mu_1 - \mu_2$, og at en evt. differanse kan tyde på avvik fra $H_0$. Dette blir reflektert av en større testobservator. 
+
+d. Testobservatoren blir da
+
+$$T = \frac{\overline{x}_1 - \overline{x}_2 - 0}{\sqrt{\frac{s^2_{1}}{n_1} + \frac{s^2_{2}}{n_2}}}=\frac{400 - 390}{\sqrt{\frac{130^2}{20} + \frac{50^2}{20}}} = 0.40$$
+Antall frihetsgrader oppgis til å være $v \approx 28$. Vi forkaster $H_0$ dersom $T > t_{0.05, 28} = 1.701$, og siden dette *ikke* er tilfelle her kan vi *ikke* forkaste $H_0$ ved 5 % signifikansnivå. 
+
+e.  Få observasjoner representerer større usikkerhet om differansen $\overline{x}_1 - \overline{x}_2$ bare skyldes tilfeldighet, og dette reflekteres av testobservatoren som vil synke når utvalgsstørrelsen reduseres.
+
+<!-- m1 <- 400 -->
+<!-- m2 <- 390 -->
+<!-- s1 <- 100 -->
+<!-- s2 <- 50 -->
+<!-- n1  <- n2 <- 20 -->
+<!-- t <- (m1 - m2)/sqrt(s1^2/n1 + s2^2/n2) -->
+<!-- v <- (s1^2/n1 + s2^2/n2)^2/((s1^2/n1)^2/(n1 - 1) + (s2^2/n2)^2/(n2 - 1)) -->
+<!-- qt(0.95, v) -->
+
+</details>
+
+9. Et nystartet firma har utviklet to løsninger for automatisk registrering av av antall lus på oppdrettslaks. Metode A er litt dyrere enn metode B, men firmaet mener Metode A en den raskeste metoden. For å teste ut denne hypotesen blir begge metodene brukt til å registrere lus på 11 basseng av ulik størrelse og med forskjellig antall fisk. Antall minutter hver metode tar blir registrert for hvert basseng. 
+
+    a. Under er det gitt en R-utskrift fra en to-utvalgs t-test. Still opp nullhypotesen og den alternative hypotesen i samsvar med R-utskriften. Bruk også utskriften til å formulere en konklusjon for en test med 5% signifikansnivå.
+
+```{r,echo=F}
+set.seed(2)
+mu1 <- 80
+mu2 <- 75
+sigma1 <- 15
+n <- 11
+t_kritisk <- 2.228
+mu0 <- 90
+metodeB <- rnorm(n, mean = mu1, sd = sigma1)
+barmetodeB <- round(mean(metodeB), 2)
+sdmetodeB <- round(sd(metodeB), 2)
+lower <- round(barmetodeB - t_kritisk*sdmetodeB/sqrt(n), 2)
+upper <- round(barmetodeB + t_kritisk*sdmetodeB/sqrt(n), 2)
+t <- round((barmetodeB - 90)/(sdmetodeB/sqrt(n)), 2)
+metodeA <- metodeB - rnorm(n, mean = 10, sd = 5)
+d <- metodeB - metodeA
+bard <- round(mean(d), 2)
+sdd <- round(sd(d), 2)
+t2 <- round((bard - 0)/(sdd/sqrt(n)),2)
+t_kritisk2 <- 1.812
+
+t.test(metodeB, metodeA, alternative = "greater")
+```
+  b. Under er det gitt en R-utskrift fra en paret t-test for de samme dataene. Still opp nullhypotesen og den alternative hypotesen i samsvar med R-utskriften. Formuler testobservatoren og bruk også utskriften til å formulere en konklusjon for en test med 5% signifikansnivå.
+    
+```{r, echo=F}
+t.test(metodeB, metodeA, paired = TRUE, alternative = "greater" )
+```
+
+c. Hvilke av de to foregående testene bør en bruke i dette tilfellet? 
+
+<details><summary>Løsning</summary>
+a. La $\mu_1$ og $\mu_2$ være forventet tid til registrering av lus i et basseng for hhv metode B og metode A. Da er R-utskriften en test av $H_0: \mu_1 - \mu_2 = 0$ mot det enside alternativet $H_1: \mu_1-\mu_2 > 0$. Fra utskriften ser vi at $p-value= 0.06164 > 0.05$, altså kan vi ikke forkaste $H_0$ ved $5\%$ signifikansnivå.
+
+Praktisk tolkning: Vi kan ikke konkludere med at det er noe forskjell i tiden de to metodene bruker.
+
+b.I en paret t-test baserer vil testen på de parvise differansene $d_i = x_i - y_i$, der $x_i$ og $y_i$ er tiden hhv metode B og A bruker på å registrere lus i basseng nr. i. Utskriften viser en test av $H_0: \mu_d = 0$ mot det ensidige alternativet $H_1: \mu_d > 0$. Testobservatoren er da gitt ved
+
+ $$T=\frac{\overline{d}-0}{s_d/\sqrt{n}}$$ 
+ Fra utskriften ser vi at $p-value= 0.0001409 < 0.05$, altså kan vi forkaste $H_0$ ved $5\%$ signifikansnivå.
+
+Praktisk tolkning: Det ser ut til at metode A er raskere enn metode B.
+
+c. En paret t-test er generelt det riktige valget dersom observasjonene som blir "paret" er avhengige. I dette tilfellet er det naturlig å tro at tiden metode A og B bruker på et basseng er avhengige størrelser (f.eks vil et basseng med mye fisk ta lang tid å registrere for begge metodene). I en to-utvalgs t-test antar vi derimot at tiden det tar for metode A og B å registrere lus for et basseng er uavhengige. 
+
+
+</details>
+
+<!-- 10. Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: $s_{1}^2 = 1400$,	$n_1 = 60$,		$s_{2}^2 = 700$,	$n_2 = 60$.  -->
+
+<!--     a.	Kan vi hevde at de to utvalgene har ulik varians? Bruk 10 % signifikansnivå.  -->
+
+<!--     b. 	Gjenta a., denne gangen med $n_1 = 30$ og $n_2 = 30$.  -->
+
+<!-- 	  c. Fastslå hva som er effekten på verdi av testobservator og konklusjon av testen når vi reduserer           utvalgsstørrelse.  -->
+
+<!-- <details><summary>Løsning</summary> -->
+<!-- a. Her ønsker vi å test $H_0: \sigma_{1}^2/\sigma_{2}^2 = 1$ mot $H_1: \sigma_{1}^2/\sigma_{2}^2 \neq 1$. Testobservatoren er gitt ved -->
+
+<!-- $$F = s_{1}^2/s_{2}^2 = 1400/700 = 2$$ -->
+
+
+</details>
 
 ### Nøtter
 
