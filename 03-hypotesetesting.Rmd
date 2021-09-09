@@ -678,13 +678,13 @@ c. En paret t-test er generelt det riktige valget dersom observasjonene som blir
 
 </details>
 
-<!-- 10. Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: $s_{1}^2 = 1400$,	$n_1 = 60$,		$s_{2}^2 = 700$,	$n_2 = 60$.  -->
+<!-- 10. Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: $s_{1}^2 = 1400$,	$n_1 = 60$,		$s_{2}^2 = 700$,	$n_2 = 60$. -->
 
-<!--     a.	Kan vi hevde at de to utvalgene har ulik varians? Bruk 10 % signifikansnivå.  -->
+<!--     a.	Kan vi hevde at de to utvalgene har ulik varians? Bruk 5 % signifikansnivå. -->
 
-<!--     b. 	Gjenta a., denne gangen med $n_1 = 30$ og $n_2 = 30$.  -->
+<!--     b. 	Gjenta a., denne gangen med $n_1 = 30$ og $n_2 = 30$. -->
 
-<!-- 	  c. Fastslå hva som er effekten på verdi av testobservator og konklusjon av testen når vi reduserer           utvalgsstørrelse.  -->
+<!-- 	  c. Fastslå hva som er effekten på verdi av testobservator og konklusjon av testen når vi reduserer           utvalgsstørrelse. -->
 
 <!-- <details><summary>Løsning</summary> -->
 <!-- a. Her ønsker vi å test $H_0: \sigma_{1}^2/\sigma_{2}^2 = 1$ mot $H_1: \sigma_{1}^2/\sigma_{2}^2 \neq 1$. Testobservatoren er gitt ved -->
@@ -692,7 +692,7 @@ c. En paret t-test er generelt det riktige valget dersom observasjonene som blir
 <!-- $$F = s_{1}^2/s_{2}^2 = 1400/700 = 2$$ -->
 
 
-</details>
+<!-- </details> -->
 
 ### Nøtter
 

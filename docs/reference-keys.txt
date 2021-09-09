@@ -140,3 +140,4 @@ regresjon-1
 tidsrekker-1
 r-etc.
 seminar
+tid-og-sted-for-grupper

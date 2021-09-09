@@ -1,5 +1,5 @@
 --- 
-title: "MET4 - Empiriske Metoder - Vår 2021"
+title: "MET4 - Empiriske Metoder - Høst 2021"
 author: "Håkon Otneim og Geir Drage Berentsen"
 site: bookdown::bookdown_site
 output: 
@@ -65,6 +65,23 @@ readxl::read_excel("diverse/tidsplan-H21.xlsx") %>%
 ```
 
 *Passord til Zoom finner du på kursets Canvas-side.*
+
+
+### Tid og sted for grupper
+
+```{r, echo = F, message = FALSE, warning = FALSE}
+options(knitr.kable.NA = '')
+library(dplyr)
+library(kableExtra)
+
+readxl::read_excel("diverse/grupper.xlsx") %>% 
+  kbl() %>%
+  kable_styling(bootstrap_options = c("condensed", "hover"),
+                fixed_thead = T) 
+# %>%
+  # row_spec(c(3, 5, 7, 9) , background = "#2E8B5750") #%>% 
+  # row_spec(11, bold = T, background = "DarkRed", color = "white")
+```
 
 ### Lærebok og pensum {-}
 
