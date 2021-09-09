@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.1 Generelt om hypotesetesting | MET4 - Empiriske Metoder - Vår 2021</title>
+  <title>3.1 Generelt om hypotesetesting | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.1 Generelt om hypotesetesting | MET4 - Empiriske Metoder - Vår 2021" />
+  <meta property="og:title" content="3.1 Generelt om hypotesetesting | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.1 Generelt om hypotesetesting | MET4 - Empiriske Metoder - Vår 2021" />
+  <meta name="twitter:title" content="3.1 Generelt om hypotesetesting | MET4 - Empiriske Metoder - Høst 2021" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -31,10 +31,9 @@
   
   
 <link rel="prev" href="hypotesetesting.html"/>
-<link rel="next" href="chap:enpop.html"/>
+<link rel="next" href="chap-enpop.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,8 +49,10 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -118,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -159,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
-<li class="chapter" data-level="3.2" data-path="chap:enpop.html"><a href="chap:enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
@@ -217,7 +217,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2021</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2021</a>
           </h1>
         </div>
 
@@ -242,7 +242,7 @@ Publisert ved hjelp av bookdown</a></li>
 <li>Hva er Type I-feil og hva er Type II-feil? (Seksjon <strong>11-1</strong> forklarer dette greit)</li>
 <li>Hva er signifikansnivået (<span class="math inline">\(\alpha\)</span>) til en test?</li>
 <li>Styrken (the power) til en test er definert som <span class="math inline">\(1-P(\textrm{Type II-feil})=1-\beta\)</span>. Hvordan tolker du denne størrelsen? Se også <strong>11-3d</strong>.</li>
-<li>Hva er <span class="math inline">\(p\)</span>-verdien til en test (Seksjon <strong>11-2c</strong>)? Les også <strong>11-2d</strong>, <strong>e</strong> og <strong>f</strong> om hvordan vi fortolker og snakker om <span class="math inline">\(p\)</span>-verdien på en korrekt måte. Vi kommer tilbake til dette i kapittel <a href="chap:enpop.html#chap:enpop">3.2</a>.</li>
+<li>Hva er <span class="math inline">\(p\)</span>-verdien til en test (Seksjon <strong>11-2c</strong>)? Les også <strong>11-2d</strong>, <strong>e</strong> og <strong>f</strong> om hvordan vi fortolker og snakker om <span class="math inline">\(p\)</span>-verdien på en korrekt måte. Vi kommer tilbake til dette i kapittel <a href="chap-enpop.html#chap:enpop">3.2</a>.</li>
 </ul>
 </div>
 </div>
@@ -252,10 +252,11 @@ Publisert ved hjelp av bookdown</a></li>
         </div>
       </div>
 <a href="hypotesetesting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap:enpop.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap-enpop.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -274,7 +275,6 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -295,10 +295,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

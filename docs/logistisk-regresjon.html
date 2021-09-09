@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.1 Logistisk regresjon | MET4 - Empiriske Metoder - Vår 2021</title>
+  <title>5.1 Logistisk regresjon | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.1 Logistisk regresjon | MET4 - Empiriske Metoder - Vår 2021" />
+  <meta property="og:title" content="5.1 Logistisk regresjon | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.1 Logistisk regresjon | MET4 - Empiriske Metoder - Vår 2021" />
+  <meta name="twitter:title" content="5.1 Logistisk regresjon | MET4 - Empiriske Metoder - Høst 2021" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -216,7 +217,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2021</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2021</a>
           </h1>
         </div>
 
@@ -252,9 +253,9 @@ Publisert ved hjelp av bookdown</a></li>
 <p><a href="https://www.statlearning.com/">An introduction to statistical learning</a> (trykk på “Download the first edition”)</p>
 <p>Denne boken er for øvrig pensum i <strong>BAN404</strong>. Logistisk regresjon er omhandlet i kapittel <em>4.3</em> (avsnitt 4.3.5 er ikke pensum). Eksempelet vårt er tatt herfra, og datasettet er, som vist i forelesningsscriptet, inkludert i bokens egen R-pakke <code>ISLR</code>.</p>
 <p>Bruk litt tid på å lese gjennom disse sidene, konseptet er ganske godt forklart. Bli også kjent med R-syntaksen, som ligner på den vi allerede kan for vanlig lineær regresjon. Vi bruker f.eks.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="logistisk-regresjon.html#cb54-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(default <span class="sc">~</span> balance, </span>
-<span id="cb54-2"><a href="logistisk-regresjon.html#cb54-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> Default,</span>
-<span id="cb54-3"><a href="logistisk-regresjon.html#cb54-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="logistisk-regresjon.html#cb56-1"></a>reg1 &lt;-<span class="st"> </span><span class="kw">glm</span>(default <span class="op">~</span><span class="st"> </span>balance, </span>
+<span id="cb56-2"><a href="logistisk-regresjon.html#cb56-2"></a>            <span class="dt">data =</span> Default,</span>
+<span id="cb56-3"><a href="logistisk-regresjon.html#cb56-3"></a>            <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
 <p>Når du er klar til å prøve selv, kan du se på oppg <em>10a</em>, <em>b</em> og første del av <em>d</em> på s. 171 i ISLR. Dette datasettet er også inneholdt i <code>ISLR</code>-pakken.</p>
 </div>
 </div>
