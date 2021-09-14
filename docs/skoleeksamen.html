@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.1 Tidligere eksamensoppgaver (skoleeksamen) | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.1 Tidligere eksamensoppgaver (skoleeksamen) | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,8 @@
 <link rel="prev" href="diverse-ekstrastoff.html"/>
 <link rel="next" href="tidligere-eksamensoppgaver-hjemmeeksamen.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +50,8 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -119,6 +120,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -159,7 +161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
-<li class="chapter" data-level="3.2" data-path="chap-enpop.html"><a href="chap-enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
+<li class="chapter" data-level="3.2" data-path="chap:enpop.html"><a href="chap:enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
@@ -603,12 +605,14 @@ Ikke lenger pensum per 2021
 </tr>
 </tbody>
 </table>
-<div id="rettelser-og-kommentarer-til-oppgaver-og-løsningsforslag" class="section level3 unnumbered" number="">
+<div id="rettelser-og-kommentarer-til-oppgaver-og-løsningsforslag" class="section level3 unnumbered">
 <h3>Rettelser og kommentarer til oppgaver og løsningsforslag</h3>
 <p>Her vil du finne en del kommentarer og rettelser som er spesifikke for de enkelte oppgavesettene. Dette er basert på et dokument som <a href="https://www.nhh.no/en/employees/faculty/jarle-moen/">Jarle Møen</a> startet på i sin tid, og som senere er oppdatert av <a href="https://www.nhh.no/en/employees/faculty/benjamin-narum/">Benjamin Narum</a>. Vi vil oppdatere denne oversikten med de nyeste årgangene etter hvert som det kommer inn spørsmål til eksamensoppgavene.</p>
 <p>Overskriftene under kan trykkes på, så ekspanderes innholdet for hver eksamen.</p>
 <details>
-<p><summary>Vår 2008</summary></p>
+<summary>
+Vår 2008
+</summary>
 <p><strong>Spørsmål 1d:</strong> <em>Vi skal regne ut forventet nytte. Hvorfor får vi <span class="math inline">\(EX^2 = 20( var + \mu^2 )\)</span>?</em></p>
 <p>Det er tatt utgangspunkt i den første regneregelen for varians i forelesningsnotatene. <span class="math inline">\(Var(X)=E(X^2)-(E(X))^2\)</span>. Derav <span class="math inline">\(E(X^2)=Var(X) +(E(X))^2\)</span></p>
 <p><strong>Spørsmål 2a:</strong> <em>Jeg lurer jeg på hvordan man kommer frem til <span class="math inline">\(S^2\)</span></em>?</p>
@@ -623,7 +627,9 @@ Ikke lenger pensum per 2021
 <p>Jeg tror ikke dette er et spørsmål jeg ville gitt i denne formen. Våren 2008 lå kurset i siste semester. Da kunne vi forutsette at studentene skulle vite at konstant skalautbytte med denne funksjonsformen innebærer at summen av koeffisientene er én (Det ligger også inne som et punkt i plansjene mine om multikolinearitet, tror jeg). Da vi gjennomgikk <span class="math inline">\(F\)</span>-testen for regresjon (test for om alle koeffisientene er null samtidig) nevnte jeg muntlig at <span class="math inline">\(F\)</span>-testen også kan brukes på mindre grupper av koeffisienter. Man kan altså teste uttrykk av typen <span class="math inline">\(\alpha+\beta=1\)</span>. Det som kommer i klammeparentes i løsningsforslaget har dere ingen forutsetning for å forstå siden heller ikke boken har med noe om dette. Kanskje ble det sagt noe om det på forelesningene det semesteret, eller kanskje oppgavegiveren har tatt det med i løsningsforslaget for spesielt interesserte…</p>
 </details>
 <details>
-<p><summary>Høst 2008</summary></p>
+<summary>
+Høst 2008
+</summary>
 <p><strong>Oppgave 1d:</strong> <em>Med 0.05,3,144 (5 %, 3 og 144 frihetsgrader) burde grensen vært på 2.67, men i fasiten står det 2.60.</em></p>
 <p>Enig. Det må være trykkfeil i løsningsforslaget.</p>
 <p><strong>Oppgave 2d:</strong> <em>Når man skal lage et konfidensintervall for koeffisienten til en av de uavhengige variablene i en multippel regresjon, hva er da riktig antall frihetsgrader for t-verdien? I H09 oppgave 2g benyttes <span class="math inline">\((n-k-1)\)</span> mens i H08 oppgave 2d benyttes <span class="math inline">\((n-2)\)</span>.</em></p>
@@ -632,12 +638,16 @@ Ikke lenger pensum per 2021
 <p>Du har rett.</p>
 </details>
 <details>
-<p><summary>Vår 2009</summary></p>
+<summary>
+Vår 2009
+</summary>
 <p><strong>Oppgave 2c:</strong> <em>Jeg lurer på hvorfor fasiten sier at frihetsgradene til <span class="math inline">\(F\)</span>-testen er <span class="math inline">\(F_{\alpha, k-1,n-1}\)</span>? Jeg trodde frihetsgradene ved denne testen var $F_{, k, n-k-1}?</em></p>
 <p>Det ser for meg ut som om løsningsforslaget er riktig, og at du blander sammen denne F-testen med formelen for den nært beslektede F-testen knyttet til multippel regresjon.</p>
 </details>
 <details>
-<p><summary>Høst 2009</summary></p>
+<summary>
+Høst 2009
+</summary>
 <p><strong>Oppgave 1a:</strong> <em>”Population” brukes veldig fritt i boken, og kan, som jeg har forstått oversettes til både gruppe og populasjon. Eksempelvis i denne oppgaven med ”normalfordelte populasjoner”. Dette sjekkes jo vha dataene (fra utvalget?). Er det da snakk om hele populasjonen eller utvalget?</em></p>
 <p>Populasjonene i den virkelige verden kan vi aldri observere, men det er de som har en fordeling. Så observerer vi utvalget som er trukket fra populasjonen til å teste hypoteser om populasjonen, for eksempel en hypotese om at populasjonen er normalfordelt. Du har sikkert rett i at vi noen ganger snakker om grupper for det som er en populasjon.</p>
 <p><strong>Oppgave 2c:</strong> <em>Vi skal drøfte et residualplott. I fasiten her står det at histogram og normalscore antyder at residualene ikke er normalfordelt? Vi har da godkjent mye dårligere figurer tidligere, med ca. likt antall observasjoner? I samme eksamenssett oppgave1 b) skal vi teste for lik varians. her er n1=14 og n2=9. videre skal v1=n1-1=14-1=13 og v2=n2-2=9-2=7 (jf. formel s. 442 i pensumboken) fasiten her sier derimot at v2=8?</em></p>
@@ -646,12 +656,16 @@ Ikke lenger pensum per 2021
 Også i forelesningsnotatene står det <em>n-k-1</em> under multippel regresjon (plansje 269).
 </details>
 <details>
-<p><summary>Vår 2010</summary></p>
+<summary>
+Vår 2010
+</summary>
 <p><strong>Oppgave 3d:</strong> <em>Hvorfor blir det 12 F(12) - 10F(11)-(12-10) når <span class="math inline">\(q=15\)</span> og <span class="math inline">\(\mu=10\)</span>?</em></p>
 <p>Dette ser merkelig ut for meg også (Han som har laget oppgaven har sluttet.) Antar det skulle vært 15 og 14.</p>
 </details>
 <details>
-<p><summary>Høst 2010</summary></p>
+<summary>
+Høst 2010
+</summary>
 <p><strong>Oppgave 1a:</strong> <em>I høsteksamen i 2010 oppgave 1a) har de brukt antall frihetsgrader lik 31. Jeg lurte på hvorfor det ikke blir 34, altså n-2? Hvordan vet vi når frihetsgrader er <span class="math inline">\(n - k - 1\)</span>, og når det er <span class="math inline">\(n - 2\)</span>?</em></p>
 <p>For lineær regresjon er antall frihetsgrader lik <span class="math inline">\(n\)</span> minus antall parametre du har estimert i analysen din. I enkel regresjon antar vi formen på uttrykket <span class="math inline">\(Y = \beta_1 X + \beta_0\)</span> og må estimere <span class="math inline">\(\beta_1\)</span> og <span class="math inline">\(\beta_0\)</span>, altså 2 parametre. Derfor blir regelen <span class="math inline">\(n - 2\)</span>. I Multippel regresjon antar vi f.eks. en form på uttrykket <span class="math inline">\(Y = \beta_2 X_2 + \beta_1 X_1 + \beta_0\)</span> og må estimere <span class="math inline">\(\beta_2\)</span>, <span class="math inline">\(\beta_1\)</span> og <span class="math inline">\(\beta_0\)</span>, altså 3 stk. I regelen <span class="math inline">\(n - k - 1\)</span> er <span class="math inline">\(k\)</span> antall variable vi estimerer en koeffisient for (<span class="math inline">\(k = 2\)</span>) og den siste “1” er for <span class="math inline">\(\beta_0\)</span>. I eksempelet mitt blir det da <span class="math inline">\(n - 3\)</span>. I eksamensoppgaven blir det <span class="math inline">\(n - 5\)</span>.</p>
 <p><strong>Oppgave 1b:</strong> <em>Har du mulighet til å sende meg utdypende forklaring på Eksamen H10 oppgave 1 b?</em></p>
@@ -660,14 +674,18 @@ Også i forelesningsnotatene står det <em>n-k-1</em> under multippel regresjon 
 <p>Modellen er loglog mellom pris (PG) og inntekt (I) fordi regresjonen er gjort med hensyn på logaritmen av disse to. I fasit tenker de nok at de isolerer de to variablene for å tolke dem for seg først. Vi har jo egentlig år lineært og kvadrert i modellen også. Kanskje man skal kalle hele modellen en log-log-lin-sq modell (ikke gjør det). Poenget er at loglog-forhold har tolkningen om at prosentvis økning i den ene svarer til prosentvis økning av den andre, som gjør seg fint i en diskusjon der man skal tolke en modell.</p>
 </details>
 <details>
-<p><summary>Høst 2012</summary></p>
+<summary>
+Høst 2012
+</summary>
 <p><strong>Oppgave 1a:</strong> <em>I løsningsforslaget er Analyse 2 omtalt som «enveis faktoranalyse». Er dette riktig?</em></p>
 <p>Nei, det er en trykkfeil. Det skulle stått «enveis variansanalyse». Faktoranalyse er en helt annen metode som ligger utenfor pensum, men som noen ganger foreleses i forbindelse med hjemmeeksamen.</p>
 <p><strong>Oppgave 1d:</strong> <em>Hvor en skal regne ut en kritisk grense for <span class="math inline">\(F\)</span> på 5% sign.nivå for v1= 175 og v2= 569. Hvorfor er det brukt en ensidig test her? (gir verdi 1,18) Er det ikke mer naturlig å bruke en tosidig her? En annen ting, er det nok å se på p-verdi eller må man regne ut en kritisk grense?</em></p>
 <p>Enig med deg. Det er ikke noe holdepunkt for å bruke ensidig test her. Jeg har ment å bruke tosidig test, men brukt feil tabell – 0.05 i stedet for 0.025. Korrekt kritisk grense skulle dermed være 1,22. Det er ingen grunn til å regne ut kritisk grense hvis det er gitt en programutskrift med p-verdi</p>
 </details>
 <details>
-<p><summary>Høst 2015</summary></p>
+<summary>
+Høst 2015
+</summary>
 <p><strong>Oppgave 1b:</strong> <em>I H15-eksamen b) bruker vi en ensidig t-test for å se om koeffisienten er 0 eller negativ. Jeg lurer på hvordan fasiten kom fram til antall frihetsgrader. Antall observasjoner er 898. Er det sånn at antall frihetsgrader er 893 fordi vi har et konstantledd og 4 frihetsgrader? Dersom det hadde vært en tosidig test, hadde vi fått samme antall frihetsgrader?</em></p>
 <p>Det stemmer at man trekker fra antall estimerte parametre. Tosidig vs ensidig påvirker ikke antall frihetsgrader, men påvirker signifikansnivået du bruker.</p>
 <p><strong>Oppgave 1b:</strong> <em>Vi gjennomføre en t-test for koeffisienten i en regresjonsmodell. Hvorfor finner vi her testobservatoren ved å ta koeffisienten delt på standardavvik? Er dette en formel, eller kan du forklare nærmere intuisjonen bak dette?</em></p>
@@ -681,22 +699,30 @@ Også i forelesningsnotatene står det <em>n-k-1</em> under multippel regresjon 
 <p>Det har nok gått litt fort i fasit på oppgave e), det skal være 894 frihetsgrader, men fordi antallet er veldig stort (over 200) har det heller ikke noe å si.</p>
 </details>
 <details>
-<p><summary>Høst 2016</summary></p>
+<summary>
+Høst 2016
+</summary>
 <p><strong>Oppgave 1h:</strong> <em>I oppgave 1 h, eksamen høst 2016 bes det om å regne ut “… variansen til andelen klager (av kandidatene som møtte) våren 2014 og våren 2015.” I løsningsforslaget bruker man imidlertid data oppgitt for vår 2013 og 2014 til å regne variansen til andelen klager for henholdsvis våren 2014 og 2015. Hvorfor skal man her bruke fjoråret til å regne ut variansen til andel klager for gjeldende år?</em></p>
 <p>De har bommet med året.</p>
 </details>
 <details>
-<p><summary>Vår 2017</summary></p>
+<summary>
+Vår 2017
+</summary>
 <p><strong>Oppgave 2c:</strong> <em>Eksamen V17, oppgave 2c): Man blir bedt om å regne ut om koeffisienten er signifikant, hvorfor er frihetsgraden 282 (<span class="math inline">\(v = n - k - 1\)</span>) og ikke 286 (<span class="math inline">\(n-2\)</span>)?</em></p>
 <p>Den generelle regelen for lineær regresjon er at man trekker fra antall frihetsgrader som svarer til antall parametre man har estimert først, som så brukes i beregningen av standardavviket. I oppgave 2c på analyse (1) er det brukt 6 estimerte parametre (5 koeffisienter og ett konstantledd) dermed blir det <span class="math inline">\(n - 5 - 1\)</span>. I sliden du viser er det en koeffisient og ett konstantledd, dermed <span class="math inline">\(n - 2\)</span>.</p>
 </details>
 <details>
-<p><summary>Høst 2017</summary></p>
+<summary>
+Høst 2017
+</summary>
 <p><strong>Oppgave 1b:</strong> <em>“Viser resultatet av testen at studentene i gruppe A kanskje har plagiert?”. F-testen vil jo kun teste om variansene er den samme for gruppe A og gruppe B, eller ulik? Hvordan kan vi svare på dette spørsmålet ved hjelp av en F-test? I fasiten står det at studentene i gruppe A har kanskje plagiert. Er dette fordi variansen i gruppe A er minst, dermed har de mer like respons, noe som kan indikere plagiat?</em></p>
 <p>Ja, oppgave a og b henger tett sammen. Det stemmer at F-testen bare kan si om de er ulik. Man må tolke hva ulike standardavvik må bety utfra konteksten av “eksperimentet” for å komme frem til at det er juks på gang. Det stemmer som du sier at lavt standardavvik betyr plagiat. Poenget her er at gruppe B skal være representativt for studenter generelt, så ettersom standardavviket er signifikant forskjellig fra det det skulle vært (statistisk lik gruppe B) er det noe som foregår.</p>
 </details>
 <details>
-<p><summary>Vår 2018</summary></p>
+<summary>
+Vår 2018
+</summary>
 <p><strong>Oppgave 1b:</strong> <em>I fasiten står det at man også kan bruke T-test for å sammenligne forventningsverdiene i de to datasettene, er det fordi n er stor og dermed vil normal og t-fordeling være omtrent det lik?</em></p>
 <p>Vi kan gjøre to forskjellige argumenter når <span class="math inline">\(n\)</span> er stor i dette tilfellet:</p>
 <ul>
@@ -705,12 +731,16 @@ Også i forelesningsnotatene står det <em>n-k-1</em> under multippel regresjon 
 </ul>
 </details>
 <details>
-<p><summary>Høst 2018</summary></p>
+<summary>
+Høst 2018
+</summary>
 <p><strong>Oppgave 1c:</strong> <em>I oppgaven skal man se hvorvidt “… the trimmed mean of the offers is smaller in 2008 than in 2006.” De setter opp H0 = Mean(Libor2006) = Mean(Libor2008), men så setter de opp H1 : Mean(Libor2006) &lt; Mean(Libor2008). Burde det ikke være omvendt her ettersom vi skal se om gjennomsnittet er lavere i 2008 enn i 2006? altså at H1: Mean(Libor2006) &gt; Mean(Libor2008). Videre konkluderer man med at “The test indicates that the Libor in 2006 is lower than the Libor in 2008”. Men i summary tabellen får man oppgitt at gjennomsnittlig libor i 2006 = 3.09 og 2.00 i 2008. Hvordan kan det ha seg da at man konkluderer med at libor er lavere i 2006 enn i 2008?</em></p>
 <p>De har snudd ulikheten. Det er feil i fasiten og det skal egentlig være Mean(Libor2006) &gt; Mean(Libor2008). I konklusjonen skal det følgelig konkluderes med at Libor i 2006 er større enn i 2018.</p>
 </details>
 <details>
-<p><summary>Høst 2019</summary></p>
+<summary>
+Høst 2019
+</summary>
 <p><strong>Oppgave 1a:</strong> <em>Oppgaven spør om hvilke tester man kan utføre for å finne ut hvilket land som har den signifikant største andelen kjempelykkelige land. Er det ikke z-test man da bruker? Videre blir vi bedt om å gi et datatransformasjon for Norge, hva mener de med dette? Hvorfor har fasiten kun brukt det som står under brøkstreken i testobservatoren?</em></p>
 <p>Det stemmer at de bruker en z-test i fasit, men det er også mulig å bruke en chi-squared goodness-of-fit test. Poenget her er at man skal finne ut hvem som er mest lykkelig i forhold til hverandre og dermed må man teste to og to land mot hverandre ved bruk av flere z-tester. Tanken med “transformasjonen” er at man tar tallene fra tabellen og beregner noe man enkelt kan sammenligne to og to land basert på, det blir da estimatet av “sannsynlighet for kjempelykkelig” med et empiriske standardavvik. Det empiriske standardavviket er da det som står i nevneren for testobservatoren (se kap 12-3c i boken). Siden testen i teorien må gjennomføres 3 ganger er det bedre å regne p og empirisk standardavvik for så å sette disse tallene inn i uttrykket for testobservatoren etterpå.</p>
 <p><strong>Oppgave 1b:</strong> <em>Etter at <span class="math inline">\(z = 5.33\)</span> er regnet ut dukker det opp en <span class="math inline">\(z = 0.11\)</span> under. Hvor kommer denne fra og hva forklarer den? Den blir ikke kommentert videre.</em></p>
@@ -719,8 +749,10 @@ Også i forelesningsnotatene står det <em>n-k-1</em> under multippel regresjon 
 <p>Det stemmer. Rettferdighet-til-lykke-forholdet er linært, så det hadde bare blitt en linje. Her spørres det om en skisse nettopp fordi forholdet skal være ikke-lineært, så du ville nok ikke fått samme spørsmål for “rettferdighet” med mindre begge skulle inn i figuren samtidig som sammenligning. Beregningene var for å støtte at plottet ble riktig. I det lineære tilfellet kunne du jo bare ha funnet to punkter og dratt en linje imellom, det går jo ikke i det ikke-lineære tilfellet.</p>
 </details>
 <details>
-<p><summary>Vår 2020</summary>
-<strong>Oppgave 3c:</strong> <em>Jeg er litt usikker ifm oppgave c) hvor vi blir spurt om redisualserien er stasjonær. Jeg forstår resonnementet i fasiten, men er litt usikker når det kommer til denne figuren. Her ser det jo ut til at variansen øker med tiden? Et av forutsetningene for stasjonær tidsrekke er jo at variansen skal være konstant og uavhengig av t? Hvordan ser vi forresten om forventningen er konstant eller ikke?</em></p>
+<summary>
+Vår 2020
+</summary>
+<p><strong>Oppgave 3c:</strong> <em>Jeg er litt usikker ifm oppgave c) hvor vi blir spurt om redisualserien er stasjonær. Jeg forstår resonnementet i fasiten, men er litt usikker når det kommer til denne figuren. Her ser det jo ut til at variansen øker med tiden? Et av forutsetningene for stasjonær tidsrekke er jo at variansen skal være konstant og uavhengig av t? Hvordan ser vi forresten om forventningen er konstant eller ikke?</em></p>
 <p>Visuell inspeksjon kan gi deg en del innsikt, men noen ganger kan det være vanskelig å konkludere eksakt kun fra figuren. Om det er tvil må man støtte seg videre på beregninger.</p>
 <p>For residualserien er den litt kort til å konkludere bare fra plottet om variansen øker eller ikke. De laveste residualverdiene (på bunnen av plottet) ser ikke ut til å endre seg slik som det kanskje kan se ut for de høyeste (på toppen av plottet). Om du hadde plottet denne over lenger tid ville du kanskje ikke lenger tenkt at variansen endrer seg.</p>
 Forventningen er konstant, og lik 0, om det er ca like mange punkter over som under 0-linjen over tid. Det ser ut til å være tilfelle her.
@@ -737,7 +769,6 @@ Forventningen er konstant, og lik 0, om det er ca like mange punkter over som un
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -756,6 +787,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -776,6 +808,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

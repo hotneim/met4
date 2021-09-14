@@ -45,7 +45,6 @@ videoforelesninger-5
 kommentarer-5
 oppgaver-1
 standard-oppgaver-1
-nøtter-1
 regresjon
 enkel-regresjon
 videoforelesninger-6
