@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
@@ -32,9 +32,8 @@
   
 
 <link rel="next" href="introduksjon-til-r.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,8 +49,8 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -120,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -161,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
-<li class="chapter" data-level="3.2" data-path="chap:enpop.html"><a href="chap:enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
+<li class="chapter" data-level="3.2" data-path="enpop.html"><a href="enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
@@ -231,7 +229,7 @@ Publisert ved hjelp av bookdown</a></li>
 <h1 class="title">MET4 - Empiriske Metoder - Høst 2021</h1>
 <p class="author"><em>Håkon Otneim og Geir Drage Berentsen</em></p>
 </div>
-<div id="innledning" class="section level1 unnumbered">
+<div id="innledning" class="section level1 unnumbered" number="">
 <h1>Innledning</h1>
 <figure style="float:right; padding:10px; text-align:center">
 <img alt="Håkon" src="bilder/hakon.jpg" width="130" height="130"/>
@@ -250,7 +248,7 @@ Geir
 <p>Selv om det tilsynelatende går mot et relativt normalt semester med tanke på coronasituasjonen har vi valgt å beholde store deler av digitaliseringen vi gjorde i kurset de foregående semestre. Det vil si at tradisjonell teorigjennomgang i plenumsforelesninger i sin helhet er erstattet med videoforelesninger. Forelesningstiden velger vi i stedet å bruke på kontakttimer, oppgaveseminar og oversiktsforelesninger.</p>
 <p>På denne siden vil du finne alle videosnuttene sammen med kommentarer til lærebokens fremstilling, regneoppgaver, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset). Merk at regneoppgaver (med fasit) foreløpig bare er tilgjengelig for de første temaene i kurset, men vi tar mål av oss å få disse på plass digitalt fortløpende. Merk også at seminaroppgavene ((Se <a href="seminar.html#seminar">8.4</a>) ikke har fasit, men notater fra disse seminarene vil bli lagt ut etter gjennomgang.</p>
 <p>Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. Disse vil være fysisk dersom smittesituasjonen tillater det, men en av studentassistentene vil uansett være tilgjengelig på det samme zoom-rommet som vi bruker til kontakttimer i perioden gruppene holdes.</p>
-<div id="fremdriftsplan" class="section level3 unnumbered">
+<div id="fremdriftsplan" class="section level3 unnumbered" number="">
 <h3>Fremdriftsplan</h3>
 <p>I et tradisjonelt kursopplegg ville forventet progresjon blitt definert av forelesningstempoet, og forelesningene ville vært den strukturen som mange trenger for å jobbe seg jevnt og trutt gjennom pensum. Selv om det nå legges opp til et fleksibelt undervisningsopplegg der tempo og progresjon i utgangspunktet kan tilpasses den enkeltes timeplan og studieteknikk er det viktig å jobbe jevnt med kurset. <strong>MET4 er et krevende kurs som krever full innsats fra første til siste dag.</strong> For eksempel får en mye bedre utbytte av oppgaveseminarene dersom man på forhånd har sett videoene og gjort noen av regneoppgavene relatert til temaet.</p>
 <p>Vi har laget et forslag til progresjon i tabellen under. Kolonnen “jobbe med” refererer til avsnitt på denne siden som dere finner igjen i menyen til høyre. Der finnes også alle dataøvingene. Ukene med grønn farge betyr at vi har tid på datasal med studentassistenter (så sant vi kan møtes fysisk, ellers vil disse selvsagt gjennomføres digitalt).</p>
@@ -452,7 +450,7 @@ Forberedelse til eksamen
 </table>
 <p><em>Passord til Zoom finner du på kursets Canvas-side.</em></p>
 </div>
-<div id="tid-og-sted-for-grupper" class="section level3 unnumbered">
+<div id="tid-og-sted-for-grupper" class="section level3 unnumbered" number="">
 <h3>Tid og sted for grupper</h3>
 <table class="table table-condensed table-hover" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -529,7 +527,7 @@ Gruppe 3, AUD K, (B205)
 </tbody>
 </table>
 </div>
-<div id="lærebok-og-pensum" class="section level3 unnumbered">
+<div id="lærebok-og-pensum" class="section level3 unnumbered" number="">
 <h3>Lærebok og pensum</h3>
 <figure style="float:right; padding:10px; text-align:center">
 <img alt="Håkon" src="bilder/keller.JPG" width="130" height="170"/>
@@ -552,6 +550,7 @@ Second EMEA edition.
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -570,7 +569,6 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -591,10 +589,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

@@ -25,9 +25,9 @@ Her snakker vi om kapittel **11** i læreboken. Hvis du kan svare på følgende 
 - Hva er Type I-feil og hva er Type II-feil? (Seksjon **11-1** forklarer dette greit)
 - Hva er signifikansnivået ($\alpha$) til en test?
 - Styrken (the power) til en test er definert som $1-P(\textrm{Type II-feil})=1-\beta$. Hvordan tolker du denne størrelsen? Se også **11-3d**.
-- Hva er $p$-verdien til en test (Seksjon **11-2c**)? Les også **11-2d**, **e** og **f** om hvordan vi fortolker og snakker om $p$-verdien på en korrekt måte. Vi kommer tilbake til dette i kapittel \@ref(chap:enpop).
+- Hva er $p$-verdien til en test (Seksjon **11-2c**)? Les også **11-2d**, **e** og **f** om hvordan vi fortolker og snakker om $p$-verdien på en korrekt måte. Vi kommer tilbake til dette i kapittel \@ref(enpop).
 
-## Inferens om en populasjon {#chap:enpop}
+## Inferens om en populasjon {#enpop}
 
 ### Videoforelesninger
 

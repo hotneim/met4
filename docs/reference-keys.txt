@@ -34,7 +34,7 @@ hypotesetesting
 generelt-om-hypotesetesting
 videoforelesninger-2
 kommentarer-2
-chap:enpop
+enpop
 videoforelesninger-3
 kommentarer-3
 inferens-om-to-populasjoner

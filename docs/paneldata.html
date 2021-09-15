@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.3 Paneldata | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.3 Paneldata | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
@@ -32,9 +32,8 @@
   
 <link rel="prev" href="introduksjon-til-maskinlæring-med-knn.html"/>
 <link rel="next" href="oppgaver-3.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,8 +49,8 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -120,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -161,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
-<li class="chapter" data-level="3.2" data-path="chap:enpop.html"><a href="chap:enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
+<li class="chapter" data-level="3.2" data-path="enpop.html"><a href="enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
@@ -258,7 +256,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="struktur-på-paneldata" class="section level4" number="5.3.3.1">
 <h4><span class="header-section-number">5.3.3.1</span> Struktur på Paneldata</h4>
 <p>Til nå har vi typisk observert <span class="math inline">\(n\)</span> individer <em>en</em> gang. Hvis vi holder oss til eksempelet fra videoforelesningen, kan vi tenke oss at vi har spurt <span class="math inline">\(n\)</span> arbeidstakere om hvor mange timer de jobbet forrige år (<span class="math inline">\(X\)</span>), og hvor mye de hadde i timelønn (<span class="math inline">\(Y\)</span>). Da ville datasettet sett omtrent slik ut:</p>
-<p><img src="bilder/panel1.PNG" /><!-- --></p>
+<p><img src="bilder/panel1.PNG" width="76" /></p>
 <p>Her er <span class="math inline">\(y_i\)</span> timelønn til arbeidstaker nummer <span class="math inline">\(i\)</span>, og <span class="math inline">\(x_i\)</span> er antall timer jobbet for arbeidstaker nummer <span class="math inline">\(i\)</span>. Hvis vi så ønsker å se om det er en sammenheng mellom disse to variablene, kan vi sette opp en enkel regresjonsmodell som vi har gjort før:</p>
 <p><span class="math display">\[\begin{equation}
 y_i = \alpha + \beta x_i + \epsilon_i,
@@ -266,11 +264,11 @@ y_i = \alpha + \beta x_i + \epsilon_i,
 \end{equation}\]</span>
 der vi gjør de vanlige antakelsene om homoskedastisitet, uavhengige feilledd, og selvsagt at forklaringsvariabelen er <em>eksogen</em>, dvs at de stokastiske variablene <span class="math inline">\(X\)</span> og <span class="math inline">\(\epsilon\)</span> er <em>uavhengige fra hverandre</em>. Hvis vi aksepterer det, så kan vi estimere <span class="math inline">\(\beta\)</span> ved hjelp av minste kvadreters metode (OLS - orinary least squares), som vi kan tolke som forventet økning i timelønn ved å jobbe en time ekstra.</p>
 <p>For paneldata har vi ikke lenger kun observert <span class="math inline">\(n\)</span> arbeidstakere 1 gang, men spurt <span class="math inline">\(N\)</span> arbeidstakere <span class="math inline">\(T\)</span> ganger, slik at vi trenger to indekser til å identifisere hver enkelt observasjon: <span class="math inline">\(y_{i,t}\)</span> er timelønn til arbeidstaker nummer <span class="math inline">\(i\)</span> ved tidspunkt <span class="math inline">\(t\)</span>. Våre observerte <span class="math inline">\(X\)</span>er og <span class="math inline">\(Y\)</span>er kan vi samle i en tabell som før, se illustrasjonen under. Legg merke til at det bare er de to første kolonnene for <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> som utgjør de faktiske observasjonene, mens de to neste kolonnene sier hvilket individ som er observert, og ved hvilket tidspunkt observasjonen er utført, og viser bare indeksene til <span class="math inline">\(X\)</span>- og <span class="math inline">\(Y\)</span>-observasjonene. Kall det gjerne <em>metadata</em>, og vi trenger den informasjonen når vi skal utføre paneldatateknikker.</p>
-<p><img src="bilder/panel2.PNG" /><!-- --></p>
+<p><img src="bilder/panel2.PNG" width="492" /></p>
 <p>Formatet i tabellen over kalles gjerne et <em>langt</em> format, og omtrent samtlige R-pakker og funksjoner som brukes til å analysere panel data forventer at dataene er organisert på denne måten.</p>
 <p>Vi kan ta en titt på hvordan dette ser ut i R for eksempelet vårt:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="paneldata.html#cb61-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
-<span id="cb61-2"><a href="paneldata.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)                                       <span class="co"># Ser på datasettet</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="paneldata.html#cb61-1"></a>df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
+<span id="cb61-2"><a href="paneldata.html#cb61-2"></a><span class="kw">head</span>(df)                                       <span class="co"># Ser på datasettet</span></span></code></pre></div>
 <pre><code>##      X lnhr lnwg kids age disab id year  mlhr  mlwg   dlhr    dwg
 ## 1 5241 7.71 3.19    0  30     0  1 1979 7.742 3.218 -0.032 -0.028
 ## 2 5242 7.64 3.14    0  32     0  1 1980 7.742 3.218 -0.102 -0.078
@@ -289,15 +287,15 @@ der vi gjør de vanlige antakelsene om homoskedastisitet, uavhengige feilledd, o
 </ol>
 <p>Altså må vi både ta hensyn til at det kan være en <em>generell</em> utvikling i tid og at det kan være <em>individuelt</em> forskjellige lønnsnivå. Disse aspektene kan nemlig påvirke vårt estimat av effekten av å jobbe mer dersom vi bruker den tradisjonelle regresjonsmodellen og OLS.</p>
 <p>La oss inspisere de <span class="math inline">\(3\)</span> individene vi har data for i vårt lille datasett ved å lage et figur med lønnsutvikling (<code>lnwg</code>) langs y-aksen og år (<code>year</code>) langs x-aksen for å se om det finnes et slags felles mønster i lønnsutviklingen (ref. punkt 1. over):</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="paneldata.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  </span>
-<span id="cb63-2"><a href="paneldata.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb63-3"><a href="paneldata.html#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lnwg, <span class="at">color =</span> <span class="fu">factor</span>(id)))</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="paneldata.html#cb63-1"></a><span class="kw">library</span>(ggplot2)  </span>
+<span id="cb63-2"><a href="paneldata.html#cb63-2"></a><span class="kw">ggplot</span>(df) <span class="op">+</span></span>
+<span id="cb63-3"><a href="paneldata.html#cb63-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> lnwg, <span class="dt">color =</span> <span class="kw">factor</span>(id)))</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
 <p>her ser vi f.eks at alle individene har et dårlig år i 1983, mens 1985 virker å være et godt år. Det også tydelig at lønnen holder seg relavivt lik lønnen det foregående året. Det er altså rimelig å tro at det er fellestrekk i lønnen til individene for gitte år.</p>
 <p>La oss så lage et spredningsplott mellom <code>lnhr</code> og <code>lnwg</code> hvor vi fargelegger hvilket individ observasjonene kommer fra:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="paneldata.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  </span>
-<span id="cb64-2"><a href="paneldata.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb64-3"><a href="paneldata.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> lnhr, <span class="at">y =</span> lnwg, <span class="at">color =</span> <span class="fu">factor</span>(id)))</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="paneldata.html#cb64-1"></a><span class="kw">library</span>(ggplot2)  </span>
+<span id="cb64-2"><a href="paneldata.html#cb64-2"></a><span class="kw">ggplot</span>(df) <span class="op">+</span></span>
+<span id="cb64-3"><a href="paneldata.html#cb64-3"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">x =</span> lnhr, <span class="dt">y =</span> lnwg, <span class="dt">color =</span> <span class="kw">factor</span>(id)))</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <p>Ser vi på disse dataene samlet sett ser du til å være en klart positiv korrelasjon mellom lønn og antall timer jobbet. Men legg merke til at individ nr. 1 ligger på et høyere lønnsnivå og jobber mer enn de to andre individene. Det er dette som i stor grad skaper et bilde av en sterk positiv sammenheng mellom variablene. Hvis vi ser på de individuelle observasjonene (hver fargesky) hver for seg, virker ikke sammenhengen å være like sterk, og det har kanskje ikke like mye å si for lønnen om du individuelt velger å jobber mer. Dette svarer til fenomenet beskrevet i punkt 2. over.</p>
 </div>
@@ -369,16 +367,16 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 <p>som har individuelle skjæringspunkt med <span class="math inline">\(y\)</span>-aksen (<span class="math inline">\(\hat{\alpha}_i\)</span>) for å justere for forskjellig lønnsnivå, men hvor <em>alle</em> observasjonene har blitt brukt til å estimere det felles stigningstallet <span class="math inline">\(\hat{\beta}_1\)</span>.</p>
 <p>Det er verdt å merke seg at denne metoden ikke kan brukes dersom forklaringsvariabelen ikke varierer med tid (eksempelvis kjønn). Da vil nemlig <span class="math inline">\(x_{it} - \overline{x}_i = x_{it} - x_{it} = 0\)</span>, og vi har derfor ingen mulighet til å estimere <span class="math inline">\(\beta_1\)</span> med OLS.</p>
 <p>Det finnes flere pakker som kan estimere slike modeller i R, men en veldig enkel pakke å bruke heter <code>plm</code>. Det første vi gjør er å laste pakken forså å “oversette” dataene våre til paneldata. På denne måten forstår <code>plm</code> funksjonen hva som er individ indeksen og hva som er tidsinndeksen:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="paneldata.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plm)      <span class="co"># Pakke for å estimere faste effekter</span></span>
-<span id="cb65-2"><a href="paneldata.html#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-3"><a href="paneldata.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Oversetter til panel data frame</span></span>
-<span id="cb65-4"><a href="paneldata.html#cb65-4" aria-hidden="true" tabindex="-1"></a>p.df <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(df,</span>
-<span id="cb65-5"><a href="paneldata.html#cb65-5" aria-hidden="true" tabindex="-1"></a>                    <span class="at">index =</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span> ,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="paneldata.html#cb65-1"></a><span class="kw">library</span>(plm)      <span class="co"># Pakke for å estimere faste effekter</span></span>
+<span id="cb65-2"><a href="paneldata.html#cb65-2"></a></span>
+<span id="cb65-3"><a href="paneldata.html#cb65-3"></a><span class="co"># Oversetter til panel data frame</span></span>
+<span id="cb65-4"><a href="paneldata.html#cb65-4"></a>p.df &lt;-<span class="st"> </span><span class="kw">pdata.frame</span>(df,</span>
+<span id="cb65-5"><a href="paneldata.html#cb65-5"></a>                    <span class="dt">index =</span> <span class="kw">c</span>(<span class="st">&quot;id&quot;</span> ,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
 <p>Syntaksen for å bruke <code>plm</code> funksjonen er svært lik den for <code>lm</code> og <code>glm</code>. For å bruke en modell med faste effekter må man huske å spesifiserer argumentet <code>model = "within"</code>:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="paneldata.html#cb66-1" aria-hidden="true" tabindex="-1"></a>reg.fe <span class="ot">&lt;-</span> <span class="fu">plm</span>(lnwg <span class="sc">~</span> lnhr,</span>
-<span id="cb66-2"><a href="paneldata.html#cb66-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> p.df,</span>
-<span id="cb66-3"><a href="paneldata.html#cb66-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">model =</span> <span class="st">&quot;within&quot;</span>)</span>
-<span id="cb66-4"><a href="paneldata.html#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg.fe)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="paneldata.html#cb66-1"></a>reg.fe &lt;-<span class="st"> </span><span class="kw">plm</span>(lnwg <span class="op">~</span><span class="st"> </span>lnhr,</span>
+<span id="cb66-2"><a href="paneldata.html#cb66-2"></a>              <span class="dt">data =</span> p.df,</span>
+<span id="cb66-3"><a href="paneldata.html#cb66-3"></a>              <span class="dt">model =</span> <span class="st">&quot;within&quot;</span>)</span>
+<span id="cb66-4"><a href="paneldata.html#cb66-4"></a><span class="kw">summary</span>(reg.fe)</span></code></pre></div>
 <pre><code>## Oneway (individual) effect Within Model
 ## 
 ## Call:
@@ -400,20 +398,20 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 ## Adj. R-Squared: -0.038782
 ## F-statistic: 1.91731 on 1 and 26 DF, p-value: 0.17792</code></pre>
 <p>Vi ser at den estimerte <span class="math inline">\(\beta_1\)</span> effekten av å jobbe mer estimeres til <span class="math inline">\(0.36\)</span>. Vi kan også få ut estimatene for de faste effektene <span class="math inline">\(\alpha_1\)</span>, <span class="math inline">\(\alpha_2\)</span> og <span class="math inline">\(\alpha_3\)</span>:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="paneldata.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixef</span>(reg.fe)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="paneldata.html#cb68-1"></a><span class="kw">fixef</span>(reg.fe)</span></code></pre></div>
 <pre><code>##         1         2         3 
 ##  0.408228 -0.062905 -0.279994</code></pre>
 <p>Det kan være nyttig å ta en visuell innspeksjon på hvordan de individuelle regresjonskurvene passer til dataene:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="paneldata.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reg.fe)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="paneldata.html#cb70-1"></a><span class="kw">plot</span>(reg.fe)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 <p>Denne figuren viser også hvordan regresjonskurven ville sett ut dersom vi hadde sett bort fra paneldatastrukturen og brukt en helt vanlig (pooled) regresjonsmodell. Sammenlignet med modellen med faste faste effekter (within) så ville vi da estimert effekten av jobbe mer til å være større. Selv om produktet her er <span class="math inline">\(3\)</span> individuelle regresjonsmodeller, presiserer vi at dette ikke er <span class="math inline">\(3\)</span> uavhengige analyser; alle observasjonene er brukt til å finne et estimat på <span class="math inline">\(\beta_1\)</span>.</p>
 <p>Vi husker at det også kunne være en felles tidskomponent <span class="math inline">\(v_t\)</span> i en slik modell og at denne kunne betraktes som en kategorisk variabel siden det typisk ikke er så mange (<span class="math inline">\(T\)</span>) av disse. Vi kan derfor bare legge til <code>year</code> som en ekstra (kategorisk) forklaringsvariabel forutsatt at den er koded som en <code>factor</code>:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="paneldata.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.factor</span>(p.df<span class="sc">$</span>year)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="paneldata.html#cb71-1"></a><span class="kw">is.factor</span>(p.df<span class="op">$</span>year)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="paneldata.html#cb73-1" aria-hidden="true" tabindex="-1"></a>reg.fe <span class="ot">&lt;-</span> <span class="fu">plm</span>(lnwg <span class="sc">~</span> lnhr <span class="sc">+</span> year,</span>
-<span id="cb73-2"><a href="paneldata.html#cb73-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> p.df,</span>
-<span id="cb73-3"><a href="paneldata.html#cb73-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">model =</span> <span class="st">&quot;within&quot;</span>)</span>
-<span id="cb73-4"><a href="paneldata.html#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg.fe)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="paneldata.html#cb73-1"></a>reg.fe &lt;-<span class="st"> </span><span class="kw">plm</span>(lnwg <span class="op">~</span><span class="st"> </span>lnhr <span class="op">+</span><span class="st"> </span>year,</span>
+<span id="cb73-2"><a href="paneldata.html#cb73-2"></a>              <span class="dt">data =</span> p.df,</span>
+<span id="cb73-3"><a href="paneldata.html#cb73-3"></a>              <span class="dt">model =</span> <span class="st">&quot;within&quot;</span>)</span>
+<span id="cb73-4"><a href="paneldata.html#cb73-4"></a><span class="kw">summary</span>(reg.fe)</span></code></pre></div>
 <pre><code>## Oneway (individual) effect Within Model
 ## 
 ## Call:
@@ -460,11 +458,11 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 </ul>
 <p>De to siste metodene er mye brukt for å estimere tilfeldige effekter.</p>
 <p>I R kan vi fortsatt bruke <code>plm</code>, men må endre <code>model</code> argumentet til <code>"random"</code>:</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="paneldata.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tilfeldig effekt modell</span></span>
-<span id="cb75-2"><a href="paneldata.html#cb75-2" aria-hidden="true" tabindex="-1"></a>reg.re <span class="ot">&lt;-</span> <span class="fu">plm</span>(lnwg <span class="sc">~</span> lnhr,</span>
-<span id="cb75-3"><a href="paneldata.html#cb75-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> p.df,</span>
-<span id="cb75-4"><a href="paneldata.html#cb75-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">model =</span> <span class="st">&quot;random&quot;</span>)</span>
-<span id="cb75-5"><a href="paneldata.html#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg.re)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="paneldata.html#cb75-1"></a><span class="co"># tilfeldig effekt modell</span></span>
+<span id="cb75-2"><a href="paneldata.html#cb75-2"></a>reg.re &lt;-<span class="st"> </span><span class="kw">plm</span>(lnwg <span class="op">~</span><span class="st"> </span>lnhr,</span>
+<span id="cb75-3"><a href="paneldata.html#cb75-3"></a>              <span class="dt">data =</span> p.df,</span>
+<span id="cb75-4"><a href="paneldata.html#cb75-4"></a>              <span class="dt">model =</span> <span class="st">&quot;random&quot;</span>)</span>
+<span id="cb75-5"><a href="paneldata.html#cb75-5"></a><span class="kw">summary</span>(reg.re)</span></code></pre></div>
 <pre><code>## Oneway (individual) effect Random Effect Model 
 ##    (Swamy-Arora&#39;s transformation)
 ## 
@@ -502,8 +500,8 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 <p>En modell med faste effekter vil være mulig å bruke i alle tilfeller, mens en modell med tilfeldige effekter har strengere krav til hvordan disse individuelle effektene oppfører seg. Dersom disse er oppfylt er det en fordel å bruke en modell med tilfeldige effekter.</p>
 <p>En strategi for å finne riktig modell er å estimere begge modellene forså å utføre en såkalt Hausman test. Nullhypotesen er da at den riktige modellen er den med tilfeldige effekter. Forkaster vi bruker vi modellen med faste effekter, forkaster vi ikke bruker vi modellen med tilfeldige effekter.</p>
 <p>I R utfører vi testen slik:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="paneldata.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hausman test</span></span>
-<span id="cb77-2"><a href="paneldata.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">phtest</span>(reg.fe, reg.re)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="paneldata.html#cb77-1"></a><span class="co"># Hausman test</span></span>
+<span id="cb77-2"><a href="paneldata.html#cb77-2"></a><span class="kw">phtest</span>(reg.fe, reg.re)</span></code></pre></div>
 <pre><code>## 
 ##  Hausman Test
 ## 
@@ -524,6 +522,7 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -542,7 +541,6 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -563,10 +561,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "toc_depth": 4
