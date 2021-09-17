@@ -52,6 +52,8 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -383,8 +385,8 @@ Løsning
 <ol style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="oppgaver-2.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df_tv<span class="sc">$</span>TV_titting, df_tv<span class="sc">$</span>Overvekt, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;TV-titting&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Overvekt&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="oppgaver-2.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df_tv<span class="sc">$</span>TV_titting, df_tv<span class="sc">$</span>Overvekt, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;TV-titting&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Overvekt&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-54-1.png" width="672" />
 Plottet viser en tydelig trend om at TV-titting og overvekt er relaterte. Dette kan vi undersøke nærmere.</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li></li>
@@ -401,9 +403,9 @@ Plottet viser en tydelig trend om at TV-titting og overvekt er relaterte. Dette 
 <li></li>
 </ol>
 <p>Vi estimerer en regresjonsmodell fra dataene og skriver ut tabellen med resultatene:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="oppgaver-2.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
-<span id="cb2-2"><a href="oppgaver-2.html#cb2-2" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Overvekt <span class="sc">~</span> TV_titting, df_tv)</span>
-<span id="cb2-3"><a href="oppgaver-2.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="oppgaver-2.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb61-2"><a href="oppgaver-2.html#cb61-2" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Overvekt <span class="sc">~</span> TV_titting, df_tv)</span>
+<span id="cb61-3"><a href="oppgaver-2.html#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ===============================================
 ##                         Dependent variable:    
@@ -429,9 +431,9 @@ Plottet viser en tydelig trend om at TV-titting og overvekt er relaterte. Dette 
 <ol start="4" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="oppgaver-2.html#cb4-1" aria-hidden="true" tabindex="-1"></a>reg.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
-<span id="cb4-2"><a href="oppgaver-2.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="oppgaver-2.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg.pred, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="oppgaver-2.html#cb63-1" aria-hidden="true" tabindex="-1"></a>reg.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
+<span id="cb63-2"><a href="oppgaver-2.html#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-3"><a href="oppgaver-2.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg.pred, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## =====================
 ##    fit   lwr    upr  
@@ -442,9 +444,9 @@ Plottet viser en tydelig trend om at TV-titting og overvekt er relaterte. Dette 
 <ol start="5" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="oppgaver-2.html#cb6-1" aria-hidden="true" tabindex="-1"></a>reg.conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span>
-<span id="cb6-2"><a href="oppgaver-2.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="oppgaver-2.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg.conf, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="oppgaver-2.html#cb65-1" aria-hidden="true" tabindex="-1"></a>reg.conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span>
+<span id="cb65-2"><a href="oppgaver-2.html#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="oppgaver-2.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg.conf, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ===================
 ##    fit   lwr   upr 
@@ -455,9 +457,9 @@ Plottet viser en tydelig trend om at TV-titting og overvekt er relaterte. Dette 
 <ol start="6" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="oppgaver-2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>reg.zero <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">0</span>)), <span class="at">interval =</span> <span class="st">&quot;prediction&quot;</span>)</span>
-<span id="cb8-2"><a href="oppgaver-2.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="oppgaver-2.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg.zero, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="oppgaver-2.html#cb67-1" aria-hidden="true" tabindex="-1"></a>reg.zero <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">0</span>)), <span class="at">interval =</span> <span class="st">&quot;prediction&quot;</span>)</span>
+<span id="cb67-2"><a href="oppgaver-2.html#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-3"><a href="oppgaver-2.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg.zero, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ========================
 ##     fit     lwr    upr  
@@ -543,12 +545,12 @@ og
   \beta_1 S_X^2 &amp;= S_{XY}.
 \end{align}\]</span></p>
 <p>Da blir</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="oppgaver-2.html#cb10-1" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">/</span> <span class="dv">110</span></span>
-<span id="cb10-2"><a href="oppgaver-2.html#cb10-2" aria-hidden="true" tabindex="-1"></a>beta_1</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="oppgaver-2.html#cb69-1" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">/</span> <span class="dv">110</span></span>
+<span id="cb69-2"><a href="oppgaver-2.html#cb69-2" aria-hidden="true" tabindex="-1"></a>beta_1</span></code></pre></div>
 <pre><code>## [1] 0.07272727</code></pre>
 <p>og</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="oppgaver-2.html#cb12-1" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="sc">-</span> beta_1 <span class="sc">*</span> <span class="dv">40</span></span>
-<span id="cb12-2"><a href="oppgaver-2.html#cb12-2" aria-hidden="true" tabindex="-1"></a>beta_0</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="oppgaver-2.html#cb71-1" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="sc">-</span> beta_1 <span class="sc">*</span> <span class="dv">40</span></span>
+<span id="cb71-2"><a href="oppgaver-2.html#cb71-2" aria-hidden="true" tabindex="-1"></a>beta_0</span></code></pre></div>
 <pre><code>## [1] 17.09091</code></pre>
 </div>
 </details>

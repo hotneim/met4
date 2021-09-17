@@ -233,9 +233,9 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="oppgave-1-interaktiv-øvelse-1" class="section level3" number="7.3.1">
 <h3><span class="header-section-number">7.3.1</span> Oppgave 1: Interaktiv øvelse</h3>
 <p>Før vi tar fatt på dataanalysen begynner vi som vanlig med litt R-trening i swirl. Har du allerede installert pakken swirl (skriv <code>install.packages("swirl")</code> i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="dataøving-3.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
-<span id="cb206-2"><a href="dataøving-3.html#cb206-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course</span>(<span class="st">&quot;Regression_Models&quot;</span>) <span class="co"># legger til nytt kursmateriale om regresjon</span></span>
-<span id="cb206-3"><a href="dataøving-3.html#cb206-3" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="dataøving-3.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
+<span id="cb202-2"><a href="dataøving-3.html#cb202-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course</span>(<span class="st">&quot;Regression_Models&quot;</span>) <span class="co"># legger til nytt kursmateriale om regresjon</span></span>
+<span id="cb202-3"><a href="dataøving-3.html#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn. Hvis du bruker samme navn som tidligere får du kanskje tilbud om å starte opp igjen der du slapp, men da kan du bare velge det nederste valget ‘No. Let me start something new’. Du velger så alternativet ‘Regression Models’ hvor du får se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul modul 1 <strong>‘Introduction’</strong>. Her vil du lære litt om hvordan du kan bruke R til å gjøre en regresjonsanalyse ved hjelp av et treningsdatasett. Noen av kommandoene som gjennomgås i denne modulen vil komme til nytte senere i datalabben.</p>
 <p>Husk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (<code>esc</code>) før du begynner på del to av øvingen. Lykke til!</p>
 </div>
@@ -246,7 +246,7 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Museet åpnet igjen i april 1995, men var da betydelig større enn det var opprinnelig. Data for besøkstall for museet og fornøyelsesparken finner vi i regnearket <a href="datasett/C16-01.xlsx"><code>C16-01.xlsx</code></a>. Som i de to foregående dataøvingene legger du denne filen i en mappe på maskinen din, og oppretter et tomt R-script der du lagrer koden for denne oppgaven.</p>
 <p><strong>Oppgave 2.1:</strong> Kikk raskt på datasettet i Excel eller tilsvarende. Du ser at det er tre kolonner, en som angir ukenummer (<code>Week</code>, teller fra 1 til 205), en som angir ukentlig besøkstall på museet (<code>Museum</code>) og en som angir ukentlig besøkstall i fornøyelsesparken (<code>A-Park</code>). Legg merke til at besøkstallet i museet er null fra og med uke 33, til og med uke 179, som er perioden fra brannen til nyåpning.</p>
 <p><strong>Oppgave 2.2:</strong> Last så datasettet inn i R som før ved hjelp av <code>read_excel()</code>-funksjonen. Gi det et passelig navn (f.eks <code>visits</code>), og sjekk raskt at det har gått bra ved å taste inn datanavnet i konsollen. Da skal det se omtrent slik ut:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="dataøving-3.html#cb207-1" aria-hidden="true" tabindex="-1"></a>visits</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="dataøving-3.html#cb203-1" aria-hidden="true" tabindex="-1"></a>visits</span></code></pre></div>
 <pre><code>## # A tibble: 205 x 3
 ##     Week Museum `A-Park`
 ##    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
@@ -267,12 +267,12 @@ Publisert ved hjelp av bookdown</a></li>
 <li>Et av variabelnavnene har fått noen rare tødler rundt seg. Grunnen til det er at <code>A-park</code> inneholder en bindestrek, så for at R ikke skal tolke det tegnet som et minustegn (og dermed gi oss et mareritt med feilmeldinger), må vi alltid bruke disse tødlene når vi refererer til denne variabelen. (På tastaturet som forfatteren av disse ord skriver på, er det <code>Shift +</code> tasten til venstre for <code>Backspace</code>.</li>
 </ul>
 <p><strong>Oppgave 2.3:</strong> Før vi går videre, må vi få et bedre begrep om problemet ved å kikke grafisk på observasjonene. La oss plotte observasjonene i et linjeplott for å se hvordan de utvikler seg over tid, ved å ha ukenummer på <span class="math inline">\(x\)</span>-aksen og besøkstall på <span class="math inline">\(y\)</span>-aksen. Vi kan lage et enkelt plott for besøkstall for museet ved å skrive</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="dataøving-3.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Laster først ggplot-pakken (det trenger vi bare gjøre en gang i skriptet)</span></span>
-<span id="cb209-2"><a href="dataøving-3.html#cb209-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)        </span>
-<span id="cb209-3"><a href="dataøving-3.html#cb209-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb209-4"><a href="dataøving-3.html#cb209-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Lager et enkelt linjeplott:</span></span>
-<span id="cb209-5"><a href="dataøving-3.html#cb209-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(visits, <span class="fu">aes</span>(<span class="at">x =</span> Week, <span class="at">y =</span> Museum)) <span class="sc">+</span></span>
-<span id="cb209-6"><a href="dataøving-3.html#cb209-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="dataøving-3.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Laster først ggplot-pakken (det trenger vi bare gjøre en gang i skriptet)</span></span>
+<span id="cb205-2"><a href="dataøving-3.html#cb205-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)        </span>
+<span id="cb205-3"><a href="dataøving-3.html#cb205-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb205-4"><a href="dataøving-3.html#cb205-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Lager et enkelt linjeplott:</span></span>
+<span id="cb205-5"><a href="dataøving-3.html#cb205-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(visits, <span class="fu">aes</span>(<span class="at">x =</span> Week, <span class="at">y =</span> Museum)) <span class="sc">+</span></span>
+<span id="cb205-6"><a href="dataøving-3.html#cb205-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
 <p>Du kan legge til besøkstall for fornøyelsesparken ved å plusse på en ny linje med <code>geom_line()</code>, men da må du spesifisere <code>y</code>-variabelen på nytt. Hele plottekommandoen blir da:</p>
 <p>Vi ser at det er en sterk sammenheng mellom besøkstallene til museet og parken, spesielt etter gjenåpningen i 1995, og det skal vi utnytte når vi senere skal beregne erstatningssummen.</p>
@@ -281,10 +281,10 @@ Publisert ved hjelp av bookdown</a></li>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1x_i + \epsilon,\]</span>
 der responsvariabelen <span class="math inline">\(y_i\)</span> er besøkstallet på museet på dag nr. <em>i</em>, og <span class="math inline">\(x_i\)</span> er besøkstallet i fornøyelsesparken samme dag. Datasettet vi skal bruke er altså <em>de 32 første radene</em> i datasettet <code>visits</code>. Da kan vi enten lage en ny tabell som består av de 32 første radene, eller så kan vi bruket argumentet <code>subset</code> i <code>lm()</code>-funkesjonen til å spesifisere hvilke observasjoner som skal brukes.</p>
 <p>Estimer regresjonsmodellen ved å kjøre følgende kall til <code>lm()</code>:</p>
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="dataøving-3.html#cb210-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Museum <span class="sc">~</span> <span class="st">`</span><span class="at">A-Park</span><span class="st">`</span>, <span class="at">data =</span> visits, <span class="at">subset =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">32</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="dataøving-3.html#cb206-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Museum <span class="sc">~</span> <span class="st">`</span><span class="at">A-Park</span><span class="st">`</span>, <span class="at">data =</span> visits, <span class="at">subset =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">32</span>)</span></code></pre></div>
 <p><strong>Oppgave 2.6:</strong> Pakken <code>stargazer</code> inneholder funksjoner for å lage pene regesjonstabeller automatisk fra regresjonsobjekter i R. Pakken må installeres og lastes på vanlig måte:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="dataøving-3.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stargazer&quot;</span>)</span>
-<span id="cb211-2"><a href="dataøving-3.html#cb211-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="dataøving-3.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stargazer&quot;</span>)</span>
+<span id="cb207-2"><a href="dataøving-3.html#cb207-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span></code></pre></div>
 <p>Inne i <code>stargazer</code>-pakken er det en funksjon som også heter <code>stargazer()</code>. Hvis du ikke har sett den brukt før (f.eks i forelesning), kan du lese mer om den ved hjelp av hjelpefunksjonen: <code>?stargazer</code>. Bruk så <code>stargazer()</code> til å lage følgende regresjonsutskrift (hint: bruk argumentet <code>type = text</code>):</p>
 <pre><code>
 ===============================================
@@ -308,20 +308,20 @@ F Statistic          1,424.094*** (df = 1; 30)
 Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <p><strong>Oppgave 2.7:</strong> Lag tre diagnoseplott etter mal som er gitt i forelesningsnotatene: Et som viser residualene i regresjonsmodellen i et spredningsdiagram, et QQ-plott, og et histogram. Kan du gjøre en grov vurdering om hvorvidt forutsetningene for lineær regresjon er oppfylt?</p>
 <p><strong>Oppgave 2.8:</strong> Bruk denne regresjonsmodellen til å beregne hva besøkstallet <em>hadde vært</em> dersom museet hadde vært åpent som vanlig. Dette kan vi gjøre ved å bruke <code>predict()</code>-funksjonen. Følg oppskriften under nå, så skal du prøve å gjøre det selv etterpå.</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="dataøving-3.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La oss bruke R til å finne ut hvilke uker museet var stengt. Kommandoen under</span></span>
-<span id="cb213-2"><a href="dataøving-3.html#cb213-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lager en vektor som viser hvilke uker museet var stengt:</span></span>
-<span id="cb213-3"><a href="dataøving-3.html#cb213-3" aria-hidden="true" tabindex="-1"></a>uker_stengt <span class="ot">&lt;-</span> visits<span class="sc">$</span>Museum <span class="sc">==</span> <span class="dv">0</span></span>
-<span id="cb213-4"><a href="dataøving-3.html#cb213-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-5"><a href="dataøving-3.html#cb213-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Så lager vi en ny data frame som inneholder verdiene av ukenummer og `A-Park`</span></span>
-<span id="cb213-6"><a href="dataøving-3.html#cb213-6" aria-hidden="true" tabindex="-1"></a><span class="co"># de ukene museet var stengt. Vi velger rader før kommaet i firkantparantesene,</span></span>
-<span id="cb213-7"><a href="dataøving-3.html#cb213-7" aria-hidden="true" tabindex="-1"></a><span class="co"># og vi velger kolonner etter kommaet:</span></span>
-<span id="cb213-8"><a href="dataøving-3.html#cb213-8" aria-hidden="true" tabindex="-1"></a>visits_pred <span class="ot">&lt;-</span> visits[uker_stengt, <span class="fu">c</span>(<span class="st">&quot;Week&quot;</span>, <span class="st">&quot;A-Park&quot;</span>)]</span>
-<span id="cb213-9"><a href="dataøving-3.html#cb213-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-10"><a href="dataøving-3.html#cb213-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Bruker predict()-funksjonen til å predikere tilhørende y&#39;er:</span></span>
-<span id="cb213-11"><a href="dataøving-3.html#cb213-11" aria-hidden="true" tabindex="-1"></a>predicted_visits1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg1, <span class="at">newdata =</span> visits_pred)</span>
-<span id="cb213-12"><a href="dataøving-3.html#cb213-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-13"><a href="dataøving-3.html#cb213-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Til slutt legger vi til de predikerte verdiene som en ny kolonne i visits_pred:</span></span>
-<span id="cb213-14"><a href="dataøving-3.html#cb213-14" aria-hidden="true" tabindex="-1"></a>visits_pred<span class="sc">$</span>predikert1 <span class="ot">&lt;-</span> predicted_visits1</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="dataøving-3.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La oss bruke R til å finne ut hvilke uker museet var stengt. Kommandoen under</span></span>
+<span id="cb209-2"><a href="dataøving-3.html#cb209-2" aria-hidden="true" tabindex="-1"></a><span class="co"># lager en vektor som viser hvilke uker museet var stengt:</span></span>
+<span id="cb209-3"><a href="dataøving-3.html#cb209-3" aria-hidden="true" tabindex="-1"></a>uker_stengt <span class="ot">&lt;-</span> visits<span class="sc">$</span>Museum <span class="sc">==</span> <span class="dv">0</span></span>
+<span id="cb209-4"><a href="dataøving-3.html#cb209-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-5"><a href="dataøving-3.html#cb209-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Så lager vi en ny data frame som inneholder verdiene av ukenummer og `A-Park`</span></span>
+<span id="cb209-6"><a href="dataøving-3.html#cb209-6" aria-hidden="true" tabindex="-1"></a><span class="co"># de ukene museet var stengt. Vi velger rader før kommaet i firkantparantesene,</span></span>
+<span id="cb209-7"><a href="dataøving-3.html#cb209-7" aria-hidden="true" tabindex="-1"></a><span class="co"># og vi velger kolonner etter kommaet:</span></span>
+<span id="cb209-8"><a href="dataøving-3.html#cb209-8" aria-hidden="true" tabindex="-1"></a>visits_pred <span class="ot">&lt;-</span> visits[uker_stengt, <span class="fu">c</span>(<span class="st">&quot;Week&quot;</span>, <span class="st">&quot;A-Park&quot;</span>)]</span>
+<span id="cb209-9"><a href="dataøving-3.html#cb209-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-10"><a href="dataøving-3.html#cb209-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Bruker predict()-funksjonen til å predikere tilhørende y&#39;er:</span></span>
+<span id="cb209-11"><a href="dataøving-3.html#cb209-11" aria-hidden="true" tabindex="-1"></a>predicted_visits1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg1, <span class="at">newdata =</span> visits_pred)</span>
+<span id="cb209-12"><a href="dataøving-3.html#cb209-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb209-13"><a href="dataøving-3.html#cb209-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Til slutt legger vi til de predikerte verdiene som en ny kolonne i visits_pred:</span></span>
+<span id="cb209-14"><a href="dataøving-3.html#cb209-14" aria-hidden="true" tabindex="-1"></a>visits_pred<span class="sc">$</span>predikert1 <span class="ot">&lt;-</span> predicted_visits1</span></code></pre></div>
 <p>De predikerte besøkstallene er nå lagret som kolonne <code>predicted1</code> i datasettet <code>visits_pred</code>.</p>
 <p><strong>Oppgave 2.9</strong> For å få bedre greie på hvordan prediksjonene egentlig ser ut kan vi legge dem til figuren vår fra over. La oss lage en blå stiplet linje, og det kan vi gjøre med å legge til enda et kall til <code>geom_lines()</code>. Denne gangen må vi bruke flere argumenter:</p>
 <ul>
@@ -330,10 +330,10 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <li>Vi må bruke argumentet <code>linetype</code> til å fortelle at vi vil ha en stiplet linje.</li>
 </ul>
 <p>Ta for deg figuren du lagde i oppgave 2.4, og legg til følgende linjer (husk å få med en <code>+</code> mellom hvert lag):</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="dataøving-3.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Week, <span class="at">y =</span> predikert1), </span>
-<span id="cb214-2"><a href="dataøving-3.html#cb214-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> visits_pred, </span>
-<span id="cb214-3"><a href="dataøving-3.html#cb214-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>, </span>
-<span id="cb214-4"><a href="dataøving-3.html#cb214-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="dataøving-3.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> Week, <span class="at">y =</span> predikert1), </span>
+<span id="cb210-2"><a href="dataøving-3.html#cb210-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> visits_pred, </span>
+<span id="cb210-3"><a href="dataøving-3.html#cb210-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>, </span>
+<span id="cb210-4"><a href="dataøving-3.html#cb210-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">linetype =</span> <span class="st">&quot;dashed&quot;</span>)</span></code></pre></div>
 <p>Da blir figuren min seende slik ut:</p>
 <p><strong>Oppgave 2.10:</strong> Kommenter kort regresjonsutskriften fra oppgave 2.6 og figuren fra oppgave 2.9. Ser det fornuftig ut?</p>
 <p><strong>Oppgave 2.11:</strong> Se på saken heller fra museets side. De mener at det er besøkstallene fra <em>etter</em> åpningen i 2005 som skal brukes til å estimere regresjonsmodellen. Det er lett å forstå hvorfor de ønsker det, for da ser det ut som at det er omtrent like mange besøkende på museet som i fornøyelsesparken.</p>

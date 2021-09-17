@@ -237,22 +237,22 @@ Publisert ved hjelp av bookdown</a></li>
 <h3><span class="header-section-number">6.8.1</span> R-øving</h3>
 <p><strong>1. Data</strong>
 Vi skal i denne øvingen prøve å finne en god modell for dax-indeksen:</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="modellbygging-1.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb146-2"><a href="modellbygging-1.html#cb146-2" aria-hidden="true" tabindex="-1"></a>dax <span class="ot">&lt;-</span> EuStockMarkets[ ,<span class="dv">1</span>]</span>
-<span id="cb146-3"><a href="modellbygging-1.html#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dax)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="modellbygging-1.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb142-2"><a href="modellbygging-1.html#cb142-2" aria-hidden="true" tabindex="-1"></a>dax <span class="ot">&lt;-</span> EuStockMarkets[ ,<span class="dv">1</span>]</span>
+<span id="cb142-3"><a href="modellbygging-1.html#cb142-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dax)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 <p><strong>2. Trening og test data</strong>
 Vi ønsker f.eks å teste hvor god modellen er til å predikere de 10 siste observasjonene i datasettet. Vi deler derfor dataene inn i et treningssett bestående av alle observasjoner utenom disse 10 siste observasjonene, og et testsett bestående av de 10 siste observasjonene:</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="modellbygging-1.html#cb147-1" aria-hidden="true" tabindex="-1"></a>trening <span class="ot">&lt;-</span> <span class="fu">head</span>(dax, <span class="fu">length</span>(dax) <span class="sc">-</span> <span class="dv">10</span>)</span>
-<span id="cb147-2"><a href="modellbygging-1.html#cb147-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">tail</span>(dax, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="modellbygging-1.html#cb143-1" aria-hidden="true" tabindex="-1"></a>trening <span class="ot">&lt;-</span> <span class="fu">head</span>(dax, <span class="fu">length</span>(dax) <span class="sc">-</span> <span class="dv">10</span>)</span>
+<span id="cb143-2"><a href="modellbygging-1.html#cb143-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">tail</span>(dax, <span class="dv">10</span>)</span></code></pre></div>
 <p><strong>3. Estimering og prediksjon</strong>
 Vi tilpasser så en modell til treningssettet ved bruk av eksponensiell glatting og predikerer 10 tidssteg frem for å få prediksjoner av testsettet:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="modellbygging-1.html#cb148-1" aria-hidden="true" tabindex="-1"></a>fit_exp <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(trening)</span>
-<span id="cb148-2"><a href="modellbygging-1.html#cb148-2" aria-hidden="true" tabindex="-1"></a>pred_exp <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_exp, <span class="at">h =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="modellbygging-1.html#cb144-1" aria-hidden="true" tabindex="-1"></a>fit_exp <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(trening)</span>
+<span id="cb144-2"><a href="modellbygging-1.html#cb144-2" aria-hidden="true" tabindex="-1"></a>pred_exp <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_exp, <span class="at">h =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p>Merk at når vi ikke spesifiserer noen argumenter i <code>HoltWinters</code> vil en mer avansert modell bli tilpasset, samtidig som glattingsparameteren faktisk vil bli estimert ved å minimerer MSE.</p>
 <p><strong>3. Out-of-sample vurdering</strong></p>
 <p>Vi kan så sammenligne disse prediksjonene <code>pred_exp</code> med de faktiske observasjonene <code>test</code> ved å “måle” hvor langt disse er fra hverandre. Funksjonen <code>accuracy</code> som kommer med <code>forecast</code> pakken regner ut flere forskjellig mål på avstand:</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="modellbygging-1.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">accuracy</span>(pred_exp, test)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="modellbygging-1.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">accuracy</span>(pred_exp, test)</span></code></pre></div>
 <pre><code>##                       ME      RMSE       MAE         MPE      MAPE       MASE
 ## Training set    1.251117  35.82454  23.42652  0.03438446 0.8276219 0.04295353
 ## Test set     -317.477645 350.63504 317.47765 -5.82900543 5.8290054 0.58210884
