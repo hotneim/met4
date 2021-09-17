@@ -34,7 +34,7 @@ hypotesetesting
 generelt-om-hypotesetesting
 videoforelesninger-2
 kommentarer-2
-chap:enpop
+enpop
 videoforelesninger-3
 kommentarer-3
 inferens-om-to-populasjoner
@@ -45,7 +45,6 @@ videoforelesninger-5
 kommentarer-5
 oppgaver-1
 standard-oppgaver-1
-nøtter-1
 regresjon
 enkel-regresjon
 videoforelesninger-6
