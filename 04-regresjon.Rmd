@@ -273,11 +273,11 @@ b. Hva er uttrykket for beste gjetning/prediksjon $\hat{Y}_i$ gitt en verdi av f
 
 c. Vis at hva uttrykket for regresjonsparameterne blir estimert med minste kvadraters metode. Regn ut minste kvadraters estimat av parameterne.
 
-b. Gi en tolkning av koeffisientene.
+<!-- d. Gi en tolkning av koeffisientene.
 
-c. Er det nok evidens til at vi kan hevde at det er en sammenheng mellom alder og tid? Bruk 95 % signifikansnivå. 
+e. Er det nok evidens til at vi kan hevde at det er en sammenheng mellom alder og tid? Bruk 95 % signifikansnivå. 
 
-d. Estimer et 90 % konfidensintervall av gjennomsnittlig tid brukt på oppgaven for en 50-åring.
+f. Estimer et 90 % konfidensintervall av gjennomsnittlig tid brukt på oppgaven for en 50-åring. -->
 
 <details><summary>Løsning</summary><div>
 
