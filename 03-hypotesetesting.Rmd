@@ -25,9 +25,9 @@ Her snakker vi om kapittel **11** i læreboken. Hvis du kan svare på følgende 
 - Hva er Type I-feil og hva er Type II-feil? (Seksjon **11-1** forklarer dette greit)
 - Hva er signifikansnivået ($\alpha$) til en test?
 - Styrken (the power) til en test er definert som $1-P(\textrm{Type II-feil})=1-\beta$. Hvordan tolker du denne størrelsen? Se også **11-3d**.
-- Hva er $p$-verdien til en test (Seksjon **11-2c**)? Les også **11-2d**, **e** og **f** om hvordan vi fortolker og snakker om $p$-verdien på en korrekt måte. Vi kommer tilbake til dette i kapittel \@ref(chap:enpop).
+- Hva er $p$-verdien til en test (Seksjon **11-2c**)? Les også **11-2d**, **e** og **f** om hvordan vi fortolker og snakker om $p$-verdien på en korrekt måte. Vi kommer tilbake til dette i kapittel \@ref(enpop).
 
-## Inferens om en populasjon {#chap:enpop}
+## Inferens om en populasjon {#enpop}
 
 ### Videoforelesninger
 
@@ -662,46 +662,256 @@ t.test(metodeB, metodeA, paired = TRUE, alternative = "greater" )
 c. Hvilke av de to foregående testene bør en bruke i dette tilfellet? 
 
 <details><summary>Løsning</summary>
-a. La $\mu_1$ og $\mu_2$ være forventet tid til registrering av lus i et basseng for hhv metode B og metode A. Da er R-utskriften en test av $H_0: \mu_1 - \mu_2 = 0$ mot det enside alternativet $H_1: \mu_1-\mu_2 > 0$. Fra utskriften ser vi at $p-value= 0.06164 > 0.05$, altså kan vi ikke forkaste $H_0$ ved $5\%$ signifikansnivå.
 
+>a. La $\mu_1$ og $\mu_2$ være forventet tid til registrering av lus i et basseng for hhv metode B og metode A. Da er R-utskriften en test av $H_0: \mu_1 - \mu_2 = 0$ mot det enside alternativet $H_1: \mu_1-\mu_2 > 0$. Fra utskriften ser vi at $p-value= 0.06164 > 0.05$, altså kan vi ikke forkaste $H_0$ ved $5\%$ signifikansnivå.
+>
 Praktisk tolkning: Vi kan ikke konkludere med at det er noe forskjell i tiden de to metodene bruker.
+>
+>b.I en paret t-test baserer vil testen på de parvise differansene $d_i = x_i - y_i$, der $x_i$ og $y_i$ er tiden hhv metode B og A bruker på å registrere lus i basseng nr. i. Utskriften viser en test av $H_0: \mu_d = 0$ mot det ensidige alternativet $H_1: \mu_d > 0$. Testobservatoren er da gitt ved
+>
+> $$T=\frac{\overline{d}-0}{s_d/\sqrt{n}}$$ 
+>
+> Fra utskriften ser vi at $p-value= 0.0001409 < 0.05$, altså kan vi forkaste $H_0$ ved $5\%$ signifikansnivå.
+>
+>Praktisk tolkning: Det ser ut til at metode A er raskere enn metode B.
 
-b.I en paret t-test baserer vil testen på de parvise differansene $d_i = x_i - y_i$, der $x_i$ og $y_i$ er tiden hhv metode B og A bruker på å registrere lus i basseng nr. i. Utskriften viser en test av $H_0: \mu_d = 0$ mot det ensidige alternativet $H_1: \mu_d > 0$. Testobservatoren er da gitt ved
-
- $$T=\frac{\overline{d}-0}{s_d/\sqrt{n}}$$ 
- Fra utskriften ser vi at $p-value= 0.0001409 < 0.05$, altså kan vi forkaste $H_0$ ved $5\%$ signifikansnivå.
-
-Praktisk tolkning: Det ser ut til at metode A er raskere enn metode B.
-
-c. En paret t-test er generelt det riktige valget dersom observasjonene som blir "paret" er avhengige. I dette tilfellet er det naturlig å tro at tiden metode A og B bruker på et basseng er avhengige størrelser (f.eks vil et basseng med mye fisk ta lang tid å registrere for begge metodene). I en to-utvalgs t-test antar vi derimot at tiden det tar for metode A og B å registrere lus for et basseng er uavhengige. 
+>c. En paret t-test er generelt det riktige valget dersom observasjonene som blir "paret" er avhengige. I dette tilfellet er det naturlig å tro at tiden metode A og B bruker på et basseng er avhengige størrelser (f.eks vil et basseng med mye fisk ta lang tid å registrere for begge metodene). I en to-utvalgs t-test antar vi derimot at tiden det tar for metode A og B å registrere lus for et basseng er uavhengige. 
 
 
 </details>
 
-<!-- 10. Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: $s_{1}^2 = 1400$,	$n_1 = 60$,		$s_{2}^2 = 700$,	$n_2 = 60$. -->
+10. Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: $s_{1}^2 = 1400$,	$n_1 = 60$,		$s_{2}^2 = 700$,	$n_2 = 60$.
 
-<!--     a.	Kan vi hevde at de to utvalgene har ulik varians? Bruk 5 % signifikansnivå. -->
+    a.	Kan vi hevde at de to utvalgene har ulik varians? Bruk 5 % signifikansnivå.
 
-<!--     b. 	Gjenta a., denne gangen med $n_1 = 30$ og $n_2 = 30$. -->
+    b. 	Gjenta a., denne gangen med $n_1 = 30$ og $n_2 = 30$.
 
-<!-- 	  c. Fastslå hva som er effekten på verdi av testobservator og konklusjon av testen når vi reduserer           utvalgsstørrelse. -->
+	  c. Fastslå hva som er effekten på verdi av testobservator og konklusjon av testen når vi reduserer           utvalgsstørrelse.
 
-<!-- <details><summary>Løsning</summary> -->
-<!-- a. Her ønsker vi å test $H_0: \sigma_{1}^2/\sigma_{2}^2 = 1$ mot $H_1: \sigma_{1}^2/\sigma_{2}^2 \neq 1$. Testobservatoren er gitt ved -->
-
-<!-- $$F = s_{1}^2/s_{2}^2 = 1400/700 = 2$$ -->
-
-
-<!-- </details> -->
-
-### Nøtter
+<details><summary>Løsning</summary>
+>a. Her ønsker vi å test $H_0: \sigma_{1}^2/\sigma_{2}^2 = 1$ mot $H_1: \sigma_{1}^2/\sigma_{2}^2 \neq 1$. Husk at for en tosidig test er det smart å formulere null- og alternativ hypotesen slik at den største utvalgsvariansen kommer i telleren til testobservatoren:
+>
+>$$F = s_{1}^2/s_{2}^2 = 1400/700 = 2$$
+>
+>Da trenger vi nemlig kun å sammenligne testobservatoren med den øvre kvantilen i F-fordelingen. Forkastningsområdet blir i dette tilfellet $F > F_{0.025, 60, 60} = 1.66$. Siden $F > 2.074$ kan vi altså forkaste $H_0$ til fordel for $H_1$ på et 5 % signifikansnivå. 
 
 
+>b. Forkastningsområdet er da $F > F_{0.025, 30, 30} = 2.07$ og siden $F < 2.07$ kan vi ikke forkaste $H_0$ på et 5 % signifikansnivå.
+
+>c. Testobservatoren forblir uendret, men vi ser at den kritiske verdien som må overstiges for å få forkastning øker når antall observasjoner avtar. Konklusjonen blir derfor motsatt i oppgave b. Skulle vi fått forkastning også i b. måtte det reduserte utvalget blitt kompensert av et større avvik mellom $s_1$ og $s_2$.     
+
+
+<!-- qf(0.975, 60, 60) -->
+<!-- qf(0.975, 30, 30) -->
+
+</details>
+
+11. En bedrift som har en dyr leieavtale av en parkeringsplass vurderer innkjøp av elektroniske sparkesykler. Tanken er at de som bor nær bedriften da kan benytte seg av disse istedenfor å kjøre bil. I et prøveprosjekt får bedriften leid en rekke sparkesykler i 20 arbeidsdager og antall biler på parkeringsplassen blir registrert daglig. Den samme registreringen blir gjort de 20 påfølgende arbeidsdagene når sparkesyklene ikke er tilgjengelig. En ansatt som er ansvarlig for prøveprosjektet bruker R til å utføre to tester basert på data fra disse to  registreringene. 
+
+  a. Formuler null- og alternativhypotesen til den første testen. Hvorfor utfører den ansatte denne testen?
+    
+  b. Formuler null- og alternativhypotesen samt testobservatoren til den andre testen. Trekk en praktisk konklusjon om innføringen av sparkesykler ut fra utskriften.
+
+```{r, echo = F}
+set.seed(1)
+med_sparkesykkel <- rnorm(20, 30, 10)
+uten_sparkesykkel <- rnorm(20, 40, 13)
+var.test(uten_sparkesykkel, med_sparkesykkel)
 
 
 
-  
-  **Flere oppgaver kommer!**
+```
+```{r, echo = F}
+t.test(uten_sparkesykkel, med_sparkesykkel, var.equal = TRUE, alternative = "greater")
+```
+<details><summary>Løsning</summary>
+
+> a. La $\sigma^2_{1}$ og $\sigma^2_{2}$ være populasjonsvariansene til antall biler som kommer for å parkere på henholdsvis dager der sparkesykler *ikke* er tilgjengelig og dager der sparkesykler er tilgjengelig. Utskriften viser da en test av $H_0: \sigma^2_{1}/\sigma^2_{2} = 1$ mot $H_1: \sigma^2_{1}/\sigma^2_{2} \neq 1$.
+>
+> Den ansatte utfører denne testen for å se om han kan bruke varianten av to-utvalgs t-test som antar lik varians når vedkommende tester om innføringen av sparkesykler har noen effekt (se b.). Ut fra p-verdien på 0.3559 (altså ingen forkastning av $H_0$) vil det være greit å bruke en slik test i dette tilfellet.
+>
+> Tips: variabel navnet som står først i testen ("uten_sparkesykkel") indikerer hvilke av de to variansen som står i telleren av $\sigma^2_{1}/\sigma^2_{2}$ (i $H_0$) og $s^2_{1}/s^2_{2}$ (i testobservatoren) i testen R utfører.
+
+> b. La $\mu_1$ og $\mu_2$ være forventet antall biler på henholdsvis dager der sparkesykler *ikke* er tilgjengelig og dager der sparkesykler er tilgjengelig. Utskriften viser en en-sidig, to-utvalgs t-test av hypotesen $H_0: \mu_1 - \mu_2 = 0$ mot $H_1: \mu_1 - \mu_2 > 0$. $H_1$ er altså om det forventes ferre biler på dager med sparkesykler enn på dager uten sparkesykler. 
+>
+>"Two sample t-test" betyr at vi har antatt lik varians (ellers ville det stått "Welch two sample t-test"), og testobservatoren er derfor gitt ved:
+>
+>   $$T = \frac{\overline{x}_1 - \overline{x}_2 - 0}{\sqrt{s^2_{P}(1/n_1 + 1/n_2)}}$$
+>
+> der $$s^2_{P} = \frac{(n_1 - 1)s^2_{1} + (n_2 - 1)s^2_{2}}{n_1 + n_2 -2}$$ 
+>
+>Ut fra p-verdien på 0.009232 forkaster vi $H_0$ på 1 % (!) signifikansnivå. Vi har med andre ord god grunn til å tro at en innføring av sparkesykler vil redusere antall biler på parkeringsplassen. 
+>
+> Tips: Variabelnavnet som står først ("uten_sparkesykkel") indikerer hva som er første verdi i differansene $\mu_1 - \mu_2$ (i hypotesene) og $\overline{x}_1 - \overline{x}_2$ (i testobservatoren) i testen R utfører.
+</details>
+
+12. Vi har følgende informasjon om fra to tilfeldige utvalg fra to populasjoner: I utvalg 1 har $x_1 = 100$ av $n_1 = 200$ individer et spesielt kjennetegn, mens i utvalg 2 er det det tilsvarende tallet $x_2 = 90$ av $n_2 = 200$. 
+
+a. Utfør en test for å undersøke om de to populasjonene har ulik andel av kjennetegnet. Bruk 5 % signifikansnivå.
+
+b. Regn ut p-verdien for testen over.
+
+c. Gjenta a., denne gangen med $x_1 = 190$ og $x_2 = 180$. Fastslå effekten på p-verdien av å øke andelene (dersom differansen er uendret).
+
+<details><summary>Løsning</summary>
+
+>a. Vi skal her teste hypotsen $H_0: p_1 - p_2 = 0$ mot $H_1: p_1 - p_2 \neq 0$. Med $\hat{p_1} = 100/200 = 0.5$, $\hat{p}_2 = 90/200 = 0.45$ og $\hat{p} = (100 + 90)/(200 + 200) = 0.475$ er testobservatoren er gitt ved 
+
+>$$Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(1/n_1 + 1/n_2)}} = \frac{0.5 - 0.45}{\sqrt{0.475(1-0.475)(1/200 + 1/200)}}=1.00$$
+>
+> Siden dette er en tosidig test er forkastningsområdet til testen $|Z| > z_{\alpha/2} = z_{0.025}=1.96$. Siden 1 < 1.96 kan vi altså *ikke* forkaste $H_0$ ved 5 % signifikansnivå.
+
+> b. P-verdier for tosidige tester kan være litt tricky å forstå. Vi er altså ute etter sannsynligheten for at noe "minst like ekstremt og til fordel for $H_1$ intreffer". For en tosidig test ville vi også reagert på store negative verdier av $Z$, og "minst like ekstremt" i negativ retning ville vært $Z < - 1.00$. Altså blir p-verdien
+>
+>$$p-verdi = P(Z < -1.00\quad \text{og/eller}\quad Z > 1.00)\\ = P(Z < -1.00) + P(Z > 1.00) = 2P(Z > 1.00) = 2*(1 - 0.841) = 0.317$$
+>
+> c. Testobservatoren er da gitt ved
+>
+>$$Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(1/n_1 + 1/n_2)}} = \frac{0.95 - 0.90}{\sqrt{0.475(1-0.475)(1/200 + 1/200)}}=1.89$$
+>
+> P-verdien er som før gitt ved
+>
+> $$ P-value = 2P(Z > 1.89) = 2*(1 - 0.97) = 0.06 $$
+>
+> Vi ser at p-verdien avtar når andelene blir større. Vi er her ganske nære på å forkaste $H_0$ selv om differansen mellom $\hat{p}_1$ og $\hat{p}_2$ er den samme som i oppgave a. I nevneren til testobservatoren ser vi at variansen til differansen $\hat{p}_1 - \hat{p}_2$ er proposjonal med $\hat{p}(1-\hat{p})$. Denne vil bli mindre når $\hat{p}$ nærmer seg 1 (eller 0), og er størst når $\hat{p} = 0.5$. Vi er derfor sikrere på at differansen $\hat{p}_1 - \hat{p}_2$ i oppgave b. ligger nær den sanne differansen i populasjon sammenlignet med oppgave a. Bevismateriale mot $H_1$ øker (p-verdien går ned), men i dette tilfellet holder det ikke til å forkaste $H_0$. 
+
+<!-- z = (0.5 - 0.45)/sqrt(0.475*(1 - 0.475)*(1/200 + 1/200)) -->
+<!-- pval = 2*(1 - pnorm(z)) -->
+<!-- z = (0.95 - 0.90)/sqrt(0.925*(1 - 0.925)*(1/200 + 1/200)) -->
+<!-- pval = 2*(1 - pnorm(z)) -->
+</details>
+
+13. En kredittutsteder gir kundene en rating basert på blant annet gjeld, formue og tidligere betalingsanmerkninger. Tanken er at en lav rating medfører høyere sannsynlighet mislighold av lånet sitt. For å sjekke om ratingen gir en reell indikasjon på mislighold, blir det registrert antall mislighold i et utvalg med rating under 800, og i et utvalg med rating 800 eller høyere.  
+
+|   | Rating < 800 | Rating  > 800 |
+|---|:---:|:---:|
+| Utvalgsstørrelse  |  612 | 854   |
+|  Mislighold | 14  | 9  | 
+
+Kan vi konkludere med at personer med rating lavere enn 800 har høyere sannsynlighet for mislighold av lånet sitt sammenlignet med de med rating over 800? Bruk 5 % signifikansnivå.
+
+<details><summary>Løsning</summary>
+
+>La $p_1$ være sannsynlighet for mislighold for de med rating under 800 og la $p_2$ være den samme sannsynligheten for de med rating over 800. Vi skal da teste $H_0: p_1 - p_2 = 0$ mot det ensidige alternativet $H_1: p_1 - p_2 > 0$. Med $\hat{p_1} = 14/612 = 0.0229$, $\hat{p}_2 = 0.0105$, og $\hat{p}=(14 + 9)/(612 + 854)=0.0157$ er testobservatoren gitt ved
+>
+>    $$Z =  \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(1/n_1 + 1/n_2)}} = \frac{0.0229 - 0.0105}{\sqrt{0.0157(1-0.0157)(1/612 + 1/854)}}=1.874$$
+>
+> Forkastningsområdet er gitt ved $Z > z_\alpha = 1.645$, og siden 1.874 > 1.645 forkaster vi $H_0$. Det er grunn til å tro at personer med rating lavere enn 800 har større sannsynlighet for mislighold.
+
+<!-- x1 = 14 -->
+<!-- x2 = 9 -->
+<!-- n1 = 612 -->
+<!-- n2 = 854 -->
+<!-- p1 = x1/n1 -->
+<!-- p2 = x2/n2 -->
+<!-- p = (x1 + x2)/(n1 + n2) -->
+<!-- z = (p1 - p2)/sqrt(p*(1-p)*(1/n1 + 1/n2)) -->
+
+</details>
+
+14. To konkurrerende selskaper, A og B, dominerer et marked for et bestemt produkt og har historisk sett hatt markedsandeler på hhv. 40 % og 50 % (altså 10 % til andre markeder). Selskap A gjennomfører så en markedsføringskampanje. For å avgjøre kampanjens effekt trekker et markedsanalyseselskap et tilfeldig utvalg av 300 kunder som spørres om deres produkt preferanse:  
+
+|Foretrukket selskap |  A | B  |andre|
+|:---:|:---:|:---:|:---:|
+|  Frekvens | 140  | 142  | 18 |
+
+Har markedsandelene endret seg?
+
+<details><summary>Løsning</summary>
+
+>Vi skal her test $H_0: p_1 = 0.4, p_2 = 0.5, p_3 = 0.1$ mot $H_1:$ minst to sannsynligheter er forskjellige. Utregning av testobservator blir da som følger:
+
+|Foretrukket selskap |  $f_i$ | $e_i$  | $(f_i - e_i)^2/e_i$|
+|:---:|:---:|:---:|:---:|
+|  A | 140  | $300\times 0.4 = 120$   | 3.3333 |
+|  B | 142  | $300\times 0.5 = 150$   | 0.4266 |
+|  andre | 18  | $300\times 0.1 = 30$   | 4.8000 |
+|  \bf{totalt} | 300  | 300   | $\chi^2 = 8.564$ |
+
+>Forkastelsesområdet er $\chi^2 > \chi^2_{\alpha, k - 1} = \chi^2_{0.05, 2} = 5.99$. Siden $\chi^2 = 8.564 > 5.99$ forkaster vi $H_0$ på 5 % signifikansnivå.
+
+
+<!-- n=300 -->
+<!-- p1=0.4 -->
+<!-- p2 = 0.5 -->
+<!-- p3 = 0.1 -->
+<!-- f1 = 140 -->
+<!-- f2 = 142 -->
+<!-- f3 = 18 -->
+<!-- f = c(f1,f2,f3) -->
+<!-- p = c(p1, p2, p3)     -->
+<!-- e = n*p -->
+<!-- s = (f - e)^2/e -->
+<!-- chi = sum(s) -->
+<!-- q = qchisq(0.95, 2) -->
+
+</details>
+
+15. Et produksjonsselskap har mulighet til å bruke tre forskjellige kjemikalier for å fremstille det samme produktet. Lederen ved produksjonsselskapet ønsker å undersøke hvorvidt det er forskjell på hvor mange mangelfulle produkter som blir produsert når en varierer bruken av type kjemikalier. Hun gjør et tilfeldig utvalg på 700 produkter og klassifiserer dem som enten tilfredsstillende eller mangelfull. Funnene er oppsummert i tabellen nedenfor:
+
+|Klassifisering/kjemikalie |  Kjemikalie 1 | Kjemikalie 2  | Kjemikalie 3 | sum |
+|:---:|:---:|:---:|:---:|:---:|
+|  Tilfredstillende | 268  |  216  | 164  | 648 |
+|  Mangelfull  |  15  | 17  | 20 | 52 |
+|  sum  |  283  | 233  | 184 | 700 |
+
+Utfør en test for å avgjøre om det er en sammenheng mellom mangelfulle produkter og kjemikalie brukt under produksjon. 
+
+
+
+<details><summary>Løsning</summary>
+
+>Vi skal altså teste $H_0:$ *De to variablene klassfisering og kjemikalie er uavhengige* mot $H_1:$ *Variablene klassifisering og kjemikalie er avhengige*. Vi begynner med å regne ut de forventede frekvensene ved bruk av formelen $e_{ij} = f_{i.}f_{.j}/n$: 
+
+|klas./kjem. |  Kjem 1 | Kjem 2  | Kjem 3 |
+|:---:|:---:|:---:|:---:|:---:|
+|  Tilfreds. | $e_{11} = 648\times 283/700 = 262.0$  |  $e_{12} = 648\times 233/700 = 215.7$  | $e_{13} = 648\times 184/700 = 170.3$  |
+|  Mangel.  |  $e_{21} = 52\times 283/700 = 21.0$  | $e_{22} = 52\times 233/700 = 17.3$  | $e_{23} = 52\times 184/700 = 13.7$ |
+
+>Så regner vi ut hvert element $(f_{ij} - e_{ij})^2/e_{ij}$ som skal inn i summen til test observatoren:
+
+|klas./kjem. |  Kjem 1 | Kjem 2  | Kjem 3 |
+|:---:|:---:|:---:|:---:|:---:|
+|  Tilfreds. | $(268 - 262.0)^2/262 = 0.1384$  | 0.0004    |  0.2353 |
+|  Mangel.  | 1.7255   |  0.0055 | 2.9327 |
+
+
+>Testobservatoren er da gitt ved
+
+$$\chi^2 = \sum_{i = 1}^2\sum_{j = 1}^3(f_{ij} - e_{ij})^2/e_{ij} = 0.1385 + 0.0004 + 0.2352 + 1.7255 + 0.0055 + 2.9327 = 5.0378$$
+
+>Forkastelsesområdet er $\chi^2 > \chi^2_{\alpha, (r - 1)(s - 1)} = \chi^2_{0.05, 2} = 5.99$. Siden $\chi^2 = 5.0378 < 5.99$ forkaster vi *ikke* $H_0$ på 5 % signifikansnivå. 
+>
+> I R ville vi gjort følgende:
+>
+```{r, }
+f = matrix(c(268, 216, 164, 15, 17, 20), nrow = 2, ncol = 3, byrow = T)
+chisq.test(f)
+```
+
+<!-- n = 700 -->
+<!-- f = matrix(c(268, 216, 164, 15, 17, 20), nrow = 2, ncol = 3, byrow = T) -->
+<!-- for(i in 1:2){ -->
+<!-- for(j in 1:3){ -->
+<!-- e[i,j] = rowSums(f)[i]*colSums(f)[j]/n -->
+<!-- } -->
+<!-- } -->
+
+<!-- chi = matrix(NA, nrow = 2, ncol = 3) -->
+<!-- for(i in 1:2){ -->
+<!-- for(j in 1:3){ -->
+<!-- chi[i,j] = (f[i,j] - e[i,j])^2/e[i,j] -->
+<!-- sum(chi) -->
+<!-- chisq.test(f) #OK -->
+
+</details>
+
+16. [Individuell eksamen V21, oppgave 1 a - c:](tidligere-eksamensoppgaver/skole-21-v.pdf)
+<details><summary>Løsning</summary>
+[Løsningsforslag](tidligere-eksamensoppgaver/skole-21-v-fasit.pdf)
+</details>
+
+
 <!-- **På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.** -->
 
 <!-- ```{r, echo = FALSE, message = FALSE} -->
