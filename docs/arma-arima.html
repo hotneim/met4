@@ -246,15 +246,15 @@ Publisert ved hjelp av bookdown</a></li>
 <h3><span class="header-section-number">6.7.2</span> R-øving</h3>
 <p><strong>1. Data</strong>
 Vi tar en ny titt på <a href="datasett/equinor.xlsx">den daglige prisen på Eqinoraksjen</a> over en 5-års periode som vi så på i introduksjonen til tidsrekker. Vi laster inn datasettet som før ved hjelp av <code>readxl</code>-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker <code>rev()</code>-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien komme først:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="arma-arima.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb134-2"><a href="arma-arima.html#cb134-2" aria-hidden="true" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
-<span id="cb134-3"><a href="arma-arima.html#cb134-3" aria-hidden="true" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)</span>
-<span id="cb134-4"><a href="arma-arima.html#cb134-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="arma-arima.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb138-2"><a href="arma-arima.html#cb138-2" aria-hidden="true" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
+<span id="cb138-3"><a href="arma-arima.html#cb138-3" aria-hidden="true" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)</span>
+<span id="cb138-4"><a href="arma-arima.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
 <p>Vi kan lage en figur av den differensierte tidsrekken på følgende måte:</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="arma-arima.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sjekk av differanse </span></span>
-<span id="cb135-2"><a href="arma-arima.html#cb135-2" aria-hidden="true" tabindex="-1"></a>diff_pris <span class="ot">&lt;-</span> <span class="fu">diff</span>(pris)</span>
-<span id="cb135-3"><a href="arma-arima.html#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="arma-arima.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sjekk av differanse </span></span>
+<span id="cb139-2"><a href="arma-arima.html#cb139-2" aria-hidden="true" tabindex="-1"></a>diff_pris <span class="ot">&lt;-</span> <span class="fu">diff</span>(pris)</span>
+<span id="cb139-3"><a href="arma-arima.html#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 <p><strong>Oppgave:</strong> Vurder om en ARIMA modell er bedre egnet enn en ARMA modell ut fra de to figurene over.</p>
 <details>
@@ -265,12 +265,12 @@ Løsning
 </details>
 <p><strong>2. Estimering av ARIMA modeller</strong>
 Vi bruker den samme funksjonen <code>Arima</code> fra <code>forecast</code> pakken til å estimere både ARMA og ARIMA modeller og spesifisering av modellen gjør vi via argumentet <code>order</code>. Skal du estimerer en ARMA(1,1) modell setter du f.eks dette argumentet til <code>c(1, 0, 1)</code>. Elementet i midten av denne vektoren spesifiserer hvor mange ganger tidsrekken skal differensieres i ARIMA modellen. Estimering av en ARIMA modell med en enkelt differensiering og ett MA og AR ledd kan gjøres slik:</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="arma-arima.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb136-2"><a href="arma-arima.html#cb136-2" aria-hidden="true" tabindex="-1"></a>arima111 <span class="ot">&lt;-</span> <span class="fu">Arima</span>(pris, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span> , <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="arma-arima.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb140-2"><a href="arma-arima.html#cb140-2" aria-hidden="true" tabindex="-1"></a>arima111 <span class="ot">&lt;-</span> <span class="fu">Arima</span>(pris, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span> , <span class="dv">1</span>))</span></code></pre></div>
 <p><strong>3. Hvordan skal vi velge p, d og q i en ARIMA(p,d,q) modell?</strong>
 Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de samme observasjonene vi har brukt til å tilpasse modellen. Vi kan så sammenligne hvor nær prediksjoner fra forskjellige modeller er de sanne dataene. Dette heter på godt norsk å gjøre en “in-sample” vurdering av modellen.</p>
 <p>Når du har tilpasset en modell, kan du ved å bruke <code>summary</code> funksjonen få opp flere mål på hvor god modellen er in-sample under fanen “Training set error measure”:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="arma-arima.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(arima111)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="arma-arima.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(arima111)</span></code></pre></div>
 <pre><code>## Series: pris 
 ## ARIMA(1,1,1) 
 ## 
@@ -289,8 +289,8 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 ## Training set 0.02035596</code></pre>
 <p>Her er f.eks <span class="math inline">\(RMSE = \sqrt{1/T\sum_{t = 1}^T (\hat{y}_t - y_t)^2}\)</span> et slags gjennomsnittlig avvik mellom prediksjonene og observasjonene. Litt lenger oppe i <code>summary</code> utskriften er det også en størrelse som heter AIC som måler hvor sannsynlig hver observasjon er gitt modelvalget ditt. Sammenligner du flere modeller er du på jakt etter den modellen som har minst RMSE og/eller AIC.</p>
 <p>Det krever en del arbeid skal du sammenligne mange ARIMA(p,d,q) modeller ettersom det er så mange måter å kombinere p,d og q på selv om du bestemmer en maksverdi for hver av dem. Det finnes heldigvis en veldig smart R funksjon kalt <code>auto.arima</code> som følger med pakken <code>forecast</code> som estimerer mange modeller og gir deg ut den modellen med minst AIC:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="arma-arima.html#cb139-1" aria-hidden="true" tabindex="-1"></a>arima_best_AIC <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(pris)</span>
-<span id="cb139-2"><a href="arma-arima.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(arima_best_AIC)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="arma-arima.html#cb143-1" aria-hidden="true" tabindex="-1"></a>arima_best_AIC <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(pris)</span>
+<span id="cb143-2"><a href="arma-arima.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(arima_best_AIC)</span></code></pre></div>
 <pre><code>## Series: pris 
 ## ARIMA(0,1,2) 
 ## 
@@ -310,8 +310,8 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 <p>Hva slags modell har <code>auto.arima</code> valgt her?</p>
 <p><strong>4. Prediksjon</strong>
 Prediksjon gjøres som tidligere med <code>forecast</code> funksjonen, så hvis en vil predikere 10 tidssteg frem i tid gjør man følgende:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="arma-arima.html#cb141-1" aria-hidden="true" tabindex="-1"></a>pred_arima111 <span class="ot">&lt;-</span> <span class="fu">forecast</span>(arima111, <span class="at">h =</span>  <span class="dv">10</span>)</span>
-<span id="cb141-2"><a href="arma-arima.html#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(pred_arima111, <span class="at">include =</span> <span class="dv">100</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="arma-arima.html#cb145-1" aria-hidden="true" tabindex="-1"></a>pred_arima111 <span class="ot">&lt;-</span> <span class="fu">forecast</span>(arima111, <span class="at">h =</span>  <span class="dv">10</span>)</span>
+<span id="cb145-2"><a href="arma-arima.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(pred_arima111, <span class="at">include =</span> <span class="dv">100</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 <p>merk at i <code>autoplot</code> har vi valgt å bare vise 100 observasjoner av tidsrekken sammen med prediksjonene.</p>
 <p>Kommentar: I et effisient marked skal prisutviklingen i teorien følge en tilfeldig gang og dagens pris vil da være det beste du kan tippe på for morgendagens pris. Vi ser her at dette blir reflektert i prediksjonen gjort av Arima(1,1,1) modellen.</p>
