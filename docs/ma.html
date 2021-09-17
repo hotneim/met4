@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.6 MA(q) | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.6 MA(q) | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="autokorrelasjon.html"/>
 <link rel="next" href="arma-arima.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +50,8 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -59,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -241,15 +244,15 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="r-øving-4" class="section level3" number="6.6.2">
 <h3><span class="header-section-number">6.6.2</span> R-øving</h3>
 <p><strong>1. Estimering og predikering.</strong> På samme måte som for AR-prosessen kan vi nå <strong>simulere</strong> og <strong>estimere</strong> en MA(1)-prosess med <span class="math inline">\(\theta = 0.95\)</span>:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="ma.html#cb114-1"></a><span class="kw">library</span>(forecast)                                <span class="co"># Trengs for estimering</span></span>
-<span id="cb114-2"><a href="ma.html#cb114-2"></a>n    &lt;-<span class="st"> </span><span class="dv">100</span>                                      <span class="co"># Antall observasjoner</span></span>
-<span id="cb114-3"><a href="ma.html#cb114-3"></a>ma1  &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ma =</span> <span class="fl">0.95</span>), n)    <span class="co"># Simuler tidsrekken</span></span>
-<span id="cb114-4"><a href="ma.html#cb114-4"></a><span class="kw">plot</span>(ma1, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)                            <span class="co"># Lag et plott </span></span>
-<span id="cb114-5"><a href="ma.html#cb114-5"></a><span class="kw">Arima</span>(ma1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))                     <span class="co"># Estimer theta</span></span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="ma.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)                                <span class="co"># Trengs for estimering</span></span>
+<span id="cb131-2"><a href="ma.html#cb131-2" aria-hidden="true" tabindex="-1"></a>n    <span class="ot">&lt;-</span> <span class="dv">100</span>                                      <span class="co"># Antall observasjoner</span></span>
+<span id="cb131-3"><a href="ma.html#cb131-3" aria-hidden="true" tabindex="-1"></a>ma1  <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ma =</span> <span class="fl">0.95</span>), n)    <span class="co"># Simuler tidsrekken</span></span>
+<span id="cb131-4"><a href="ma.html#cb131-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ma1, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>)                            <span class="co"># Lag et plott </span></span>
+<span id="cb131-5"><a href="ma.html#cb131-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Arima</span>(ma1, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))                     <span class="co"># Estimer theta</span></span></code></pre></div>
 <p>Stemmer estimatet overens med den sanne <span class="math inline">\(\theta\)</span>? Sjekk ut dokumentasjonen <code>?Arima</code> og se hva du må gjøre for å spesifisere at modellen ikke har noe konstantledd <span class="math inline">\(c\)</span>. Prøv også å modifisere koden fra AR-oppgavene slik at du predikerer den simulerte MA(1)-tidsrekken 10 steg frem.</p>
 <p><strong>2. Analyse av global temperatur.</strong> La oss når ta for oss eksempelet fra videoen der vi ser på den globale månendlige gjennomsnittstemperaturen fra 1880 til 2016. Last ned <a href="datasett/temp.csv">temp.csv</a>, som er en CSV-fil med datasettet. Se på de første par radene:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="ma.html#cb115-1"></a>temp &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;temp.csv&quot;</span>)</span>
-<span id="cb115-2"><a href="ma.html#cb115-2"></a><span class="kw">head</span>(temp)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="ma.html#cb132-1" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;temp.csv&quot;</span>)</span>
+<span id="cb132-2"><a href="ma.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(temp)</span></code></pre></div>
 <pre><code>##         Date    Mean
 ## 1 1880-01-06  0.0009
 ## 2 1880-02-06 -0.1229
@@ -258,18 +261,18 @@ Publisert ved hjelp av bookdown</a></li>
 ## 5 1880-05-06 -0.0738
 ## 6 1880-06-06 -0.1692</code></pre>
 <p>Første kolonne inneholder informasjon om tidspunkt, og temperaturen er inneholdt i andre kolonne. La oss plotte både temperaturrekken og den <em>differensierte</em> temperaturrekken (dvs. forskjellen fra dag til dag). Hvis vi avslører at den differensierte tidsrekken kan regnes ut ved å kjøre <code>difftemp &lt;- diff(temp$Mean)</code>, skulle det nå være grei skuring å produsere følgende to enkle plott:</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="ma.html#cb117-1"></a>difftemp &lt;-<span class="st"> </span><span class="kw">diff</span>(temp<span class="op">$</span>Mean)</span>
-<span id="cb117-2"><a href="ma.html#cb117-2"></a><span class="kw">plot</span>(temp<span class="op">$</span>Mean, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="ma.html#cb118-1"></a><span class="kw">plot</span>(difftemp, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-110-2.png" width="672" /></p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="ma.html#cb134-1" aria-hidden="true" tabindex="-1"></a>difftemp <span class="ot">&lt;-</span> <span class="fu">diff</span>(temp<span class="sc">$</span>Mean)</span>
+<span id="cb134-2"><a href="ma.html#cb134-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp<span class="sc">$</span>Mean, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="ma.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(difftemp, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-118-2.png" width="672" /></p>
 <p>Lag videre autokorrelasjonsplottet som vist i videoen for den differensierte tidsrekken:</p>
-<p><img src="met4_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
 <p>I autokorrelasjonsplottet ser vi nettopp et slikt MA-mønster som vi så i videoen; nemlig at autokorrelasjonen plutselig blir null (eller omtrent null) for et gitt lag. I dette tilfellet har vi at første ordens autokorrelasjon er klart forskjellig fra null, men at den fra og med <span class="math inline">\(k = 2\)</span> nesten ikke har utslag.</p>
 <p>Hvis de differensierte temperaturmålingene faktisk er MA(1), kan den skrives slik:</p>
 <p><span class="math display">\[Y_t = c + \theta u_{t-1} + u_t,\]</span>
 der <span class="math inline">\(\theta\)</span> er en ukjent parameter. Vi kan bruke datasettet vårt til å estimere <span class="math inline">\(\theta\)</span> ved å bruke <code>Arima()</code>-funksjenen på samme måte som da vi estimerte en AR(1)-modell. Den eneste forandringen vi må gjøre er å endre <code>order</code>-argumentet fra <code>c(1, 0, 0)</code> til <code>c(0, 0, 1)</code>:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="ma.html#cb119-1"></a><span class="kw">Arima</span>(difftemp, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="ma.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Arima</span>(difftemp, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## Series: difftemp 
 ## ARIMA(0,0,1) with non-zero mean 
 ## 
@@ -299,7 +302,6 @@ der <span class="math inline">\(\theta\)</span> er en ukjent parameter. Vi kan b
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -318,6 +320,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -338,6 +341,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

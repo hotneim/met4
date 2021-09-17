@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="paneldata.html"/>
 <link rel="next" href="tidsrekker.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +50,8 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -59,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -236,7 +239,9 @@ Publisert ved hjelp av bookdown</a></li>
 <li>Prediker sannsynlighet for at <span class="math inline">\(Y=1\)</span> for dette individet.</li>
 </ol>
 <details>
-<p><summary>Løsning</summary></p>
+<summary>
+Løsning
+</summary>
 <p><span class="math display">\[z = \beta_0 + \beta_1x_1 + \beta_2x_2 = 0.4 -0.1\times1 + 0.3\times2 = 0.9\]</span>
 Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
 <span class="math display">\[P(Y=1|Z=z) = \frac{e^z}{1+e^z} = \frac{e^{0.9}}{1 + e^{0.9}} \approx 0.71.\]</span>
@@ -245,7 +250,9 @@ Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
 <li>Klassifiser det nye individet.</li>
 </ol>
 <details>
-<summary>Løsning</summary>
+<summary>
+Løsning
+</summary>
 Siden vi estimerer <span class="math inline">\(P(Y=1)\)</span> til å være <span class="math inline">\(0.71\)</span> som er større enn <span class="math inline">\(0.5\)</span> klassifiserer vi dette individet til <span class="math inline">\(\hat{y}=1\)</span>. Avhengig av kontekst, kan det være relevant å bruke enn høyere eller lavere terskel enn <span class="math inline">\(0.5\)</span>, men dette er altså standardverdien.
 </details>
 <p><strong>Oppgave 2 (Individuell Eksamen V2020 1 i))</strong></p>
@@ -254,9 +261,11 @@ Siden vi estimerer <span class="math inline">\(P(Y=1)\)</span> til å være <spa
 <ol style="list-style-type: lower-roman">
 <li>Bruk den logistiske regresjonsmodellen til å predikere <em>sannsynligheten</em> for at gjennomsnittlig NO<span class="math inline">\(\mathbf{_2}\)</span>-konsentrasjon overstiger 100 <span class="math inline">\(\mu\textrm{g}/\textrm{m}^3\)</span>. Gi en kort vurdering om myndighetene bør utstede gult farevarsel. (Husk at luftfuktigheten er gitt på skala 0–100, og ikke 0–1).</li>
 </ol>
-<p><img src="bilder/logistisk_output.JPG" width="240" /></p>
+<p><img src="bilder/logistisk_output.JPG" /><!-- --></p>
 <details>
-<p><summary>Løsning</summary></p>
+<summary>
+Løsning
+</summary>
 <p>Den predikerte log-oddsen får vi ved å sette inn for variablene (lørdag, temperatur, fuktighet, vinterdummyen er null):</p>
 <p><span class="math display">\[z = 5.052 + -2.292 - 0.086*19 - 0.044*47 = -0.942.\]</span>
 Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
@@ -360,7 +369,9 @@ x2
 <li>Regn ut hva klassifiseringen av <span class="math inline">\(y\)</span> blir for det nye individet ved å bruke k-nearest neighbor (KNN), med <span class="math inline">\(k=3\)</span>.</li>
 </ol>
 <details>
-<p><summary>Løsning</summary></p>
+<summary>
+Løsning
+</summary>
 <p>Vi begynner med å regne ut den euklidske avstanden mellom <span class="math inline">\((3,3)\)</span> og alle punktene <span class="math inline">\((x_1, x_2)\)</span> i datasettet vårt. F.eks er avstanden mellom <span class="math inline">\((3,3)\)</span> og <span class="math inline">\((3,4)\)</span></p>
 <p><span class="math display">\[\begin{equation*}
 d((3,3), (3,4)) = \sqrt{(3 - 3)^2 + (3 - 4)^2} = 1
@@ -480,7 +491,9 @@ avstand
 <li>Hvordan fungerer KNN når <span class="math inline">\(k = n\)</span>, hvor <span class="math inline">\(n\)</span> er antall observajoner i datasettet? Hva vil skje dersom <span class="math inline">\(k = 6\)</span> for dette datasettet?</li>
 </ol>
 <details>
-<p><summary>Løsning</summary></p>
+<summary>
+Løsning
+</summary>
 <p>Siden vi bare har seks observasjoner vil alle verdier av <span class="math inline">\(k\geq 6\)</span> fullstendig ignorere informasjonen som ligger i forklaringsvariablene. Klassifiseringen vil da bare være basert på om det totalt sett er mest 1’ere eller 0’ere. I dette spesifikke datasettet har vi totalt tre 1’ere og tre 0’ere, så enhver majortetsavstemning med <span class="math inline">\(k\geq 6\)</span> blir uavgjort. Altså vil det her ikke være mulig å oppnå flertall for verken 0’er eller 1’er for store verdier av <span class="math inline">\(k\)</span>.</p>
 </details>
 </div>
@@ -494,14 +507,18 @@ der du har betraktet <span class="math inline">\(\alpha_i\)</span> som faste eff
 <li>For individ <span class="math inline">\(4\)</span> i datasettet har du estimert <span class="math inline">\(\alpha_4\)</span> til å være <span class="math inline">\(0.2\)</span>. Videre er årseffekten for 2012, <span class="math inline">\(v_{2012}\)</span>, estimert til å være <span class="math inline">\(-0.5\)</span>. Prediker responsvariabelen til dette individet for 2012 dersom <span class="math inline">\(x_{4,2012} = 2\)</span>.</li>
 </ol>
 <details>
-<summary>Løsning</summary>
+<summary>
+Løsning
+</summary>
 <span class="math display">\[\hat{y}_{4,2012}=\hat{\beta}_1 x_{4,2012}  + \hat{v}_{2012} + \hat{\alpha}_4 = 1.5\times2 -0.5 + 0.2 = 2.7\]</span>
 </details>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Du tilpasser også en tilsvarende modell med tilfeldige effekter. En Hausman test gir en p-verdi på <span class="math inline">\(0.23\)</span>. Hvilken modell skal du da bruke?</li>
 </ol>
 <details>
-<p><summary>Løsning</summary></p>
+<summary>
+Løsning
+</summary>
 <p>Forenklet sett har denne testen som nullhypotese at modellen med tilfeldige effekter er gyldig. Her er p-verdien veldig stor og vi har lite bevis for at denne nullhypotesen er feil. Vi kan altså bruke modellen med tilfeldige effekter.</p>
 <p>Dersom vi hadde fått forkastning ville det vært lurt å bruke modellen med faste effekter.</p>
 </details>
@@ -521,7 +538,6 @@ der du har betraktet <span class="math inline">\(\alpha_i\)</span> som faste eff
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -540,6 +556,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -560,6 +577,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

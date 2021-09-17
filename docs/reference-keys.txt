@@ -56,6 +56,9 @@ modellbygging
 videoforelesninger-8
 kommentarer-8
 oppgaver-2
+regresjon-med-en-forklaringsvariabel
+multippel-regresjon-og-modellbygging
+nøtter-1
 avansert-regresjon-og-maskinlæring
 logistisk-regresjon
 videoforelesninger-9
@@ -119,8 +122,8 @@ dataøving-2
 interaktiv-øvelse
 data-til-dataøvelsen
 oppgaver-til-øvingen
-oppgave-1
-oppgave-2
+oppgave-1-1
+oppgave-2-1
 oppgave-3
 bonus-en-alternativ-teknikk-for-datamanipulering-gjør-bare-om-du-har-overskudd-til-det
 dataøving-3
