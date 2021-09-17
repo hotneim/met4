@@ -177,89 +177,113 @@ knitr::kable(
 )
 ```
 
-a. Tegn et spredningsplott av resultatene. Hva tror du om forholdet mellom de to variablene utfra plottet?
+a. Bruk R til å lage et spredningsplott av resultatene. Hva tror du om forholdet mellom de to variablene utfra figuren?
 
-b. Sett opp regresjonsuttrykket for å undersøke om overvekt er forbundet med overvekt. Hva er betydningen av hver parameter i uttrykket?
+b. Sett opp regresjonsuttrykket for å undersøke om overvekt er forbundet med TV-titting. La overvekt være responsvariabelen. Hva er betydningen av hver parameter i uttrykket?
 
-c. Estimér parameterne. Hva kan koeffisienten fortelle deg om forholdet mellom overvekt og TV-titting?
+c. Bruk R til å estimere parameterne. Hva kan koeffisientene fortelle deg om forholdet mellom overvekt og TV-titting?
 
-d. Beregn et 95 % prediksjonsintervall for overvekt i kilo for et barn som ser på TV 30 timer i uken. Hva forteller intervallet deg?
+d. Beregn et 95 % konfidensintervall for $\beta_1$. Hint:  Bruk 'summary()' på regresjonsmodellen for å finne $S(\hat{\beta}_1)$ som da gitt i kolonnen "Std. Error".
 
-e. Beregn et 95 % konfidensintervall for gjennomsnittlig overvekt for barn som ser 30 timer på TV i uken. Hvordan er tolkningen av dette intervallet forskjellig fra det i oppgave d?
+e. Bruk R til å beregne et 95 % prediksjonsintervall for overvekt i kilo for et barn som ser på TV 30 timer i uken. Hva forteller intervallet deg?
 
-f. Hva er forventet overvekt for barn som ser 0 timer på TV i uken utfra modellen? Hva kan være problematisk ved å gjøre denne type analyser av en regresjonsmodell?
+f. Bruk R til å beregne et 95 % konfidensintervall for gjennomsnittlig overvekt for barn som ser 30 timer på TV i uken. Hvordan er tolkningen av dette intervallet forskjellig fra det i oppgave d?
+
+g. Hva er forventet overvekt for barn som ser 0 timer på TV i uken utfra modellen? Hva kan være problematisk ved å gjøre denne type analyser av en regresjonsmodell?
 
 <details> <summary>Løsning</summary><div>
 
 a)
 
 ```{r}
+df_tv <- data.frame(
+  TV_titting = c(42, 35, 28, 34, 37, 38, 32, 33, 18, 28, 36, 29, 29, 34, 18),
+  Overvekt = c(17,  5, -1,  0, 13, 15,  5,  7, -7,  7,  6,  7,  4, 15, -5))
+  
 plot(df_tv$TV_titting, df_tv$Overvekt, type = "p", xlab="TV-titting", ylab="Overvekt")
 ```
-Plottet viser en tydelig trend om at TV-titting og overvekt er relaterte. Dette kan vi undersøke nærmere.
+
+>Plottet viser en ganske tydelig trend om at TV-titting og overvekt er relaterte. Dette kan vi undersøke nærmere.
 
 b)
 
-Vi setter overvekt som responsvariabel og TV-titting som forklaringsvariabel. Det er ikke noen grunn til å tenke at 0 TV-titting svarer til normalvekt, så vi har med et konstantledd. Uttrykket blir da:
+>Vi setter overvekt som responsvariabel og TV-titting som forklaringsvariabel. Uttrykket blir da:
 
-\begin{equation}
-   \text{Overvekt} = \beta_0 + \beta_1 \text{TV-titting} + \epsilon
+>\begin{equation}
+>   \text{Overvekt} = \beta_0 + \beta_1 \text{TV-titting} + \epsilon
 \end{equation}
 
-- $\beta_0$ er en korrigering av hvor linjen krysser andreaksen. Av spredningsplottet ser det ut som at vi ikke har data ved 0 TV-titting, det er derfor ikke fornuftig med en direkte tolkning av denne parameteren.
-
-- $\beta_1$ forteller hvor relatert økt TV-titting er med overvekt.
+>- Ser vi bort fra dataene ville $\beta_0$ være forventet overvekt for personer som ikke ser på tv. Av spredningsplottet ser det derimot ut som at vi ikke har data ved 0 TV-titting og det er derfor ikke fornuftig med en direkte tolkning av denne parameteren.
+>
+>- Under antagelsen om at regresjonsmodellen er gyldig forteller $\beta_1$ hvor mye vi forventer at overvekten øker dersom man øker TV-tittingen med 1 time.
 
 c)
 
-Vi estimerer en regresjonsmodell fra dataene og skriver ut tabellen med resultatene:
+>Vi estimerer en regresjonsmodell fra dataene og skriver ut tabellen med resultatene:
 
-```{r}
-library(stargazer)
+```{r, message = F}
+
 reg <- lm(Overvekt ~ TV_titting, df_tv)
-stargazer(reg, type="text")
+summary(reg)
+
+# For en finere utskrift kan du bruke følgende:
+# library(stargazer)
+# stargazer(reg, type="text")
 ```
 
-Det er tydelig sigifikans for at hver av parameterne er ulik null. For $\beta_1$ betyr dette at trenden vi observerte i spredningplottet var signifikant. Videre kan vi tolke det positive fortegnet til $\beta_1$ som at flere timer TV-titting er relatert med økt overvekt.
+>Det er tydelig sigifikans for at hver av parameterne er ulik null. For $\beta_1$ betyr dette at trenden vi observerte i spredningplottet var signifikant. Videre kan vi tolke det positive fortegnet til $\beta_1$ som at flere timer TV-titting er relatert med økt overvekt.
 
-Merk at vi *ikke* kan si utfra dataene at mer TV-titting *fører til* overvekt. En mer riktig tolkning er å si at de forekommer samtidig i populasjonen. (Dersom vi ønsket å finne ut av kausaliteten måtte man på et tilfeldig utvalg av barn satt noen til å se mye på TV og noen til å se mindre på TV, og deretter uundersøkt om dette resulterte i statistisk signifikant høyere overvekt hos en av gruppene. Dette krysser imidlertid noen etiske grenser om å påføre barn overvekt, dersom hypotesen er sann.)
+>Merk at vi *ikke* kan si utfra dataene at mer TV-titting *fører til* overvekt. En mer riktig tolkning er å si at de forekommer samtidig i populasjonen. (Dersom vi ønsket å finne ut av kausaliteten måtte man på et tilfeldig utvalg av barn satt noen til å se mye på TV og noen til å se mindre på TV, og deretter undersøkt om dette resulterte i statistisk signifikant høyere overvekt hos en av gruppene. Dette krysser imidlertid noen etiske grenser om å påføre barn overvekt, dersom hypotesen er sann.)
 
-d)
+>d)
+> 
+> Fra R utskriften ser vi at $S(\hat{\beta}_1)=0.1602$. Videre er $t_{0.025, 13} = 2.16$. Et 95 % konfidensintervall for $\beta_1$ er da gitt ved:
 
-```{r}
-reg.pred <- predict(reg, newdata = data.frame(TV_titting = c(30)), interval = "predict")
-
-stargazer(reg.pred, type="text")
-```
-
-Dersom vi trekker måler overvekt hos nye barn som ser 30 timer på TV per uke, vil de i 95 % være innenfor prediksjonsintervallet.
-
+$$\left[\hat{\beta}_1 - t_{\alpha/2, n - 2}S(\hat{\beta}_1),  \hat{\beta}_1 + t_{\alpha/2, n - 2}S(\hat{\beta}_1)\right]\\
+=\left[0.8942 - 2.16\times0.1602,  0.8942 + 2.16\times0.1602\right]\\
+=\left[0.5481, 1.2402\right]$$
 e)
 
-```{r}
-reg.conf <- predict(reg, newdata = data.frame(TV_titting = c(30)), interval = "confidence")
+```{r, message = FALSE}
 
-stargazer(reg.conf, type="text")
+reg.pred <- predict(reg, newdata = data.frame(TV_titting = c(30)), interval = "predict")
+reg.pred
+# stargazer(reg.pred, type="text")
 ```
 
-Konfidensintervallet viser hvor *gjennomsnittet* av målinger på *et nytt sett* med barn som ser 30 timer på TV per uke vil ligge i 95 % av nye eksperimenter.
+>Dersom vi trekker et nytt barn som ser 30 timer på TV per uke, vil barnet i 95 % av tilfellene være innenfor prediksjonsintervallet dersom vi hadde gjentatt dette mange ganger.
 
 f)
 
-```{r}
-reg.zero <- predict(reg, newdata = data.frame(TV_titting = c(0)), interval = "prediction")
+```{r, message = F}
+reg.conf <- predict(reg, newdata = data.frame(TV_titting = c(30)), interval = "confidence")
+reg.conf
 
-stargazer(reg.zero, type="text")
+#evt 
+# library(stargazer)
+# stargazer(reg.conf, type="text")
 ```
 
-Beste gjetning er at barn som ser 0 timer på TV i uken er 22.2 kg under normalvekt (!). Et kjapt søk viser at barn på 10 år veier mellom 25.5 og 39 kg. Det høres urimelig ut at veldig lite TV-titting har sammenheng med ekstrem underernæring blant den samme populasjonen av barn som ser rundt 30 timer på TV i uken.
+>Konfidensintervallet viser hvor *gjennomsnittet* av målinger på *et nytt sett* med barn som ser 30 timer på TV per uke vil ligge i 95 % av nye eksperimenter.
 
-Det er flere ting som kan gå galt når man gjør en slik analyse av en modell:
+g)
 
-- Modellen kan være gal. Vi antar et lineær forhold mellom TV-titting og overvekt, noe som ikke trenger å være riktig ved 0 timer TV-titting.
+```{r}
+reg.zero <- predict(reg, newdata = data.frame(TV_titting = c(0)), interval = "prediction")
+reg.zero
+# evt
+# library(stargazer) 
+# stargazer(reg.zero, type="text")
+```
 
-- Datasettet dekker ikke den gruppen barn som ser 0 timer på TV, så med mindre modellen er helt riktig (noe den sjelden er) vil den ikke kunne generalisere så langt utenfor området vi estimerte parameterne på.
-
+>Beste gjetning er at barn som ser 0 timer på TV i uken er 22.2 kg under normalvekt (!). Et kjapt søk viser at barn på 10 år veier mellom 25.5 og 39 kg. Det høres urimelig ut at veldig lite TV-titting har sammenheng med ekstrem underernæring blant den samme populasjonen av barn som ser rundt 30 timer på TV i uken.
+>
+>Det er flere ting som kan gå galt når man gjør en slik analyse av en modell:
+>
+>- Modellen kan være gal. Vi antar et lineær forhold mellom TV-titting og overvekt, noe som ikke trenger å være riktig ved 0 timer TV-titting.
+>
+>- Datasettet dekker ikke den gruppen barn som ser 0 timer på TV, så med mindre modellen er helt riktig (noe den sjelden er) vil den ikke kunne generalisere så langt utenfor området vi estimerte parameterne på.
+>
 - Med mindre forholdet mellom TV-titting og overvekt er kausalt, kan det være at sammenhengen som er observert mellom dem i dataene ikke vil være det samme langt utenfor det aktuelle data-området.
 
 </div></details>
@@ -271,7 +295,7 @@ a. Sett opp regresjonsuttrykket for sammenhengen mellom $X$, $Y$ og støy $\epsi
 
 b. Hva er uttrykket for beste gjetning/prediksjon $\hat{Y}_i$ gitt en verdi av forklaringsvariabelen $X_i$ for regresjonsmodellen du har satt opp? Hva er uttrykket for residualene?
 
-c. Vis at hva uttrykket for regresjonsparameterne blir estimert med minste kvadraters metode. Regn ut minste kvadraters estimat av parameterne.
+c. Vis at hva uttrykket for regresjonsparameterne blir når de estimeres med minste kvadraters metode. Regn ut minste kvadraters estimat av parameterne.
 
 <!-- d. Gi en tolkning av koeffisientene.
 

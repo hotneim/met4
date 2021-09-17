@@ -60,7 +60,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -370,11 +369,12 @@ Overvekt
 </tbody>
 </table>
 <ol style="list-style-type: lower-alpha">
-<li><p>Tegn et spredningsplott av resultatene. Hva tror du om forholdet mellom de to variablene utfra plottet?</p></li>
-<li><p>Sett opp regresjonsuttrykket for å undersøke om overvekt er forbundet med overvekt. Hva er betydningen av hver parameter i uttrykket?</p></li>
-<li><p>Estimér parameterne. Hva kan koeffisienten fortelle deg om forholdet mellom overvekt og TV-titting?</p></li>
-<li><p>Beregn et 95 % prediksjonsintervall for overvekt i kilo for et barn som ser på TV 30 timer i uken. Hva forteller intervallet deg?</p></li>
-<li><p>Beregn et 95 % konfidensintervall for gjennomsnittlig overvekt for barn som ser 30 timer på TV i uken. Hvordan er tolkningen av dette intervallet forskjellig fra det i oppgave d?</p></li>
+<li><p>Bruk R til å lage et spredningsplott av resultatene. Hva tror du om forholdet mellom de to variablene utfra figuren?</p></li>
+<li><p>Sett opp regresjonsuttrykket for å undersøke om overvekt er forbundet med TV-titting. La overvekt være responsvariabelen. Hva er betydningen av hver parameter i uttrykket?</p></li>
+<li><p>Bruk R til å estimere parameterne. Hva kan koeffisientene fortelle deg om forholdet mellom overvekt og TV-titting?</p></li>
+<li><p>Beregn et 95 % konfidensintervall for <span class="math inline">\(\beta_1\)</span>. Hint: Bruk ‘summary()’ på regresjonsmodellen for å finne <span class="math inline">\(S(\hat{\beta}_1)\)</span> som da gitt i kolonnen “Std. Error”.</p></li>
+<li><p>Bruk R til å beregne et 95 % prediksjonsintervall for overvekt i kilo for et barn som ser på TV 30 timer i uken. Hva forteller intervallet deg?</p></li>
+<li><p>Bruk R til å beregne et 95 % konfidensintervall for gjennomsnittlig overvekt for barn som ser 30 timer på TV i uken. Hvordan er tolkningen av dette intervallet forskjellig fra det i oppgave d?</p></li>
 <li><p>Hva er forventet overvekt for barn som ser 0 timer på TV i uken utfra modellen? Hva kan være problematisk ved å gjøre denne type analyser av en regresjonsmodell?</p></li>
 </ol>
 <details>
@@ -385,91 +385,109 @@ Løsning
 <ol style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="oppgaver-2.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df_tv<span class="sc">$</span>TV_titting, df_tv<span class="sc">$</span>Overvekt, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;TV-titting&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Overvekt&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-54-1.png" width="672" />
-Plottet viser en tydelig trend om at TV-titting og overvekt er relaterte. Dette kan vi undersøke nærmere.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="oppgaver-2.html#cb60-1" aria-hidden="true" tabindex="-1"></a>df_tv <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb60-2"><a href="oppgaver-2.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">42</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">34</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">32</span>, <span class="dv">33</span>, <span class="dv">18</span>, <span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">34</span>, <span class="dv">18</span>),</span>
+<span id="cb60-3"><a href="oppgaver-2.html#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Overvekt =</span> <span class="fu">c</span>(<span class="dv">17</span>,  <span class="dv">5</span>, <span class="sc">-</span><span class="dv">1</span>,  <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">15</span>,  <span class="dv">5</span>,  <span class="dv">7</span>, <span class="sc">-</span><span class="dv">7</span>,  <span class="dv">7</span>,  <span class="dv">6</span>,  <span class="dv">7</span>,  <span class="dv">4</span>, <span class="dv">15</span>, <span class="sc">-</span><span class="dv">5</span>))</span>
+<span id="cb60-4"><a href="oppgaver-2.html#cb60-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb60-5"><a href="oppgaver-2.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df_tv<span class="sc">$</span>TV_titting, df_tv<span class="sc">$</span>Overvekt, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;TV-titting&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Overvekt&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<blockquote>
+<p>Plottet viser en ganske tydelig trend om at TV-titting og overvekt er relaterte. Dette kan vi undersøke nærmere.</p>
+</blockquote>
 <ol start="2" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<p>Vi setter overvekt som responsvariabel og TV-titting som forklaringsvariabel. Det er ikke noen grunn til å tenke at 0 TV-titting svarer til normalvekt, så vi har med et konstantledd. Uttrykket blir da:</p>
+<blockquote>
+<p>Vi setter overvekt som responsvariabel og TV-titting som forklaringsvariabel. Uttrykket blir da:</p>
+</blockquote>
+<blockquote>
 <p><span class="math display">\[\begin{equation}
-   \text{Overvekt} = \beta_0 + \beta_1 \text{TV-titting} + \epsilon
+  \text{Overvekt} = \beta_0 + \beta_1 \text{TV-titting} + \epsilon
 \end{equation}\]</span></p>
+</blockquote>
+<blockquote>
 <ul>
-<li><p><span class="math inline">\(\beta_0\)</span> er en korrigering av hvor linjen krysser andreaksen. Av spredningsplottet ser det ut som at vi ikke har data ved 0 TV-titting, det er derfor ikke fornuftig med en direkte tolkning av denne parameteren.</p></li>
-<li><p><span class="math inline">\(\beta_1\)</span> forteller hvor relatert økt TV-titting er med overvekt.</p></li>
+<li><p>Ser vi bort fra dataene ville <span class="math inline">\(\beta_0\)</span> være forventet overvekt for personer som ikke ser på tv. Av spredningsplottet ser det derimot ut som at vi ikke har data ved 0 TV-titting og det er derfor ikke fornuftig med en direkte tolkning av denne parameteren.</p></li>
+<li><p>Under antagelsen om at regresjonsmodellen er gyldig forteller <span class="math inline">\(\beta_1\)</span> hvor mye vi forventer at overvekten øker dersom man øker TV-tittingen med 1 time.</p></li>
 </ul>
+</blockquote>
 <ol start="3" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
+<blockquote>
 <p>Vi estimerer en regresjonsmodell fra dataene og skriver ut tabellen med resultatene:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="oppgaver-2.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span></code></pre></div>
+</blockquote>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="oppgaver-2.html#cb61-1" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Overvekt <span class="sc">~</span> TV_titting, df_tv)</span>
+<span id="cb61-2"><a href="oppgaver-2.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg)</span></code></pre></div>
 <pre><code>## 
-## Please cite as:</code></pre>
-<pre><code>##  Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.</code></pre>
-<pre><code>##  R package version 5.2.2. https://CRAN.R-project.org/package=stargazer</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="oppgaver-2.html#cb65-1" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Overvekt <span class="sc">~</span> TV_titting, df_tv)</span>
-<span id="cb65-2"><a href="oppgaver-2.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## ===============================================
-##                         Dependent variable:    
-##                     ---------------------------
-##                              Overvekt          
-## -----------------------------------------------
-## TV_titting                   0.894***          
-##                               (0.160)          
-##                                                
-## Constant                    -22.212***         
-##                               (5.136)          
-##                                                
-## -----------------------------------------------
-## Observations                    15             
-## R2                             0.706           
-## Adjusted R2                    0.683           
-## Residual Std. Error       4.026 (df = 13)      
-## F Statistic           31.167*** (df = 1; 13)   
-## ===============================================
-## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+## Call:
+## lm(formula = Overvekt ~ TV_titting, data = df_tv)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.1917 -2.6147  0.2795  2.6785  6.8083 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -22.2124     5.1359  -4.325 0.000824 ***
+## TV_titting    0.8942     0.1602   5.583 8.88e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.026 on 13 degrees of freedom
+## Multiple R-squared:  0.7057, Adjusted R-squared:  0.683 
+## F-statistic: 31.17 on 1 and 13 DF,  p-value: 8.88e-05</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="oppgaver-2.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For en finere utskrift kan du bruke følgende:</span></span>
+<span id="cb63-2"><a href="oppgaver-2.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(stargazer)</span></span>
+<span id="cb63-3"><a href="oppgaver-2.html#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co"># stargazer(reg, type=&quot;text&quot;)</span></span></code></pre></div>
+<blockquote>
 <p>Det er tydelig sigifikans for at hver av parameterne er ulik null. For <span class="math inline">\(\beta_1\)</span> betyr dette at trenden vi observerte i spredningplottet var signifikant. Videre kan vi tolke det positive fortegnet til <span class="math inline">\(\beta_1\)</span> som at flere timer TV-titting er relatert med økt overvekt.</p>
-<p>Merk at vi <em>ikke</em> kan si utfra dataene at mer TV-titting <em>fører til</em> overvekt. En mer riktig tolkning er å si at de forekommer samtidig i populasjonen. (Dersom vi ønsket å finne ut av kausaliteten måtte man på et tilfeldig utvalg av barn satt noen til å se mye på TV og noen til å se mindre på TV, og deretter uundersøkt om dette resulterte i statistisk signifikant høyere overvekt hos en av gruppene. Dette krysser imidlertid noen etiske grenser om å påføre barn overvekt, dersom hypotesen er sann.)</p>
+</blockquote>
+<blockquote>
+<p>Merk at vi <em>ikke</em> kan si utfra dataene at mer TV-titting <em>fører til</em> overvekt. En mer riktig tolkning er å si at de forekommer samtidig i populasjonen. (Dersom vi ønsket å finne ut av kausaliteten måtte man på et tilfeldig utvalg av barn satt noen til å se mye på TV og noen til å se mindre på TV, og deretter undersøkt om dette resulterte i statistisk signifikant høyere overvekt hos en av gruppene. Dette krysser imidlertid noen etiske grenser om å påføre barn overvekt, dersom hypotesen er sann.)</p>
+</blockquote>
+<blockquote>
 <ol start="4" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="oppgaver-2.html#cb67-1" aria-hidden="true" tabindex="-1"></a>reg.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
-<span id="cb67-2"><a href="oppgaver-2.html#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-3"><a href="oppgaver-2.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg.pred, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## =====================
-##    fit   lwr    upr  
-## ---------------------
-## 1 4.615 -4.380 13.610
-## ---------------------</code></pre>
-<p>Dersom vi trekker måler overvekt hos nye barn som ser 30 timer på TV per uke, vil de i 95 % være innenfor prediksjonsintervallet.</p>
-<ol start="5" style="list-style-type: lower-alpha">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="oppgaver-2.html#cb69-1" aria-hidden="true" tabindex="-1"></a>reg.conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span>
-<span id="cb69-2"><a href="oppgaver-2.html#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-3"><a href="oppgaver-2.html#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg.conf, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## ===================
-##    fit   lwr   upr 
-## -------------------
-## 1 4.615 2.318 6.912
-## -------------------</code></pre>
-<p>Konfidensintervallet viser hvor <em>gjennomsnittet</em> av målinger på <em>et nytt sett</em> med barn som ser 30 timer på TV per uke vil ligge i 95 % av nye eksperimenter.</p>
+<p>Fra R utskriften ser vi at <span class="math inline">\(S(\hat{\beta}_1)=0.1602\)</span>. Videre er <span class="math inline">\(t_{0.025, 13} = 2.16\)</span>. Et 95 % konfidensintervall for <span class="math inline">\(\beta_1\)</span> er da gitt ved:</p>
+</blockquote>
+<p><span class="math display">\[\left[\hat{\beta}_1 - t_{\alpha/2, n - 2}S(\hat{\beta}_1),  \hat{\beta}_1 + t_{\alpha/2, n - 2}S(\hat{\beta}_1)\right]\\
+=\left[0.8942 - 2.16\times0.1602,  0.8942 + 2.16\times0.1602\right]\\
+=\left[0.5481, 1.2402\right]\]</span>
+e)</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="oppgaver-2.html#cb64-1" aria-hidden="true" tabindex="-1"></a>reg.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
+<span id="cb64-2"><a href="oppgaver-2.html#cb64-2" aria-hidden="true" tabindex="-1"></a>reg.pred</span></code></pre></div>
+<pre><code>##        fit       lwr      upr
+## 1 4.614735 -4.380262 13.60973</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="oppgaver-2.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stargazer(reg.pred, type=&quot;text&quot;)</span></span></code></pre></div>
+<blockquote>
+<p>Dersom vi trekker et nytt barn som ser 30 timer på TV per uke, vil barnet i 95 % av tilfellene være innenfor prediksjonsintervallet dersom vi hadde gjentatt dette mange ganger.</p>
+</blockquote>
 <ol start="6" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="oppgaver-2.html#cb71-1" aria-hidden="true" tabindex="-1"></a>reg.zero <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">0</span>)), <span class="at">interval =</span> <span class="st">&quot;prediction&quot;</span>)</span>
-<span id="cb71-2"><a href="oppgaver-2.html#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-3"><a href="oppgaver-2.html#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg.zero, <span class="at">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## ========================
-##     fit     lwr    upr  
-## ------------------------
-## 1 -22.212 -36.310 -8.115
-## ------------------------</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="oppgaver-2.html#cb67-1" aria-hidden="true" tabindex="-1"></a>reg.conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span>
+<span id="cb67-2"><a href="oppgaver-2.html#cb67-2" aria-hidden="true" tabindex="-1"></a>reg.conf</span></code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 4.614735 2.317582 6.911888</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="oppgaver-2.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co">#evt </span></span>
+<span id="cb69-2"><a href="oppgaver-2.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(stargazer)</span></span>
+<span id="cb69-3"><a href="oppgaver-2.html#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="co"># stargazer(reg.conf, type=&quot;text&quot;)</span></span></code></pre></div>
+<blockquote>
+<p>Konfidensintervallet viser hvor <em>gjennomsnittet</em> av målinger på <em>et nytt sett</em> med barn som ser 30 timer på TV per uke vil ligge i 95 % av nye eksperimenter.</p>
+</blockquote>
+<ol start="7" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="oppgaver-2.html#cb70-1" aria-hidden="true" tabindex="-1"></a>reg.zero <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">0</span>)), <span class="at">interval =</span> <span class="st">&quot;prediction&quot;</span>)</span>
+<span id="cb70-2"><a href="oppgaver-2.html#cb70-2" aria-hidden="true" tabindex="-1"></a>reg.zero</span></code></pre></div>
+<pre><code>##         fit       lwr      upr
+## 1 -22.21237 -36.30997 -8.11477</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="oppgaver-2.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># evt</span></span>
+<span id="cb72-2"><a href="oppgaver-2.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(stargazer) </span></span>
+<span id="cb72-3"><a href="oppgaver-2.html#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co"># stargazer(reg.zero, type=&quot;text&quot;)</span></span></code></pre></div>
+<blockquote>
 <p>Beste gjetning er at barn som ser 0 timer på TV i uken er 22.2 kg under normalvekt (!). Et kjapt søk viser at barn på 10 år veier mellom 25.5 og 39 kg. Det høres urimelig ut at veldig lite TV-titting har sammenheng med ekstrem underernæring blant den samme populasjonen av barn som ser rundt 30 timer på TV i uken.</p>
 <p>Det er flere ting som kan gå galt når man gjør en slik analyse av en modell:</p>
 <ul>
@@ -477,6 +495,7 @@ Plottet viser en tydelig trend om at TV-titting og overvekt er relaterte. Dette 
 <li><p>Datasettet dekker ikke den gruppen barn som ser 0 timer på TV, så med mindre modellen er helt riktig (noe den sjelden er) vil den ikke kunne generalisere så langt utenfor området vi estimerte parameterne på.</p></li>
 <li><p>Med mindre forholdet mellom TV-titting og overvekt er kausalt, kan det være at sammenhengen som er observert mellom dem i dataene ikke vil være det samme langt utenfor det aktuelle data-området.</p></li>
 </ul>
+</blockquote>
 </div>
 </details>
 </div>
@@ -486,7 +505,7 @@ Plottet viser en tydelig trend om at TV-titting og overvekt er relaterte. Dette 
 <ol style="list-style-type: lower-alpha">
 <li><p>Sett opp regresjonsuttrykket for sammenhengen mellom <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> og støy <span class="math inline">\(\epsilon\)</span>. Hva er antagelsen for sammenhengen mellom X og <span class="math inline">\(\epsilon\)</span>?</p></li>
 <li><p>Hva er uttrykket for beste gjetning/prediksjon <span class="math inline">\(\hat{Y}_i\)</span> gitt en verdi av forklaringsvariabelen <span class="math inline">\(X_i\)</span> for regresjonsmodellen du har satt opp? Hva er uttrykket for residualene?</p></li>
-<li><p>Vis at hva uttrykket for regresjonsparameterne blir estimert med minste kvadraters metode. Regn ut minste kvadraters estimat av parameterne.</p></li>
+<li><p>Vis at hva uttrykket for regresjonsparameterne blir når de estimeres med minste kvadraters metode. Regn ut minste kvadraters estimat av parameterne.</p></li>
 </ol>
 <!-- d. Gi en tolkning av koeffisientene.
 
