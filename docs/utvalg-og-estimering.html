@@ -60,7 +60,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -320,8 +319,8 @@ men problemet i praksis er at vi gjerne ikke kjenner <span class="math inline">\
 <p>Som demonstrert i forelesningen kan vi i R simulere standard normalfordelte observasjoner (dvs normalfordelte observasjoner med <span class="math inline">\(\mu = 0\)</span> og <span class="math inline">\(\sigma^2 = 1\)</span>) med kommandoen <code>rnorm(n)</code>, der <code>n</code> er antallet observasjoner vi ønsker. For eksempel kan vi kjøre følgende kode for å generere 10 observasjoner (du vil helt sikkert få andre verdier):</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="utvalg-og-estimering.html#cb15-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb15-2"><a href="utvalg-og-estimering.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(n)</span></code></pre></div>
-<pre><code>##  [1] -1.0760625 -1.2162314  2.0074411 -0.3605760  2.7084885  0.7341367
-##  [7] -0.6480443  1.9053899 -0.3784768 -0.4286407</code></pre>
+<pre><code>##  [1]  0.5569655  0.4792540 -1.8112528  1.6836288  0.1812144 -1.0600917
+##  [7] -0.6997642  0.5368495  0.4978656 -0.7938769</code></pre>
 <p>Ved å skrive <code>mean(dnorm(n))</code> i stedet regner vi ut gjennomsnittet av observasjonene direkte.</p>
 <p>La oss gjøre dette 100 ganger og notere ned gjennomsnittet hver gang. I stedet for å gjøre det manuelt, kan vi skrive et lite program som gjør dette for oss ved å bruke en for-løkke. Det er ikke nødvendig (eller pensum) å forstå akkurat hvordan dette fungerer, men dersom du kjører følgende linjer vil du få en ny vektor <code>gj.snitt</code> som inneholder 100 slike gjennomsnitt:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="utvalg-og-estimering.html#cb17-1" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
