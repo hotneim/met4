@@ -566,7 +566,7 @@ Introduksjon til hypotesetesting
 
 </details>
 
-7. Med sterkt fall i flyreiser og passasjerer på grunn av koronakrisen virker det sannsynlig at det blir færre forsinkelser i flytrafikken. Før krisen hevdet et flyselskap at de landet presist 92 % av flyreisene. I et tilfeldig utvalg flyreiser hos det samme selskapet under krisen ble 143 av 165 vurdert til å være presise. Kan vi konkludere på 5 % signifikansnivå at det er færre forsinkelser under koronakrisen? 
+7. Med sterkt fall i flyreiser og passasjerer på grunn av koronakrisen virker det sannsynlig at det blir færre forsinkelser i flytrafikken. Før krisen hevdet et flyselskap at de landet presist 92 % av flyreisene. I et tilfeldig utvalg flyreiser hos det samme selskapet under krisen ble 148 av 165 vurdert til å være presise. Kan vi konkludere på 5 % signifikansnivå at det er færre forsinkelser under koronakrisen? 
 
 
 <details><summary>Løsning</summary>
