@@ -399,7 +399,96 @@ c. Sønnen vil gjennomsnittlig være høyere enn sin far.
 
 </details> -->
 
+#### Oppgave 3 {-}
+
+Figurene nedenfor viser residualene (feilleddene) vi får ut fra et par ulike modeller. Ser plottene ut til å tilfredsstille kravene for enkel regresjon? Hvis ikke, hva ser ut til å være galt for hver av figurene? Hvordan kan man håndtere brudd på betingelsene i de ulike situasjonene?
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+library(tidyverse)
+
+df <- data.frame(
+  sigma_lin = seq(100) / 60 + 0.5,
+  sigma_sin = 2 * (sin(2 * 3.14 * seq(100) / 100 * 3) + 1.3)
+)
+df$eps_norm <- rnorm(100)
+df$eps_lin <- rnorm(100, sd = df$sigma_lin)
+df$eps_sin <- rnorm(100, sd = df$sigma_sin)
+eps_ar_base = rnorm(102)
+df$eps_ma2 = eps_ar_base[3:102] + 0.9 * eps_ar_base[2:101] + 0.8 * eps_ar_base[1:100]
+```
+
+a. 
+```{r, echo = FALSE}
+plot(df$eps_norm, ylab = "Residualer", xlab = "Prediksjon")
+```
+b.
+```{r, echo = FALSE}
+plot(df$eps_lin, ylab = "Residualer", xlab = "Prediksjon")
+```
+c. 
+```{r, echo = FALSE}
+plot(df$eps_sin, ylab = "Residualer", xlab = "Datapunkter (sortert i tid)")
+```
+
+d.
+```{r, echo = FALSE}
+plot(df$eps_ma2, ylab = "Residualer", xlab = "Datapunkter (sortert i tid)")
+```
+
+
+
+
+<details>
+<summary>Løsning</summary><blockquote>
+
+a. Her ser støyleddet ganske normalfordelt ut. Det betyr at antagelsene er oppfylt.
+
+b. Støyen er symmetrisk om null, men kan se ut som den øker. Altså er det brudd på antagelsen om normalfordeling. Økningen ser ut til å være jevn, og en log-transformasjon kunne i dette tilfellet vært til hjelp.
+
+c. Her ser det ut som at vi har perioder med høy varians etterfulgt av perioder med lavere varians. Vi skal ikke se så mye nærmere på hvordan dette kan håndteres i MET4, men man kan komme over det i senere kurs.
+
+d. Her ser det ut som at støyen har en relasjon i tid, og at høye/lave verdier henger sammen med høye/laver verdier. Det er ikke åpenbart at det er dette som foregår, og vi burde undersøkt det nærmere. Senere i kurset skal vi håndtere dette ved bruk av tidsrekkemodeller.
+
+Merk at det ikke alltid er lett å se direkte fra figurene hva som er galt. Riktig bruk av statistiske tester og diagnoseplott kan hjelpe med å oppdage brudd på betingelsene. Figurene i denne oppgaven er generert ved simulering, vi kan derfor vite akkurat hva som er galt. For virkelige data vil kunne være vanskeligere å tolke fordi det ikke nødvendigvis er én ting som er galt om gangen. Man må også være på vakt for overtolkning av det som egentlig er tilfeldigheter.
+
+</blockquote></details>
+
 ### Multippel regresjon og modellbygging
+
+#### Oppgave 1
+
+Denne oppgaven skal gi et forhold til hvordan teorien funker i praksis. Vi skal simulere data fra teoretiske fordelinger og gjøre analyser på dem. Fordelen med å begynne her er at man får er forhold til hvordan statistikk kan og bør tolkes utfra teorien. Med virkelige data vil antagelsene som ligger til grunn for modellene stort sett være brutt, i større eller mindre grad, og kjernen i god statistisk analyse er å vite hva man kan og ikke kan gjøre likevel. God kjennskap til hvordan det burde funke i teorien er en viktig byggestein for statistisk forståelse.
+
+
+#### Oppgave 2
+
+I denne oppgaven skal vi se hva som kan gå galt dersom man leter etter signifikans i store datasett. Vi starter med å simulere en responsvariabel og en 
+
+(Trekk tilfeldige tall og analyser det...)
+
+(Dette er kjent som P-hacking. Det er *veldig* dårlig praksis, men har en tendens til å snike seg inn i analyser på mer eller mindre subtile vis. Det finnes store mengder forskning hvor P-hacking forekommer, bevisst eller ubevisst. De mindre subtile måtene dette skjer på heter juks.
+
+Out-of-sample validering og testing 
+)
+
+#### Oppgave 3
+
+(Legg til i enkel regresjon at man kan komme frem til det samme ved Cov-regning.)
+
+Vi så i oppgave ... at minste kvadraters metode brukes til parameter-estimering. I multivariat regresjon får vi enda flere ligninger enn vi så for enkel regresjon, dermed bruker man lineæralgebra.
+
+Vis at man kan regne minste kvadraters estimat ved kovarians.
+
+En matrise lar seg invertere dersom den er kvadratisk og har lineært uavhengige kolonner. På matrisenotasjon blir kovarians regnet som $X^TX / N$. 
+
+Dersom man har multikolinearitet er det kolonner i kovariansmatrisen som er sterkt lineært avhengige. Hvorfor blir det problematisk å 
+
+
+<detail><summary>Løsning</summary>
+
+</detail>
+
+
 <!-- 
 #### (Oppgave 1) {-}
 

@@ -242,23 +242,23 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="r-øving-3" class="section level3" number="6.5.2">
 <h3><span class="header-section-number">6.5.2</span> R-øving</h3>
 <p><strong>1. Utregning av ACF</strong> I R bruker vi funsksjonen <code>acf()</code> til å lage autokorrelasjonsplott. La oss i første omgang gjenskape noen av figurene fra videoen ved hjelp av simuleringer. For eksempel kan vi laget til to tidsrekker som på forrige oppgavesett, en hvit støy og en AR(1):</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="autokorrelasjon.html#cb124-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb124-2"><a href="autokorrelasjon.html#cb124-2" aria-hidden="true" tabindex="-1"></a>hvit_støy <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb124-3"><a href="autokorrelasjon.html#cb124-3" aria-hidden="true" tabindex="-1"></a>ar1 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fl">0.95</span>), n)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="autokorrelasjon.html#cb120-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb120-2"><a href="autokorrelasjon.html#cb120-2" aria-hidden="true" tabindex="-1"></a>hvit_støy <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb120-3"><a href="autokorrelasjon.html#cb120-3" aria-hidden="true" tabindex="-1"></a>ar1 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fl">0.95</span>), n)</span></code></pre></div>
 <p>Autokorrelasjonsplottene til disse to tidsrekkene kan vi få frem ved å anvende <code>acf()</code>-funksjonen på dem:</p>
 <!-- ```{r fig.subcap=c('Autokorrelasjonsplott til en simulert hvit støy prosess', 'Autokorrelasjonsplott til en simulert AR(1)-prosess'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2} -->
 <!-- acf(hvit_støy) -->
 <!-- acf(ar1) -->
 <!-- ``` -->
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="autokorrelasjon.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(hvit_støy)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="autokorrelasjon.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(hvit_støy)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="autokorrelasjon.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(ar1)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="autokorrelasjon.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(ar1)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-105-2.png" width="672" /></p>
 <p>Vi ser igjen mønsteret fra videoen: Hvit støy består av ukorrelerte observasjoner, mens AR(1)-modellen består av observasjoner som bygger på forrige observasjon, slik at det er en viss korrelasjon, og dermed avhengighet fra dag til dag. Det ser vi igjen i autokorrelasjonsplottet som gir tydelig utslag, og der korrelasjonen går gradvis mot null med økende avstand mellom observasjonene.</p>
 <p><strong>2. ACF som sjekk av modell</strong> En sjekk vi gjerne gjør for å se om en estimert tidsrekkemodell passer dataene våre, er å se autokorrelasjonen til residualene i modellen er liten. Det betyr nemlig at modellen plukker opp den (lineære) avhengigheten i tidsrekken. For en AR(1) modell er residualene f.eks gitt ved <span class="math inline">\(\hat{u}_t = Y_t - \hat{\phi}Y_{t-1}\)</span>, men disse er tilgjengelig direkte fra modell estimeringen i R:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="autokorrelasjon.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb127-2"><a href="autokorrelasjon.html#cb127-2" aria-hidden="true" tabindex="-1"></a>ar1_estimat <span class="ot">&lt;-</span> <span class="fu">Arima</span>(ar1, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb127-3"><a href="autokorrelasjon.html#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(ar1_estimat<span class="sc">$</span>residuals)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="autokorrelasjon.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb123-2"><a href="autokorrelasjon.html#cb123-2" aria-hidden="true" tabindex="-1"></a>ar1_estimat <span class="ot">&lt;-</span> <span class="fu">Arima</span>(ar1, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb123-3"><a href="autokorrelasjon.html#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(ar1_estimat<span class="sc">$</span>residuals)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
 <p><strong>3. Oppgave:</strong> Prøv nå å plotte autokorrelasjonsfunksjonen for for følgende tre tidsrekker, og knytt en kort kommentar til hver av dem om hva du lærer om tidsrekken ved å se på autokorrelasjonsplottet til:</p>
 <ol style="list-style-type: decimal">
@@ -268,10 +268,10 @@ Publisert ved hjelp av bookdown</a></li>
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="autokorrelasjon.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb128-2"><a href="autokorrelasjon.html#cb128-2" aria-hidden="true" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
-<span id="cb128-3"><a href="autokorrelasjon.html#cb128-3" aria-hidden="true" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)</span>
-<span id="cb128-4"><a href="autokorrelasjon.html#cb128-4" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(pris)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="autokorrelasjon.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb124-2"><a href="autokorrelasjon.html#cb124-2" aria-hidden="true" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
+<span id="cb124-3"><a href="autokorrelasjon.html#cb124-3" aria-hidden="true" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)</span>
+<span id="cb124-4"><a href="autokorrelasjon.html#cb124-4" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(pris)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
 <p>Vi ser at det er høy positiv autokorrelasjon selv for store avstander (lag). En lav pris (historisk sett) vil være assosiert med lave priser de foregående dagene og tilsvarende for høye priser. Dette stemmer bra med teorien med at dersom markedet er effisient (ikke pensum, slapp av!) skal prisen følge en tilfeldig gang, selv om dette ikke alltid er tilfellet. Det kan altså se ut til at prisen idag er tilnærmet prisen i går pluss ny støy.</p>
 </details>
@@ -282,8 +282,8 @@ Løsning
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="autokorrelasjon.html#cb129-1" aria-hidden="true" tabindex="-1"></a>pr_avkastning <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(pris))<span class="er">)</span></span>
-<span id="cb129-2"><a href="autokorrelasjon.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(pr_avkastning)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="autokorrelasjon.html#cb125-1" aria-hidden="true" tabindex="-1"></a>pr_avkastning <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(pris))<span class="er">)</span></span>
+<span id="cb125-2"><a href="autokorrelasjon.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(pr_avkastning)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
 <p>Her ser vi at autokorrelasjon er svært lav uansett lag. Det virker altså ikke å være noen lineær sammenheng mellom avkastningen fra en dag til den neste (og den om 2, 3, .. dagen). Dette stemmer bra med at prisen i teorien skal følge en tilfeldig gang og at det i et effisient marked ikke skal gå an å predikere avkastningen for en aksje, noe som i teorien hadde vært mulige hadde det vært en positiv autokorrelasjon.</p>
 </details>
@@ -294,12 +294,12 @@ Løsning
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="autokorrelasjon.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp)</span>
-<span id="cb130-2"><a href="autokorrelasjon.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb130-3"><a href="autokorrelasjon.html#cb130-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-4"><a href="autokorrelasjon.html#cb130-4" aria-hidden="true" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span>
-<span id="cb130-5"><a href="autokorrelasjon.html#cb130-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-6"><a href="autokorrelasjon.html#cb130-6" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(dekomponert<span class="sc">$</span>time.series[ ,<span class="dv">3</span>], <span class="at">na.action =</span> na.pass)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="autokorrelasjon.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp)</span>
+<span id="cb126-2"><a href="autokorrelasjon.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb126-3"><a href="autokorrelasjon.html#cb126-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-4"><a href="autokorrelasjon.html#cb126-4" aria-hidden="true" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span>
+<span id="cb126-5"><a href="autokorrelasjon.html#cb126-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-6"><a href="autokorrelasjon.html#cb126-6" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(dekomponert<span class="sc">$</span>time.series[ ,<span class="dv">3</span>], <span class="at">na.action =</span> na.pass)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
 Figuren er litt misvisende siden ett lag i figuren svarer til ett år, og siden vi har kvartalsvise observasjoner har vi 4 acf verdier per år. Det kan se ut til at det er en årlig sesongvariasjon som ikke har blitt dekomponert fullt ut av tidsrekken pga av disse toppene i acf som kommer 1,2,3. .. året.
 </details>

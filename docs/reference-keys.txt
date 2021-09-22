@@ -58,6 +58,8 @@ kommentarer-8
 oppgaver-2
 regresjon-med-en-forklaringsvariabel
 multippel-regresjon-og-modellbygging
+oppgave-1-1
+oppgave-2-1
 nøtter-1
 avansert-regresjon-og-maskinlæring
 logistisk-regresjon
@@ -122,8 +124,8 @@ dataøving-2
 interaktiv-øvelse
 data-til-dataøvelsen
 oppgaver-til-øvingen
-oppgave-1-1
-oppgave-2-1
+oppgave-1-2
+oppgave-2-2
 oppgave-3
 bonus-en-alternativ-teknikk-for-datamanipulering-gjør-bare-om-du-har-overskudd-til-det
 dataøving-3
