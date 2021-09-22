@@ -144,3 +144,10 @@ regresjon-1
 tidsrekker-1
 r-etc.
 seminar
+oppgave-om-feilledd
+liste-over-tema
+oppgave-3-1
+oppgave-3-2
+case-studie-med-datasett
+oppgave-2-3
+oppgave-4

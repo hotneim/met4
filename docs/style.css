@@ -12,13 +12,3 @@ pre {
 pre code {
   white-space: inherit;
 }
-
-details {
-  background-color: #d3d3d3;
-  border-style: solid;
-}
-
-details summary {
-  background-color: white;
-  font-weight: bold;
-}
