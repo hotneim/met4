@@ -477,11 +477,17 @@ df_mdl <- data.frame(
 ```
 a. Hva er de eksakte parameterne i modellen som passer til dataene vi har generert, og hva er fordelingen til hver av forklaringsvariablene og støy-leddet? Er betingelsen om uavhengig feilledd oppfylt?
 
-b. Generér opp dataene selv og estimer parameterne basert på dataene. Lag 95 % konfidens- og prediksjonsintervaller for en prediksjon hvor $X_1=1, X_2=1$ basert på estimatene dine.
+b. Generér opp dataene selv og estimer parameterne basert på dataene. Tolk estimatene.
+
+c. Lag 95 % konfidens- og prediksjonsintervaller for en prediksjon hvor $X_1=1, X_2=1$ basert på estimatene dine.
 
 c. Hva er eksakt prediksjonsintervall basert på modellen vi har generert data fra? Ser dine prediksjonsintervaller rimelige ut utfra dette? Hvorfor er de ikke eksakt like?
 
-d. Stemmer konfidensintervallet overens med modellen? Tolk konfidensintervallet basert på at vi kan generere opp nye data (med et annet seed). 
+d. Stemmer konfidensintervallet overens med modellen? Tolk konfidensintervallet basert på at vi kan generere opp nye data (med et annet seed).
+
+e. Hva er P-verdien i F-test for at vi har en signifikant sammenheng mellom responsvariabelen og forklaringsvariablene?
+
+<!-- f. Hvor få datapunkter måtte vi ha simulert opp før F-testen ikke kunne sagt at det er en sammenheng? -->
 
 <details><summary>Løsning</summary><blockquote>
 
@@ -495,9 +501,15 @@ fordi vi har trukket dem fra en normalfordeling med forventning 0 og standardavv
 hvor parameterne er eksakt fordi vi har laget dataene selv. 
 
 b. 
-
 ```{r}
 reg <- lm(y ~ x1 + x2, data = df_mdl)
+stargazer(reg, type = "text")
+```
+Vi ser at estimatene av koeffisientene er signifikante, og at sanne verdier er innenfor konfidensintervallet for hver av dem. Det er ikke et konstantledd i modellen vår, noe som stemmer overens med at den ikke er signifikant forskjellig fra null i regresjonsmodellen.
+
+c. 
+
+```{r}
 new_df <- data.frame(x1 = 1, x2 = 1)
 reg.pred <- predict(reg, newdata = new_df, interval = "predict")
 reg.conf <- predict(reg, newdata = new_df, interval = "confidence")
@@ -507,7 +519,7 @@ reg.conf <- predict(reg, newdata = new_df, interval = "confidence")
 stargazer(reg.pred, type = "text", title = "Prediksjonsintervall")
 stargazer(reg.conf, type = "text", title = "Konfidensintervall")
 ```
-c. Eksakt prediksjonsintervall for modellen som genererte dataene er
+d. Eksakt prediksjonsintervall for modellen som genererte dataene er
 \begin{align}
   \bar{Y}|X_1,X_2 \pm \alpha_{0.025} \sigma_{\epsilon} &= 2 \cdot 1 - 1 \cdot 1 \pm 1.96 \cdot 1 \\
   &= 1 \pm 1.96 \\
@@ -515,10 +527,19 @@ c. Eksakt prediksjonsintervall for modellen som genererte dataene er
 \end{align}
 Estimert prediksjonsintervall er bredere enn det estimerte intervallet. Dette kommer av usikkerhet knyttet til estimatene av forventning og standardfeil. Det er benyttet T-test i estimatet av prediksjonsintervallet for å ta hensyn til denne usikkerheten. Man burde ikke få smalere prediksjonsintervaller enn det som faktisk er "sant" med mindre noen av modellantagelsene er usann. Merk at når vi generer opp data selv vet vi sannheten, det gjør vi ikke for virkelige data.
 
-d. Vi burde få at $\bar{Y}|X_1,X_2 = 1$ er innenfor konfidensintervallet, noe ser ut til å være oppfylt. Tolkningen er at dersom vi kjører analysen på mange ulike datasett vil $\bar{Y}|X_1,X_2 = 1$ havne innenfor konfidensintervallet i 95 % av tilfellene. Dette kan du prøve selv, bare pass på at du ikke setter seed-et før du generer opp et nytt datasett.
+e. Vi burde få at $\bar{Y}|X_1,X_2 = 1$ er innenfor konfidensintervallet, noe ser ut til å være oppfylt. Tolkningen er at dersom vi kjører analysen på mange ulike datasett vil $\bar{Y}|X_1,X_2 = 1$ havne innenfor konfidensintervallet i 95 % av tilfellene. Dette kan du prøve selv, bare pass på at du ikke setter seed-et før du generer opp et nytt datasett.
+
+f. Svaret gis i regresjonstabellen
+```{r}
+stargazer(reg, type = "text")
+```
+F-statistikken er angitt som $1094.997$ med frihetsgrader $2, 97$. P-verdien regnes som 
+```{r}
+pf(1094.997, 2, 97, lower.tail = FALSE)
+```
+som er veldig liten. Altså bekrefter analysen at det er sammenheng mellom forklaringsvariablene og responsvariabelen. Hva ville du tenkt var galt om vi ikke fikk denne konklusjonen fra F-testen, gitt den modellen vi har brukt til å generere dataene? Hint: Det er faktisk en reell sammenheng her.
 
 </blockquote></details>
-
 
 <!-- #### Oppgave 2 -->
 <!-- Denne oppgaven er en videreføring av oppgave 1. Vi lager nå en ny modell ved å generere opp med følgende kode: -->
@@ -728,7 +749,7 @@ e. Tegn regresjonslinjen til modellen.
 
 </details> -->
 
-### Nøtter
+<!-- ### Nøtter -->
 
 
 <!-- I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen). -->
