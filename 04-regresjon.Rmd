@@ -455,7 +455,7 @@ Merk at det ikke alltid er lett å se direkte fra figurene hva som er galt. Rikt
 
 ### Multippel regresjon og modellbygging
 
-#### Oppgave 1
+#### Oppgave 1 {-}
 
 ```{r, echo = FALSE, warning=FALSE, message=FALSE}
 library(stargazer)
@@ -520,33 +520,71 @@ d. Vi burde få at $\bar{Y}|X_1,X_2 = 1$ er innenfor konfidensintervallet, noe s
 </blockquote></details>
 
 
-#### Oppgave 2
+<!-- #### Oppgave 2 -->
+<!-- Denne oppgaven er en videreføring av oppgave 1. Vi lager nå en ny modell ved å generere opp med følgende kode: -->
 
-I denne oppgaven skal vi se hva som kan gå galt dersom man leter etter signifikans i store datasett. Vi starter med å simulere en responsvariabel og en 
+<!-- ```{r} -->
+<!-- set.seed(4) -->
+<!-- df_mdl <- data.frame( -->
+<!--   x1 = rnorm(100, sd = 2), -->
+<!--   x2 = rnorm(100, sd = 2), -->
+<!--   x3 = rnorm(100, sd = 2) -->
+<!-- ) %>% mutate( -->
+<!--   x4 = x3 + rnorm(100, sd = 1) -->
+<!-- ) %>% mutate( -->
+<!--   x5 = x2 + x3 + rnorm(100, sd = 1) -->
+<!-- ) %>% mutate( -->
+<!--   y = 2 * x1 + (-1) * x2 + rnorm(100, sd = 1)  -->
+<!-- ) -->
+<!-- ``` -->
 
-(Trekk tilfeldige tall og analyser det...)
+<!-- Generér gjerne opp dataene selv og analyser dem mens du svarer på oppgavene. -->
 
-(Dette er kjent som P-hacking. Det er *veldig* dårlig praksis, men har en tendens til å snike seg inn i analyser på mer eller mindre subtile vis. Det finnes store mengder forskning hvor P-hacking forekommer, bevisst eller ubevisst. De mindre subtile måtene dette skjer på heter juks.
+<!-- a. Er det uavhengige feilledd her? -->
 
-Out-of-sample validering og testing 
-)
+<!-- b. Er det kolinearitet mellom forklaringsvariablene her? Om så, er den enkel eller har vi multikolinearitet? -->
 
-#### Oppgave 3
+<!-- c. Hva har svarene på oppgaven før å si for estimat av koeffisientene for modellen for Y? -->
 
-(Legg til i enkel regresjon at man kan komme frem til det samme ved Cov-regning.)
+<!-- <details> -->
+<!-- <summary>Løsning</summary> -->
 
-Vi så i oppgave ... at minste kvadraters metode brukes til parameter-estimering. I multivariat regresjon får vi enda flere ligninger enn vi så for enkel regresjon, dermed bruker man lineæralgebra.
-
-Vis at man kan regne minste kvadraters estimat ved kovarians.
-
-En matrise lar seg invertere dersom den er kvadratisk og har lineært uavhengige kolonner. På matrisenotasjon blir kovarians regnet som $X^TX / N$. 
-
-Dersom man har multikolinearitet er det kolonner i kovariansmatrisen som er sterkt lineært avhengige. Hvorfor blir det problematisk å 
+<!-- </details> -->
 
 
-<detail><summary>Løsning</summary>
+<!-- #### Oppgave 3 -->
 
-</detail>
+<!-- I denne oppgaven skal vi se hva som kan gå galt dersom man leter etter signifikans i store datasett. Vi starter med å simulere en responsvariabel og en  -->
+
+<!-- (Trekk tilfeldige tall og analyser det...) -->
+
+<!-- (Dette er kjent som P-hacking. Det er *veldig* dårlig praksis, men har en tendens til å snike seg inn i analyser på mer eller mindre subtile vis. Det finnes store mengder forskning hvor P-hacking forekommer, bevisst eller ubevisst. De mindre subtile måtene dette skjer på heter juks. -->
+
+<!-- Out-of-sample validering og testing  -->
+<!-- ) -->
+
+<!-- #### Oppgave 4 -->
+
+<!-- (Legg til i enkel regresjon at man kan komme frem til det samme ved Cov-regning.) -->
+
+<!-- Vi så i oppgave ... at minste kvadraters metode brukes til parameter-estimering. I multivariat regresjon får vi enda flere ligninger enn vi så for enkel regresjon, dermed bruker man lineæralgebra. -->
+
+<!-- Vis at man kan regne minste kvadraters estimat ved kovarians. -->
+
+<!-- En matrise lar seg invertere dersom den er kvadratisk og har lineært uavhengige kolonner. På matrisenotasjon blir kovarians regnet som $X^TX / N$.  -->
+
+<!-- Dersom man har multikolinearitet er det kolonner i kovariansmatrisen som er sterkt lineært avhengige. Hvorfor blir det problematisk å  -->
+
+
+<!-- <detail><summary>Løsning</summary> -->
+
+<!-- </detail> -->
+
+<!-- ### Case-studie med datasett -->
+
+<!-- Her skal vi gå gjennom en analyse på et ofte brukt datasett: Boston Housing Data. Deloppgavene er satt opp for å gi litt drahjelp, sammenlignet med det som ellers kunne vært utgangspunktet for en hjemmeeksamen. -->
+
+
 
 
 <!-- 
