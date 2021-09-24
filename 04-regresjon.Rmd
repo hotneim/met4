@@ -508,16 +508,15 @@ stargazer(reg, type = "text")
 Vi ser at estimatene av koeffisientene er signifikante, og at sanne verdier er innenfor konfidensintervallet for hver av dem. Det er ikke et konstantledd i modellen vår, noe som stemmer overens med at den ikke er signifikant forskjellig fra null i regresjonsmodellen.
 
 c. 
-
 ```{r}
 new_df <- data.frame(x1 = 1, x2 = 1)
-reg.pred <- predict(reg, newdata = new_df, interval = "predict")
-reg.conf <- predict(reg, newdata = new_df, interval = "confidence")
+reg_pred <- predict(reg, newdata = new_df, interval = "predict")
+reg_conf <- predict(reg, newdata = new_df, interval = "confidence")
 ```
 
 ```{r, echo = FALSE}
-stargazer(reg.pred, type = "text", title = "Prediksjonsintervall")
-stargazer(reg.conf, type = "text", title = "Konfidensintervall")
+stargazer(reg_pred, type = "text", title = "Prediksjonsintervall")
+stargazer(reg_conf, type = "text", title = "Konfidensintervall")
 ```
 d. Eksakt prediksjonsintervall for modellen som genererte dataene er
 \begin{align}
@@ -538,26 +537,140 @@ F-statistikken er angitt som $1094.997$ med frihetsgrader $2, 97$. P-verdien reg
 pf(1094.997, 2, 97, lower.tail = FALSE)
 ```
 som er veldig liten. Altså bekrefter analysen at det er sammenheng mellom forklaringsvariablene og responsvariabelen. Hva ville du tenkt var galt om vi ikke fikk denne konklusjonen fra F-testen, gitt den modellen vi har brukt til å generere dataene? Hint: Det er faktisk en reell sammenheng her.
+</blockquote></details>
+
+#### Oppgave 2 
+Denne oppgaven følger samme premiss som oppgave 1, men handler om kolinearitet. Last ned datasettene [1](genererte_dataset/colinearity_1.RData) og [2](genererte_dataset/colinearity_2.RData), hvor y er responsvariabel og forklaringsvariable er navngitt x. 
+
+- Finn kolinearitet
+
+- Hva må man passe dersom man skal lage en regresjonsmodell for responsen Y? 
+
+<details>
+<summary>Løsning</summary><blockquote>
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+library(car)
+library(corrplot)
+```
+
+```{r, echo = FALSE}
+set.seed(4)
+df_colin1 <- data.frame(
+    x1 = rnorm(100, sd = 2),
+    x2 = rnorm(100, sd = 2)
+  ) %>%
+  mutate(
+    x3 = 0.5 * x2 + rnorm(100, sd = 1)
+  ) %>%
+  mutate(
+    y = 1.3 * x1 + (-0.8) * x2 + rnorm(100, sd = 1)
+  )
+saveRDS(df_colin1, file = "genererte_datasett/colinearity_1.RData")
+set.seed(4)
+df_colin2 <- data.frame(
+    x1 = rnorm(100, sd = 2),
+    x2 = rnorm(100, sd = 2),
+    x3 = rnorm(100, sd = 2)
+  ) %>%
+  mutate(
+    x4 = x3 + rnorm(100, sd = 2)
+  ) %>%
+  mutate(
+    x5 = x2 + x3 + rnorm(100, sd = 1)
+  ) %>%
+  mutate(
+    y = 2 * x1 + (-1) * x2 + rnorm(100, sd = 1)
+  )
+saveRDS(df_colin2, file = "genererte_datasett/colinearity_2.RData")
+```
+
+1) 
+
+Vi kan begynne med å plotte forholdet mellom de ulike variablene:
+```{r}
+pairs(y ~ ., data = df_colin1)
+```
+
+```{r}
+corrplot(cor(df_colin1), method = "number")
+```
+
+Her ser det ut som vi har et forhold mellom $(X_2, X_3)$. Videre ser det ut som at alle tre forklaringsvariable har en sammenheng med responsvariablen $Y$.
+
+```{r}
+reg_colin1 <- lm(y ~ ., data = df_colin1)
+stargazer(reg_colin1, type = "text")
+```
+
+$X_1$ og $X_2$ kommer ut som signifikante, og $X_3$ ved lavere signifikansnivå.
+
+Vi kan sjekke variance inflation factor (VIF)
+```{r}
+vif(reg_colin1)
+```
+som oppgir at estimeringen i seg selv ikke burde være noe problem.
+
+**Kommentarer:**
+
+Det reelle forholdet mellom variablene i dette eksempelet er 
+\begin{align}
+  X_1 &\sim N(0, 2) \\  
+  X_2 &\sim N(0, 2) \\  
+  X_3 &= 0.5 X_2 + \epsilon_3 \quad \epsilon_3 \sim N(0,1)  \\
+  Y &= 1.3 X_1 - 0.8 X_2 + \epsilon, \quad \epsilon \sim N(0,1),
+\end{align}
+og vi kan tenke oss at dette representerer det kausale forholdet mellom variablene. Siden vi har generert dataene kan vi si det.
+
+Det er videre interessant å merke seg i dette eksempelet at $X_3$ kommer ut med en signifikant koeffisient selv om den rent kausalt ikke har noen sammenheng med $Y$. $X_3$ er kun relatert til $X_2$.
+
+Dersom man ønsker å gjøre prediksjon kan det være forklaringskraft i $X_3$ for å gjøre prediksjon av $Y$, men i så tilfelle antas det at forholdet mellom $(X_2, X_3)$ også vedvarer i fremtiden. Dersom man skal gjøre inferens om en tenkt kausal sammenheng er det mulig å gå på en blemme i et tilfelle som dette.
+
+Hvis man ønsker å forklare noe og det er sammenheng mellom to forklaringsvariable kan det fra økonomisk prespektiv være interessant å spørre seg om man bryr seg om $X_3$ i det hele tatt og skal ta den ut. Kanksje $X_3$ er vanskelig å samle inn data om eller den åpenbart ikke har sammenheng med Y. Om den åpenbart ikke skal ha sammenheng med $Y$ kan støyleddet $\epsilon_3$ også skape unødig støy i prediksjonene.
+
+2)
+
+Plott forholdet mellom de ulike variablene:
+```{r}
+pairs(y ~ ., data = df_colin2)
+```
+
+```{r}
+corrplot(cor(df_colin2), method = "number")
+```
+
+
+Her ser vi et tydelig forhold mellom parene $(X_3, X_4)$, $(X_4, X_5)$, $(X_3, X_5)$ og $(X_2, X_5)$. Ellers ser det kun ut som det er et tydelig forhold mellom $Y$ og $X_1, X_2$. Med så mange forhold kan det være snakk om multikolinearitet, som ikke er så lett å se utfra 2D-plott.
+
+```{r}
+reg_colin2 <- lm(y ~ ., data = df_colin2)
+stargazer(reg_colin2, type = "text")
+```
+
+Vi ser på VIF for om det kan være problemer med estimering grunnet kolinearitet
+```{r}
+stargazer(vif(reg_colin2), type = "text", title = "VIF")
+```
+hvor vi ser at $X_5$ nærmer seg problematisk område for å få en overdreven varians i estimatene.
+
+Dersom målet er å estimere sammenheng mellom alle forklaringsvariable og $Y$ vil dette kunne gå gjennom siden VIF ikke er altfor høy. Hvis det derimot er snakk om modellbygging bør man tenke gjennom om noen av variablene ikke er så viktige og bør tas ut.
+
+**Kommentarer:**
+
+Det reelle forholdet mellom variablene i dette eksempelet er 
+\begin{align}
+  X_1 &\sim N(0, 2) \\  
+  X_2 &\sim N(0, 2) \\  
+  X_3 &\sim N(0, 2) \\
+  X_4 &= X_3 + \epsilon_4, \quad \epsilon_4 \sim N(0,2) \\
+  X_5 &= X_2 + X_3 + \epsilon_5, \quad \epsilon_5 \sim N(0,1) \\
+  Y &= 2 X_1 - X_2 + \epsilon, \quad \epsilon \sim N(0,1)
+\end{align}
+
+Her kan vi igjen merke oss at variablene $X_3, X_4, X_5$ kommer inn i regresjonsmodellen med noen koeffisienter som er svakt signifikante. I dette tilfellet trenger ikke dette ha så mye å si. Likevel, ettersom det ikke er noen direkte sammenheng mellom $X_3, X_4, X_5$ ville det vært ideelt å ikke ha dem med i regresjonsmodellen for å unngå feilestimering av koeffisientene til $X_1$ og $X_2$. Fra anvendt statistikk perspektiv bør man tenke gjennom om det gir mening at $X_3, X_4, X_5$ forklarer $Y$.
 
 </blockquote></details>
 
-<!-- #### Oppgave 2 -->
-<!-- Denne oppgaven er en videreføring av oppgave 1. Vi lager nå en ny modell ved å generere opp med følgende kode: -->
 
-<!-- ```{r} -->
-<!-- set.seed(4) -->
-<!-- df_mdl <- data.frame( -->
-<!--   x1 = rnorm(100, sd = 2), -->
-<!--   x2 = rnorm(100, sd = 2), -->
-<!--   x3 = rnorm(100, sd = 2) -->
-<!-- ) %>% mutate( -->
-<!--   x4 = x3 + rnorm(100, sd = 1) -->
-<!-- ) %>% mutate( -->
-<!--   x5 = x2 + x3 + rnorm(100, sd = 1) -->
-<!-- ) %>% mutate( -->
-<!--   y = 2 * x1 + (-1) * x2 + rnorm(100, sd = 1)  -->
-<!-- ) -->
-<!-- ``` -->
 
 <!-- Generér gjerne opp dataene selv og analyser dem mens du svarer på oppgavene. -->
 

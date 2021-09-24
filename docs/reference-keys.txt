@@ -1,3 +1,13 @@
+fig:to-histogrammer
+fig:churn
+eq:withb
+eq:withoutb
+eq:timemean
+tab:knn
+tab:knnfasit
+fig:rstudio1
+fig:rstudiorun
+fig:dokumentasjon
 introduksjon-til-r
 en-gjennomgang-av-rstudio
 enkle-beregninger-og-variabler
@@ -48,6 +58,7 @@ kommentarer-8
 oppgaver-2
 regresjon-med-en-forklaringsvariabel
 multippel-regresjon-og-modellbygging
+oppgave-2-1
 avansert-regresjon-og-maskinlæring
 logistisk-regresjon
 videoforelesninger-9
@@ -112,7 +123,7 @@ interaktiv-øvelse
 data-til-dataøvelsen
 oppgaver-til-øvingen
 oppgave-1-2
-oppgave-2-1
+oppgave-2-2
 oppgave-3-1
 bonus-en-alternativ-teknikk-for-datamanipulering-gjør-bare-om-du-har-overskudd-til-det
 dataøving-3
@@ -131,13 +142,3 @@ regresjon-1
 tidsrekker-1
 r-etc.
 seminar
-fig:to-histogrammer
-fig:churn
-eq:withb
-eq:withoutb
-eq:timemean
-tab:knn
-tab:knnfasit
-fig:rstudio1
-fig:rstudiorun
-fig:dokumentasjon
