@@ -399,7 +399,215 @@ c. Sønnen vil gjennomsnittlig være høyere enn sin far.
 
 </details> -->
 
+#### Oppgave 3 {-}
+
+Figurene nedenfor viser residualene (feilleddene) vi får ut fra et par ulike modeller. Ser plottene ut til å tilfredsstille kravene for enkel regresjon? Hvis ikke, hva ser ut til å være galt for hver av figurene? Hvordan kan man håndtere brudd på betingelsene i de ulike situasjonene?
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+library(tidyverse)
+
+df <- data.frame(
+  sigma_lin = seq(100) / 60 + 0.5,
+  sigma_sin = 2 * (sin(2 * 3.14 * seq(100) / 100 * 3) + 1.3)
+)
+df$eps_norm <- rnorm(100)
+df$eps_lin <- rnorm(100, sd = df$sigma_lin)
+df$eps_sin <- rnorm(100, sd = df$sigma_sin)
+eps_ar_base = rnorm(102)
+df$eps_ma2 = eps_ar_base[3:102] + 0.9 * eps_ar_base[2:101] + 0.8 * eps_ar_base[1:100]
+```
+
+a. 
+```{r, echo = FALSE}
+plot(df$eps_norm, ylab = "Residualer", xlab = "Prediksjon")
+```
+b.
+```{r, echo = FALSE}
+plot(df$eps_lin, ylab = "Residualer", xlab = "Prediksjon")
+```
+c. 
+```{r, echo = FALSE}
+plot(df$eps_sin, ylab = "Residualer", xlab = "Datapunkter (sortert i tid)")
+```
+
+d.
+```{r, echo = FALSE}
+plot(df$eps_ma2, ylab = "Residualer", xlab = "Datapunkter (sortert i tid)")
+```
+
+
+
+
+<details>
+<summary>Løsning</summary><blockquote>
+
+a. Her ser støyleddet ganske normalfordelt ut. Det betyr at antagelsene er oppfylt.
+
+b. Støyen er symmetrisk om null, men kan se ut som den øker. Altså er det brudd på antagelsen om normalfordeling. Økningen ser ut til å være jevn, og en log-transformasjon kunne i dette tilfellet vært til hjelp.
+
+c. Her ser det ut som at vi har perioder med høy varians etterfulgt av perioder med lavere varians. Vi skal ikke se så mye nærmere på hvordan dette kan håndteres i MET4, men man kan komme over det i senere kurs.
+
+d. Her ser det ut som at støyen har en relasjon i tid, og at høye/lave verdier henger sammen med høye/laver verdier. Det er ikke åpenbart at det er dette som foregår, og vi burde undersøkt det nærmere. Senere i kurset skal vi håndtere dette ved bruk av tidsrekkemodeller.
+
+Merk at det ikke alltid er lett å se direkte fra figurene hva som er galt. Riktig bruk av statistiske tester og diagnoseplott kan hjelpe med å oppdage brudd på betingelsene. Figurene i denne oppgaven er generert ved simulering, vi kan derfor vite akkurat hva som er galt. For virkelige data vil kunne være vanskeligere å tolke fordi det ikke nødvendigvis er én ting som er galt om gangen. Man må også være på vakt for overtolkning av det som egentlig er tilfeldigheter.
+
+</blockquote></details>
+
 ### Multippel regresjon og modellbygging
+
+#### Oppgave 1 {-}
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+library(stargazer)
+library(tidyverse)
+```
+
+Denne oppgaven skal gi et forhold til hvordan teorien funker i praksis. Vi skal simulere data fra konstruerte modeller gjøre analyser på dem. Fordelen med å begynne her er at man får er forhold til hvordan statistikk kan og bør tolkes utfra teorien. Med virkelige data vil antagelsene som ligger til grunn for modellene stort sett være brutt, i større eller mindre grad, og kjernen i god statistisk analyse er å vite hva man kan og ikke kan gjøre likevel. God kjennskap til hvordan det burde funke i teorien er en viktig byggestein for statistisk forståelse.
+
+Vi generer opp data som skal brukes til å estimere en model. `rnorm` trekker tall fra en standard normalfordeling. `mutate()` legger til nye kolonner i dataframe-en basert på allerede eksisterende kolonner. `set.seed()` setter startpunktet for pseudotilfeldige tall, og om du setter samme seed får du de samme tilfeldige tallene som vi har brukt. 
+```{r}
+set.seed(4)
+df_mdl <- data.frame(
+  x1 = rnorm(100, sd = 2),
+  x2 = rnorm(100, sd = 2),
+  eps = rnorm(100) 
+) %>% mutate(
+  y = 2 * x1 + (-1) * x2 + eps
+)
+```
+a. Hva er de eksakte parameterne i modellen som passer til dataene vi har generert, og hva er fordelingen til hver av forklaringsvariablene og støy-leddet? Er betingelsen om uavhengig feilledd oppfylt?
+
+b. Generér opp dataene selv og estimer parameterne basert på dataene. Tolk estimatene.
+
+c. Lag 95 % konfidens- og prediksjonsintervaller for en prediksjon hvor $X_1=1, X_2=1$ basert på estimatene dine.
+
+c. Hva er eksakt prediksjonsintervall basert på modellen vi har generert data fra? Ser dine prediksjonsintervaller rimelige ut utfra dette? Hvorfor er de ikke eksakt like?
+
+d. Stemmer konfidensintervallet overens med modellen? Tolk konfidensintervallet basert på at vi kan generere opp nye data (med et annet seed).
+
+e. Hva er P-verdien i F-test for at vi har en signifikant sammenheng mellom responsvariabelen og forklaringsvariablene?
+
+<!-- f. Hvor få datapunkter måtte vi ha simulert opp før F-testen ikke kunne sagt at det er en sammenheng? -->
+
+<details><summary>Løsning</summary><blockquote>
+
+a. Fordelingen til forklaringsvariablene er \begin{align}
+  X_1, X_2 \sim N(0, 2) 
+\end{align} 
+fordi vi har trukket dem fra en normalfordeling med forventning 0 og standardavvik 2. Videre er fordelingen til støyleddet en standard normalfordeling $\epsilon\sim N(0,1)$. Betingelsen om uavhengig feilledd er oppfylt siden vi ikke har brukt feilleddet til å generere forklaringsvariablene. Det er responsvariabelen, men den skal altså være avhengig av støyleddet. Modellen tar formen
+\begin{align}
+  Y = 2 X_1 - X_2 + \epsilon,\quad \epsilon \sim N(0, 1),
+\end{align}
+hvor parameterne er eksakt fordi vi har laget dataene selv. 
+
+b. 
+```{r}
+reg <- lm(y ~ x1 + x2, data = df_mdl)
+stargazer(reg, type = "text")
+```
+Vi ser at estimatene av koeffisientene er signifikante, og at sanne verdier er innenfor konfidensintervallet for hver av dem. Det er ikke et konstantledd i modellen vår, noe som stemmer overens med at den ikke er signifikant forskjellig fra null i regresjonsmodellen.
+
+c. 
+
+```{r}
+new_df <- data.frame(x1 = 1, x2 = 1)
+reg.pred <- predict(reg, newdata = new_df, interval = "predict")
+reg.conf <- predict(reg, newdata = new_df, interval = "confidence")
+```
+
+```{r, echo = FALSE}
+stargazer(reg.pred, type = "text", title = "Prediksjonsintervall")
+stargazer(reg.conf, type = "text", title = "Konfidensintervall")
+```
+d. Eksakt prediksjonsintervall for modellen som genererte dataene er
+\begin{align}
+  \bar{Y}|X_1,X_2 \pm \alpha_{0.025} \sigma_{\epsilon} &= 2 \cdot 1 - 1 \cdot 1 \pm 1.96 \cdot 1 \\
+  &= 1 \pm 1.96 \\
+  &= [-0.96, 2.96].
+\end{align}
+Estimert prediksjonsintervall er bredere enn det estimerte intervallet. Dette kommer av usikkerhet knyttet til estimatene av forventning og standardfeil. Det er benyttet T-test i estimatet av prediksjonsintervallet for å ta hensyn til denne usikkerheten. Man burde ikke få smalere prediksjonsintervaller enn det som faktisk er "sant" med mindre noen av modellantagelsene er usann. Merk at når vi generer opp data selv vet vi sannheten, det gjør vi ikke for virkelige data.
+
+e. Vi burde få at $\bar{Y}|X_1,X_2 = 1$ er innenfor konfidensintervallet, noe ser ut til å være oppfylt. Tolkningen er at dersom vi kjører analysen på mange ulike datasett vil $\bar{Y}|X_1,X_2 = 1$ havne innenfor konfidensintervallet i 95 % av tilfellene. Dette kan du prøve selv, bare pass på at du ikke setter seed-et før du generer opp et nytt datasett.
+
+f. Svaret gis i regresjonstabellen
+```{r}
+stargazer(reg, type = "text")
+```
+F-statistikken er angitt som $1094.997$ med frihetsgrader $2, 97$. P-verdien regnes som 
+```{r}
+pf(1094.997, 2, 97, lower.tail = FALSE)
+```
+som er veldig liten. Altså bekrefter analysen at det er sammenheng mellom forklaringsvariablene og responsvariabelen. Hva ville du tenkt var galt om vi ikke fikk denne konklusjonen fra F-testen, gitt den modellen vi har brukt til å generere dataene? Hint: Det er faktisk en reell sammenheng her.
+
+</blockquote></details>
+
+<!-- #### Oppgave 2 -->
+<!-- Denne oppgaven er en videreføring av oppgave 1. Vi lager nå en ny modell ved å generere opp med følgende kode: -->
+
+<!-- ```{r} -->
+<!-- set.seed(4) -->
+<!-- df_mdl <- data.frame( -->
+<!--   x1 = rnorm(100, sd = 2), -->
+<!--   x2 = rnorm(100, sd = 2), -->
+<!--   x3 = rnorm(100, sd = 2) -->
+<!-- ) %>% mutate( -->
+<!--   x4 = x3 + rnorm(100, sd = 1) -->
+<!-- ) %>% mutate( -->
+<!--   x5 = x2 + x3 + rnorm(100, sd = 1) -->
+<!-- ) %>% mutate( -->
+<!--   y = 2 * x1 + (-1) * x2 + rnorm(100, sd = 1)  -->
+<!-- ) -->
+<!-- ``` -->
+
+<!-- Generér gjerne opp dataene selv og analyser dem mens du svarer på oppgavene. -->
+
+<!-- a. Er det uavhengige feilledd her? -->
+
+<!-- b. Er det kolinearitet mellom forklaringsvariablene her? Om så, er den enkel eller har vi multikolinearitet? -->
+
+<!-- c. Hva har svarene på oppgaven før å si for estimat av koeffisientene for modellen for Y? -->
+
+<!-- <details> -->
+<!-- <summary>Løsning</summary> -->
+
+<!-- </details> -->
+
+
+<!-- #### Oppgave 3 -->
+
+<!-- I denne oppgaven skal vi se hva som kan gå galt dersom man leter etter signifikans i store datasett. Vi starter med å simulere en responsvariabel og en  -->
+
+<!-- (Trekk tilfeldige tall og analyser det...) -->
+
+<!-- (Dette er kjent som P-hacking. Det er *veldig* dårlig praksis, men har en tendens til å snike seg inn i analyser på mer eller mindre subtile vis. Det finnes store mengder forskning hvor P-hacking forekommer, bevisst eller ubevisst. De mindre subtile måtene dette skjer på heter juks. -->
+
+<!-- Out-of-sample validering og testing  -->
+<!-- ) -->
+
+<!-- #### Oppgave 4 -->
+
+<!-- (Legg til i enkel regresjon at man kan komme frem til det samme ved Cov-regning.) -->
+
+<!-- Vi så i oppgave ... at minste kvadraters metode brukes til parameter-estimering. I multivariat regresjon får vi enda flere ligninger enn vi så for enkel regresjon, dermed bruker man lineæralgebra. -->
+
+<!-- Vis at man kan regne minste kvadraters estimat ved kovarians. -->
+
+<!-- En matrise lar seg invertere dersom den er kvadratisk og har lineært uavhengige kolonner. På matrisenotasjon blir kovarians regnet som $X^TX / N$.  -->
+
+<!-- Dersom man har multikolinearitet er det kolonner i kovariansmatrisen som er sterkt lineært avhengige. Hvorfor blir det problematisk å  -->
+
+
+<!-- <detail><summary>Løsning</summary> -->
+
+<!-- </detail> -->
+
+<!-- ### Case-studie med datasett -->
+
+<!-- Her skal vi gå gjennom en analyse på et ofte brukt datasett: Boston Housing Data. Deloppgavene er satt opp for å gi litt drahjelp, sammenlignet med det som ellers kunne vært utgangspunktet for en hjemmeeksamen. -->
+
+
+
+
 <!-- 
 #### (Oppgave 1) {-}
 
@@ -541,7 +749,7 @@ e. Tegn regresjonslinjen til modellen.
 
 </details> -->
 
-### Nøtter
+<!-- ### Nøtter -->
 
 
 <!-- I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen). -->

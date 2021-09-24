@@ -60,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -601,9 +602,196 @@ c. Sønnen vil gjennomsnittlig være høyere enn sin far.
 
 </details> -->
 </div>
+<div id="oppgave-3" class="section level4 unnumbered">
+<h4>Oppgave 3</h4>
+<p>Figurene nedenfor viser residualene (feilleddene) vi får ut fra et par ulike modeller. Ser plottene ut til å tilfredsstille kravene for enkel regresjon? Hvis ikke, hva ser ut til å være galt for hver av figurene? Hvordan kan man håndtere brudd på betingelsene i de ulike situasjonene?</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><img src="met4_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p></li>
+<li><p><img src="met4_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p></li>
+<li><p><img src="met4_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p></li>
+<li><p><img src="met4_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><p>Her ser støyleddet ganske normalfordelt ut. Det betyr at antagelsene er oppfylt.</p></li>
+<li><p>Støyen er symmetrisk om null, men kan se ut som den øker. Altså er det brudd på antagelsen om normalfordeling. Økningen ser ut til å være jevn, og en log-transformasjon kunne i dette tilfellet vært til hjelp.</p></li>
+<li><p>Her ser det ut som at vi har perioder med høy varians etterfulgt av perioder med lavere varians. Vi skal ikke se så mye nærmere på hvordan dette kan håndteres i MET4, men man kan komme over det i senere kurs.</p></li>
+<li><p>Her ser det ut som at støyen har en relasjon i tid, og at høye/lave verdier henger sammen med høye/laver verdier. Det er ikke åpenbart at det er dette som foregår, og vi burde undersøkt det nærmere. Senere i kurset skal vi håndtere dette ved bruk av tidsrekkemodeller.</p></li>
+</ol>
+<p>Merk at det ikke alltid er lett å se direkte fra figurene hva som er galt. Riktig bruk av statistiske tester og diagnoseplott kan hjelpe med å oppdage brudd på betingelsene. Figurene i denne oppgaven er generert ved simulering, vi kan derfor vite akkurat hva som er galt. For virkelige data vil kunne være vanskeligere å tolke fordi det ikke nødvendigvis er én ting som er galt om gangen. Man må også være på vakt for overtolkning av det som egentlig er tilfeldigheter.</p>
+</blockquote>
+</details>
+</div>
 </div>
 <div id="multippel-regresjon-og-modellbygging" class="section level3" number="4.4.2">
 <h3><span class="header-section-number">4.4.2</span> Multippel regresjon og modellbygging</h3>
+<div id="oppgave-1-1" class="section level4 unnumbered">
+<h4>Oppgave 1</h4>
+<p>Denne oppgaven skal gi et forhold til hvordan teorien funker i praksis. Vi skal simulere data fra konstruerte modeller gjøre analyser på dem. Fordelen med å begynne her er at man får er forhold til hvordan statistikk kan og bør tolkes utfra teorien. Med virkelige data vil antagelsene som ligger til grunn for modellene stort sett være brutt, i større eller mindre grad, og kjernen i god statistisk analyse er å vite hva man kan og ikke kan gjøre likevel. God kjennskap til hvordan det burde funke i teorien er en viktig byggestein for statistisk forståelse.</p>
+<p>Vi generer opp data som skal brukes til å estimere en model. <code>rnorm</code> trekker tall fra en standard normalfordeling. <code>mutate()</code> legger til nye kolonner i dataframe-en basert på allerede eksisterende kolonner. <code>set.seed()</code> setter startpunktet for pseudotilfeldige tall, og om du setter samme seed får du de samme tilfeldige tallene som vi har brukt.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="oppgaver-2.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
+<span id="cb77-2"><a href="oppgaver-2.html#cb77-2" aria-hidden="true" tabindex="-1"></a>df_mdl <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb77-3"><a href="oppgaver-2.html#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb77-4"><a href="oppgaver-2.html#cb77-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x2 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb77-5"><a href="oppgaver-2.html#cb77-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">eps =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) </span>
+<span id="cb77-6"><a href="oppgaver-2.html#cb77-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb77-7"><a href="oppgaver-2.html#cb77-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">2</span> <span class="sc">*</span> x1 <span class="sc">+</span> (<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span> x2 <span class="sc">+</span> eps</span>
+<span id="cb77-8"><a href="oppgaver-2.html#cb77-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Hva er de eksakte parameterne i modellen som passer til dataene vi har generert, og hva er fordelingen til hver av forklaringsvariablene og støy-leddet? Er betingelsen om uavhengig feilledd oppfylt?</p></li>
+<li><p>Generér opp dataene selv og estimer parameterne basert på dataene. Tolk estimatene.</p></li>
+<li><p>Lag 95 % konfidens- og prediksjonsintervaller for en prediksjon hvor <span class="math inline">\(X_1=1, X_2=1\)</span> basert på estimatene dine.</p></li>
+<li><p>Hva er eksakt prediksjonsintervall basert på modellen vi har generert data fra? Ser dine prediksjonsintervaller rimelige ut utfra dette? Hvorfor er de ikke eksakt like?</p></li>
+<li><p>Stemmer konfidensintervallet overens med modellen? Tolk konfidensintervallet basert på at vi kan generere opp nye data (med et annet seed).</p></li>
+<li><p>Hva er P-verdien i F-test for at vi har en signifikant sammenheng mellom responsvariabelen og forklaringsvariablene?</p></li>
+</ol>
+<!-- f. Hvor få datapunkter måtte vi ha simulert opp før F-testen ikke kunne sagt at det er en sammenheng? -->
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><p>Fordelingen til forklaringsvariablene er <span class="math display">\[\begin{align}
+  X_1, X_2 \sim N(0, 2) 
+\end{align}\]</span>
+fordi vi har trukket dem fra en normalfordeling med forventning 0 og standardavvik 2. Videre er fordelingen til støyleddet en standard normalfordeling <span class="math inline">\(\epsilon\sim N(0,1)\)</span>. Betingelsen om uavhengig feilledd er oppfylt siden vi ikke har brukt feilleddet til å generere forklaringsvariablene. Det er responsvariabelen, men den skal altså være avhengig av støyleddet. Modellen tar formen
+<span class="math display">\[\begin{align}
+  Y = 2 X_1 - X_2 + \epsilon,\quad \epsilon \sim N(0, 1),
+\end{align}\]</span>
+hvor parameterne er eksakt fordi vi har laget dataene selv.</p></li>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="oppgaver-2.html#cb78-1" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df_mdl)</span>
+<span id="cb78-2"><a href="oppgaver-2.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                  y             
+## -----------------------------------------------
+## x1                           1.986***          
+##                               (0.053)          
+##                                                
+## x2                           -1.091***         
+##                               (0.048)          
+##                                                
+## Constant                      -0.055           
+##                               (0.096)          
+##                                                
+## -----------------------------------------------
+## Observations                    100            
+## R2                             0.958           
+## Adjusted R2                    0.957           
+## Residual Std. Error       0.956 (df = 97)      
+## F Statistic          1,094.997*** (df = 2; 97) 
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>Vi ser at estimatene av koeffisientene er signifikante, og at sanne verdier er innenfor konfidensintervallet for hver av dem. Det er ikke et konstantledd i modellen vår, noe som stemmer overens med at den ikke er signifikant forskjellig fra null i regresjonsmodellen.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="oppgaver-2.html#cb80-1" aria-hidden="true" tabindex="-1"></a>new_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span>, <span class="at">x2 =</span> <span class="dv">1</span>)</span>
+<span id="cb80-2"><a href="oppgaver-2.html#cb80-2" aria-hidden="true" tabindex="-1"></a>reg.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> new_df, <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
+<span id="cb80-3"><a href="oppgaver-2.html#cb80-3" aria-hidden="true" tabindex="-1"></a>reg.conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> new_df, <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## Prediksjonsintervall
+## ====================
+##    fit   lwr    upr 
+## --------------------
+## 1 0.840 -1.073 2.752
+## --------------------</code></pre>
+<pre><code>## 
+## Konfidensintervall
+## ===================
+##    fit   lwr   upr 
+## -------------------
+## 1 0.840 0.600 1.080
+## -------------------</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><p>Eksakt prediksjonsintervall for modellen som genererte dataene er
+<span class="math display">\[\begin{align}
+  \bar{Y}|X_1,X_2 \pm \alpha_{0.025} \sigma_{\epsilon} &amp;= 2 \cdot 1 - 1 \cdot 1 \pm 1.96 \cdot 1 \\
+  &amp;= 1 \pm 1.96 \\
+  &amp;= [-0.96, 2.96].
+\end{align}\]</span>
+Estimert prediksjonsintervall er bredere enn det estimerte intervallet. Dette kommer av usikkerhet knyttet til estimatene av forventning og standardfeil. Det er benyttet T-test i estimatet av prediksjonsintervallet for å ta hensyn til denne usikkerheten. Man burde ikke få smalere prediksjonsintervaller enn det som faktisk er “sant” med mindre noen av modellantagelsene er usann. Merk at når vi generer opp data selv vet vi sannheten, det gjør vi ikke for virkelige data.</p></li>
+<li><p>Vi burde få at <span class="math inline">\(\bar{Y}|X_1,X_2 = 1\)</span> er innenfor konfidensintervallet, noe ser ut til å være oppfylt. Tolkningen er at dersom vi kjører analysen på mange ulike datasett vil <span class="math inline">\(\bar{Y}|X_1,X_2 = 1\)</span> havne innenfor konfidensintervallet i 95 % av tilfellene. Dette kan du prøve selv, bare pass på at du ikke setter seed-et før du generer opp et nytt datasett.</p></li>
+<li><p>Svaret gis i regresjonstabellen</p></li>
+</ol>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="oppgaver-2.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                  y             
+## -----------------------------------------------
+## x1                           1.986***          
+##                               (0.053)          
+##                                                
+## x2                           -1.091***         
+##                               (0.048)          
+##                                                
+## Constant                      -0.055           
+##                               (0.096)          
+##                                                
+## -----------------------------------------------
+## Observations                    100            
+## R2                             0.958           
+## Adjusted R2                    0.957           
+## Residual Std. Error       0.956 (df = 97)      
+## F Statistic          1,094.997*** (df = 2; 97) 
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>F-statistikken er angitt som <span class="math inline">\(1094.997\)</span> med frihetsgrader <span class="math inline">\(2, 97\)</span>. P-verdien regnes som</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="oppgaver-2.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pf</span>(<span class="fl">1094.997</span>, <span class="dv">2</span>, <span class="dv">97</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 2.716911e-67</code></pre>
+<p>som er veldig liten. Altså bekrefter analysen at det er sammenheng mellom forklaringsvariablene og responsvariabelen. Hva ville du tenkt var galt om vi ikke fikk denne konklusjonen fra F-testen, gitt den modellen vi har brukt til å generere dataene? Hint: Det er faktisk en reell sammenheng her.</p>
+</blockquote>
+</details>
+<!-- #### Oppgave 2 -->
+<!-- Denne oppgaven er en videreføring av oppgave 1. Vi lager nå en ny modell ved å generere opp med følgende kode: -->
+<!-- ```{r} -->
+<!-- set.seed(4) -->
+<!-- df_mdl <- data.frame( -->
+<!--   x1 = rnorm(100, sd = 2), -->
+<!--   x2 = rnorm(100, sd = 2), -->
+<!--   x3 = rnorm(100, sd = 2) -->
+<!-- ) %>% mutate( -->
+<!--   x4 = x3 + rnorm(100, sd = 1) -->
+<!-- ) %>% mutate( -->
+<!--   x5 = x2 + x3 + rnorm(100, sd = 1) -->
+<!-- ) %>% mutate( -->
+<!--   y = 2 * x1 + (-1) * x2 + rnorm(100, sd = 1)  -->
+<!-- ) -->
+<!-- ``` -->
+<!-- Generér gjerne opp dataene selv og analyser dem mens du svarer på oppgavene. -->
+<!-- a. Er det uavhengige feilledd her? -->
+<!-- b. Er det kolinearitet mellom forklaringsvariablene her? Om så, er den enkel eller har vi multikolinearitet? -->
+<!-- c. Hva har svarene på oppgaven før å si for estimat av koeffisientene for modellen for Y? -->
+<!-- <details> -->
+<!-- <summary>Løsning</summary> -->
+<!-- </details> -->
+<!-- #### Oppgave 3 -->
+<!-- I denne oppgaven skal vi se hva som kan gå galt dersom man leter etter signifikans i store datasett. Vi starter med å simulere en responsvariabel og en  -->
+<!-- (Trekk tilfeldige tall og analyser det...) -->
+<!-- (Dette er kjent som P-hacking. Det er *veldig* dårlig praksis, men har en tendens til å snike seg inn i analyser på mer eller mindre subtile vis. Det finnes store mengder forskning hvor P-hacking forekommer, bevisst eller ubevisst. De mindre subtile måtene dette skjer på heter juks. -->
+<!-- Out-of-sample validering og testing  -->
+<!-- ) -->
+<!-- #### Oppgave 4 -->
+<!-- (Legg til i enkel regresjon at man kan komme frem til det samme ved Cov-regning.) -->
+<!-- Vi så i oppgave ... at minste kvadraters metode brukes til parameter-estimering. I multivariat regresjon får vi enda flere ligninger enn vi så for enkel regresjon, dermed bruker man lineæralgebra. -->
+<!-- Vis at man kan regne minste kvadraters estimat ved kovarians. -->
+<!-- En matrise lar seg invertere dersom den er kvadratisk og har lineært uavhengige kolonner. På matrisenotasjon blir kovarians regnet som $X^TX / N$.  -->
+<!-- Dersom man har multikolinearitet er det kolonner i kovariansmatrisen som er sterkt lineært avhengige. Hvorfor blir det problematisk å  -->
+<!-- <detail><summary>Løsning</summary> -->
+<!-- </detail> -->
+<!-- ### Case-studie med datasett -->
+<!-- Her skal vi gå gjennom en analyse på et ofte brukt datasett: Boston Housing Data. Deloppgavene er satt opp for å gi litt drahjelp, sammenlignet med det som ellers kunne vært utgangspunktet for en hjemmeeksamen. -->
 <!-- 
 #### (Oppgave 1) {-}
 
@@ -744,9 +932,7 @@ e. Tegn regresjonslinjen til modellen.
 <summary>Løsning</summary>
 
 </details> -->
-</div>
-<div id="nøtter-1" class="section level3" number="4.4.3">
-<h3><span class="header-section-number">4.4.3</span> Nøtter</h3>
+<!-- ### Nøtter -->
 <!-- I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen). -->
 <!-- Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave. -->
 <!-- **På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.** -->
@@ -759,6 +945,7 @@ e. Tegn regresjonslinjen til modellen.
 <!--     kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed")) -->
 <!-- ``` -->
 
+</div>
 </div>
 </div>
 <!-- </div> -->
