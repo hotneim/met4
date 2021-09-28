@@ -572,15 +572,15 @@ Introduksjon til hypotesetesting
 <details><summary>Løsning</summary>
 >La $p$ være den sanne andelen av flyreiser som blir forsinket under krisen. Vi skal da teste $H_0: p = 0.92$ mot $H_1: p < 0.92$. Vårt estimat på $p$ er $\hat{p}=148/165 \approx 0.90$ og testobservatoren er gitt ved
 
->$$z = \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)/n}} = \frac{0.90 - 0.92}{\sqrt{0.92(1 - 0.92)/165}} \approx -0.80$$
->Dersom vi bruker kritisk verdi ville forkastningsområdet vært $z < -1.645$ og siden $z> -1.645$ kan vi altså ikke forkaste $H_0$. Alternativt kan vi regne ut p-verdien som er "sannsynligheten for det vi har observert eller noe enda mer til fordel for $H_1$. En enda mer negativ verdi enn -0.80 ville vært til fordel for $H_1$, derfor er 
+>$$z = \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)/n}} = \frac{0.90 - 0.92}{\sqrt{0.92(1 - 0.92)/165}} \approx -0.95$$
+>Dersom vi bruker kritisk verdi ville forkastningsområdet vært $z < -1.645$ og siden $z> -1.645$ kan vi altså ikke forkaste $H_0$. Alternativt kan vi regne ut p-verdien som er "sannsynligheten for det vi har observert eller noe enda mer til fordel for $H_1$. En enda mer negativ verdi enn -0.95 ville vært til fordel for $H_1$, derfor er 
 
->$$p-verdi = P(Z < - 0.8) = 0.21$$
->og vi derfor *ikke* forkaste $H_0$ siden p-verdien *ikke* er mindre enn 0.05.
+>$$p-verdi = P(Z < - 0.95) = 0.17$$
+>og vi kan derfor *ikke* forkaste $H_0$ siden p-verdien *ikke* er mindre enn 0.05.
 
 </details>
 
-8. Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: $\overline{x}_1 = 400$, $s_1 = 100$, $n_1 = 130$, $\overline{x}_2 = 390$, $s_2 = 50$, $n_2 = 130$. 
+8. Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: $\overline{x}_1 = 400$, $s_1 = 130$, $n_1 = 130$, $\overline{x}_2 = 390$, $s_2 = 50$, $n_2 = 130$. 
 
  a.	Kan vi hevde på et 5 % signifikansnivå at $\mu_1$ er større enn $\mu_2$? Det oppgis at
     
@@ -610,16 +610,17 @@ c. Når standardavvikene i utvalgene blir mindre øker verdien av testobservator
 
 d. Testobservatoren blir da
 
-$$T = \frac{\overline{x}_1 - \overline{x}_2 - 0}{\sqrt{\frac{s^2_{1}}{n_1} + \frac{s^2_{2}}{n_2}}}=\frac{400 - 390}{\sqrt{\frac{130^2}{20} + \frac{50^2}{20}}} = 0.40$$
+$$T = \frac{\overline{x}_1 - \overline{x}_2 - 0}{\sqrt{\frac{s^2_{1}}{n_1} + \frac{s^2_{2}}{n_2}}}=\frac{400 - 390}{\sqrt{\frac{130^2}{20} + \frac{50^2}{20}}} = 0.32$$
 Antall frihetsgrader oppgis til å være $v \approx 28$. Vi forkaster $H_0$ dersom $T > t_{0.05, 28} = 1.701$, og siden dette *ikke* er tilfelle her kan vi *ikke* forkaste $H_0$ ved 5 % signifikansnivå. 
 
 e.  Få observasjoner representerer større usikkerhet om differansen $\overline{x}_1 - \overline{x}_2$ bare skyldes tilfeldighet, og dette reflekteres av testobservatoren som vil synke når utvalgsstørrelsen reduseres.
 
 <!-- m1 <- 400 -->
 <!-- m2 <- 390 -->
-<!-- s1 <- 100 -->
+<!-- s1 <- 130 -->
 <!-- s2 <- 50 -->
 <!-- n1  <- n2 <- 20 -->
+
 <!-- t <- (m1 - m2)/sqrt(s1^2/n1 + s2^2/n2) -->
 <!-- v <- (s1^2/n1 + s2^2/n2)^2/((s1^2/n1)^2/(n1 - 1) + (s2^2/n2)^2/(n2 - 1)) -->
 <!-- qt(0.95, v) -->
@@ -693,7 +694,7 @@ Praktisk tolkning: Vi kan ikke konkludere med at det er noe forskjell i tiden de
 >
 >$$F = s_{1}^2/s_{2}^2 = 1400/700 = 2$$
 >
->Da trenger vi nemlig kun å sammenligne testobservatoren med den øvre kvantilen i F-fordelingen. Forkastningsområdet blir i dette tilfellet $F > F_{0.025, 60, 60} = 1.66$. Siden $F > 2.074$ kan vi altså forkaste $H_0$ til fordel for $H_1$ på et 5 % signifikansnivå. 
+>Da trenger vi nemlig kun å sammenligne testobservatoren med den øvre kvantilen i F-fordelingen. Forkastningsområdet blir i dette tilfellet $F > F_{0.025, 60, 60} = 1.66$. Siden $F = 2$ er større enn $1.66$ kan vi altså forkaste $H_0$ til fordel for $H_1$ på et 5 % signifikansnivå. 
 
 
 >b. Forkastningsområdet er da $F > F_{0.025, 30, 30} = 2.07$ og siden $F < 2.07$ kan vi ikke forkaste $H_0$ på et 5 % signifikansnivå.

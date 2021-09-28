@@ -389,16 +389,16 @@ Løsning
 <p>La <span class="math inline">\(p\)</span> være den sanne andelen av flyreiser som blir forsinket under krisen. Vi skal da teste <span class="math inline">\(H_0: p = 0.92\)</span> mot <span class="math inline">\(H_1: p &lt; 0.92\)</span>. Vårt estimat på <span class="math inline">\(p\)</span> er <span class="math inline">\(\hat{p}=148/165 \approx 0.90\)</span> og testobservatoren er gitt ved</p>
 </blockquote>
 <blockquote>
-<p><span class="math display">\[z = \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)/n}} = \frac{0.90 - 0.92}{\sqrt{0.92(1 - 0.92)/165}} \approx -0.80\]</span>
-Dersom vi bruker kritisk verdi ville forkastningsområdet vært <span class="math inline">\(z &lt; -1.645\)</span> og siden <span class="math inline">\(z&gt; -1.645\)</span> kan vi altså ikke forkaste <span class="math inline">\(H_0\)</span>. Alternativt kan vi regne ut p-verdien som er "sannsynligheten for det vi har observert eller noe enda mer til fordel for <span class="math inline">\(H_1\)</span>. En enda mer negativ verdi enn -0.80 ville vært til fordel for <span class="math inline">\(H_1\)</span>, derfor er</p>
+<p><span class="math display">\[z = \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)/n}} = \frac{0.90 - 0.92}{\sqrt{0.92(1 - 0.92)/165}} \approx -0.95\]</span>
+Dersom vi bruker kritisk verdi ville forkastningsområdet vært <span class="math inline">\(z &lt; -1.645\)</span> og siden <span class="math inline">\(z&gt; -1.645\)</span> kan vi altså ikke forkaste <span class="math inline">\(H_0\)</span>. Alternativt kan vi regne ut p-verdien som er "sannsynligheten for det vi har observert eller noe enda mer til fordel for <span class="math inline">\(H_1\)</span>. En enda mer negativ verdi enn -0.95 ville vært til fordel for <span class="math inline">\(H_1\)</span>, derfor er</p>
 </blockquote>
 <blockquote>
-<p><span class="math display">\[p-verdi = P(Z &lt; - 0.8) = 0.21\]</span>
-og vi derfor <em>ikke</em> forkaste <span class="math inline">\(H_0\)</span> siden p-verdien <em>ikke</em> er mindre enn 0.05.</p>
+<p><span class="math display">\[p-verdi = P(Z &lt; - 0.95) = 0.17\]</span>
+og vi kan derfor <em>ikke</em> forkaste <span class="math inline">\(H_0\)</span> siden p-verdien <em>ikke</em> er mindre enn 0.05.</p>
 </blockquote>
 </details>
 <ol start="8" style="list-style-type: decimal">
-<li>Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: <span class="math inline">\(\overline{x}_1 = 400\)</span>, <span class="math inline">\(s_1 = 100\)</span>, <span class="math inline">\(n_1 = 130\)</span>, <span class="math inline">\(\overline{x}_2 = 390\)</span>, <span class="math inline">\(s_2 = 50\)</span>, <span class="math inline">\(n_2 = 130\)</span>.</li>
+<li>Vi har følgende informasjon fra to tilfeldige utvalg fra to ulike normalfordelte populasjoner: <span class="math inline">\(\overline{x}_1 = 400\)</span>, <span class="math inline">\(s_1 = 130\)</span>, <span class="math inline">\(n_1 = 130\)</span>, <span class="math inline">\(\overline{x}_2 = 390\)</span>, <span class="math inline">\(s_2 = 50\)</span>, <span class="math inline">\(n_2 = 130\)</span>.</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
 <li>Kan vi hevde på et 5 % signifikansnivå at <span class="math inline">\(\mu_1\)</span> er større enn <span class="math inline">\(\mu_2\)</span>? Det oppgis at</li>
@@ -428,14 +428,14 @@ Antall frihetsgrader oppgis til å være <span class="math inline">\(v \approx 1
 <li><p>Når standardavvikene i utvalgene blir mindre øker verdien av testobservatoren. Mindre standardavvik betyr at vi er mer sikre på at <span class="math inline">\(\overline{x}_1 - \overline{x}_2\)</span> ligger nær <span class="math inline">\(\mu_1 - \mu_2\)</span>, og at en evt. differanse kan tyde på avvik fra <span class="math inline">\(H_0\)</span>. Dette blir reflektert av en større testobservator.</p></li>
 <li><p>Testobservatoren blir da</p></li>
 </ol>
-<p><span class="math display">\[T = \frac{\overline{x}_1 - \overline{x}_2 - 0}{\sqrt{\frac{s^2_{1}}{n_1} + \frac{s^2_{2}}{n_2}}}=\frac{400 - 390}{\sqrt{\frac{130^2}{20} + \frac{50^2}{20}}} = 0.40\]</span>
+<p><span class="math display">\[T = \frac{\overline{x}_1 - \overline{x}_2 - 0}{\sqrt{\frac{s^2_{1}}{n_1} + \frac{s^2_{2}}{n_2}}}=\frac{400 - 390}{\sqrt{\frac{130^2}{20} + \frac{50^2}{20}}} = 0.32\]</span>
 Antall frihetsgrader oppgis til å være <span class="math inline">\(v \approx 28\)</span>. Vi forkaster <span class="math inline">\(H_0\)</span> dersom <span class="math inline">\(T &gt; t_{0.05, 28} = 1.701\)</span>, og siden dette <em>ikke</em> er tilfelle her kan vi <em>ikke</em> forkaste <span class="math inline">\(H_0\)</span> ved 5 % signifikansnivå.</p>
 <ol start="5" style="list-style-type: lower-alpha">
 <li>Få observasjoner representerer større usikkerhet om differansen <span class="math inline">\(\overline{x}_1 - \overline{x}_2\)</span> bare skyldes tilfeldighet, og dette reflekteres av testobservatoren som vil synke når utvalgsstørrelsen reduseres.</li>
 </ol>
 <!-- m1 <- 400 -->
 <!-- m2 <- 390 -->
-<!-- s1 <- 100 -->
+<!-- s1 <- 130 -->
 <!-- s2 <- 50 -->
 <!-- n1  <- n2 <- 20 -->
 <!-- t <- (m1 - m2)/sqrt(s1^2/n1 + s2^2/n2) -->
@@ -513,7 +513,7 @@ Løsning
 <li>Her ønsker vi å test <span class="math inline">\(H_0: \sigma_{1}^2/\sigma_{2}^2 = 1\)</span> mot <span class="math inline">\(H_1: \sigma_{1}^2/\sigma_{2}^2 \neq 1\)</span>. Husk at for en tosidig test er det smart å formulere null- og alternativ hypotesen slik at den største utvalgsvariansen kommer i telleren til testobservatoren:</li>
 </ol>
 <p><span class="math display">\[F = s_{1}^2/s_{2}^2 = 1400/700 = 2\]</span></p>
-<p>Da trenger vi nemlig kun å sammenligne testobservatoren med den øvre kvantilen i F-fordelingen. Forkastningsområdet blir i dette tilfellet <span class="math inline">\(F &gt; F_{0.025, 60, 60} = 1.66\)</span>. Siden <span class="math inline">\(F &gt; 2.074\)</span> kan vi altså forkaste <span class="math inline">\(H_0\)</span> til fordel for <span class="math inline">\(H_1\)</span> på et 5 % signifikansnivå.</p>
+<p>Da trenger vi nemlig kun å sammenligne testobservatoren med den øvre kvantilen i F-fordelingen. Forkastningsområdet blir i dette tilfellet <span class="math inline">\(F &gt; F_{0.025, 60, 60} = 1.66\)</span>. Siden <span class="math inline">\(F = 2\)</span> er større enn <span class="math inline">\(1.66\)</span> kan vi altså forkaste <span class="math inline">\(H_0\)</span> til fordel for <span class="math inline">\(H_1\)</span> på et 5 % signifikansnivå.</p>
 </blockquote>
 <blockquote>
 <ol start="2" style="list-style-type: lower-alpha">
