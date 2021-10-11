@@ -242,15 +242,15 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="r-øving-4" class="section level3" number="6.6.2">
 <h3><span class="header-section-number">6.6.2</span> R-øving</h3>
 <p><strong>1. Estimering og predikering.</strong> På samme måte som for AR-prosessen kan vi nå <strong>simulere</strong> og <strong>estimere</strong> en MA(1)-prosess med <span class="math inline">\(\theta = 0.95\)</span>:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="ma.html#cb154-1"></a><span class="kw">library</span>(forecast)                                <span class="co"># Trengs for estimering</span></span>
-<span id="cb154-2"><a href="ma.html#cb154-2"></a>n    &lt;-<span class="st"> </span><span class="dv">100</span>                                      <span class="co"># Antall observasjoner</span></span>
-<span id="cb154-3"><a href="ma.html#cb154-3"></a>ma1  &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ma =</span> <span class="fl">0.95</span>), n)    <span class="co"># Simuler tidsrekken</span></span>
-<span id="cb154-4"><a href="ma.html#cb154-4"></a><span class="kw">plot</span>(ma1, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)                            <span class="co"># Lag et plott </span></span>
-<span id="cb154-5"><a href="ma.html#cb154-5"></a><span class="kw">Arima</span>(ma1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))                     <span class="co"># Estimer theta</span></span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="ma.html#cb159-1"></a><span class="kw">library</span>(forecast)                                <span class="co"># Trengs for estimering</span></span>
+<span id="cb159-2"><a href="ma.html#cb159-2"></a>n    &lt;-<span class="st"> </span><span class="dv">100</span>                                      <span class="co"># Antall observasjoner</span></span>
+<span id="cb159-3"><a href="ma.html#cb159-3"></a>ma1  &lt;-<span class="st"> </span><span class="kw">arima.sim</span>(<span class="dt">model =</span> <span class="kw">list</span>(<span class="dt">ma =</span> <span class="fl">0.95</span>), n)    <span class="co"># Simuler tidsrekken</span></span>
+<span id="cb159-4"><a href="ma.html#cb159-4"></a><span class="kw">plot</span>(ma1, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)                            <span class="co"># Lag et plott </span></span>
+<span id="cb159-5"><a href="ma.html#cb159-5"></a><span class="kw">Arima</span>(ma1, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>))                     <span class="co"># Estimer theta</span></span></code></pre></div>
 <p>Stemmer estimatet overens med den sanne <span class="math inline">\(\theta\)</span>? Sjekk ut dokumentasjonen <code>?Arima</code> og se hva du må gjøre for å spesifisere at modellen ikke har noe konstantledd <span class="math inline">\(c\)</span>. Prøv også å modifisere koden fra AR-oppgavene slik at du predikerer den simulerte MA(1)-tidsrekken 10 steg frem.</p>
 <p><strong>2. Analyse av global temperatur.</strong> La oss når ta for oss eksempelet fra videoen der vi ser på den globale månendlige gjennomsnittstemperaturen fra 1880 til 2016. Last ned <a href="datasett/temp.csv">temp.csv</a>, som er en CSV-fil med datasettet. Se på de første par radene:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="ma.html#cb155-1"></a>temp &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;temp.csv&quot;</span>)</span>
-<span id="cb155-2"><a href="ma.html#cb155-2"></a><span class="kw">head</span>(temp)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="ma.html#cb160-1"></a>temp &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;temp.csv&quot;</span>)</span>
+<span id="cb160-2"><a href="ma.html#cb160-2"></a><span class="kw">head</span>(temp)</span></code></pre></div>
 <pre><code>##         Date    Mean
 ## 1 1880-01-06  0.0009
 ## 2 1880-02-06 -0.1229
@@ -259,18 +259,18 @@ Publisert ved hjelp av bookdown</a></li>
 ## 5 1880-05-06 -0.0738
 ## 6 1880-06-06 -0.1692</code></pre>
 <p>Første kolonne inneholder informasjon om tidspunkt, og temperaturen er inneholdt i andre kolonne. La oss plotte både temperaturrekken og den <em>differensierte</em> temperaturrekken (dvs. forskjellen fra dag til dag). Hvis vi avslører at den differensierte tidsrekken kan regnes ut ved å kjøre <code>difftemp &lt;- diff(temp$Mean)</code>, skulle det nå være grei skuring å produsere følgende to enkle plott:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="ma.html#cb157-1"></a>difftemp &lt;-<span class="st"> </span><span class="kw">diff</span>(temp<span class="op">$</span>Mean)</span>
-<span id="cb157-2"><a href="ma.html#cb157-2"></a><span class="kw">plot</span>(temp<span class="op">$</span>Mean, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-140-1.png" width="672" /></p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="ma.html#cb158-1"></a><span class="kw">plot</span>(difftemp, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-140-2.png" width="672" /></p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="ma.html#cb162-1"></a>difftemp &lt;-<span class="st"> </span><span class="kw">diff</span>(temp<span class="op">$</span>Mean)</span>
+<span id="cb162-2"><a href="ma.html#cb162-2"></a><span class="kw">plot</span>(temp<span class="op">$</span>Mean, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-146-1.png" width="672" /></p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="ma.html#cb163-1"></a><span class="kw">plot</span>(difftemp, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-146-2.png" width="672" /></p>
 <p>Lag videre autokorrelasjonsplottet som vist i videoen for den differensierte tidsrekken:</p>
-<p><img src="met4_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
 <p>I autokorrelasjonsplottet ser vi nettopp et slikt MA-mønster som vi så i videoen; nemlig at autokorrelasjonen plutselig blir null (eller omtrent null) for et gitt lag. I dette tilfellet har vi at første ordens autokorrelasjon er klart forskjellig fra null, men at den fra og med <span class="math inline">\(k = 2\)</span> nesten ikke har utslag.</p>
 <p>Hvis de differensierte temperaturmålingene faktisk er MA(1), kan den skrives slik:</p>
 <p><span class="math display">\[Y_t = c + \theta u_{t-1} + u_t,\]</span>
 der <span class="math inline">\(\theta\)</span> er en ukjent parameter. Vi kan bruke datasettet vårt til å estimere <span class="math inline">\(\theta\)</span> ved å bruke <code>Arima()</code>-funksjenen på samme måte som da vi estimerte en AR(1)-modell. Den eneste forandringen vi må gjøre er å endre <code>order</code>-argumentet fra <code>c(1, 0, 0)</code> til <code>c(0, 0, 1)</code>:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="ma.html#cb159-1"></a><span class="kw">Arima</span>(difftemp, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="ma.html#cb164-1"></a><span class="kw">Arima</span>(difftemp, <span class="dt">order =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## Series: difftemp 
 ## ARIMA(0,0,1) with non-zero mean 
 ## 

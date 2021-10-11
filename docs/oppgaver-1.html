@@ -825,8 +825,8 @@ Antall frihetsgrader oppgis til å være <span class="math inline">\(v \approx 2
 <p>Forkastelsesområdet er <span class="math inline">\(\chi^2 &gt; \chi^2_{\alpha, (r - 1)(s - 1)} = \chi^2_{0.05, 2} = 5.99\)</span>. Siden <span class="math inline">\(\chi^2 = 5.0378 &lt; 5.99\)</span> forkaster vi <em>ikke</em> <span class="math inline">\(H_0\)</span> på 5 % signifikansnivå.</p>
 <p>I R ville vi gjort følgende:</p>
 </blockquote>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="oppgaver-1.html#cb58-1"></a>f =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">268</span>, <span class="dv">216</span>, <span class="dv">164</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">byrow =</span> T)</span>
-<span id="cb58-2"><a href="oppgaver-1.html#cb58-2"></a><span class="kw">chisq.test</span>(f)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="oppgaver-1.html#cb63-1"></a>f =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">268</span>, <span class="dv">216</span>, <span class="dv">164</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>), <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">3</span>, <span class="dt">byrow =</span> T)</span>
+<span id="cb63-2"><a href="oppgaver-1.html#cb63-2"></a><span class="kw">chisq.test</span>(f)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
