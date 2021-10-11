@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.4 Oppgaver til seminarer | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.4 Oppgaver til seminarer | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
@@ -33,8 +33,7 @@
 <link rel="prev" href="spørsmål-og-svar.html"/>
 
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,8 +49,8 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -60,7 +59,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -121,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -158,6 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
 <li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
+<li class="chapter" data-level="2.4" data-path="relevante-r-kommandoer.html"><a href="relevante-r-kommandoer.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
@@ -232,13 +230,11 @@ Publisert ved hjelp av bookdown</a></li>
 <h2><span class="header-section-number">8.4</span> Oppgaver til seminarer</h2>
 <p>Under vil dere finne oppgavesettene som vi skal regne på oppgaveseminarene som vi i all hovedsak skal bruke torsdagstimene på.</p>
 <details>
-<summary>
-Oppgaver til seminar 02. september 2021
-</summary>
+<p><summary> Oppgaver til seminar 02. september 2021 </summary></p>
 <ol style="list-style-type: decimal">
 <li><strong>(V20, OPPG 1)</strong> Grafen ble publisert av klima- og miljøminister Ola Elvestuen fra Venstre på Twitter 1. november 2019 (men senere tatt bort), og viser norske CO<span class="math inline">\(_2\)</span>-utslipp (i 1000 tonn CO<span class="math inline">\(_2\)</span>-ekvivalenter) som funksjon av tid. Venstre gikk inn i regjering sammen med Høyre og Fremskrittspartiet i januar 2018. Denne figuren ble kritisert for å være <em>misvisende</em>. På hvilken måte er den det, og hvordan ville du forandret den for at den skulle være mindre misvisende?</li>
 </ol>
-<p><img src="bilder/venstre.PNG" /><!-- --></p>
+<p><img src="bilder/venstre.PNG" width="277" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>(V20, OPPG 1)</strong> Figuren under ble publisert av Høyre på Facebook 1. november 2019, og viser norske CO<span class="math inline">\(_2\)</span>-utslipp (i 1000 tonn CO<span class="math inline">\(_2\)</span>-ekvivalenter) som funksjon av tid. Denne figuren ble <em>også</em> kritisert for å være misvisende. På hvilken måte er den det, og hvordan ville du forandret den for at den skulle blitt mindre misvisende?</li>
 </ol>
@@ -250,7 +246,7 @@ Oppgaver til seminar 02. september 2021
 <ol start="4" style="list-style-type: decimal">
 <li>Florida innførte i 2005 en såkalt “Stand Your Ground”-lov, som i større grad tillater folk å bruke dødelig makt i selvforsvar. Grafen under, som viser utviklingen av dødsoffer i skyteepisoder i Florida, illustrerte mange nyhetsreportasjer etter et <a href="https://en.wikipedia.org/wiki/Shooting_of_Trayvon_Martin">drap i 2012</a>, men fikk skarp kritikk i ettertid. Hvorfor det tror du?</li>
 </ol>
-<p><img src="bilder/gun.PNG" /><!-- --></p>
+<p><img src="bilder/gun.PNG" width="306" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li><strong>(H13, OPPG 1)</strong>
 <ol style="list-style-type: lower-alpha">
@@ -275,9 +271,7 @@ Oppgaver til seminar 02. september 2021
 </ol>
 </details>
 <details>
-<summary>
-Oppgaver til seminar 16. september 2021
-</summary>
+<p><summary> Oppgaver til seminar 16. september 2021 </summary></p>
 <ol style="list-style-type: decimal">
 <li><p>Sett opp en generell regel/oppskrift som du kan følge <em>alle</em> gangene du skal gjennomføre en hypotesetest.</p></li>
 <li><p>Tegn opp en figur som viser hvordan de samme verdiene av <span class="math inline">\(\overline{X}\)</span> og <span class="math inline">\(\mu\)</span> i to ett-utvalgs <span class="math inline">\(t\)</span>-tester likevel kan føre til motsatt konklusjon av testen.</p></li>
@@ -294,9 +288,7 @@ Oppgaver til seminar 16. september 2021
 </ol>
 </details>
 <details>
-<summary>
-Oppgaver til seminar 30. september 2021
-</summary>
+<p><summary> Oppgaver til seminar 30. september 2021 </summary></p>
 <ol style="list-style-type: decimal">
 <li>Se på den estimerte regresjonskurven under:</li>
 </ol>
@@ -320,6 +312,7 @@ Oppgaver til seminar 30. september 2021
 <ol start="2" style="list-style-type: decimal">
 <li>Under ser du et residualplott og et QQ-plot for en regresjonsanalyse. Hvilke brudd på antagelsene for lineær regresjon ser du? Dersom alle andre kriterier er oppfylt, hvilke konsekvenser har disse bruddene?</li>
 </ol>
+<pre><code>## Warning: package &#39;lindia&#39; was built under R version 4.0.5</code></pre>
 <p><img src="met4_files/figure-html/hetro-1.png" width="672" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li><p>En student ønsker å undersøke sammenhengen mellom pris og størrelsen på leiligheter (m^2). Han bestemmer seg for å samle inn data på solgte leiligheter ukentlig over et helt år. Hva kan være problematisk for en slik strategi?</p></li>
@@ -332,9 +325,7 @@ Forklar hva forskjellen på et prediksjonsintervall og konfidensintervall er i d
 </ol>
 </details>
 <details>
-<summary>
-Oppgaver til seminar 7. oktober 2021
-</summary>
+<p><summary> Oppgaver til seminar 7. oktober 2021 </summary></p>
 <ol style="list-style-type: decimal">
 <li>Vi har lyst til å forstå forskjellen på den statistiske <em>modellen</em> <span class="math inline">\(Y = \beta_0 + \beta_1X + \epsilon\)</span> der <span class="math inline">\(\epsilon\)</span> er normalfordelt med forventningsverdi 0 og varians <span class="math inline">\(\sigma^2\)</span>, og det vi faktisk observerer, som er par av observasjoner <span class="math inline">\((X_1, Y_1), \ldots, (X_n, Y_n)\)</span>. Klarer du å illustrere denne forskjellen ved å fortsette på tegningen under? Her har vi satt <span class="math inline">\(n=4\)</span>.</li>
 </ol>
@@ -407,9 +398,7 @@ Oppgaver til seminar 7. oktober 2021
 </ol>
 </details>
 <details>
-<summary>
-Oppgaver til seminar 21. oktober 2021
-</summary>
+<p><summary> Oppgaver til seminar 21. oktober 2021 </summary></p>
 <p>Refleksjonsoppgaver:</p>
 <ol style="list-style-type: decimal">
 <li><p>Nevn minst to grunner til at en ønsker å utføre en vanlig regresjonsanalyse. Reflekter så over hva hovedgrunnen er med å lage henholdsvis en KNN-modell og en regresjonsmodell.</p></li>
@@ -419,9 +408,7 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <p>Vi vil ellers diskutere noen av oppgavene i seksjon 5.4 og eventuelle spørsmål som dukker opp.</p>
 </details>
 <details>
-<summary>
-Oppgaver til seminar 11. November 2021
-</summary>
+<p><summary> Oppgaver til seminar 11. November 2021 </summary></p>
 <p>Vi skal jobbe oss gjennom en serie tidligere eksamensoppgaver om tidsrekker:</p>
 <ul>
 <li>V17, oppgave 1g</li>
@@ -451,6 +438,7 @@ Oppgaver til seminar 11. November 2021
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -469,7 +457,6 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -490,10 +477,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

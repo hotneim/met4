@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.2 Utvalg og estimering | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.2 Utvalg og estimering | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
@@ -33,8 +33,7 @@
 <link rel="prev" href="deskriptiv-statistikk.html"/>
 <link rel="next" href="oppgaver.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,8 +49,8 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -60,7 +59,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -121,7 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -158,6 +155,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
 <li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
+<li class="chapter" data-level="2.4" data-path="relevante-r-kommandoer.html"><a href="relevante-r-kommandoer.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
@@ -273,26 +271,26 @@ Publisert ved hjelp av bookdown</a></li>
 </ul>
 <p>Vi kan lage et <em>punktestimat</em> av en forventningsverdi ved å ta gjennomsnittet av observasjoner, og vi kan lage et <em>konfidensintervall</em> ved å følge oppskriften i boksen på s. 316 (i 11. utgave).</p>
 <p>I eksempel 10.1 har vi 25 observasjoner fra en normalfordeling. Oppgaven er å estimere forventningsverdien med et tilhørende 95% konfidensuntervall. Pass på at du forstår den manuelle utregningen. I stedet for å bruke Excel (eller taste alle disse tallene inn på en kalkulator) kan du skrive et lite R-script som gjør det samme:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="utvalg-og-estimering.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vi skriver inn datasettet i en vektor</span></span>
-<span id="cb13-2"><a href="utvalg-og-estimering.html#cb13-2" aria-hidden="true" tabindex="-1"></a>demand <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">235</span>, <span class="dv">374</span>, <span class="dv">309</span>, <span class="dv">499</span>, <span class="dv">253</span>, </span>
-<span id="cb13-3"><a href="utvalg-og-estimering.html#cb13-3" aria-hidden="true" tabindex="-1"></a>            <span class="dv">421</span>, <span class="dv">361</span>, <span class="dv">514</span>, <span class="dv">462</span>, <span class="dv">369</span>,</span>
-<span id="cb13-4"><a href="utvalg-og-estimering.html#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="dv">394</span>, <span class="dv">439</span>, <span class="dv">348</span>, <span class="dv">344</span>, <span class="dv">330</span>,</span>
-<span id="cb13-5"><a href="utvalg-og-estimering.html#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="dv">261</span>, <span class="dv">374</span>, <span class="dv">302</span>, <span class="dv">466</span>, <span class="dv">535</span>,</span>
-<span id="cb13-6"><a href="utvalg-og-estimering.html#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="dv">386</span>, <span class="dv">316</span>, <span class="dv">296</span>, <span class="dv">332</span>, <span class="dv">334</span>)</span>
-<span id="cb13-7"><a href="utvalg-og-estimering.html#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="utvalg-og-estimering.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Vi trenger 4 verdier for å regne ut konfidensintervallet:</span></span>
-<span id="cb13-9"><a href="utvalg-og-estimering.html#cb13-9" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">mean</span>(demand)     <span class="co"># Regner ut gjennomsnittet</span></span>
-<span id="cb13-10"><a href="utvalg-og-estimering.html#cb13-10" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fl">1.96</span>                    <span class="co"># Denne finner vi i tabellen</span></span>
-<span id="cb13-11"><a href="utvalg-og-estimering.html#cb13-11" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">75</span>                  <span class="co"># Oppgitt i oppgaven</span></span>
-<span id="cb13-12"><a href="utvalg-og-estimering.html#cb13-12" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(demand)          <span class="co"># Antall observasjoner</span></span>
-<span id="cb13-13"><a href="utvalg-og-estimering.html#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="utvalg-og-estimering.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Vårt estimat av forventningsverdien er bare gjennomsnittet. </span></span>
-<span id="cb13-15"><a href="utvalg-og-estimering.html#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Regner ut nedre og øvre grense i konfidensintervallet (LCL, UCL):</span></span>
-<span id="cb13-16"><a href="utvalg-og-estimering.html#cb13-16" aria-hidden="true" tabindex="-1"></a>LCL <span class="ot">&lt;-</span> gj.snitt <span class="sc">-</span> z<span class="sc">*</span>sigma<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
-<span id="cb13-17"><a href="utvalg-og-estimering.html#cb13-17" aria-hidden="true" tabindex="-1"></a>UCL <span class="ot">&lt;-</span> gj.snitt <span class="sc">+</span> z<span class="sc">*</span>sigma<span class="sc">/</span><span class="fu">sqrt</span>(n)</span>
-<span id="cb13-18"><a href="utvalg-og-estimering.html#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-19"><a href="utvalg-og-estimering.html#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Samler de tre tallene i en vektor og skriver ut:</span></span>
-<span id="cb13-20"><a href="utvalg-og-estimering.html#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(LCL, gj.snitt, UCL)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="utvalg-og-estimering.html#cb13-1"></a><span class="co"># Vi skriver inn datasettet i en vektor</span></span>
+<span id="cb13-2"><a href="utvalg-og-estimering.html#cb13-2"></a>demand &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">235</span>, <span class="dv">374</span>, <span class="dv">309</span>, <span class="dv">499</span>, <span class="dv">253</span>, </span>
+<span id="cb13-3"><a href="utvalg-og-estimering.html#cb13-3"></a>            <span class="dv">421</span>, <span class="dv">361</span>, <span class="dv">514</span>, <span class="dv">462</span>, <span class="dv">369</span>,</span>
+<span id="cb13-4"><a href="utvalg-og-estimering.html#cb13-4"></a>            <span class="dv">394</span>, <span class="dv">439</span>, <span class="dv">348</span>, <span class="dv">344</span>, <span class="dv">330</span>,</span>
+<span id="cb13-5"><a href="utvalg-og-estimering.html#cb13-5"></a>            <span class="dv">261</span>, <span class="dv">374</span>, <span class="dv">302</span>, <span class="dv">466</span>, <span class="dv">535</span>,</span>
+<span id="cb13-6"><a href="utvalg-og-estimering.html#cb13-6"></a>            <span class="dv">386</span>, <span class="dv">316</span>, <span class="dv">296</span>, <span class="dv">332</span>, <span class="dv">334</span>)</span>
+<span id="cb13-7"><a href="utvalg-og-estimering.html#cb13-7"></a></span>
+<span id="cb13-8"><a href="utvalg-og-estimering.html#cb13-8"></a><span class="co"># Vi trenger 4 verdier for å regne ut konfidensintervallet:</span></span>
+<span id="cb13-9"><a href="utvalg-og-estimering.html#cb13-9"></a>gj.snitt &lt;-<span class="st"> </span><span class="kw">mean</span>(demand)     <span class="co"># Regner ut gjennomsnittet</span></span>
+<span id="cb13-10"><a href="utvalg-og-estimering.html#cb13-10"></a>z &lt;-<span class="st"> </span><span class="fl">1.96</span>                    <span class="co"># Denne finner vi i tabellen</span></span>
+<span id="cb13-11"><a href="utvalg-og-estimering.html#cb13-11"></a>sigma &lt;-<span class="st"> </span><span class="dv">75</span>                  <span class="co"># Oppgitt i oppgaven</span></span>
+<span id="cb13-12"><a href="utvalg-og-estimering.html#cb13-12"></a>n &lt;-<span class="st"> </span><span class="kw">length</span>(demand)          <span class="co"># Antall observasjoner</span></span>
+<span id="cb13-13"><a href="utvalg-og-estimering.html#cb13-13"></a></span>
+<span id="cb13-14"><a href="utvalg-og-estimering.html#cb13-14"></a><span class="co"># Vårt estimat av forventningsverdien er bare gjennomsnittet. </span></span>
+<span id="cb13-15"><a href="utvalg-og-estimering.html#cb13-15"></a><span class="co"># Regner ut nedre og øvre grense i konfidensintervallet (LCL, UCL):</span></span>
+<span id="cb13-16"><a href="utvalg-og-estimering.html#cb13-16"></a>LCL &lt;-<span class="st"> </span>gj.snitt <span class="op">-</span><span class="st"> </span>z<span class="op">*</span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n)</span>
+<span id="cb13-17"><a href="utvalg-og-estimering.html#cb13-17"></a>UCL &lt;-<span class="st"> </span>gj.snitt <span class="op">+</span><span class="st"> </span>z<span class="op">*</span>sigma<span class="op">/</span><span class="kw">sqrt</span>(n)</span>
+<span id="cb13-18"><a href="utvalg-og-estimering.html#cb13-18"></a></span>
+<span id="cb13-19"><a href="utvalg-og-estimering.html#cb13-19"></a><span class="co"># Samler de tre tallene i en vektor og skriver ut:</span></span>
+<span id="cb13-20"><a href="utvalg-og-estimering.html#cb13-20"></a><span class="kw">c</span>(LCL, gj.snitt, UCL)</span></code></pre></div>
 <pre><code>## [1] 340.76 370.16 399.56</code></pre>
 <p>I seksjon <strong>10-2a</strong> forsøker boken å forklare fortolkningen av et konfidensintervall. Hovedpoengene her er at:</p>
 <ul>
@@ -318,38 +316,32 @@ men problemet i praksis er at vi gjerne ikke kjenner <span class="math inline">\
 <div id="ekstra-øving-i-r" class="section level3" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Ekstra øving i R</h3>
 <p>Som demonstrert i forelesningen kan vi i R simulere standard normalfordelte observasjoner (dvs normalfordelte observasjoner med <span class="math inline">\(\mu = 0\)</span> og <span class="math inline">\(\sigma^2 = 1\)</span>) med kommandoen <code>rnorm(n)</code>, der <code>n</code> er antallet observasjoner vi ønsker. For eksempel kan vi kjøre følgende kode for å generere 10 observasjoner (du vil helt sikkert få andre verdier):</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="utvalg-og-estimering.html#cb15-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb15-2"><a href="utvalg-og-estimering.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(n)</span></code></pre></div>
-<pre><code>##  [1] -0.65552979  0.84443339  0.40806357 -2.22921279  0.50934728 -0.72152534
-##  [7] -1.07864014  0.09758801  0.51603619  0.12942008</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="utvalg-og-estimering.html#cb15-1"></a>n &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb15-2"><a href="utvalg-og-estimering.html#cb15-2"></a><span class="kw">rnorm</span>(n)</span></code></pre></div>
+<pre><code>##  [1] -0.3797176 -0.4536286 -0.3791850  1.5752376  1.6994604 -0.3254680
+##  [7]  1.6446192  0.9933245 -2.0418872 -0.6605566</code></pre>
 <p>Ved å skrive <code>mean(dnorm(n))</code> i stedet regner vi ut gjennomsnittet av observasjonene direkte.</p>
 <p>La oss gjøre dette 100 ganger og notere ned gjennomsnittet hver gang. I stedet for å gjøre det manuelt, kan vi skrive et lite program som gjør dette for oss ved å bruke en for-løkke. Det er ikke nødvendig (eller pensum) å forstå akkurat hvordan dette fungerer, men dersom du kjører følgende linjer vil du få en ny vektor <code>gj.snitt</code> som inneholder 100 slike gjennomsnitt:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="utvalg-og-estimering.html#cb17-1" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
-<span id="cb17-2"><a href="utvalg-og-estimering.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) {</span>
-<span id="cb17-3"><a href="utvalg-og-estimering.html#cb17-3" aria-hidden="true" tabindex="-1"></a>    gj.snitt[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">rnorm</span>(n))</span>
-<span id="cb17-4"><a href="utvalg-og-estimering.html#cb17-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="utvalg-og-estimering.html#cb17-1"></a>gj.snitt &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">100</span>)</span>
+<span id="cb17-2"><a href="utvalg-og-estimering.html#cb17-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">100</span>) {</span>
+<span id="cb17-3"><a href="utvalg-og-estimering.html#cb17-3"></a>    gj.snitt[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">rnorm</span>(n))</span>
+<span id="cb17-4"><a href="utvalg-og-estimering.html#cb17-4"></a>}</span></code></pre></div>
 <p>Skriv ut denne vektoren og kontroller at det ser korrekt ut. Vi husker at funksjonen <code>sd()</code> regner ut standardavviket til en vektor. Hvilket tall forventer du å få ut dersom du nå kjører <code>sd(gj.snitt)</code> i konsollen? Stemmer det?</p>
 <details>
-<summary>
-Hint
-</summary>
+<p><summary>Hint</summary></p>
 <p>Standardavviket til de enkelte observasjonene er <span class="math inline">\(\sigma = 1\)</span>, og standardavviket til et gjennomsnitt bestående av 10 observasjoner er <span class="math inline">\(\sigma/\sqrt{n} = 1/\sqrt{10} \approx 0.32\)</span>. Med andre ord skal det <em>empiriske</em> standardavviket <code>sd(gj.snitt)</code> være omtrent lik 0.32, pluss/minus en estimeringsfeil.</p>
 </details>
 <p>Du kan gjerne regne ut 1000 gjennomsnitt i stedet for 100 ved å erstatte erstatte <code>100</code> med <code>1000</code> på to steder i koden over. Stemmer det bedre da?</p>
 <details>
-<summary>
-Hint
-</summary>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="utvalg-og-estimering.html#cb18-1" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">1000</span>)            <span class="co"># Lager en tom vektor med 1000 plasser</span></span>
-<span id="cb18-2"><a href="utvalg-og-estimering.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) {                   <span class="co"># Fyller hver plass med et gjennomsnitt av</span></span>
-<span id="cb18-3"><a href="utvalg-og-estimering.html#cb18-3" aria-hidden="true" tabindex="-1"></a>    gj.snitt[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">rnorm</span>(n))    <span class="co"># 10 standard normalfordelte observasjoner.</span></span>
-<span id="cb18-4"><a href="utvalg-og-estimering.html#cb18-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><summary>Hint</summary></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="utvalg-og-estimering.html#cb18-1"></a>gj.snitt &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">1000</span>)            <span class="co"># Lager en tom vektor med 1000 plasser</span></span>
+<span id="cb18-2"><a href="utvalg-og-estimering.html#cb18-2"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">1000</span>) {                   <span class="co"># Fyller hver plass med et gjennomsnitt av</span></span>
+<span id="cb18-3"><a href="utvalg-og-estimering.html#cb18-3"></a>    gj.snitt[i] &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">rnorm</span>(n))    <span class="co"># 10 standard normalfordelte observasjoner.</span></span>
+<span id="cb18-4"><a href="utvalg-og-estimering.html#cb18-4"></a>}</span></code></pre></div>
 </details>
 <p>Prøv å forklare.</p>
 <details>
-<summary>
-Svar
-</summary>
+<p><summary>Svar</summary></p>
 <p>Dette er ganske enkelt, men også litt vanskelig på en <em>inception</em>-aktig måte. På samme måte som at gjennomsnittet blir en mer og mer presis estimator for forventningsverdien når vi øker antall observasjoner (målt ved at standardavviket <span class="math inline">\(\sigma/\sqrt{n}\)</span> blir mindre når antall obserasjoner <span class="math inline">\(n\)</span> blir større), blir det empiriske standardavviket en mer og mer presis estimator av det sanne standardavviket når vi øker antall observasjoner. Altså; det empiriske standardavviket har <em>også</em> et standardavvik som går mot null som <span class="math inline">\(1/\sqrt{n}\)</span> 😵</p>
 </details>
 </div>
@@ -364,6 +356,7 @@ Svar
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -382,7 +375,6 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -403,10 +395,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "toc_depth": 4
