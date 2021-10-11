@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.2 Trend og sesong | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.2 Trend og sesong | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
@@ -33,8 +33,7 @@
 <link rel="prev" href="intro.html"/>
 <link rel="next" href="ar.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,17 +49,14 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -120,7 +116,6 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
-
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -241,24 +236,24 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="r-øving-1" class="section level3" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> R-øving</h3>
 <p><strong>1. Data.</strong> I pakken <code>fpp</code> finnes en tidsrekke som heter <code>ausbeer</code>, som er den kvartalsvise produksjonen av øl i Australia fra 1956 til 2008. Du kan få tak i det og se på tidsrekken ved å kjøre følgende kommandoer:</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="trend-og-sesong.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;fpp&quot;</span>)</span>
-<span id="cb132-2"><a href="trend-og-sesong.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp)</span>
-<span id="cb132-3"><a href="trend-og-sesong.html#cb132-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ausbeer)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="trend-og-sesong.html#cb16-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;fpp&quot;</span>)</span>
+<span id="cb16-2"><a href="trend-og-sesong.html#cb16-2"></a><span class="kw">library</span>(fpp)</span>
+<span id="cb16-3"><a href="trend-og-sesong.html#cb16-3"></a><span class="kw">plot</span>(ausbeer)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Vi ser at det er en klar trendkomponent, selv om den ikke er lineær, samt en årlig sesongvariasjon.</p>
 <p><strong>2. Dekomponering.</strong> Funksjonen <code>stl</code> <em>dekomponerer</em> tidsrekken i de tre komponentene: trend, sesong, og tilfeldig variasjon. For å få tilgang på denne funskjonen trenger vi pakken <code>forecast</code>:</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="trend-og-sesong.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forecast&quot;</span>)</span>
-<span id="cb133-2"><a href="trend-og-sesong.html#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="trend-og-sesong.html#cb17-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;forecast&quot;</span>)</span>
+<span id="cb17-2"><a href="trend-og-sesong.html#cb17-2"></a><span class="kw">library</span>(forecast)</span></code></pre></div>
 <p>Vi så kan kjøre funksjonen slik:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="trend-og-sesong.html#cb134-1" aria-hidden="true" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="trend-og-sesong.html#cb18-1"></a>dekomponert &lt;-<span class="st"> </span><span class="kw">stl</span>(ausbeer, <span class="dt">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span></code></pre></div>
 <p>Vi kan hente ut de ulike komponentene ved å bruke dollartegnet: <code>dekomponert$time.series</code>. Pakken <code>forecast</code> har en egen plottefunksjon, <code>autoplot</code> som er spesialdesignet for tidsrekkeobjekter. Prøv å plotte de tre komponentene hver for seg ved å kjøre:</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="trend-og-sesong.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(dekomponert)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="trend-og-sesong.html#cb19-1"></a><span class="kw">autoplot</span>(dekomponert)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p><strong>3. Predikere.</strong> For predikering bruker vi funksjonen <code>forecast()</code>, som tar en estimert modell som input, og som bruker modellen til å skrive frem tidsrekken ved å estimere fremtidige verdier. Dekomponeringen over utgjør også en modell som vi kan bruke til å predikere fremtidige observasjoner med.</p>
 <p>Kodesnutten under viser hvordan man predikerer <span class="math inline">\(10\)</span> tidssteg frem i tid ved å sette <code>h = 10</code> i funksjonen. I tillegg kan funksjonen regne ut prediksjonsintervall med en gitt dekningsgrad, her velger vi <code>level = 0.95</code> for <span class="math inline">\(95\%\)</span> prediksjonsintervall. Resultatet lagrer vi i objektet <code>prediksjon</code>. Dette objektet kan vi plotte ved bruk av <code>autoplot</code>-funksjonen:</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="trend-og-sesong.html#cb136-1" aria-hidden="true" tabindex="-1"></a>prediksjon <span class="ot">&lt;-</span> <span class="fu">forecast</span>(dekomponert, <span class="at">h =</span> <span class="dv">10</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb136-2"><a href="trend-og-sesong.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(prediksjon)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="trend-og-sesong.html#cb20-1"></a>prediksjon &lt;-<span class="st"> </span><span class="kw">forecast</span>(dekomponert, <span class="dt">h =</span> <span class="dv">10</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb20-2"><a href="trend-og-sesong.html#cb20-2"></a><span class="kw">autoplot</span>(prediksjon)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 </div>
 </div>
             </section>
@@ -271,6 +266,7 @@ Publisert ved hjelp av bookdown</a></li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -289,7 +285,6 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -310,10 +305,6 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

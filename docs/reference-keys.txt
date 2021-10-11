@@ -142,3 +142,6 @@ regresjon-1
 tidsrekker-1
 r-etc.
 seminar
+oppgave-1-3
+oppgave-2-3
+oppgave-3-2
