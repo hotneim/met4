@@ -766,7 +766,7 @@ geom_line(aes(x = Week, y = predikert1),
 
 Da blir figuren min seende slik ut:
 
-```{r, fig.keep='last', fig.height = 3.5, echo = FALSE}
+```{r, fig.height = 3.5, echo = FALSE}
 ggplot(visits, aes(x = Week, y = Museum)) +
   geom_line(colour = "red") +
   geom_line(aes(y = `A-Park`)) +

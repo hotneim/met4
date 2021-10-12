@@ -60,7 +60,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -633,14 +632,15 @@ Løsning
 <h4>Oppgave 1</h4>
 <p>Denne oppgaven skal gi et forhold til hvordan teorien funker i praksis. Vi skal simulere data fra konstruerte modeller gjøre analyser på dem. Fordelen med å begynne her er at man får er forhold til hvordan statistikk kan og bør tolkes utfra teorien. Med virkelige data vil antagelsene som ligger til grunn for modellene stort sett være brutt, i større eller mindre grad, og kjernen i god statistisk analyse er å vite hva man kan og ikke kan gjøre likevel. God kjennskap til hvordan det burde funke i teorien er en viktig byggestein for statistisk forståelse.</p>
 <p>Vi generer opp data som skal brukes til å estimere en model. <code>rnorm</code> trekker tall fra en standard normalfordeling. <code>mutate()</code> legger til nye kolonner i dataframe-en basert på allerede eksisterende kolonner. <code>set.seed()</code> setter startpunktet for pseudotilfeldige tall, og om du setter samme seed får du de samme tilfeldige tallene som vi har brukt.</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="oppgaver-2.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
-<span id="cb77-2"><a href="oppgaver-2.html#cb77-2" aria-hidden="true" tabindex="-1"></a>df_mdl <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb77-3"><a href="oppgaver-2.html#cb77-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
-<span id="cb77-4"><a href="oppgaver-2.html#cb77-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x2 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
-<span id="cb77-5"><a href="oppgaver-2.html#cb77-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">eps =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) </span>
-<span id="cb77-6"><a href="oppgaver-2.html#cb77-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb77-7"><a href="oppgaver-2.html#cb77-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">2</span> <span class="sc">*</span> x1 <span class="sc">+</span> (<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span> x2 <span class="sc">+</span> eps</span>
-<span id="cb77-8"><a href="oppgaver-2.html#cb77-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="oppgaver-2.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb77-2"><a href="oppgaver-2.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
+<span id="cb77-3"><a href="oppgaver-2.html#cb77-3" aria-hidden="true" tabindex="-1"></a>df_mdl <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb77-4"><a href="oppgaver-2.html#cb77-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb77-5"><a href="oppgaver-2.html#cb77-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x2 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb77-6"><a href="oppgaver-2.html#cb77-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">eps =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) </span>
+<span id="cb77-7"><a href="oppgaver-2.html#cb77-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb77-8"><a href="oppgaver-2.html#cb77-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">2</span> <span class="sc">*</span> x1 <span class="sc">+</span> (<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span> x2 <span class="sc">+</span> eps</span>
+<span id="cb77-9"><a href="oppgaver-2.html#cb77-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <ol style="list-style-type: lower-alpha">
 <li><p>Hva er de eksakte parameterne i modellen som passer til dataene vi har generert, og hva er fordelingen til hver av forklaringsvariablene og støy-leddet? Er betingelsen om uavhengig feilledd oppfylt?</p></li>
 <li><p>Generér opp dataene selv og estimer parameterne basert på dataene. Tolk estimatene.</p></li>
@@ -756,7 +756,7 @@ som er veldig liten. Altså bekrefter analysen at det er sammenheng mellom forkl
 </div>
 <div id="oppgave-2-1" class="section level4" number="4.4.2.1">
 <h4><span class="header-section-number">4.4.2.1</span> Oppgave 2</h4>
-<p>Denne oppgaven følger samme premiss som oppgave 1, men handler om kolinearitet. Last ned datasettene <a href="genererte_datasett/colinearity_1.RData">1</a> og <a href="genererte_datasett/colinearity_2.RData">2</a>, hvor y er responsvariabel og forklaringsvariable er navngitt x.</p>
+<p>Denne oppgaven følger samme premiss som oppgave 1, men handler om kolinearitet. Last ned datasettene <a href="genererte_dataset/colinearity_1.RData">1</a> og <a href="genererte_dataset/colinearity_2.RData">2</a>, hvor y er responsvariabel og forklaringsvariable er navngitt x.</p>
 <ul>
 <li><p>Finn kolinearitet</p></li>
 <li><p>Hva må man passe dersom man skal lage en regresjonsmodell for responsen Y?</p></li>

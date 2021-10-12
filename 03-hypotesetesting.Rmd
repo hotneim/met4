@@ -694,16 +694,16 @@ Praktisk tolkning: Vi kan ikke konkludere med at det er noe forskjell i tiden de
 >
 >$$F = s_{1}^2/s_{2}^2 = 1400/700 = 2$$
 >
->Da trenger vi nemlig kun å sammenligne testobservatoren med den øvre kvantilen i F-fordelingen. Forkastningsområdet blir i dette tilfellet $F > F_{0.025, 60, 60} = 1.66$. Siden $F = 2$ er større enn $1.66$ kan vi altså forkaste $H_0$ til fordel for $H_1$ på et 5 % signifikansnivå. 
+>Da trenger vi nemlig kun å sammenligne testobservatoren med den øvre kvantilen i F-fordelingen. Forkastningsområdet blir i dette tilfellet $F > F_{0.025, 59, 59} = 1.67$. Siden $F = 2$ er større enn $1.67$ kan vi altså forkaste $H_0$ til fordel for $H_1$ på et 5 % signifikansnivå. 
 
 
->b. Forkastningsområdet er da $F > F_{0.025, 30, 30} = 2.07$ og siden $F < 2.07$ kan vi ikke forkaste $H_0$ på et 5 % signifikansnivå.
+>b. Forkastningsområdet er da $F > F_{0.025, 29, 29} = 2.1$ og siden $F < 2.1$ kan vi ikke forkaste $H_0$ på et 5 % signifikansnivå.
 
 >c. Testobservatoren forblir uendret, men vi ser at den kritiske verdien som må overstiges for å få forkastning øker når antall observasjoner avtar. Konklusjonen blir derfor motsatt i oppgave b. Skulle vi fått forkastning også i b. måtte det reduserte utvalget blitt kompensert av et større avvik mellom $s_1$ og $s_2$.     
 
 
-<!-- qf(0.975, 60, 60) -->
-<!-- qf(0.975, 30, 30) -->
+<!-- qf(0.975, 59, 59) -->
+<!-- qf(0.975, 29, 29) -->
 
 </details>
 
