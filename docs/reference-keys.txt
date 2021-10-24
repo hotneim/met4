@@ -18,6 +18,7 @@ innlesing-av-data
 statistiske-analyser
 plotting
 script
+pipe-operatoren-og-enkel-datavask
 r-ekstra
 grunnleggende-statistikk
 deskriptiv-statistikk

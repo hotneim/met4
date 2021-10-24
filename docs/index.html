@@ -32,7 +32,7 @@
   
 
 <link rel="next" href="introduksjon-til-r.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,7 +50,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -59,6 +58,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -148,7 +148,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
 <li class="chapter" data-level="1.8" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
 <li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
-<li class="chapter" data-level="1.10" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.10</b> Oppsummering og ekstra oppgaver</a></li>
+<li class="chapter" data-level="1.10" data-path="pipe-operatoren-og-enkel-datavask.html"><a href="pipe-operatoren-og-enkel-datavask.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
 <ul>
@@ -230,7 +231,7 @@ Publisert ved hjelp av bookdown</a></li>
 <h1 class="title">MET4 - Empiriske Metoder - Høst 2021</h1>
 <p class="author"><em>Håkon Otneim og Geir Drage Berentsen</em></p>
 </div>
-<div id="innledning" class="section level1 unnumbered" number="">
+<div id="innledning" class="section level1 unnumbered">
 <h1>Innledning</h1>
 <figure style="float:right; padding:10px; text-align:center">
 <img alt="Håkon" src="bilder/hakon.jpg" width="130" height="130"/>
@@ -249,7 +250,7 @@ Geir
 <p>Selv om det tilsynelatende går mot et relativt normalt semester med tanke på coronasituasjonen har vi valgt å beholde store deler av digitaliseringen vi gjorde i kurset de foregående semestre. Det vil si at tradisjonell teorigjennomgang i plenumsforelesninger i sin helhet er erstattet med videoforelesninger. Forelesningstiden velger vi i stedet å bruke på kontakttimer, oppgaveseminar og oversiktsforelesninger.</p>
 <p>På denne siden vil du finne alle videosnuttene sammen med kommentarer til lærebokens fremstilling, regneoppgaver, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset). Merk at regneoppgaver (med fasit) foreløpig bare er tilgjengelig for de første temaene i kurset, men vi tar mål av oss å få disse på plass digitalt fortløpende. Merk også at seminaroppgavene ((Se <a href="seminar.html#seminar">8.4</a>) ikke har fasit, men notater fra disse seminarene vil bli lagt ut etter gjennomgang.</p>
 <p>Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. Disse vil være fysisk dersom smittesituasjonen tillater det, men en av studentassistentene vil uansett være tilgjengelig på det samme zoom-rommet som vi bruker til kontakttimer i perioden gruppene holdes.</p>
-<div id="fremdriftsplan" class="section level3 unnumbered" number="">
+<div id="fremdriftsplan" class="section level3 unnumbered">
 <h3>Fremdriftsplan</h3>
 <p>I et tradisjonelt kursopplegg ville forventet progresjon blitt definert av forelesningstempoet, og forelesningene ville vært den strukturen som mange trenger for å jobbe seg jevnt og trutt gjennom pensum. Selv om det nå legges opp til et fleksibelt undervisningsopplegg der tempo og progresjon i utgangspunktet kan tilpasses den enkeltes timeplan og studieteknikk er det viktig å jobbe jevnt med kurset. <strong>MET4 er et krevende kurs som krever full innsats fra første til siste dag.</strong> For eksempel får en mye bedre utbytte av oppgaveseminarene dersom man på forhånd har sett videoene og gjort noen av regneoppgavene relatert til temaet.</p>
 <p>Vi har laget et forslag til progresjon i tabellen under. Kolonnen “jobbe med” refererer til avsnitt på denne siden som dere finner igjen i menyen til høyre. Der finnes også alle dataøvingene. Ukene med grønn farge betyr at vi har tid på datasal med studentassistenter (så sant vi kan møtes fysisk, ellers vil disse selvsagt gjennomføres digitalt).</p>
@@ -451,7 +452,7 @@ Forberedelse til eksamen
 </table>
 <p><em>Passord til Zoom finner du på kursets Canvas-side.</em></p>
 </div>
-<div id="tid-og-sted-for-grupper" class="section level3 unnumbered" number="">
+<div id="tid-og-sted-for-grupper" class="section level3 unnumbered">
 <h3>Tid og sted for grupper</h3>
 <table class="table table-condensed table-hover" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -528,7 +529,7 @@ Gruppe 3, AUD K, (B205)
 </tbody>
 </table>
 </div>
-<div id="lærebok-og-pensum" class="section level3 unnumbered" number="">
+<div id="lærebok-og-pensum" class="section level3 unnumbered">
 <h3>Lærebok og pensum</h3>
 <figure style="float:right; padding:10px; text-align:center">
 <img alt="Håkon" src="bilder/keller.JPG" width="130" height="170"/>

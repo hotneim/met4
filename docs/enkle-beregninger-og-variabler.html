@@ -32,7 +32,7 @@
   
 <link rel="prev" href="en-gjennomgang-av-rstudio.html"/>
 <link rel="next" href="vektorer.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,7 +50,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -59,6 +58,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -148,7 +148,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
 <li class="chapter" data-level="1.8" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
 <li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
-<li class="chapter" data-level="1.10" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.10</b> Oppsummering og ekstra oppgaver</a></li>
+<li class="chapter" data-level="1.10" data-path="pipe-operatoren-og-enkel-datavask.html"><a href="pipe-operatoren-og-enkel-datavask.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
 <ul>
@@ -228,18 +229,54 @@ Publisert ved hjelp av bookdown</a></li>
             <section class="normal" id="section-">
 <div id="enkle-beregninger-og-variabler" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Enkle beregninger og variabler</h2>
-<iframe src="https://player.vimeo.com/video/472587696" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+<iframe src="https://player.vimeo.com/video/638313310?h=d38164022f" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
 </iframe>
-<p>Vi går videre og skriver våre første kommandoer i R. Det er kritisk at vi allerede nå setter i gang med å få programmeringen inn i fingrene, og det gjøres best ved å skrive inn kodelinjene slik det gjøres i videoen, og passe på at du får ut de samme resultatene. Når du er ferdig med det kan du prøve deg på følgende lille oppgave:</p>
+<p>Vi går videre og skriver våre første kommandoer i R. Det er kritisk at vi allerede nå setter i gang med å få programmeringen inn i fingrene, og det gjøres best ved å skrive inn kodelinjene slik det gjøres i videoen, og passe på at du får ut de samme resultatene.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="enkle-beregninger-og-variabler.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vi kan bruke R som en kalkulator:</span></span>
+<span id="cb1-2"><a href="enkle-beregninger-og-variabler.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span>
+<span id="cb1-3"><a href="enkle-beregninger-og-variabler.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="enkle-beregninger-og-variabler.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Det var enkelt! Vi må bruke paramteser dersom vi har mer kompliserte uttrykk:</span></span>
+<span id="cb1-5"><a href="enkle-beregninger-og-variabler.html#cb1-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="sc">+</span><span class="dv">8</span>)<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb1-6"><a href="enkle-beregninger-og-variabler.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">8</span><span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb1-7"><a href="enkle-beregninger-og-variabler.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="enkle-beregninger-og-variabler.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Variabler er viktige i R. Vi kan lagre mer eller mindre hva som helst i </span></span>
+<span id="cb1-9"><a href="enkle-beregninger-og-variabler.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># dataminnet ved å gi det navn:</span></span>
+<span id="cb1-10"><a href="enkle-beregninger-og-variabler.html#cb1-10" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-11"><a href="enkle-beregninger-og-variabler.html#cb1-11" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb1-12"><a href="enkle-beregninger-og-variabler.html#cb1-12" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="dv">5</span> </span>
+<span id="cb1-13"><a href="enkle-beregninger-og-variabler.html#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="enkle-beregninger-og-variabler.html#cb1-14" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb1-15"><a href="enkle-beregninger-og-variabler.html#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="enkle-beregninger-og-variabler.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># R gjennomfører alle operasjoner på høyresiden før verdien blir tilordnet </span></span>
+<span id="cb1-17"><a href="enkle-beregninger-og-variabler.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># variabelen c:</span></span>
+<span id="cb1-18"><a href="enkle-beregninger-og-variabler.html#cb1-18" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> a<span class="sc">+</span>b</span>
+<span id="cb1-19"><a href="enkle-beregninger-og-variabler.html#cb1-19" aria-hidden="true" tabindex="-1"></a>c</span>
+<span id="cb1-20"><a href="enkle-beregninger-og-variabler.html#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="enkle-beregninger-og-variabler.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Ingen feilmeldinger, advarsler eller spørsmål ved overskriving:</span></span>
+<span id="cb1-22"><a href="enkle-beregninger-og-variabler.html#cb1-22" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb1-23"><a href="enkle-beregninger-og-variabler.html#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="enkle-beregninger-og-variabler.html#cb1-24" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> c <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb1-25"><a href="enkle-beregninger-og-variabler.html#cb1-25" aria-hidden="true" tabindex="-1"></a>c</span>
+<span id="cb1-26"><a href="enkle-beregninger-og-variabler.html#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="enkle-beregninger-og-variabler.html#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># La oss lage en feilmelding!</span></span>
+<span id="cb1-28"><a href="enkle-beregninger-og-variabler.html#cb1-28" aria-hidden="true" tabindex="-1"></a>d</span>
+<span id="cb1-29"><a href="enkle-beregninger-og-variabler.html#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="enkle-beregninger-og-variabler.html#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Vi kan navngi omtrens slik vi vil, og dette er ikke et trivielt problem i</span></span>
+<span id="cb1-31"><a href="enkle-beregninger-og-variabler.html#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># større prosjekter!</span></span>
+<span id="cb1-32"><a href="enkle-beregninger-og-variabler.html#cb1-32" aria-hidden="true" tabindex="-1"></a>hva_som_helst <span class="ot">&lt;-</span> <span class="st">&quot;hello world&quot;</span></span>
+<span id="cb1-33"><a href="enkle-beregninger-og-variabler.html#cb1-33" aria-hidden="true" tabindex="-1"></a>hva_som_helst</span></code></pre></div>
+<p>Når du er ferdig med det kan du prøve deg på følgende lille oppgave:</p>
 <p><strong>Oppgave:</strong> Velg dine tre favorittall og lagre dem i tre forskjellige variabler. Beregn så ditt magiske tall, som er summen av favorittallene dine. Lagre ditt magiske tall i en ny variabel, og gi denne variabelen et informativt navn som identifiserer hva det er.</p>
 <p>Fikk du det til? Kikk på løsningen under for å sjekke.</p>
 <details>
-<p><summary>Løsning</summary></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="enkle-beregninger-og-variabler.html#cb1-1"></a>tall1 &lt;-<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb1-2"><a href="enkle-beregninger-og-variabler.html#cb1-2"></a>tall2 &lt;-<span class="st"> </span><span class="dv">87</span></span>
-<span id="cb1-3"><a href="enkle-beregninger-og-variabler.html#cb1-3"></a>tall3 &lt;-<span class="st"> </span><span class="dv">101</span></span>
-<span id="cb1-4"><a href="enkle-beregninger-og-variabler.html#cb1-4"></a></span>
-<span id="cb1-5"><a href="enkle-beregninger-og-variabler.html#cb1-5"></a>magisk_tall &lt;-<span class="st"> </span>tall1 <span class="op">+</span><span class="st"> </span>tall2 <span class="op">+</span><span class="st"> </span>tall3</span></code></pre></div>
+<summary>
+Løsning
+</summary>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="enkle-beregninger-og-variabler.html#cb2-1" aria-hidden="true" tabindex="-1"></a>tall1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-2"><a href="enkle-beregninger-og-variabler.html#cb2-2" aria-hidden="true" tabindex="-1"></a>tall2 <span class="ot">&lt;-</span> <span class="dv">87</span></span>
+<span id="cb2-3"><a href="enkle-beregninger-og-variabler.html#cb2-3" aria-hidden="true" tabindex="-1"></a>tall3 <span class="ot">&lt;-</span> <span class="dv">101</span></span>
+<span id="cb2-4"><a href="enkle-beregninger-og-variabler.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="enkle-beregninger-og-variabler.html#cb2-5" aria-hidden="true" tabindex="-1"></a>magisk_tall <span class="ot">&lt;-</span> tall1 <span class="sc">+</span> tall2 <span class="sc">+</span> tall3</span></code></pre></div>
 </details>
 </div>
             </section>

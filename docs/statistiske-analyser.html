@@ -32,7 +32,7 @@
   
 <link rel="prev" href="innlesing-av-data.html"/>
 <link rel="next" href="plotting.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,7 +50,6 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -59,6 +58,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -148,7 +148,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
 <li class="chapter" data-level="1.8" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
 <li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
-<li class="chapter" data-level="1.10" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.10</b> Oppsummering og ekstra oppgaver</a></li>
+<li class="chapter" data-level="1.10" data-path="pipe-operatoren-og-enkel-datavask.html"><a href="pipe-operatoren-og-enkel-datavask.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
 <ul>
@@ -228,14 +229,34 @@ Publisert ved hjelp av bookdown</a></li>
             <section class="normal" id="section-">
 <div id="statistiske-analyser" class="section level2" number="1.7">
 <h2><span class="header-section-number">1.7</span> Statistiske analyser</h2>
-<iframe src="https://player.vimeo.com/video/472587826" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+<iframe src="https://player.vimeo.com/video/638313375?h=a52e39e460" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
 </iframe>
-<p>Den første kommentaren i denne videoen er selvsagt ikke sann for MET4. For oss er det motsatt: Det er ikke R som er poenget med kurset, men de statistiske metodene som vi skal lære. R er bare verktøyet vi skal bruke.</p>
 <p>Vi ser på et eksempel der vi kjører en enkel statistisk analyse (en <span class="math inline">\(t\)</span>-test) på datasettet vårt, og hvordan vi kan gjøre ulike valg ved å endre argumenter i funksjonskallet. Vi bruker også hjelpefilene til å lese mer om funksjonen vi bruker.</p>
-<p><strong>Oppgave:</strong> Hva er verdien av <em>testobservatoren</em> i testen som vi gjorde i denne videoen? Hint: Bruk hjelpefilene til <code>t.test()</code>-funksjonen.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="statistiske-analyser.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En grunnleggende t-test for likhet mellom to forventningsverdier:</span></span>
+<span id="cb9-2"><a href="statistiske-analyser.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2)</span>
+<span id="cb9-3"><a href="statistiske-analyser.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="statistiske-analyser.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Antar lik varians og kjører tosidig test (dette kommer vi tilbake til):</span></span>
+<span id="cb9-5"><a href="statistiske-analyser.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb9-6"><a href="statistiske-analyser.html#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="statistiske-analyser.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Du kan lese mer om enhver funksjon i R, inkludert om alle mulige argumenter og </span></span>
+<span id="cb9-8"><a href="statistiske-analyser.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># eksempler på bruk, ved å skrive et spørsmålstegn foran funksjonsnavnet i </span></span>
+<span id="cb9-9"><a href="statistiske-analyser.html#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># konsollen:</span></span>
+<span id="cb9-10"><a href="statistiske-analyser.html#cb9-10" aria-hidden="true" tabindex="-1"></a>?t.test</span>
+<span id="cb9-11"><a href="statistiske-analyser.html#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="statistiske-analyser.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Kanksje ønsker vi å hente ut p-verdien for testen og bruke den til noe senere. </span></span>
+<span id="cb9-13"><a href="statistiske-analyser.html#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Vi kan lagre testresultatet i en variabel først, og så bruke $-tegnet til å hente</span></span>
+<span id="cb9-14"><a href="statistiske-analyser.html#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ut p-verdien på følgende måte:</span></span>
+<span id="cb9-15"><a href="statistiske-analyser.html#cb9-15" aria-hidden="true" tabindex="-1"></a>testresult <span class="ot">&lt;-</span> <span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2, <span class="at">var.equal =</span> <span class="cn">TRUE</span>, <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb9-16"><a href="statistiske-analyser.html#cb9-16" aria-hidden="true" tabindex="-1"></a>testresult<span class="sc">$</span>p.value</span>
+<span id="cb9-17"><a href="statistiske-analyser.html#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="statistiske-analyser.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Hvilken annen informasjon finner vi i dette testobjektet?</span></span>
+<span id="cb9-19"><a href="statistiske-analyser.html#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(testresult)</span></code></pre></div>
+<p><strong>Oppgave:</strong> Hva er verdien av <em>testobservatoren (test statistic)</em> i testen som vi gjorde i denne videoen? Hint: Bruk hjelpefilene til <code>t.test()</code>-funksjonen.</p>
 <details>
-<p><summary>Løsning</summary></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="statistiske-analyser.html#cb5-1"></a>test_result<span class="op">$</span>statistic</span></code></pre></div>
+<summary>
+Løsning
+</summary>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="statistiske-analyser.html#cb10-1" aria-hidden="true" tabindex="-1"></a>test_result<span class="sc">$</span>statistic</span></code></pre></div>
 </details>
 </div>
             </section>
