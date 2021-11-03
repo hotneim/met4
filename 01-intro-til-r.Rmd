@@ -335,7 +335,7 @@ Når vi åpner RStudio ved å dobbeltklikke på skriptfilen, så blir arbeidssti
 
 Vi går gjennom to nyttige programmeringsteknikker som begge er inneholdt i `dplyr`-pakken:
 
-1. Pipe-operatoren `%>%`. som gjør at vi kan skrive opp en sekvens av funksjoskall i den rekkefølgen de skal kjøres, og uten å miste oversikten i et hav av paranteser.
+1. Pipe-operatoren `%>%`. som gjør at vi kan skrive opp en sekvens av funksjonskall i den rekkefølgen de skal kjøres, og uten å miste oversikten i et hav av paranteser.
 2. Funksjoner for enkel datavask: `select()` for å velge ut kolonner i et datasett, `filter()` for å filtrere rader basert på kriterier, og `mutate()` for å lage nye kolonner.
 
 Her er et par ekstra tips i denne sammenhengen:
@@ -404,7 +404,7 @@ ny_testdata <-
 
 ```
 
-**Oppgave:** Basert på `testdata`, lag en tabell som bare inneholder radene der `A1`-kolonnen er lik 1 *og* `A2`-kolonnen er lik 0, men der vi til slutt bare skal ha med kolonnene `X1` og `X2`.
+**Oppgave:** Basert på `testdata`, lag en tabell som bare inneholder radene der `A1`-kolonnen er lik 1 *og* `A2`-kolonnen er lik 0, men der vi bare skal ha med kolonnene `X1` og `X2`. Lag til slutt en ny kolonne som inneholder differansen av tallene i `X1` og `X2`-kolonnene.
 
 <details><summary>Løsning</summary>
 
@@ -412,7 +412,8 @@ ny_testdata <-
 testdata %>% 
   filter(A1 == 1) %>% 
   filter(A2 == 0) %>% 
-  select(X1, X2)
+  select(X1, X2) %>% 
+  mutate(differanse = X1 - X2)
 ```
 
 </details>    
@@ -436,8 +437,9 @@ Videre har du
 
 Til slutt har du
 
-- kjørt en $t$-test, og
-- skrevet et *script* (et lite program om du vil) der vi har lagret flere av kommandoene over i en tekstfil.
+- kjørt en $t$-test,
+- skrevet et *script* (et lite program om du vil) der vi har lagret flere av kommandoene over i en tekstfil, og
+- lært om pipe-operatoren og enkel datavask ved hjelp av funksjoner i `dplyr`-pakken.
 
 Dersom du har fulgt modulen selv har du nå kanskje skrevet et lite script i tekstvinduet som ser ut omtrent som koden under. Når du har gjort alt riktig, skal du nå kunne kjøre gjennom disse kodelinjene uten feilmeldinger ved hjelp av `Ctrl-Enter`.
 
@@ -497,7 +499,7 @@ ggplot(testdata, aes(x = X1, y = X2)) +
         theme_classic()
 ```
 
-4. Merk at vi pruker "+"-tegnet til å legge til flere "lag" med grafiske egenskaper til plottet. Hvert "lag" består av en funksjon, som ofte kan ta argumenter; f.eks. brukes funksjonen `geom_point()` til å lage prikker, og så kan vi f.eks. bruke argumentet `size` til å styre størrelsen på prikkene. Kan du finne ut hva hvert enkelt av disse "lagene" gjør? Hint: ta bort en linje av gangen, og se hva som skjer. Pass på at det er et pluss mellom hvert lag.
+4. Merk at vi bruker "+"-tegnet til å legge til flere "lag" med grafiske egenskaper til plottet. Hvert "lag" består av en funksjon, som ofte kan ta argumenter; f.eks. brukes funksjonen `geom_point()` til å lage prikker, og så kan vi f.eks. bruke argumentet `size` til å styre størrelsen på prikkene. Kan du finne ut hva hvert enkelt av disse "lagene" gjør? Hint: ta bort en linje av gangen, og se hva som skjer. Pass på at det er et pluss mellom hvert lag.
 
 5. Prøv å endre på noen av lagene eller legg til nye. For eksempel kan du lage en tittel ved å legge til funksjonen `ggtitle()` som et lag, og du kan endre aksetitlene. Prøv også å bruke argumentet `shape` i `geom_point()` til å bytte ut prikkene med en annen form. Det finnes flere andre "tema" i tillegg til `theme_classic()`, f.eks. `theme_bw()`, `theme_dark()`, etc. 
 

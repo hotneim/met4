@@ -32,7 +32,7 @@
   
 <link rel="prev" href="arma-arima.html"/>
 <link rel="next" href="dataøvinger.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,7 +59,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -156,7 +156,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
 <li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
-<li class="chapter" data-level="2.4" data-path="relevante-r-kommandoer.html"><a href="relevante-r-kommandoer.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
+<li class="chapter" data-level="2.4" data-path="relevant-r-grunnleggende.html"><a href="relevant-r-grunnleggende.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
@@ -165,6 +165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
+<li class="chapter" data-level="3.6" data-path="relevante-r-kommandoer.html"><a href="relevante-r-kommandoer.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
 <ul>
@@ -236,22 +237,22 @@ Publisert ved hjelp av bookdown</a></li>
 <h3><span class="header-section-number">6.8.1</span> R-øving</h3>
 <p><strong>1. Data</strong>
 Vi skal i denne øvingen prøve å finne en god modell for dax-indeksen:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="modellbygging-1.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb181-2"><a href="modellbygging-1.html#cb181-2" aria-hidden="true" tabindex="-1"></a>dax <span class="ot">&lt;-</span> EuStockMarkets[ ,<span class="dv">1</span>]</span>
-<span id="cb181-3"><a href="modellbygging-1.html#cb181-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dax)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-164-1.png" width="672" /></p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="modellbygging-1.html#cb192-1"></a><span class="kw">library</span>(forecast)</span>
+<span id="cb192-2"><a href="modellbygging-1.html#cb192-2"></a>dax &lt;-<span class="st"> </span>EuStockMarkets[ ,<span class="dv">1</span>]</span>
+<span id="cb192-3"><a href="modellbygging-1.html#cb192-3"></a><span class="kw">plot</span>(dax)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-174-1.png" width="672" /></p>
 <p><strong>2. Trening og test data</strong>
 Vi ønsker f.eks å teste hvor god modellen er til å predikere de 10 siste observasjonene i datasettet. Vi deler derfor dataene inn i et treningssett bestående av alle observasjoner utenom disse 10 siste observasjonene, og et testsett bestående av de 10 siste observasjonene:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="modellbygging-1.html#cb182-1" aria-hidden="true" tabindex="-1"></a>trening <span class="ot">&lt;-</span> <span class="fu">head</span>(dax, <span class="fu">length</span>(dax) <span class="sc">-</span> <span class="dv">10</span>)</span>
-<span id="cb182-2"><a href="modellbygging-1.html#cb182-2" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="fu">tail</span>(dax, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="modellbygging-1.html#cb193-1"></a>trening &lt;-<span class="st"> </span><span class="kw">head</span>(dax, <span class="kw">length</span>(dax) <span class="op">-</span><span class="st"> </span><span class="dv">10</span>)</span>
+<span id="cb193-2"><a href="modellbygging-1.html#cb193-2"></a>test &lt;-<span class="st"> </span><span class="kw">tail</span>(dax, <span class="dv">10</span>)</span></code></pre></div>
 <p><strong>3. Estimering og prediksjon</strong>
 Vi tilpasser så en modell til treningssettet ved bruk av eksponensiell glatting og predikerer 10 tidssteg frem for å få prediksjoner av testsettet:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="modellbygging-1.html#cb183-1" aria-hidden="true" tabindex="-1"></a>fit_exp <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(trening)</span>
-<span id="cb183-2"><a href="modellbygging-1.html#cb183-2" aria-hidden="true" tabindex="-1"></a>pred_exp <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_exp, <span class="at">h =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="modellbygging-1.html#cb194-1"></a>fit_exp &lt;-<span class="st"> </span><span class="kw">HoltWinters</span>(trening)</span>
+<span id="cb194-2"><a href="modellbygging-1.html#cb194-2"></a>pred_exp &lt;-<span class="st"> </span><span class="kw">forecast</span>(fit_exp, <span class="dt">h =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p>Merk at når vi ikke spesifiserer noen argumenter i <code>HoltWinters</code> vil en mer avansert modell bli tilpasset, samtidig som glattingsparameteren faktisk vil bli estimert ved å minimerer MSE.</p>
 <p><strong>3. Out-of-sample vurdering</strong></p>
 <p>Vi kan så sammenligne disse prediksjonene <code>pred_exp</code> med de faktiske observasjonene <code>test</code> ved å “måle” hvor langt disse er fra hverandre. Funksjonen <code>accuracy</code> som kommer med <code>forecast</code> pakken regner ut flere forskjellig mål på avstand:</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="modellbygging-1.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">accuracy</span>(pred_exp, test)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="modellbygging-1.html#cb195-1"></a><span class="kw">accuracy</span>(pred_exp, test)</span></code></pre></div>
 <pre><code>##                       ME      RMSE       MAE         MPE      MAPE       MASE
 ## Training set    1.251117  35.82454  23.42652  0.03438446 0.8276219 0.04295353
 ## Test set     -317.477645 350.63504 317.47765 -5.82900543 5.8290054 0.58210884

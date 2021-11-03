@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.4 Relevante R-kommandoer | MET4 - Empiriske Metoder - Høst 2021</title>
+  <title>3.6 Relevante R-kommandoer | MET4 - Empiriske Metoder - Høst 2021</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.4 Relevante R-kommandoer | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta property="og:title" content="3.6 Relevante R-kommandoer | MET4 - Empiriske Metoder - Høst 2021" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.4 Relevante R-kommandoer | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta name="twitter:title" content="3.6 Relevante R-kommandoer | MET4 - Empiriske Metoder - Høst 2021" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,9 +30,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="oppgaver.html"/>
-<link rel="next" href="hypotesetesting.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<link rel="prev" href="oppgaver-1.html"/>
+<link rel="next" href="regresjon.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,7 +59,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -156,7 +156,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
 <li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
 <li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
-<li class="chapter" data-level="2.4" data-path="relevante-r-kommandoer.html"><a href="relevante-r-kommandoer.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
+<li class="chapter" data-level="2.4" data-path="relevant-r-grunnleggende.html"><a href="relevant-r-grunnleggende.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
 <ul>
@@ -165,6 +165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
+<li class="chapter" data-level="3.6" data-path="relevante-r-kommandoer.html"><a href="relevante-r-kommandoer.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
 <ul>
@@ -227,100 +228,134 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="relevante-r-kommandoer" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Relevante R-kommandoer</h2>
-<p>Under følger en liste over hvilke oppgave du skal klare i R fra denne modulen. Vår policy fra og med <strong>vårsemesteret 2022</strong> er at R-kommandoene under er <em>tilstrekkelig</em> for å løse oppgavene i datalabber og hjemmeeksamen i MET4. Det er med andre ord ikke nødvendig å lære seg teknikker utover det som er listet opp eksplisitt i listen under. Eventuelle nye teknikker som trengs for å løse en bestemt oppgave vil bli oppgitt og forklart dersom det er nødvendig. Det antas i tillegg at du kan den grunnleggende R-sytaksen som er dekket under <a href="introduksjon-til-r.html#introduksjon-til-r">Introduksjon til R</a>.</p>
-<div id="antakelser-om-datasett" class="section level3 unnumbered">
+<div id="relevante-r-kommandoer" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Relevante R-kommandoer</h2>
+<p>Under følger en liste over hvilke oppgaver du skal klare i R fra denne modulen. Vår policy fra og med <strong>vårsemesteret 2022</strong> er at R-kommandoene under er <em>tilstrekkelige</em> for å løse oppgavene i datalabber og hjemmeeksamen i MET4. Det er med andre ord ikke nødvendig å lære seg teknikker utover det som er listet opp eksplisitt i listen under. Eventuelle nye teknikker som trengs for å løse en bestemt oppgave vil bli oppgitt og forklart dersom det er nødvendig. Det antas i tillegg at du kan den grunnleggende R-sytaksen som er dekket under <a href="introduksjon-til-r.html#introduksjon-til-r">Introduksjon til R</a>.</p>
+<div id="antakelser-om-datasett-1" class="section level3 unnumbered" number="">
 <h3>Antakelser om datasett</h3>
-<p>Det antas at du har kontroll på hvilken mappesti R bruker, og at du kan forandre den dersom nødvendig.</p>
-<p>I denne modulen kan du anta at alle datasett består av <span class="math inline">\(p\)</span> kolonner (variabler) med variabelnavn og <span class="math inline">\(n\)</span> rader (observasjoner). Datasettene blir gitt enten som Excel-filer (<code>.xls</code> elle <code>.xlsx</code>) eller som <code>.csv</code>-filer. Dersom du ønsker å prøve på kommandoene selv, kan du laste ned følgende eksempelfiler: <a href="datasett/data.xls">data.xls</a>, <a href="datasett/data.xlsx">data.xlsx</a>, <a href="datasett/data.csv">data.csv</a>.</p>
-<p>Excel-filer kan leses inn i R ved hjelp av <code>read_excel()</code> som ligger i <code>readxl</code>-pakken:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="relevante-r-kommandoer.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb27-2"><a href="relevante-r-kommandoer.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="relevante-r-kommandoer.html#cb27-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xls&quot;</span>)</span>
-<span id="cb27-4"><a href="relevante-r-kommandoer.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ...eller dersom det er en .xlsx-fil:</span></span>
-<span id="cb27-5"><a href="relevante-r-kommandoer.html#cb27-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xlsx&quot;</span>)</span></code></pre></div>
-<p><code>.csv</code>-filer kan lastes inn i R ved hjelp av <code>read_csv()</code> som ligger i <code>readr</code>-pakken:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="relevante-r-kommandoer.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb28-2"><a href="relevante-r-kommandoer.html#cb28-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
-<p>“csv” er en forkortelse for “comma separated values”, og grunnen til det kan du se ved å åpne opp <code>data.csv</code> i en ren tekst-editor. Da ser du at verdiene på rekken er separert med et komma. Av og til har disse filene litt andre formater, så vi må kunne håndtere følgende varianter:</p>
-<ul>
-<li>Dersom det ikke er komma som er brukt til å separere verdiene (det kan du alltid sjekke ved å se på filen i en tekst-editor), så kan du bruke funksjonen <code>read_delim</code> i stedet for <code>read_csv</code>, og bruke et argument for å spesifisere hvilket tegn som er brukt. Dersom det for eksempel er brukt semikolon “;”, kan du lese datasettet ved å bruke <code>read_delim("data.xlsx", delim = ";")</code>.</li>
-<li>Dersom komma er brukt for å skille desimaler fra heltall, som er vanlig i europeiske datasett, kan du bruke følgende kommando (der vi fortsatt antar at semikolon blir brukt til å skille mellom kolonner): <code>read_delim("data.xlsx", delim = ";", locale = locale(decimal_mark = ",")</code>.</li>
-<li>Dersom en bestemt tekst-streng blir brukt til å indikere manglende verdier i datasettet kan du bruke argumentet <code>na</code> i <code>read_csv()</code> og <code>read_delim()</code> til å spesifisere denne tekst-strengen, slik at den blir tolket riktig ved innlesingen som manglende verdi. Dette argumentet fungerer også i <code>read_excel()</code>.</li>
-</ul>
+<p>Di kan gjøre de samme antakelsene om datasettet som i <a href="relevant-r-grunnleggende.html#relevant-r-grunnleggende">den tilsvarende oversikten i forrige modul</a>: Datasettene er inneholdt i Excel-filer (<code>.xls</code> eller <code>xslx</code>) eller <code>.csv</code>-filer, som kolonner av variabler, med variabelnavn i første rad.</p>
 </div>
-<div id="numerisk-deskriptiv-statistikk" class="section level3 unnumbered">
-<h3>Numerisk deskriptiv statistikk</h3>
-<p>Vi bruker eksempeldatasettene <a href="datasett/data_survey.csv">data_survey.csv</a> og <a href="datasett/data_fishermen_mercury.csv">data_fishermen_mercury.csv</a> som eksempler. Du skal kunne bruke følgende funksjoner for å regne ut numerisk deskriptiv statistikk:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="relevante-r-kommandoer.html#cb29-1" aria-hidden="true" tabindex="-1"></a>survey    <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_survey.csv&quot;</span>)</span>
-<span id="cb29-2"><a href="relevante-r-kommandoer.html#cb29-2" aria-hidden="true" tabindex="-1"></a>fishermen <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_fishermen_mercury.csv&quot;</span>)</span>
-<span id="cb29-3"><a href="relevante-r-kommandoer.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="relevante-r-kommandoer.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(survey<span class="sc">$</span>age)                          <span class="co"># Gjennomsnitt</span></span>
-<span id="cb29-5"><a href="relevante-r-kommandoer.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(survey<span class="sc">$</span>age)                        <span class="co"># Median</span></span>
-<span id="cb29-6"><a href="relevante-r-kommandoer.html#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="relevante-r-kommandoer.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>party)                       <span class="co"># Kan lese av typetallet manuelt.</span></span>
-<span id="cb29-8"><a href="relevante-r-kommandoer.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">table</span>(survey<span class="sc">$</span>party))            <span class="co"># Eller bruke funksjonen which.max()</span></span>
-<span id="cb29-9"><a href="relevante-r-kommandoer.html#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="relevante-r-kommandoer.html#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(fishermen<span class="sc">$</span>total_mercury)               <span class="co"># Standardavvik</span></span>
-<span id="cb29-11"><a href="relevante-r-kommandoer.html#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury, <span class="fl">0.20</span>)   <span class="co"># Kvantiler</span></span>
-<span id="cb29-12"><a href="relevante-r-kommandoer.html#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury)         <span class="co"># Kvartilene</span></span>
-<span id="cb29-13"><a href="relevante-r-kommandoer.html#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="relevante-r-kommandoer.html#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(fishermen<span class="sc">$</span>height, fishermen<span class="sc">$</span>weight)   <span class="co"># Korrelasjonskoeffisient</span></span>
-<span id="cb29-15"><a href="relevante-r-kommandoer.html#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>religious)                   <span class="co"># Frekvenstabell </span></span>
-<span id="cb29-16"><a href="relevante-r-kommandoer.html#cb29-16" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span>                                <span class="co"># Krysstabell av to variabler (krever</span></span>
-<span id="cb29-17"><a href="relevante-r-kommandoer.html#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(party, religious) <span class="sc">%&gt;%</span>            <span class="co"># pipe-operatoren og select()-funks.  </span></span>
-<span id="cb29-18"><a href="relevante-r-kommandoer.html#cb29-18" aria-hidden="true" tabindex="-1"></a>  table                                   <span class="co"># fra dplyr-pakken)</span></span></code></pre></div>
+<div id="t-tester" class="section level3 unnumbered" number="">
+<h3><span class="math inline">\(t\)</span>-tester</h3>
+<p>Du må kunne gjøre de ulike <span class="math inline">\(t\)</span>-testene ved hjelp av <code>t.test()</code>-funksjonen. vi bruker eksempeldatasettet <a href="datasett/testdata.xls">testdata.xls</a> som illustrasjon, som inneholder de to kolonnene <code>X1</code> og <code>X2</code>. I bunn og grunn handler det om å hente ut de relevante kolonnene i datasettet som vektorer, og så å sette argumentene i <code>t.test()</code>-funksjonen riktig.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="relevante-r-kommandoer.html#cb73-1"></a><span class="co"># Tosidig, ett-utvalgs $t$-test for om forventningen til `X1` er lik 100:</span></span>
+<span id="cb73-2"><a href="relevante-r-kommandoer.html#cb73-2"></a><span class="kw">t.test</span>(testdata<span class="op">$</span>X1, <span class="dt">mu =</span> <span class="dv">100</span>)</span>
+<span id="cb73-3"><a href="relevante-r-kommandoer.html#cb73-3"></a></span>
+<span id="cb73-4"><a href="relevante-r-kommandoer.html#cb73-4"></a><span class="co"># Samme testen, men ensidig med alternativhypotese om at $\mu &gt; 100$</span></span>
+<span id="cb73-5"><a href="relevante-r-kommandoer.html#cb73-5"></a><span class="kw">t.test</span>(testdata<span class="op">$</span>X1, <span class="dt">mu =</span> <span class="dv">100</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb73-6"><a href="relevante-r-kommandoer.html#cb73-6"></a></span>
+<span id="cb73-7"><a href="relevante-r-kommandoer.html#cb73-7"></a><span class="co"># For å gjøre ensidig test den andre veien bytter du ut `&quot;greater&quot;` med `&quot;less&quot;`.</span></span>
+<span id="cb73-8"><a href="relevante-r-kommandoer.html#cb73-8"></a></span>
+<span id="cb73-9"><a href="relevante-r-kommandoer.html#cb73-9"></a><span class="co"># Vanlig to-utvalgs $t$-test for om forventningen til `X1` og `X2` er like:</span></span>
+<span id="cb73-10"><a href="relevante-r-kommandoer.html#cb73-10"></a><span class="kw">t.test</span>(testdata<span class="op">$</span>X1, testdata<span class="op">$</span>X2)</span>
+<span id="cb73-11"><a href="relevante-r-kommandoer.html#cb73-11"></a></span>
+<span id="cb73-12"><a href="relevante-r-kommandoer.html#cb73-12"></a><span class="co"># Vanlig to-utvalgs t-test der vi antar at variansen i de to populasjonene er like:</span></span>
+<span id="cb73-13"><a href="relevante-r-kommandoer.html#cb73-13"></a><span class="kw">t.test</span>(testdata<span class="op">$</span>X1, testdata<span class="op">$</span>X2, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb73-14"><a href="relevante-r-kommandoer.html#cb73-14"></a></span>
+<span id="cb73-15"><a href="relevante-r-kommandoer.html#cb73-15"></a><span class="co"># Parret to-utvalgs $t$-test, som bare gir mening dersom de to vektorene med</span></span>
+<span id="cb73-16"><a href="relevante-r-kommandoer.html#cb73-16"></a><span class="co"># observasjoner er like lange, og dersom observasjonene er matchet opp slik at</span></span>
+<span id="cb73-17"><a href="relevante-r-kommandoer.html#cb73-17"></a><span class="co"># første element i den første vektoren skal matches mot første elemenet i den</span></span>
+<span id="cb73-18"><a href="relevante-r-kommandoer.html#cb73-18"></a><span class="co"># andre vektoret etc.:</span></span>
+<span id="cb73-19"><a href="relevante-r-kommandoer.html#cb73-19"></a><span class="kw">t.test</span>(testdata<span class="op">$</span>X1, testdata<span class="op">$</span>X2, <span class="dt">paired =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p>Vi kan bytte ut alternativhypotesen til ensidige tester over alt ved å sette <code>alternative =</code> til ønskelig verdi.</p>
+<p>Videre kan vi tenke oss tilfeller der observasjonsvektorene ikke er like lange, og for eksempel kommer i en excel-fil slik som <a href="datasett/ulik-lengde.xlsx">denne</a> der den ene kolonnen inneholder flere tall enn den andre. Det gjør ingenting. Vi kan lese inn datasettet på vanlig måte, og legger merke til at de “tomme” plassene i tabellen blir fylt med <code>NA</code>. Vi kan kjøre <span class="math inline">\(t\)</span>-testene på vanlig måte.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="relevante-r-kommandoer.html#cb74-1"></a>testdata2 &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_excel</span>(<span class="st">&quot;ulik-lengde.xlsx&quot;</span>)</span>
+<span id="cb74-2"><a href="relevante-r-kommandoer.html#cb74-2"></a>testdata2</span>
+<span id="cb74-3"><a href="relevante-r-kommandoer.html#cb74-3"></a><span class="kw">t.test</span>(testdata2<span class="op">$</span>X1, testdata2<span class="op">$</span>X2)</span></code></pre></div>
+<pre><code>## # A tibble: 15 x 2
+##       X1    X2
+##    &lt;dbl&gt; &lt;dbl&gt;
+##  1     1     5
+##  2     2     6
+##  3     3     7
+##  4     4     8
+##  5     5     9
+##  6     6    10
+##  7     7    11
+##  8     8    12
+##  9     9    13
+## 10    10    14
+## 11    11    NA
+## 12    12    NA
+## 13    13    NA
+## 14    14    NA
+## 15    15    NA</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  testdata2$X1 and testdata2$X2
+## t = -1, df = 22.975, p-value = 0.3277
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -4.603173  1.603173
+## sample estimates:
+## mean of x mean of y 
+##       8.0       9.5</code></pre>
 </div>
-<div id="grafisk-deskriptiv-statistikk-med-ggplot2" class="section level3 unnumbered">
-<h3>Grafisk deskriptiv statistikk med <code>ggplot2</code></h3>
-<p>Du skal kunne lage følgende plott ved hjelp av <code>ggplot2</code>-pakken;</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="relevante-r-kommandoer.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb30-2"><a href="relevante-r-kommandoer.html#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="relevante-r-kommandoer.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Boksplott</span></span>
-<span id="cb30-4"><a href="relevante-r-kommandoer.html#cb30-4" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb30-5"><a href="relevante-r-kommandoer.html#cb30-5" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
-<span id="cb30-6"><a href="relevante-r-kommandoer.html#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury)) </span>
-<span id="cb30-7"><a href="relevante-r-kommandoer.html#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-8"><a href="relevante-r-kommandoer.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Deler opp i grupper basert på en annen variabel</span></span>
-<span id="cb30-9"><a href="relevante-r-kommandoer.html#cb30-9" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb30-10"><a href="relevante-r-kommandoer.html#cb30-10" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
-<span id="cb30-11"><a href="relevante-r-kommandoer.html#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury, <span class="at">x =</span> <span class="fu">as.factor</span>(fisherman))) </span>
-<span id="cb30-12"><a href="relevante-r-kommandoer.html#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-13"><a href="relevante-r-kommandoer.html#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Søylediagram</span></span>
-<span id="cb30-14"><a href="relevante-r-kommandoer.html#cb30-14" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb30-15"><a href="relevante-r-kommandoer.html#cb30-15" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
-<span id="cb30-16"><a href="relevante-r-kommandoer.html#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(religious)))</span>
-<span id="cb30-17"><a href="relevante-r-kommandoer.html#cb30-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-18"><a href="relevante-r-kommandoer.html#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
-<span id="cb30-19"><a href="relevante-r-kommandoer.html#cb30-19" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb30-20"><a href="relevante-r-kommandoer.html#cb30-20" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
-<span id="cb30-21"><a href="relevante-r-kommandoer.html#cb30-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> age))</span>
-<span id="cb30-22"><a href="relevante-r-kommandoer.html#cb30-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-23"><a href="relevante-r-kommandoer.html#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Spredningsplott</span></span>
-<span id="cb30-24"><a href="relevante-r-kommandoer.html#cb30-24" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb30-25"><a href="relevante-r-kommandoer.html#cb30-25" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
-<span id="cb30-26"><a href="relevante-r-kommandoer.html#cb30-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight))</span></code></pre></div>
-<p>Du skal kunne grunnleggende bearbeiding av <code>ggplot</code>-figurer:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="relevante-r-kommandoer.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En bearbeidet variant</span></span>
-<span id="cb31-2"><a href="relevante-r-kommandoer.html#cb31-2" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb31-3"><a href="relevante-r-kommandoer.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
-<span id="cb31-4"><a href="relevante-r-kommandoer.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span>          <span class="co"># Dette er selve figuren</span></span>
-<span id="cb31-5"><a href="relevante-r-kommandoer.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Høyde&quot;</span>) <span class="sc">+</span>                                    <span class="co"># Tittel x-akse</span></span>
-<span id="cb31-6"><a href="relevante-r-kommandoer.html#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Vekt&quot;</span>) <span class="sc">+</span>                                     <span class="co"># Tittel y-akse</span></span>
-<span id="cb31-7"><a href="relevante-r-kommandoer.html#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sammenheng mellom høyde og vekt&quot;</span>) <span class="sc">+</span>       <span class="co"># Tittel plott</span></span>
-<span id="cb31-8"><a href="relevante-r-kommandoer.html#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()                                    <span class="co"># Ryddig layout</span></span></code></pre></div>
-<!-- I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen). -->
-<!-- Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave. -->
-<!-- **På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.** -->
-<!-- ```{r, echo = FALSE, message = FALSE} -->
-<!-- library(dplyr) -->
-<!-- options(knitr.kable.NA = '') -->
-<!-- "oppgaver/oppgaver-grunnleggende-statistikk.xlsx" %>%  -->
-<!--     readxl::read_excel() %>%  -->
-<!--     kableExtra::kbl() %>%  -->
-<!--     kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed")) -->
-<!-- ``` -->
+<div id="varianstester" class="section level3 unnumbered" number="">
+<h3>Varianstester</h3>
+<p>Varianstest for ett uvalg er ikke bygget inn i R som en egen funksjon. Da må vi gjøre den “semi-automatisk” og regne ut testobservatoren ved å bruke formelen direkte. Her tester vi om variansen til <code>X2</code>-kolonnen i testdatasettet er lik 10:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="relevante-r-kommandoer.html#cb77-1"></a><span class="co"># Varianstest</span></span>
+<span id="cb77-2"><a href="relevante-r-kommandoer.html#cb77-2"></a>s &lt;-<span class="st"> </span><span class="kw">sd</span>(testdata<span class="op">$</span>X2)</span>
+<span id="cb77-3"><a href="relevante-r-kommandoer.html#cb77-3"></a>sigma_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb77-4"><a href="relevante-r-kommandoer.html#cb77-4"></a>n &lt;-<span class="st"> </span><span class="kw">length</span>(testdata<span class="op">$</span>X2)</span>
+<span id="cb77-5"><a href="relevante-r-kommandoer.html#cb77-5"></a></span>
+<span id="cb77-6"><a href="relevante-r-kommandoer.html#cb77-6"></a><span class="co"># Testobservatoren</span></span>
+<span id="cb77-7"><a href="relevante-r-kommandoer.html#cb77-7"></a>T &lt;-<span class="st"> </span>(n<span class="dv">-1</span>)<span class="op">*</span>s<span class="op">^</span><span class="dv">2</span><span class="op">/</span>sigma_<span class="dv">0</span><span class="op">^</span><span class="dv">2</span></span>
+<span id="cb77-8"><a href="relevante-r-kommandoer.html#cb77-8"></a></span>
+<span id="cb77-9"><a href="relevante-r-kommandoer.html#cb77-9"></a><span class="co"># Kritiske verdier</span></span>
+<span id="cb77-10"><a href="relevante-r-kommandoer.html#cb77-10"></a>L &lt;-<span class="st"> </span><span class="kw">qchisq</span>(<span class="fl">0.025</span>, <span class="dt">df =</span> n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</span>
+<span id="cb77-11"><a href="relevante-r-kommandoer.html#cb77-11"></a>U &lt;-<span class="st"> </span><span class="kw">qchisq</span>(<span class="fl">0.975</span>, <span class="dt">df =</span> n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</span></code></pre></div>
+<p>Vi må så sammenligne verdien av testobservatoren <code>T</code> med de kritiske verdiene <code>L</code> og <code>U</code>. Legg merke til at vi har brukt en funksjon i R (<code>qchisq()</code>) for å finne de aktuelle kvantilene i kjikvadratfordelingen. Alternativt kan vi slå opp i tabell.</p>
+<p>For to-utvalgs varianstest kan vi bruke funksjonen <code>var.test()</code>:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="relevante-r-kommandoer.html#cb78-1"></a><span class="kw">var.test</span>(testdata<span class="op">$</span>X1, testdata<span class="op">$</span>X2)</span></code></pre></div>
+<p>Vi kan også her gjøre ensidige tester ved å sette <code>alternative =</code>-argumentet til enten <code>"less"</code> eller <code>"greater"</code>.</p>
+</div>
+<div id="tester-for-andeler" class="section level3 unnumbered" number="">
+<h3>Tester for andeler</h3>
+<p>Både for ett-utvalgs og to-utvalgs test for andeler kan vi fylle inn tall direkte i testobservatoren på denne måten (sett inn for de nødvendige verdiene):</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="relevante-r-kommandoer.html#cb79-1"></a><span class="co"># Ett-utvalgs test for andeler</span></span>
+<span id="cb79-2"><a href="relevante-r-kommandoer.html#cb79-2"></a>p_hatt &lt;-<span class="st"> </span><span class="kw">mean</span>(testdata<span class="op">$</span>A1)</span>
+<span id="cb79-3"><a href="relevante-r-kommandoer.html#cb79-3"></a>p_null &lt;-<span class="st"> </span><span class="fl">0.5</span></span>
+<span id="cb79-4"><a href="relevante-r-kommandoer.html#cb79-4"></a>n      &lt;-<span class="st"> </span><span class="kw">length</span>(testdata<span class="op">$</span>A1) </span>
+<span id="cb79-5"><a href="relevante-r-kommandoer.html#cb79-5"></a></span>
+<span id="cb79-6"><a href="relevante-r-kommandoer.html#cb79-6"></a>Z &lt;-<span class="st"> </span>(p_hatt <span class="op">-</span><span class="st"> </span>p_null)<span class="op">/</span><span class="kw">sqrt</span>(p_null<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p_null)<span class="op">/</span>n)   </span>
+<span id="cb79-7"><a href="relevante-r-kommandoer.html#cb79-7"></a></span>
+<span id="cb79-8"><a href="relevante-r-kommandoer.html#cb79-8"></a><span class="co"># To-utvalgs test for andeler</span></span>
+<span id="cb79-9"><a href="relevante-r-kommandoer.html#cb79-9"></a>p1_hatt &lt;-<span class="st"> </span><span class="kw">mean</span>(testdata<span class="op">$</span>A1)</span>
+<span id="cb79-10"><a href="relevante-r-kommandoer.html#cb79-10"></a>p2_hatt &lt;-<span class="st"> </span><span class="kw">mean</span>(testdata<span class="op">$</span>A2)</span>
+<span id="cb79-11"><a href="relevante-r-kommandoer.html#cb79-11"></a></span>
+<span id="cb79-12"><a href="relevante-r-kommandoer.html#cb79-12"></a>n1 &lt;-<span class="st"> </span><span class="kw">length</span>(testdata<span class="op">$</span>X1)</span>
+<span id="cb79-13"><a href="relevante-r-kommandoer.html#cb79-13"></a>n2 &lt;-<span class="st"> </span><span class="kw">length</span>(testdata<span class="op">$</span>X2)</span>
+<span id="cb79-14"><a href="relevante-r-kommandoer.html#cb79-14"></a></span>
+<span id="cb79-15"><a href="relevante-r-kommandoer.html#cb79-15"></a>p_hatt &lt;-<span class="st"> </span><span class="kw">mean</span>(<span class="kw">c</span>(testdata<span class="op">$</span>A1, testdata<span class="op">$</span>A2))        <span class="co"># &lt;- Regner ut felles p_hatt</span></span>
+<span id="cb79-16"><a href="relevante-r-kommandoer.html#cb79-16"></a></span>
+<span id="cb79-17"><a href="relevante-r-kommandoer.html#cb79-17"></a>Z &lt;-<span class="st"> </span>(p1_hatt <span class="op">-</span><span class="st"> </span>p2_hatt)<span class="op">/</span><span class="kw">sqrt</span>((<span class="dv">1</span><span class="op">/</span>n1 <span class="op">+</span><span class="st"> </span><span class="dv">1</span><span class="op">/</span>n2)<span class="op">*</span>p_hatt<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p_hatt))</span></code></pre></div>
+<p>Testobservatorene må da sammenlingnes med relevant kvantil i normalfordelingen, som du enten finner i tabell i læreboken eller ved å bruke funksjonen <code>qnorm()</code> med ønsket kvantil som argument.</p>
+</div>
+<div id="kjikvadrattester-1" class="section level3 unnumbered" number="">
+<h3>Kjikvadrattester</h3>
+<p>Hvis vi skal teste for goodness-of-fit for en fordeling kan vi raskt regne ut testobservatoren direkte. Vi bruker eksempelet fra forelesningsvideoen:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="relevante-r-kommandoer.html#cb80-1"></a>p0 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.45</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>)  <span class="co"># Fordeling under H0</span></span>
+<span id="cb80-2"><a href="relevante-r-kommandoer.html#cb80-2"></a>f  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">102</span>, <span class="dv">82</span>, <span class="dv">16</span>)       <span class="co"># Observerte frekvenser</span></span>
+<span id="cb80-3"><a href="relevante-r-kommandoer.html#cb80-3"></a>e  &lt;-<span class="st"> </span>p0<span class="op">*</span><span class="kw">sum</span>(f)            <span class="co"># Forv. frekv. under H0</span></span>
+<span id="cb80-4"><a href="relevante-r-kommandoer.html#cb80-4"></a></span>
+<span id="cb80-5"><a href="relevante-r-kommandoer.html#cb80-5"></a>T  &lt;-<span class="st"> </span><span class="kw">sum</span>((f <span class="op">-</span><span class="st"> </span>e)<span class="op">^</span><span class="dv">2</span><span class="op">/</span>e)     <span class="co"># Testobservator</span></span>
+<span id="cb80-6"><a href="relevante-r-kommandoer.html#cb80-6"></a></span>
+<span id="cb80-7"><a href="relevante-r-kommandoer.html#cb80-7"></a>c  &lt;-<span class="st"> </span><span class="kw">qchisq</span>(.<span class="dv">95</span>, <span class="dt">df =</span> <span class="dv">2</span>)  <span class="co"># Kritisk verdi</span></span>
+<span id="cb80-8"><a href="relevante-r-kommandoer.html#cb80-8"></a></span>
+<span id="cb80-9"><a href="relevante-r-kommandoer.html#cb80-9"></a><span class="co"># Forkast H0?</span></span>
+<span id="cb80-10"><a href="relevante-r-kommandoer.html#cb80-10"></a>T <span class="op">&gt;</span><span class="st"> </span>c</span></code></pre></div>
+<p>Alternativt så kan vi bruke <code>chisq.test()</code>-funksjonen direkte. Pass på å bruke riktige argumentnavn (<code>x =</code> og <code>p =</code>) når du skal gjøre goodness-of-fit:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="relevante-r-kommandoer.html#cb81-1"></a><span class="co"># Eventuelt direkte</span></span>
+<span id="cb81-2"><a href="relevante-r-kommandoer.html#cb81-2"></a><span class="kw">chisq.test</span>(<span class="dt">x =</span> f, <span class="dt">p =</span> p0)</span></code></pre></div>
+<p>Dersom du skal teste for uavhengighet så kan du anta at datasettet kommer som en ferdig kontingenstabell, med den ene gruppeinndelingen langs kolonnene, og den andre gruppeinndelingen langs radene. En slik tabell kan du sende rett inn i <code>chisq.test()</code>-funksjonen for å gjøre en test for uavhengighet:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="relevante-r-kommandoer.html#cb82-1"></a><span class="co"># Test for uavhengighet</span></span>
+<span id="cb82-2"><a href="relevante-r-kommandoer.html#cb82-2"></a>immigration &lt;-</span>
+<span id="cb82-3"><a href="relevante-r-kommandoer.html#cb82-3"></a><span class="st">  </span><span class="kw">read_xls</span>(<span class="st">&quot;immigration-wide.xls&quot;</span>,</span>
+<span id="cb82-4"><a href="relevante-r-kommandoer.html#cb82-4"></a>           <span class="dt">range =</span> <span class="st">&quot;B2:E12&quot;</span>,</span>
+<span id="cb82-5"><a href="relevante-r-kommandoer.html#cb82-5"></a>           <span class="dt">col_names =</span> <span class="kw">c</span>(<span class="st">&quot;many&quot;</span>, <span class="st">&quot;some&quot;</span>, <span class="st">&quot;few&quot;</span>, <span class="st">&quot;none&quot;</span>))</span>
+<span id="cb82-6"><a href="relevante-r-kommandoer.html#cb82-6"></a><span class="kw">chisq.test</span>(immigration)</span></code></pre></div>
 
 </div>
 </div>
@@ -330,8 +365,8 @@ Publisert ved hjelp av bookdown</a></li>
           </div>
         </div>
       </div>
-<a href="oppgaver.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hypotesetesting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="oppgaver-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

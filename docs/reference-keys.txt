@@ -31,7 +31,7 @@ ekstra-øving-i-r
 oppgaver
 standard-oppgaver
 nøtter
-relevante-r-kommandoer
+relevant-r-grunnleggende
 hypotesetesting
 generelt-om-hypotesetesting
 videoforelesninger-2
@@ -47,6 +47,7 @@ videoforelesninger-5
 kommentarer-5
 oppgaver-1
 standard-oppgaver-1
+relevante-r-kommandoer
 regresjon
 enkel-regresjon
 videoforelesninger-6
