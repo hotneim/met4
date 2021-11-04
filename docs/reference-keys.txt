@@ -16,9 +16,9 @@ pakker
 mappesti
 innlesing-av-data
 statistiske-analyser
-plotting
+r-plotting
 script
-pipe-operatoren-og-enkel-datavask
+pipe
 r-ekstra
 grunnleggende-statistikk
 deskriptiv-statistikk
@@ -47,7 +47,7 @@ videoforelesninger-5
 kommentarer-5
 oppgaver-1
 standard-oppgaver-1
-relevante-r-kommandoer
+relevante-r-testing
 regresjon
 enkel-regresjon
 videoforelesninger-6
@@ -62,6 +62,7 @@ oppgaver-2
 regresjon-med-en-forklaringsvariabel
 multippel-regresjon-og-modellbygging
 oppgave-2-1
+relevante-r-regresjon
 avansert-regresjon-og-maskinlæring
 logistisk-regresjon
 videoforelesninger-9
@@ -128,11 +129,9 @@ oppgaver-til-øvingen
 oppgave-1-2
 oppgave-2-2
 oppgave-3-1
-bonus-en-alternativ-teknikk-for-datamanipulering-gjør-bare-om-du-har-overskudd-til-det
 dataøving-3
 oppgave-1-interaktiv-øvelse-1
 oppgave-2-regresjonsanalyse
-oppgave-3-rapporter-basert-på-r-analyser
 dataøving-4
 oppgave-1-interaktiv-øvelse-2
 oppgave-2---maskinlæring-logistisk-regresjon-og-k-nærmeste-naboer

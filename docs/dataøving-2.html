@@ -146,9 +146,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="mappesti.html"><a href="mappesti.html"><i class="fa fa-check"></i><b>1.5</b> Mappesti</a></li>
 <li class="chapter" data-level="1.6" data-path="innlesing-av-data.html"><a href="innlesing-av-data.html"><i class="fa fa-check"></i><b>1.6</b> Innlesing av data</a></li>
 <li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
-<li class="chapter" data-level="1.8" data-path="plotting.html"><a href="plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
+<li class="chapter" data-level="1.8" data-path="r-plotting.html"><a href="r-plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
 <li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
-<li class="chapter" data-level="1.10" data-path="pipe-operatoren-og-enkel-datavask.html"><a href="pipe-operatoren-og-enkel-datavask.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li class="chapter" data-level="1.10" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
 <li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
@@ -165,7 +165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
 <li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
 <li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
-<li class="chapter" data-level="3.6" data-path="relevante-r-kommandoer.html"><a href="relevante-r-kommandoer.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
+<li class="chapter" data-level="3.6" data-path="relevante-r-testing.html"><a href="relevante-r-testing.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
 <ul>
@@ -173,6 +173,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
 <li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
 <li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
+<li class="chapter" data-level="4.5" data-path="relevante-r-regresjon.html"><a href="relevante-r-regresjon.html"><i class="fa fa-check"></i><b>4.5</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
 <ul>
@@ -233,8 +234,8 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="interaktiv-øvelse" class="section level3" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Interaktiv øvelse</h3>
 <p>Før vi tar fatt på dataanalysen begynner vi med litt R-trening i swirl. Har du allerede installert pakken <code>swirl</code> (skriv <code>install.packages("swirl")</code> i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="dataøving-2.html#cb217-1"></a><span class="kw">library</span>(swirl)</span>
-<span id="cb217-2"><a href="dataøving-2.html#cb217-2"></a><span class="kw">swirl</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="dataøving-2.html#cb219-1"></a><span class="kw">library</span>(swirl)</span>
+<span id="cb219-2"><a href="dataøving-2.html#cb219-2"></a><span class="kw">swirl</span>()</span></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn. Hvis du bruker samme navn som tidligere får du kanskje tilbud om å starte opp igjen der du slapp, men da kan du bare velge det nederste valget ‘No. Let me start something new’. Du velger så alternativet ‘R Programming’ hvor du får se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul 6 <strong>‘Subsetting Vectors’</strong> og modul 8 <strong>‘Logic’</strong>.</p>
 <p>Husk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl () før du begynner på neste del av datalabben. Lykke til!</p>
 </div>
@@ -260,9 +261,9 @@ Publisert ved hjelp av bookdown</a></li>
 <p>En liten kaffeplantasje i Costa Rica har begynt å eksperimentere med en ny kombinasjon av sprøytemidler som skal være like effektiv mot ugress, men samtidig enda mer skånsom mot kaffeplantene, slik at avlingen blir større. Innehaveren av plantasjen ønsker å sette opp et eksperiment for å undersøke denne påstanden. Han velger ut 25 tilfeldige jordlapper fordelt på hele eiendommen der han bruker de nye sprøytemidlene gjennom en hel sesong.</p>
 <p>Lang erfaring har vist at avlingen ved bruk av gammel metode er normalfordelt med forventning <span class="math inline">\(\mu = 100\)</span> og standardavvik <span class="math inline">\(\sigma = 10\)</span>, der vi har brukt en standardisert enhet for mengde avling per arealenhet. Hjelp bonden, ved å løse følgende oppgaver:</p>
 <p><strong>Oppgave 1.1:</strong> Les inn datasettet <code>testdatasdata.xsl</code> i <strong>RStudio</strong> og se på de første par radene. Det kan du gjøre ved å kjøre følgende kodelinjer:</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="dataøving-2.html#cb218-1"></a><span class="kw">library</span>(readxl)                                 <span class="co"># Pakke for å lese excel-filer</span></span>
-<span id="cb218-2"><a href="dataøving-2.html#cb218-2"></a>data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;testdata.xls&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
-<span id="cb218-3"><a href="dataøving-2.html#cb218-3"></a>data                                            <span class="co"># Ser på datasettet</span></span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="dataøving-2.html#cb220-1"></a><span class="kw">library</span>(readxl)                                 <span class="co"># Pakke for å lese excel-filer</span></span>
+<span id="cb220-2"><a href="dataøving-2.html#cb220-2"></a>data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;testdata.xls&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
+<span id="cb220-3"><a href="dataøving-2.html#cb220-3"></a>data                                            <span class="co"># Ser på datasettet</span></span></code></pre></div>
 <pre><code>## # A tibble: 25 x 4
 ##       X1    X2    A1    A2
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -278,7 +279,7 @@ Publisert ved hjelp av bookdown</a></li>
 ## 10  99.9 100.      0     1
 ## # ... with 15 more rows</code></pre>
 <p>Det er kolonnen <code>X2</code> som inneholder de observerte avlingene på de 25 forsøksseksjonene.</p>
-<p><strong>Oppgave 1.2:</strong> Er forventet avling ved bruk av den nye metoden <em>større</em> enn forventet avling ved bruk av den gamle metoden? <em>Hint: Forelesningsnotatene/scriptet inneholder koden du trenger for å løse denne og neste oppgave.</em></p>
+<p><strong>Oppgave 1.2:</strong> Er forventet avling ved bruk av den nye metoden <em>større</em> enn forventet avling ved bruk av den gamle metoden? <em>Hint: Forelesningsnotatene/scriptet inneholder koden du trenger for å løse denne og neste oppgave. Du kan også se på <a href="relevante-r-testing.html#relevante-r-testing">oversikten over relevante R-kommandoer</a> for det du trenger.</em></p>
 <p><strong>Oppgave 1.3:</strong> Det er viktig for kaffebonden at avlingen ikke varierer for mye mellom de ulike delene av farmen. En viktig måleparameter for denne type produksjon er derfor variansen. Kan vi slå fast at variansen til avlingen har forandret seg etter omlegging til ny metode?</p>
 <p><strong>Oppgave 1.4:</strong> Kaffebonden er skeptisk til påstanden om at forventet avling med den gamle metoden er <span class="math inline">\(\mu = 100\)</span>, og mener at det vil variere med for eksempel jordsmonn. For å ta høyde for dette gjennomførte han året i forveien tilsvarende målinger på de samme jordlappene, med med gammel sprøytemetode. Disse målingene finner du i kolonne <code>X1</code> i datasettet. Test om avlingene er forskjellige, både med og uten paring av observasjonene. Kommenter resultatet.</p>
 </div>
@@ -286,29 +287,40 @@ Publisert ved hjelp av bookdown</a></li>
 <h4><span class="header-section-number">7.2.3.2</span> Oppgave 2</h4>
 <p>Vi skal i denne oppgaven se på oppgave <strong>1a</strong> og <strong>1b</strong> som ble gitt på skoleeksamen i MET4 vårsemesteret 2019. Dette er det samme datasettet som vi så på i forrige dataøving. I <a href="https://journals.sagepub.com/doi/10.1177/0956797619829688">et amerikansk forsøk</a> ville man undersøke påstanden om at voldelige dataspill fører til voldelig adferd ved la to grupper spille hvert sitt dataspill. I det “voldelige” dataspillet var oppdraget å <em>skyte</em> og <em>drepe</em> et romvesen, mens i den ikke-voldelige varianten skulle man <em>finne</em> og <em>redde</em> romvesenet fra fare. Utover det var spillene helt likt utformet, og i etterkant av en spilleøkt ble deltakernes aggresjonsnivå målt på en skala fra 1 til 9 ved hjelp av en standard psykologisk test.</p>
 <p>I denne oppgaven skal vi i hovedsak finne ut om gruppen som spilte de voldelige dataspillet hadde signifikant høyere aggresjonsnivå enn kontrollgruppen.</p>
-<p><strong>Oppgave 2.1:</strong> Les inn datasettet <code>violence.xslx</code> på samme måte som over. Hvis du allerede har kjørt <code>library(readxl)</code> trenger du ikke gjøre det igjen med mindre du har startet <strong>RStudio</strong> på nytt. Gi datasettet et passende navn, f.eks</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="dataøving-2.html#cb220-1"></a>violence &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
+<p><strong>Oppgave 2.1:</strong> Les inn datasettet <code>violence.xslx</code> på samme måte som i forrige dataøving. Hvis du allerede har kjørt <code>library(readxl)</code> trenger du ikke gjøre det igjen med mindre du har startet <strong>RStudio</strong> på nytt. Gi datasettet et passende navn, f.eks</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="dataøving-2.html#cb222-1"></a>violence &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
 <p>Vi skal altså teste om aggresjonsnivået er forskjellig i de to gruppene. Da må vi trekke ut de aktuelle tallene fra datasettet. Som vi husker fra forelesningsnotatene trenger vi <em>to vektorer</em> for å gjøre en to-utvags <span class="math inline">\(t\)</span>-test: en vektor som inneholder aggresjonsnivået til gruppen som har spilt det voldelige dataspillet, og en vektor som inneholder aggresjonsnivået til gruppen som har spilt det ikke-voldelige dataspillet.</p>
-<p>La disse to vektorene få navn <code>voldelig</code> og <code>ikke_voldelig</code>, og lag dem ved å skrive følgende kodelinjer:</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="dataøving-2.html#cb221-1"></a>voldelig      &lt;-<span class="st"> </span>violence<span class="op">$</span>aggression_level[violence<span class="op">$</span>violent_treatment <span class="op">==</span><span class="st"> &quot;Violent&quot;</span>]</span>
-<span id="cb221-2"><a href="dataøving-2.html#cb221-2"></a>ikke_voldelig &lt;-<span class="st"> </span>violence<span class="op">$</span>aggression_level[violence<span class="op">$</span>violent_treatment <span class="op">==</span><span class="st"> &quot;Less Violent&quot;</span>]</span></code></pre></div>
-<p>For en forklaring på disse kodelinjene, se Dataøving 1.</p>
+<p>La disse to vektorene få navn <code>voldelig</code> og <code>ikke_voldelig</code>, og lag dem ved å skrive følgende kodelinjer (samme som forrige dataøving):</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="dataøving-2.html#cb223-1"></a>voldelig &lt;-</span>
+<span id="cb223-2"><a href="dataøving-2.html#cb223-2"></a><span class="st">  </span>violence <span class="op">%&gt;%</span></span>
+<span id="cb223-3"><a href="dataøving-2.html#cb223-3"></a><span class="st">  </span><span class="kw">filter</span>(violent_treatment <span class="op">==</span><span class="st"> &quot;Violent&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb223-4"><a href="dataøving-2.html#cb223-4"></a><span class="st">  </span><span class="kw">select</span>(aggression_level) <span class="op">%&gt;%</span></span>
+<span id="cb223-5"><a href="dataøving-2.html#cb223-5"></a><span class="st">  </span>pull</span>
+<span id="cb223-6"><a href="dataøving-2.html#cb223-6"></a></span>
+<span id="cb223-7"><a href="dataøving-2.html#cb223-7"></a>ikke_voldelig &lt;-</span>
+<span id="cb223-8"><a href="dataøving-2.html#cb223-8"></a><span class="st">  </span>violence <span class="op">%&gt;%</span></span>
+<span id="cb223-9"><a href="dataøving-2.html#cb223-9"></a><span class="st">  </span><span class="kw">filter</span>(violent_treatment <span class="op">==</span><span class="st"> &quot;Less Violent&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb223-10"><a href="dataøving-2.html#cb223-10"></a><span class="st">  </span><span class="kw">select</span>(aggression_level) <span class="op">%&gt;%</span></span>
+<span id="cb223-11"><a href="dataøving-2.html#cb223-11"></a><span class="st">  </span>pull</span></code></pre></div>
 <p><strong>Oppgave 2.2:</strong> Vi er nå klare til å gjøre en to-utvalgs <span class="math inline">\(t\)</span>-test for om aggresjonsnivået er det samme i de to gruppene. Prøv å gjøre det nå, men vær bevisst på hvilke valg du gjør underveis, og som du mater inn i <code>t.test()</code>-funksjonen, f.eks:</p>
 <ul>
 <li>Antar du lik varians i de to gruppene? Hvorfor/Hvorfor ikke?</li>
 <li>Bruker du ensidig eller tosidig test? Hvorfor?</li>
 </ul>
 <p><strong>Oppgave 2.3:</strong> En avgjørende detalj i studien som vi ser på i denne oppgaven er at forskerne også spurte forsøkspersonene hvorvidt de selv syntes spillet de spilte var voldelig. For å kunne trekke noen som helst lærdom fra et slikt forsøk er det viktig at den voldelige spillvarianten faktisk blir oppfattet som voldelig og vice versa. Vi ønsker dermed å undersøke nullhypotesen om at variablene <code>violence_tratment</code> og <code>experienced_violence</code> er uavhengige av hverandre. Den hypotesen er vi nødt til å forkaste for at forsøket skal være gyldig: hvis det ikke er noen sammenheng mellom opplevd og faktisk voldelighet er forsøket helt klart ugyldig.</p>
-<p>Første steg er å lage et nytt datasett der vi bare ta med oss de to kolonnene vi er interessert i. Kall det hva du vil, f.eks. <code>violence_redusert</code>:</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="dataøving-2.html#cb222-1"></a>violence_redusert &lt;-<span class="st"> </span>violence[<span class="kw">c</span>(<span class="st">&quot;violent_treatment&quot;</span>, <span class="st">&quot;experienced_violence&quot;</span>)]</span></code></pre></div>
+<p>Første steg er å lage et nytt datasett der vi bare ta med oss de to kolonnene vi er interessert i. Kall det hva du vil, f.eks. <code>violence_redusert</code>. Vi bruker <code>select()</code>-funksjonen til å velge ut variablene vi trenger, se <a href="pipe.html#pipe">video om datavask</a> dersom du trenger å repetere denne funksjonen.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="dataøving-2.html#cb224-1"></a>violence_redusert &lt;-<span class="st"> </span></span>
+<span id="cb224-2"><a href="dataøving-2.html#cb224-2"></a><span class="st">  </span>violence <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb224-3"><a href="dataøving-2.html#cb224-3"></a><span class="st">  </span><span class="kw">select</span>(violent_treatment, experienced_violence)</span></code></pre></div>
+<p>Skriv <code>violence_redusert</code> i konsollen for å bekrefte at du har valgt ut de korrekte kolonnene.</p>
 <p>Vi fortsetter som i videoforelesningen og lager en krysstabell for disse variablene</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="dataøving-2.html#cb223-1"></a>krysstabell &lt;-<span class="st"> </span><span class="kw">table</span>(violence_redusert) </span>
-<span id="cb223-2"><a href="dataøving-2.html#cb223-2"></a>krysstabell</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="dataøving-2.html#cb225-1"></a>krysstabell &lt;-<span class="st"> </span><span class="kw">table</span>(violence_redusert) </span>
+<span id="cb225-2"><a href="dataøving-2.html#cb225-2"></a>krysstabell</span></code></pre></div>
 <pre><code>##                  experienced_violence
 ## violent_treatment Less Violent Violent
 ##      Less Violent          114       9
 ##      Violent                33      93</code></pre>
-<p><strong>Oppgave 2.4:</strong> Heldigvis ser det ut til at det er en klar sammenheng mellom faktisk og opplevd voldelighet ved at de fleste forsøkspersonene havner på diagonalen i krysstabellen. Bruk funksjonen <code>chisq.test()</code> på samme måte som i forelesningen til å teste nullhypotesen om uavhengighet formelt.</p>
+<p><strong>Oppgave 2.4:</strong> Heldigvis ser det ut til at det er en klar sammenheng mellom faktisk og opplevd voldelighet ved at de fleste forsøkspersonene havner på diagonalen i krysstabellen. Bruk funksjonen <code>chisq.test()</code> på samme måte som i forelesningen til å formelt teste nullhypotesen om uavhengighet.</p>
 </div>
 <div id="oppgave-3-1" class="section level4" number="7.2.3.3">
 <h4><span class="header-section-number">7.2.3.3</span> Oppgave 3</h4>
@@ -317,8 +329,8 @@ Publisert ved hjelp av bookdown</a></li>
 <p>For å undersøke denne påstanden samlet Roubik inn historiske data over arabicaavlinger fra hele verden. Han delte verdens kaffeproduserende land inn i to kategorier: <em>Old world</em> som omfatter afrikanske og asiatiske land, og <em>New world</em> som omfatter land i Latin-Amerika. Han registrerte videre <em>gjennomsnittlig årlig avling</em> (målt i kg/hektar) i to perioder: 1961–80 og 1981–2001.</p>
 <p>Nøkkelen til analysen er at den afrikanske honningbien var en viktig pollinator i Afrika og Asia både i den første og andre perioden, men knapt eksisterte i Amerika før 1980. Etter 1980, derimot, økte utbredelsen av denne bien i Amerika, og ble fort naturalisert. Kan vi sette denne utviklingen i sammenheng med økt kaffeavling i Latin-Amerika etter 1980, og dermed skrote teorien om at kaffeplanter ikke drar nytte av insektspollinering?</p>
 <p><strong>Oppgave 3.1:</strong> For å undersøke dette kan vi bruke datasettet som Roubik brukte, som finnes i filen <code>roubik_2002_coffe_yield.xlsx</code>. Last datasettet inn i R på vanlig måte, og se på det:</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="dataøving-2.html#cb225-1"></a>yield &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;roubik_2002_coffe_yield.xlsx&quot;</span>)</span>
-<span id="cb225-2"><a href="dataøving-2.html#cb225-2"></a>yield</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="dataøving-2.html#cb227-1"></a>yield &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;roubik_2002_coffe_yield.xlsx&quot;</span>)</span>
+<span id="cb227-2"><a href="dataøving-2.html#cb227-2"></a>yield</span></code></pre></div>
 <pre><code>## # A tibble: 28 x 4
 ##    world country     yield_61_to_80 yield_81_to_01
 ##    &lt;chr&gt; &lt;chr&gt;                &lt;dbl&gt;          &lt;dbl&gt;
@@ -347,16 +359,17 @@ Publisert ved hjelp av bookdown</a></li>
 <li><code>old_p1</code>: inneholder avling for alle land med <code>world == old</code> i første periode.</li>
 <li><code>old_p2</code>: inneholder avling for alle land med <code>world == old</code> i andre periode.</li>
 </ul>
+<p>Her må du bruke både <code>filter()</code> og <code>select()</code>, og du må avslutte med en <code>pull</code> for å oversette en en-kolonnes dataframe til en vektor.</p>
 <p>Dersom du har gjort det riktig, ser vektorene slik ut når du er ferdig:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="dataøving-2.html#cb227-1"></a>new_p1</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="dataøving-2.html#cb229-1"></a>new_p1</span></code></pre></div>
 <pre><code>##  [1] 9139 7686 9996 5488 5920 4096 4566 4965 5487 5227 2347 3089 1938</code></pre>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="dataøving-2.html#cb229-1"></a>new_p2</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="dataøving-2.html#cb231-1"></a>new_p2</span></code></pre></div>
 <pre><code>##  [1] 14620  8767  8729  8231  7740  7264  6408  6283  5740  5116  4124  3240
 ## [13]  2789</code></pre>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="dataøving-2.html#cb231-1"></a>old_p1</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="dataøving-2.html#cb233-1"></a>old_p1</span></code></pre></div>
 <pre><code>##  [1]  4251 10522  3509 10028  5667 17064  5904  4001  6604  4738  5716  3824
 ## [13]  3525  3393  3213</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="dataøving-2.html#cb233-1"></a>old_p2</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="dataøving-2.html#cb235-1"></a>old_p2</span></code></pre></div>
 <pre><code>##  [1] 13380 11561  9652  9593  8797  7869  7354  7288  6055  5432  5394  3576
 ## [13]  3141  2391  2136</code></pre>
 <p><strong>Oppgave 3.3:</strong> Bruk en paret <span class="math inline">\(t\)</span>-test til å finne ut om kaffeavlingen i den gamle verden er signifikant forskjellig i de to tidsperiodene.</p>
@@ -367,105 +380,89 @@ Publisert ved hjelp av bookdown</a></li>
 <p><em>A substantial increase in Latin American coffee yield partly coincided with the establishment of African honeybees in those countries, although there was no such change in the Old World, where honeybees originated […]. This comparison underlines a possible cause-and-effect relationship between the presence of social bees and cofee yield.</em></p>
 </blockquote>
 <p>Dette er intet mindre enn en <strong>kortslutning</strong>, på minst to forskjellige måter. Hvorfor? Diskuter med dine medstudenter. Kan det gjennomføres en enkel test som gir et bedre bilde av situasjonen?</p>
-</div>
-</div>
-<div id="bonus-en-alternativ-teknikk-for-datamanipulering-gjør-bare-om-du-har-overskudd-til-det" class="section level3" number="7.2.4">
-<h3><span class="header-section-number">7.2.4</span> BONUS: En alternativ teknikk for datamanipulering (Gjør bare om du har overskudd til det!)</h3>
-<p>Se på denne kodelinjen:</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="dataøving-2.html#cb235-1"></a>voldelig &lt;-<span class="st"> </span>violence<span class="op">$</span>aggression_level[violence<span class="op">$</span>violent_treatment <span class="op">==</span><span class="st"> &quot;Violent&quot;</span>]</span></code></pre></div>
-<p>Vi skrev denne linjen for å hente ut noen bestemte verdier fra et bestemt datasett. Det er kanskje ikke så lett å se hva kodelinjen gjør ved å bare kaste et raskt blikk på den, og det er spesielt to grunner til det:</p>
-<ul>
-<li>den er lang, og</li>
-<li>du må lese den delvis “innenfra og ut” (alstå, begynne innerst i parantesene) og delvis fra høyre mot venstre.</li>
-</ul>
-<p>Spesielt det siste punktet er kontraintuitivt, siden det er motsatt av slik vi vanligvis leser. Mye arbeid i R går ut på å manipulere datasett på ulike vis (hente ut kolonner og rader, lage nye kolonner), og derfor er det utviklet noen alternative verktøy for å gjøre slike jobber mye mer effektivt. Vi vil i dette avsnittet gi en kort og meget grunleggende innføring i slike teknikker. Merk at dette ikke er <em>pensum</em> i klassisk forstand. Det viktigste er at jobben blir gjort korrekt. Hvordan du gjør det er i så måte underordnet.</p>
-<p>For å gjennomføre øvelsen under må du installere og laste inn en ny pakke: <code>dplyr</code>:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="dataøving-2.html#cb236-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
-<span id="cb236-2"><a href="dataøving-2.html#cb236-2"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
-<div id="konsept-1-pipe-operatoren" class="section level4 unnumbered" number="">
-<h4>KONSEPT 1: Pipe-operatoren <code>%&gt;%</code></h4>
-<p>Tenk deg at vi skal regne ut logaritmen til kvadratroten av 2. Vi må da anvende to funksjoner i riktig rekkefølge. Vi kan alltids bruke en mellomregning:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="dataøving-2.html#cb237-1"></a>kvadratroten_til_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">sqrt</span>(<span class="dv">2</span>)</span>
-<span id="cb237-2"><a href="dataøving-2.html#cb237-2"></a><span class="kw">log</span>(kvadratroten_til_<span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## [1] 0.3465736</code></pre>
-<p>Eventuelt kjører vi alt sammen i en linje:</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="dataøving-2.html#cb239-1"></a><span class="kw">log</span>(<span class="kw">sqrt</span>(<span class="dv">2</span>))</span></code></pre></div>
-<pre><code>## [1] 0.3465736</code></pre>
-<p>Nå er ikke den siste linjen spesielt lang, men den er som sagt ikke helt intuitiv. Grunnen er at hvis vi skal lese høyt hva den gjør, så må vi begynne innerst i parantesene: “Vi starter med tallet 2, så tar vi kvadratroten, så tar vi logaritmen…”</p>
-<p>I <code>dplyr</code>-pakken finnes en såkalt pipe-operator som gjør at vi kan skrive dette som kode i den rekkefølgen ting skal skje. Eksempelet over skrives slik:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="dataøving-2.html#cb241-1"></a><span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span>sqrt <span class="op">%&gt;%</span><span class="st"> </span>log</span></code></pre></div>
-<pre><code>## [1] 0.3465736</code></pre>
-<p>Det som skjer er at R leser linjen fra venstre, og ved hver “pipe/<code>%&gt;%</code>” sendes det som står på venstre side inn som argument i funksjonen på høyre side. Når du leser kode, kan denne operatoren uttales som <strong>så</strong> (<strong>then</strong> på engelsk): <strong>Først</strong> har vi tallet 2, <strong>så</strong> tar vi kvadratroten, <strong>så</strong> tar vi logaritmen.</p>
-<p>Tenk når vi har en sekvens av 10 eller 20 eller 50 steg (ikke uvanlig i den virkelige verden), hvor mye enklere det blir å kode på denne måten fremfor å ha 10, 20 eller 50 nivå med paranteser!</p>
-<p><strong>Tips:</strong> Hurtigtasten for <code>%&gt;%</code> i RStudio er <code>Ctrl - Shift - M</code> (Bytt ut <strong>Ctrl</strong> med <strong>Cmd</strong> på Mac).</p>
-</div>
-<div id="konsept-2-datamanipuleringsfunksjoner-i-dplyr" class="section level4 unnumbered" number="">
-<h4>KONSEPT 2: Datamanipuleringsfunksjoner i <code>dplyr</code></h4>
-<p>I <code>dplyr</code> finnes det noen meget praktiske funksjoner som vi kan bruke til å manipulere datasatt i R. La oss ta utgangspunkt i datasettet <code>violence</code> og prøve å skrive om den aktuell kodelinjen over ved hjelp av pipe-operatoren. I klartekst skal vi gjøre følgende operasjoner:</p>
-<ol style="list-style-type: decimal">
-<li>Starte med datasettet <code>violence</code></li>
-<li>Plukke ut alle radene som har verdi <code>"Violent"</code> i kolonnen <code>violent_treatment</code>.</li>
-<li>Plukke ut kolonnen <code>aggression_level</code></li>
-</ol>
-<p>For å velge ut bestemte rader kan vi bruke funksjonen <code>filter()</code>. Ved hjelp av pipe-operatoren kan vi skrive steg 1 og 2 som</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="dataøving-2.html#cb243-1"></a>violence <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(violent_treatment <span class="op">==</span><span class="st"> &quot;Violent&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 126 x 5
-##       id aggression_level violent_treatment difficulty_treatm~ experienced_viol~
-##    &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;              &lt;chr&gt;            
-##  1     1                4 Violent           Easy               Less Violent     
-##  2     2                5 Violent           Hard               Violent          
-##  3     5                2 Violent           Easy               Violent          
-##  4     6                9 Violent           Hard               Less Violent     
-##  5    10                4 Violent           Hard               Violent          
-##  6    18                4 Violent           Hard               Violent          
-##  7    21                4 Violent           Easy               Violent          
-##  8    22                9 Violent           Hard               Less Violent     
-##  9    25                7 Violent           Easy               Violent          
-## 10    26                1 Violent           Hard               Less Violent     
-## # ... with 116 more rows</code></pre>
-<p>Nå ser vi at vi bare har 126 rader igjen, og det er nettopp de radene som i kolonnen <code>violent_treatment</code> har verdi <code>"Violent"</code>. Det neste steget er å velge ut kolonnen <code>aggression_level</code>. Det gjør vi ved å bruke funksjonen <code>select()</code>, og hele sekvensen ser da slik ut (linjeskift gjør det enda mer lesbart):</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="dataøving-2.html#cb245-1"></a>violence <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb245-2"><a href="dataøving-2.html#cb245-2"></a><span class="st">  </span><span class="kw">filter</span>(violent_treatment <span class="op">==</span><span class="st"> &quot;Violent&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb245-3"><a href="dataøving-2.html#cb245-3"></a><span class="st">  </span><span class="kw">select</span>(aggression_level)</span></code></pre></div>
-<pre><code>## # A tibble: 126 x 1
-##    aggression_level
-##               &lt;dbl&gt;
-##  1                4
-##  2                5
-##  3                2
-##  4                9
-##  5                4
-##  6                4
-##  7                4
-##  8                9
-##  9                7
-## 10                1
-## # ... with 116 more rows</code></pre>
-<p>Man kan velge flere kolonner ved å sette komma mellom kolonnenavn, og man kan i stedet velge <em>bort</em> kolonner ved å sette minustegn foran kolonnenavnet, f.eks:</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="dataøving-2.html#cb247-1"></a>violence <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(id, aggression_level)</span>
-<span id="cb247-2"><a href="dataøving-2.html#cb247-2"></a>violence <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>id)</span></code></pre></div>
-<p>Nå har det seg slik at vi gjerne ønsker å hente ut den aktuelle kolonnen som en <em>vektor</em>. Det gjør vi enkelt ved å slenge på en <code>pull</code> på slutten av en pipe-sekvens. Til slutt må vi passe på å lagre vektoren med riktig navn, slik at vi får:</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="dataøving-2.html#cb248-1"></a>voldelig &lt;-<span class="st"> </span>violence <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb248-2"><a href="dataøving-2.html#cb248-2"></a><span class="st">  </span><span class="kw">filter</span>(violent_treatment <span class="op">==</span><span class="st"> &quot;Violent&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb248-3"><a href="dataøving-2.html#cb248-3"></a><span class="st">  </span><span class="kw">select</span>(aggression_level) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb248-4"><a href="dataøving-2.html#cb248-4"></a><span class="st">  </span>pull</span></code></pre></div>
-<p>Denne koden er ekvivalent med den som startet dette avsnittet i øvingen. Den er derimot mye enklere å lese, og <em>veldig</em> mye enklere å utvide til å inkludere flere operasjoner.</p>
-<p>La oss se på enda en funksjon som vil være svært nyttig for oss senere. Vi kan bruke <code>mutate()</code> til å <em>lage nye kolonner</em>. La oss for eksempel si at vi vil lagre kvadratet av <code>aggression_level</code> eller summen av <code>aggression_level</code> og <code>id</code> som egne kolonner (som selvsagt er helt meningsløst i dette tilfellet, kun et eksempel). Det kan vi gjøre slik:</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="dataøving-2.html#cb249-1"></a>violence <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb249-2"><a href="dataøving-2.html#cb249-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ny1 =</span> aggression_level<span class="op">^</span><span class="dv">2</span>) </span></code></pre></div>
-<p>eller</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="dataøving-2.html#cb250-1"></a>violence <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb250-2"><a href="dataøving-2.html#cb250-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ny2 =</span> id <span class="op">+</span><span class="st"> </span>aggression_level)</span></code></pre></div>
-<p>Her er <code>ny1</code> og <code>ny2</code> navn på de nye kolonnene, som vi kan velge selv.</p>
-<p><strong>Oppgave:</strong> Gjenta <strong>Oppgave 3.2</strong>, men ved å bruke teknikkene i dette avsnittet.</p>
-</div>
-<div id="interaktiv-øving-i-dplyr" class="section level4 unnumbered" number="">
-<h4>Interaktiv øving i <code>dplyr</code></h4>
-<p>Hvis du ønsker å trene mer på dette så finnes det en interaktiv modul i <code>swirl</code> som omhandler datamanipulasjon ved hjelp av <code>dplyr</code>. Hvis du ikke har gjort det alledede, skriv <code>install.packages("swirl")</code> i konsoll. Start du opp <code>swirl</code> med å skrive følgende:</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="dataøving-2.html#cb251-1"></a><span class="kw">library</span>(swirl)</span>
-<span id="cb251-2"><a href="dataøving-2.html#cb251-2"></a><span class="kw">install_course</span>(<span class="st">&quot;Getting_and_Cleaning_Data &quot;</span>) <span class="co"># legger til nytt kursmateriale</span></span>
-<span id="cb251-3"><a href="dataøving-2.html#cb251-3"></a><span class="kw">swirl</span>()</span></code></pre></div>
-<p>Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du først velge alternativet ‘Getting and Cleaning Data’. Du får så se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul 1 <strong>‘Manipulating Data with dplyr’</strong>.</p>
+<!-- ### BONUS: En alternativ teknikk for datamanipulering (Gjør bare om du har overskudd til det!) -->
+<!-- Se på denne kodelinjen: -->
+<!-- ```{r, eval = FALSE} -->
+<!-- voldelig <- violence$aggression_level[violence$violent_treatment == "Violent"] -->
+<!-- ``` -->
+<!-- Vi skrev denne linjen for å hente ut noen bestemte verdier fra et bestemt datasett. Det er kanskje ikke så lett å se hva kodelinjen gjør ved å bare kaste et raskt blikk på den, og det er spesielt to grunner til det: -->
+<!-- - den er lang, og -->
+<!-- - du må lese den delvis "innenfra og ut" (alstå, begynne innerst i parantesene) og delvis fra høyre mot venstre. -->
+<!-- Spesielt det siste punktet er kontraintuitivt, siden det er motsatt av slik vi vanligvis leser. Mye arbeid i R går ut på å manipulere datasett på ulike vis (hente ut kolonner og rader, lage nye kolonner), og derfor er det utviklet noen alternative verktøy for å gjøre slike jobber mye mer effektivt. Vi vil i dette avsnittet gi en kort og meget grunleggende innføring i slike teknikker. Merk at dette ikke er *pensum* i klassisk forstand. Det viktigste er at jobben blir gjort korrekt. Hvordan du gjør det er i så måte underordnet. -->
+<!-- For å gjennomføre øvelsen under må du installere og laste inn en ny pakke: `dplyr`: -->
+<!-- ```{r, eval = FALSE} -->
+<!-- install.packages("dplyr") -->
+<!-- library(dplyr) -->
+<!-- ``` -->
+<!-- ```{r, message = FALSE, echo = FALSE, warning = FALSE} -->
+<!-- library(dplyr) -->
+<!-- ``` -->
+<!-- #### KONSEPT 1: Pipe-operatoren `%>%` {-} -->
+<!-- Tenk deg at vi skal regne ut logaritmen til kvadratroten av 2. Vi må da anvende to funksjoner i riktig rekkefølge. Vi kan alltids bruke en mellomregning: -->
+<!-- ```{r} -->
+<!-- kvadratroten_til_2 <- sqrt(2) -->
+<!-- log(kvadratroten_til_2) -->
+<!-- ``` -->
+<!-- Eventuelt kjører vi alt sammen i en linje: -->
+<!-- ```{r} -->
+<!-- log(sqrt(2)) -->
+<!-- ``` -->
+<!-- Nå er ikke den siste linjen spesielt lang, men den er som sagt ikke helt intuitiv. Grunnen er at hvis vi skal lese høyt hva den gjør, så må vi begynne innerst i parantesene: "Vi starter med tallet 2, så tar vi kvadratroten, så tar vi logaritmen..." -->
+<!-- I `dplyr`-pakken finnes en såkalt pipe-operator som gjør at vi kan skrive dette som kode i den rekkefølgen ting skal skje. Eksempelet over skrives slik: -->
+<!-- ```{r} -->
+<!-- 2 %>% sqrt %>% log -->
+<!-- ``` -->
+<!-- Det som skjer er at R leser linjen fra venstre, og ved hver "pipe/`%>%`" sendes det som står på venstre side inn som argument i funksjonen på høyre side. Når du leser kode, kan denne operatoren uttales som **så** (**then** på engelsk): **Først** har vi tallet 2, **så** tar vi kvadratroten, **så** tar vi logaritmen. -->
+<!-- Tenk når vi har en sekvens av 10 eller 20 eller 50 steg (ikke uvanlig i den virkelige verden), hvor mye enklere det blir å kode på denne måten fremfor å ha 10, 20 eller 50 nivå med paranteser! -->
+<!-- **Tips:** Hurtigtasten for `%>%` i RStudio er `Ctrl - Shift - M` (Bytt ut **Ctrl** med **Cmd** på Mac). -->
+<!-- #### KONSEPT 2: Datamanipuleringsfunksjoner i `dplyr` {-} -->
+<!-- I `dplyr` finnes det noen meget praktiske funksjoner som vi kan bruke til å manipulere datasatt i R. La oss ta utgangspunkt i datasettet `violence` og prøve å skrive om den aktuell kodelinjen over ved hjelp av pipe-operatoren. I klartekst skal vi gjøre følgende operasjoner: -->
+<!-- 1. Starte med datasettet `violence` -->
+<!-- 2. Plukke ut alle radene som har verdi `"Violent"` i kolonnen `violent_treatment`. -->
+<!-- 3. Plukke ut kolonnen `aggression_level` -->
+<!-- For å velge ut bestemte rader kan vi bruke funksjonen `filter()`. Ved hjelp av pipe-operatoren kan vi skrive steg 1 og 2 som -->
+<!-- ```{r} -->
+<!-- violence %>% filter(violent_treatment == "Violent") -->
+<!-- ``` -->
+<!-- Nå ser vi at vi bare har 126 rader igjen, og det er nettopp de radene som i kolonnen `violent_treatment` har verdi `"Violent"`. Det neste steget er å velge ut kolonnen `aggression_level`. Det gjør vi ved å bruke funksjonen `select()`, og hele sekvensen ser da slik ut (linjeskift gjør det enda mer lesbart): -->
+<!-- ```{r} -->
+<!-- violence %>%  -->
+<!--   filter(violent_treatment == "Violent") %>%  -->
+<!--   select(aggression_level) -->
+<!-- ``` -->
+<!-- Man kan velge flere kolonner ved å sette komma mellom kolonnenavn, og man kan i stedet velge *bort* kolonner ved å sette minustegn foran kolonnenavnet, f.eks: -->
+<!-- ```{r, eval = FALSE} -->
+<!-- violence %>% select(id, aggression_level) -->
+<!-- violence %>% select(-id) -->
+<!-- ``` -->
+<!-- Nå har det seg slik at vi gjerne ønsker å hente ut den aktuelle kolonnen som en *vektor*. Det gjør vi enkelt ved å slenge på en `pull` på slutten av en pipe-sekvens. Til slutt må vi passe på å lagre vektoren med riktig navn, slik at vi får: -->
+<!-- ```{r} -->
+<!-- voldelig <- violence %>%  -->
+<!--   filter(violent_treatment == "Violent") %>%  -->
+<!--   select(aggression_level) %>%  -->
+<!--   pull -->
+<!-- ``` -->
+<!-- Denne koden er ekvivalent med den som startet dette avsnittet i øvingen. Den er derimot mye enklere å lese, og *veldig* mye enklere å utvide til å inkludere flere operasjoner. -->
+<!-- La oss se på enda en funksjon som vil være svært nyttig for oss senere. Vi kan bruke `mutate()` til å *lage nye kolonner*. La oss for eksempel si at vi vil lagre kvadratet av `aggression_level` eller summen av `aggression_level` og `id` som egne kolonner (som selvsagt er helt meningsløst i dette tilfellet, kun et eksempel). Det kan vi gjøre slik: -->
+<!-- ```{r, eval = FALSE} -->
+<!-- violence %>%  -->
+<!--   mutate(ny1 = aggression_level^2)  -->
+<!-- ``` -->
+<!-- eller -->
+<!-- ```{r, eval = FALSE} -->
+<!-- violence %>%  -->
+<!--   mutate(ny2 = id + aggression_level) -->
+<!-- ``` -->
+<!-- Her er `ny1` og `ny2` navn på de nye kolonnene, som vi kan velge selv. -->
+<!-- **Oppgave:** Gjenta **Oppgave 3.2**, men ved å bruke teknikkene i dette avsnittet. -->
+<!-- #### Interaktiv øving i `dplyr` {-} -->
+<!-- Hvis du ønsker å trene mer på dette så finnes det en interaktiv modul i `swirl` som omhandler datamanipulasjon ved hjelp av `dplyr`. Hvis du ikke har gjort det alledede, skriv `install.packages("swirl")` i konsoll. Start du opp `swirl` med å skrive følgende: -->
+<!-- ```{r, eval = F} -->
+<!-- library(swirl) -->
+<!-- install_course("Getting_and_Cleaning_Data ") # legger til nytt kursmateriale -->
+<!-- swirl() -->
+<!-- ``` -->
+<!-- Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du først velge alternativet 'Getting and Cleaning Data'. Du får så se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul 1 **'Manipulating Data with dplyr'**.  -->
 </div>
 </div>
 </div>

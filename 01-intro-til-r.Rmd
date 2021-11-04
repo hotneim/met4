@@ -131,7 +131,7 @@ median(vector1)
 ```
 </details>
 
-## Pakker
+## Pakker {#pakker}
 
 <iframe src="https://player.vimeo.com/video/638313337?h=b60490cd1e" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
@@ -266,7 +266,7 @@ test_result$statistic
 ```
 </details>
 
-## Plotting
+## Plotting {#r-plotting}
 
 <iframe src="https://player.vimeo.com/video/638313396?h=4832e32309" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
@@ -329,7 +329,7 @@ Når vi åpner RStudio ved å dobbeltklikke på skriptfilen, så blir arbeidssti
 
 </details>
 
-## Pipe-operatoren `%>%` og enkel datavask
+## Pipe-operatoren `%>%` og enkel datavask {#pipe}
 
 <iframe src="https://player.vimeo.com/video/638313442?h=01dfc85626" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
