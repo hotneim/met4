@@ -87,6 +87,7 @@ oppgaver-3
 oppgaver-om-logistisk-regresjon
 oppgaver-om-knn
 oppgaver-om-paneldata
+relevante-r-avansert-regresjon
 tidsrekker
 intro
 kontrollspørsmål-3
@@ -112,6 +113,7 @@ kontrollspørsmåldiskusjonsspørsmål-2
 r-øving-5
 modellbygging-1
 r-øving-6
+relevante-r-tidsrekker
 dataøvinger
 dataøving-1
 innledning-1

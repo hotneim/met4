@@ -547,3 +547,126 @@ Dersom vi hadde fått forkastning ville det vært lurt å bruke modellen med fas
 
 Prøv deg på Oppgave 2 i den individuelle hjemmeeksamen H2020 som du finner i kapittel \@ref(skoleeksamen). Det er spesielt oppgave e) og f) som er relatert til paneldata, men vi bemerker at oppgave f) var "nøtten" i det oppgavesettet.
 
+## Relevante R-kommandoer {#relevante-r-avansert-regresjon}
+
+Under følger en liste over hvilke oppgaver du skal klare i R fra denne modulen. Vår policy fra og med **vårsemesteret 2022** er at R-kommandoene under er *tilstrekkelige* for å løse oppgavene i datalabber og hjemmeeksamen i MET4. Det er med andre ord ikke nødvendig å lære seg teknikker utover det som er listet opp eksplisitt i listen under. Eventuelle nye teknikker som trengs for å løse en bestemt oppgave vil bli oppgitt og forklart dersom det er nødvendig. Det antas i tillegg at du kan den grunnleggende R-syntaksen som er dekket under [Introduksjon til R].
+
+### Antakelser om datasett {-}
+
+Du kan gjøre de samme antakelsene om datasettet som i [den tilsvarende oversikten i modulen om hypotesetesting](#relevant-r-testing): Datasettene er inneholdt i Excel-filer (`.xls` eller `xslx`) eller `.csv`-filer, som kolonner av variabler, med variabelnavn i første rad.
+
+### Tilpasse en logistisk regresjonsmodell {-}
+
+Dersom vi ønsker å foklare variasjon i en *binær* variabel ved hjelp av en eller flere forklaringsvariabler. Vi kan bruke det samme datasettet som tilvarende seksjon i forrige modul: [data-reg.xsls](datasett/data-reg.xlsx). I dette datasettet har vi en binær variabel i `x3`, samt to kontinuerlige variabler `x1` og `x2`.
+
+Du må kunne lese inn datasettet, estimere en logistisk regresjonsmodell, og skrive ut resultatet på følgende måte:
+
+```{r, eval = FALSE}
+df <- readxl::read_excel("datasett/data-reg.xlsx")
+
+model1 <- glm(x3 ~ x1 + x2, data = df,
+              family = "binomial")
+summary(model1)
+```
+
+Dersom du skal bruke logistisk regresjon til å predikere verdien av den binære responsvariabelen for nye "individer" må du først være i stand til å dele opp datasettet i et testsett og et treningssett. Det holder å kunne gjøre en enkel splitt basert på rekkenummer. Her utgjør treningsdatasettet de første 70 observasjonene og testdatasettet resten:
+
+```{r, eval = FALSE}
+treningssett     <- df[1:70, ]
+testsett         <- df[71:nrow(df), ]
+```
+
+Du vil da estimere modellen ved å bruke treningsdatasettet, og du kan teste prediksjonsevnen ved å predikere utfallet i observasjonene i testdatasettet ved p bruke `predict()`:
+
+```{r, eval = FALSE}
+predikert <- predict(model1, newdata = testsett, type = "response")
+```
+
+Resultatet blir en data frame med predikerte sannsynligheter for at verdien av `x3` for den aktuelle observasjonen er lik 1. Du kan oversette sannsynlighetene til 0 eller 1 ved å velge en terskelverdi. Vi kan for eksempel velge at vi predikerer at `x3` tar verdien 1 dersom den predikerte sannsynligheten for 1 er større enn 0.5 på følgende måte:
+
+```{r, eval = FALSE}
+sann              <- df$x3                           # Den sanne verdien i testdataene
+pred_test         <- predict(model1, 
+                             newdata = testsett, 
+                             type = "response")      # Predikert sannsynlighet
+klassifisering    <- ifelse(pred_test > 0.5, 1, 0)   # Klassifisering av kundene
+table(sann, klassifisering)                          # Kontigenstabell
+```
+
+Et par ekstra bemerkninger:
+- Du kan predikere responsvariabel for nye kombinasjoner av forklaringsvariablene ved å lage en data frame som du sender inn i `newdata`-argumentet til `predict()`-funksjonen på akkurat samme måte som for [vanlig regresjon](#relevante-r-regresjon). 
+
+### Trene en kNN-modell {-}
+
+Logistisk regresjon kan brukes både til statistisk inferens (vi bruker modellen til å forstå sammenhenger mellom respons- og forklaringsvariablene) og til prediksjon. Dersom vi først og fremst er interessert i prediksjon kan vi også bruke kNN, som kan gi bedre resultater. 
+
+Vi antar at vi har med oss datasettet og oppsplittingen i treningssett og testsett fra seksjonen over. Du må kunne trene en kNN-modell, evaluere den på testsettet, og predikere status på nye individer.
+
+```{r, eval = FALSE}
+# Pass på at caret-pakken er installert
+library(caret)    
+
+# Hvis vi vil sette k selv
+model2 <- train(x3 ~ x1 + x2,
+                data = treningssett,
+                method = "knn",
+                tuneGrid = data.frame(k = 50))
+
+
+# R-kode dersom vi vil velge k automatisk med kryssvalidering
+trControl <- trainControl(method  = "cv", # 5-fold kryssvalidering
+                          number  = 5)
+
+# Tilpasser modellen
+model3 <- train(x3 ~ x1 + x2,
+                data = treningssett,
+                method = "knn",
+                trControl  = trControl,
+                metric     = "Accuracy")
+
+# Hvilken k valgte kryssvalideringen?
+k <- model3$finalModel$k
+k
+```
+
+`predict()`-funksjonen fungerer på samme måte som for lineær og logistisk regresjon.
+
+### Paneldata {-}
+
+Skriptfilen som følger denne modulen gir et greit sammendrag for hvilke R-kommandoer som er relevanter for å estimere paneldatamodeller. Datasettet som brukes her er [panel_liten.csv](datasett/panel_liten.csv).
+
+```{r, eval = FALSE}
+library(readr)    # Lese inn csv-filer
+library(plm)      # Paneldata
+
+# Innlesning av data: OBS! Linken i videoen fungerer ikke så du må laste ned
+# panel_liten.csv fra modulen selv og så lese inn på vanlig måte:
+df <- read_csv("panel_liten.csv")
+
+
+# Oversetter til panel data frame med metadata for kolonner som skal brukes som
+# faste effekter.
+p.df <- pdata.frame(df,
+                    index = c("id" ,"year"))
+
+
+# Faste effekter med utskrift av sammendrag
+reg.fe <- plm(lnwg ~ lnhr,
+              data = p.df,
+              model = "within")
+summary(reg.fe)
+fixef(reg.fe)
+
+# Tilfeldige effekter med utskrift av sammendrag
+reg.re <- plm(lnwg ~ lnhr,
+              data = p.df,
+              model = "random")
+summary(reg.re)
+
+
+# Hausmann-test
+phtest(reg.fe, reg.re)
+
+```
+
+

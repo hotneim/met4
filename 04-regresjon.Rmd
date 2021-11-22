@@ -889,7 +889,7 @@ Under følger en liste over hvilke oppgaver du skal klare i R fra denne modulen.
 
 ### Antakelser om datasett {-}
 
-Di kan gjøre de samme antakelsene om datasettet som i [den tilsvarende oversikten i forrige modul](#relevant-r-testing): Datasettene er inneholdt i Excel-filer (`.xls` eller `xslx`) eller `.csv`-filer, som kolonner av variabler, med variabelnavn i første rad.
+Du kan gjøre de samme antakelsene om datasettet som i [den tilsvarende oversikten i forrige modul](#relevant-r-testing): Datasettene er inneholdt i Excel-filer (`.xls` eller `xslx`) eller `.csv`-filer, som kolonner av variabler, med variabelnavn i første rad.
 
 ### Tilpasse en lineær regresjonsmodell {-}
 

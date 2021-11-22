@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="arma-arima.html"/>
-<link rel="next" href="dataøvinger.html"/>
+<link rel="next" href="relevante-r-tidsrekker.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -181,6 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
 <li class="chapter" data-level="5.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>5.4</b> Oppgaver</a></li>
+<li class="chapter" data-level="5.5" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>5.5</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
 <ul>
@@ -192,6 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>6.6</b> MA(q)</a></li>
 <li class="chapter" data-level="6.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>6.7</b> ARMA og ARIMA</a></li>
 <li class="chapter" data-level="6.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>6.8</b> Modellbygging</a></li>
+<li class="chapter" data-level="6.9" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>6.9</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
 <ul>
@@ -238,22 +240,22 @@ Publisert ved hjelp av bookdown</a></li>
 <h3><span class="header-section-number">6.8.1</span> R-øving</h3>
 <p><strong>1. Data</strong>
 Vi skal i denne øvingen prøve å finne en god modell for dax-indeksen:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="modellbygging-1.html#cb196-1"></a><span class="kw">library</span>(forecast)</span>
-<span id="cb196-2"><a href="modellbygging-1.html#cb196-2"></a>dax &lt;-<span class="st"> </span>EuStockMarkets[ ,<span class="dv">1</span>]</span>
-<span id="cb196-3"><a href="modellbygging-1.html#cb196-3"></a><span class="kw">plot</span>(dax)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="modellbygging-1.html#cb201-1"></a><span class="kw">library</span>(forecast)</span>
+<span id="cb201-2"><a href="modellbygging-1.html#cb201-2"></a>dax &lt;-<span class="st"> </span>EuStockMarkets[ ,<span class="dv">1</span>]</span>
+<span id="cb201-3"><a href="modellbygging-1.html#cb201-3"></a><span class="kw">plot</span>(dax)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
 <p><strong>2. Trening og test data</strong>
 Vi ønsker f.eks å teste hvor god modellen er til å predikere de 10 siste observasjonene i datasettet. Vi deler derfor dataene inn i et treningssett bestående av alle observasjoner utenom disse 10 siste observasjonene, og et testsett bestående av de 10 siste observasjonene:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="modellbygging-1.html#cb197-1"></a>trening &lt;-<span class="st"> </span><span class="kw">head</span>(dax, <span class="kw">length</span>(dax) <span class="op">-</span><span class="st"> </span><span class="dv">10</span>)</span>
-<span id="cb197-2"><a href="modellbygging-1.html#cb197-2"></a>test &lt;-<span class="st"> </span><span class="kw">tail</span>(dax, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="modellbygging-1.html#cb202-1"></a>trening &lt;-<span class="st"> </span><span class="kw">head</span>(dax, <span class="kw">length</span>(dax) <span class="op">-</span><span class="st"> </span><span class="dv">10</span>)</span>
+<span id="cb202-2"><a href="modellbygging-1.html#cb202-2"></a>test &lt;-<span class="st"> </span><span class="kw">tail</span>(dax, <span class="dv">10</span>)</span></code></pre></div>
 <p><strong>3. Estimering og prediksjon</strong>
 Vi tilpasser så en modell til treningssettet ved bruk av eksponensiell glatting og predikerer 10 tidssteg frem for å få prediksjoner av testsettet:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="modellbygging-1.html#cb198-1"></a>fit_exp &lt;-<span class="st"> </span><span class="kw">HoltWinters</span>(trening)</span>
-<span id="cb198-2"><a href="modellbygging-1.html#cb198-2"></a>pred_exp &lt;-<span class="st"> </span><span class="kw">forecast</span>(fit_exp, <span class="dt">h =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="modellbygging-1.html#cb203-1"></a>fit_exp &lt;-<span class="st"> </span><span class="kw">HoltWinters</span>(trening)</span>
+<span id="cb203-2"><a href="modellbygging-1.html#cb203-2"></a>pred_exp &lt;-<span class="st"> </span><span class="kw">forecast</span>(fit_exp, <span class="dt">h =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p>Merk at når vi ikke spesifiserer noen argumenter i <code>HoltWinters</code> vil en mer avansert modell bli tilpasset, samtidig som glattingsparameteren faktisk vil bli estimert ved å minimerer MSE.</p>
 <p><strong>3. Out-of-sample vurdering</strong></p>
 <p>Vi kan så sammenligne disse prediksjonene <code>pred_exp</code> med de faktiske observasjonene <code>test</code> ved å “måle” hvor langt disse er fra hverandre. Funksjonen <code>accuracy</code> som kommer med <code>forecast</code> pakken regner ut flere forskjellig mål på avstand:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="modellbygging-1.html#cb199-1"></a><span class="kw">accuracy</span>(pred_exp, test)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="modellbygging-1.html#cb204-1"></a><span class="kw">accuracy</span>(pred_exp, test)</span></code></pre></div>
 <pre><code>##                       ME      RMSE       MAE         MPE      MAPE       MASE
 ## Training set    1.251117  35.82454  23.42652  0.03438446 0.8276219 0.04295353
 ## Test set     -317.477645 350.63504 317.47765 -5.82900543 5.8290054 0.58210884
@@ -261,17 +263,15 @@ Vi tilpasser så en modell til treningssettet ved bruk av eksponensiell glatting
 ## Training set 0.07394258        NA
 ## Test set     0.62441059  3.510695</code></pre>
 <p>Hver kolonne i utskriften over representerer et slikt mål, og det er rad nummer to med navn “Test set” som vi er interessert i siden det er utregningen av disse målene mellom prediksjonene og testsettet (Den første raden representerer in-sample egenskapene). Jo mindre disse verdiene er jo mindre er avstanden mellom prediksjonene og de sanne verdiene i vårt testsett.</p>
-
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="arma-arima.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dataøvinger.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="relevante-r-tidsrekker.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
