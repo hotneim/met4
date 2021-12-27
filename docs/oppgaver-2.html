@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2021</title>
+  <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2021" />
+  
+  <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  
+
+<meta name="author" content="Håkon Otneim og Geir Drage Berentsen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="modellbygging.html"/>
+<link rel="next" href="relevante-r-regresjon.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.nhh.no/"><img src="bilder/nhh.png" width="240"></a>
+<li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
+<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
+<li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
+<li class="chapter" data-level="1.4" data-path="pakker.html"><a href="pakker.html"><i class="fa fa-check"></i><b>1.4</b> Pakker</a></li>
+<li class="chapter" data-level="1.5" data-path="mappesti.html"><a href="mappesti.html"><i class="fa fa-check"></i><b>1.5</b> Mappesti</a></li>
+<li class="chapter" data-level="1.6" data-path="innlesing-av-data.html"><a href="innlesing-av-data.html"><i class="fa fa-check"></i><b>1.6</b> Innlesing av data</a></li>
+<li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
+<li class="chapter" data-level="1.8" data-path="r-plotting.html"><a href="r-plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
+<li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
+<li class="chapter" data-level="1.10" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
+<li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
+<li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
+<li class="chapter" data-level="2.4" data-path="relevant-r-grunnleggende.html"><a href="relevant-r-grunnleggende.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
+<li class="chapter" data-level="3.2" data-path="enpop.html"><a href="enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
+<li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
+<li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
+<li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
+<li class="chapter" data-level="3.6" data-path="relevante-r-testing.html"><a href="relevante-r-testing.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
+<li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
+<li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
+<li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
+<li class="chapter" data-level="4.5" data-path="relevante-r-regresjon.html"><a href="relevante-r-regresjon.html"><i class="fa fa-check"></i><b>4.5</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
+<li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
+<li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
+<li class="chapter" data-level="5.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>5.4</b> Oppgaver</a></li>
+<li class="chapter" data-level="5.5" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>5.5</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>6.1</b> Introduksjon til tidsrekker</a></li>
+<li class="chapter" data-level="6.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>6.2</b> Trend og sesong</a></li>
+<li class="chapter" data-level="6.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>6.3</b> AR(p)</a></li>
+<li class="chapter" data-level="6.4" data-path="stasjonaritet.html"><a href="stasjonaritet.html"><i class="fa fa-check"></i><b>6.4</b> Stasjonaritet</a></li>
+<li class="chapter" data-level="6.5" data-path="autokorrelasjon.html"><a href="autokorrelasjon.html"><i class="fa fa-check"></i><b>6.5</b> Autokorrelasjon</a></li>
+<li class="chapter" data-level="6.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>6.6</b> MA(q)</a></li>
+<li class="chapter" data-level="6.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>6.7</b> ARMA og ARIMA</a></li>
+<li class="chapter" data-level="6.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>6.8</b> Modellbygging</a></li>
+<li class="chapter" data-level="6.9" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>6.9</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
+<li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
+<li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
+<li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li class="chapter" data-level="8.3" data-path="spørsmål-og-svar.html"><a href="spørsmål-og-svar.html"><i class="fa fa-check"></i><b>8.3</b> Spørsmål og svar</a></li>
+<li class="chapter" data-level="8.4" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8.4</b> Oppgaver til seminarer</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
+<li><a href="https://www.nhh.no/en/employees/faculty/geir-drage-berentsen/">Geir Drage Berentsen</a></li>
+<li><a href="https://github.com/rstudio/bookdown">
+Publisert ved hjelp av bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2021</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="oppgaver-2" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Oppgaver</h2>
+<div id="regresjon-med-en-forklaringsvariabel" class="section level3" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Regresjon med en forklaringsvariabel</h3>
+<div id="oppgave-1" class="section level4 unnumbered">
+<h4>Oppgave 1</h4>
+Forskere har brukt statistikk til å undersøke om TV-titting er forbundet med overvekt. De har samlet inn data fra 15 10-åringer om antall timer TV-titting per uke og antall kilo overvekt hos barnet (rapportert som differanse fra normalvekt). De innsamlede dataene er oppsummert i tabellen:
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+TV_titting
+</th>
+<th style="text-align:center;">
+Overvekt
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+42
+</td>
+<td style="text-align:center;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+35
+</td>
+<td style="text-align:center;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+-1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+37
+</td>
+<td style="text-align:center;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+32
+</td>
+<td style="text-align:center;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+33
+</td>
+<td style="text-align:center;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+-7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+28
+</td>
+<td style="text-align:center;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+36
+</td>
+<td style="text-align:center;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+29
+</td>
+<td style="text-align:center;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+34
+</td>
+<td style="text-align:center;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+-5
+</td>
+</tr>
+</tbody>
+</table>
+<ol style="list-style-type: lower-alpha">
+<li><p>Bruk R til å lage et spredningsplott av resultatene. Hva tror du om forholdet mellom de to variablene utfra figuren?</p></li>
+<li><p>Sett opp regresjonsuttrykket for å undersøke om overvekt er forbundet med TV-titting. La overvekt være responsvariabelen. Hva er betydningen av hver parameter i uttrykket?</p></li>
+<li><p>Bruk R til å estimere parameterne. Hva kan koeffisientene fortelle deg om forholdet mellom overvekt og TV-titting?</p></li>
+<li><p>Beregn et 95 % konfidensintervall for <span class="math inline">\(\beta_1\)</span>. Hint: Bruk ‘summary()’ på regresjonsmodellen for å finne <span class="math inline">\(S(\hat{\beta}_1)\)</span> som da gitt i kolonnen “Std. Error”.</p></li>
+<li><p>Bruk R til å beregne et 95 % prediksjonsintervall for overvekt i kilo for et barn som ser på TV 30 timer i uken. Hva forteller intervallet deg?</p></li>
+<li><p>Bruk R til å beregne et 95 % konfidensintervall for gjennomsnittlig overvekt for barn som ser 30 timer på TV i uken. Hvordan er tolkningen av dette intervallet forskjellig fra det i oppgave d?</p></li>
+<li><p>Hva er forventet overvekt for barn som ser 0 timer på TV i uken utfra modellen? Hva kan være problematisk ved å gjøre denne type analyser av en regresjonsmodell?</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<div>
+<ol style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="oppgaver-2.html#cb83-1" aria-hidden="true" tabindex="-1"></a>df_tv <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb83-2"><a href="oppgaver-2.html#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">42</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">34</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">32</span>, <span class="dv">33</span>, <span class="dv">18</span>, <span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">34</span>, <span class="dv">18</span>),</span>
+<span id="cb83-3"><a href="oppgaver-2.html#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Overvekt =</span> <span class="fu">c</span>(<span class="dv">17</span>,  <span class="dv">5</span>, <span class="sc">-</span><span class="dv">1</span>,  <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">15</span>,  <span class="dv">5</span>,  <span class="dv">7</span>, <span class="sc">-</span><span class="dv">7</span>,  <span class="dv">7</span>,  <span class="dv">6</span>,  <span class="dv">7</span>,  <span class="dv">4</span>, <span class="dv">15</span>, <span class="sc">-</span><span class="dv">5</span>))</span>
+<span id="cb83-4"><a href="oppgaver-2.html#cb83-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb83-5"><a href="oppgaver-2.html#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df_tv<span class="sc">$</span>TV_titting, df_tv<span class="sc">$</span>Overvekt, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;TV-titting&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Overvekt&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<blockquote>
+<p>Plottet viser en ganske tydelig trend om at TV-titting og overvekt er relaterte. Dette kan vi undersøke nærmere.</p>
+</blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<blockquote>
+<p>Vi setter overvekt som responsvariabel og TV-titting som forklaringsvariabel. Uttrykket blir da:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{equation}
+  \text{Overvekt} = \beta_0 + \beta_1 \text{TV-titting} + \epsilon
+\end{equation}\]</span></p>
+</blockquote>
+<blockquote>
+<ul>
+<li><p>Ser vi bort fra dataene ville <span class="math inline">\(\beta_0\)</span> være forventet overvekt for personer som ikke ser på tv. Av spredningsplottet ser det derimot ut som at vi ikke har data ved 0 TV-titting og det er derfor ikke fornuftig med en direkte tolkning av denne parameteren.</p></li>
+<li><p>Under antagelsen om at regresjonsmodellen er gyldig forteller <span class="math inline">\(\beta_1\)</span> hvor mye vi forventer at overvekten øker dersom man øker TV-tittingen med 1 time.</p></li>
+</ul>
+</blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<blockquote>
+<p>Vi estimerer en regresjonsmodell fra dataene og skriver ut tabellen med resultatene:</p>
+</blockquote>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="oppgaver-2.html#cb84-1" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Overvekt <span class="sc">~</span> TV_titting, df_tv)</span>
+<span id="cb84-2"><a href="oppgaver-2.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = Overvekt ~ TV_titting, data = df_tv)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.1917 -2.6147  0.2795  2.6785  6.8083 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -22.2124     5.1359  -4.325 0.000824 ***
+## TV_titting    0.8942     0.1602   5.583 8.88e-05 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.026 on 13 degrees of freedom
+## Multiple R-squared:  0.7057, Adjusted R-squared:  0.683 
+## F-statistic: 31.17 on 1 and 13 DF,  p-value: 8.88e-05</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="oppgaver-2.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For en finere utskrift kan du bruke følgende:</span></span>
+<span id="cb86-2"><a href="oppgaver-2.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(stargazer)</span></span>
+<span id="cb86-3"><a href="oppgaver-2.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="co"># stargazer(reg, type=&quot;text&quot;)</span></span></code></pre></div>
+<blockquote>
+<p>Det er tydelig sigifikans for at hver av parameterne er ulik null. For <span class="math inline">\(\beta_1\)</span> betyr dette at trenden vi observerte i spredningplottet var signifikant. Videre kan vi tolke det positive fortegnet til <span class="math inline">\(\beta_1\)</span> som at flere timer TV-titting er relatert med økt overvekt.</p>
+</blockquote>
+<blockquote>
+<p>Merk at vi <em>ikke</em> kan si utfra dataene at mer TV-titting <em>fører til</em> overvekt. En mer riktig tolkning er å si at de forekommer samtidig i populasjonen. (Dersom vi ønsket å finne ut av kausaliteten måtte man på et tilfeldig utvalg av barn satt noen til å se mye på TV og noen til å se mindre på TV, og deretter undersøkt om dette resulterte i statistisk signifikant høyere overvekt hos en av gruppene. Dette krysser imidlertid noen etiske grenser om å påføre barn overvekt, dersom hypotesen er sann.)</p>
+</blockquote>
+<blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p>Fra R utskriften ser vi at <span class="math inline">\(S(\hat{\beta}_1)=0.1602\)</span>. Videre er <span class="math inline">\(t_{0.025, 13} = 2.16\)</span>. Et 95 % konfidensintervall for <span class="math inline">\(\beta_1\)</span> er da gitt ved:</p>
+</blockquote>
+<p><span class="math display">\[\left[\hat{\beta}_1 - t_{\alpha/2, n - 2}S(\hat{\beta}_1),  \hat{\beta}_1 + t_{\alpha/2, n - 2}S(\hat{\beta}_1)\right]\\
+=\left[0.8942 - 2.16\times0.1602,  0.8942 + 2.16\times0.1602\right]\\
+=\left[0.5481, 1.2402\right]\]</span>
+e)</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="oppgaver-2.html#cb87-1" aria-hidden="true" tabindex="-1"></a>reg.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
+<span id="cb87-2"><a href="oppgaver-2.html#cb87-2" aria-hidden="true" tabindex="-1"></a>reg.pred</span></code></pre></div>
+<pre><code>##        fit       lwr      upr
+## 1 4.614735 -4.380262 13.60973</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="oppgaver-2.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stargazer(reg.pred, type=&quot;text&quot;)</span></span></code></pre></div>
+<blockquote>
+<p>Dersom vi trekker et nytt barn som ser 30 timer på TV per uke, vil barnet i 95 % av tilfellene være innenfor prediksjonsintervallet dersom vi hadde gjentatt dette mange ganger.</p>
+</blockquote>
+<ol start="6" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="oppgaver-2.html#cb90-1" aria-hidden="true" tabindex="-1"></a>reg.conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span>
+<span id="cb90-2"><a href="oppgaver-2.html#cb90-2" aria-hidden="true" tabindex="-1"></a>reg.conf</span></code></pre></div>
+<pre><code>##        fit      lwr      upr
+## 1 4.614735 2.317582 6.911888</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="oppgaver-2.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co">#evt </span></span>
+<span id="cb92-2"><a href="oppgaver-2.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(stargazer)</span></span>
+<span id="cb92-3"><a href="oppgaver-2.html#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co"># stargazer(reg.conf, type=&quot;text&quot;)</span></span></code></pre></div>
+<blockquote>
+<p>Konfidensintervallet viser hvor <em>gjennomsnittet</em> av målinger på <em>et nytt sett</em> med barn som ser 30 timer på TV per uke vil ligge i 95 % av nye eksperimenter.</p>
+</blockquote>
+<ol start="7" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="oppgaver-2.html#cb93-1" aria-hidden="true" tabindex="-1"></a>reg.zero <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">0</span>)), <span class="at">interval =</span> <span class="st">&quot;prediction&quot;</span>)</span>
+<span id="cb93-2"><a href="oppgaver-2.html#cb93-2" aria-hidden="true" tabindex="-1"></a>reg.zero</span></code></pre></div>
+<pre><code>##         fit       lwr      upr
+## 1 -22.21237 -36.30997 -8.11477</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="oppgaver-2.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># evt</span></span>
+<span id="cb95-2"><a href="oppgaver-2.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(stargazer) </span></span>
+<span id="cb95-3"><a href="oppgaver-2.html#cb95-3" aria-hidden="true" tabindex="-1"></a><span class="co"># stargazer(reg.zero, type=&quot;text&quot;)</span></span></code></pre></div>
+<blockquote>
+<p>Beste gjetning er at barn som ser 0 timer på TV i uken er 22.2 kg under normalvekt (!). Et kjapt søk viser at barn på 10 år veier mellom 25.5 og 39 kg. Det høres urimelig ut at veldig lite TV-titting har sammenheng med ekstrem underernæring blant den samme populasjonen av barn som ser rundt 30 timer på TV i uken.</p>
+<p>Det er flere ting som kan gå galt når man gjør en slik analyse av en modell:</p>
+<ul>
+<li><p>Modellen kan være gal. Vi antar et lineær forhold mellom TV-titting og overvekt, noe som ikke trenger å være riktig ved 0 timer TV-titting.</p></li>
+<li><p>Datasettet dekker ikke den gruppen barn som ser 0 timer på TV, så med mindre modellen er helt riktig (noe den sjelden er) vil den ikke kunne generalisere så langt utenfor området vi estimerte parameterne på.</p></li>
+<li><p>Med mindre forholdet mellom TV-titting og overvekt er kausalt, kan det være at sammenhengen som er observert mellom dem i dataene ikke vil være det samme langt utenfor det aktuelle data-området.</p></li>
+</ul>
+</blockquote>
+</div>
+</details>
+</div>
+<div id="oppgave-2" class="section level4 unnumbered">
+<h4>Oppgave 2</h4>
+<p>Vi skal undersøke om alder har sammenheng med hvor lang tid man bruker på et puslespill. Vi har data fra et tilfeldig utvalg av 210 voksne personer om alder og tid brukt på oppgaven. Uttrykk alder som <span class="math inline">\(X\)</span> og tid i minutter som <span class="math inline">\(Y\)</span>. Følgende deskriptive statistikker er beregnet for datasettet: <span class="math inline">\(s_{xy}^2= 8, s_x^2, = 110, s_y^2 = 42, \bar{x} = 40, \bar{y} = 20\)</span> hvor <span class="math inline">\(\bar{x},\bar{y}\)</span> er gjennomsnittene.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Sett opp regresjonsuttrykket for sammenhengen mellom <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> og støy <span class="math inline">\(\epsilon\)</span>. Hva er antagelsen for sammenhengen mellom X og <span class="math inline">\(\epsilon\)</span>?</p></li>
+<li><p>Hva er uttrykket for beste gjetning/prediksjon <span class="math inline">\(\hat{Y}_i\)</span> gitt en verdi av forklaringsvariabelen <span class="math inline">\(X_i\)</span> for regresjonsmodellen du har satt opp? Hva er uttrykket for residualene?</p></li>
+<li><p>Vis at hva uttrykket for regresjonsparameterne blir når de estimeres med minste kvadraters metode. Regn ut minste kvadraters estimat av parameterne.</p></li>
+</ol>
+<!-- d. Gi en tolkning av koeffisientene.
+
+e. Er det nok evidens til at vi kan hevde at det er en sammenheng mellom alder og tid? Bruk 95 % signifikansnivå. 
+
+f. Estimer et 90 % konfidensintervall av gjennomsnittlig tid brukt på oppgaven for en 50-åring. -->
+<details>
+<summary>
+Løsning
+</summary>
+<div>
+<ol style="list-style-type: lower-alpha">
+<li>Regresjonsuttrykket er
+<span class="math display">\[\begin{equation}
+Y = \beta_0 + \beta_1 X + \epsilon
+\end{equation}\]</span></li>
+</ol>
+<p>Vi antar at forklaringsvariabelen <span class="math inline">\(X\)</span> er uavhenging støyen <span class="math inline">\(\epsilon\)</span>. Dermed vil også kovariansen være null,
+<span class="math display">\[\begin{equation}
+  \text{Cov}(X, \epsilon) = 0.
+\end{equation}\]</span></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p>Beste gjetning er forvetningen betinget på utfallet av forklaringsvariabelen <span class="math inline">\(X\)</span>:
+<span class="math display">\[\begin{align}
+  \hat{Y}_i &amp;= E[Y|X = X_i] = E[\beta_0 + \beta_1 X + \epsilon|X = X_i] \\
+  &amp;= \beta_0 + \beta_1 X_i + E[\epsilon|X = X_i] \\
+  &amp;= \beta_0 + \beta_1 X_i + E[\epsilon] \\
+  &amp;= \beta_0 + \beta_1 X_i
+\end{align}\]</span></p>
+<p>Residualene er forskjellen mellom data og prediksjon</p>
+<p><span class="math display">\[\begin{equation}
+  r_i = \hat{Y}_i - Y_i
+\end{equation}\]</span></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<p>Minste kvadraters metode minimerer summen av residualene kvadrert, så
+<span class="math display">\[\begin{align}
+  SSE &amp;= \sum_{i} r_i^2 \\
+  &amp;= \sum_{i} (\beta_0 + \beta_1 X_i - Y_i)^2.
+\end{align}\]</span></p>
+<p>Minimér ved å sette den deriverte for hver parameter til null:
+<span class="math display">\[\begin{align}
+  \frac{dSSE}{d\beta_0} &amp;= \sum_{i} 2 (\beta_0 + \beta_1 X_i - Y_i) \overset{!}{=} 0 \\
+  \implies \quad \beta_0 &amp;+ \beta_1 \frac{\sum_{i} X_i}{N} = \frac{\sum_{i} Y_i}{N} \\
+  \implies \quad \beta_0 &amp;= \frac{\sum_{i} Y_i}{N} -  \beta_1 \frac{\sum_{i} X_i}{N},
+\end{align}\]</span>
+og
+<span class="math display">\[\begin{align}
+  \frac{dSSE}{d\beta_1} &amp;= \sum_{i} 2 (\beta_0 + \beta_1 X_i - Y_i)X_i \\
+  &amp;= 2 \beta_0 \sum_{i} X_i + 2 \beta_1 \sum_{i} X_i^2 - 2\sum_{i} X_i Y_i \overset{!}{=} 0 \\
+  &amp;\implies \quad \beta_0 \frac{\sum_{i} X_i}{N}  + \frac{\sum_{i} X_i^2}{N}  = \frac{\sum_{i} X_i Y_i}{N} .
+\end{align}\]</span></p>
+<p>Satt inn for <span class="math inline">\(\beta_0\)</span> blir det</p>
+<p><span class="math display">\[\begin{align}
+  \left ( \frac{\sum_{i} Y_i}{N} -  \beta_1 \frac{\sum_{i} X_i}{N} \right ) \frac{\sum_{i} X_i}{N}  + \beta_1\frac{\sum_{i} X_i^2}{N}  &amp;= \frac{\sum_{i} X_i Y_i}{N} \\
+  \beta_1 \left ( \frac{\sum_{i} X_i^2}{N} -  \left ( \frac{\sum_{i} X_i}{N} \right )^2 \right ) &amp;= \frac{\sum_{i} X_i Y_i}{N} - \frac{\sum_{i} X_i}{N}\frac{\sum_{i} Y_i}{N} \\
+  \beta_1 S_X^2 &amp;= S_{XY}.
+\end{align}\]</span></p>
+<p>Da blir</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="oppgaver-2.html#cb96-1" aria-hidden="true" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">/</span> <span class="dv">110</span></span>
+<span id="cb96-2"><a href="oppgaver-2.html#cb96-2" aria-hidden="true" tabindex="-1"></a>beta_1</span></code></pre></div>
+<pre><code>## [1] 0.07272727</code></pre>
+<p>og</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="oppgaver-2.html#cb98-1" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="sc">-</span> beta_1 <span class="sc">*</span> <span class="dv">40</span></span>
+<span id="cb98-2"><a href="oppgaver-2.html#cb98-2" aria-hidden="true" tabindex="-1"></a>beta_0</span></code></pre></div>
+<pre><code>## [1] 17.09091</code></pre>
+</div>
+</details>
+<!-- #### (Oppgave 1) {-}
+
+Begrepet regresjon ble for første gang brukt i 1885 av Sir Francis Galton i analysen av forholdet mellom høyden til barn og deres foreldre. Han formulerte da ‘loven om universell regresjon’, som sier at “each peculiarity in a man is shared by his kinsmen, but on average in a less degree”. Dette kan oversettes til noe slikt som at en ekstrem egenskap hos en person er felles hos slektningen, men vanligvis av mindre ekstrem grad. Tenk deg en uvanlig høy far. Sønnen hans vil som oftest være høy han også, men ikke like høy. På samme måte kan vi tenke oss en uvanlig høy sønn, hvor faren sannsynligvis også er høy, men nærmere gjennomsnittet enn sønnen. Dette er betydningen av «regression towards the mean». 
+I 1903 gjorde to statistikere, K. Pearson og A. Lee et tilfeldig utvalg av 1708 far-sønn par for å undersøke Galtons lov. Regresjonsuttrykket ble beregnet til å være følgende:
+
+$$(\text{Sønns høyde}) = 33.73 + 0.516 (\text{Fars høyde})$$
+(Pearson og Lee er briter, og har målt høyden i tommer.)
+
+a. Hva er betydningen av koeffisientene? 
+b. Hva forteller regresjonsuttrykket om høyden til sønner av høye fedre?
+c. Hva forteller regresjonsuttrykket om høyden til sønner av lave fedre?
+Husk: koeffisientene tilsvarer tallverdiene i regresjonsuttrykket.  
+
+<details>
+<summary>Løsning</summary>
+
+a. Helningskoeffisienten forteller oss at for hver ekstra tomme av far høyde vil sønnens høyde gjennomsnittlig øke med 0.516 tommer. Konstantleddet gir her ingen spesiell innsikt, ettersom vi aldri vil få konstantleddet «alene» (det eksisterer ingen fedre som måler 0 tommer). 
+
+b. Sønnen vil gjennomsnittlig være lavere enn sin far.
+
+c. Sønnen vil gjennomsnittlig være høyere enn sin far. 
+
+</details> -->
+</div>
+<div id="oppgave-3" class="section level4 unnumbered">
+<h4>Oppgave 3</h4>
+<p>Figurene nedenfor viser residualene (feilleddene) vi får ut fra et par ulike modeller. Ser plottene ut til å tilfredsstille kravene for enkel regresjon? Hvis ikke, hva ser ut til å være galt for hver av figurene? Hvordan kan man håndtere brudd på betingelsene i de ulike situasjonene?</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><img src="met4_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p></li>
+<li><p><img src="met4_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p></li>
+<li><p><img src="met4_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p></li>
+<li><p><img src="met4_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><p>Her ser støyleddet ganske normalfordelt ut. Det betyr at antagelsene er oppfylt.</p></li>
+<li><p>Støyen er symmetrisk om null, men kan se ut som den øker. Altså er det brudd på antagelsen om normalfordeling. Økningen ser ut til å være jevn, og en log-transformasjon kunne i dette tilfellet vært til hjelp.</p></li>
+<li><p>Her ser det ut som at vi har perioder med høy varians etterfulgt av perioder med lavere varians. Vi skal ikke se så mye nærmere på hvordan dette kan håndteres i MET4, men man kan komme over det i senere kurs.</p></li>
+<li><p>Her ser det ut som at støyen har en relasjon i tid, og at høye/lave verdier henger sammen med høye/laver verdier. Det er ikke åpenbart at det er dette som foregår, og vi burde undersøkt det nærmere. Senere i kurset skal vi håndtere dette ved bruk av tidsrekkemodeller.</p></li>
+</ol>
+<p>Merk at det ikke alltid er lett å se direkte fra figurene hva som er galt. Riktig bruk av statistiske tester og diagnoseplott kan hjelpe med å oppdage brudd på betingelsene. Figurene i denne oppgaven er generert ved simulering, vi kan derfor vite akkurat hva som er galt. For virkelige data vil kunne være vanskeligere å tolke fordi det ikke nødvendigvis er én ting som er galt om gangen. Man må også være på vakt for overtolkning av det som egentlig er tilfeldigheter.</p>
+</blockquote>
+</details>
+</div>
+</div>
+<div id="multippel-regresjon-og-modellbygging" class="section level3" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> Multippel regresjon og modellbygging</h3>
+<div id="oppgave-1-1" class="section level4 unnumbered">
+<h4>Oppgave 1</h4>
+<p>Denne oppgaven skal gi et forhold til hvordan teorien funker i praksis. Vi skal simulere data fra konstruerte modeller gjøre analyser på dem. Fordelen med å begynne her er at man får er forhold til hvordan statistikk kan og bør tolkes utfra teorien. Med virkelige data vil antagelsene som ligger til grunn for modellene stort sett være brutt, i større eller mindre grad, og kjernen i god statistisk analyse er å vite hva man kan og ikke kan gjøre likevel. God kjennskap til hvordan det burde funke i teorien er en viktig byggestein for statistisk forståelse.</p>
+<p>Vi generer opp data som skal brukes til å estimere en model. <code>rnorm</code> trekker tall fra en standard normalfordeling. <code>mutate()</code> legger til nye kolonner i dataframe-en basert på allerede eksisterende kolonner. <code>set.seed()</code> setter startpunktet for pseudotilfeldige tall, og om du setter samme seed får du de samme tilfeldige tallene som vi har brukt.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="oppgaver-2.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb100-2"><a href="oppgaver-2.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
+<span id="cb100-3"><a href="oppgaver-2.html#cb100-3" aria-hidden="true" tabindex="-1"></a>df_mdl <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb100-4"><a href="oppgaver-2.html#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb100-5"><a href="oppgaver-2.html#cb100-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x2 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb100-6"><a href="oppgaver-2.html#cb100-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">eps =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) </span>
+<span id="cb100-7"><a href="oppgaver-2.html#cb100-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb100-8"><a href="oppgaver-2.html#cb100-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">2</span> <span class="sc">*</span> x1 <span class="sc">+</span> (<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span> x2 <span class="sc">+</span> eps</span>
+<span id="cb100-9"><a href="oppgaver-2.html#cb100-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Hva er de eksakte parameterne i modellen som passer til dataene vi har generert, og hva er fordelingen til hver av forklaringsvariablene og støy-leddet? Er betingelsen om uavhengig feilledd oppfylt?</p></li>
+<li><p>Generér opp dataene selv og estimer parameterne basert på dataene. Tolk estimatene.</p></li>
+<li><p>Lag 95 % konfidens- og prediksjonsintervaller for en prediksjon hvor <span class="math inline">\(X_1=1, X_2=1\)</span> basert på estimatene dine.</p></li>
+<li><p>Hva er eksakt prediksjonsintervall basert på modellen vi har generert data fra? Ser dine prediksjonsintervaller rimelige ut utfra dette? Hvorfor er de ikke eksakt like?</p></li>
+<li><p>Stemmer konfidensintervallet overens med modellen? Tolk konfidensintervallet basert på at vi kan generere opp nye data (med et annet seed).</p></li>
+<li><p>Hva er P-verdien i F-test for at vi har en signifikant sammenheng mellom responsvariabelen og forklaringsvariablene?</p></li>
+</ol>
+<!-- f. Hvor få datapunkter måtte vi ha simulert opp før F-testen ikke kunne sagt at det er en sammenheng? -->
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><p>Fordelingen til forklaringsvariablene er <span class="math display">\[\begin{align}
+  X_1, X_2 \sim N(0, 2) 
+\end{align}\]</span>
+fordi vi har trukket dem fra en normalfordeling med forventning 0 og standardavvik 2. Videre er fordelingen til støyleddet en standard normalfordeling <span class="math inline">\(\epsilon\sim N(0,1)\)</span>. Betingelsen om uavhengig feilledd er oppfylt siden vi ikke har brukt feilleddet til å generere forklaringsvariablene. Det er responsvariabelen, men den skal altså være avhengig av støyleddet. Modellen tar formen
+<span class="math display">\[\begin{align}
+  Y = 2 X_1 - X_2 + \epsilon,\quad \epsilon \sim N(0, 1),
+\end{align}\]</span>
+hvor parameterne er eksakt fordi vi har laget dataene selv.</p></li>
+<li></li>
+</ol>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="oppgaver-2.html#cb101-1" aria-hidden="true" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df_mdl)</span>
+<span id="cb101-2"><a href="oppgaver-2.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                  y             
+## -----------------------------------------------
+## x1                           1.986***          
+##                               (0.053)          
+##                                                
+## x2                           -1.091***         
+##                               (0.048)          
+##                                                
+## Constant                      -0.055           
+##                               (0.096)          
+##                                                
+## -----------------------------------------------
+## Observations                    100            
+## R2                             0.958           
+## Adjusted R2                    0.957           
+## Residual Std. Error       0.956 (df = 97)      
+## F Statistic          1,094.997*** (df = 2; 97) 
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>Vi ser at estimatene av koeffisientene er signifikante, og at sanne verdier er innenfor konfidensintervallet for hver av dem. Det er ikke et konstantledd i modellen vår, noe som stemmer overens med at den ikke er signifikant forskjellig fra null i regresjonsmodellen.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="oppgaver-2.html#cb103-1" aria-hidden="true" tabindex="-1"></a>new_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span>, <span class="at">x2 =</span> <span class="dv">1</span>)</span>
+<span id="cb103-2"><a href="oppgaver-2.html#cb103-2" aria-hidden="true" tabindex="-1"></a>reg_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> new_df, <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
+<span id="cb103-3"><a href="oppgaver-2.html#cb103-3" aria-hidden="true" tabindex="-1"></a>reg_conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> new_df, <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## Prediksjonsintervall
+## ====================
+##    fit   lwr    upr 
+## --------------------
+## 1 0.840 -1.073 2.752
+## --------------------</code></pre>
+<pre><code>## 
+## Konfidensintervall
+## ===================
+##    fit   lwr   upr 
+## -------------------
+## 1 0.840 0.600 1.080
+## -------------------</code></pre>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><p>Eksakt prediksjonsintervall for modellen som genererte dataene er
+<span class="math display">\[\begin{align}
+  \bar{Y}|X_1,X_2 \pm \alpha_{0.025} \sigma_{\epsilon} &amp;= 2 \cdot 1 - 1 \cdot 1 \pm 1.96 \cdot 1 \\
+  &amp;= 1 \pm 1.96 \\
+  &amp;= [-0.96, 2.96].
+\end{align}\]</span>
+Estimert prediksjonsintervall er bredere enn det estimerte intervallet. Dette kommer av usikkerhet knyttet til estimatene av forventning og standardfeil. Det er benyttet T-test i estimatet av prediksjonsintervallet for å ta hensyn til denne usikkerheten. Man burde ikke få smalere prediksjonsintervaller enn det som faktisk er “sant” med mindre noen av modellantagelsene er usann. Merk at når vi generer opp data selv vet vi sannheten, det gjør vi ikke for virkelige data.</p></li>
+<li><p>Vi burde få at <span class="math inline">\(\bar{Y}|X_1,X_2 = 1\)</span> er innenfor konfidensintervallet, noe ser ut til å være oppfylt. Tolkningen er at dersom vi kjører analysen på mange ulike datasett vil <span class="math inline">\(\bar{Y}|X_1,X_2 = 1\)</span> havne innenfor konfidensintervallet i 95 % av tilfellene. Dette kan du prøve selv, bare pass på at du ikke setter seed-et før du generer opp et nytt datasett.</p></li>
+<li><p>Svaret gis i regresjonstabellen</p></li>
+</ol>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="oppgaver-2.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                  y             
+## -----------------------------------------------
+## x1                           1.986***          
+##                               (0.053)          
+##                                                
+## x2                           -1.091***         
+##                               (0.048)          
+##                                                
+## Constant                      -0.055           
+##                               (0.096)          
+##                                                
+## -----------------------------------------------
+## Observations                    100            
+## R2                             0.958           
+## Adjusted R2                    0.957           
+## Residual Std. Error       0.956 (df = 97)      
+## F Statistic          1,094.997*** (df = 2; 97) 
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>F-statistikken er angitt som <span class="math inline">\(1094.997\)</span> med frihetsgrader <span class="math inline">\(2, 97\)</span>. P-verdien regnes som</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="oppgaver-2.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pf</span>(<span class="fl">1094.997</span>, <span class="dv">2</span>, <span class="dv">97</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 2.716911e-67</code></pre>
+som er veldig liten. Altså bekrefter analysen at det er sammenheng mellom forklaringsvariablene og responsvariabelen. Hva ville du tenkt var galt om vi ikke fikk denne konklusjonen fra F-testen, gitt den modellen vi har brukt til å generere dataene? Hint: Det er faktisk en reell sammenheng her.
+</blockquote>
+</details>
+</div>
+<div id="oppgave-2-1" class="section level4" number="4.4.2.1">
+<h4><span class="header-section-number">4.4.2.1</span> Oppgave 2</h4>
+<p>Denne oppgaven følger samme premiss som oppgave 1, men handler om kolinearitet. Last ned datasettene <a href="genererte_datasett/colinearity_1.RData">1</a> og <a href="genererte_datasett/colinearity_2.RData">2</a>, hvor y er responsvariabel og forklaringsvariable er navngitt x.</p>
+<ul>
+<li><p>Finn kolinearitet</p></li>
+<li><p>Hva må man passe dersom man skal lage en regresjonsmodell for responsen Y?</p></li>
+</ul>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<p>Vi kan begynne med å plotte forholdet mellom de ulike variablene:</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="oppgaver-2.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin1)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="oppgaver-2.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(df_colin1), <span class="at">method =</span> <span class="st">&quot;number&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+<p>Her ser det ut som vi har et forhold mellom <span class="math inline">\((X_2, X_3)\)</span>. Videre ser det ut som at alle tre forklaringsvariable har en sammenheng med responsvariablen <span class="math inline">\(Y\)</span>.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="oppgaver-2.html#cb112-1" aria-hidden="true" tabindex="-1"></a>reg_colin1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin1)</span>
+<span id="cb112-2"><a href="oppgaver-2.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg_colin1, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                  y             
+## -----------------------------------------------
+## x1                           1.348***          
+##                               (0.053)          
+##                                                
+## x2                           -0.695***         
+##                               (0.064)          
+##                                                
+## x3                           -0.208**          
+##                               (0.102)          
+##                                                
+## Constant                      -0.095           
+##                               (0.097)          
+##                                                
+## -----------------------------------------------
+## Observations                    100            
+## R2                             0.916           
+## Adjusted R2                    0.913           
+## Residual Std. Error       0.960 (df = 96)      
+## F Statistic           346.946*** (df = 3; 96)  
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p><span class="math inline">\(X_1\)</span> og <span class="math inline">\(X_2\)</span> kommer ut som signifikante, og <span class="math inline">\(X_3\)</span> ved lavere signifikansnivå.</p>
+<p>Vi kan sjekke variance inflation factor (VIF)</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="oppgaver-2.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(reg_colin1)</span></code></pre></div>
+<pre><code>##       x1       x2       x3 
+## 1.018945 1.785963 1.774712</code></pre>
+<p>som oppgir at estimeringen i seg selv ikke burde være noe problem.</p>
+<p><strong>Kommentarer:</strong></p>
+<p>Det reelle forholdet mellom variablene i dette eksempelet er
+<span class="math display">\[\begin{align}
+  X_1 &amp;\sim N(0, 2) \\  
+  X_2 &amp;\sim N(0, 2) \\  
+  X_3 &amp;= 0.5 X_2 + \epsilon_3 \quad \epsilon_3 \sim N(0,1)  \\
+  Y &amp;= 1.3 X_1 - 0.8 X_2 + \epsilon, \quad \epsilon \sim N(0,1),
+\end{align}\]</span>
+og vi kan tenke oss at dette representerer det kausale forholdet mellom variablene. Siden vi har generert dataene kan vi si det.</p>
+<p>Det er videre interessant å merke seg i dette eksempelet at <span class="math inline">\(X_3\)</span> kommer ut med en signifikant koeffisient selv om den rent kausalt ikke har noen sammenheng med <span class="math inline">\(Y\)</span>. <span class="math inline">\(X_3\)</span> er kun relatert til <span class="math inline">\(X_2\)</span>.</p>
+<p>Dersom man ønsker å gjøre prediksjon kan det være forklaringskraft i <span class="math inline">\(X_3\)</span> for å gjøre prediksjon av <span class="math inline">\(Y\)</span>, men i så tilfelle antas det at forholdet mellom <span class="math inline">\((X_2, X_3)\)</span> også vedvarer i fremtiden. Dersom man skal gjøre inferens om en tenkt kausal sammenheng er det mulig å gå på en blemme i et tilfelle som dette.</p>
+<p>Hvis man ønsker å forklare noe og det er sammenheng mellom to forklaringsvariable kan det fra økonomisk prespektiv være interessant å spørre seg om man bryr seg om <span class="math inline">\(X_3\)</span> i det hele tatt og skal ta den ut. Kanksje <span class="math inline">\(X_3\)</span> er vanskelig å samle inn data om eller den åpenbart ikke har sammenheng med Y. Om den åpenbart ikke skal ha sammenheng med <span class="math inline">\(Y\)</span> kan støyleddet <span class="math inline">\(\epsilon_3\)</span> også skape unødig støy i prediksjonene.</p>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p>Plott forholdet mellom de ulike variablene:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="oppgaver-2.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin2)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="oppgaver-2.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(df_colin2), <span class="at">method =</span> <span class="st">&quot;number&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<p>Her ser vi et tydelig forhold mellom parene <span class="math inline">\((X_3, X_4)\)</span>, <span class="math inline">\((X_4, X_5)\)</span>, <span class="math inline">\((X_3, X_5)\)</span> og <span class="math inline">\((X_2, X_5)\)</span>. Ellers ser det kun ut som det er et tydelig forhold mellom <span class="math inline">\(Y\)</span> og <span class="math inline">\(X_1, X_2\)</span>. Med så mange forhold kan det være snakk om multikolinearitet, som ikke er så lett å se utfra 2D-plott.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="oppgaver-2.html#cb118-1" aria-hidden="true" tabindex="-1"></a>reg_colin2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin2)</span>
+<span id="cb118-2"><a href="oppgaver-2.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg_colin2, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                  y             
+## -----------------------------------------------
+## x1                           2.049***          
+##                               (0.053)          
+##                                                
+## x2                           -1.179***         
+##                               (0.111)          
+##                                                
+## x3                            -0.198*          
+##                               (0.114)          
+##                                                
+## x4                            0.101**          
+##                               (0.050)          
+##                                                
+## x5                             0.092           
+##                               (0.097)          
+##                                                
+## Constant                      -0.018           
+##                               (0.095)          
+##                                                
+## -----------------------------------------------
+## Observations                    100            
+## R2                             0.963           
+## Adjusted R2                    0.961           
+## Residual Std. Error       0.932 (df = 94)      
+## F Statistic           486.175*** (df = 5; 94)  
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>Vi ser på VIF for om det kan være problemer med estimering grunnet kolinearitet</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="oppgaver-2.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(<span class="fu">vif</span>(reg_colin2), <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;VIF&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## VIF
+## =============================
+## x1     x2    x3    x4    x5  
+## -----------------------------
+## 1.062 5.731 5.517 1.662 7.769
+## -----------------------------</code></pre>
+<p>hvor vi ser at <span class="math inline">\(X_5\)</span> nærmer seg problematisk område for å få en overdreven varians i estimatene.</p>
+<p>Dersom målet er å estimere sammenheng mellom alle forklaringsvariable og <span class="math inline">\(Y\)</span> vil dette kunne gå gjennom siden VIF ikke er altfor høy. Hvis det derimot er snakk om modellbygging bør man tenke gjennom om noen av variablene ikke er så viktige og bør tas ut.</p>
+<p><strong>Kommentarer:</strong></p>
+<p>Det reelle forholdet mellom variablene i dette eksempelet er
+<span class="math display">\[\begin{align}
+  X_1 &amp;\sim N(0, 2) \\  
+  X_2 &amp;\sim N(0, 2) \\  
+  X_3 &amp;\sim N(0, 2) \\
+  X_4 &amp;= X_3 + \epsilon_4, \quad \epsilon_4 \sim N(0,2) \\
+  X_5 &amp;= X_2 + X_3 + \epsilon_5, \quad \epsilon_5 \sim N(0,1) \\
+  Y &amp;= 2 X_1 - X_2 + \epsilon, \quad \epsilon \sim N(0,1)
+\end{align}\]</span></p>
+<p>Her kan vi igjen merke oss at variablene <span class="math inline">\(X_3, X_4, X_5\)</span> kommer inn i regresjonsmodellen med noen koeffisienter som er svakt signifikante. I dette tilfellet trenger ikke dette ha så mye å si. Likevel, ettersom det ikke er noen direkte sammenheng mellom <span class="math inline">\(X_3, X_4, X_5\)</span> ville det vært ideelt å ikke ha dem med i regresjonsmodellen for å unngå feilestimering av koeffisientene til <span class="math inline">\(X_1\)</span> og <span class="math inline">\(X_2\)</span>. Fra anvendt statistikk perspektiv bør man tenke gjennom om det gir mening at <span class="math inline">\(X_3, X_4, X_5\)</span> forklarer <span class="math inline">\(Y\)</span>.</p>
+</blockquote>
+</details>
+<!-- Generér gjerne opp dataene selv og analyser dem mens du svarer på oppgavene. -->
+<!-- a. Er det uavhengige feilledd her? -->
+<!-- b. Er det kolinearitet mellom forklaringsvariablene her? Om så, er den enkel eller har vi multikolinearitet? -->
+<!-- c. Hva har svarene på oppgaven før å si for estimat av koeffisientene for modellen for Y? -->
+<!-- <details> -->
+<!-- <summary>Løsning</summary> -->
+<!-- </details> -->
+<!-- #### Oppgave 3 -->
+<!-- I denne oppgaven skal vi se hva som kan gå galt dersom man leter etter signifikans i store datasett. Vi starter med å simulere en responsvariabel og en  -->
+<!-- (Trekk tilfeldige tall og analyser det...) -->
+<!-- (Dette er kjent som P-hacking. Det er *veldig* dårlig praksis, men har en tendens til å snike seg inn i analyser på mer eller mindre subtile vis. Det finnes store mengder forskning hvor P-hacking forekommer, bevisst eller ubevisst. De mindre subtile måtene dette skjer på heter juks. -->
+<!-- Out-of-sample validering og testing  -->
+<!-- ) -->
+<!-- #### Oppgave 4 -->
+<!-- (Legg til i enkel regresjon at man kan komme frem til det samme ved Cov-regning.) -->
+<!-- Vi så i oppgave ... at minste kvadraters metode brukes til parameter-estimering. I multivariat regresjon får vi enda flere ligninger enn vi så for enkel regresjon, dermed bruker man lineæralgebra. -->
+<!-- Vis at man kan regne minste kvadraters estimat ved kovarians. -->
+<!-- En matrise lar seg invertere dersom den er kvadratisk og har lineært uavhengige kolonner. På matrisenotasjon blir kovarians regnet som $X^TX / N$.  -->
+<!-- Dersom man har multikolinearitet er det kolonner i kovariansmatrisen som er sterkt lineært avhengige. Hvorfor blir det problematisk å  -->
+<!-- <detail><summary>Løsning</summary> -->
+<!-- </detail> -->
+<!-- ### Case-studie med datasett -->
+<!-- Her skal vi gå gjennom en analyse på et ofte brukt datasett: Boston Housing Data. Deloppgavene er satt opp for å gi litt drahjelp, sammenlignet med det som ellers kunne vært utgangspunktet for en hjemmeeksamen. -->
+<!-- 
+#### (Oppgave 1) {-}
+
+Studenten Rita Stata har som mål å gjennomføre et kurs i statistikk med minst mulig arbeid. Hun ligger foreløpig ikke så bra an, men ønsker å finne ut hva slags karakter hun forvente til slutt. Karakteren er basert på følgende beregning:
+Karakter = 20 % (Assignment) + 30 % (Midterm test) + 50 % (Final exam)
+Karakteren er et tall hvor 0 er lavest mulig og 100 er høyest mulig. 
+Det er bare tre uker til eksamen, og på ‘assignment’ og ‘midterm test’ fikk Rita henholdvis 12/20 og 14/30 poeng. 
+Rita samlet inn data over karakterer, og score på ‘midterm test’ og ‘assignment’ hos 30 tidligere studenter. Hun brukte deretter en statistikkprogramvare til å beregne et regresjonsuttrykk. Statistikkprogramvaren leverte følgende oppsummering:
+ 
+![](bilder/4_regresjon/tbl_1.png){width=40em}
+
+a. Hva er regresjonsuttrykket?
+
+b. Hva er standardfeilen til målingen? Hva mener vi med standardfeil?
+
+c. Hva er forklaringsgraden (bestemmelseskoeffisienten)? Hva forteller verdien oss?
+
+d. Test validiteten av modellen. Dette gjøres ved hjelp av F-testen. 
+
+e. Gi en tolkning av koeffisientene i modellen. 
+
+f. Kan Rita anta at score på ‘assignment’ har et lineært forhold med karakter i statistikk?
+
+g. Kan Rita anta at score på ‘midterm test’ har et lineært forhold med karakter i statistikk?
+
+Husk: vi kaller ofte et regresjonsuttrykk for «modell». Dette er fordi regresjonsuttrykket i praksis fungerer som en modell, i dette tilfellet en modell som beregner karakter i statistikk. 
+
+<details>
+<summary>Løsning</summary>
+
+</details>
+
+#### (Oppgave 2) {-}
+Et stort konsulentselskap i USA prøver å lage et system for å avgjøre hvilke søkere til internship som skal bli innkalt til intervju. Søkerne har bare gått ett år på universitetet, så de ønsker å bruke en modell til å predikere hvilke karakterer de vil få på bachelorgraden. De tror at karakterene fra High School og SAT Score er de viktigste variablene for å avgjøre hvilke karakterer søkeren vil få på universitetet. De tror også at søkere som har deltatt i utenomfaglige aktiviteter har større sannsynlighet for å få gode karakterer. For å undersøke dette velger de et tilfeldig utvalg av 100 ansatte som har hatt suksess i selskapet og finner følgende informasjon om de ansatte:
+Karakterer fra universitetet (0-12) 
+Karakterer fra High School (0-12)
+SAT Score (400-1600)
+Antall timer brukt på utenomfaglige aktiviteter per uke 
+Under finner du en utskrift av regresjon med disse variablene:
+
+![](bilder/4_regresjon/tbl_2.png){width=40em}
+ 
+a. Hva er regresjonsutrykket til modellen? Hva er den avhengige (Y) og de uavhengige variablene (X)?  
+
+b. Hva er forklaringsgraden til modellen? Tolk verdien. 
+
+c. Test validiteten til modellen ved å beskrive F-testen og resultatet av testen.
+
+d. Bestem hvilke av de uavhengige variablene som er lineære i modellen ved å tolke t-statistikken og p-verdien til hver av koeffisientene. 
+
+e. Hva er den predikerte karakteren på universitetet til en søker som har High School GPA 10, SAT score 1200 og arbeider 2 timer i gjennomsnitt med utenomfaglige aktiviteter i uken. Merk: selv om noen av koeffisientene ikke er statistisk signifikante så kan man gjøre prediksjoner med modellen. Ved prediksjon er vi mest opptatt av at forklaringsgraden er høy.
+
+f. Hva er den predikerte karakteren på universitetet til en søker som har High School GPA 8, SAT score 1100 og arbeider 10 timer i gjennomsnitt med utenomfaglige aktiviteter i uken. 
+
+g. Kausalitet og korrelasjon er et viktig tema i dette faget. Viser denne modellen en kausal sammenheng mellom karakterer på High School og karakterer på universitetet? 
+
+<details>
+<summary>Løsning</summary>
+
+</details>
+
+#### (Oppgave 3) {-}
+
+Vi undersøker om forutsetningene for OLS holder for modellen ovenfor. 
+
+- Hvilke forutsetninger kan vi undersøke ved å studere de to diagrammene nedenfor? 
+
+![](bilder/4_regresjon/hist_3.png){width=30em}
+
+![](bilder/4_regresjon/res_vs_pred_3.png){width=30em}
+
+- Vil du si at de aktuelle forutsetningene holder?
+
+<details>
+<summary>Løsning</summary>
+
+</details>
+
+#### (Oppgave 4) {-}
+
+- Hvordan tolker du diagrammene nedenfor?
+
+- Holder forutsetningene for OLS?
+
+a. 
+![](bilder/4_regresjon/hist_4a.png){width=30em}
+b. 
+![](bilder/4_regresjon/res_vs_pred_4b.png){width=30em}
+c.
+![](bilder/4_regresjon/hist_4c.png){width=30em}
+
+![](bilder/4_regresjon/res_vs_pred_4d.png){width=30em}
+
+<details>
+<summary>Løsning</summary>
+
+a. Histogrammet er bjelle-formet og det kan se ut som at det er en normalfordeling.
+
+b. Plottet viser tegn til heteroskedastisitet. Forutsetningen er ikke oppfylt. 
+
+c. Histogrammet er skjevfordelt og forutsetningen om normalfordeling holder ikke.
+
+d. Plottet viser tegn til heteroskedastisitet. Forutsetningen er ikke oppfylt.
+
+</details>
+
+#### (Oppgave 5) {-}
+
+a. Hva er konsekvensen av brudd på forutsetningen om konstant varians?
+
+b. Hva er konsekvensen av brudd på forutsetningen om normalfordelte feilledd? 
+
+
+<details>
+<summary>Løsning</summary>
+
+
+
+</details>
+
+#### (Oppgave 6) {-}
+
+Et transportselskap ønsker å analysere hvordan ulike variabler påvirker hvor lang tid det tar å laste av lastebilene deres. I modellutskriften under vises resultatet av en modell hvor avhengig variabel er antall minutt det tar å laste av en lastebil. De uavhengige variablene er antall bokser og vekten på lasten. I tillegg ønsker transportselskapet å finne ut om tidspunktet på dagen påvirker hvor lang tid det tar å laste av bilene. De deler døgnet inn i tre: I1 = morgenen, I2 = tidlig ettermiddag og I3 = sen ettermiddag.
+ 
+![](bilder/4_regresjon/tbl_6.png){width=40em}
+ 
+a. Gi en kortfattet fortolkning av regresjonsutskriften over.
+
+b. Det er mistanke om multikollinearitet i modellen. Hvilke to variabler tror du kan samvariere? 
+
+c. Hvorfor er ikke l3 i regresjonsutskriften? 
+
+d. Hva kan vi si om betydningen av tidspunktet på dagen og hvor lang tid det tar å laste av lastebilene? 
+
+e. Tegn regresjonslinjen til modellen. 
+
+<details>
+<summary>Løsning</summary>
+
+</details> -->
+<!-- ### Nøtter -->
+<!-- I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen). -->
+<!-- Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave. -->
+<!-- **På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.** -->
+<!-- ```{r, echo = FALSE, message = FALSE} -->
+<!-- library(dplyr) -->
+<!-- options(knitr.kable.NA = '') -->
+<!-- "oppgaver/oppgaver-regresjon.xlsx" %>%  -->
+<!--     readxl::read_excel() %>%  -->
+<!--     kableExtra::kbl() %>%  -->
+<!--     kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed")) -->
+<!-- ``` -->
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="modellbygging.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="relevante-r-regresjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
