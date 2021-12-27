@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Høst 2021</title>
+  <title>6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta property="og:title" content="6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta name="twitter:title" content="6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Vår 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -223,7 +223,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2021</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2022</a>
           </h1>
         </div>
 
@@ -253,12 +253,12 @@ Vi tar en ny titt på <a href="datasett/equinor.xlsx">den daglige prisen på Eqi
 <span id="cb193-2"><a href="arma-arima.html#cb193-2" aria-hidden="true" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
 <span id="cb193-3"><a href="arma-arima.html#cb193-3" aria-hidden="true" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)</span>
 <span id="cb193-4"><a href="arma-arima.html#cb193-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
 <p>Vi kan lage en figur av den differensierte tidsrekken på følgende måte:</p>
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="arma-arima.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sjekk av differanse </span></span>
 <span id="cb194-2"><a href="arma-arima.html#cb194-2" aria-hidden="true" tabindex="-1"></a>diff_pris <span class="ot">&lt;-</span> <span class="fu">diff</span>(pris)</span>
 <span id="cb194-3"><a href="arma-arima.html#cb194-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(diff_pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-182-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
 <p><strong>Oppgave:</strong> Vurder om en ARIMA modell er bedre egnet enn en ARMA modell ut fra de to figurene over.</p>
 <details>
 <summary>
@@ -315,7 +315,7 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 Prediksjon gjøres som tidligere med <code>forecast</code> funksjonen, så hvis en vil predikere 10 tidssteg frem i tid gjør man følgende:</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="arma-arima.html#cb200-1" aria-hidden="true" tabindex="-1"></a>pred_arima111 <span class="ot">&lt;-</span> <span class="fu">forecast</span>(arima111, <span class="at">h =</span>  <span class="dv">10</span>)</span>
 <span id="cb200-2"><a href="arma-arima.html#cb200-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(pred_arima111, <span class="at">include =</span> <span class="dv">100</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-185-1.png" width="672" /></p>
 <p>merk at i <code>autoplot</code> har vi valgt å bare vise 100 observasjoner av tidsrekken sammen med prediksjonene.</p>
 <p>Kommentar: I et effisient marked skal prisutviklingen i teorien følge en tilfeldig gang og dagens pris vil da være det beste du kan tippe på for morgendagens pris. Vi ser her at dette blir reflektert i prediksjonen gjort av Arima(1,1,1) modellen.</p>
 </div>

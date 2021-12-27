@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7.1 Dataøving 1 | MET4 - Empiriske Metoder - Høst 2021</title>
+  <title>7.1 Dataøving 1 | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7.1 Dataøving 1 | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta property="og:title" content="7.1 Dataøving 1 | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7.1 Dataøving 1 | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta name="twitter:title" content="7.1 Dataøving 1 | MET4 - Empiriske Metoder - Vår 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -223,7 +223,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2021</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2022</a>
           </h1>
         </div>
 
@@ -416,12 +416,12 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="dataøving-1.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb220-2"><a href="dataøving-1.html#cb220-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(violence, <span class="fu">aes</span>(<span class="at">x =</span> aggression_level)) <span class="sc">+</span></span>
 <span id="cb220-3"><a href="dataøving-1.html#cb220-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-208-1.png" width="672" /></p>
 <p>Nesten! Det eneste problemet er at vi har ett histogram for alle observasjonene, mens det vi egentlig ønsket var å lage et histogram for hver av gruppene. Dette er såre enkelt i <code>ggplot2</code>. Det eneste vi trenger å gjøre er å identifisere den variabelen i datasettet som angir gruppetilhørighet (sjekk variabeloversikten over, svaret er <code>violent_treatment</code>), og så plusse på en funksjon som heter <code>facet_wrap()</code> som vist under.</p>
 <div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="dataøving-1.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(violence, <span class="fu">aes</span>(<span class="at">x =</span> aggression_level)) <span class="sc">+</span></span>
 <span id="cb221-2"><a href="dataøving-1.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>) <span class="sc">+</span></span>
 <span id="cb221-3"><a href="dataøving-1.html#cb221-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> violent_treatment)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-210-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
 <p>Dersom vi i stedet ønsker et skalert histogram kan vi spesifisere <code>y</code>-argumentet på følgende vis:</p>
 <div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="dataøving-1.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(violence, <span class="fu">aes</span>(<span class="at">x =</span> aggression_level, <span class="at">y =</span> ..density.. )) <span class="sc">+</span></span>
 <span id="cb222-2"><a href="dataøving-1.html#cb222-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>) <span class="sc">+</span></span>

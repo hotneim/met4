@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.3 Paneldata | MET4 - Empiriske Metoder - Høst 2021</title>
+  <title>5.3 Paneldata | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.3 Paneldata | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta property="og:title" content="5.3 Paneldata | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.3 Paneldata | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta name="twitter:title" content="5.3 Paneldata | MET4 - Empiriske Metoder - Vår 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -223,7 +223,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2021</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2022</a>
           </h1>
         </div>
 
@@ -296,13 +296,13 @@ der vi gjør de vanlige antakelsene om homoskedastisitet, uavhengige feilledd, o
 <div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="paneldata.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  </span>
 <span id="cb129-2"><a href="paneldata.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
 <span id="cb129-3"><a href="paneldata.html#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lnwg, <span class="at">color =</span> <span class="fu">factor</span>(id)))</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
 <p>her ser vi f.eks at alle individene har et dårlig år i 1983, mens 1985 virker å være et godt år. Det også tydelig at lønnen holder seg relavivt lik lønnen det foregående året. Det er altså rimelig å tro at det er fellestrekk i lønnen til individene for gitte år.</p>
 <p>La oss så lage et spredningsplott mellom <code>lnhr</code> og <code>lnwg</code> hvor vi fargelegger hvilket individ observasjonene kommer fra:</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="paneldata.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  </span>
 <span id="cb130-2"><a href="paneldata.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
 <span id="cb130-3"><a href="paneldata.html#cb130-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> lnhr, <span class="at">y =</span> lnwg, <span class="at">color =</span> <span class="fu">factor</span>(id)))</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-120-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-119-1.png" width="672" /></p>
 <p>Ser vi på disse dataene samlet sett ser du til å være en klart positiv korrelasjon mellom lønn og antall timer jobbet. Men legg merke til at individ nr. 1 ligger på et høyere lønnsnivå og jobber mer enn de to andre individene. Det er dette som i stor grad skaper et bilde av en sterk positiv sammenheng mellom variablene. Hvis vi ser på de individuelle observasjonene (hver fargesky) hver for seg, virker ikke sammenhengen å være like sterk, og det har kanskje ikke like mye å si for lønnen om du individuelt velger å jobber mer. Dette svarer til fenomenet beskrevet i punkt 2. over.</p>
 </div>
 <div id="generelt-oppsett-av-modell" class="section level4" number="5.3.3.3">
@@ -409,7 +409,7 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 ##  0.408228 -0.062905 -0.279994</code></pre>
 <p>Det kan være nyttig å ta en visuell innspeksjon på hvordan de individuelle regresjonskurvene passer til dataene:</p>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="paneldata.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reg.fe)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 <p>Denne figuren viser også hvordan regresjonskurven ville sett ut dersom vi hadde sett bort fra paneldatastrukturen og brukt en helt vanlig (pooled) regresjonsmodell. Sammenlignet med modellen med faste faste effekter (within) så ville vi da estimert effekten av jobbe mer til å være større. Selv om produktet her er <span class="math inline">\(3\)</span> individuelle regresjonsmodeller, presiserer vi at dette ikke er <span class="math inline">\(3\)</span> uavhengige analyser; alle observasjonene er brukt til å finne et estimat på <span class="math inline">\(\beta_1\)</span>.</p>
 <p>Vi husker at det også kunne være en felles tidskomponent <span class="math inline">\(v_t\)</span> i en slik modell og at denne kunne betraktes som en kategorisk variabel siden det typisk ikke er så mange (<span class="math inline">\(T\)</span>) av disse. Vi kan derfor bare legge til <code>year</code> som en ekstra (kategorisk) forklaringsvariabel forutsatt at den er koded som en <code>factor</code>:</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="paneldata.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.factor</span>(p.df<span class="sc">$</span>year)</span></code></pre></div>

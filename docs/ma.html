@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.6 MA(q) | MET4 - Empiriske Metoder - Høst 2021</title>
+  <title>6.6 MA(q) | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.6 MA(q) | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta property="og:title" content="6.6 MA(q) | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.6 MA(q) | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta name="twitter:title" content="6.6 MA(q) | MET4 - Empiriske Metoder - Vår 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -223,7 +223,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2021</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2022</a>
           </h1>
         </div>
 
@@ -266,11 +266,11 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Første kolonne inneholder informasjon om tidspunkt, og temperaturen er inneholdt i andre kolonne. La oss plotte både temperaturrekken og den <em>differensierte</em> temperaturrekken (dvs. forskjellen fra dag til dag). Hvis vi avslører at den differensierte tidsrekken kan regnes ut ved å kjøre <code>difftemp &lt;- diff(temp$Mean)</code>, skulle det nå være grei skuring å produsere følgende to enkle plott:</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="ma.html#cb189-1" aria-hidden="true" tabindex="-1"></a>difftemp <span class="ot">&lt;-</span> <span class="fu">diff</span>(temp<span class="sc">$</span>Mean)</span>
 <span id="cb189-2"><a href="ma.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp<span class="sc">$</span>Mean, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-177-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
 <div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="ma.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(difftemp, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-177-2.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-176-2.png" width="672" /></p>
 <p>Lag videre autokorrelasjonsplottet som vist i videoen for den differensierte tidsrekken:</p>
-<p><img src="met4_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-177-1.png" width="672" /></p>
 <p>I autokorrelasjonsplottet ser vi nettopp et slikt MA-mønster som vi så i videoen; nemlig at autokorrelasjonen plutselig blir null (eller omtrent null) for et gitt lag. I dette tilfellet har vi at første ordens autokorrelasjon er klart forskjellig fra null, men at den fra og med <span class="math inline">\(k = 2\)</span> nesten ikke har utslag.</p>
 <p>Hvis de differensierte temperaturmålingene faktisk er MA(1), kan den skrives slik:</p>
 <p><span class="math display">\[Y_t = c + \theta u_{t-1} + u_t,\]</span>

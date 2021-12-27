@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.1 Introduksjon til tidsrekker | MET4 - Empiriske Metoder - Høst 2021</title>
+  <title>6.1 Introduksjon til tidsrekker | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.1 Introduksjon til tidsrekker | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta property="og:title" content="6.1 Introduksjon til tidsrekker | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.1 Introduksjon til tidsrekker | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta name="twitter:title" content="6.1 Introduksjon til tidsrekker | MET4 - Empiriske Metoder - Vår 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -223,7 +223,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2021</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2022</a>
           </h1>
         </div>
 
@@ -397,7 +397,7 @@ Løsning
 <span id="cb151-8"><a href="intro.html#cb151-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(time, y)</span>
 <span id="cb151-9"><a href="intro.html#cb151-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, glatt3, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
 <span id="cb151-10"><a href="intro.html#cb151-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, glatt5, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="intro.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eller med ggplot</span></span>
 <span id="cb152-2"><a href="intro.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb152-3"><a href="intro.html#cb152-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">time =</span> <span class="fu">rep</span>(time, <span class="dv">2</span>),</span>
@@ -407,7 +407,7 @@ Løsning
 <span id="cb152-7"><a href="intro.html#cb152-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
 <span id="cb152-8"><a href="intro.html#cb152-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time , <span class="at">y =</span> y)) <span class="sc">+</span></span>
 <span id="cb152-9"><a href="intro.html#cb152-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> glatting, <span class="at">color =</span> vindulengde))</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-135-2.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-134-2.png" width="672" /></p>
 </details>
 <p><strong>d)</strong> Regn ut eksponensiell glatting for tidsrekken under med glattefaktor <span class="math inline">\(w = 0.1\)</span>:</p>
 <p><img src="bilder/oppgave1b.JPG" id="id" class="class" style="width:80.0%;height:80.0%" /></p>
@@ -538,7 +538,7 @@ Løsning
 <span id="cb153-8"><a href="intro.html#cb153-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(time, y)</span>
 <span id="cb153-9"><a href="intro.html#cb153-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, exp01, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
 <span id="cb153-10"><a href="intro.html#cb153-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, exp08, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="intro.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eller med ggplot</span></span>
 <span id="cb154-2"><a href="intro.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb154-3"><a href="intro.html#cb154-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">time =</span> <span class="fu">rep</span>(time, <span class="dv">2</span>),</span>
@@ -548,7 +548,7 @@ Løsning
 <span id="cb154-7"><a href="intro.html#cb154-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
 <span id="cb154-8"><a href="intro.html#cb154-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time , <span class="at">y =</span> y)) <span class="sc">+</span></span>
 <span id="cb154-9"><a href="intro.html#cb154-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> glatting, <span class="at">color =</span> glattefaktor))</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-136-2.png" width="672" />
+<p><img src="met4_files/figure-html/unnamed-chunk-135-2.png" width="672" />
 Det ser ut til at det er en stigende trend som avtar mot de siste observasjonene i tidsrekken.</p>
 </details>
 <p><strong>bonusspørsmål)</strong> Hva blir prediksjonen av <span class="math inline">\(Y_{11}\)</span> når du bruker modellen i henholdsvis oppgave d) og e)?</p>
@@ -586,7 +586,7 @@ Løsning
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="intro.html#cb160-1" aria-hidden="true" tabindex="-1"></a>pris_glatt200 <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">200</span>, <span class="at">fill =</span> <span class="cn">NA</span>)</span>
 <span id="cb160-2"><a href="intro.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
 <span id="cb160-3"><a href="intro.html#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_glatt200, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-143-1.png" width="672" /></p>
 <p>Nå kan vi jo ikke se det glidende gjennomsnittet for de siste observasjonene, så ved bare å sammenligne de siste observasjonene hvor vi også har det glidende gjennomsnittet så ligger prisen under det glidende gjennomsnittet, altså bør vi ikke investere (evt. selge, shorte etc.).</p>
 </details>
 <p>Et problem med analysen over er at vi trenger <em>fremtidige observasjoner</em> til å regne ut den glattede tidsrekken. Det betyr at vi kjenner den glattede versjonen av tidsrekken ved tid <span class="math inline">\(t\)</span> først ved tid <span class="math inline">\(t+200\)</span>. Vi kan enkelt lage en annen variant der vi glatter tidsrekken ved tid <span class="math inline">\(t\)</span> ved å ta gjennomsnittet av <span class="math inline">\(Y_{t-200}, Y_{t-199}, \ldots, Y_{t-1}\)</span> i stedet for <span class="math inline">\(Y_{t-100}, \ldots, Y_{t}, \ldots, Y_{t+100}\)</span>, altså at vi bare bruker fortiden. Det gjør du i R ved å legge til det ekstra argumentet <code>align = "right"</code> i funksjonen <code>rollmean</code>. Fordelen nå er at vi ved hvert tidspunkt kjenner både prisen på aksjen og den glattede varianten.</p>
@@ -598,7 +598,7 @@ Løsning
 <div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="intro.html#cb161-1" aria-hidden="true" tabindex="-1"></a>pris_glatt200 <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">200</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">align =</span> <span class="st">&quot;right&quot;</span>)</span>
 <span id="cb161-2"><a href="intro.html#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
 <span id="cb161-3"><a href="intro.html#cb161-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_glatt200, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-145-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
 <p>I denne figuren ligger de siste prisene over det glidende gjennomsnittet noe som er indikasjon på en stigende trend. Altså kan en strategi være å investere i aksjen.</p>
 </details>
 <p><strong>Eksponensiell glatting</strong> har også et annet navn: Holt Winters Metode. En funksjon for å gjennomføre den finnes innebygget i R, og heter <code>HoltWinters()</code>. I denne funksjonen er vektparameteren <span class="math inline">\(w\)</span> representert ved argumentet <code>alpha</code>. Funksjonen har noen flere argumenter som ikke vi skal bruke, så dersom vi ønsker å regne ut den eksponensielle glattingen for Equinoraksjen med <span class="math inline">\(w = 0.5\)</span>, kjører vi:</p>
@@ -618,7 +618,7 @@ Løsning
 <span id="cb164-6"><a href="intro.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_exp1<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>], <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
 <span id="cb164-7"><a href="intro.html#cb164-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_exp2<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>], <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
 <span id="cb164-8"><a href="intro.html#cb164-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_exp3<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>], <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-147-1.png" width="672" /></p>
 </details>
 </div>
 </div>

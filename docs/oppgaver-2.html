@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2021</title>
+  <title>4.4 Oppgaver | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta property="og:title" content="4.4 Oppgaver | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2021" />
+  <meta name="twitter:title" content="4.4 Oppgaver | MET4 - Empiriske Metoder - Vår 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -223,7 +223,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2021</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2022</a>
           </h1>
         </div>
 
@@ -394,7 +394,7 @@ Løsning
 <span id="cb83-3"><a href="oppgaver-2.html#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Overvekt =</span> <span class="fu">c</span>(<span class="dv">17</span>,  <span class="dv">5</span>, <span class="sc">-</span><span class="dv">1</span>,  <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">15</span>,  <span class="dv">5</span>,  <span class="dv">7</span>, <span class="sc">-</span><span class="dv">7</span>,  <span class="dv">7</span>,  <span class="dv">6</span>,  <span class="dv">7</span>,  <span class="dv">4</span>, <span class="dv">15</span>, <span class="sc">-</span><span class="dv">5</span>))</span>
 <span id="cb83-4"><a href="oppgaver-2.html#cb83-4" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb83-5"><a href="oppgaver-2.html#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(df_tv<span class="sc">$</span>TV_titting, df_tv<span class="sc">$</span>Overvekt, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;TV-titting&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Overvekt&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <blockquote>
 <p>Plottet viser en ganske tydelig trend om at TV-titting og overvekt er relaterte. Dette kan vi undersøke nærmere.</p>
 </blockquote>
@@ -609,10 +609,10 @@ c. Sønnen vil gjennomsnittlig være høyere enn sin far.
 <h4>Oppgave 3</h4>
 <p>Figurene nedenfor viser residualene (feilleddene) vi får ut fra et par ulike modeller. Ser plottene ut til å tilfredsstille kravene for enkel regresjon? Hvis ikke, hva ser ut til å være galt for hver av figurene? Hvordan kan man håndtere brudd på betingelsene i de ulike situasjonene?</p>
 <ol style="list-style-type: lower-alpha">
+<li><p><img src="met4_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p></li>
 <li><p><img src="met4_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p></li>
 <li><p><img src="met4_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p></li>
 <li><p><img src="met4_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p></li>
-<li><p><img src="met4_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p></li>
 </ol>
 <details>
 <summary>
@@ -775,9 +775,9 @@ Løsning
 </ol>
 <p>Vi kan begynne med å plotte forholdet mellom de ulike variablene:</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="oppgaver-2.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin1)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="oppgaver-2.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(df_colin1), <span class="at">method =</span> <span class="st">&quot;number&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
 <p>Her ser det ut som vi har et forhold mellom <span class="math inline">\((X_2, X_3)\)</span>. Videre ser det ut som at alle tre forklaringsvariable har en sammenheng med responsvariablen <span class="math inline">\(Y\)</span>.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="oppgaver-2.html#cb112-1" aria-hidden="true" tabindex="-1"></a>reg_colin1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin1)</span>
 <span id="cb112-2"><a href="oppgaver-2.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg_colin1, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
@@ -830,9 +830,9 @@ og vi kan tenke oss at dette representerer det kausale forholdet mellom variable
 </ol>
 <p>Plott forholdet mellom de ulike variablene:</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="oppgaver-2.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin2)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="oppgaver-2.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(df_colin2), <span class="at">method =</span> <span class="st">&quot;number&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
 <p>Her ser vi et tydelig forhold mellom parene <span class="math inline">\((X_3, X_4)\)</span>, <span class="math inline">\((X_4, X_5)\)</span>, <span class="math inline">\((X_3, X_5)\)</span> og <span class="math inline">\((X_2, X_5)\)</span>. Ellers ser det kun ut som det er et tydelig forhold mellom <span class="math inline">\(Y\)</span> og <span class="math inline">\(X_1, X_2\)</span>. Med så mange forhold kan det være snakk om multikolinearitet, som ikke er så lett å se utfra 2D-plott.</p>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="oppgaver-2.html#cb118-1" aria-hidden="true" tabindex="-1"></a>reg_colin2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin2)</span>
 <span id="cb118-2"><a href="oppgaver-2.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(reg_colin2, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
