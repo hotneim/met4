@@ -197,7 +197,7 @@ Våre prediksjoner av $Y_{11}$ blir da henholdsvis $43.09$ og $45.32$.
 
 ### R-øving
 
-Vi har lastet [ned den daglige prisen på Eqinoraksjen](datasett/equinor.xlsx) over en 5-års periode fra Oslo Børs' hjemmeside. Vi laster inn datasettet som før ved hjelp av `readxl`-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker `rev()`-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien komme først:
+Vi har lastet [ned den daglige prisen på Eqinoraksjen](datasett/equinor.xlsx) over en 5-års periode fra Oslo Børs' hjemmeside. Vi laster inn datasettet som før ved hjelp av `readxl`-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker `rev()`-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien kommer først:
 
 ```{r, message = FALSE, warning = FALSE, eval = FALSE}
 library(readxl)
@@ -223,7 +223,7 @@ Både glidende gjennomsnitt og eksponensiell glatting har flere ulike implemente
 install.packages("zoo")
 library(zoo)
 ```
-```{r, echo = FALSE, message = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
 library(zoo)
 ```
 
@@ -807,6 +807,19 @@ accuracy(pred_exp, test)
 ```
 Hver kolonne i utskriften over representerer et slikt mål, og det er rad nummer to med navn "Test set" som vi er interessert i siden det er utregningen av disse målene mellom prediksjonene og testsettet (Den første raden representerer in-sample egenskapene). Jo mindre disse verdiene er jo mindre er avstanden mellom prediksjonene og de sanne verdiene i vårt testsett.
 
+## Relevante R-kommandoer {#relevante-r-tidsrekker}
 
+### Antakelser om datasettet {-}
 
+Vi skal nå ha rimelig grei kontroll på de ulike datastrukturene i R, og det er bra, fordi i denne siste modulen om tidsrekker så er vi nødt til å kunne administrere data i litt forskjellige formater. I hovedtrekke må vi kunne:
+
+- Lese inn data fra en Excel- eller `.csv`-fil til en data frame på samme måte som tidligere, der vi i tidsrekker typisk vil ha en kolonne for dato eller tidspunkt, og en eller flere kolonner med tidsrekker nedover.
+- Hente ut tidsrekkene i en data frame som en vektor.
+- Akseptere at en del tidsrekkedata (spesielt de som følger med ulike pakker i R) er lagret i andre typer mer spesialiserte datatyper.
+
+Equinordatafilen ([equinor.xlsx](datasett/equinor.xlsx)) følger den første formen og kan leses inn på vanlig måte ved hjelp av `read_excel()` i `readxl`-pakken. `ausbeer`-datasettet fra `fpp`-pakken, derimot, har en spesiell tidsrekke-klasse (prøv å skrive `class(ausbeer)` i konsollen), noe vi ser ved å bare skrive ut tidsrekken i konsollen. Da ser vi at datasettet er på en slags matrisestruktur, men kvartal kolonnevis og år radvis.
+
+### Nødvendige R-funksjoner {-}
+
+Nødvendige R-funksjoner for denne modulen sammenfaller eksakt med gjennomgangen under forelesningsvideoene, så det er ikke nødvendig å gjenta det her. 
 

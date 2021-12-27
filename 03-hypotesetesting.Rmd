@@ -927,4 +927,155 @@ chisq.test(f)
 
 <!-- ``` -->
 
+## Relevante R-kommandoer {#relevante-r-testing}
+
+Under følger en liste over hvilke oppgaver du skal klare i R fra denne modulen. Vår policy fra og med **vårsemesteret 2022** er at R-kommandoene under er *tilstrekkelige* for å løse oppgavene i datalabber og hjemmeeksamen i MET4. Det er med andre ord ikke nødvendig å lære seg teknikker utover det som er listet opp eksplisitt i listen under. Eventuelle nye teknikker som trengs for å løse en bestemt oppgave vil bli oppgitt og forklart dersom det er nødvendig. Det antas i tillegg at du kan den grunnleggende R-syntaksen som er dekket under [Introduksjon til R].
+
+### Antakelser om datasett {-}
+
+Di kan gjøre de samme antakelsene om datasettet som i [den tilsvarende oversikten i forrige modul](#relevant-r-grunnleggende): Datasettene er inneholdt i Excel-filer (`.xls` eller `xslx`) eller `.csv`-filer, som kolonner av variabler, med variabelnavn i første rad.
+
+### $t$-tester {-}
+
+Du må kunne gjøre de ulike $t$-testene ved hjelp av `t.test()`-funksjonen. vi bruker eksempeldatasettet [testdata.xls](datasett/testdata.xls) som illustrasjon, som inneholder de to kolonnene `X1` og `X2`. I bunn og grunn handler det om å hente ut de relevante kolonnene i datasettet som vektorer, og så å sette argumentene i `t.test()`-funksjonen riktig.
+
+```{r, echo = FALSE}
+testdata <- readxl::read_excel("datasett/testdata.xls")
+```
+
+```{r, eval = FALSE}
+# Tosidig, ett-utvalgs $t$-test for om forventningen til `X1` er lik 100:
+t.test(testdata$X1, mu = 100)
+
+# Samme testen, men ensidig med alternativhypotese om at $\mu > 100$
+t.test(testdata$X1, mu = 100, alternative = "greater")
+
+# For å gjøre ensidig test den andre veien bytter du ut `"greater"` med `"less"`.
+
+# Vanlig to-utvalgs $t$-test for om forventningen til `X1` og `X2` er like:
+t.test(testdata$X1, testdata$X2)
+
+# Vanlig to-utvalgs t-test der vi antar at variansen i de to populasjonene er like:
+t.test(testdata$X1, testdata$X2, var.equal = TRUE)
+
+# Parret to-utvalgs $t$-test, som bare gir mening dersom de to vektorene med
+# observasjoner er like lange, og dersom observasjonene er matchet opp slik at
+# første element i den første vektoren skal matches mot første elemenet i den
+# andre vektoret etc.:
+t.test(testdata$X1, testdata$X2, paired = TRUE)
+```
+
+Vi kan bytte ut alternativhypotesen til ensidige tester over alt ved å sette `alternative = ` til ønskelig verdi.
+
+Videre kan vi tenke oss tilfeller der observasjonsvektorene ikke er like lange, og for eksempel kommer i en excel-fil slik som [denne](datasett/ulik-lengde.xlsx) der den ene kolonnen inneholder flere tall enn den andre. Det gjør ingenting. Vi kan lese inn datasettet på vanlig måte, og legger merke til at de "tomme" plassene i tabellen blir fylt med `NA`. Vi kan kjøre $t$-testene på vanlig måte.
+
+```{r, eval = FALSE}
+testdata2 <- readxl::read_excel("ulik-lengde.xlsx")
+testdata2
+t.test(testdata2$X1, testdata2$X2)
+```
+
+```{r, echo = FALSE}
+testdata2 <- readxl::read_excel("datasett/ulik-lengde.xlsx")
+testdata2
+t.test(testdata2$X1, testdata2$X2)
+```
+
+### Varianstester {-}
+
+Varianstest for ett uvalg er ikke bygget inn i R som en egen funksjon. Da må vi gjøre den "semi-automatisk" og regne ut testobservatoren ved å bruke formelen direkte. Her tester vi om variansen til `X2`-kolonnen i testdatasettet er lik 10:
+
+```{r}
+# Varianstest
+s <- sd(testdata$X2)
+sigma_0 <- 10
+n <- length(testdata$X2)
+
+# Testobservatoren
+T <- (n-1)*s^2/sigma_0^2
+
+# Kritiske verdier
+L <- qchisq(0.025, df = n - 1)
+U <- qchisq(0.975, df = n - 1)
+```
+
+Vi må så sammenligne verdien av testobservatoren `T` med de kritiske verdiene `L` og `U`. Legg merke til at vi har brukt en funksjon i R (`qchisq()`) for å finne de aktuelle kvantilene i kjikvadratfordelingen. Alternativt kan vi slå opp i tabell.
+
+For to-utvalgs varianstest kan vi bruke funksjonen `var.test()`:
+
+```{r, eval = FALSE}
+var.test(testdata$X1, testdata$X2)
+```
+Vi kan også her gjøre ensidige tester ved å sette `alternative =`-argumentet til enten `"less"` eller `"greater"`.
+
+### Tester for andeler {-}
+
+Både for ett-utvalgs og to-utvalgs test for andeler kan vi fylle inn tall direkte i testobservatoren på denne måten (sett inn for de nødvendige verdiene):
+
+```{r}
+# Ett-utvalgs test for andeler
+p_hatt <- mean(testdata$A1)
+p_null <- 0.5
+n      <- length(testdata$A1) 
+
+Z <- (p_hatt - p_null)/sqrt(p_null*(1-p_null)/n)   
+
+# To-utvalgs test for andeler
+p1_hatt <- mean(testdata$A1)
+p2_hatt <- mean(testdata$A2)
+
+n1 <- length(testdata$X1)
+n2 <- length(testdata$X2)
+
+p_hatt <- mean(c(testdata$A1, testdata$A2))        # <- Regner ut felles p_hatt
+
+Z <- (p1_hatt - p2_hatt)/sqrt((1/n1 + 1/n2)*p_hatt*(1-p_hatt))
+```
+
+Testobservatorene må da sammenlingnes med relevant kvantil i normalfordelingen, som du enten finner i tabell i læreboken eller ved å bruke funksjonen `qnorm()` med ønsket kvantil som argument.
+
+### Kjikvadrattester {-}
+
+Hvis vi skal teste for goodness-of-fit for en fordeling kan vi raskt regne ut testobservatoren direkte. Vi bruker eksempelet fra forelesningsvideoen:
+
+```{r, eval = FALSE}
+p0 <- c(0.45, 0.40, 0.15)  # Fordeling under H0
+f  <- c(102, 82, 16)       # Observerte frekvenser
+e  <- p0*sum(f)            # Forv. frekv. under H0
+
+T  <- sum((f - e)^2/e)     # Testobservator
+
+c  <- qchisq(.95, df = 2)  # Kritisk verdi
+
+# Forkast H0?
+T > c
+```
+
+Alternativt så kan vi bruke `chisq.test()`-funksjonen direkte. Pass på å bruke riktige argumentnavn (`x = ` og `p = `) når du skal gjøre goodness-of-fit:
+
+```{r, eval = FALSE}
+# Eventuelt direkte
+chisq.test(x = f, p = p0)
+```
+
+Dersom du skal teste for uavhengighet så kan du anta at datasettet kommer som en ferdig kontingenstabell, med den ene gruppeinndelingen langs kolonnene, og den andre gruppeinndelingen langs radene. En slik tabell kan du sende rett inn i `chisq.test()`-funksjonen for å gjøre en test for uavhengighet:
+
+```{r, eval = FALSE}
+# Test for uavhengighet
+immigration <-
+  read_xls("immigration-wide.xls",
+           range = "B2:E12",
+           col_names = c("many", "some", "few", "none"))
+chisq.test(immigration)
+```
+
+
+
+
+
+
+
+
+
+
 

@@ -1,5 +1,5 @@
 
-# Introduksjon til R
+# Introduksjon til R 
 
 Vi skal i dette kurset bruke programmeringsspråket **R** til å gjøre beregninger og gjennomføre de ulike statistiske analysene som vi skal lære etter hvert. Dette vil være nytt for mange. Vi skal først og fremst skal skrive *kode* og *kommandolinjer* for å få ut resultater i R, noe som kan oppleves uvant siden vi ellers er vant med å klikke oss frem i et menysystem når vi jobber med ulike programmer. Trøsten kan være at ferdigheter i programmering blir stadig viktigere i mange yrker, spesielt innen økonomifaget. 
 
@@ -9,19 +9,58 @@ Vi må installere to ting på maskinen vår før vi går videre; selve programer
 
 2. Gå til [rstudio.com](https://rstudio.com/), og naviger deg frem til siden for **RStudio**. Du skal der laste ned desktop-versjonen av programmet ("Open source edition") for ditt operativsystem og  installere på vanlig måte. Det er heller ikke her nødvendig å forandre på de foreslåtte innstillingene.
 
-Du kan så åpne RStudio, og følge sekvensen av videoforelesniger som følger under. Merk at disse videoene er lånt fra seminaret [BAN420 - Introduction to R](https://www.nhh.no/en/courses/introduction-to-r/) som gis på masterprogrammet ved NHH. De er derfor spilt inn på engelsk. Det resterende videomaterialet i kurset gis på norsk.
+Du kan så åpne RStudio, og følge sekvensen av videoforelesniger som følger under. 
 
 ## En gjennomgang av RStudio
 
-<iframe src="https://player.vimeo.com/video/472587681" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/638313293?h=a3e60f8e49" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
-I denne videoen åpner vi opp Rstudio og rusler gjennom det grafiske grensesnittet.
+I denne videoen snakke vi litt om forskjellen mellom *programmeringsspråket R* og *programmet* RStudio. Vi åpner opp Rstudio og rusler gjennom det grafiske grensesnittet.
 
 ## Enkle beregninger og variabler
 
-<iframe src="https://player.vimeo.com/video/472587696" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/638313310?h=d38164022f" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
-Vi går videre og skriver våre første kommandoer i R. Det er kritisk at vi allerede nå setter i gang med å få programmeringen inn i fingrene, og det gjøres best ved å skrive inn kodelinjene slik det gjøres i videoen, og passe på at du får ut de samme resultatene. Når du er ferdig med det kan du prøve deg på følgende lille oppgave:
+Vi går videre og skriver våre første kommandoer i R. Det er kritisk at vi allerede nå setter i gang med å få programmeringen inn i fingrene, og det gjøres best ved å skrive inn kodelinjene slik det gjøres i videoen, og passe på at du får ut de samme resultatene. 
+
+```{r, eval = FALSE}
+# Vi kan bruke R som en kalkulator:
+2+2
+
+# Det var enkelt! Vi må bruke paramteser dersom vi har mer kompliserte uttrykk:
+(2+8)/2
+2+8/2
+
+# Variabler er viktige i R. Vi kan lagre mer eller mindre hva som helst i 
+# dataminnet ved å gi det navn:
+a <- 5
+a
+a*5 
+
+b <- 3
+
+# R gjennomfører alle operasjoner på høyresiden før verdien blir tilordnet 
+# variabelen c:
+c <- a+b
+c
+
+# Ingen feilmeldinger, advarsler eller spørsmål ved overskriving:
+c <- 4
+
+c <- c + 2
+c
+
+# La oss lage en feilmelding!
+d
+
+# Vi kan navngi omtrens slik vi vil, og dette er ikke et trivielt problem i
+# større prosjekter!
+hva_som_helst <- "hello world"
+hva_som_helst
+```
+
+
+Når du er ferdig med det kan du prøve deg på følgende lille oppgave:
 
 **Oppgave:** Velg dine tre favorittall og lagre dem i tre forskjellige variabler. Beregn så ditt magiske tall, som er summen av favorittallene dine. Lagre ditt magiske tall i en ny variabel, og gi denne variabelen et informativt navn som identifiserer hva det er.
 
@@ -41,9 +80,44 @@ magisk_tall <- tall1 + tall2 + tall3
 
 ## Vektorer
 
-<iframe src="https://player.vimeo.com/video/472587712" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/638313322?h=abdebf4b44" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 Vi introduserer begrepet *vektorer* som er svært viktig i statistikk generel og R spesielt. En vektor er ganske enkelt en samling med tall, og når vi senere begynner å jobbe med data kommer vi til å lagre observasjoner av ulikt slag i vektorer. Vi ser også at vi kan gjøre operasjoner på vektorer ved å bruke *funksjoner*. For eksempel bruker vi `sum()`-funksjonen til å regne ut summen av alle tallene som er lagret i en vektor.
+
+```{r, eval = FALSE}
+# Vi kan lage en vektor på følgende måte:
+vector1 <- c(3, 5, 7.8, 10, 2, 0.16, -3)
+
+# Skriv ut:
+vector1
+
+# Plukke ut verdier
+vector1[1]        # Plukker ut verdier med hakeparanteser
+vector1[10]       # Out-of-range error
+vector1[2:5]      # Plukke ut en sekvens
+vector1[c(1,3)]   # Plukke ut verdier basert på en ny vektor!
+
+# Bokstaven "c" står for combine. R gjør det veldig enkelt å jobbe med 
+# vektorer:
+vector1 - 1
+vector1*3
+
+# Vi kan bruke *funksjoner* til å regne ut forskjellige ting:
+length(vector1)
+mean(vector1)
+sum(vector1)
+sd(vector1)
+
+# Vi kan lage vektorer av andre ting enn tall:
+vector2 <- c("hello", "world")
+
+# ... men en vektor kan bare inneholde en datatype.
+
+# Kanksje trenger vi standardavviket senere?
+sd_vector1 <- sd(vector1)
+sd_vector1
+```
+
 
 **Oppgave:** Beregn maksimum- og minimumsverdien av `vector1`, samt medianen, ved å bruke funksjoner i R. (**Hint:** en dårlig skjult hemmelighet i anvendt programmering er at dersom vi ikke vet navnet på funksjonen vi skal bruke, så er Google vår' beste venn!)
 
@@ -57,11 +131,22 @@ median(vector1)
 ```
 </details>
 
-## Pakker
+## Pakker {#pakker}
 
-<iframe src="https://player.vimeo.com/video/472587752" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/638313337?h=b60490cd1e" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 Vi lærer at når vi laster ned R så følger det med et grunnleggende sett av funksjoner ("base R"), men at det finnes et stort antall tilleggspakker. Vi kan enkelt laste ned og installere disse pakkene ved å skrive kommandoen `install.packages("pakkenavn")`. Det trenger vi bare gjøre en gang på datamaskinen vår. For å bruke pakken må vi skrive kommandoen `library(pakkenavn)`, og det må vi gjøre hver gang i restarter R.
+
+```{r, eval = FALSE}
+# For å installere pakken så kjører vi følgende kommando. Denne kjøres 
+# bare en gang per masking, den blir installert en gang for alle. 
+install.packages("readxl")
+
+# Når vi skal bruke pakken så laster vi den inn ved å bruke "library()"-,
+# funksjonen, og den må kjøres hver gang vi starter R:
+library(readxl)
+```
+
 
 **Oppgave:** Installer følgende pakker, som vi kommer til å bruke senere i kurset:
 
@@ -79,7 +164,7 @@ install.packages("stargazer")
 
 ## Mappesti
 
-<iframe src="https://player.vimeo.com/video/472587759" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/638313346?h=56d3761b80" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 Vi kommer til å forholde oss til *filer* på flere måter. Vi skal lese inn datafiler, og vi kommer til å produsere ulike former for output, slik som figurer og tabeller. Vi må da ha kontroll på hva R bruker som gjeldende mappesti ("working directory") der filer som skal leses inn ligger, og der ulike output-filer havner. Vi kan bruke funksjonen `getwd()` til å sjekke hva som er gjeldende mappesti. For å forandre mappestien kan vi bruke menysystemet (Session -> Set Working Directory -> Choose Directory), eventuelt funksjonen `setwd()` med ønsket mappesti som argument.
 
@@ -92,9 +177,38 @@ Vi kommer til å forholde oss til *filer* på flere måter. Vi skal lese inn dat
 
 ## Innlesing av data
 
-<iframe src="https://player.vimeo.com/video/472587809" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/638313361?h=393f457fdd" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 Vi leser inn tabellen i excelfilen som en tabell ("data frame") i R ved hjelp av funksjonen `read_xls()` i `readxl`-pakken og ser på noen enkle kommandoer for å jobbe med en slik tabell. 
+
+```{r, eval = FALSE}
+# Datasettet er i .xls-formatet, så vi trenger readxl-pakker for å laste det inn 
+# i R.
+library(readxl)
+
+# Inne i denne pakken så er det en funksjon som heter read_excel:
+read_excel("testdata.xls")
+
+# Det gikk bra, men for å bruke dette datasettet, så må vi lagre det til en 
+# variabel.
+testdata <- read_excel("testdata.xls")
+
+# Skriver ut (toppen av) datasettet.
+testdata
+
+# Nå ser vi datasettet i vinduet oppe til høyre. Vi kan se på det ved å 
+# skrive navnet til datasettet i konsollen, og vi kan hente ut individuelle
+# kolonner som vektorer ved å bruke dollartegnet $:
+testdata$X1
+
+# Regner ut gjennomsnittet for X1 og X2:
+mean(testdata$X1)
+mean(testdata$X2)
+
+# Hvor mange rekker/observasjoner har vi?
+nrow(testdata)
+```
+
 
 **Oppgave:** 
 
@@ -117,13 +231,34 @@ sum(testdata$X1 + testdata$X2)
 
 ## Statistiske analyser
 
-<iframe src="https://player.vimeo.com/video/472587826" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-
-Den første kommentaren i denne videoen er selvsagt ikke sann for MET4. For oss er det motsatt: Det er ikke R som er poenget med kurset, men de statistiske metodene som vi skal lære. R er bare verktøyet vi skal bruke. 
+<iframe src="https://player.vimeo.com/video/638313375?h=a52e39e460" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 Vi ser på et eksempel der vi kjører en enkel statistisk analyse (en $t$-test) på datasettet vårt, og hvordan vi kan gjøre ulike valg ved å endre argumenter i funksjonskallet. Vi bruker også hjelpefilene til å lese mer om funksjonen vi bruker.
 
-**Oppgave:** Hva er verdien av *testobservatoren* i testen som vi gjorde i denne videoen? Hint: Bruk hjelpefilene til `t.test()`-funksjonen.
+```{r, eval = FALSE}
+# En grunnleggende t-test for likhet mellom to forventningsverdier:
+t.test(testdata$X1, testdata$X2)
+
+# Antar lik varians og kjører tosidig test (dette kommer vi tilbake til):
+t.test(testdata$X1, testdata$X2, var.equal = TRUE, alternative = "two.sided")
+
+# Du kan lese mer om enhver funksjon i R, inkludert om alle mulige argumenter og 
+# eksempler på bruk, ved å skrive et spørsmålstegn foran funksjonsnavnet i 
+# konsollen:
+?t.test
+
+# Kanksje ønsker vi å hente ut p-verdien for testen og bruke den til noe senere. 
+# Vi kan lagre testresultatet i en variabel først, og så bruke $-tegnet til å hente
+# ut p-verdien på følgende måte:
+testresult <- t.test(testdata$X1, testdata$X2, var.equal = TRUE, alternative = "two.sided")
+testresult$p.value
+
+# Hvilken annen informasjon finner vi i dette testobjektet?
+str(testresult)
+```
+
+
+**Oppgave:** Hva er verdien av *testobservatoren (test statistic)* i testen som vi gjorde i denne videoen? Hint: Bruk hjelpefilene til `t.test()`-funksjonen.
 
 <details><summary>Løsning</summary>
 ```{r, eval = FALSE}
@@ -131,11 +266,44 @@ test_result$statistic
 ```
 </details>
 
-## Plotting
+## Plotting {#r-plotting}
 
-<iframe src="https://player.vimeo.com/video/472587867" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/638313396?h=4832e32309" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 Vi lager vår første figur i R ved å bruke den innebygde `plot()`-funksjonen. Vi går så over til å se hvordan vi kan lage det samme plottet ved å bruke `ggplot`-pakken, som er det vi kommer til å bruke til å lage figurer i dette kurset. Vi ser også hvordan vi kan gå frem for å *lagre* plottet som en pdf-fil i arbeidsmappen vår.
+
+```{r, eval = FALSE}
+# Et viktig element i dataanalyse er å lage grafiske presentasjoner av datasett. 
+# La oss lage et enkelt spredningsplott av våre to variabler ved å bruke den 
+# innebygde plottefunksjonen i R.
+plot(testdata$X1, testdata$X2)
+
+# Gjør noen justeringer:
+plot(testdata$X1, testdata$X2,
+     pch = 20,
+     bty = "l",
+     xlab = "X1",
+     ylab = "X2")
+
+# I dette kurset skal vi heller bruke ggplot2-pakken til plotting:
+library(ggplot2)
+
+# Her er koden for å lage et enkelt spredningsplott for X1 og X2-kolonnenene i
+# datasettet vårt:
+ggplot(testdata, aes(x = X1, y = X2)) + geom_point()
+
+# Vi lagrer plottet ved å kjøre ggsave-kommandoen rett etter plottekommandoen:
+ggsave("testplot.pdf")
+
+# En mer fleksibel måte å gjøre dette på er å lagre plottet i en variabel, og så
+# gi navnet til plottet inn som et argument i ggsave-funksjonen. 
+p <- ggplot(testdata, aes(x = X1, y = X2)) + geom_point()
+ggsave("testplot.pdf", p)
+
+# På den måten så kan vi lagre plottet p når som helst, vi trenger ikke 
+# nødvendigvis gjøre det rett etter plottekommandoene.
+```
+
 
 **Oppgave:** Klarer du, for eksempel ved å søke etter relevante ggplot-kommandoer på nettet, å få prikkene i plottet til å bli større, og samtidig gjøre dem blå?
 
@@ -147,9 +315,9 @@ ggplot(testdata, aes(x = X1, y = X2)) + geom_point(colour = "blue", size = 5)
 
 ## Script
 
-<iframe src="https://player.vimeo.com/video/472587939" width="640" height="347" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/638313424?h=68e178de52" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
-I stedet for å skrive kommandoene rett inn i konsollen, hopper vi nå over til teksteditoren i RStudio og lager et *script* i stedet. Her kan vi samle alle kommandoene våre i en fil, som vi kan lagre og kjøre igjen senere. Vi ser også hvordan vi enkelt kan kjøre enkeltlinjer i scriptet vårt i R-konsollen ved hjelp av Ctrl-Enter (Command-Enter på Mac). Vi ser at vi kan skrive kommentarer i scriptene våre ved å bruke `#-tegnet, som kan være nyttig for å holde oversikten. Til slutt lagrer vi scripet i arbeidsmappen.
+I stedet for å skrive kommandoene rett inn i konsollen, hopper vi nå over til teksteditoren i RStudio og lager et *script* i stedet. Her kan vi samle alle kommandoene våre i en fil, som vi kan lagre og kjøre igjen senere. Vi ser også hvordan vi enkelt kan kjøre enkeltlinjer i scriptet vårt i R-konsollen ved hjelp av Ctrl-Enter (Command-Enter på Mac). Vi ser at vi kan skrive kommentarer i scriptene våre ved å bruke `#`-tegnet, som kan være nyttig for å holde oversikten. Til slutt lagrer vi scripet i arbeidsmappen.
 
 **Oppgave:** Pass på at du nå har lagret scriptet som en .R-fil i mappen som vi laget for denne R-leksjonen. Lukk RStudio. Naviger så til denne mappen i filutforskeren og dobbelklikk på skriptet. Forhåpentligvis åpnes RStudio nå (Hvis ikke, eller hvis filen åpnes i det som heter R GUI, høyreklikker du på filen og velger "Åpne i", og deretter RStudio. Du kan også gjerne sette RStudio som standarsprogram for .R-filer).
 
@@ -160,6 +328,95 @@ Finn ut hva gjeldende arbeidsmappe nå er i RStudio. Hva skjedde nå? Hvorfor er
 Når vi åpner RStudio ved å dobbeltklikke på skriptfilen, så blir arbeidsstien satt automastisk til mappen der skriptfilen ligger. Dette er veldig nyttig når vil kommer tilbake og skal jobbe videre med prosjektet vårt.
 
 </details>
+
+## Pipe-operatoren `%>%` og enkel datavask {#pipe}
+
+<iframe src="https://player.vimeo.com/video/638313442?h=01dfc85626" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+Vi går gjennom to nyttige programmeringsteknikker som begge er inneholdt i `dplyr`-pakken:
+
+1. Pipe-operatoren `%>%`. som gjør at vi kan skrive opp en sekvens av funksjonskall i den rekkefølgen de skal kjøres, og uten å miste oversikten i et hav av paranteser.
+2. Funksjoner for enkel datavask: `select()` for å velge ut kolonner i et datasett, `filter()` for å filtrere rader basert på kriterier, og `mutate()` for å lage nye kolonner.
+
+Her er et par ekstra tips i denne sammenhengen:
+
+- Når du bruker `select()`, så kan du bruke minustegnet for å spesifisere kolonner som du *ikke* vil ha med: `testdata %>% select(-X1)`.
+- I `filter()`-funksjonen så kan vi bruke andre kriterier enn *større enn* (`>`):
+    - `<` = "mindre enn"
+    - `>=` = "større enn eller lik"
+    - `<=` = "mindre enn eller lik"
+    - `==` = "er lik"
+    - `!=` = "er ikke lik"
+    
+```{r, eval = FALSE}
+# Vi kan bruke klammeparantesen til å hente ut enkelttall, kolonner eller rader:
+testdata[1,2]
+testdata[1,]
+testdata[,2]
+testdata[, c("X1", "X2")]
+
+# Vi kan også filtrere ut rader basert på kriterier:
+testdata[testdata$X1 > 100,]
+
+# Eller vi kan legge til en ny kolonne, som er summen av to kolonner
+testdata$sum <- testdata$X1 + testdata$X2
+
+# Det finnes en enklere måte å gjøre dette på ved hjelp av den såkalte 
+# "pipe"-operatoren og egne funksjoner for datamanipulasjon. Begge deler
+# er inkludert i dplyr-pakken, som du eventuelt på installere:
+# install.packages("dplyr")
+library(dplyr)
+
+# Det første konseptet er pipen, og det er en veldig fin kommando når vi
+# skal bruke flere funksjoner etter hverandre. La oss si at vi skal regne ut
+# logaritmen til kvadratroten til 2. I base R kan vi skrive:
+log(sqrt(2))
+
+# Kvadratroten av 2 skrevet som en pipe blir
+2 %>% sqrt
+
+# ... og logaritmen til kvadratroten til 2 blir da 
+2 %>% sqrt %>% log
+
+# Dette kan vi lese fra venstre mot høyre i den rekkefølgen det skjer, og vi trenger 
+# ikke holde styr på flere lag med paranteser.
+
+# Dette er en teknikk som gjør det veldig greit å jobbe med tabeller av data, og
+# vi skal se på tre veldig sentrale funksjoner i dplyr-pakken:
+
+# Bruk "select()" til å velge kolonner i et datasett:
+testdata %>% select(X1, X2)
+
+# Bruk "filter()" for å filtrere ut rader basert på kriterier:
+testdata %>% filter(X1 > 100)
+
+# Bruk "mutate()" for å lage nye kolonner, gjerne basert på de vi allerede har:
+testdata %>% mutate(sum = X1 + X2)
+
+# Legg merke til at vi her bare skriver navnet på datasettet en gang, nemlig helt i
+# starten. Vi kan også kjøre flere slike pipes etter hverandre, og lagre resultatet 
+# i en ny variabel:
+ny_testdata <- 
+    testdata %>%
+        select(X1, X2) %>%
+        filter(X1 > 100) %>%
+        mutate(sum = X1 + X2)
+
+```
+
+**Oppgave:** Basert på `testdata`, lag en tabell som bare inneholder radene der `A1`-kolonnen er lik 1 *og* `A2`-kolonnen er lik 0, men der vi bare skal ha med kolonnene `X1` og `X2`. Lag til slutt en ny kolonne som inneholder differansen av tallene i `X1` og `X2`-kolonnene.
+
+<details><summary>Løsning</summary>
+
+```{r, eval = FALSE}
+testdata %>% 
+  filter(A1 == 1) %>% 
+  filter(A2 == 0) %>% 
+  select(X1, X2) %>% 
+  mutate(differanse = X1 - X2)
+```
+
+</details>    
 
 ## Oppsummering og ekstra oppgaver {#r-ekstra}
 
@@ -180,8 +437,9 @@ Videre har du
 
 Til slutt har du
 
-- kjørt en $t$-test, og
-- skrevet et *script* (et lite program om du vil) der vi har lagret flere av kommandoene over i en tekstfil.
+- kjørt en $t$-test,
+- skrevet et *script* (et lite program om du vil) der vi har lagret flere av kommandoene over i en tekstfil, og
+- lært om pipe-operatoren og enkel datavask ved hjelp av funksjoner i `dplyr`-pakken.
 
 Dersom du har fulgt modulen selv har du nå kanskje skrevet et lite script i tekstvinduet som ser ut omtrent som koden under. Når du har gjort alt riktig, skal du nå kunne kjøre gjennom disse kodelinjene uten feilmeldinger ved hjelp av `Ctrl-Enter`.
 
@@ -241,7 +499,7 @@ ggplot(testdata, aes(x = X1, y = X2)) +
         theme_classic()
 ```
 
-4. Merk at vi pruker "+"-tegnet til å legge til flere "lag" med grafiske egenskaper til plottet. Hvert "lag" består av en funksjon, som ofte kan ta argumenter; f.eks. brukes funksjonen `geom_point()` til å lage prikker, og så kan vi f.eks. bruke argumentet `size` til å styre størrelsen på prikkene. Kan du finne ut hva hvert enkelt av disse "lagene" gjør? Hint: ta bort en linje av gangen, og se hva som skjer. Pass på at det er et pluss mellom hvert lag.
+4. Merk at vi bruker "+"-tegnet til å legge til flere "lag" med grafiske egenskaper til plottet. Hvert "lag" består av en funksjon, som ofte kan ta argumenter; f.eks. brukes funksjonen `geom_point()` til å lage prikker, og så kan vi f.eks. bruke argumentet `size` til å styre størrelsen på prikkene. Kan du finne ut hva hvert enkelt av disse "lagene" gjør? Hint: ta bort en linje av gangen, og se hva som skjer. Pass på at det er et pluss mellom hvert lag.
 
 5. Prøv å endre på noen av lagene eller legg til nye. For eksempel kan du lage en tittel ved å legge til funksjonen `ggtitle()` som et lag, og du kan endre aksetitlene. Prøv også å bruke argumentet `shape` i `geom_point()` til å bytte ut prikkene med en annen form. Det finnes flere andre "tema" i tillegg til `theme_classic()`, f.eks. `theme_bw()`, `theme_dark()`, etc. 
 
