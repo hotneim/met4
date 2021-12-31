@@ -31,7 +31,7 @@ Kursansvarlige er Håkon Otneim og Geir Drage Berentsen, som begge jobber ved In
 
 I skrivende stund (desember 2021) ser det ut til at i alle fall starten av vårsemesteret fortsatt vil bære preg av restriksjoner og digitale løsninger som følge av coronapandemien. Vi skal være godt rustet for det i MET4, der vi har spilt inn all teorigjennomgang som videosnutter som du kan se på denne hjemmesiden. Vi kommer til å bruke forelesningstiden til kontakttimer, oppgaveseminar, og et relativt lite antall oversiktsforelesninger. 
 
-På denne siden vil du finne alle videosnuttene med kommentarer til lærebokens fremstilling, regneoppgaver, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset). Merk også at seminaroppgavene (Se \@ref(seminar) ikke har fasit, men notater fra disse seminarene vil bli lagt ut etter gjennomgang.    
+På denne siden vil du finne alle videosnuttene med kommentarer til lærebokens fremstilling, regneoppgaver, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset). Merk også at seminaroppgavene (Se \@ref(seminar)) ikke har fasit, men notater fra disse seminarene vil bli lagt ut etter gjennomgang.    
 
 Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. Organiseringen av disse dataøvingene (fysisk vs. digitalt) må vi nesten komme tilbake til etter hvert som semesteret skrider frem.
 
@@ -39,9 +39,9 @@ Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekke
 
 I et tradisjonelt kursopplegg ville forventet progresjon blitt definert av forelesningstempoet, og forelesningene ville vært den strukturen som mange trenger for å jobbe seg jevnt og trutt gjennom pensum. Selv om det nå legges opp til et fleksibelt undervisningsopplegg der tempo og progresjon i utgangspunktet kan tilpasses den enkeltes timeplan og studieteknikk, er det viktig å jobbe jevnt med kurset. **MET4 er et krevende kurs som krever full innsats fra første til siste dag.** For eksempel får en mye bedre utbytte av oppgaveseminarene dersom man på forhånd har sett videoene og gjort noen av  regneoppgavene relatert til temaet.
 
-Vi har laget et forslag til progresjon i tabellen under. Kolonnen "jobbe med" refererer til avsnitt på denne siden som dere finner igjen i menyen til høyre. Der finnes også alle dataøvingene. Ukene med grønn farge betyr at vi har tid på datasal med studentassistenter (så sant vi kan møtes fysisk, ellers vil disse selvsagt gjennomføres digitalt). 
+Vi har laget et forslag til progresjon i tabellen under. Kolonnen "jobbe med" refererer til avsnitt på denne siden som dere finner igjen i menyen til venstre. Der finnes også alle dataøvingene. Ukene med grønn farge betyr at vi har tid på datasal med studentassistenter (så sant vi kan møtes fysisk, ellers vil disse selvsagt gjennomføres digitalt). 
 
-Når det gjelder forelesningstiden vi som en hovedregel  bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (Se \@ref(seminar) for seminar oppgavene) og oversiktsforelesninger. Begge disse aktivitetene er digitale i starten av semesteret, men dette vil bli flyttet til Aud Max så snart vi kan.
+Vi vil som en hovedregel bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (se \@ref(seminar) for seminaroppgavene) og oversiktsforelesninger. **Begge disse aktivitetene er digitale i starten av semesteret, men dette vil bli flyttet til Aud Max så snart vi kan**.
 
 Legg merke til følgende viktige datoer:
 

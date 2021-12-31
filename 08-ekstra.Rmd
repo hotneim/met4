@@ -9,7 +9,7 @@ I tabellen under finner du en lang rekke eksamenssett som er gitt tidligere i ME
 
 Lenger nede på siden finner du noen kommentarer og rettelser til oppgavesett og løsningsforslag som har dukket opp i ettertid.
 
-```{r, echo = F, message = F}
+```{r, echo = F, message = F, warning = FALSE}
 library(dplyr)
 skoleeksamen <- readxl::read_excel("tidligere-eksamensoppgaver/skoleeksamen.xlsx")
 

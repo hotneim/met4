@@ -644,7 +644,7 @@ c. Beskriv en test av $H_0: \rho = 0$, mot $H_1: \rho \neq 0$.
  
 >	a. Vi ser at når $n$ blir stor går standardavviket til $r$ mot null, og $r$ vil derfor nærme seg den sanne korrelasjonen $\rho$ i populasjonen.
 
->b. Vi ser også at standardavviket til $r$ er mindre jo nærmere $rho$ er $\pm 1$. Utregninger av $r$ basert på utvalg fra 
+>b. Vi ser også at standardavviket til $r$ er mindre jo nærmere $\rho$ er $\pm 1$. Utregninger av $r$ basert på utvalg fra 
 populasjoner med sterk positiv eller negativ lineær avhengighet ($\rho$ nær $\pm 1$) kommer derfor med mindre usikkerhet.  
 
 >c. En test observator som vil være tilnærmet normalfordelt er da: 
