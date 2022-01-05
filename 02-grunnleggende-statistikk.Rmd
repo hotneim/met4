@@ -705,11 +705,11 @@ Sannsynligheten for positiv gevinst svarer til sannsynligheten for at ballen tre
 >b. Sentralgrenseteoremet sier at når vi spiller et relativt stort antall runder så er $\overline{X}$ normalfordelt med forventning $E(\overline{X}) = \mu = -0.027$ og varians $\text{Var}(\overline{X})=\sigma^2/n = 0.999/50 = 0.02$. Sannsynligheten for at den gjennomsnittlige gevinsten er positiv blir altså
 \begin{equation*}
 \begin{split}
-P(\overline{X}>0) &= P\left(\frac{\overline{X} - \mu}{\sigma^2/n} > \frac{0 - \mu}{\sigma^2/n}\right) = P\left(Z > \frac{0 - (-0.027)}{0.999/50}\right)\\
-&= P(Z>1.35) = 1 - P(Z < 1.35) = 0.0885
+P(\overline{X}>0) &= P\left(\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} > \frac{0 - \mu}{\sigma/\sqrt{n}}\right) = P\left(Z > \frac{0 - (-0.027)}{\sqrt{0.02}}\right)\\
+&= P(Z>0.19) = 1 - P(Z < 0.19) = 0.4246
 \end{split}
 \end{equation*}
-Kasinoer vet med andre ord å utnytte sentralgrenseteoremet. Har du noen penger (som du har råd til å tape) så sett hele beløpet på rødt og spill 1 gang, framfor å plassere småbeløp over lang tid.  
+Kasinoer vet med andre ord å utnytte sentralgrenseteoremet. Har du noen penger (som du har råd til å tape) så sett hele beløpet på en farge og spill 1 gang, framfor å plassere småbeløp over lang tid.  
 
 >c. Det finnes noen strategier som kan sikre positiv gevinst, men som i praksis krever svært mye egenkapital og at det ikke er noe tak for hvor mye du kan satse ved bordet. Den såkalte *Martingal* strategien går ut på at du dobler innsatsen etter hvert tap og gir deg ved første gevinst. Gevinsten vil da svare til det første beløpet du satset.  
 </details>

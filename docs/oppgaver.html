@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.3 Oppgaver | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.3 Oppgaver | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
@@ -32,8 +32,9 @@
   
 <link rel="prev" href="utvalg-og-estimering.html"/>
 <link rel="next" href="relevant-r-grunnleggende.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -58,7 +60,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -118,6 +119,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -791,11 +793,11 @@ Sannsynligheten for positiv gevinst svarer til sannsynligheten for at ballen tre
 <li>Sentralgrenseteoremet sier at når vi spiller et relativt stort antall runder så er <span class="math inline">\(\overline{X}\)</span> normalfordelt med forventning <span class="math inline">\(E(\overline{X}) = \mu = -0.027\)</span> og varians <span class="math inline">\(\text{Var}(\overline{X})=\sigma^2/n = 0.999/50 = 0.02\)</span>. Sannsynligheten for at den gjennomsnittlige gevinsten er positiv blir altså
 <span class="math display">\[\begin{equation*}
 \begin{split}
-P(\overline{X}&gt;0) &amp;= P\left(\frac{\overline{X} - \mu}{\sigma^2/n} &gt; \frac{0 - \mu}{\sigma^2/n}\right) = P\left(Z &gt; \frac{0 - (-0.027)}{0.999/50}\right)\\
-&amp;= P(Z&gt;1.35) = 1 - P(Z &lt; 1.35) = 0.0885
+P(\overline{X}&gt;0) &amp;= P\left(\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} &gt; \frac{0 - \mu}{\sigma/\sqrt{n}}\right) = P\left(Z &gt; \frac{0 - (-0.027)}{\sqrt{0.02}}\right)\\
+&amp;= P(Z&gt;0.19) = 1 - P(Z &lt; 0.19) = 0.4246
 \end{split}
 \end{equation*}\]</span>
-Kasinoer vet med andre ord å utnytte sentralgrenseteoremet. Har du noen penger (som du har råd til å tape) så sett hele beløpet på rødt og spill 1 gang, framfor å plassere småbeløp over lang tid.</li>
+Kasinoer vet med andre ord å utnytte sentralgrenseteoremet. Har du noen penger (som du har råd til å tape) så sett hele beløpet på en farge og spill 1 gang, framfor å plassere småbeløp over lang tid.</li>
 </ol>
 </blockquote>
 <blockquote>
@@ -816,7 +818,6 @@ Kasinoer vet med andre ord å utnytte sentralgrenseteoremet. Har du noen penger 
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -835,6 +836,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -855,6 +857,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

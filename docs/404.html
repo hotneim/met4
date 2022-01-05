@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.3 Spørsmål og svar | MET4 - Empiriske Metoder - Vår 2022</title>
+  <title>Page not found | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.3 Spørsmål og svar | MET4 - Empiriske Metoder - Vår 2022" />
+  <meta property="og:title" content="Page not found | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.3 Spørsmål og svar | MET4 - Empiriske Metoder - Vår 2022" />
+  <meta name="twitter:title" content="Page not found | MET4 - Empiriske Metoder - Vår 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tidligere-eksamensoppgaver-hjemmeeksamen.html"/>
-<link rel="next" href="seminar.html"/>
+
+
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -233,113 +233,19 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="spørsmål-og-svar" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Spørsmål og svar</h2>
-<p>På denne siden vil vi samle svar på spørsmål som er kommet inn til studentassistenter på e-post og gjennom snapmentor, og som kan være nyttige for senere årganger av studenter. Tusen takk til <a href="https://www.nhh.no/en/employees/faculty/benjamin-narum/">Benjamin Narum</a> for at han har samlet inn materiale til denne siden.</p>
-<div id="hypotesetesting-og-frihetsgrader" class="section level3" number="8.3.1">
-<h3><span class="header-section-number">8.3.1</span> Hypotesetesting og frihetsgrader</h3>
-<details>
-<summary>
-Hvor mange frihetsgrader skal det være i andre, eller mer kompliserte modeller, enn dem vi går gjennom i faget?
-</summary>
-<p>Det finnes en rekke forskjellige typer statistiske tester som har ulike formål. En tommelfingerregel som ofte fungerer i statistisk inferens (som for eksempel i en test for om en estimert parameter er signifikant forskjellig fra null) er:</p>
-<p>Antall frihetsgrader = Antall observasjoner - Antall parametre som er estimert i modellen.</p>
-I multippel regresjon estimerer vi <span class="math inline">\(k+1\)</span> regresjonskoeffisienter, ergo blir antall frihetsgrader i testene <span class="math inline">\(n-(k+1) = n - k - 1\)</span>. Begrepet “frihetsgrader” har lange historiske røtter og spiller på denne type intuisjon (observasjonene gir oss frihet til å finne ut av ting med en viss presisjon, og denne friheten “bruker vi opp” når vi estimerer ukjente parametre), men det er ikke et idiotsikkert system. Det at testobservatoren i en ett-utvalgs <span class="math inline">\(t\)</span>-test med ukjent varians er <span class="math inline">\(t\)</span>-fordelt med <span class="math inline">\(n-1\)</span> frihetsgrader (<span class="math inline">\(n\)</span> observasjoner minus en estimert parameter <span class="math inline">\(s^2 \approx \sigma^2\)</span>) er et presist matematisk resultat som bevises på vanlig måte ved hjelp av antakelsene i testen (dvs nullhypotesen om at observasjonene er trukket fra den samme normalfordelingen).
-</details>
-<details>
-<summary>
-I en F-test, hvor går grensen for når man skal runde frihetsgradene opp til uendelig eller ned til 200?
-</summary>
-Om du kommer i en situasjon der det er tvil ville jeg brukt en funksjon i R til å få den eksakt. Ellers kan du vurdere det utfra differansen for verdien av testobservatoren for lavere frihetsgrader. For eksempel: Om du har 250 frihetsgrader vil forskjellen i testobservatoren mellom 150 og 200 frihetsgrader være høyere enn den mellom 200 og 250 frihetsgrader. Så lenge du ser at konklusjonen for oppgaven blir den samme spiller det ingen rolle.
-</details>
-<details>
-<summary>
-Er det ikke slik at man skal bruke Z-tester for sammenligning av to forventningsverdier? Hvorfor bruker man da t-tester i noen eksamensoppgaver, som f.eks v17 1b)?
-</summary>
-<p>Z-test brukes når man vet det eksakte standardavviket. I dette eksempelet setter vi det empiriske standardavviket i nevneren av testobservatoren, og da kan man bevise matematisk at den ikke lenger er standard normalfordelt, men heller t-fordelt med n-1 frihetsgrader.</p>
-<p>Dersom antall observasjoner er stort er vårt estimat av populasjonens standardavvik så presist at det ikke utgjør noen forskjell, noe vi ser fra t-tabellen for stor n, som gir tilnærmet samme kritiske verdi som den tilsvarende verdien i Z-tabellen.</p>
-Sagt med andre ord: Når n blir stor er t-fordelingen med n frihetsgrader tilnærmet lik normalfordelingen. Dette er en eksakt grenseverdi når <span class="math inline">\(n \to \infty\)</span>.
-</details>
-<details>
-<summary>
-Når man skal finne kritisk verdi av z-test, bruker man da t-fordeling med uendelig frihetsgrader?
-</summary>
-Det blir det samme, ja. Det er også gitt i Tabell 3 i boken, men da er verdien av z-observatoren gitt langs aksene (første desimal langs radene og andre desimal langs kolonnene) med sannsynligheten gitt i midten.
-</details>
-<details>
-<summary>
-Dataøving 2, oppgave 1.3: Testobservatoren blir beregnet til ca 2.5, mens oppgaven sier at den ligger i mellom de kritiske verdiene på 0.025 og 0.975. Hvilken tabell skal jeg bruke for å få dette til å stemme? Hvilke linjer skal jeg se på i den tabellen for å se at det er riktig?
-</summary>
-<p>Tabell 5 “Critical values of the chi^2 distribution” gir deg riktige verdier. Du kan også bruke R-funksjonen qchisq(0.025, df = n - 1) til å få samme tall. Det er 25 observasjoner og du har benyttet et estimat av forventningsverdien til å beregne det empiriske standardavviket. Da er det 25 - 1 = 24 frihetsgrader, så da må du se på linjen hvor “Degrees of Freedom” er 24. Kolonnene er <span class="math inline">\(\chi_{0.025}\)</span> og <span class="math inline">\(\chi_{0.975}\)</span>, så skal du finne 12.4 og 39.4.</p>
-</details>
-</div>
-<div id="regresjon-1" class="section level3" number="8.3.2">
-<h3><span class="header-section-number">8.3.2</span> Regresjon</h3>
-<details>
-<summary>
-Hvordan finner man kritisk grense for <span class="math inline">\(F\)</span>-test i multippel regresjon? <span class="math inline">\(F\)</span>-observatoren er jo oppgitt i regresjonstabellen, men dersom det ikke er oppgitt signifikansnivå der, skal man finne forkatsningsgrense i normaltabell eller i <span class="math inline">\(F\)</span>-fordeling, og skal antall frihetsgrader være <span class="math inline">\(n-k-1\)</span>?
-</summary>
-<p>F-observatoren har to tall for frihetsgrader. For multippel regresjon tester den nullhypotesen om at alle koeffisientene er null <strong>samtidig</strong>. Den første frihetsgraden kommer av modellen og er lik antall koeffisienter, den andre kommer av frihetsgradene i datasettet som er <span class="math inline">\(n - k - 1\)</span>. Tabell 6 i boken viser kritisk grense for ulike signifikansnivå og kombinasjoner av de to frihetsgradene. Stargazer oppgir <code>df=x;y</code>, der <code>x</code> er første frihetsgrad og <code>y</code> er andre frihetsgrad.</p>
-</details>
-<details>
-<summary>
-Hva er en indikatorvariabel? Og hvordan kan man lage dette, eventuelt finne mer informasjon. Sikter til eksamen våren 2020 oppgave 2.
-</summary>
-<p>Indikatorvariabler er et annet ord for dummyvariabler, og tar verdien 0 eller 1. Det kan gjerne brukes til å gjøre statistisk analyse når noe enten er sant eller ikke-sant. I oppgaven på eksamen bruker de jo det til å si om NO2 oversteg faregrensen. Da bruker man gjerne en indikator fordi du har informasjon om hva som er farlig og ikke, altså bryr vi oss ikke så mye om akkurat hva nivået er, bare vi det om det er farlig eller ikke (i akkurat denne analysen i hvert fall). Indikatorvariabler er også interessante som verktøy for å danne “kategorier” i dataene.</p>
-Du kan se her eller google litt om du er interessert: <a href="https://en.wikipedia.org/wiki/Dummy_variable_(statistics)" class="uri">https://en.wikipedia.org/wiki/Dummy_variable_(statistics)</a>
-</details>
-<details>
-<summary>
-Om det ikke er multikolinearitet, er det slik at man da kan tolke koeffisienten som kausalt?
-</summary>
-<p>Nei, ikke nødvendigvis.</p>
-</details>
-<details>
-<summary>
-Hvordan tolker man et konfidensintervall for en koeffisient i en regresjonsmodell? Si for eksempel at et 95% konfidensintervall for koeffisienten er (-50,-30).
-</summary>
-På samme måte som andre konfidensintervaller for ukjente, men estimerte paramtetre: Dersom modellen er riktig (det vil si at det eksisterer en <em>sann</em> regresjonskoeffisient <span class="math inline">\(\beta\)</span>), og dersom vi hadde hatt mulighet til å trekke flere datasett av samme størrelse som det vi har, så ville 95% av konfidensintervallene inneholdt den sanne regresjonskoeffisienten.
-</details>
-</div>
-<div id="tidsrekker-1" class="section level3" number="8.3.3">
-<h3><span class="header-section-number">8.3.3</span> Tidsrekker</h3>
-<details>
-<summary>
-Jeg forstår ikke helt hvordan man kan se om det er autokorrelasjon i residualene eller ikke. F.eks i eksamen v20 oppgave 2g).
-</summary>
-På oppgave 2g er det nok vanskelig å se at det er autokorrelasjon rett fra residualene, men du kan set det på ACF plottet. Der er det signifikante (barer over den blå linjen) autokorrelasjoner for flere “lag” større enn 0. Se video om autokorrelasjon for en forklaring.
-</details>
-</div>
-<div id="r-etc." class="section level3" number="8.3.4">
-<h3><span class="header-section-number">8.3.4</span> R etc.</h3>
-<details>
-<summary>
-Jeg skal gjøre noe i R, og får opp en feilkode. Hva kan jeg gjøre for å få den til å fungere? F.eks. kommer det opp «Error in plot.new()».
-</summary>
-<p>Koding kan ofte føre til mange forskjellige type feil og det kan være vanskelig å vite alltid hva som er galt. For denne type feil er Google din venn. Søk på feilkoden, i dette tilfellet “plot.new() figure margins too large”, så kommer det som regel opp en tråd men noen som opplever noe lignende og en løsning.</p>
-Et annet tips er å kommentere ut deler av koden og se om du får deler av den til å fungere. Da kan du isolere hva som forårsaker problemet og prøve å Google kun for det, da kommer det oftere opp gode svar.
-</details>
-<details>
-<summary>
-Jeg skriver inn i <code>stargazer()</code>-funksjonen, men output-en ser underlig ut.
-</summary>
-Du må bruke tillegsargumentet: <code>type = "text"</code>.
-</details>
-<details>
-<summary>
-Hvordan lager jeg regresjonsanalyse i Excel slik det er gjort i oppgave 17.2 h?
-</summary>
-Selve regresjonsanalysen gjøres i Excel under: Data &gt; Data Analysis &gt; Regression. Velg ut rutene for X (begge kolonner) og Y og trykk ok. Om “Data Analysis” ikke ligger der må du aktivere “Analysis ToolPak in Excel”, google det så finner du ut av det.
-</details>
-</div>
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="tidligere-eksamensoppgaver-hjemmeeksamen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="seminar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
