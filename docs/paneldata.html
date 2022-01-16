@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.3 Paneldata | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.3 Paneldata | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
@@ -34,7 +34,6 @@
 <link rel="next" href="oppgaver-3.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -60,6 +60,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -264,7 +265,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="struktur-på-paneldata" class="section level4" number="5.3.3.1">
 <h4><span class="header-section-number">5.3.3.1</span> Struktur på Paneldata</h4>
 <p>Til nå har vi typisk observert <span class="math inline">\(n\)</span> individer <em>en</em> gang. Hvis vi holder oss til eksempelet fra videoforelesningen, kan vi tenke oss at vi har spurt <span class="math inline">\(n\)</span> arbeidstakere om hvor mange timer de jobbet forrige år (<span class="math inline">\(X\)</span>), og hvor mye de hadde i timelønn (<span class="math inline">\(Y\)</span>). Da ville datasettet sett omtrent slik ut:</p>
-<p><img src="bilder/panel1.PNG" /><!-- --></p>
+<p><img src="bilder/panel1.PNG" width="76" /></p>
 <p>Her er <span class="math inline">\(y_i\)</span> timelønn til arbeidstaker nummer <span class="math inline">\(i\)</span>, og <span class="math inline">\(x_i\)</span> er antall timer jobbet for arbeidstaker nummer <span class="math inline">\(i\)</span>. Hvis vi så ønsker å se om det er en sammenheng mellom disse to variablene, kan vi sette opp en enkel regresjonsmodell som vi har gjort før:</p>
 <p><span class="math display">\[\begin{equation}
 y_i = \alpha + \beta x_i + \epsilon_i,
@@ -272,7 +273,7 @@ y_i = \alpha + \beta x_i + \epsilon_i,
 \end{equation}\]</span>
 der vi gjør de vanlige antakelsene om homoskedastisitet, uavhengige feilledd, og selvsagt at forklaringsvariabelen er <em>eksogen</em>, dvs at de stokastiske variablene <span class="math inline">\(X\)</span> og <span class="math inline">\(\epsilon\)</span> er <em>uavhengige fra hverandre</em>. Hvis vi aksepterer det, så kan vi estimere <span class="math inline">\(\beta\)</span> ved hjelp av minste kvadreters metode (OLS - orinary least squares), som vi kan tolke som forventet økning i timelønn ved å jobbe en time ekstra.</p>
 <p>For paneldata har vi ikke lenger kun observert <span class="math inline">\(n\)</span> arbeidstakere 1 gang, men spurt <span class="math inline">\(N\)</span> arbeidstakere <span class="math inline">\(T\)</span> ganger, slik at vi trenger to indekser til å identifisere hver enkelt observasjon: <span class="math inline">\(y_{i,t}\)</span> er timelønn til arbeidstaker nummer <span class="math inline">\(i\)</span> ved tidspunkt <span class="math inline">\(t\)</span>. Våre observerte <span class="math inline">\(X\)</span>er og <span class="math inline">\(Y\)</span>er kan vi samle i en tabell som før, se illustrasjonen under. Legg merke til at det bare er de to første kolonnene for <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> som utgjør de faktiske observasjonene, mens de to neste kolonnene sier hvilket individ som er observert, og ved hvilket tidspunkt observasjonen er utført, og viser bare indeksene til <span class="math inline">\(X\)</span>- og <span class="math inline">\(Y\)</span>-observasjonene. Kall det gjerne <em>metadata</em>, og vi trenger den informasjonen når vi skal utføre paneldatateknikker.</p>
-<p><img src="bilder/panel2.PNG" /><!-- --></p>
+<p><img src="bilder/panel2.PNG" width="492" /></p>
 <p>Formatet i tabellen over kalles gjerne et <em>langt</em> format, og omtrent samtlige R-pakker og funksjoner som brukes til å analysere panel data forventer at dataene er organisert på denne måten.</p>
 <p>Vi kan ta en titt på hvordan dette ser ut i R for eksempelet vårt:</p>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="paneldata.html#cb127-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
@@ -530,6 +531,7 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -570,7 +572,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {
