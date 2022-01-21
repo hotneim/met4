@@ -140,9 +140,4 @@ oppgave-2---maskinlæring-logistisk-regresjon-og-k-nærmeste-naboer
 diverse-ekstrastoff
 skoleeksamen
 tidligere-eksamensoppgaver-hjemmeeksamen
-spørsmål-og-svar
-hypotesetesting-og-frihetsgrader
-regresjon-1
-tidsrekker-1
-r-etc.
 seminar

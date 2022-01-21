@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.4 Kjikvadrattester | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.4 Kjikvadrattester | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
@@ -34,6 +34,7 @@
 <link rel="next" href="oppgaver-1.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -209,8 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
-<li class="chapter" data-level="8.3" data-path="spørsmål-og-svar.html"><a href="spørsmål-og-svar.html"><i class="fa fa-check"></i><b>8.3</b> Spørsmål og svar</a></li>
-<li class="chapter" data-level="8.4" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8.4</b> Oppgaver til seminarer</a></li>
+<li class="chapter" data-level="8.3" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8.3</b> Oppgaver til seminarer</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -273,7 +272,7 @@ som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math
 <span id="cb60-3"><a href="kjikvadrattester.html#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb60-4"><a href="kjikvadrattester.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Kikker på datasettet</span></span>
 <span id="cb60-5"><a href="kjikvadrattester.html#cb60-5" aria-hidden="true" tabindex="-1"></a>mba</span></code></pre></div>
-<pre><code>## # A tibble: 152 × 2
+<pre><code>## # A tibble: 152 x 2
 ##    Degree `MBA Major`
 ##     &lt;dbl&gt;       &lt;dbl&gt;
 ##  1      3           1
@@ -286,7 +285,7 @@ som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math
 ##  8      1           1
 ##  9      2           1
 ## 10      2           2
-## # … with 142 more rows</code></pre>
+## # ... with 142 more rows</code></pre>
 <p>Vi legger merke til at strukturen på datasettet er litt annerledes enn krysstabellen som er vist s. 601 i læreboken. I stedet for at vi har telt opp antall studenter i hver enkelt kominasjon av «bachelorgrad» og «masterprofil», har vi fått oppgitt en tabell der hver rad representerer en enkeltstudents fagkombinasjon. Vi kan dog enkelt lage en krysstabell i R:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="kjikvadrattester.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mba)</span></code></pre></div>
 <pre><code>##       MBA Major
@@ -321,7 +320,6 @@ som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -362,7 +360,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

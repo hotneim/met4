@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
@@ -34,6 +34,7 @@
 <link rel="next" href="introduksjon-til-r.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -209,8 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
-<li class="chapter" data-level="8.3" data-path="spørsmål-og-svar.html"><a href="spørsmål-og-svar.html"><i class="fa fa-check"></i><b>8.3</b> Spørsmål og svar</a></li>
-<li class="chapter" data-level="8.4" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8.4</b> Oppgaver til seminarer</a></li>
+<li class="chapter" data-level="8.3" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8.3</b> Oppgaver til seminarer</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -255,13 +254,13 @@ Geir
 </figcaption>
 </figure>
 <p>I skrivende stund (desember 2021) ser det ut til at i alle fall starten av vårsemesteret fortsatt vil bære preg av restriksjoner og digitale løsninger som følge av coronapandemien. Vi skal være godt rustet for det i MET4, der vi har spilt inn all teorigjennomgang som videosnutter som du kan se på denne hjemmesiden. Vi kommer til å bruke forelesningstiden til kontakttimer, oppgaveseminar, og et relativt lite antall oversiktsforelesninger.</p>
-<p>På denne siden vil du finne alle videosnuttene med kommentarer til lærebokens fremstilling, regneoppgaver, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset). Merk også at seminaroppgavene (Se <a href="seminar.html#seminar">8.4</a>) ikke har fasit, men notater fra disse seminarene vil bli lagt ut etter gjennomgang.</p>
+<p>På denne siden vil du finne alle videosnuttene med kommentarer til lærebokens fremstilling, regneoppgaver, samt supplementer og referanser til andre bøker der læreverket vårt ikke strekker til (særlig mot slutten av kurset). Merk også at seminaroppgavene (Se <a href="seminar.html#seminar">8.3</a>) ikke har fasit, men notater fra disse seminarene vil bli lagt ut etter gjennomgang.</p>
 <p>Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. Organiseringen av disse dataøvingene (fysisk vs. digitalt) må vi nesten komme tilbake til etter hvert som semesteret skrider frem.</p>
 <div id="fremdriftsplan" class="section level3 unnumbered">
 <h3>Fremdriftsplan</h3>
 <p>I et tradisjonelt kursopplegg ville forventet progresjon blitt definert av forelesningstempoet, og forelesningene ville vært den strukturen som mange trenger for å jobbe seg jevnt og trutt gjennom pensum. Selv om det nå legges opp til et fleksibelt undervisningsopplegg der tempo og progresjon i utgangspunktet kan tilpasses den enkeltes timeplan og studieteknikk, er det viktig å jobbe jevnt med kurset. <strong>MET4 er et krevende kurs som krever full innsats fra første til siste dag.</strong> For eksempel får en mye bedre utbytte av oppgaveseminarene dersom man på forhånd har sett videoene og gjort noen av regneoppgavene relatert til temaet.</p>
 <p>Vi har laget et forslag til progresjon i tabellen under. Kolonnen “jobbe med” refererer til avsnitt på denne siden som dere finner igjen i menyen til venstre. Der finnes også alle dataøvingene. Ukene med grønn farge betyr at vi har tid på datasal med studentassistenter (så sant vi kan møtes fysisk, ellers vil disse selvsagt gjennomføres digitalt).</p>
-<p>Vi vil som en hovedregel bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (se <a href="seminar.html#seminar">8.4</a> for seminaroppgavene) og oversiktsforelesninger. <strong>Begge disse aktivitetene er digitale i starten av semesteret, men dette vil bli flyttet til Aud Max så snart vi kan</strong>.</p>
+<p>Vi vil som en hovedregel bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (se <a href="seminar.html#seminar">8.3</a> for seminaroppgavene) og oversiktsforelesninger. <strong>Begge disse aktivitetene er digitale i starten av semesteret, men dette vil bli flyttet til Aud Max så snart vi kan</strong>.</p>
 <p>Legg merke til følgende viktige datoer:</p>
 <ul>
 <li><strong>17. februar:</strong> Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.</li>
@@ -312,7 +311,7 @@ Grunnleggende statistikk
 18.01: Kontakttime, kursansvarlig tilgjengelig i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>.
 </td>
 <td style="text-align:left;">
-20.01: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+20.01: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.3</a> for oppgaver.
 </td>
 </tr>
 <tr>
@@ -340,7 +339,7 @@ Hypotesetesting
 01.02: Kontakttime, kursansvarlig tilgjengelig i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>.
 </td>
 <td style="text-align:left;">
-03.02: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+03.02: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.3</a> for oppgaver.
 </td>
 </tr>
 <tr>
@@ -368,7 +367,7 @@ Regresjon
 15.02: Kontakttime, kursansvarlig tilgjengelig i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>.
 </td>
 <td style="text-align:left;">
-17.02: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+17.02: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.3</a> for oppgaver.
 </td>
 </tr>
 <tr>
@@ -382,7 +381,7 @@ Regresjon
 22.02: Kontakttime, kursansvarlig tilgjengelig i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>.
 </td>
 <td style="text-align:left;">
-24.02: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+24.02: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.3</a> for oppgaver.
 </td>
 </tr>
 <tr>
@@ -410,7 +409,7 @@ Avansert regresjon og maskinlæring
 08.03: Kontakttime, kursansvarlig tilgjengelig i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>.
 </td>
 <td style="text-align:left;">
-08.03: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+08.03: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.3</a> for oppgaver.
 </td>
 </tr>
 <tr>
@@ -438,7 +437,7 @@ Tidsrekker
 22.03: Kontakttime, kursansvarlig tilgjengelig i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>.
 </td>
 <td style="text-align:left;">
-24.03: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.4</a> for oppgaver.
+24.03: Oppgaveseminar i Aud Max og på <a href="https://nhh.zoom.us/j/66065667678?pwd=ME1LK294VUw4SEt3eHI2V1ZuZm5MZz09">Zoom</a>. Se <a href="seminar.html#seminar">8.3</a> for oppgaver.
 </td>
 </tr>
 <tr>
@@ -537,7 +536,6 @@ Second EMEA edition.
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -578,7 +576,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {

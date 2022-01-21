@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
@@ -34,6 +34,7 @@
 <link rel="next" href="utvalg-og-estimering.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -41,7 +42,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -209,8 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
 <li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
-<li class="chapter" data-level="8.3" data-path="spørsmål-og-svar.html"><a href="spørsmål-og-svar.html"><i class="fa fa-check"></i><b>8.3</b> Spørsmål og svar</a></li>
-<li class="chapter" data-level="8.4" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8.4</b> Oppgaver til seminarer</a></li>
+<li class="chapter" data-level="8.3" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8.3</b> Oppgaver til seminarer</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -256,7 +255,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="deskriptiv-statistikk.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb18-2"><a href="deskriptiv-statistikk.html#cb18-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm03-02.xlsx&quot;</span>)</span>
 <span id="cb18-3"><a href="deskriptiv-statistikk.html#cb18-3" aria-hidden="true" tabindex="-1"></a>returns</span></code></pre></div>
-<pre><code>## # A tibble: 50 × 2
+<pre><code>## # A tibble: 50 x 2
 ##    `Return A` `Return B`
 ##         &lt;dbl&gt;      &lt;dbl&gt;
 ##  1      30         30.3 
@@ -269,7 +268,7 @@ Publisert ved hjelp av bookdown</a></li>
 ##  8      -2.59      29.4 
 ##  9      33         11   
 ## 10      14.3      -25.9 
-## # … with 40 more rows</code></pre>
+## # ... with 40 more rows</code></pre>
 <p>Hver stategi har sin kolonne. Merk at variabelnavnene har mellomrom i seg, noe som er upraktisk når vi jobber med et seriøst programmeringsspråk. En god vane er å rett og slett gi dem nye navn, ved f.eks. å kjøre <code>colnames(returns) &lt;- c("returnA", "returnB")</code>, eller så må vi alltid referere til variabelnavnene ved å bruke slike “backticks” som vi ser under.</p>
 <p>Vi kan lage to enkle histogrammer slik vi gjorde det i forelesningen:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="deskriptiv-statistikk.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -300,7 +299,6 @@ Figur 2.1: To histogrammer
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -341,7 +339,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
