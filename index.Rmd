@@ -9,6 +9,7 @@ output:
       toc:
         collapse: "section"
         toc_depth: 4
+favicon: icon/favicon.ico
 description: "Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole."
 ---
 
