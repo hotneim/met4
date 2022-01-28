@@ -11,3 +11,5 @@ bookdown::gitbook:
           <li><a href="https://www.nhh.no/en/employees/faculty/geir-drage-berentsen/">Geir Drage Berentsen</a></li>
           <li><a href="https://github.com/rstudio/bookdown">
           Publisert ved hjelp av bookdown</a></li>
+  includes:
+    in_header: header.html
