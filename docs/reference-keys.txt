@@ -1,10 +1,3 @@
-fig:to-histogrammer
-fig:churn
-eq:withb
-eq:withoutb
-eq:timemean
-tab:knn
-tab:knnfasit
 fig:rstudio1
 fig:rstudiorun
 fig:dokumentasjon
@@ -128,9 +121,9 @@ dataøving-2
 interaktiv-øvelse
 data-til-dataøvelsen
 oppgaver-til-øvingen
-oppgave-1-2
-oppgave-2-2
-oppgave-3-1
+oppgave-1-3
+oppgave-2-3
+oppgave-3-2
 dataøving-3
 oppgave-1-interaktiv-øvelse-1
 oppgave-2-regresjonsanalyse
