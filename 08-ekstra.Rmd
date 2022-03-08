@@ -451,7 +451,7 @@ stargazer::stargazer(reg1, reg2, reg3, type = "text")
 
 </details>
 
-<details><summary> Oppgaver til seminar 8. mars 2022 </summary>
+<details><summary> Oppgaver til seminar 10. mars 2022 </summary>
 
 Refleksjonsoppgaver:
 
