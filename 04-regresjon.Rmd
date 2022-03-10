@@ -289,7 +289,7 @@ reg.zero
 </div></details>
 
 #### Oppgave 2 {-}
-Vi skal undersøke om alder har sammenheng med hvor lang tid man bruker på et puslespill. Vi har data fra et tilfeldig utvalg av 210 voksne personer om alder og tid brukt på oppgaven. Uttrykk alder som $X$ og tid i minutter som $Y$. Følgende deskriptive statistikker er beregnet for datasettet: $s_{xy}^2= 8,	s_x^2, = 110,	s_y^2 = 42, \bar{x} = 40,	\bar{y} = 20$ hvor $\bar{x},\bar{y}$ er gjennomsnittene.
+Vi skal undersøke om alder har sammenheng med hvor lang tid man bruker på et puslespill. Vi har data fra et tilfeldig utvalg av 210 voksne personer om alder og tid brukt på oppgaven. Uttrykk alder som $X$ og tid i minutter som $Y$. Følgende deskriptive statistikker er beregnet for datasettet: $s_{xy}= 8,	s_x^2, = 110,	s_y^2 = 42, \bar{x} = 40,	\bar{y} = 20$ hvor $\bar{x},\bar{y}$ er gjennomsnittene.
 
 a. Sett opp regresjonsuttrykket for sammenhengen mellom $X$, $Y$ og støy $\epsilon$. Hva er antagelsen for sammenhengen mellom X og $\epsilon$?
 
