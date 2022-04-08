@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.3 Dataøving 3 | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.3 Dataøving 3 | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
@@ -34,7 +34,6 @@
 <link rel="next" href="dataøving-4.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -262,7 +262,7 @@ Publisert ved hjelp av bookdown</a></li>
 <p><strong>Oppgave 2.1:</strong> Kikk raskt på datasettet i Excel eller tilsvarende. Du ser at det er tre kolonner, en som angir ukenummer (<code>Week</code>, teller fra 1 til 205), en som angir ukentlig besøkstall på museet (<code>Museum</code>) og en som angir ukentlig besøkstall i fornøyelsesparken (<code>A-Park</code>). Legg merke til at besøkstallet i museet er null fra og med uke 33, til og med uke 179, som er perioden fra brannen til nyåpning.</p>
 <p><strong>Oppgave 2.2:</strong> Last så datasettet inn i R som før ved hjelp av <code>read_excel()</code>-funksjonen. Gi det et passelig navn (f.eks <code>visits</code>), og sjekk raskt at det har gått bra ved å taste inn datanavnet i konsollen. Da skal det se omtrent slik ut:</p>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="dataøving-3.html#cb243-1" aria-hidden="true" tabindex="-1"></a>visits</span></code></pre></div>
-<pre><code>## # A tibble: 205 x 3
+<pre><code>## # A tibble: 205 × 3
 ##     Week Museum `A-Park`
 ##    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
 ##  1     1    787     1379
@@ -275,7 +275,7 @@ Publisert ved hjelp av bookdown</a></li>
 ##  8     8   1399     2086
 ##  9     9   1528     2503
 ## 10    10   1788     2553
-## # ... with 195 more rows</code></pre>
+## # … with 195 more rows</code></pre>
 <p>Legg merke til følgende:</p>
 <ul>
 <li>Observasjonene ser ut til å være de samme som vi så da vi kikket på selve regnearket. Det er alltid en god vane å forsikre seg om at R har lest inn datasettet på riktig måte.</li>
@@ -375,6 +375,7 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -415,7 +416,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {

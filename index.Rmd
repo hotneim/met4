@@ -48,7 +48,7 @@ Legg merke til følgende viktige datoer:
 - **17. februar:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
 - **4. mars:** Frist for innlevering av den obligatoriske innleveringen.
 - **25.--27. april:** Gruppebasert hjemmeeksamen.
-- **6. mai:** Individuell skoleeksamen.
+- **6. mai:** Individuell **hjemme**eksamen.
 
 ```{r, echo = F, message = FALSE, warning = FALSE}
 options(knitr.kable.NA = '')

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
@@ -34,7 +34,6 @@
 <link rel="next" href="modellbygging-1.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,6 +41,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
 
 
 
@@ -294,7 +294,7 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 ##       0.5121  -0.5780
 ## s.e.  0.1680   0.1584
 ## 
-## sigma^2 estimated as 6.614:  log likelihood=-2958.16
+## sigma^2 = 6.614:  log likelihood = -2958.16
 ## AIC=5922.32   AICc=5922.34   BIC=5937.72
 ## 
 ## Training set error measures:
@@ -314,7 +314,7 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 ##       -0.0421  -0.0947
 ## s.e.   0.0282   0.0281
 ## 
-## sigma^2 estimated as 6.581:  log likelihood=-2955.04
+## sigma^2 = 6.581:  log likelihood = -2955.04
 ## AIC=5916.09   AICc=5916.1   BIC=5931.48
 ## 
 ## Training set error measures:
@@ -342,6 +342,7 @@ Prediksjon gjøres som tidligere med <code>forecast</code> funksjonen, så hvis 
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -382,7 +383,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {
