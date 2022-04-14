@@ -141,6 +141,3 @@ diverse-ekstrastoff
 skoleeksamen
 tidligere-eksamensoppgaver-hjemmeeksamen
 seminar
-oppgave-1-3
-oppgave-2-3
-oppgave-3-2
