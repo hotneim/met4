@@ -261,23 +261,26 @@ e.	Vi kan estimere at andelen defekte maskindeler i populasjonen er 12%. Ved å 
     a.	Antall mil en gruppe joggere løper hver uke 
     b.	Starlønnen til nyutdannede fra masterprogrammet til NHH 
     c.	Månedene et selskaps ansatte velger å ta ut ferie
-    d.	Bokstavkarakterene til studentene i MET4
-    e.	De daglige aksjeprisene til Tesla
-    f.	Klesstørrelser (S, M, L)
-    g.	Antallet Toyota som er importert månedlig til USA de siste 5 årene
-    h.	Stillingene i Kjernestyret i NHHS (Leder, Prosjektansvarlig, Internansvarlig osv)
+    d.  Temperatur i Celsius
+    e.	Bokstavkarakterene til studentene i MET4
+    f.	De daglige aksjeprisene til Tesla
+    g.	Klesstørrelser (S, M, L)
+    h.	Antallet Toyota som er importert månedlig til USA de siste 5 årene
+    i.	Stillingene i Kjernestyret i NHHS (Leder, Prosjektansvarlig, Internansvarlig osv)
+    j.  Dato
 
 <details><summary>Løsning</summary>
 
->  a.	Intervalldata: =, ≠, <, >, +, -
-    b.	Intervalldata: =, ≠, <, >, +, -
+>  a.	Forholdsdata: =, ≠, <, >, +, -, *, /
+    b.	Forholdsdata: =, ≠, <, >, +, -, *, /
     c.	Nominale data: =, ≠
-    d.	Ordinale data: =, ≠, <, >
-    e.	Intervalldata: =, ≠, <, >, +, -
-    f.	Ordinale data: =, ≠, <, >
-    g.	Intervalldata: =, ≠, <, >, +, -
-    h.	Nominale data: =, ≠
-
+    d.  Intervalldata: =, ≠, <, >, +, -
+    e.	Ordinale data: =, ≠, <, >
+    f.	Forholdsdata: =, ≠, <, >, +, -, *, /
+    g.	Ordinale data: =, ≠, <, >
+    h.	Forholdsdata: =, ≠, <, >, +, -, *, /
+    i.	Nominale data: =, ≠
+    j.  Intervalldata: =, ≠, <, >, +, -
 
 </details>
 
