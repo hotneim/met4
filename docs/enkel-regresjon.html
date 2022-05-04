@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.1 Enkel regresjon | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.1 Enkel regresjon | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="regresjon.html"/>
 <link rel="next" href="multippel-regresjon.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,17 +242,17 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="enkel-regresjon" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Enkel regresjon</h2>
-<div id="videoforelesninger-6" class="section level3" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Videoforelesninger</h3>
+<div id="enkel-regresjon" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Enkel regresjon<a href="enkel-regresjon.html#enkel-regresjon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="videoforelesninger-6" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Videoforelesninger<a href="enkel-regresjon.html#videoforelesninger-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div style="padding:75% 0 0 0;position:relative;">
 <iframe src="https://vimeo.com/showcase/7781447/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
 </div>
 </div>
-<div id="kommentarer-6" class="section level3" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Kommentarer</h3>
+<div id="kommentarer-6" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Kommentarer<a href="enkel-regresjon.html#kommentarer-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vi har sett på en del figurer som illustrerer noen pedagogiske poenger, og lærebokens kapittel <strong>16</strong> går detaljert til verks når de beskriver de ulike læringsmomentene:</p>
 <p>I kapittel <strong>16.1</strong> kan vi lese mer om den statistiske modellen som vi kaller enkel regresjon. I kapittel <strong>16.2</strong> introduseres minste kvadraters metode for å estimere regresjonskoeffisientene ved hjelp av data. De viser til og med hvordan det kan gjøres manuelt ved hjelp av bildatasettet, men det er selvsagt kun for å illustrere hvodan formlene ser ut. Vi estimerer ved hjelp av R, og vi har sett i videoforelesningen hvordan vi gjør det ved hjelp av <code>lm()</code>-funksjonen.</p>
 <p>Det som gjør regresjon til et <em>statistisk</em> problem er feilleddet <span class="math inline">\(\epsilon\)</span>. Vi tenker oss at for en gitt verdi av <span class="math inline">\(X\)</span>, så vil «naturen» regne ut verdien av <span class="math inline">\(Y\)</span> ved å regne ut den lineære sammenhengen <span class="math inline">\(Y = \beta_0 + \beta_1 X\)</span>, og så legge til støyvariabelen <span class="math inline">\(\epsilon\)</span> som <em>trekkes</em> fra en sannsynlighetsfordeling. Vi kan ikke observere direkte hvilke <span class="math inline">\(\epsilon\)</span> som «naturen» har «trukket» (for da ville vi med en gang kunne regnet oss frem til verdiene av <span class="math inline">\(\beta_0\)</span> og <span class="math inline">\(\beta_1\)</span>). For gitte estimater av regresjonskoeffisientene <span class="math inline">\(\widehat \beta_0\)</span> og <span class="math inline">\(\widehat \beta_1\)</span> (som vi kan finne f.eks. ved hjelp av minste kvadraters metode), så kan vi regne ut de <em>observerte residualene</em></p>
@@ -282,8 +281,8 @@ Publisert ved hjelp av bookdown</a></li>
 </ol>
 <p>Her er noen grunnleggende ferdigheter fra kapittel 16. Klarer du dette?</p>
 <ol style="list-style-type: decimal">
-<li>Bruke  til å tilpasse en enkel regresjonsmodell for et datasett?</li>
-<li>Bruke  til å skrive ut oversiktlige regresjonstabeller?</li>
+<li>Bruke til å tilpasse en enkel regresjonsmodell for et datasett?</li>
+<li>Bruke til å skrive ut oversiktlige regresjonstabeller?</li>
 <li>Tolke en regresjonsutskrift?</li>
 <li>Hente ut relevant informasjon etter en slik tilpasning?</li>
 <li>Bruke informasjon fra regresjonsutskriften til å regne ut antall stjerner for hånd?</li>

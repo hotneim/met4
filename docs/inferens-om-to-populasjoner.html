@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.3 Inferens om to populasjoner | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.3 Inferens om to populasjoner | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="enpop.html"/>
 <link rel="next" href="kjikvadrattester.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,17 +242,17 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="inferens-om-to-populasjoner" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Inferens om to populasjoner</h2>
-<div id="videoforelesninger-4" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> Videoforelesninger</h3>
+<div id="inferens-om-to-populasjoner" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Inferens om to populasjoner<a href="inferens-om-to-populasjoner.html#inferens-om-to-populasjoner" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="videoforelesninger-4" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Videoforelesninger<a href="inferens-om-to-populasjoner.html#videoforelesninger-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div style="padding:74.64% 0 0 0;position:relative;">
 <iframe src="https://vimeo.com/showcase/7780048/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
 </div>
 </div>
-<div id="kommentarer-4" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> Kommentarer</h3>
+<div id="kommentarer-4" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Kommentarer<a href="inferens-om-to-populasjoner.html#kommentarer-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vi har gått gjennom kapittel <strong>13</strong>, som i all hovedsak handler om å sammenligne to gjennomsnitt (som vi kan gjøre på tre forskjellige måter), to varianser og to andeler. Her følger noen kontrollspørsmål som du kan tenke over, og bruke som utgangspunkt for diskusjon i f.eks. kollokviegrupper:</p>
 <ul>
 <li>Hva er nullhypotesen når vi skal gjennomføre en t-test for to populasjoner?</li>
@@ -323,12 +322,12 @@ Publisert ved hjelp av bookdown</a></li>
 ## 
 ## data:  funds$Direct and funds$Broker
 ## t = 2.5178, df = 49, p-value = 0.007563
-## alternative hypothesis: true difference in means is greater than 0
+## alternative hypothesis: true mean difference is greater than 0
 ## 95 percent confidence interval:
 ##  0.9716497       Inf
 ## sample estimates:
-## mean of the differences 
-##                   2.908</code></pre>
+## mean difference 
+##           2.908</code></pre>
 <p>Da ser vi at <span class="math inline">\(p\)</span>-verdien ble enda mindre. I eksemplene 13.4 og 13.5 kan du prøve selv. Pass på at du kan gjøre beregningene manuelt også, der du regner ut gjennomsnitt, testobservator, kritisk verdi osv, slik at du forstår hva som foregår.</p>
 <p>Kapittel <strong>13-2</strong> omhandler forskjellen mellom observasjonsdata og eksperimentelle data. Det er i grunn ganske viktig å sette seg inn i den forskjellen fordi det ofte har betydning for tolkningen vår av statistiske resultater. Det er et eksplisitt krav for å lykkes i MET4 at du er i stand til å sette resultatene inn i en fornuftig kontekst.</p>
 <p>I kapittel <strong>13-4</strong> kan vi lese om varianstesten. Eksempel 13.7 ser slik ut i R:</p>

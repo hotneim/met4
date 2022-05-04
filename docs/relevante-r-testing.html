@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.6 Relevante R-kommandoer | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.6 Relevante R-kommandoer | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="oppgaver-1.html"/>
 <link rel="next" href="regresjon.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,15 +242,15 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="relevante-r-testing" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Relevante R-kommandoer</h2>
+<div id="relevante-r-testing" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Relevante R-kommandoer<a href="relevante-r-testing.html#relevante-r-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Under følger en liste over hvilke oppgaver du skal klare i R fra denne modulen. Vår policy fra og med <strong>vårsemesteret 2022</strong> er at R-kommandoene under er <em>tilstrekkelige</em> for å løse oppgavene i datalabber og hjemmeeksamen i MET4. Det er med andre ord ikke nødvendig å lære seg teknikker utover det som er listet opp eksplisitt i listen under. Eventuelle nye teknikker som trengs for å løse en bestemt oppgave vil bli oppgitt og forklart dersom det er nødvendig. Det antas i tillegg at du kan den grunnleggende R-syntaksen som er dekket under <a href="introduksjon-til-r.html#introduksjon-til-r">Introduksjon til R</a>.</p>
-<div id="antakelser-om-datasett-1" class="section level3 unnumbered">
-<h3>Antakelser om datasett</h3>
+<div id="antakelser-om-datasett-1" class="section level3 unnumbered hasAnchor">
+<h3>Antakelser om datasett<a href="relevante-r-testing.html#antakelser-om-datasett-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Di kan gjøre de samme antakelsene om datasettet som i <a href="relevant-r-grunnleggende.html#relevant-r-grunnleggende">den tilsvarende oversikten i forrige modul</a>: Datasettene er inneholdt i Excel-filer (<code>.xls</code> eller <code>xslx</code>) eller <code>.csv</code>-filer, som kolonner av variabler, med variabelnavn i første rad.</p>
 </div>
-<div id="t-tester" class="section level3 unnumbered">
-<h3><span class="math inline">\(t\)</span>-tester</h3>
+<div id="t-tester" class="section level3 unnumbered hasAnchor">
+<h3><span class="math inline">\(t\)</span>-tester<a href="relevante-r-testing.html#t-tester" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Du må kunne gjøre de ulike <span class="math inline">\(t\)</span>-testene ved hjelp av <code>t.test()</code>-funksjonen. vi bruker eksempeldatasettet <a href="datasett/testdata.xls">testdata.xls</a> som illustrasjon, som inneholder de to kolonnene <code>X1</code> og <code>X2</code>. I bunn og grunn handler det om å hente ut de relevante kolonnene i datasettet som vektorer, og så å sette argumentene i <code>t.test()</code>-funksjonen riktig.</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="relevante-r-testing.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tosidig, ett-utvalgs $t$-test for om forventningen til `X1` er lik 100:</span></span>
 <span id="cb73-2"><a href="relevante-r-testing.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, <span class="at">mu =</span> <span class="dv">100</span>)</span>
@@ -277,7 +276,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="relevante-r-testing.html#cb74-1" aria-hidden="true" tabindex="-1"></a>testdata2 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">&quot;ulik-lengde.xlsx&quot;</span>)</span>
 <span id="cb74-2"><a href="relevante-r-testing.html#cb74-2" aria-hidden="true" tabindex="-1"></a>testdata2</span>
 <span id="cb74-3"><a href="relevante-r-testing.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(testdata2<span class="sc">$</span>X1, testdata2<span class="sc">$</span>X2)</span></code></pre></div>
-<pre><code>## # A tibble: 15 x 2
+<pre><code>## # A tibble: 15 × 2
 ##       X1    X2
 ##    &lt;dbl&gt; &lt;dbl&gt;
 ##  1     1     5
@@ -307,8 +306,8 @@ Publisert ved hjelp av bookdown</a></li>
 ## mean of x mean of y 
 ##       8.0       9.5</code></pre>
 </div>
-<div id="varianstester" class="section level3 unnumbered">
-<h3>Varianstester</h3>
+<div id="varianstester" class="section level3 unnumbered hasAnchor">
+<h3>Varianstester<a href="relevante-r-testing.html#varianstester" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Varianstest for ett uvalg er ikke bygget inn i R som en egen funksjon. Da må vi gjøre den “semi-automatisk” og regne ut testobservatoren ved å bruke formelen direkte. Her tester vi om variansen til <code>X2</code>-kolonnen i testdatasettet er lik 10:</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="relevante-r-testing.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Varianstest</span></span>
 <span id="cb77-2"><a href="relevante-r-testing.html#cb77-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(testdata<span class="sc">$</span>X2)</span>
@@ -326,8 +325,8 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="relevante-r-testing.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2)</span></code></pre></div>
 <p>Vi kan også her gjøre ensidige tester ved å sette <code>alternative =</code>-argumentet til enten <code>"less"</code> eller <code>"greater"</code>.</p>
 </div>
-<div id="tester-for-andeler" class="section level3 unnumbered">
-<h3>Tester for andeler</h3>
+<div id="tester-for-andeler" class="section level3 unnumbered hasAnchor">
+<h3>Tester for andeler<a href="relevante-r-testing.html#tester-for-andeler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Både for ett-utvalgs og to-utvalgs test for andeler kan vi fylle inn tall direkte i testobservatoren på denne måten (sett inn for de nødvendige verdiene):</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="relevante-r-testing.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ett-utvalgs test for andeler</span></span>
 <span id="cb79-2"><a href="relevante-r-testing.html#cb79-2" aria-hidden="true" tabindex="-1"></a>p_hatt <span class="ot">&lt;-</span> <span class="fu">mean</span>(testdata<span class="sc">$</span>A1)</span>
@@ -348,8 +347,8 @@ Publisert ved hjelp av bookdown</a></li>
 <span id="cb79-17"><a href="relevante-r-testing.html#cb79-17" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> (p1_hatt <span class="sc">-</span> p2_hatt)<span class="sc">/</span><span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span>n1 <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>p_hatt<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p_hatt))</span></code></pre></div>
 <p>Testobservatorene må da sammenlingnes med relevant kvantil i normalfordelingen, som du enten finner i tabell i læreboken eller ved å bruke funksjonen <code>qnorm()</code> med ønsket kvantil som argument.</p>
 </div>
-<div id="kjikvadrattester-1" class="section level3 unnumbered">
-<h3>Kjikvadrattester</h3>
+<div id="kjikvadrattester-1" class="section level3 unnumbered hasAnchor">
+<h3>Kjikvadrattester<a href="relevante-r-testing.html#kjikvadrattester-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hvis vi skal teste for goodness-of-fit for en fordeling kan vi raskt regne ut testobservatoren direkte. Vi bruker eksempelet fra forelesningsvideoen:</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="relevante-r-testing.html#cb80-1" aria-hidden="true" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.45</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>)  <span class="co"># Fordeling under H0</span></span>
 <span id="cb80-2"><a href="relevante-r-testing.html#cb80-2" aria-hidden="true" tabindex="-1"></a>f  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">102</span>, <span class="dv">82</span>, <span class="dv">16</span>)       <span class="co"># Observerte frekvenser</span></span>

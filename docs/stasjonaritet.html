@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.4 Stasjonaritet | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.4 Stasjonaritet | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="ar.html"/>
 <link rel="next" href="autokorrelasjon.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,20 +242,20 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stasjonaritet" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Stasjonaritet</h2>
+<div id="stasjonaritet" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Stasjonaritet<a href="stasjonaritet.html#stasjonaritet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <iframe src="https://player.vimeo.com/video/467126666" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
 </iframe>
-<div id="kontrollspørsmål-6" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Kontrollspørsmål</h3>
+<div id="kontrollspørsmål-6" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Kontrollspørsmål<a href="stasjonaritet.html#kontrollspørsmål-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Hva er definisjonen på en stasjonær tidsrekke?</li>
 <li>Hva er poenget med å innføre stasjonaritet som et konsept i tidsrekkeanalyse?</li>
 <li>Er AR(1) prosessen <span class="math inline">\(X_t = 1.5 X_{t - 1} + u_t\)</span> stasjonær?</li>
 </ol>
 </div>
-<div id="merk" class="section level3" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Merk</h3>
+<div id="merk" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Merk<a href="stasjonaritet.html#merk" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>En AR-prosess kan vi definere også med et konstantledd <span class="math inline">\(c\)</span>, f.eks: <span class="math inline">\(Y_t = c + \phi Y_{t-1} + u_t\)</span>. Vi kan ikke forvente at alle tidsrekkene vi observerer i praksis vil ligge å variere rundt null (dvs at E<span class="math inline">\((Y_t) = 0\)</span>). Vi kan flytte den opp og ned ved å legge til den samme konstanten <span class="math inline">\(c\)</span> i hver tidssteg. I forrige oppgavesett, der vi estimerte parameteren <span class="math inline">\(\phi\)</span> i en AR(1)-modell, kom det (på samme måte som når vi gjør regresjon) ut et estimat av et <code>intercept</code>, som altså er denne <span class="math inline">\(c\)</span>’en. I den simulerte tidsrekken vi jobbet med der, var det ikke noe konstantledd (altså, <span class="math inline">\(c = 0\)</span>), som vi ser igjen i estimatene ved at de ikke er signifikant forskjellige fra null. Vi kunne tvunget estimeringsfunksjonene til å sette <span class="math inline">\(c = 0\)</span>, f.eks ved å inkludere argumentet <code>include.mean = FALSE</code> i <code>arima()</code>-funksjonen.</p>
 </div>
 </div>

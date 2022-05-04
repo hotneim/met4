@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title> 4 Regresjon | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content=" 4 Regresjon | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="relevante-r-testing.html"/>
 <link rel="next" href="enkel-regresjon.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,8 +242,8 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regresjon" class="section level1" number="4">
-<h1><span class="header-section-number"> 4</span> Regresjon</h1>
+<div id="regresjon" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number"> 4</span> Regresjon<a href="regresjon.html#regresjon" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>I forrige modul fokuserte vi på <em>binære</em> spørsmål av typen “Er det en forskjell mellom disse to populasjonene, eller ikke?”, “Er disse kjennetegnene uavhengige, eller ikke?”, og så videre. I denne modulen skal vi prøve å gå et steg lenger og tillate mer interessante spørsmål. I stedet for bare å spørre om en eller annen effekt er til stede (eller ikke), så vil vi heller finne ut hvor stor denne effekten er, hvilken retning den går, og kanskje om vi kan bruke kunnskapen vi får om statistiske sammenhenger til å si noe fornuftig om hva som vil skje for noe som vi enda ikke har observert. Da er det regresjon som gjelder, og mer spesifikt for vår del: <em>lineær regresjon</em>.</p>
 <p>Regresjon er et hovedtema i MET4. Vi innfører en <em>statistisk modell</em> som i sin enkleste form sier at en <em>forklaringsvariabel</em> <span class="math inline">\(X\)</span> henger sammen med en responsvariabel <span class="math inline">\(Y\)</span> på en helt bestemt måte, nemlig gjennom ligningen</p>
 <p><span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon.\]</span></p>

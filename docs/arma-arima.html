@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.7 ARMA og ARIMA | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="ma.html"/>
 <link rel="next" href="modellbygging-1.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,22 +242,22 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arma-arima" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> ARMA og ARIMA</h2>
+<div id="arma-arima" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> ARMA og ARIMA<a href="arma-arima.html#arma-arima" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div style="padding:56.25% 0 0 0;position:relative;">
 <iframe src="https://vimeo.com/showcase/7661207/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
 </div>
-<div id="kontrollspørsmåldiskusjonsspørsmål-2" class="section level3" number="6.7.1">
-<h3><span class="header-section-number">6.7.1</span> Kontrollspørsmål/Diskusjonsspørsmål</h3>
+<div id="kontrollspørsmåldiskusjonsspørsmål-2" class="section level3 hasAnchor" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> Kontrollspørsmål/Diskusjonsspørsmål<a href="arma-arima.html#kontrollspørsmåldiskusjonsspørsmål-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Hva er sammenhengen mellom AR-, MA-, og ARMA-modellene?</li>
 <li>Hva er en ARIMA-modell?</li>
 <li>Hvilken modell er dette: <span class="math display">\[y_t = \phi_1 y_{t-1} + \phi_2 y_{t-2} + \theta u_{t-1} + u_t\]</span></li>
 </ol>
 </div>
-<div id="r-øving-5" class="section level3" number="6.7.2">
-<h3><span class="header-section-number">6.7.2</span> R-øving</h3>
+<div id="r-øving-5" class="section level3 hasAnchor" number="6.7.2">
+<h3><span class="header-section-number">6.7.2</span> R-øving<a href="arma-arima.html#r-øving-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>1. Data</strong>
 Vi tar en ny titt på <a href="datasett/equinor.xlsx">den daglige prisen på Eqinoraksjen</a> over en 5-års periode som vi så på i introduksjonen til tidsrekker. Vi laster inn datasettet som før ved hjelp av <code>readxl</code>-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker <code>rev()</code>-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien komme først:</p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="arma-arima.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
@@ -294,7 +293,7 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 ##       0.5121  -0.5780
 ## s.e.  0.1680   0.1584
 ## 
-## sigma^2 estimated as 6.614:  log likelihood=-2958.16
+## sigma^2 = 6.614:  log likelihood = -2958.16
 ## AIC=5922.32   AICc=5922.34   BIC=5937.72
 ## 
 ## Training set error measures:
@@ -314,7 +313,7 @@ Etter å ha tilpasset en ARIMA modell kan vi bruke modellen til å predikere de 
 ##       -0.0421  -0.0947
 ## s.e.   0.0282   0.0281
 ## 
-## sigma^2 estimated as 6.581:  log likelihood=-2955.04
+## sigma^2 = 6.581:  log likelihood = -2955.04
 ## AIC=5916.09   AICc=5916.1   BIC=5931.48
 ## 
 ## Training set error measures:

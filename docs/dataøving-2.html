@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.2 Dataøving 2 | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.2 Dataøving 2 | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="dataøving-1.html"/>
 <link rel="next" href="dataøving-3.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,18 +242,18 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dataøving-2" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Dataøving 2</h2>
-<div id="interaktiv-øvelse" class="section level3" number="7.2.1">
-<h3><span class="header-section-number">7.2.1</span> Interaktiv øvelse</h3>
+<div id="dataøving-2" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Dataøving 2<a href="dataøving-2.html#dataøving-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="interaktiv-øvelse" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Interaktiv øvelse<a href="dataøving-2.html#interaktiv-øvelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Før vi tar fatt på dataanalysen begynner vi med litt R-trening i swirl. Har du allerede installert pakken <code>swirl</code> (skriv <code>install.packages("swirl")</code> i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="dataøving-2.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
 <span id="cb224-2"><a href="dataøving-2.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn. Hvis du bruker samme navn som tidligere får du kanskje tilbud om å starte opp igjen der du slapp, men da kan du bare velge det nederste valget ‘No. Let me start something new’. Du velger så alternativet ‘R Programming’ hvor du får se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul 6 <strong>‘Subsetting Vectors’</strong> og modul 8 <strong>‘Logic’</strong>.</p>
 <p>Husk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl () før du begynner på neste del av datalabben. Lykke til!</p>
 </div>
-<div id="data-til-dataøvelsen" class="section level3" number="7.2.2">
-<h3><span class="header-section-number">7.2.2</span> Data til dataøvelsen</h3>
+<div id="data-til-dataøvelsen" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Data til dataøvelsen<a href="dataøving-2.html#data-til-dataøvelsen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>I denne dataøvelsen skal vi ved hjelp av R gjennomføre en del av testene som vi har lært i praksis. Vi skal gjøre både ett- og to-utvalgs tester, og vi skal bruke <span class="math inline">\(\chi^2\)</span>-testen</p>
 <p>Vi skal jobbe med tre ulike datasett i denne øvingen, og alle sammen kan lastes ned ved å klikke på lenkene under:</p>
 <ul>
@@ -267,10 +266,10 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Det neste du må gjøre er å sørge for at du har satt opp riktig mappesti (working directory) i <strong>RStudio</strong>, og det gjør du raskest ved å velge <code>Session -&gt; Set Working Directory -&gt; To Source File Location</code>. Neste gang du skal jobbe med dette prosjektet kan du åpne <strong>RStudio</strong> ved å dobbeltklikke på <code>dataøving2.R</code>, og mappestien skal da settes automatisk til riktig mappe. I alle tilfeller skal vinduet ditt se omtrent slik ut:</p>
 <p><img src="bilder/rstudio2.png" /><!-- --></p>
 </div>
-<div id="oppgaver-til-øvingen" class="section level3" number="7.2.3">
-<h3><span class="header-section-number">7.2.3</span> Oppgaver til øvingen:</h3>
-<div id="oppgave-1-2" class="section level4" number="7.2.3.1">
-<h4><span class="header-section-number">7.2.3.1</span> Oppgave 1</h4>
+<div id="oppgaver-til-øvingen" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> Oppgaver til øvingen:<a href="dataøving-2.html#oppgaver-til-øvingen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="oppgave-1-2" class="section level4 hasAnchor" number="7.2.3.1">
+<h4><span class="header-section-number">7.2.3.1</span> Oppgave 1<a href="dataøving-2.html#oppgave-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Costa Rica er en stor kaffeprodusent med moderne produksjon. Kaffeprodusentene har over lengre tid benyttet en standardisert miks av sprøytemidler som skal ta knekken på ugress og skadelige insekter, men uten å skade avlingen eller miljøet ellers.</p>
 <p>En liten kaffeplantasje i Costa Rica har begynt å eksperimentere med en ny kombinasjon av sprøytemidler som skal være like effektiv mot ugress, men samtidig enda mer skånsom mot kaffeplantene, slik at avlingen blir større. Innehaveren av plantasjen ønsker å sette opp et eksperiment for å undersøke denne påstanden. Han velger ut 25 tilfeldige jordlapper fordelt på hele eiendommen der han bruker de nye sprøytemidlene gjennom en hel sesong.</p>
 <p>Lang erfaring har vist at avlingen ved bruk av gammel metode er normalfordelt med forventning <span class="math inline">\(\mu = 100\)</span> og standardavvik <span class="math inline">\(\sigma = 10\)</span>, der vi har brukt en standardisert enhet for mengde avling per arealenhet. Hjelp bonden, ved å løse følgende oppgaver:</p>
@@ -278,7 +277,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="dataøving-2.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)                                 <span class="co"># Pakke for å lese excel-filer</span></span>
 <span id="cb225-2"><a href="dataøving-2.html#cb225-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;testdata.xls&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
 <span id="cb225-3"><a href="dataøving-2.html#cb225-3" aria-hidden="true" tabindex="-1"></a>data                                            <span class="co"># Ser på datasettet</span></span></code></pre></div>
-<pre><code>## # A tibble: 25 x 4
+<pre><code>## # A tibble: 25 × 4
 ##       X1    X2    A1    A2
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ##  1 122.  121.      1     1
@@ -291,14 +290,14 @@ Publisert ved hjelp av bookdown</a></li>
 ##  8  92    97       0     0
 ##  9  98.8 106.      0     1
 ## 10  99.9 100.      0     1
-## # ... with 15 more rows</code></pre>
+## # … with 15 more rows</code></pre>
 <p>Det er kolonnen <code>X2</code> som inneholder de observerte avlingene på de 25 forsøksseksjonene.</p>
 <p><strong>Oppgave 1.2:</strong> Er forventet avling ved bruk av den nye metoden <em>større</em> enn forventet avling ved bruk av den gamle metoden? <em>Hint: Forelesningsnotatene/scriptet inneholder koden du trenger for å løse denne og neste oppgave. Du kan også se på <a href="relevante-r-testing.html#relevante-r-testing">oversikten over relevante R-kommandoer</a> for det du trenger.</em></p>
 <p><strong>Oppgave 1.3:</strong> Det er viktig for kaffebonden at avlingen ikke varierer for mye mellom de ulike delene av farmen. En viktig måleparameter for denne type produksjon er derfor variansen. Kan vi slå fast at variansen til avlingen har forandret seg etter omlegging til ny metode?</p>
 <p><strong>Oppgave 1.4:</strong> Kaffebonden er skeptisk til påstanden om at forventet avling med den gamle metoden er <span class="math inline">\(\mu = 100\)</span>, og mener at det vil variere med for eksempel jordsmonn. For å ta høyde for dette gjennomførte han året i forveien tilsvarende målinger på de samme jordlappene, med med gammel sprøytemetode. Disse målingene finner du i kolonne <code>X1</code> i datasettet. Test om avlingene er forskjellige, både med og uten paring av observasjonene. Kommenter resultatet.</p>
 </div>
-<div id="oppgave-2-2" class="section level4" number="7.2.3.2">
-<h4><span class="header-section-number">7.2.3.2</span> Oppgave 2</h4>
+<div id="oppgave-2-2" class="section level4 hasAnchor" number="7.2.3.2">
+<h4><span class="header-section-number">7.2.3.2</span> Oppgave 2<a href="dataøving-2.html#oppgave-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Vi skal i denne oppgaven se på oppgave <strong>1a</strong> og <strong>1b</strong> som ble gitt på skoleeksamen i MET4 vårsemesteret 2019. Dette er det samme datasettet som vi så på i forrige dataøving. I <a href="https://journals.sagepub.com/doi/10.1177/0956797619829688">et amerikansk forsøk</a> ville man undersøke påstanden om at voldelige dataspill fører til voldelig adferd ved la to grupper spille hvert sitt dataspill. I det “voldelige” dataspillet var oppdraget å <em>skyte</em> og <em>drepe</em> et romvesen, mens i den ikke-voldelige varianten skulle man <em>finne</em> og <em>redde</em> romvesenet fra fare. Utover det var spillene helt likt utformet, og i etterkant av en spilleøkt ble deltakernes aggresjonsnivå målt på en skala fra 1 til 9 ved hjelp av en standard psykologisk test.</p>
 <p>I denne oppgaven skal vi i hovedsak finne ut om gruppen som spilte de voldelige dataspillet hadde signifikant høyere aggresjonsnivå enn kontrollgruppen.</p>
 <p><strong>Oppgave 2.1:</strong> Les inn datasettet <code>violence.xslx</code> på samme måte som i forrige dataøving. Hvis du allerede har kjørt <code>library(readxl)</code> trenger du ikke gjøre det igjen med mindre du har startet <strong>RStudio</strong> på nytt. Gi datasettet et passende navn, f.eks</p>
@@ -336,8 +335,8 @@ Publisert ved hjelp av bookdown</a></li>
 ##      Violent                33      93</code></pre>
 <p><strong>Oppgave 2.4:</strong> Heldigvis ser det ut til at det er en klar sammenheng mellom faktisk og opplevd voldelighet ved at de fleste forsøkspersonene havner på diagonalen i krysstabellen. Bruk funksjonen <code>chisq.test()</code> på samme måte som i forelesningen til å formelt teste nullhypotesen om uavhengighet.</p>
 </div>
-<div id="oppgave-3-1" class="section level4" number="7.2.3.3">
-<h4><span class="header-section-number">7.2.3.3</span> Oppgave 3</h4>
+<div id="oppgave-3-1" class="section level4 hasAnchor" number="7.2.3.3">
+<h4><span class="header-section-number">7.2.3.3</span> Oppgave 3<a href="dataøving-2.html#oppgave-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Vi skal i denne oppgaven returnere til kaffeproduksjon. Vi skal gjøre statistiske tester i R som i de tidligere oppgavene i denne øvingen, men vanskelighetsgraden går opp fordi vi også må tenke nøye over hvordan vi anvender metodene korrekt i en gitt kontekst.</p>
 <p>I 2002 publiserte det prestisjetunge tidsskriftet <em>Nature</em> en kort artikkel skrevet av David W. Roubik<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, som handler om den kjente kaffebønnen <em>Arabica</em>. Arabicabønnen kommer opprinnelig fra Afrika, og er en selvpollinerende plante. Det vil si at den ikke er avhengig av insekter for å formere seg, og man trodde lenge at den heller ikke hadde noen fordeler av insektspollinering.</p>
 <p>For å undersøke denne påstanden samlet Roubik inn historiske data over arabicaavlinger fra hele verden. Han delte verdens kaffeproduserende land inn i to kategorier: <em>Old world</em> som omfatter afrikanske og asiatiske land, og <em>New world</em> som omfatter land i Latin-Amerika. Han registrerte videre <em>gjennomsnittlig årlig avling</em> (målt i kg/hektar) i to perioder: 1961–80 og 1981–2001.</p>
@@ -345,7 +344,7 @@ Publisert ved hjelp av bookdown</a></li>
 <p><strong>Oppgave 3.1:</strong> For å undersøke dette kan vi bruke datasettet som Roubik brukte, som finnes i filen <code>roubik_2002_coffe_yield.xlsx</code>. Last datasettet inn i R på vanlig måte, og se på det:</p>
 <div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="dataøving-2.html#cb232-1" aria-hidden="true" tabindex="-1"></a>yield <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;roubik_2002_coffe_yield.xlsx&quot;</span>)</span>
 <span id="cb232-2"><a href="dataøving-2.html#cb232-2" aria-hidden="true" tabindex="-1"></a>yield</span></code></pre></div>
-<pre><code>## # A tibble: 28 x 4
+<pre><code>## # A tibble: 28 × 4
 ##    world country     yield_61_to_80 yield_81_to_01
 ##    &lt;chr&gt; &lt;chr&gt;                &lt;dbl&gt;          &lt;dbl&gt;
 ##  1 new   Costa_Rica            9139          14620
@@ -358,7 +357,7 @@ Publisert ved hjelp av bookdown</a></li>
 ##  8 new   Brazil                4965           6283
 ##  9 new   Peru                  5487           5740
 ## 10 new   Mexico                5227           5116
-## # ... with 18 more rows</code></pre>
+## # … with 18 more rows</code></pre>
 <p>Vi ser at det er fire kolonner i datasettet:</p>
 <ul>
 <li><code>world</code> angir om det er snakk om <em>New world</em> (<code>new</code>) eller <em>Old world</em> (<code>old</code>).</li>

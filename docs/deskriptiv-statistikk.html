@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="grunnleggende-statistikk.html"/>
 <link rel="next" href="utvalg-og-estimering.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,17 +242,17 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="deskriptiv-statistikk" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Deskriptiv statistikk</h2>
-<div id="videoforelesninger" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Videoforelesninger</h3>
+<div id="deskriptiv-statistikk" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Deskriptiv statistikk<a href="deskriptiv-statistikk.html#deskriptiv-statistikk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="videoforelesninger" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Videoforelesninger<a href="deskriptiv-statistikk.html#videoforelesninger" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div style="padding:74.79% 0 0 0;position:relative;">
 <iframe src="https://vimeo.com/showcase/7748078/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
 </div>
 </div>
-<div id="kommentarer" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Kommentarer</h3>
+<div id="kommentarer" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Kommentarer<a href="deskriptiv-statistikk.html#kommentarer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Deskriptiv statistikk handler ikke om analyse eller regning, men om å presentere kompleks informasjon på en effektiv måte. Det er altså noe ganske annet enn det vi ellers snakker om i kurset, men det er likevel et av de nyttigste læringspunktet vi har. Hvem kan ikke regne med å måtte presentere tall og resultater i løpet av sin karriere? Eller selge inn forslag og planer for overordnede i håp om å bli lyttet til? Det kan være direkte avgjørende for din egen gjennomslagskraft at du er i stand til å produsere overbevisende tabeller og figurer i slike situasjoner, og det er det dette temaet handler om.</p>
 <p>I læreboken er det kapitlene <strong>2–4</strong> som behandler deskriptiv statistikk, men det er veldig Excel-fokusert, som ikke er så relevant for oss. Det er likevel ikke dumt å lese gjennom stoffet for å se hva det går i, og legg spesielt merke til følgende punkter:</p>
 <ul>
@@ -265,7 +264,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="deskriptiv-statistikk.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb18-2"><a href="deskriptiv-statistikk.html#cb18-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm03-02.xlsx&quot;</span>)</span>
 <span id="cb18-3"><a href="deskriptiv-statistikk.html#cb18-3" aria-hidden="true" tabindex="-1"></a>returns</span></code></pre></div>
-<pre><code>## # A tibble: 50 x 2
+<pre><code>## # A tibble: 50 × 2
 ##    `Return A` `Return B`
 ##         &lt;dbl&gt;      &lt;dbl&gt;
 ##  1      30         30.3 
@@ -278,7 +277,7 @@ Publisert ved hjelp av bookdown</a></li>
 ##  8      -2.59      29.4 
 ##  9      33         11   
 ## 10      14.3      -25.9 
-## # ... with 40 more rows</code></pre>
+## # … with 40 more rows</code></pre>
 <p>Hver stategi har sin kolonne. Merk at variabelnavnene har mellomrom i seg, noe som er upraktisk når vi jobber med et seriøst programmeringsspråk. En god vane er å rett og slett gi dem nye navn, ved f.eks. å kjøre <code>colnames(returns) &lt;- c("returnA", "returnB")</code>, eller så må vi alltid referere til variabelnavnene ved å bruke slike “backticks” som vi ser under.</p>
 <p>Vi kan lage to enkle histogrammer slik vi gjorde det i forelesningen:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="deskriptiv-statistikk.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>

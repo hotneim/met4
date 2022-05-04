@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.5 Relevante R-kommandoer | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.5 Relevante R-kommandoer | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="oppgaver-2.html"/>
 <link rel="next" href="avansert-regresjon-og-maskinlæring.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,15 +242,15 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="relevante-r-regresjon" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Relevante R-kommandoer</h2>
+<div id="relevante-r-regresjon" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Relevante R-kommandoer<a href="relevante-r-regresjon.html#relevante-r-regresjon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Under følger en liste over hvilke oppgaver du skal klare i R fra denne modulen. Vår policy fra og med <strong>vårsemesteret 2022</strong> er at R-kommandoene under er <em>tilstrekkelige</em> for å løse oppgavene i datalabber og hjemmeeksamen i MET4. Det er med andre ord ikke nødvendig å lære seg teknikker utover det som er listet opp eksplisitt i listen under. Eventuelle nye teknikker som trengs for å løse en bestemt oppgave vil bli oppgitt og forklart dersom det er nødvendig. Det antas i tillegg at du kan den grunnleggende R-syntaksen som er dekket under <a href="introduksjon-til-r.html#introduksjon-til-r">Introduksjon til R</a>.</p>
-<div id="antakelser-om-datasett-2" class="section level3 unnumbered">
-<h3>Antakelser om datasett</h3>
+<div id="antakelser-om-datasett-2" class="section level3 unnumbered hasAnchor">
+<h3>Antakelser om datasett<a href="relevante-r-regresjon.html#antakelser-om-datasett-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Du kan gjøre de samme antakelsene om datasettet som i <a href="#relevant-r-testing">den tilsvarende oversikten i forrige modul</a>: Datasettene er inneholdt i Excel-filer (<code>.xls</code> eller <code>xslx</code>) eller <code>.csv</code>-filer, som kolonner av variabler, med variabelnavn i første rad.</p>
 </div>
-<div id="tilpasse-en-lineær-regresjonsmodell" class="section level3 unnumbered">
-<h3>Tilpasse en lineær regresjonsmodell</h3>
+<div id="tilpasse-en-lineær-regresjonsmodell" class="section level3 unnumbered hasAnchor">
+<h3>Tilpasse en lineær regresjonsmodell<a href="relevante-r-regresjon.html#tilpasse-en-lineær-regresjonsmodell" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Her er et lekedatasett med tre forklaringsvariabler <code>x1</code>, <code>x2</code> og <code>x3</code>, samt en responsvariabel <code>y</code>: <a href="datasett/data-reg.xlsx">data-reg.xsls</a>.</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="relevante-r-regresjon.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Last inn data</span></span>
 <span id="cb122-2"><a href="relevante-r-regresjon.html#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
@@ -285,8 +284,8 @@ Publisert ved hjelp av bookdown</a></li>
 <span id="cb122-30"><a href="relevante-r-regresjon.html#cb122-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Man kan endre type-argumentet til &quot;html&quot;, og sette out-argumentet til et</span></span>
 <span id="cb122-31"><a href="relevante-r-regresjon.html#cb122-31" aria-hidden="true" tabindex="-1"></a><span class="co"># filnavn hvis du vil skrive ut tabellen til en fil.</span></span></code></pre></div>
 </div>
-<div id="prediksjoner-med-konfidens--og-prediksjonsintervall" class="section level3 unnumbered">
-<h3>Prediksjoner, med konfidens- og prediksjonsintervall</h3>
+<div id="prediksjoner-med-konfidens--og-prediksjonsintervall" class="section level3 unnumbered hasAnchor">
+<h3>Prediksjoner, med konfidens- og prediksjonsintervall<a href="relevante-r-regresjon.html#prediksjoner-med-konfidens--og-prediksjonsintervall" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La oss si at vi ønsker å predikere verdien av responsvariabelen for følgende verdier av forklaringsvariablene:</p>
 <table>
 <thead>
@@ -347,8 +346,8 @@ x3
 <span id="cb124-4"><a href="relevante-r-regresjon.html#cb124-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>Resultatet blir en ny data frame med kolonnene <code>fit</code> (prediksjoner), samt <code>lwr</code> og <code>upr</code>, som inneholder nedre og øvre grense i konfidensintervallet henholdsvis. Du kan endre til prediksjonsintervaller ved å bytte ut <code>"confidence"</code> med <code>"prediction"</code> (eventuelt <code>"none"</code> hvis du ikke ønsker noe intervall).</p>
 </div>
-<div id="lage-residualplott" class="section level3 unnumbered">
-<h3>Lage residualplott</h3>
+<div id="lage-residualplott" class="section level3 unnumbered hasAnchor">
+<h3>Lage residualplott<a href="relevante-r-regresjon.html#lage-residualplott" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vi må kunne lage følgende residualplott i R, her demonstrert med regresjonsmodellen <code>reg1</code> som vi laget over:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="relevante-r-regresjon.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Henter ut residualer og predikerte verdier fra modellen, og setter de inn som </span></span>
 <span id="cb125-2"><a href="relevante-r-regresjon.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="co"># kolonner i en dataframe:</span></span>

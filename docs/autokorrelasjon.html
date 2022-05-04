@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.5 Autokorrelasjon | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.5 Autokorrelasjon | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="stasjonaritet.html"/>
 <link rel="next" href="ma.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,20 +242,20 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="autokorrelasjon" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Autokorrelasjon</h2>
+<div id="autokorrelasjon" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Autokorrelasjon<a href="autokorrelasjon.html#autokorrelasjon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <iframe src="https://player.vimeo.com/video/467120768" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
 </iframe>
-<div id="kontrollspørsmåldiskusjonsspørsmål" class="section level3" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> Kontrollspørsmål/Diskusjonsspørsmål</h3>
+<div id="kontrollspørsmåldiskusjonsspørsmål" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Kontrollspørsmål/Diskusjonsspørsmål<a href="autokorrelasjon.html#kontrollspørsmåldiskusjonsspørsmål" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Formuler med egne ord: Hva er autokorrelasjon?</li>
 <li>Hva kan vi lære ved å se på autokorrelasjonsplottet til en tidsrekke?</li>
 <li>Kan du komme på noe vi <em>ikke</em> kan finne ut av ved å se på korrelasjoneplottet til en tidsrekke?</li>
 </ol>
 </div>
-<div id="r-øving-3" class="section level3" number="6.5.2">
-<h3><span class="header-section-number">6.5.2</span> R-øving</h3>
+<div id="r-øving-3" class="section level3 hasAnchor" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> R-øving<a href="autokorrelasjon.html#r-øving-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>1. Utregning av ACF</strong> I R bruker vi funsksjonen <code>acf()</code> til å lage autokorrelasjonsplott. La oss i første omgang gjenskape noen av figurene fra videoen ved hjelp av simuleringer. For eksempel kan vi laget til to tidsrekker som på forrige oppgavesett, en hvit støy og en AR(1):</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="autokorrelasjon.html#cb179-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
 <span id="cb179-2"><a href="autokorrelasjon.html#cb179-2" aria-hidden="true" tabindex="-1"></a>hvit_støy <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>

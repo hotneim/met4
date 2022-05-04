@@ -441,9 +441,9 @@ plot(df$eps_ma2, ylab = "Residualer", xlab = "Datapunkter (sortert i tid)")
 <details>
 <summary>Løsning</summary><blockquote>
 
-a. Her ser støyleddet ganske normalfordelt ut. Det betyr at antagelsene er oppfylt.
+a. Her ser støyleddet ut som det har konstant varians og forventing lik null. Det betyr at antagelsene er oppfylt.
 
-b. Støyen er symmetrisk om null, men kan se ut som den øker. Altså er det brudd på antagelsen om normalfordeling. Økningen ser ut til å være jevn, og en log-transformasjon kunne i dette tilfellet vært til hjelp.
+b. Støyen er symmetrisk om null, men kan se ut som den øker. Altså er det brudd på antagelsen om konstant varians. Økningen ser ut til å være jevn, og en log-transformasjon kunne i dette tilfellet vært til hjelp.
 
 c. Her ser det ut som at vi har perioder med høy varians etterfulgt av perioder med lavere varians. Vi skal ikke se så mye nærmere på hvordan dette kan håndteres i MET4, men man kan komme over det i senere kurs.
 

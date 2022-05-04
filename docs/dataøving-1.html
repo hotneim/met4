@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.1 Dataøving 1 | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.1 Dataøving 1 | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="dataøvinger.html"/>
 <link rel="next" href="dataøving-2.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,20 +242,20 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dataøving-1" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Dataøving 1</h2>
-<div id="innledning-1" class="section level3" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> Innledning</h3>
+<div id="dataøving-1" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Dataøving 1<a href="dataøving-1.html#dataøving-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="innledning-1" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Innledning<a href="dataøving-1.html#innledning-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Velkommen til den første dataøvelsen i MET4. I denne øvelsen skal vi bli litt kjent med verktøyene R og Rstudio som brukes i datalabbene. Disse verktøyene er også essensielle for gjennomføringen av den obligatoriske innleveringen og på hjemmeksamen. Den første delen av øvingen inneholder praktisk informasjon om bruk av R og Rstudio etterfulgt av oppgaver.</p>
 </div>
-<div id="om-r-og-rstudio" class="section level3" number="7.1.2">
-<h3><span class="header-section-number">7.1.2</span> Om R og Rstudio</h3>
+<div id="om-r-og-rstudio" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Om R og Rstudio<a href="dataøving-1.html#om-r-og-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R er et program/programmeringsspråk som er spesialdesignet til å utføre statistiske analyser. R er basert på at du må skrive forskjellige kommandoer for å utføre utregninger og analyser. Gjennomsnittet av 3, 2 og 5 finner man for eksempel ved å skrive:</p>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="dataøving-1.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>))</span></code></pre></div>
 <p>Dette kan for mange være litt uvant i starten, men datalabbene vil gi deg god trening på denne type tankegang.</p>
 <p>Rstudio er et program som gjør det enklere å bruke R. På samme måte som Word kan hjelpe deg til å lage fine og oversiktlige tekster, kan Rstudio hjelpe deg til å utføre fine og oversiktlige statistiske analyser. Rstudio er et redigeringsprogram som vi i dette kurset skal bruke til å redigere og utføre R-kommandoer.</p>
-<div id="installere-r-og-rstudio" class="section level4" number="7.1.2.1">
-<h4><span class="header-section-number">7.1.2.1</span> Installere R og Rstudio</h4>
+<div id="installere-r-og-rstudio" class="section level4 hasAnchor" number="7.1.2.1">
+<h4><span class="header-section-number">7.1.2.1</span> Installere R og Rstudio<a href="dataøving-1.html#installere-r-og-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Bruker du din egen datamaskin kan du enkelt laste ned og installere R og Rstudio. Begge programvarene er gratis og kan installeres med å følge instruksene under. Får du problemer kan du få en av studentassistentene til å hjelpe deg.</p>
 <ol style="list-style-type: decimal">
 <li>Start med å installere R:
@@ -272,8 +271,8 @@ Publisert ved hjelp av bookdown</a></li>
 </ul></li>
 </ol>
 </div>
-<div id="vinduene-i-rstudio-og-det-å-jobbe-med-r" class="section level4" number="7.1.2.2">
-<h4><span class="header-section-number">7.1.2.2</span> Vinduene i Rstudio og det å jobbe med R</h4>
+<div id="vinduene-i-rstudio-og-det-å-jobbe-med-r" class="section level4 hasAnchor" number="7.1.2.2">
+<h4><span class="header-section-number">7.1.2.2</span> Vinduene i Rstudio og det å jobbe med R<a href="dataøving-1.html#vinduene-i-rstudio-og-det-å-jobbe-med-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Første gang du åpner Rstudio vil du se tre vinduer. Et fjerde vindu åpner du med å klikke på <strong>File</strong> i menyen, så <strong>New File</strong>, og så <strong>R Script</strong>. Figur <a href="dataøving-1.html#fig:rstudio1">7.1</a> viser en oversikt over de fire vinduene. Det er viktig at du forstår forskjellen på de to vinduene til venstre.</p>
 <div class="figure"><span style="display:block;" id="fig:rstudio1"></span>
 <img src="bilder/Rstudio1.PNG" alt="Oversikt over vinduene i RStudio."  />
@@ -302,8 +301,8 @@ Figur 7.2: Utførelse av kommandoer du har skrevet i R filen. Marker eller la pe
 <p>Det er viktig at du forstår forskjellen på de to vinduene til venstre, altså <code>.R</code>-filen og konsollen. R-kode du ønsker å ta vare på og som er en essensiell del av analysen skriver og lagrer du i <code>.R</code>-filen, mens små eksperimenter og undersøkelser som du ikke trenger senere kan du gjerne gjøre direkte i konsollen.</p>
 <p>For de av dere som er glad i hurtigtaster finnes det en oversikt i Rstudio som kommer opp dersom du trykker <strong>Alt + Shift + K</strong> (<strong>Option + Shift + K</strong> på Mac). Ofte vil man f.eks måtte skifte musepeker fra <code>.R</code>-filen til konsoll og motsatt, og hurtigtaster for å veksle mellom disse er <strong>Ctrl + 1</strong> (R-fil) og <strong>Ctrl + 2</strong> (konsoll). Hurtigtasten du kommer til å bruke desidert mest er <strong>Ctrl + Enter</strong> for å kjøre kode fra R-skriptet ditt i konsollen (På Mac erstatter du <strong>Ctrl</strong> med <strong>Cmd</strong> over alt).</p>
 </div>
-<div id="funksjoner-dokumentasjon-og-r-pakker" class="section level4" number="7.1.2.3">
-<h4><span class="header-section-number">7.1.2.3</span> Funksjoner, dokumentasjon og R-pakker</h4>
+<div id="funksjoner-dokumentasjon-og-r-pakker" class="section level4 hasAnchor" number="7.1.2.3">
+<h4><span class="header-section-number">7.1.2.3</span> Funksjoner, dokumentasjon og R-pakker<a href="dataøving-1.html#funksjoner-dokumentasjon-og-r-pakker" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <!-- I R kan man lage egne funksjoner som utfører det en måtte ønske, f.eks en funksjon som regner ut t-observatoren gitt en vektor med observasjoner `x` og en gitt $\mu_0$: -->
 <!-- ```{r, eval = F} -->
 <!-- t.observator <- function(x, mu0){ -->
@@ -321,8 +320,8 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p>Dokumentasjonen vil som hovedregel inneholder en kort beskrivelse av hva funksjonen gjør, hvilke argumenter funksjonen tar og hva den gir ut. Helt i slutten av dokumentasjonen er det ofte et eksempel på hvordan funksjonen kan brukes og er ofte svært nyttig å se på.</p>
 <p>Selv om det finnes mange funksjoner som allerede er innebygget i R, må man noen ganger installere ekstra ‘pakker’ for å få tilgang til spesielle funksjoner. I oppgave 2.2 i denne øvelsen vil vi gå gjennom hvordan dette gjøres for en bestemt pakke.</p>
 </div>
-<div id="skriv-pen-r-kode" class="section level4" number="7.1.2.4">
-<h4><span class="header-section-number">7.1.2.4</span> Skriv pen R-kode!</h4>
+<div id="skriv-pen-r-kode" class="section level4 hasAnchor" number="7.1.2.4">
+<h4><span class="header-section-number">7.1.2.4</span> Skriv pen R-kode!<a href="dataøving-1.html#skriv-pen-r-kode" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Det er viktig at R-koden du skriver er veldokumentert og skrevet på en oversiktlig og pen måte. Hvis vi ønsker å skrive kommentarer til koder som står i <code>.R</code>-filen bruker vi tegnet <code>#</code> foran kommentaren. Dette gjør at R ikke prøver å evaluere kommentaren som en R-kode. Det finnes en rekke konvensjoner når det kommer til mellomrom, linjeskift, navngivning av objekter og lignende. Vi anbefaler tipsene som er oppsummert på (<a href="http://adv-r.had.co.nz/Style.html" class="uri">http://adv-r.had.co.nz/Style.html</a>)[<a href="http://adv-r.had.co.nz/Style.html" class="uri">http://adv-r.had.co.nz/Style.html</a>], men det er selvsagt lov å ha sine egne preferanser.</p>
 <p>Under ser du et eksempel på dårlig praksis ved R-koding. Her er det manglende dokumentasjon, dårlig navngivning og ingen ‘luft’ i form av mellomrom og linjeskift. Dette gjør at du eller andre vil måtte bruke unødvendig mye tid på å finne ut hva koden faktisk gjør på et senere tidspunkt.</p>
 <div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="dataøving-1.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dårlig praksis:</span></span>
@@ -355,8 +354,8 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p>Vi oppfordrer deg til å prøve å skrive R-kode som er pen og oversiktlig i datalabbene fremover. Dårlige vaner kan være vonde å vende!</p>
 </div>
 </div>
-<div id="oppgave-1-interaktiv-øvelse" class="section level3" number="7.1.3">
-<h3><span class="header-section-number">7.1.3</span> Oppgave 1: Interaktiv øvelse</h3>
+<div id="oppgave-1-interaktiv-øvelse" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Oppgave 1: Interaktiv øvelse<a href="dataøving-1.html#oppgave-1-interaktiv-øvelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Her skal du bruke et læringsverktøy kalt <code>swirl</code> som vil ta deg gjennom en interaktive øvelse hvor du må utføre forskjellige oppgaver i konsollen. I flere av dataøvingene vil det være en slik interaktiv del. Her er tanken at du skal leke deg litt med R.</p>
 <p>Før du kan begynne må du installere <code>swirl</code>. Kopier derfor følgende tre linjer og lim dem inn i R-konsollen:</p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="dataøving-1.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</span>
@@ -370,8 +369,8 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p><img src="bilder/swirl2.PNG" /><!-- --></p>
 <p>Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (<strong>Esc</strong>) før du begynner på del to av øvingen. Lykke til!</p>
 </div>
-<div id="oppgave-2-innlesning-av-data-og-deskriptiv-statistikk-i-r" class="section level3" number="7.1.4">
-<h3><span class="header-section-number">7.1.4</span> Oppgave 2: Innlesning av data og deskriptiv statistikk i R</h3>
+<div id="oppgave-2-innlesning-av-data-og-deskriptiv-statistikk-i-r" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Oppgave 2: Innlesning av data og deskriptiv statistikk i R<a href="dataøving-1.html#oppgave-2-innlesning-av-data-og-deskriptiv-statistikk-i-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>I denne oppgaven skal vi lese inn noen data og produsere enkel deskriptiv statistikk av disse dataene. Dataene kommer fra <a href="https://journals.sagepub.com/doi/10.1177/0956797619829688">et amerikansk forsøk</a> hvor man ville undersøke påstanden om at voldelige dataspill fører til voldelig adferd ved la to grupper spille hvert sitt dataspill. I det “voldelige” dataspillet var oppdraget å <em>skyte</em> og <em>drepe</em> et romvesen, mens i den ikke-voldelige varianten skulle man <em>finne</em> og <em>redde</em> romvesenet fra fare. Utover det var spillene helt likt utformet, og i etterkant av en spilleøkt ble deltakernes aggresjonsnivå målt på en skala fra 1 til 9 ved hjelp av en standard psykologisk test. Dette datasettet ble brukt i eksamensoppgaven vårsemesteret 2019.</p>
 <p><strong>Oppgave 2.1.</strong> <a href="datasett/violence.xlsx">Last ned filen violence.xslx</a>. Denne filen lagrer du fortrinnsvis i en egen mappe der du ønsker at filer fra denne øvingen skal ligge. Åpne så <strong>RStudio</strong>, velg <code>File -&gt; New File -&gt; R Script</code> for å åpne et nytt Rscript. Lagre så scriptet ditt i samme mappen som du har lagt datasettet, slik at du nå har en mappe som ser ut som figuren under:</p>
 <p><img src="bilder/mappe.JPG" /><!-- --></p>

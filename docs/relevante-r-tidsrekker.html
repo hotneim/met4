@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.9 Relevante R-kommandoer | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.9 Relevante R-kommandoer | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -32,7 +31,6 @@
   
 <link rel="prev" href="modellbygging-1.html"/>
 <link rel="next" href="dataøvinger.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -50,8 +48,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -243,10 +242,10 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="relevante-r-tidsrekker" class="section level2" number="6.9">
-<h2><span class="header-section-number">6.9</span> Relevante R-kommandoer</h2>
-<div id="antakelser-om-datasettet" class="section level3 unnumbered">
-<h3>Antakelser om datasettet</h3>
+<div id="relevante-r-tidsrekker" class="section level2 hasAnchor" number="6.9">
+<h2><span class="header-section-number">6.9</span> Relevante R-kommandoer<a href="relevante-r-tidsrekker.html#relevante-r-tidsrekker" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="antakelser-om-datasettet" class="section level3 unnumbered hasAnchor">
+<h3>Antakelser om datasettet<a href="relevante-r-tidsrekker.html#antakelser-om-datasettet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vi skal nå ha rimelig grei kontroll på de ulike datastrukturene i R, og det er bra, fordi i denne siste modulen om tidsrekker så er vi nødt til å kunne administrere data i litt forskjellige formater. I hovedtrekke må vi kunne:</p>
 <ul>
 <li>Lese inn data fra en Excel- eller <code>.csv</code>-fil til en data frame på samme måte som tidligere, der vi i tidsrekker typisk vil ha en kolonne for dato eller tidspunkt, og en eller flere kolonner med tidsrekker nedover.</li>
@@ -255,8 +254,8 @@ Publisert ved hjelp av bookdown</a></li>
 </ul>
 <p>Equinordatafilen (<a href="datasett/equinor.xlsx">equinor.xlsx</a>) følger den første formen og kan leses inn på vanlig måte ved hjelp av <code>read_excel()</code> i <code>readxl</code>-pakken. <code>ausbeer</code>-datasettet fra <code>fpp</code>-pakken, derimot, har en spesiell tidsrekke-klasse (prøv å skrive <code>class(ausbeer)</code> i konsollen), noe vi ser ved å bare skrive ut tidsrekken i konsollen. Da ser vi at datasettet er på en slags matrisestruktur, men kvartal kolonnevis og år radvis.</p>
 </div>
-<div id="nødvendige-r-funksjoner" class="section level3 unnumbered">
-<h3>Nødvendige R-funksjoner</h3>
+<div id="nødvendige-r-funksjoner" class="section level3 unnumbered hasAnchor">
+<h3>Nødvendige R-funksjoner<a href="relevante-r-tidsrekker.html#nødvendige-r-funksjoner" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nødvendige R-funksjoner for denne modulen sammenfaller eksakt med gjennomgangen under forelesningsvideoene, så det er ikke nødvendig å gjenta det her.</p>
 
 </div>
