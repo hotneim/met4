@@ -334,8 +334,8 @@ men problemet i praksis er at vi gjerne ikke kjenner <span class="math inline">\
 <p>Som demonstrert i forelesningen kan vi i R simulere standard normalfordelte observasjoner (dvs normalfordelte observasjoner med <span class="math inline">\(\mu = 0\)</span> og <span class="math inline">\(\sigma^2 = 1\)</span>) med kommandoen <code>rnorm(n)</code>, der <code>n</code> er antallet observasjoner vi ønsker. For eksempel kan vi kjøre følgende kode for å generere 10 observasjoner (du vil helt sikkert få andre verdier):</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="utvalg-og-estimering.html#cb23-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb23-2"><a href="utvalg-og-estimering.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(n)</span></code></pre></div>
-<pre><code>##  [1] -0.08618917  0.48401880 -0.08262114 -0.53254996  0.74434355  1.16745005
-##  [7]  0.04481349  0.52698376 -1.53205054  1.38363471</code></pre>
+<pre><code>##  [1]  0.89048703  0.53212718  1.34376584 -0.01459524 -0.57912882 -0.59261993
+##  [7]  0.75641546 -0.03947667 -1.44592960  0.72440022</code></pre>
 <p>Ved å skrive <code>mean(dnorm(n))</code> i stedet regner vi ut gjennomsnittet av observasjonene direkte.</p>
 <p>La oss gjøre dette 100 ganger og notere ned gjennomsnittet hver gang. I stedet for å gjøre det manuelt, kan vi skrive et lite program som gjør dette for oss ved å bruke en for-løkke. Det er ikke nødvendig (eller pensum) å forstå akkurat hvordan dette fungerer, men dersom du kjører følgende linjer vil du få en ny vektor <code>gj.snitt</code> som inneholder 100 slike gjennomsnitt:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="utvalg-og-estimering.html#cb25-1" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
