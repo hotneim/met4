@@ -6,10 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.5 Relevante R-kommandoer | MET4 - Empiriske Metoder - Vår 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.5 Relevante R-kommandoer | MET4 - Empiriske Metoder - Vår 2022" />
   <meta property="og:type" content="book" />
+  
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,7 +31,8 @@
   
   
 <link rel="prev" href="oppgaver-2.html"/>
-<link rel="next" href="avansert-regresjon-og-maskinlæring.html"/>
+<link rel="next" href="tidsrekker.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -48,9 +50,8 @@
 
 
 
-<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
-<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -147,77 +148,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
-<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
+<li><a href="index.html#innledning" id="toc-innledning">Innledning</a></li>
+<li><a href="introduksjon-til-r.html#introduksjon-til-r" id="toc-introduksjon-til-r"><span class="toc-section-number">1</span> Introduksjon til R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
-<li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
-<li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
-<li class="chapter" data-level="1.4" data-path="pakker.html"><a href="pakker.html"><i class="fa fa-check"></i><b>1.4</b> Pakker</a></li>
-<li class="chapter" data-level="1.5" data-path="mappesti.html"><a href="mappesti.html"><i class="fa fa-check"></i><b>1.5</b> Mappesti</a></li>
-<li class="chapter" data-level="1.6" data-path="innlesing-av-data.html"><a href="innlesing-av-data.html"><i class="fa fa-check"></i><b>1.6</b> Innlesing av data</a></li>
-<li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
-<li class="chapter" data-level="1.8" data-path="r-plotting.html"><a href="r-plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
-<li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
-<li class="chapter" data-level="1.10" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
-<li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
+<li><a href="en-gjennomgang-av-rstudio.html#en-gjennomgang-av-rstudio" id="toc-en-gjennomgang-av-rstudio"><span class="toc-section-number">1.1</span> En gjennomgang av RStudio</a></li>
+<li><a href="enkle-beregninger-og-variabler.html#enkle-beregninger-og-variabler" id="toc-enkle-beregninger-og-variabler"><span class="toc-section-number">1.2</span> Enkle beregninger og variabler</a></li>
+<li><a href="vektorer.html#vektorer" id="toc-vektorer"><span class="toc-section-number">1.3</span> Vektorer</a></li>
+<li><a href="pakker.html#pakker" id="toc-pakker"><span class="toc-section-number">1.4</span> Pakker</a></li>
+<li><a href="mappesti.html#mappesti" id="toc-mappesti"><span class="toc-section-number">1.5</span> Mappesti</a></li>
+<li><a href="innlesing-av-data.html#innlesing-av-data" id="toc-innlesing-av-data"><span class="toc-section-number">1.6</span> Innlesing av data</a></li>
+<li><a href="statistiske-analyser.html#statistiske-analyser" id="toc-statistiske-analyser"><span class="toc-section-number">1.7</span> Statistiske analyser</a></li>
+<li><a href="r-plotting.html#r-plotting" id="toc-r-plotting"><span class="toc-section-number">1.8</span> Plotting</a></li>
+<li><a href="script.html#script" id="toc-script"><span class="toc-section-number">1.9</span> Script</a></li>
+<li><a href="pipe.html#pipe" id="toc-pipe"><span class="toc-section-number">1.10</span> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li><a href="r-ekstra.html#r-ekstra" id="toc-r-ekstra"><span class="toc-section-number">1.11</span> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
+<li><a href="grunnleggende-statistikk.html#grunnleggende-statistikk" id="toc-grunnleggende-statistikk"><span class="toc-section-number">2</span> Grunnleggende statistikk</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
-<li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
-<li class="chapter" data-level="2.3" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
-<li class="chapter" data-level="2.4" data-path="relevant-r-grunnleggende.html"><a href="relevant-r-grunnleggende.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
+<li><a href="deskriptiv-statistikk.html#deskriptiv-statistikk" id="toc-deskriptiv-statistikk"><span class="toc-section-number">2.1</span> Deskriptiv statistikk</a></li>
+<li><a href="utvalg-og-estimering.html#utvalg-og-estimering" id="toc-utvalg-og-estimering"><span class="toc-section-number">2.2</span> Utvalg og estimering</a></li>
+<li><a href="oppgaver.html#oppgaver" id="toc-oppgaver"><span class="toc-section-number">2.3</span> Oppgaver</a></li>
+<li><a href="relevant-r-grunnleggende.html#relevant-r-grunnleggende" id="toc-relevant-r-grunnleggende"><span class="toc-section-number">2.4</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
+<li><a href="hypotesetesting.html#hypotesetesting" id="toc-hypotesetesting"><span class="toc-section-number">3</span> Hypotesetesting</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
-<li class="chapter" data-level="3.2" data-path="enpop.html"><a href="enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
-<li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
-<li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
-<li class="chapter" data-level="3.5" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
-<li class="chapter" data-level="3.6" data-path="relevante-r-testing.html"><a href="relevante-r-testing.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
+<li><a href="generelt-om-hypotesetesting.html#generelt-om-hypotesetesting" id="toc-generelt-om-hypotesetesting"><span class="toc-section-number">3.1</span> Generelt om hypotesetesting</a></li>
+<li><a href="enpop.html#enpop" id="toc-enpop"><span class="toc-section-number">3.2</span> Inferens om en populasjon</a></li>
+<li><a href="inferens-om-to-populasjoner.html#inferens-om-to-populasjoner" id="toc-inferens-om-to-populasjoner"><span class="toc-section-number">3.3</span> Inferens om to populasjoner</a></li>
+<li><a href="kjikvadrattester.html#kjikvadrattester" id="toc-kjikvadrattester"><span class="toc-section-number">3.4</span> Kjikvadrattester</a></li>
+<li><a href="oppgaver-1.html#oppgaver-1" id="toc-oppgaver-1"><span class="toc-section-number">3.5</span> Oppgaver</a></li>
+<li><a href="relevante-r-testing.html#relevante-r-testing" id="toc-relevante-r-testing"><span class="toc-section-number">3.6</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
+<li><a href="regresjon.html#regresjon" id="toc-regresjon"><span class="toc-section-number">4</span> Regresjon</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
-<li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
-<li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
-<li class="chapter" data-level="4.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
-<li class="chapter" data-level="4.5" data-path="relevante-r-regresjon.html"><a href="relevante-r-regresjon.html"><i class="fa fa-check"></i><b>4.5</b> Relevante R-kommandoer</a></li>
+<li><a href="enkel-regresjon.html#enkel-regresjon" id="toc-enkel-regresjon"><span class="toc-section-number">4.1</span> Enkel regresjon</a></li>
+<li><a href="multippel-regresjon.html#multippel-regresjon" id="toc-multippel-regresjon"><span class="toc-section-number">4.2</span> Multippel regresjon</a></li>
+<li><a href="modellbygging.html#modellbygging" id="toc-modellbygging"><span class="toc-section-number">4.3</span> Modellbygging</a></li>
+<li><a href="oppgaver-2.html#oppgaver-2" id="toc-oppgaver-2"><span class="toc-section-number">4.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-regresjon.html#relevante-r-regresjon" id="toc-relevante-r-regresjon"><span class="toc-section-number">4.5</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>5</b> Avansert regresjon og maskinlæring</a>
+<li><a href="tidsrekker.html#tidsrekker" id="toc-tidsrekker"><span class="toc-section-number">5</span> Tidsrekker</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>5.1</b> Logistisk regresjon</a></li>
-<li class="chapter" data-level="5.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>5.2</b> Introduksjon til maskinlæring med kNN</a></li>
-<li class="chapter" data-level="5.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>5.3</b> Paneldata</a></li>
-<li class="chapter" data-level="5.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>5.4</b> Oppgaver</a></li>
-<li class="chapter" data-level="5.5" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>5.5</b> Relevante R-kommandoer</a></li>
+<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">5.1</span> Introduksjon til tidsrekker</a></li>
+<li><a href="trend-og-sesong.html#trend-og-sesong" id="toc-trend-og-sesong"><span class="toc-section-number">5.2</span> Trend og sesong</a></li>
+<li><a href="ar.html#ar" id="toc-ar"><span class="toc-section-number">5.3</span> AR(p)</a></li>
+<li><a href="stasjonaritet.html#stasjonaritet" id="toc-stasjonaritet"><span class="toc-section-number">5.4</span> Stasjonaritet</a></li>
+<li><a href="autokorrelasjon.html#autokorrelasjon" id="toc-autokorrelasjon"><span class="toc-section-number">5.5</span> Autokorrelasjon</a></li>
+<li><a href="ma.html#ma" id="toc-ma"><span class="toc-section-number">5.6</span> MA(q)</a></li>
+<li><a href="arma-arima.html#arma-arima" id="toc-arma-arima"><span class="toc-section-number">5.7</span> ARMA og ARIMA</a></li>
+<li><a href="modellbygging-1.html#modellbygging-1" id="toc-modellbygging-1"><span class="toc-section-number">5.8</span> Modellbygging</a></li>
+<li><a href="relevante-r-tidsrekker.html#relevante-r-tidsrekker" id="toc-relevante-r-tidsrekker"><span class="toc-section-number">5.9</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>6</b> Tidsrekker</a>
+<li><a href="avansert-regresjon-og-maskinlæring.html#avansert-regresjon-og-maskinlæring" id="toc-avansert-regresjon-og-maskinlæring"><span class="toc-section-number">6</span> Avansert regresjon og maskinlæring</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>6.1</b> Introduksjon til tidsrekker</a></li>
-<li class="chapter" data-level="6.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>6.2</b> Trend og sesong</a></li>
-<li class="chapter" data-level="6.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>6.3</b> AR(p)</a></li>
-<li class="chapter" data-level="6.4" data-path="stasjonaritet.html"><a href="stasjonaritet.html"><i class="fa fa-check"></i><b>6.4</b> Stasjonaritet</a></li>
-<li class="chapter" data-level="6.5" data-path="autokorrelasjon.html"><a href="autokorrelasjon.html"><i class="fa fa-check"></i><b>6.5</b> Autokorrelasjon</a></li>
-<li class="chapter" data-level="6.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>6.6</b> MA(q)</a></li>
-<li class="chapter" data-level="6.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>6.7</b> ARMA og ARIMA</a></li>
-<li class="chapter" data-level="6.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>6.8</b> Modellbygging</a></li>
-<li class="chapter" data-level="6.9" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>6.9</b> Relevante R-kommandoer</a></li>
+<li><a href="logistisk-regresjon.html#logistisk-regresjon" id="toc-logistisk-regresjon"><span class="toc-section-number">6.1</span> Logistisk regresjon</a></li>
+<li><a href="introduksjon-til-maskinlæring-med-knn.html#introduksjon-til-maskinlæring-med-knn" id="toc-introduksjon-til-maskinlæring-med-knn"><span class="toc-section-number">6.2</span> Introduksjon til maskinlæring med kNN</a></li>
+<li><a href="paneldata.html#paneldata" id="toc-paneldata"><span class="toc-section-number">6.3</span> Paneldata</a></li>
+<li><a href="oppgaver-3.html#oppgaver-3" id="toc-oppgaver-3"><span class="toc-section-number">6.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-avansert-regresjon.html#relevante-r-avansert-regresjon" id="toc-relevante-r-avansert-regresjon"><span class="toc-section-number">6.5</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
+<li><a href="dataøvinger.html#dataøvinger" id="toc-dataøvinger"><span class="toc-section-number">7</span> Dataøvinger</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
-<li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
-<li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
-<li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
+<li><a href="dataøving-1.html#dataøving-1" id="toc-dataøving-1"><span class="toc-section-number">7.1</span> Dataøving 1</a></li>
+<li><a href="dataøving-2.html#dataøving-2" id="toc-dataøving-2"><span class="toc-section-number">7.2</span> Dataøving 2</a></li>
+<li><a href="dataøving-3.html#dataøving-3" id="toc-dataøving-3"><span class="toc-section-number">7.3</span> Dataøving 3</a></li>
+<li><a href="dataøving-4.html#dataøving-4" id="toc-dataøving-4"><span class="toc-section-number">7.4</span> Dataøving 4</a></li>
+<li><a href="dataøving-5.html#dataøving-5" id="toc-dataøving-5"><span class="toc-section-number">7.5</span> Dataøving 5</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="diverse-ekstrastoff.html"><a href="diverse-ekstrastoff.html"><i class="fa fa-check"></i><b>8</b> Diverse ekstrastoff</a>
+<li><a href="diverse-ekstrastoff.html#diverse-ekstrastoff" id="toc-diverse-ekstrastoff"><span class="toc-section-number">8</span> Diverse ekstrastoff</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>8.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
-<li class="chapter" data-level="8.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>8.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
-<li class="chapter" data-level="8.3" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8.3</b> Oppgaver til seminarer</a></li>
+<li><a href="skoleeksamen.html#skoleeksamen" id="toc-skoleeksamen"><span class="toc-section-number">8.1</span> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html#tidligere-eksamensoppgaver-hjemmeeksamen" id="toc-tidligere-eksamensoppgaver-hjemmeeksamen"><span class="toc-section-number">8.2</span> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li><a href="seminar.html#seminar" id="toc-seminar"><span class="toc-section-number">8.3</span> Oppgaver til seminarer</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -242,15 +244,15 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="relevante-r-regresjon" class="section level2 hasAnchor" number="4.5">
-<h2><span class="header-section-number">4.5</span> Relevante R-kommandoer<a href="relevante-r-regresjon.html#relevante-r-regresjon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="relevante-r-regresjon" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Relevante R-kommandoer</h2>
 <p>Under følger en liste over hvilke oppgaver du skal klare i R fra denne modulen. Vår policy fra og med <strong>vårsemesteret 2022</strong> er at R-kommandoene under er <em>tilstrekkelige</em> for å løse oppgavene i datalabber og hjemmeeksamen i MET4. Det er med andre ord ikke nødvendig å lære seg teknikker utover det som er listet opp eksplisitt i listen under. Eventuelle nye teknikker som trengs for å løse en bestemt oppgave vil bli oppgitt og forklart dersom det er nødvendig. Det antas i tillegg at du kan den grunnleggende R-syntaksen som er dekket under <a href="introduksjon-til-r.html#introduksjon-til-r">Introduksjon til R</a>.</p>
-<div id="antakelser-om-datasett-2" class="section level3 unnumbered hasAnchor">
-<h3>Antakelser om datasett<a href="relevante-r-regresjon.html#antakelser-om-datasett-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="antakelser-om-datasett-2" class="section level3 unnumbered">
+<h3>Antakelser om datasett</h3>
 <p>Du kan gjøre de samme antakelsene om datasettet som i <a href="#relevant-r-testing">den tilsvarende oversikten i forrige modul</a>: Datasettene er inneholdt i Excel-filer (<code>.xls</code> eller <code>xslx</code>) eller <code>.csv</code>-filer, som kolonner av variabler, med variabelnavn i første rad.</p>
 </div>
-<div id="tilpasse-en-lineær-regresjonsmodell" class="section level3 unnumbered hasAnchor">
-<h3>Tilpasse en lineær regresjonsmodell<a href="relevante-r-regresjon.html#tilpasse-en-lineær-regresjonsmodell" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="tilpasse-en-lineær-regresjonsmodell" class="section level3 unnumbered">
+<h3>Tilpasse en lineær regresjonsmodell</h3>
 <p>Her er et lekedatasett med tre forklaringsvariabler <code>x1</code>, <code>x2</code> og <code>x3</code>, samt en responsvariabel <code>y</code>: <a href="datasett/data-reg.xlsx">data-reg.xsls</a>.</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="relevante-r-regresjon.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Last inn data</span></span>
 <span id="cb122-2"><a href="relevante-r-regresjon.html#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
@@ -284,8 +286,8 @@ Publisert ved hjelp av bookdown</a></li>
 <span id="cb122-30"><a href="relevante-r-regresjon.html#cb122-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Man kan endre type-argumentet til &quot;html&quot;, og sette out-argumentet til et</span></span>
 <span id="cb122-31"><a href="relevante-r-regresjon.html#cb122-31" aria-hidden="true" tabindex="-1"></a><span class="co"># filnavn hvis du vil skrive ut tabellen til en fil.</span></span></code></pre></div>
 </div>
-<div id="prediksjoner-med-konfidens--og-prediksjonsintervall" class="section level3 unnumbered hasAnchor">
-<h3>Prediksjoner, med konfidens- og prediksjonsintervall<a href="relevante-r-regresjon.html#prediksjoner-med-konfidens--og-prediksjonsintervall" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="prediksjoner-med-konfidens--og-prediksjonsintervall" class="section level3 unnumbered">
+<h3>Prediksjoner, med konfidens- og prediksjonsintervall</h3>
 <p>La oss si at vi ønsker å predikere verdien av responsvariabelen for følgende verdier av forklaringsvariablene:</p>
 <table>
 <thead>
@@ -346,8 +348,8 @@ x3
 <span id="cb124-4"><a href="relevante-r-regresjon.html#cb124-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>Resultatet blir en ny data frame med kolonnene <code>fit</code> (prediksjoner), samt <code>lwr</code> og <code>upr</code>, som inneholder nedre og øvre grense i konfidensintervallet henholdsvis. Du kan endre til prediksjonsintervaller ved å bytte ut <code>"confidence"</code> med <code>"prediction"</code> (eventuelt <code>"none"</code> hvis du ikke ønsker noe intervall).</p>
 </div>
-<div id="lage-residualplott" class="section level3 unnumbered hasAnchor">
-<h3>Lage residualplott<a href="relevante-r-regresjon.html#lage-residualplott" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="lage-residualplott" class="section level3 unnumbered">
+<h3>Lage residualplott</h3>
 <p>Vi må kunne lage følgende residualplott i R, her demonstrert med regresjonsmodellen <code>reg1</code> som vi laget over:</p>
 <div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="relevante-r-regresjon.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Henter ut residualer og predikerte verdier fra modellen, og setter de inn som </span></span>
 <span id="cb125-2"><a href="relevante-r-regresjon.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="co"># kolonner i en dataframe:</span></span>
@@ -391,7 +393,7 @@ x3
         </div>
       </div>
 <a href="oppgaver-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="avansert-regresjon-og-maskinlæring.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tidsrekker.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

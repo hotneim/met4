@@ -830,6 +830,10 @@ sum(6.99*(predicted_visits2 - predcted_visits1))
 
 ## Dataøving 4
 
+Kommer.
+
+## Dataøving 5
+
 ### Oppgave 1: Interaktiv øvelse
 Før vi tar fatt på dataanalysens begynner vi som vanlig med litt R-trening i swirl.  Har du allerede installert pakken swirl (skriv `install.packages("swirl")` i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:
 
