@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022</title>
+  <title>8.1 Seminar 1 - Grunnleggende statistikk | MET4 - Empiriske Metoder - Høst 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta property="og:title" content="8.1 Seminar 1 - Grunnleggende statistikk | MET4 - Empiriske Metoder - Høst 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta name="twitter:title" content="8.1 Seminar 1 - Grunnleggende statistikk | MET4 - Empiriske Metoder - Høst 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ar.html"/>
-<link rel="next" href="autokorrelasjon.html"/>
+<link rel="prev" href="seminar.html"/>
+<link rel="next" href="seminar-2-hypotesetesting.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -249,30 +249,54 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stasjonaritet" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Stasjonaritet</h2>
-<iframe src="https://player.vimeo.com/video/467126666" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-</iframe>
-<div id="kontrollspørsmål-3" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Kontrollspørsmål</h3>
+<div id="seminar-1---grunnleggende-statistikk" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Seminar 1 - Grunnleggende statistikk</h2>
 <ol style="list-style-type: decimal">
-<li>Hva er definisjonen på en stasjonær tidsrekke?</li>
-<li>Hva er poenget med å innføre stasjonaritet som et konsept i tidsrekkeanalyse?</li>
-<li>Er AR(1) prosessen <span class="math inline">\(X_t = 1.5 X_{t - 1} + u_t\)</span> stasjonær?</li>
+<li><strong>(V20, OPPG 1)</strong> Grafen ble publisert av klima- og miljøminister Ola Elvestuen fra Venstre på Twitter 1. november 2019 (men senere tatt bort), og viser norske CO<span class="math inline">\(_2\)</span>-utslipp (i 1000 tonn CO<span class="math inline">\(_2\)</span>-ekvivalenter) som funksjon av tid. Venstre gikk inn i regjering sammen med Høyre og Fremskrittspartiet i januar 2018. Denne figuren ble kritisert for å være <em>misvisende</em>. På hvilken måte er den det, og hvordan ville du forandret den for at den skulle være mindre misvisende?</li>
 </ol>
-</div>
-<div id="merk" class="section level3" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Merk</h3>
-<p>En AR-prosess kan vi definere også med et konstantledd <span class="math inline">\(c\)</span>, f.eks: <span class="math inline">\(Y_t = c + \phi Y_{t-1} + u_t\)</span>. Vi kan ikke forvente at alle tidsrekkene vi observerer i praksis vil ligge å variere rundt null (dvs at E<span class="math inline">\((Y_t) = 0\)</span>). Vi kan flytte den opp og ned ved å legge til den samme konstanten <span class="math inline">\(c\)</span> i hver tidssteg. I forrige oppgavesett, der vi estimerte parameteren <span class="math inline">\(\phi\)</span> i en AR(1)-modell, kom det (på samme måte som når vi gjør regresjon) ut et estimat av et <code>intercept</code>, som altså er denne <span class="math inline">\(c\)</span>’en. I den simulerte tidsrekken vi jobbet med der, var det ikke noe konstantledd (altså, <span class="math inline">\(c = 0\)</span>), som vi ser igjen i estimatene ved at de ikke er signifikant forskjellige fra null. Vi kunne tvunget estimeringsfunksjonene til å sette <span class="math inline">\(c = 0\)</span>, f.eks ved å inkludere argumentet <code>include.mean = FALSE</code> i <code>arima()</code>-funksjonen.</p>
-</div>
+<p><img src="bilder/venstre.PNG" width="277" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>(V20, OPPG 1)</strong> Figuren under ble publisert av Høyre på Facebook 1. november 2019, og viser norske CO<span class="math inline">\(_2\)</span>-utslipp (i 1000 tonn CO<span class="math inline">\(_2\)</span>-ekvivalenter) som funksjon av tid. Denne figuren ble <em>også</em> kritisert for å være misvisende. På hvilken måte er den det, og hvordan ville du forandret den for at den skulle blitt mindre misvisende?</li>
+</ol>
+<p><img src="bilder/hoyre.jpg" width="450" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>(V19, OPPG 3)</strong> I figuren under ser vi en graf over den norske styringsrenten siden 2013 og anslag over hvilken bane renten skal følge de neste tre årene med fire usikkerhetsintervaller. Bruk figuren til å anslå sannsynligheten for negativ styringsrente ved utgangen av 2022.</li>
+</ol>
+<p><img src="bilder/rente.jpg" width="364" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Florida innførte i 2005 en såkalt “Stand Your Ground”-lov, som i større grad tillater folk å bruke dødelig makt i selvforsvar. Grafen under, som viser utviklingen av dødsoffer i skyteepisoder i Florida, illustrerte mange nyhetsreportasjer etter et <a href="https://en.wikipedia.org/wiki/Shooting_of_Trayvon_Martin">drap i 2012</a>, men fikk skarp kritikk i ettertid. Hvorfor det tror du?</li>
+</ol>
+<p><img src="bilder/gun.PNG" width="306" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>(H13, OPPG 1)</strong>
+<ol style="list-style-type: lower-alpha">
+<li>Gjør oppgave 1a og 1b på dette oppgavesettet.</li>
+<li>Kan du foreslå en <em>grafisk</em> fremstilling som kan vise eventuelle forskjeller i responstid før og etter omleggingen?</li>
+</ol></li>
+<li>La oss anta at 50 avgangsstudenter som gikk ut av NHHs masterprogram i fjor svarte på et spørreskjema hvor mye de har i startlønn i sin første jobb. Gjennomsnittslønnen var 450.000, med et standardavvik på 120.000. Anta videre at lønnsfordeningen for årets studenter er den samme (og se bort fra inflasjon).
+<ol style="list-style-type: lower-alpha">
+<li>Estimer sannsynligheten for at gjennomsnittlig startlønn for 50 responenter i år vil være større enn 450.000.</li>
+<li>Estimer sannsynligheten for at gjennomsnittlig startlønn for 50 responenter i år vil være større enn 500.000.</li>
+</ol></li>
+<li>La <span class="math inline">\(X\)</span> være en stokastisk variabel med forventningsverdi lik 5 og varians lik 2. Definer to nye stokastiske variabler <span class="math inline">\(Y = 2X-1\)</span> og <span class="math inline">\(Z = X^2 + Y\)</span>. Regn ut:
+<ol style="list-style-type: lower-alpha">
+<li>E<span class="math inline">\((Y)\)</span> og Var<span class="math inline">\((Y)\)</span>.</li>
+<li>E<span class="math inline">\((Z)\)</span> og Var<span class="math inline">\((Z)\)</span>.</li>
+</ol></li>
+<li>La <span class="math inline">\(X\)</span> være en standard normalfordelt variabel. Du får oppgitt at det medfører at E<span class="math inline">\((X^3) = 0\)</span>. La <span class="math inline">\(Y = X^2\)</span>.
+<ol style="list-style-type: lower-alpha">
+<li>Vis at korrelasjonen mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> er lik null.</li>
+<li>Er <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> uavhengige?</li>
+</ol></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="autokorrelasjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="seminar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="seminar-2-hypotesetesting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

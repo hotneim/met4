@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022</title>
+  <title>8.2 Seminar 2 - Hypotesetesting | MET4 - Empiriske Metoder - Høst 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta property="og:title" content="8.2 Seminar 2 - Hypotesetesting | MET4 - Empiriske Metoder - Høst 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta name="twitter:title" content="8.2 Seminar 2 - Hypotesetesting | MET4 - Empiriske Metoder - Høst 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ar.html"/>
-<link rel="next" href="autokorrelasjon.html"/>
+<link rel="prev" href="seminar-1-grunnleggende-statistikk.html"/>
+<link rel="next" href="seminar-3-regresjon-i.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -249,30 +249,30 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stasjonaritet" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Stasjonaritet</h2>
-<iframe src="https://player.vimeo.com/video/467126666" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-</iframe>
-<div id="kontrollspørsmål-3" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Kontrollspørsmål</h3>
+<div id="seminar-2---hypotesetesting" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Seminar 2 - Hypotesetesting</h2>
 <ol style="list-style-type: decimal">
-<li>Hva er definisjonen på en stasjonær tidsrekke?</li>
-<li>Hva er poenget med å innføre stasjonaritet som et konsept i tidsrekkeanalyse?</li>
-<li>Er AR(1) prosessen <span class="math inline">\(X_t = 1.5 X_{t - 1} + u_t\)</span> stasjonær?</li>
+<li><p>Sett opp en generell regel/oppskrift som du kan følge <em>alle</em> gangene du skal gjennomføre en hypotesetest.</p></li>
+<li><p>Tegn opp en figur som viser hvordan de samme verdiene av <span class="math inline">\(\overline{X}\)</span> og <span class="math inline">\(\mu\)</span> i to ett-utvalgs <span class="math inline">\(t\)</span>-tester likevel kan føre til motsatt konklusjon av testen.</p></li>
+<li><p>Det er desverre et stort problem at folk som bruker begrepet <em>p-verdi</em> i ulike sammenhenfer ofte ikke forstår hva begrepet betyr. I den sammenheng publiserte <em>The American Statistical Association</em> i 2016 <a href="https://www.tandfonline.com/doi/pdf/10.1080/00031305.2016.1154108">et skriv som i klare ordelag beskriver problemet</a>. Les gjennom dette skrivet, og spesiel avsnitt 3 “<em>Principles</em>”.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Oversett hver av disse seks overskriftene (prinsippene) til norsk med dine egne ord, og skriv så en setning, igjen med egne ord, om hvordan du forstår hvert av punktene.</li>
+<li>Prøv å definer begrepet <em>p-verdi</em> med så enkle ord som du klarer.</li>
+</ol></li>
+<li><p>Gjør oppgave 11.38 i læreboken: <em>The club professional at a difficult public course boasts that his course is so tough that the average golfer loses a dozen or more golf balls during a round of golf. A dubious golfer sets out to show that the pro is fibbing. He asks a random sample of 15 golfers who just completed their rounds to report the number of golf balls they lost. Assuming that the number of golf balls lost is normally distributed with a standard deviation of 3, can we infer at the 10% significance level that the average (rett ord her er vel egentlig “expected”) number of golf balls lost is less than 12?</em></p>
+<p>Observasjonene er: 1, 14, 8, 15, 17, 10, 12, 6, 14, 21, 15, 9, 11, 4, 8</p></li>
+<li><p>Anta at det sanne forventede antall golfballer som forsvinner i forrige oppgave er 10, hva er da styrken (power) til testen som du gjorde der? Hva er tolkningen til dette tallet?</p></li>
+<li><p>Gjør skoleeksamen V17, oppgave 1a og 1b.</p></li>
+<li><p>Gjør skoleeksamen V19, oppgave 1b.</p></li>
 </ol>
-</div>
-<div id="merk" class="section level3" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Merk</h3>
-<p>En AR-prosess kan vi definere også med et konstantledd <span class="math inline">\(c\)</span>, f.eks: <span class="math inline">\(Y_t = c + \phi Y_{t-1} + u_t\)</span>. Vi kan ikke forvente at alle tidsrekkene vi observerer i praksis vil ligge å variere rundt null (dvs at E<span class="math inline">\((Y_t) = 0\)</span>). Vi kan flytte den opp og ned ved å legge til den samme konstanten <span class="math inline">\(c\)</span> i hver tidssteg. I forrige oppgavesett, der vi estimerte parameteren <span class="math inline">\(\phi\)</span> i en AR(1)-modell, kom det (på samme måte som når vi gjør regresjon) ut et estimat av et <code>intercept</code>, som altså er denne <span class="math inline">\(c\)</span>’en. I den simulerte tidsrekken vi jobbet med der, var det ikke noe konstantledd (altså, <span class="math inline">\(c = 0\)</span>), som vi ser igjen i estimatene ved at de ikke er signifikant forskjellige fra null. Vi kunne tvunget estimeringsfunksjonene til å sette <span class="math inline">\(c = 0\)</span>, f.eks ved å inkludere argumentet <code>include.mean = FALSE</code> i <code>arima()</code>-funksjonen.</p>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="autokorrelasjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="seminar-1-grunnleggende-statistikk.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="seminar-3-regresjon-i.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

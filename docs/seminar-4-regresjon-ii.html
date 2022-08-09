@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022</title>
+  <title>8.4 Seminar 4 - Regresjon II | MET4 - Empiriske Metoder - Høst 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta property="og:title" content="8.4 Seminar 4 - Regresjon II | MET4 - Empiriske Metoder - Høst 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta name="twitter:title" content="8.4 Seminar 4 - Regresjon II | MET4 - Empiriske Metoder - Høst 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ar.html"/>
-<link rel="next" href="autokorrelasjon.html"/>
+<link rel="prev" href="seminar-3-regresjon-i.html"/>
+<link rel="next" href="seminar-5-tidsrekker.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -249,30 +249,86 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stasjonaritet" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Stasjonaritet</h2>
-<iframe src="https://player.vimeo.com/video/467126666" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-</iframe>
-<div id="kontrollspørsmål-3" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Kontrollspørsmål</h3>
+<div id="seminar-4---regresjon-ii" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Seminar 4 - Regresjon II</h2>
 <ol style="list-style-type: decimal">
-<li>Hva er definisjonen på en stasjonær tidsrekke?</li>
-<li>Hva er poenget med å innføre stasjonaritet som et konsept i tidsrekkeanalyse?</li>
-<li>Er AR(1) prosessen <span class="math inline">\(X_t = 1.5 X_{t - 1} + u_t\)</span> stasjonær?</li>
+<li>Vi har lyst til å forstå forskjellen på den statistiske <em>modellen</em> <span class="math inline">\(Y = \beta_0 + \beta_1X + \epsilon\)</span> der <span class="math inline">\(\epsilon\)</span> er normalfordelt med forventningsverdi 0 og varians <span class="math inline">\(\sigma^2\)</span>, og det vi faktisk observerer, som er par av observasjoner <span class="math inline">\((X_1, Y_1), \ldots, (X_n, Y_n)\)</span>. Klarer du å illustrere denne forskjellen ved å fortsette på tegningen under? Her har vi satt <span class="math inline">\(n=4\)</span>.</li>
 </ol>
-</div>
-<div id="merk" class="section level3" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Merk</h3>
-<p>En AR-prosess kan vi definere også med et konstantledd <span class="math inline">\(c\)</span>, f.eks: <span class="math inline">\(Y_t = c + \phi Y_{t-1} + u_t\)</span>. Vi kan ikke forvente at alle tidsrekkene vi observerer i praksis vil ligge å variere rundt null (dvs at E<span class="math inline">\((Y_t) = 0\)</span>). Vi kan flytte den opp og ned ved å legge til den samme konstanten <span class="math inline">\(c\)</span> i hver tidssteg. I forrige oppgavesett, der vi estimerte parameteren <span class="math inline">\(\phi\)</span> i en AR(1)-modell, kom det (på samme måte som når vi gjør regresjon) ut et estimat av et <code>intercept</code>, som altså er denne <span class="math inline">\(c\)</span>’en. I den simulerte tidsrekken vi jobbet med der, var det ikke noe konstantledd (altså, <span class="math inline">\(c = 0\)</span>), som vi ser igjen i estimatene ved at de ikke er signifikant forskjellige fra null. Vi kunne tvunget estimeringsfunksjonene til å sette <span class="math inline">\(c = 0\)</span>, f.eks ved å inkludere argumentet <code>include.mean = FALSE</code> i <code>arima()</code>-funksjonen.</p>
-</div>
+<p><img src="bilder/oppg_regresjonsmodell.jpg" width="738" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Et lite firma som selger babyutstyr ser god effekt av å markedsføre produktene sine på Youtube. For å analysere denne sammenhengen nøyere samler de inn historiske data på hvor mye de har brukt på Youtube-reklame (<code>youtube</code>) i løpet av en måned, og omsetningen den måneden (<code>sales</code>), og gjennomfører så en enkel lineær regresjon med <code>youtube</code> som forklaringsvariabel og <code>sales</code> som responsvariabel. Gi en kort fortolkning av regresjonsutskriften under:</li>
+</ol>
+<pre><code>## 
+## ===============================================
+##                         Dependent variable:    
+##                     ---------------------------
+##                                sales           
+## -----------------------------------------------
+## youtube                      0.048***          
+##                               (0.003)          
+##                                                
+## Constant                     8.439***          
+##                               (0.549)          
+##                                                
+## -----------------------------------------------
+## Observations                    200            
+## R2                             0.612           
+## Adjusted R2                    0.610           
+## Residual Std. Error      3.910 (df = 198)      
+## F Statistic          312.145*** (df = 1; 198)  
+## ===============================================
+## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>I figuren under har vi plottet inn datasettet, den estimerte regresjonslinjen (rød heltrukken strek), samt linjen <span class="math inline">\(y = x\)</span> (sort stiplet linje). Hvordan skal babyutstyrforhandleren tolke denne figuren?</li>
+</ol>
+<p><img src="met4_files/figure-html/unnamed-chunk-268-1.png" width="672" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Ved hjelp av den estimerte regresjonsmodellen lager babyutstyrforhandleren følgende plott av residualene mot de predikerte verdiene for hver observasjon i datasettet. Hva sier denne figuren oss om lineær regresjon som modell for sammenhengen mellom penger brukt på markedsføring og omsetning?</li>
+</ol>
+<p><img src="met4_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
+<p>Det er gjort mange forsøk på å forklare hvorfor noen land er rike, mens andre land er fattige, se f.eks hjemmeeksamen i MET4, V17. En mulig forklaring kan ligge in landenes fysiske og geografiske egenskaper. For eksempel, kan det hende at land som har ulendt terreng kan ha større vanskeligheter med å bygge infrastruktur og frakte varer enn land som er helt flate, og dermed ende opp som fattigere av den grunn?</p>
+<p>Vi ser på et lite datasett (<a href="https://xcelab.net/rm/statistical-rethinking/">lånt fra boken <em>Statistical Rethinking</em></a>) der vi har et mål på landenes rikdom (logaritmen av BNP, <code>log_gdp</code>), samt et mål på hvor ulendt terrenget er i det landet (<code>rugged</code>). Vi har også mer informasjon om landene, for eksempel om det ligger i Afrika eller ikke (<code>cont_africa</code>).</p>
+<p>Vi har gjort tre regresjonsanalyser i R, med følgende utskrifter:</p>
+<pre><code>## 
+## =======================================================================================
+##                                             Dependent variable:                        
+##                     -------------------------------------------------------------------
+##                                                   log_gdp                              
+##                             (1)                   (2)                     (3)          
+## ---------------------------------------------------------------------------------------
+## rugged                     0.003                -0.067                 -0.203***       
+##                           (0.077)               (0.064)                 (0.077)        
+##                                                                                        
+## cont_africa                                    -1.469***               -1.948***       
+##                                                 (0.165)                 (0.227)        
+##                                                                                        
+## rugged:cont_africa                                                     0.393***        
+##                                                                         (0.132)        
+##                                                                                        
+## Constant                 8.513***              9.030***                9.223***        
+##                           (0.136)               (0.127)                 (0.140)        
+##                                                                                        
+## ---------------------------------------------------------------------------------------
+## Observations                170                   170                     170          
+## R2                        0.00001                0.322                   0.357         
+## Adjusted R2               -0.006                 0.314                   0.345         
+## Residual Std. Error  1.170 (df = 168)      0.966 (df = 167)        0.944 (df = 166)    
+## F Statistic         0.001 (df = 1; 168) 39.715*** (df = 2; 167) 30.712*** (df = 3; 166)
+## =======================================================================================
+## Note:                                                       *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Skriv opp de tre estimerte regresjonsmodellene.</p></li>
+<li><p>Gi en kort fortolkning av modell (2).</p></li>
+<li><p>Gi en forklaring på hva vi lærer ved å gå fra modell (2) til modell (3). Fokuser spesielt på rollen til interaksjonsleddet (<code>rugged:cont_africa</code>). Hvordan kan det ha seg at <code>rugged</code>-variabelen nå plutselig er statistisk signifikant forskjelig fra null? Kan du tenke deg en praktisk fortolkning av disse resultatene?</p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="autokorrelasjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="seminar-3-regresjon-i.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="seminar-5-tidsrekker.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

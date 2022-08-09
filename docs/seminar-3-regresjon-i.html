@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022</title>
+  <title>8.3 Seminar 3 - Regresjon I | MET4 - Empiriske Metoder - Høst 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta property="og:title" content="8.3 Seminar 3 - Regresjon I | MET4 - Empiriske Metoder - Høst 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.4 Stasjonaritet | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta name="twitter:title" content="8.3 Seminar 3 - Regresjon I | MET4 - Empiriske Metoder - Høst 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ar.html"/>
-<link rel="next" href="autokorrelasjon.html"/>
+<link rel="prev" href="seminar-2-hypotesetesting.html"/>
+<link rel="next" href="seminar-4-regresjon-ii.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -249,30 +249,49 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stasjonaritet" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Stasjonaritet</h2>
-<iframe src="https://player.vimeo.com/video/467126666" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-</iframe>
-<div id="kontrollspørsmål-3" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Kontrollspørsmål</h3>
+<div id="seminar-3---regresjon-i" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Seminar 3 - Regresjon I</h2>
 <ol style="list-style-type: decimal">
-<li>Hva er definisjonen på en stasjonær tidsrekke?</li>
-<li>Hva er poenget med å innføre stasjonaritet som et konsept i tidsrekkeanalyse?</li>
-<li>Er AR(1) prosessen <span class="math inline">\(X_t = 1.5 X_{t - 1} + u_t\)</span> stasjonær?</li>
+<li>Se på den estimerte regresjonskurven under:</li>
 </ol>
-</div>
-<div id="merk" class="section level3" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Merk</h3>
-<p>En AR-prosess kan vi definere også med et konstantledd <span class="math inline">\(c\)</span>, f.eks: <span class="math inline">\(Y_t = c + \phi Y_{t-1} + u_t\)</span>. Vi kan ikke forvente at alle tidsrekkene vi observerer i praksis vil ligge å variere rundt null (dvs at E<span class="math inline">\((Y_t) = 0\)</span>). Vi kan flytte den opp og ned ved å legge til den samme konstanten <span class="math inline">\(c\)</span> i hver tidssteg. I forrige oppgavesett, der vi estimerte parameteren <span class="math inline">\(\phi\)</span> i en AR(1)-modell, kom det (på samme måte som når vi gjør regresjon) ut et estimat av et <code>intercept</code>, som altså er denne <span class="math inline">\(c\)</span>’en. I den simulerte tidsrekken vi jobbet med der, var det ikke noe konstantledd (altså, <span class="math inline">\(c = 0\)</span>), som vi ser igjen i estimatene ved at de ikke er signifikant forskjellige fra null. Vi kunne tvunget estimeringsfunksjonene til å sette <span class="math inline">\(c = 0\)</span>, f.eks ved å inkludere argumentet <code>include.mean = FALSE</code> i <code>arima()</code>-funksjonen.</p>
-</div>
+<p><img src="met4_files/figure-html/enkel%20oppgave-1.png" width="672" /></p>
+<ol style="list-style-type: lower-alpha">
+<li>Bestem hvilke av de følgende parameterestimatene som kan være riktig:
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(\hat{\beta}_0 = 5\)</span>, <span class="math inline">\(\hat{\beta}_1 = -3\)</span></li>
+<li><span class="math inline">\(\hat{\beta}_0 = 10\)</span>, <span class="math inline">\(\hat{\beta}_1 = 4\)</span></li>
+<li><span class="math inline">\(\hat{\beta}_0 = -4\)</span>, <span class="math inline">\(\hat{\beta}_1 = 2\)</span></li>
+<li><span class="math inline">\(\hat{\beta}_0 = 10\)</span>, <span class="math inline">\(\hat{\beta}_1 = -2\)</span></li>
+</ol></li>
+<li>Bestem hvilke av de følgende utsagn om den estimerte korrelasjonen mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> og andel forklart variasjon (<span class="math inline">\(R^2\)</span>) som er riktig:
+<ol style="list-style-type: lower-roman">
+<li>Korrelasjonen er <span class="math inline">\(-0.94\)</span> andel forklart variasjon er <span class="math inline">\(-0.88\)</span>.</li>
+<li>Korrelasjonen er <span class="math inline">\(0.94\)</span> andel forklart variasjon er <span class="math inline">\(0.88\)</span>.</li>
+<li>Korrelasjonen er <span class="math inline">\(-0.94\)</span> andel forklart variasjon er <span class="math inline">\(0.88\)</span>.</li>
+<li>Korrelasjonen er <span class="math inline">\(1\)</span> andel forklart variasjon er <span class="math inline">\(0.88\)</span>.</li>
+</ol></li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>Under ser du et residualplott og et QQ-plot for en regresjonsanalyse. Hvilke brudd på antagelsene for lineær regresjon ser du? Dersom alle andre kriterier er oppfylt, hvilke konsekvenser har disse bruddene?</li>
+</ol>
+<p><img src="met4_files/figure-html/hetro-1.png" width="672" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>En student ønsker å undersøke sammenhengen mellom pris og størrelsen på leiligheter (m^2). Han bestemmer seg for å samle inn data på solgte leiligheter ukentlig over et helt år. Hva kan være problematisk for en slik strategi?</p></li>
+<li><p>Anta <span class="math inline">\(Y_i\)</span> er forandring i BNP fra kvartal <span class="math inline">\(i-1\)</span> til kvartal <span class="math inline">\(i\)</span>, mens <span class="math inline">\(x_i\)</span> er forandringen i arbeidsledighet fra kvartal <span class="math inline">\(i\)</span> til kvartal <span class="math inline">\(i-1\)</span>. Du tilpasser så regresjonsmodellen
+<span class="math display">\[\begin{equation}
+Y_i = \beta_0 + \beta_1 x_i + \epsilon_i
+\end{equation}\]</span>
+Forklar hva forskjellen på et prediksjonsintervall og konfidensintervall er i denne sammenhengen dersom <span class="math inline">\(x=0\)</span>, og hvorfor begge typer intervall er interessante.</p></li>
+<li><p>Eksamen Vår 2019, Oppgave 2d) og e).</p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="autokorrelasjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="seminar-2-hypotesetesting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="seminar-4-regresjon-ii.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
