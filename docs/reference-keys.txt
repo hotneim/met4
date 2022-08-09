@@ -28,7 +28,7 @@ utvalg-og-estimering
 videoforelesninger-1
 kommentarer-1
 ekstra-øving-i-r
-oppgaver
+oppgaverdeskriptiv
 standard-oppgaver
 nøtter
 relevant-r-grunnleggende
@@ -45,7 +45,7 @@ kommentarer-4
 kjikvadrattester
 videoforelesninger-5
 kommentarer-5
-oppgaver-1
+oppgaver
 standard-oppgaver-1
 relevante-r-testing
 regresjon
@@ -58,7 +58,7 @@ kommentarer-7
 modellbygging
 videoforelesninger-8
 kommentarer-8
-oppgaver-2
+oppgaver-1
 regresjon-med-en-forklaringsvariabel
 multippel-regresjon-og-modellbygging
 oppgave-2-1
@@ -109,7 +109,7 @@ forskjellige-parameteriseringer
 faste-effekter
 tilfeldige-effekter
 hausman-test
-oppgaver-3
+oppgaver-2
 oppgaver-om-logistisk-regresjon
 oppgaver-om-knn
 oppgaver-om-paneldata
@@ -138,7 +138,16 @@ dataøving-4
 dataøving-5
 oppgave-1-interaktiv-øvelse-2
 oppgave-2---maskinlæring-logistisk-regresjon-og-k-nærmeste-naboer
-diverse-ekstrastoff
+seminar
+eksamensoppgaver
 skoleeksamen
 tidligere-eksamensoppgaver-hjemmeeksamen
-seminar
+oppgave-1-3
+oppgave-2-3
+oppgave-3-2
+seminar-1---grunnleggende-statistikk
+seminar-2---hypotesetesting
+seminar-3---regresjon-i
+seminar-6---avansert-regresjon-og-maskinlæring
+seminar-4---regresjon-ii
+seminar-5---tidsrekker

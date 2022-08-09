@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.3 Oppgaver | MET4 - Empiriske Metoder - Høst 2022</title>
+  <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.3 Oppgaver | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.3 Oppgaver | MET4 - Empiriske Metoder - Høst 2022" />
+  
+  <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  
+
+<meta name="author" content="Håkon Otneim og Geir Drage Berentsen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="utvalg-og-estimering.html"/>
+<link rel="next" href="relevant-r-grunnleggende.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/met4/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/met4/icon/favicon-16x16.png">
+<link rel="manifest" href="/met4/icon/site.webmanifest">
+<link rel="mask-icon" href="/met4/icon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/met4/icon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/met4/icon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.nhh.no/"><img src="bilder/nhh.png" width="240"></a>
+<li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#innledning" id="toc-innledning">Innledning</a></li>
+<li><a href="introduksjon-til-r.html#introduksjon-til-r" id="toc-introduksjon-til-r"><span class="toc-section-number">1</span> Introduksjon til R</a>
+<ul>
+<li><a href="en-gjennomgang-av-rstudio.html#en-gjennomgang-av-rstudio" id="toc-en-gjennomgang-av-rstudio"><span class="toc-section-number">1.1</span> En gjennomgang av RStudio</a></li>
+<li><a href="enkle-beregninger-og-variabler.html#enkle-beregninger-og-variabler" id="toc-enkle-beregninger-og-variabler"><span class="toc-section-number">1.2</span> Enkle beregninger og variabler</a></li>
+<li><a href="vektorer.html#vektorer" id="toc-vektorer"><span class="toc-section-number">1.3</span> Vektorer</a></li>
+<li><a href="pakker.html#pakker" id="toc-pakker"><span class="toc-section-number">1.4</span> Pakker</a></li>
+<li><a href="mappesti.html#mappesti" id="toc-mappesti"><span class="toc-section-number">1.5</span> Mappesti</a></li>
+<li><a href="innlesing-av-data.html#innlesing-av-data" id="toc-innlesing-av-data"><span class="toc-section-number">1.6</span> Innlesing av data</a></li>
+<li><a href="statistiske-analyser.html#statistiske-analyser" id="toc-statistiske-analyser"><span class="toc-section-number">1.7</span> Statistiske analyser</a></li>
+<li><a href="r-plotting.html#r-plotting" id="toc-r-plotting"><span class="toc-section-number">1.8</span> Plotting</a></li>
+<li><a href="script.html#script" id="toc-script"><span class="toc-section-number">1.9</span> Script</a></li>
+<li><a href="pipe.html#pipe" id="toc-pipe"><span class="toc-section-number">1.10</span> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li><a href="r-ekstra.html#r-ekstra" id="toc-r-ekstra"><span class="toc-section-number">1.11</span> Oppsummering og ekstra oppgaver</a></li>
+</ul></li>
+<li><a href="grunnleggende-statistikk.html#grunnleggende-statistikk" id="toc-grunnleggende-statistikk"><span class="toc-section-number">2</span> Grunnleggende statistikk</a>
+<ul>
+<li><a href="deskriptiv-statistikk.html#deskriptiv-statistikk" id="toc-deskriptiv-statistikk"><span class="toc-section-number">2.1</span> Deskriptiv statistikk</a></li>
+<li><a href="utvalg-og-estimering.html#utvalg-og-estimering" id="toc-utvalg-og-estimering"><span class="toc-section-number">2.2</span> Utvalg og estimering</a></li>
+<li><a href="oppgaverdeskriptiv.html#oppgaverdeskriptiv" id="toc-oppgaverdeskriptiv"><span class="toc-section-number">2.3</span> Oppgaver</a></li>
+<li><a href="relevant-r-grunnleggende.html#relevant-r-grunnleggende" id="toc-relevant-r-grunnleggende"><span class="toc-section-number">2.4</span> Relevante R-kommandoer</a></li>
+</ul></li>
+<li><a href="hypotesetesting.html#hypotesetesting" id="toc-hypotesetesting"><span class="toc-section-number">3</span> Hypotesetesting</a>
+<ul>
+<li><a href="generelt-om-hypotesetesting.html#generelt-om-hypotesetesting" id="toc-generelt-om-hypotesetesting"><span class="toc-section-number">3.1</span> Generelt om hypotesetesting</a></li>
+<li><a href="enpop.html#enpop" id="toc-enpop"><span class="toc-section-number">3.2</span> Inferens om en populasjon</a></li>
+<li><a href="inferens-om-to-populasjoner.html#inferens-om-to-populasjoner" id="toc-inferens-om-to-populasjoner"><span class="toc-section-number">3.3</span> Inferens om to populasjoner</a></li>
+<li><a href="kjikvadrattester.html#kjikvadrattester" id="toc-kjikvadrattester"><span class="toc-section-number">3.4</span> Kjikvadrattester</a></li>
+<li><a href="oppgaver.html#oppgaver" id="toc-oppgaver"><span class="toc-section-number">3.5</span> Oppgaver</a></li>
+<li><a href="relevante-r-testing.html#relevante-r-testing" id="toc-relevante-r-testing"><span class="toc-section-number">3.6</span> Relevante R-kommandoer</a></li>
+</ul></li>
+<li><a href="regresjon.html#regresjon" id="toc-regresjon"><span class="toc-section-number">4</span> Regresjon</a>
+<ul>
+<li><a href="enkel-regresjon.html#enkel-regresjon" id="toc-enkel-regresjon"><span class="toc-section-number">4.1</span> Enkel regresjon</a></li>
+<li><a href="multippel-regresjon.html#multippel-regresjon" id="toc-multippel-regresjon"><span class="toc-section-number">4.2</span> Multippel regresjon</a></li>
+<li><a href="modellbygging.html#modellbygging" id="toc-modellbygging"><span class="toc-section-number">4.3</span> Modellbygging</a></li>
+<li><a href="oppgaver-1.html#oppgaver-1" id="toc-oppgaver-1"><span class="toc-section-number">4.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-regresjon.html#relevante-r-regresjon" id="toc-relevante-r-regresjon"><span class="toc-section-number">4.5</span> Relevante R-kommandoer</a></li>
+</ul></li>
+<li><a href="tidsrekker.html#tidsrekker" id="toc-tidsrekker"><span class="toc-section-number">5</span> Tidsrekker</a>
+<ul>
+<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">5.1</span> Introduksjon til tidsrekker</a></li>
+<li><a href="trend-og-sesong.html#trend-og-sesong" id="toc-trend-og-sesong"><span class="toc-section-number">5.2</span> Trend og sesong</a></li>
+<li><a href="ar.html#ar" id="toc-ar"><span class="toc-section-number">5.3</span> AR(p)</a></li>
+<li><a href="stasjonaritet.html#stasjonaritet" id="toc-stasjonaritet"><span class="toc-section-number">5.4</span> Stasjonaritet</a></li>
+<li><a href="autokorrelasjon.html#autokorrelasjon" id="toc-autokorrelasjon"><span class="toc-section-number">5.5</span> Autokorrelasjon</a></li>
+<li><a href="ma.html#ma" id="toc-ma"><span class="toc-section-number">5.6</span> MA(q)</a></li>
+<li><a href="arma-arima.html#arma-arima" id="toc-arma-arima"><span class="toc-section-number">5.7</span> ARMA og ARIMA</a></li>
+<li><a href="modellbygging-1.html#modellbygging-1" id="toc-modellbygging-1"><span class="toc-section-number">5.8</span> Modellbygging</a></li>
+<li><a href="relevante-r-tidsrekker.html#relevante-r-tidsrekker" id="toc-relevante-r-tidsrekker"><span class="toc-section-number">5.9</span> Relevante R-kommandoer</a></li>
+</ul></li>
+<li><a href="avansert-regresjon-og-maskinlæring.html#avansert-regresjon-og-maskinlæring" id="toc-avansert-regresjon-og-maskinlæring"><span class="toc-section-number">6</span> Avansert regresjon og maskinlæring</a>
+<ul>
+<li><a href="logistisk-regresjon.html#logistisk-regresjon" id="toc-logistisk-regresjon"><span class="toc-section-number">6.1</span> Logistisk regresjon</a></li>
+<li><a href="introduksjon-til-maskinlæring-med-knn.html#introduksjon-til-maskinlæring-med-knn" id="toc-introduksjon-til-maskinlæring-med-knn"><span class="toc-section-number">6.2</span> Introduksjon til maskinlæring med kNN</a></li>
+<li><a href="paneldata.html#paneldata" id="toc-paneldata"><span class="toc-section-number">6.3</span> Paneldata</a></li>
+<li><a href="oppgaver-2.html#oppgaver-2" id="toc-oppgaver-2"><span class="toc-section-number">6.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-avansert-regresjon.html#relevante-r-avansert-regresjon" id="toc-relevante-r-avansert-regresjon"><span class="toc-section-number">6.5</span> Relevante R-kommandoer</a></li>
+</ul></li>
+<li><a href="dataøvinger.html#dataøvinger" id="toc-dataøvinger"><span class="toc-section-number">7</span> Dataøvinger</a>
+<ul>
+<li><a href="dataøving-1.html#dataøving-1" id="toc-dataøving-1"><span class="toc-section-number">7.1</span> Dataøving 1</a></li>
+<li><a href="dataøving-2.html#dataøving-2" id="toc-dataøving-2"><span class="toc-section-number">7.2</span> Dataøving 2</a></li>
+<li><a href="dataøving-3.html#dataøving-3" id="toc-dataøving-3"><span class="toc-section-number">7.3</span> Dataøving 3</a></li>
+<li><a href="dataøving-4.html#dataøving-4" id="toc-dataøving-4"><span class="toc-section-number">7.4</span> Dataøving 4</a></li>
+<li><a href="dataøving-5.html#dataøving-5" id="toc-dataøving-5"><span class="toc-section-number">7.5</span> Dataøving 5</a></li>
+</ul></li>
+<li><a href="seminar.html#seminar" id="toc-seminar"><span class="toc-section-number">8</span> Seminaroppgaver</a></li>
+<li><a href="eksamensoppgaver.html#eksamensoppgaver" id="toc-eksamensoppgaver"><span class="toc-section-number">9</span> Eksamensoppgaver</a>
+<ul>
+<li><a href="skoleeksamen.html#skoleeksamen" id="toc-skoleeksamen"><span class="toc-section-number">9.1</span> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html#tidligere-eksamensoppgaver-hjemmeeksamen" id="toc-tidligere-eksamensoppgaver-hjemmeeksamen"><span class="toc-section-number">9.2</span> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
+<li><a href="https://www.nhh.no/en/employees/faculty/geir-drage-berentsen/">Geir Drage Berentsen</a></li>
+<li><a href="https://github.com/rstudio/bookdown">
+Publisert ved hjelp av bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2022</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="oppgaverdeskriptiv" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Oppgaver</h2>
+<div id="standard-oppgaver" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Standard oppgaver</h3>
+<ol style="list-style-type: decimal">
+<li>Beskriv kort forskjellen mellom deskriptiv statistikk og statistisk inferens.</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Beskrivende statistikk bearbeider og presenterer data for å belyse faktiske forhold. Statistisk inferens, også kalt slutningsstatistikk, er å gjøre slutninger om populasjonen basert på det vi observerer i utvalget.</p>
+</blockquote>
+</details>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Du skal spille kron og mynt. Motspilleren din er eieren av mynten, og hun påstår at den er rettferdig. Det vil si at om man flipper mynten svært mange ganger vil den gi et likt antall kron som mynt.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Beskriv et eksperiment som tester denne påstanden.</li>
+<li>Hva er populasjonen i eksperimentet?</li>
+<li>Hva er utvalget?</li>
+<li>Hva er parameteren?</li>
+<li>Hva er estimatoren?</li>
+<li>Beskriv kort hvordan statistisk inferens kan bli brukt til å teste påstanden til motspilleren din.</li>
+</ol></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Kast mynten ett gitt antall ganger, for eksempel 100 ganger. Registrer hvor mange ganger den viser mynt og hvor mange ganger den viser kron.</li>
+<li>Populasjonen er det teoretiske resultatet av å kaste mynten uendelig mange ganger og registrere hvor mange ganger den viser mynt og hvor mange ganger den gir kron.</li>
+<li>Utvalget er antall mynt og kron i eksperimentet.</li>
+<li>Parameteren er andelen mynt (eller kron) i populasjonen.</li>
+<li>Estimatoren er den registrerte andelen mynt (eller kron) i eksperimentet.</li>
+<li>Estimatoren kan brukes til å vurdere om mynten faktisk er rettferdig. I neste modul av kurset skal dere lære om hypotesetesting og om hvilken hypotesetest man kan utføre for å avgjøre om man kan forkaste nullhypotesen om at mynten er rettferdig.</li>
+</ol>
+</blockquote>
+</details>
+<ol start="3" style="list-style-type: decimal">
+<li><p>En fabrikant av maskindeler påstår at mindre enn 15% av produktene er defekte. Når 1000 deler ble trukket fra en stor produksjon, var 12% defekte.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Hva er populasjonen i dette tilfellet?</li>
+<li>Hva er utvalget?</li>
+<li>Hva er parameteren?</li>
+<li>Hva er estimatoren?</li>
+<li>Forklar kort hvordan estimatoren kan bli brukt til å gjøre inferens om parameteren for å undersøke påstanden om at 15% av produktene er defekte.</li>
+</ol></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Populasjonen er alle de aktuelle maskindelene som lages av fabrikanten.</li>
+<li>Utvalget er de 1000 delene som ble trukket fra en stor produksjon.</li>
+<li>Parameteren er andelen defekte maskindeler i alle de aktuelle maskindelene som produseres. 15% er den påståtte parameter.</li>
+<li>Estimatoren er andelen defekte maskindeler i utvalget. 12% er den observerte estimatoren.</li>
+<li>Vi kan estimere at andelen defekte maskindeler i populasjonen er 12%. Ved å bruke statistisk inferens kan vi undersøke om vi har nok statistisk bevis til å avvise påstanden om at den sanne andelen defekte maskindeler er 15%.</li>
+</ol>
+</blockquote>
+</details>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Avgjør om de følgende datasettene inneholder forholdsdata, intervalldata, ordinale data eller dikotome og nominale data. Avgjør også hvilke regneoperasjoner som er tillatt.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Antall mil en gruppe joggere løper hver uke</li>
+<li>Starlønnen til nyutdannede fra masterprogrammet til NHH</li>
+<li>Månedene et selskaps ansatte velger å ta ut ferie</li>
+<li>Temperatur i Celsius</li>
+<li>Bokstavkarakterene til studentene i MET4</li>
+<li>De daglige aksjeprisene til Tesla</li>
+<li>Klesstørrelser (S, M, L)</li>
+<li>Antallet Toyota som er importert månedlig til USA de siste 5 årene</li>
+<li>Stillingene i Kjernestyret i NHHS (Leder, Prosjektansvarlig, Internansvarlig osv)</li>
+<li>Dato</li>
+</ol></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Forholdsdata: =, ≠, &lt;, &gt;, +, -, *, /</li>
+<li>Forholdsdata: =, ≠, &lt;, &gt;, +, -, *, /</li>
+<li>Nominale data: =, ≠</li>
+<li>Intervalldata: =, ≠, &lt;, &gt;, +, -</li>
+<li>Ordinale data: =, ≠, &lt;, &gt;</li>
+<li>Forholdsdata: =, ≠, &lt;, &gt;, +, -, *, /</li>
+<li>Ordinale data: =, ≠, &lt;, &gt;</li>
+<li>Forholdsdata: =, ≠, &lt;, &gt;, +, -, *, /</li>
+<li>Nominale data: =, ≠</li>
+<li>Intervalldata: =, ≠, &lt;, &gt;, +, -</li>
+</ol>
+</blockquote>
+</details>
+<ol start="5" style="list-style-type: decimal">
+<li>Skattebetalere som fyller ut egenmeldingen sin blir spurt de følgende spørsmålene. Hvilken type data utgjør svarene og hvilke regneoperasjoner er tillatt?
+<ol style="list-style-type: lower-alpha">
+<li>Er det første gang du fyller ut egenmeldingen din?</li>
+<li>Hvor lang tid brukte du på å fylle ut egenmeldingen?</li>
+<li>Hvor enkelt/vanskelig var det å fylle ut egenmeldingen? (Veldig enkelt, nokså enkelt, hverken enkelt eller vanskelig, nokså vanskelig, veldig vanskelig)</li>
+</ol></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Nominale data: =, ≠</li>
+<li>Intervalldata: =, ≠, &lt;, &gt;, +, -</li>
+<li>Ordinale data: =, ≠, &lt;, &gt;</li>
+</ol>
+</blockquote>
+</details>
+<ol start="6" style="list-style-type: decimal">
+<li>Du får oppgitt at gjennomsnittlig startlønn for NHH studenter etter endt utdanning er 560 000kr. Median startlønnen er 520 000kr. Hva forteller disse tallene deg?</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Selv om den gjennomsnittlige startlønnen er 560 000kr, så får halvparten av arbeidstakerne 520 000kr eller mindre. Det forteller også at det er noen arbeidstakere som drar gjennomsnittet opp.</p>
+</blockquote>
+</details>
+<ol start="7" style="list-style-type: decimal">
+<li>En videregående skole rapporterer at gjennomsnittsfraværet i antall dager i løpet av ett skoleår er 10 dager. Medianen er 3,5 dager. Hva forteller de to målene oss, og hvilke av de to beskriver best fraværet? Hvorfor?</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Det gjennomsnittlige fraværet er høyere enn medianen. Dette forteller oss at noen elever har høyt fravær som drar gjennomsnittet opp. Disse elevene er ikke representative for det store flertallet. Halvparten av elevene har 3.5 eller mindre dagers fravær. Derfor er medianen et mer robust sentermål, som ikke blir påvirket av store uteliggere.</p>
+</blockquote>
+</details>
+<ol start="8" style="list-style-type: decimal">
+<li>Du skal ta en språktest før utveksling og kan velge mellom to ulike språkkurs som skal forberede deg til testen. Begge kursene har rapportert kvartilene til testresultatene oppgitt i antall poeng studentene deres fikk på testene:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Kvartil</th>
+<th align="center">Kurs nummer 1</th>
+<th align="center">Kurs nummer 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Første kvartil</td>
+<td align="center">230</td>
+<td align="center">225</td>
+</tr>
+<tr class="even">
+<td align="center">Andre kvartil</td>
+<td align="center">240</td>
+<td align="center">235</td>
+</tr>
+<tr class="odd">
+<td align="center">Tredje kvartil</td>
+<td align="center">250</td>
+<td align="center">270</td>
+</tr>
+</tbody>
+</table>
+<p>Hvordan tolker du kvartilene og hvilket kurs ville du ha valgt?</p>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Kvartilene kan fortelle oss noe om nivået og variasjonen i poengsummene til studentene som har tatt de to kursene. Vi ser at kurs nummer 1 har en symmetrisk fordeling med en median som er høyere enn kurs nummer 2. På en annen side har poengfordelingen til kurs nummer 2 en lengre høyre hale hvor tredje kvantilen tilsier at hele 25 % vil få 270 poeng eller mer. Det tilsvarende tallet for kurs nummer én er 250. Samlet sett er det kanskje “tryggere” med kurs nummer 1, mens det potensielle læringsutbytte har “større tak” i kurs nummer to.</p>
+</blockquote>
+</details>
+<ol start="9" style="list-style-type: decimal">
+<li>MET4 ble et år rettet av to sensorer og et boxplot av poengene de ga sine respektive kandidater var som følger:</li>
+</ol>
+<p><img src="met4_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p>Hva kan du si karakterfordelingen til de to sensorene?</p>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>De to sensorene har begge en median rundt 60 poeng, så halvparten av alle studenter får under 60 poeng og den andre halvdelen får over 60 poeng. Men Sensor 2 har større spredning i sine poeng og vil følgelig fordele studentene ut mer på karakterskalaen sammenlignet med Sensor 1.</p>
+</blockquote>
+</details>
+<ol start="10" style="list-style-type: decimal">
+<li>Du er kvalitetsansvarlig for et produkt og samler inn data på levetiden i måneder til produktet. Et histogram over disse dataene ser ut som følger:</li>
+</ol>
+<p><img src="met4_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
+<p>Hva sier histogrammet deg om produktet?</p>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Her ser vi en slags badekar-formet fordeling som ofte går igjen for levetiden til produkter. En rekke produkter går i stykker de første månedene. Dette kan være pga av produksjonsfeil som da slår ut tidlig i bruksperioden. Resten av produktene har en mer normalfordelt levetid med et gjennomsnitt rundt 120 måneder.</p>
+</blockquote>
+</details>
+<ol start="11" style="list-style-type: decimal">
+<li>Kovariansen til to variabler fra et utvalg har blitt beregnet til -150. Videre får du vite at empirisk standardavviket til den ene variabelen er 12 og 16 for den andre. Regn ut (utvalgs-) korrelasjonskoeffisienten <span class="math inline">\(r\)</span> og bruk denne til å beskrive sammenhengen mellom variablene.</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Utvalgs korrelasjonskoeffisient er definert som utvalgskovariansen mellom to variabler delt på de empiriske standardavvikene til variablene.</p>
+</blockquote>
+<p><span class="math display">\[r=s_{xy}/(s_x s_y )=-150/(16\cdot12)=-0,7813\]</span></p>
+<blockquote>
+<p>Korrelasjonskoeffisienten er alltid mellom -1 og 1 og måler graden av lineær sammenheng mellom variablene. Når korrelasjonskoeffisienten er -1 er det en perfekt negativ lineær sammenheng, og når den er 1 vil det si at det er en perfekt positiv lineær sammenheng mellom variablene. Når korrelasjonskoeffisienten er 0 vil det si at ikke er noen lineær sammenheng mellom variablene, men vi kan allikevel ikke si at de er uavhengige. Korrelasjonskoeffisienten -0,78 indikerer en moderat til sterk negativ lineær sammenheng mellom variablene.</p>
+</blockquote>
+</details>
+<ol start="12" style="list-style-type: decimal">
+<li>Betrakt spredningsplottene for datasett a-d under, og par hvert datasett med en av de følgende korrelasjonene:</li>
+</ol>
+<p><span class="math display">\[r_1 = -0.37,\quad r_2 = 0.81,\quad r_3 = -0.02,\quad r_4 = -0.96 \]</span></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Datasett a: <span class="math inline">\(r_2 = 0.81\)</span>, Datasett b: <span class="math inline">\(r_1 = -0.37\)</span>, Dasett c: <span class="math inline">\(r_4 = -0.96\)</span>, Datasett d: <span class="math inline">\(r_3 = -0.02\)</span></p>
+</blockquote>
+<blockquote>
+<p>Datasett d er et eksempel på at korrelasjonen mellom to variabler kan være svært nær 0, selv om det er en tydelig (ikke-lineær) sammenheng mellom dem. Det som skjer når vi regner ut <span class="math inline">\(r\)</span> i dette tilfellet er at den negative avhengigheten vi ser til venstre i figuren kanselleres av den positive avhengigheten til høyre i figuren.</p>
+</blockquote>
+</details>
+<ol start="13" style="list-style-type: decimal">
+<li>En normalfordelt populasjon har gjennomsnitt 40 og standardavvik 12.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Hva sier sentralgrenseteoremet om gjennomsnittet av et utvalg på 100 observasjoner fra denne populasjonen?</li>
+<li>Dersom populasjonen ikke var normalfordelt, hvordan endrer dette svaret ditt i a?</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Dersom populasjonen er normalfordelt så vil også gjennomsnittet av et utvalg av populasjonen være normalfordelt. Gjennomsnittet vil ha forventning <span class="math inline">\(40\)</span> og ha standardavvik <span class="math inline">\(12/\sqrt{100} = 1.2\)</span>.</li>
+<li>Sentralgrenseteoremet sier at fordelingen til gjennomsnittet vil for alle praktiske formål nærme seg normalfordelingen når antall observasjoner øker, uavhengig av fordelingen til populasjonen. Dette endrer altså ikke konklusjonen om fordelingen til utvalget.</li>
+</ol>
+</blockquote>
+</details>
+<ol start="14" style="list-style-type: decimal">
+<li>La <span class="math inline">\(X_1, X_2,\dots X_n\)</span> være utfallet av en rekke kast med en tilfeldig terning.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Hva er <span class="math inline">\(P(X_1 = 1)\)</span> og <span class="math inline">\(P(X_1 = 6)\)</span>?</li>
+<li>Hva er <span class="math inline">\(P(\overline{X} = 1)\)</span> og <span class="math inline">\(P(\overline{X} = 6)\)</span> dersom <span class="math inline">\(n = 2\)</span>?</li>
+<li>Hva er <span class="math inline">\(P(\overline{X} = 1)\)</span> og <span class="math inline">\(P(\overline{X} = 6)\)</span> dersom <span class="math inline">\(n = 5\)</span>?</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(P(X_1 = 1) = P(X_2 = 6) = 1/6\)</span></li>
+<li>Det er bare en måte at gjennomsnittet av to kast kan bli <span class="math inline">\(1\)</span> og det er at begge kastene blir <span class="math inline">\(1\)</span>: <span class="math inline">\(P(\overline{X} = 1) = P(X_1 = 1, X_2 = 1) = P(X_1 = 1)P(X_2 = 1) = 1/36\)</span>, og tilsvarende for <span class="math inline">\(P(\overline{X} = 6)\)</span>.</li>
+<li>Det er bare en måte at gjennomsnittet av 5 kast kan bli <span class="math inline">\(1\)</span> og det er at alle fem kastene blir <span class="math inline">\(1\)</span>:<span class="math inline">\(P(\overline{X} = 1) = P(X_1 = 1)P(X_2 = 1)P(X_3 = 1)P(X_4 = 1)P(X_5 = 1) = 0.00013\)</span>, og tilsvarende for <span class="math inline">\(P(\overline{X} = 6)\)</span>.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Denne oppgaven illustrerer hvordan gjennomsnittet, uavhengig av fordelingen til <span class="math inline">\(X\)</span> som i dette tilfellet er uniformt fordelt på <span class="math inline">\({1,2,3,4,5,6}\)</span>, er normalfordelt <span class="math inline">\(\overline{X}\sim N(\mu, \sigma^2/n)\)</span> og beveger seg mot forventningen til <span class="math inline">\(X\)</span> (som i dette tilfellet er <span class="math inline">\(\mu = 3.5\)</span>). Det at variansen til gjennomsnittet <span class="math inline">\(\sigma^2/n\)</span> blir mindre når <span class="math inline">\(n\)</span> øker ser vi er svært logisk her: Det er værre for gjennomsnittet til terningkastene å oppnå “ekstreme” verdier som <span class="math inline">\(\overline{X} = 1\)</span> eller <span class="math inline">\(\overline{X} = 6\)</span> siden dette innebærer at alle kastene må enten være 1 eller 6. Derimot er det en hel rekke kombinasjoner av kast som gir et gjennomsnitt nær <span class="math inline">\(3.5\)</span>, så slike verdier av gjennomsnittet er mye mer sannsynlig.</p>
+</blockquote>
+<blockquote>
+<p>Under ser du et histogram over gjennomsnittene dersom vi gjentar terningkasteksperimentet med henholdsvis <span class="math inline">\(n=1,2, 5\)</span> kast 2000 ganger. Allerede for <span class="math inline">\(n=5\)</span> ser vi at de fleste gjennomsnitt ligger nær det sanne gjennomsnittet på 3.5.</p>
+</blockquote>
+<p><img src="met4_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+</details>
+<ol start="15" style="list-style-type: decimal">
+<li>La <span class="math inline">\(\hat{p}=X/n\)</span> være den estimerte suksessannsynligheten i et binomisk eksperiment <span class="math inline">\(X\)</span> med <span class="math inline">\(n=300\)</span> forsøk og (populasjons) suksessannsynlighet <span class="math inline">\(p\)</span>.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Hva er sannsynligheten for at <span class="math inline">\(\hat{p}\)</span> er høyere enn 60% dersom <span class="math inline">\(p = 0.5\)</span>?</li>
+<li>Gjenta oppgave a med <span class="math inline">\(p = 0.55\)</span>.</li>
+<li>Gjenta oppgave a med <span class="math inline">\(p = 0.60\)</span>.</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Her bruker vi sentralgrenseteoremet som sier at <span class="math inline">\(\hat{p}\sim N(p, p(1-p))\)</span>:</p>
+</blockquote>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math display">\[P(\hat{p} &gt; 0.60) = P\left(\frac{\hat{p} - p}{\sqrt{p(1 - p)/n}} &gt; \frac{0.60 - 0.5}{\sqrt{0.5(1 - 0.5)/300}}\right) = P(Z &gt; 3.46)\approx 0\]</span>.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math display">\[\begin{equation*}
+\begin{split}
+P(\hat{p} &gt; 0.60) &amp;= P\left(\frac{\hat{p} - p}{\sqrt{p(1 - p)/n}} &gt; \frac{0.60 - 0.55}{\sqrt{0.55(1 - 0.55)/300}}\right)\\
+&amp;= P(Z &gt; 1.74)= 1 - P(Z &lt; 1.74) = 1 - 0.9591 = 0.0409.
+\end{split}
+\end{equation*}\]</span></li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><span class="math display">\[\begin{equation*}
+\begin{split}
+P(\hat{p} &gt; 0.60) &amp;= P\left(\frac{\hat{p} - p}{\sqrt{p(1 - p)/n}} &gt; \frac{0.60 - 0.60}{\sqrt{0.60(1 - 0.60)/300}}\right)\\
+&amp;= P(Z &gt; 0)= 0.5\quad\text{(p.g.a. $Z$&#39;s symmetri rundt 0)}.
+\end{split}
+\end{equation*}\]</span></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Vi ser at for <span class="math inline">\(n=300\)</span> vil <span class="math inline">\(\hat{p}\)</span> sin normalfordeling være svært konsentrert rundt <span class="math inline">\(p\)</span> (variansen er <span class="math inline">\(p(1-p)/n\)</span>) og at en overstigelse på 0.05 eller mer fra den sanne suksessannsynligheten (som i oppgave a.) er svært usannsynlig.</p>
+</blockquote>
+</details>
+<ol start="16" style="list-style-type: decimal">
+<li>Anta at vi har to normalfordelte populasjoner hvor observasjoner fra populasjon 1 følger en <span class="math inline">\(N(40, 6^2)\)</span> og observasjoner fra populasjon 2 følger en <span class="math inline">\(N(38, 8^2)\)</span>. Dersom man trekker 25 tilfeldige observasjoner fra hver populasjon, hva er sannsynligheten for at gjennomsnittet til trekningen fra populasjon 1 er større enn gjennomsnittet til trekningen fra populasjon 2?</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Vi vet da at <span class="math inline">\(\overline{X}_1 - \overline{X}_2 &gt; 0\)</span> og utnytter at denne størrelsen er normalfordelt:
+<span class="math display">\[\begin{equation*}
+\begin{split}
+P(\overline{X}_1 - \overline{X}_2 &gt; 0) &amp;= P\left(\frac{\overline{X}_1 - \overline{X}_2 - (40 - 38)}{\sqrt{\frac{6^2}{25} + \frac{8^2}{25}}} &gt; \frac{0 - (40 - 38)}{\sqrt{\frac{6^2}{25} + \frac{8^2}{25}}} \right)\\
+&amp;= P(Z &gt; -1) = 1 - P(Z &lt; -1) = 1 - 0.1587 = 0.8413
+\end{split}
+\end{equation*}\]</span></p>
+</blockquote>
+</details>
+<ol start="17" style="list-style-type: decimal">
+<li>Produsenten av en kaviar forteller deg at hver tube er reklamert til å veie 65 gram, men at maskinen som produserer kaviaren gir en vekt som er en normalfordelt med gjennomsnitt lik 65,5 gram og standardavvik 3.6 gram. La oss si at du trekker et tilfeldig utvalg av 40 tuber for å undersøke denne påstanden og at det tilfeldige utvalget har en gjennomsnittlig vekt lavere enn 64.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Hva er sannsynligheten for dette utfallet?</li>
+<li>Kommenter påstanden til produsenten.</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math display">\[P(\overline{X} &lt; 64) = P\left(\frac{\overline{X} - 65.5}{3.6/\sqrt{40}} &lt; \frac{64 - 65.5}{3.6/\sqrt{40}}\right) = P(Z &lt; - 2.63) = 0.004\]</span></li>
+<li>Det er svært usannsynlig at vi observerer et gjennomsnitt mindre enn 64 dersom det er sant at maskinen produserer tuber som er normalfordelt med gjennomsnitt 65.5 og standardavvik 3.6. Så påstanden er nok feil. Enten produserer maskinen vekter som er mindre, eller så er standardavviket større.</li>
+</ol>
+</blockquote>
+</details>
+<ol start="18" style="list-style-type: decimal">
+<li>En selger av robotgressklippere påstår at bare 4% av produktene må på service innen det første året etter installasjon. Du skal undersøke om påstanden stemmer og spør et tilfeldig utvalg av 100 husholdninger som har kjøpt robotgressklippere om de hadde den på service det første året.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Hva vil du si om selgerens påstand dersom mer enn 6% svarer at de har hatt behov for service?</li>
+<li>Anta nå at du istedet spurte 400 hustander. Hva vil du si om selgerens påstand dersom mer enn 6% svarer at de har hatt behov for service?</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Da har vi altså en estimert service sannsynlighet på <span class="math inline">\(\hat{p} = 0.06\)</span> eller mer. For å finne ut om dette avviket fra 0.04 skyldes naturlig variasjon eller om den faktiske service raten er større enn 0.04 regner vi ut sannsynligheten for dette utfallet:</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{equation*}
+\begin{split}
+P(\hat{p}&gt;0.06) &amp;= P\left(\frac{\hat{p} - 0.04}{\sqrt{0.04(1-0.04)/100}}&gt; \frac{0.06 - 0.04}{\sqrt{0.04(1-0.04)/100}}\right)\\
+&amp;= P(Z &gt; 1.02) = 1 - P(Z &lt; 1.02) = 1 - 0.8561 = 0.1539
+\end{split}
+\end{equation*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Det er altså ikke så usannsynlig at <span class="math inline">\(\hat{p} = 0.06\)</span> eller mer. Vi kan se for oss at vi gjentar den samme spørreundersøkelsen mange ganger. Da kan vi forvente at rundt 15 % av undersøkelsene gi en <span class="math inline">\(\hat{p} = 0.06\)</span> ved ren tilfeldighet selv om populasjonsverdien er <span class="math inline">\(p=0.04\)</span>. Selgerens påstand er ikke urimelig ved et slikt resultat.</p>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Sannsynligheten for et slikt utfall er da
+<span class="math display">\[\begin{equation*}
+\begin{split}
+P(\hat{p}&gt;0.06) &amp;= P\left(\frac{\hat{p} - 0.04}{\sqrt{0.04(1-0.04)/300}}&gt; \frac{0.06 - 0.04}{\sqrt{0.04(1-0.04)/300}}\right)\\
+&amp;= P(Z &gt; 2.04) = 1 - P(Z &lt; 2.04) = 1 - 0.9793 = 0.02
+\end{split}
+\end{equation*}\]</span></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>Nå har vi spurt flere husstander og vi ser at den samme estimerte service sannsynligheten (6 %) nå er mye mer usannsynlig å få dersom det faktisk er slik at bare 4 % trenger service. Selgerens påstand ville altså vært mer tvilsom ved et slik resultat.</p>
+</blockquote>
+</details>
+<ol start="19" style="list-style-type: decimal">
+<li>Forventningsrette estimatorer.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Hva vil det si at en estimator er forventningsrett?</li>
+<li>Vis at hvis <span class="math inline">\(X_1, X_2,\dots X_n\)</span> er observasjoner fra en populasjon der <span class="math inline">\(E(X_i) = \mu\)</span> så er gjennomsnittet <span class="math inline">\(\overline{X}\)</span> en forventningsrett estimator av <span class="math inline">\(\mu\)</span>.</li>
+<li>Vis at hvis <span class="math inline">\(X\)</span> er et binomisk forsøk med <span class="math inline">\(n\)</span> forsøk og suksessannsynlighet <span class="math inline">\(p\)</span> så er <span class="math inline">\(\hat{p} = X/n\)</span> en forventningsett estimator av <span class="math inline">\(p\)</span>.</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Hvis <span class="math inline">\(\hat{\theta}\)</span> er en estimator av <span class="math inline">\(\theta\)</span> så er <span class="math inline">\(\hat{\theta}\)</span> en forventningsrett estimator dersom <span class="math inline">\(E(\hat{\theta}) = \theta\)</span>.<br />
+</li>
+<li><span class="math display">\[\begin{equation*}
+\begin{split}
+E(\overline{X}) &amp;= E\left(\frac{1}{n}(X_1 + X_2 + .. + X_n)\right) = \frac{1}{n}(E(X_1) + E(X_2) + ... + E(X_n))\\
+&amp;= \frac{1}{n}(\mu + \mu + ... + \mu) = \frac{1}{n}\cdot n\mu = \mu
+\end{split}
+\end{equation*}\]</span></li>
+<li>Vi husker at en binomisk variabel <span class="math inline">\(X\)</span> har forventning <span class="math inline">\(np\)</span>. Altså er
+<span class="math display">\[E\left(\frac{X}{n}\right) = \frac{1}{n}E(X) = \frac{1}{n}\cdot np = p\]</span></li>
+</ol>
+</blockquote>
+</details>
+<ol start="20" style="list-style-type: decimal">
+<li>Konsistente estimatorer.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Hva vil det si at en estimator er konsistent?</li>
+<li>Vis at hvis <span class="math inline">\(X_1, X_2,\dots X_n\)</span> er observasjoner fra en populasjon der <span class="math inline">\(\text{Var}(X_i) = \sigma^2\)</span> så er <span class="math inline">\(\text{Var}(\overline{X}) = \sigma^2/n\)</span>. Bruk dette resultatet sammen med resultatet i 19 b til å forklare at <span class="math inline">\(\overline{X}\)</span> er en konsistent estimator av <span class="math inline">\(\mu\)</span>.<br />
+</li>
+<li>Vis at hvis <span class="math inline">\(X\)</span> er et binomisk forsøk med <span class="math inline">\(n\)</span> forsøk og suksessannsynlighet <span class="math inline">\(p\)</span> så er <span class="math inline">\(\text{Var}(\hat{p}) = p(1-p)/n\)</span>. Bruk dette resultatet sammen med resultatet fra 19 c til å forklare at <span class="math inline">\(\hat{p}\)</span> er en konsistent estimator av <span class="math inline">\(p\)</span>.</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>En estimator er konsistent hvis forskjellen mellom estimatoren og parameteren blir mindre når størrelsen på utvalget øker.<br />
+</li>
+<li><span class="math display">\[\begin{equation*}
+\begin{split}
+\text{Var}(\overline{X}) &amp;= \text{Var}\left(\frac{1}{n}(X_1 + X_2 + .. + X_n)\right) = \left(\frac{1}{n}\right)^2(\text{Var}(X_1) + \text{Var}(X_2) + \dots + \text{Var}(X_n))\\
+&amp;= \left(\frac{1}{n}\right)^2(\sigma^2 + \sigma^2 + ... + \sigma^2) = \left(\frac{1}{n}\right)^2\cdot n\sigma^2 = \frac{\sigma^2}{n}
+\end{split}
+\end{equation*}\]</span>
+Vi vet fra før at <span class="math inline">\(E(\overline{X}) = \mu\)</span>. Vi ser av utrykket over at variansen til <span class="math inline">\(\overline{X}\)</span> avtar når <span class="math inline">\(n\)</span> øker altså vil forskjellen mellom <span class="math inline">\(\overline{X}\)</span> og <span class="math inline">\(\mu\)</span> bli mindre jo større utvalg vi får.</li>
+<li>Vi husker at en binomisk variabel har varians <span class="math inline">\(\text{Var}(X) = np(1 - p)\)</span>. Altså er
+<span class="math display">\[\text{Var}(\hat{p}) = \text{Var}\left(\frac{X}{n}\right) = \left(\frac{1}{n}\right)^2 \cdot\text{Var}(X) = \left(\frac{1}{n}\right)^2\cdot np(1 - p) = \frac{p(1 - p)}{n}\]</span>
+Igjen ser vi at variansen avtar når <span class="math inline">\(n\)</span> øker altså vil forskjellen mellom <span class="math inline">\(\hat{p}\)</span> og <span class="math inline">\(p\)</span> bli mindre jo større utvalg vi får.</li>
+</ol>
+</blockquote>
+</details>
+</div>
+<div id="nøtter" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Nøtter</h3>
+<p>Nøtt 1. Korrelasjon er enten knyttet til et bestemt utvalg, eller en populasjon/modell, men vi sier sjelden “utvalgskorrelasjon” eller “populasjonskorrelasjon” og vi må ofte bare forstå dette ut fra situasjonen eller notasjonen (<span class="math inline">\(r\)</span> versus <span class="math inline">\(\rho\)</span>). Men utvalgskorrelasjonen</p>
+<p><span class="math display">\[r = s_{xy}/(s_xs_y)=\frac{\frac{1}{n-1}\sum_{i = 1}^n(x_i - \overline{x})(y_i - \overline{y})}{\sqrt{\frac{1}{n-1}\sum_{i = 1}^n(x_i - \overline{x})^2\frac{1}{n-1}\sum_{i = 1}^n(y_i - \overline{y})^2}}\]</span></p>
+<p>et altså en <em>estimator</em> av populasjonskorrelasjonen</p>
+<p><span class="math display">\[\rho = \frac{\text{cov}(X,Y)}{\sigma_x\sigma_y} = \frac{E\left[(X - E(X))(Y - E(Y))\right]}{\sigma_x\sigma_y}\]</span>.</p>
+<p>Det betyr i praksis at <span class="math inline">\(r\)</span> kommer med en usikkerhet siden den er basert på data. Det kan vises at dersom den simultane fordelingen til <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> er en såkalt <em>bivariat normalfordeling</em> så vil vi for store utvalg ha at samplingfordelingen til <span class="math inline">\(r\)</span> er tilnærmet normalfordelt med forventning <span class="math inline">\(\rho\)</span> og standardavvik <span class="math inline">\(\frac{(1 - \rho^2)}{\sqrt{n}}\)</span>:</p>
+<p><span class="math display">\[r\sim N\left(\rho, \frac{(1 - \rho^2)^2}{n}\right)\]</span></p>
+<p>Anta at <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> er bivariat normalfordelt.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Forklar at <span class="math inline">\(r\)</span> er en konsistent estimator av <span class="math inline">\(\rho\)</span>.</p></li>
+<li><p>Hva kjennetegner populasjoner hvor <span class="math inline">\(\rho\)</span> kan estimeres med stor sikkerhet ved hjelp av <span class="math inline">\(r\)</span> fra et utvalg?</p></li>
+<li><p>Beskriv en test av <span class="math inline">\(H_0: \rho = 0\)</span>, mot <span class="math inline">\(H_1: \rho \neq 0\)</span>.</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>Vi ser at når <span class="math inline">\(n\)</span> blir stor går standardavviket til <span class="math inline">\(r\)</span> mot null, og <span class="math inline">\(r\)</span> vil derfor nærme seg den sanne korrelasjonen <span class="math inline">\(\rho\)</span> i populasjonen.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Vi ser også at standardavviket til <span class="math inline">\(r\)</span> er mindre jo nærmere <span class="math inline">\(\rho\)</span> er <span class="math inline">\(\pm 1\)</span>. Utregninger av <span class="math inline">\(r\)</span> basert på utvalg fra
+populasjoner med sterk positiv eller negativ lineær avhengighet (<span class="math inline">\(\rho\)</span> nær <span class="math inline">\(\pm 1\)</span>) kommer derfor med mindre usikkerhet.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>En test observator som vil være tilnærmet normalfordelt er da:</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[Z^* = \frac{r - 0}{\frac{(1 - r^2)}{\sqrt{n}}}\]</span>
+og ved et <span class="math inline">\(5\%\)</span> signifikansnivå forkaster vi <span class="math inline">\(H_0\)</span> dersom <span class="math inline">\(|Z^*|&gt;1.96\)</span>. Merk at sammenlignet med det sanne standardavviket har vi her erstattet <span class="math inline">\(\rho\)</span> med <span class="math inline">\(r\)</span>. Dette er litt som når vi erstatter <span class="math inline">\(\sigma\)</span> med <span class="math inline">\(s\)</span> i den vanlige <span class="math inline">\(Z\)</span> observatoren (<span class="math inline">\(T\)</span> observatoren). Pga av sentralgrenseteoremet går dette fint for store utvalg.
+Obs: Det kommer mer om hypotesetesting i neste modul, så her foregriper vi begivenhetene litt.</p>
+</blockquote>
+</details>
+<p>Nøtt 2. Anta at vi har følgende deterministiske sammenheng mellom variablene <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[Y = X^2\]</span></p>
+<p>og at <span class="math inline">\(X\)</span> er normalfordelt med forventning <span class="math inline">\(0\)</span>. Bruk definisjonen på kovarians til å vise at <span class="math inline">\(\text{cov}(X,Y)=0\)</span> og at korrelasjonen derfor også vil være <span class="math inline">\(0\)</span> mellom disse variablene. Hint: Hvis <span class="math inline">\(X\)</span> er symmetrisk fordelt og har forventning 0, så er <span class="math inline">\(E(X^3) = 0\)</span>.</p>
+<p>Hva sier dette resultatet oss om korrelasjon?</p>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<p>Bruk definisjonen, erstatt <span class="math inline">\(Y\)</span> med <span class="math inline">\(X^2\)</span> og utnytt at <span class="math inline">\(E(X) = E(X^3) = 0\)</span>:</p>
+</blockquote>
+<p><span class="math display">\[\begin{equation*}
+\begin{split}
+\text{cov}(X,Y) &amp;= E(XY) - E(X)E(Y)\\
+&amp;= E(X^3)- E(X)E(X^2)= 0 + 0*E(X^2)=0
+\end{split}
+\end{equation*}\]</span></p>
+<blockquote>
+<p>Dette er et ekstremt eksempel der avhengigheten mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> er deterministisk (Vet du <span class="math inline">\(X\)</span> så vet du <span class="math inline">\(Y\)</span> med 100 % sikkerhet), men korrelasjonen <span class="math inline">\(\rho = \text{cov}(X,Y)/(\sigma_X\sigma_Y)\)</span> mellom variablene er allikevel 0. Altså er det fullt mulig at <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> er avhengige selv om korrelasjonen mellom <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> er null.</p>
+</blockquote>
+</details>
+<p>Nøtt 3. Rulett er et sjansespill der et ruletthjul har 37 nummererte lommer der en kule kan lande. 18 av disse lommene er røde, 18 er svarte og 1 er grønn (iallefall i Europa). Hvis du f.eks satser 1 krone på rød og rød intreffer så vinner vi kronen vår tilbake og 1 krone til (1 krone i gevinst), mens hvis svart eller grønn intreffer så taper vi hele kronen (-1 krone i gevinst).</p>
+<ol style="list-style-type: lower-alpha">
+<li>Du satser 1 krone på rød. Hva er forventet gevinst? Hva er variansen til denne gevinsten? Hva er sannsynligheten for en positiv gevinst?</li>
+<li>Du fortsetter denne strategien <span class="math inline">\(n = 50\)</span> ganger. Bruk sentralgrenseteoremet til å svare på spørsmålene i a. for den gjennomsnittlige gevinsten.</li>
+<li>Finnes det en (teoretisk) satsingsstrategi for å sikre positiv gevinst uansett?</li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<blockquote>
+<ol style="list-style-type: lower-alpha">
+<li>La <span class="math inline">\(X\)</span> være gevinsten. Dette er en diskret variabel som bare kan ta to utfall, og den har følgende sannsynlighetsfordeling:</li>
+</ol>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x_i\)</span></td>
+<td>1</td>
+<td>-1</td>
+</tr>
+<tr class="even">
+<td>P(X = x_i)</td>
+<td>18/37</td>
+<td>19/37</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>For diskret fordelinger som dette har vi at
+<span class="math display">\[\mu = E(X) = \sum_{i = 1}^2 x_i P(X = x_i) = 1\cdot(18/37) + (-1)\cdot(19/37) = -0.027\]</span>
+For å finne variansen finner vi først
+<span class="math display">\[E(X^2) = \sum_{i = 1}^2 x_{i}^2 P(X = x_i) = 1^2\cdot(18/37) + (-1)^2\cdot(19/37) = 1\]</span>
+og bruker regneregelen
+<span class="math display">\[\sigma^2 = \text{Var}(X) = E(X^2) - (E(X))^2 = 1 - (-0.027)^2 = 0.999\]</span>
+Sannsynligheten for positiv gevinst svarer til sannsynligheten for at ballen treffer rød, altså <span class="math inline">\(18/37 = 0.4864\)</span>.</p>
+</blockquote>
+<blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Sentralgrenseteoremet sier at når vi spiller et relativt stort antall runder så er <span class="math inline">\(\overline{X}\)</span> normalfordelt med forventning <span class="math inline">\(E(\overline{X}) = \mu = -0.027\)</span> og varians <span class="math inline">\(\text{Var}(\overline{X})=\sigma^2/n = 0.999/50 = 0.02\)</span>. Sannsynligheten for at den gjennomsnittlige gevinsten er positiv blir altså
+<span class="math display">\[\begin{equation*}
+\begin{split}
+P(\overline{X}&gt;0) &amp;= P\left(\frac{\overline{X} - \mu}{\sigma/\sqrt{n}} &gt; \frac{0 - \mu}{\sigma/\sqrt{n}}\right) = P\left(Z &gt; \frac{0 - (-0.027)}{\sqrt{0.02}}\right)\\
+&amp;= P(Z&gt;0.19) = 1 - P(Z &lt; 0.19) = 0.4246
+\end{split}
+\end{equation*}\]</span>
+Kasinoer vet med andre ord å utnytte sentralgrenseteoremet. Har du noen penger (som du har råd til å tape) så sett hele beløpet på en farge og spill 1 gang, framfor å plassere småbeløp over lang tid.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Det finnes noen strategier som kan sikre positiv gevinst, men som i praksis krever svært mye egenkapital og at det ikke er noe tak for hvor mye du kan satse ved bordet. Den såkalte <em>Martingal</em> strategien går ut på at du dobler innsatsen etter hvert tap og gir deg ved første gevinst. Gevinsten vil da svare til det første beløpet du satset.</li>
+</ol>
+</blockquote>
+</details>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="utvalg-og-estimering.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="relevant-r-grunnleggende.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

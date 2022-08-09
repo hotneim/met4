@@ -203,7 +203,7 @@ Dette er ganske enkelt, men også litt vanskelig på en *inception*-aktig måte.
 
 </details>
 
-## Oppgaver
+## Oppgaver {#oppgaverdeskriptiv}
 
 ### Standard oppgaver
 

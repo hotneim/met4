@@ -35,13 +35,13 @@ På denne siden vil du finne alle videosnuttene med kommentarer til lærebokens 
 
 ### Fremdriftsplan {-}
 
-Vi har laget et forslag til progresjon i tabellen under. Kolonnen "jobbe med" refererer til avsnitt på denne siden som dere finner igjen i menyen til venstre. I hovedsak bruker vi to uker på hvert tema i kurset og aktivitetene i disse ukene er strukturert som følger:
+Vi har laget et forslag til progresjon i tabellen under. Kolonnen "jobbe med" refererer til tema på denne siden som dere finner igjen i menyen til venstre. I hovedsak bruker vi to uker på hvert tema i kurset og aktivitetene i disse ukene er strukturert som følger:
 
-**Uke 1**: Selvstudie av det respektive temaet ved hjelp av videoer, regneoppgaver og teori på denne nettsiden. Det er derfor ingen aktivitet i Aud Max på mandagen disse ukene.  På torsdager er det dialogbasert undervisning i Aud A, hvor du kan komme å jobbe med enkle oppgaver knyttet til temaet. Foreleser vil være tilgjengelig.
+**Uke 1**: Selvstudie av det respektive temaet ved hjelp av videoer, regneoppgaver og teori på denne nettsiden. Det er derfor ingen aktivitet i Aud Max på mandagen disse ukene.  På torsdager er det dialogbasert undervisning i Aud A, hvor du kan komme å jobbe med oppgavene som du finner under hvert tema til venstre. Foreleser vil være tilgjengelig.
 
 **Uke 2**: På mandager gir vi en oversiktsforelesning i temaet i Aud MAX, mens det på torsdager blir oppgaveseminar i plenum i Aud A (se \@ref(seminar) for seminaroppgavene). 
 
-Ingen av de fysiske aktivitetene vil bli tatt opp eller streamet. Videoene og teorien på denne nettsiden går stort sett alt av pensum. Notatene fra oversiktsforelesningene og oppgaveseminar (Se \@ref(seminar)), samt løsningsforslag til oppgavene knyttet til dialogbasert undervisning vil bli lagt ut på Canvas.
+Ingen av de fysiske aktivitetene vil bli tatt opp eller streamet. Videoene og teorien på denne nettsiden er et mer en godt nok digitalt tilbud. Notatene fra oversiktsforelesningene og oppgaveseminar (Se \@ref(seminar)) vil bli lagt ut på Canvas.
 
  Selv om det nå legges opp til et fleksibelt undervisningsopplegg der tempo og progresjon til dels kan tilpasses den enkeltes timeplan og studieteknikk, er det viktig å jobbe jevnt med kurset. **MET4 er et krevende kurs som krever full innsats fra første til siste dag.** For eksempel får en mye bedre utbytte av av de fysiske aktivitetene dersom man på forhånd har sett videoene og gjort noen av  regneoppgavene relatert til temaet.
 
