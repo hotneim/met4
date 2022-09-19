@@ -990,6 +990,7 @@ d. $Y_t = u_1 + u_2 + \dots + u_t$
 
 </details>
 
+
 5. [Individuell eksamen V21, oppgave 3](tidligere-eksamensoppgaver/skole-21-v.pdf)
 <details><summary>Løsning</summary>
 [Løsningsforslag](tidligere-eksamensoppgaver/skole-21-v-fasit.pdf)
