@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.1 Introduksjon til tidsrekker | MET4 - Empiriske Metoder - Høst 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.1 Introduksjon til tidsrekker | MET4 - Empiriske Metoder - Høst 2022" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,8 @@
 <link rel="prev" href="tidsrekker.html"/>
 <link rel="next" href="trend-og-sesong.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -128,6 +130,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -145,87 +148,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
-<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
+<li><a href="index.html#innledning" id="toc-innledning">Innledning</a></li>
+<li><a href="introduksjon-til-r.html#introduksjon-til-r" id="toc-introduksjon-til-r"><span class="toc-section-number">1</span> Introduksjon til R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
-<li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
-<li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
-<li class="chapter" data-level="1.4" data-path="pakker.html"><a href="pakker.html"><i class="fa fa-check"></i><b>1.4</b> Pakker</a></li>
-<li class="chapter" data-level="1.5" data-path="mappesti.html"><a href="mappesti.html"><i class="fa fa-check"></i><b>1.5</b> Mappesti</a></li>
-<li class="chapter" data-level="1.6" data-path="innlesing-av-data.html"><a href="innlesing-av-data.html"><i class="fa fa-check"></i><b>1.6</b> Innlesing av data</a></li>
-<li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
-<li class="chapter" data-level="1.8" data-path="r-plotting.html"><a href="r-plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
-<li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
-<li class="chapter" data-level="1.10" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
-<li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
+<li><a href="en-gjennomgang-av-rstudio.html#en-gjennomgang-av-rstudio" id="toc-en-gjennomgang-av-rstudio"><span class="toc-section-number">1.1</span> En gjennomgang av RStudio</a></li>
+<li><a href="enkle-beregninger-og-variabler.html#enkle-beregninger-og-variabler" id="toc-enkle-beregninger-og-variabler"><span class="toc-section-number">1.2</span> Enkle beregninger og variabler</a></li>
+<li><a href="vektorer.html#vektorer" id="toc-vektorer"><span class="toc-section-number">1.3</span> Vektorer</a></li>
+<li><a href="pakker.html#pakker" id="toc-pakker"><span class="toc-section-number">1.4</span> Pakker</a></li>
+<li><a href="mappesti.html#mappesti" id="toc-mappesti"><span class="toc-section-number">1.5</span> Mappesti</a></li>
+<li><a href="innlesing-av-data.html#innlesing-av-data" id="toc-innlesing-av-data"><span class="toc-section-number">1.6</span> Innlesing av data</a></li>
+<li><a href="statistiske-analyser.html#statistiske-analyser" id="toc-statistiske-analyser"><span class="toc-section-number">1.7</span> Statistiske analyser</a></li>
+<li><a href="r-plotting.html#r-plotting" id="toc-r-plotting"><span class="toc-section-number">1.8</span> Plotting</a></li>
+<li><a href="script.html#script" id="toc-script"><span class="toc-section-number">1.9</span> Script</a></li>
+<li><a href="pipe.html#pipe" id="toc-pipe"><span class="toc-section-number">1.10</span> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li><a href="r-ekstra.html#r-ekstra" id="toc-r-ekstra"><span class="toc-section-number">1.11</span> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
+<li><a href="grunnleggende-statistikk.html#grunnleggende-statistikk" id="toc-grunnleggende-statistikk"><span class="toc-section-number">2</span> Grunnleggende statistikk</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
-<li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
-<li class="chapter" data-level="2.3" data-path="oppgaverdeskriptiv.html"><a href="oppgaverdeskriptiv.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
-<li class="chapter" data-level="2.4" data-path="relevant-r-grunnleggende.html"><a href="relevant-r-grunnleggende.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
+<li><a href="deskriptiv-statistikk.html#deskriptiv-statistikk" id="toc-deskriptiv-statistikk"><span class="toc-section-number">2.1</span> Deskriptiv statistikk</a></li>
+<li><a href="utvalg-og-estimering.html#utvalg-og-estimering" id="toc-utvalg-og-estimering"><span class="toc-section-number">2.2</span> Utvalg og estimering</a></li>
+<li><a href="oppgaverdeskriptiv.html#oppgaverdeskriptiv" id="toc-oppgaverdeskriptiv"><span class="toc-section-number">2.3</span> Oppgaver</a></li>
+<li><a href="relevant-r-grunnleggende.html#relevant-r-grunnleggende" id="toc-relevant-r-grunnleggende"><span class="toc-section-number">2.4</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
+<li><a href="hypotesetesting.html#hypotesetesting" id="toc-hypotesetesting"><span class="toc-section-number">3</span> Hypotesetesting</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
-<li class="chapter" data-level="3.2" data-path="enpop.html"><a href="enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
-<li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
-<li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
-<li class="chapter" data-level="3.5" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
-<li class="chapter" data-level="3.6" data-path="relevante-r-testing.html"><a href="relevante-r-testing.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
+<li><a href="generelt-om-hypotesetesting.html#generelt-om-hypotesetesting" id="toc-generelt-om-hypotesetesting"><span class="toc-section-number">3.1</span> Generelt om hypotesetesting</a></li>
+<li><a href="enpop.html#enpop" id="toc-enpop"><span class="toc-section-number">3.2</span> Inferens om en populasjon</a></li>
+<li><a href="inferens-om-to-populasjoner.html#inferens-om-to-populasjoner" id="toc-inferens-om-to-populasjoner"><span class="toc-section-number">3.3</span> Inferens om to populasjoner</a></li>
+<li><a href="kjikvadrattester.html#kjikvadrattester" id="toc-kjikvadrattester"><span class="toc-section-number">3.4</span> Kjikvadrattester</a></li>
+<li><a href="oppgaver.html#oppgaver" id="toc-oppgaver"><span class="toc-section-number">3.5</span> Oppgaver</a></li>
+<li><a href="relevante-r-testing.html#relevante-r-testing" id="toc-relevante-r-testing"><span class="toc-section-number">3.6</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
+<li><a href="regresjon.html#regresjon" id="toc-regresjon"><span class="toc-section-number">4</span> Regresjon</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
-<li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
-<li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
-<li class="chapter" data-level="4.4" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
-<li class="chapter" data-level="4.5" data-path="relevante-r-regresjon.html"><a href="relevante-r-regresjon.html"><i class="fa fa-check"></i><b>4.5</b> Relevante R-kommandoer</a></li>
+<li><a href="enkel-regresjon.html#enkel-regresjon" id="toc-enkel-regresjon"><span class="toc-section-number">4.1</span> Enkel regresjon</a></li>
+<li><a href="multippel-regresjon.html#multippel-regresjon" id="toc-multippel-regresjon"><span class="toc-section-number">4.2</span> Multippel regresjon</a></li>
+<li><a href="modellbygging.html#modellbygging" id="toc-modellbygging"><span class="toc-section-number">4.3</span> Modellbygging</a></li>
+<li><a href="oppgaver-1.html#oppgaver-1" id="toc-oppgaver-1"><span class="toc-section-number">4.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-regresjon.html#relevante-r-regresjon" id="toc-relevante-r-regresjon"><span class="toc-section-number">4.5</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>5</b> Tidsrekker</a>
+<li><a href="tidsrekker.html#tidsrekker" id="toc-tidsrekker"><span class="toc-section-number">5</span> Tidsrekker</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>5.1</b> Introduksjon til tidsrekker</a></li>
-<li class="chapter" data-level="5.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>5.2</b> Trend og sesong</a></li>
-<li class="chapter" data-level="5.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>5.3</b> AR(p)</a></li>
-<li class="chapter" data-level="5.4" data-path="stasjonaritet.html"><a href="stasjonaritet.html"><i class="fa fa-check"></i><b>5.4</b> Stasjonaritet</a></li>
-<li class="chapter" data-level="5.5" data-path="autokorrelasjon.html"><a href="autokorrelasjon.html"><i class="fa fa-check"></i><b>5.5</b> Autokorrelasjon</a></li>
-<li class="chapter" data-level="5.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>5.6</b> MA(q)</a></li>
-<li class="chapter" data-level="5.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>5.7</b> ARMA og ARIMA</a></li>
-<li class="chapter" data-level="5.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>5.8</b> Modellbygging</a></li>
-<li class="chapter" data-level="5.9" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>5.9</b> Oppgaver</a></li>
-<li class="chapter" data-level="5.10" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.10</b> Relevante R-kommandoer</a></li>
+<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">5.1</span> Introduksjon til tidsrekker</a></li>
+<li><a href="trend-og-sesong.html#trend-og-sesong" id="toc-trend-og-sesong"><span class="toc-section-number">5.2</span> Trend og sesong</a></li>
+<li><a href="ar.html#ar" id="toc-ar"><span class="toc-section-number">5.3</span> AR(p)</a></li>
+<li><a href="stasjonaritet.html#stasjonaritet" id="toc-stasjonaritet"><span class="toc-section-number">5.4</span> Stasjonaritet</a></li>
+<li><a href="autokorrelasjon.html#autokorrelasjon" id="toc-autokorrelasjon"><span class="toc-section-number">5.5</span> Autokorrelasjon</a></li>
+<li><a href="ma.html#ma" id="toc-ma"><span class="toc-section-number">5.6</span> MA(q)</a></li>
+<li><a href="arma-arima.html#arma-arima" id="toc-arma-arima"><span class="toc-section-number">5.7</span> ARMA og ARIMA</a></li>
+<li><a href="modellbygging-1.html#modellbygging-1" id="toc-modellbygging-1"><span class="toc-section-number">5.8</span> Modellbygging</a></li>
+<li><a href="oppgaver-2.html#oppgaver-2" id="toc-oppgaver-2"><span class="toc-section-number">5.9</span> Oppgaver</a></li>
+<li><a href="relevante-r-tidsrekker.html#relevante-r-tidsrekker" id="toc-relevante-r-tidsrekker"><span class="toc-section-number">5.10</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæring</a>
+<li><a href="avansert-regresjon-og-maskinlæring.html#avansert-regresjon-og-maskinlæring" id="toc-avansert-regresjon-og-maskinlæring"><span class="toc-section-number">6</span> Avansert regresjon og maskinlæring</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>6.1</b> Logistisk regresjon</a></li>
-<li class="chapter" data-level="6.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>6.2</b> Introduksjon til maskinlæring med kNN</a></li>
-<li class="chapter" data-level="6.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>6.3</b> Paneldata</a></li>
-<li class="chapter" data-level="6.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>6.4</b> Oppgaver</a></li>
-<li class="chapter" data-level="6.5" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>6.5</b> Relevante R-kommandoer</a></li>
+<li><a href="logistisk-regresjon.html#logistisk-regresjon" id="toc-logistisk-regresjon"><span class="toc-section-number">6.1</span> Logistisk regresjon</a></li>
+<li><a href="introduksjon-til-maskinlæring-med-knn.html#introduksjon-til-maskinlæring-med-knn" id="toc-introduksjon-til-maskinlæring-med-knn"><span class="toc-section-number">6.2</span> Introduksjon til maskinlæring med kNN</a></li>
+<li><a href="paneldata.html#paneldata" id="toc-paneldata"><span class="toc-section-number">6.3</span> Paneldata</a></li>
+<li><a href="oppgaver-3.html#oppgaver-3" id="toc-oppgaver-3"><span class="toc-section-number">6.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-avansert-regresjon.html#relevante-r-avansert-regresjon" id="toc-relevante-r-avansert-regresjon"><span class="toc-section-number">6.5</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
+<li><a href="dataøvinger.html#dataøvinger" id="toc-dataøvinger"><span class="toc-section-number">7</span> Dataøvinger</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
-<li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
-<li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
-<li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
-<li class="chapter" data-level="7.5" data-path="dataøving-5.html"><a href="dataøving-5.html"><i class="fa fa-check"></i><b>7.5</b> Dataøving 5</a></li>
+<li><a href="dataøving-1.html#dataøving-1" id="toc-dataøving-1"><span class="toc-section-number">7.1</span> Dataøving 1</a></li>
+<li><a href="dataøving-2.html#dataøving-2" id="toc-dataøving-2"><span class="toc-section-number">7.2</span> Dataøving 2</a></li>
+<li><a href="dataøving-3.html#dataøving-3" id="toc-dataøving-3"><span class="toc-section-number">7.3</span> Dataøving 3</a></li>
+<li><a href="dataøving-4.html#dataøving-4" id="toc-dataøving-4"><span class="toc-section-number">7.4</span> Dataøving 4</a></li>
+<li><a href="dataøving-5.html#dataøving-5" id="toc-dataøving-5"><span class="toc-section-number">7.5</span> Dataøving 5</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8</b> Seminaroppgaver</a>
+<li><a href="seminar.html#seminar" id="toc-seminar"><span class="toc-section-number">8</span> Seminaroppgaver</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="seminar-1-grunnleggende-statistikk.html"><a href="seminar-1-grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>8.1</b> Seminar 1 - Grunnleggende statistikk</a></li>
-<li class="chapter" data-level="8.2" data-path="seminar-2-hypotesetesting.html"><a href="seminar-2-hypotesetesting.html"><i class="fa fa-check"></i><b>8.2</b> Seminar 2 - Hypotesetesting</a></li>
-<li class="chapter" data-level="8.3" data-path="seminar-3-regresjon-i.html"><a href="seminar-3-regresjon-i.html"><i class="fa fa-check"></i><b>8.3</b> Seminar 3 - Regresjon I</a></li>
-<li class="chapter" data-level="8.4" data-path="seminar-4-regresjon-ii.html"><a href="seminar-4-regresjon-ii.html"><i class="fa fa-check"></i><b>8.4</b> Seminar 4 - Regresjon II</a></li>
-<li class="chapter" data-level="8.5" data-path="seminar-5-tidsrekker.html"><a href="seminar-5-tidsrekker.html"><i class="fa fa-check"></i><b>8.5</b> Seminar 5 - Tidsrekker</a></li>
-<li class="chapter" data-level="8.6" data-path="seminar-6-avansert-regresjon-og-maskinlæring.html"><a href="seminar-6-avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>8.6</b> Seminar 6 - Avansert regresjon og maskinlæring</a></li>
+<li><a href="seminar-1---grunnleggende-statistikk.html#seminar-1---grunnleggende-statistikk" id="toc-seminar-1---grunnleggende-statistikk"><span class="toc-section-number">8.1</span> Seminar 1 - Grunnleggende statistikk</a></li>
+<li><a href="seminar-2---hypotesetesting.html#seminar-2---hypotesetesting" id="toc-seminar-2---hypotesetesting"><span class="toc-section-number">8.2</span> Seminar 2 - Hypotesetesting</a></li>
+<li><a href="seminar-3---regresjon-i.html#seminar-3---regresjon-i" id="toc-seminar-3---regresjon-i"><span class="toc-section-number">8.3</span> Seminar 3 - Regresjon I</a></li>
+<li><a href="seminar-4---regresjon-ii.html#seminar-4---regresjon-ii" id="toc-seminar-4---regresjon-ii"><span class="toc-section-number">8.4</span> Seminar 4 - Regresjon II</a></li>
+<li><a href="seminar-5---tidsrekker.html#seminar-5---tidsrekker" id="toc-seminar-5---tidsrekker"><span class="toc-section-number">8.5</span> Seminar 5 - Tidsrekker</a></li>
+<li><a href="seminar-6---avansert-regresjon-og-maskinlæring.html#seminar-6---avansert-regresjon-og-maskinlæring" id="toc-seminar-6---avansert-regresjon-og-maskinlæring"><span class="toc-section-number">8.6</span> Seminar 6 - Avansert regresjon og maskinlæring</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="eksamensoppgaver.html"><a href="eksamensoppgaver.html"><i class="fa fa-check"></i><b>9</b> Eksamensoppgaver</a>
+<li><a href="eksamensoppgaver.html#eksamensoppgaver" id="toc-eksamensoppgaver"><span class="toc-section-number">9</span> Eksamensoppgaver</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
-<li class="chapter" data-level="9.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li><a href="skoleeksamen.html#skoleeksamen" id="toc-skoleeksamen"><span class="toc-section-number">9.1</span> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html#tidligere-eksamensoppgaver-hjemmeeksamen" id="toc-tidligere-eksamensoppgaver-hjemmeeksamen"><span class="toc-section-number">9.2</span> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -406,27 +409,27 @@ Løsning
 Løsning
 </summary>
 <p>“Manuelt” i R:</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="intro.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Les først inn dine utregninger</span></span>
-<span id="cb126-2"><a href="intro.html#cb126-2" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">12</span>)</span>
-<span id="cb126-3"><a href="intro.html#cb126-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">48</span>, <span class="dv">41</span>, <span class="dv">37</span>, <span class="dv">32</span>, <span class="dv">36</span>, <span class="dv">31</span>, <span class="dv">43</span>, <span class="dv">52</span>, <span class="dv">60</span>, <span class="dv">48</span>, <span class="dv">41</span>, <span class="dv">30</span>)</span>
-<span id="cb126-4"><a href="intro.html#cb126-4" aria-hidden="true" tabindex="-1"></a>glatt3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">42</span>, <span class="fl">36.67</span>, <span class="dv">35</span>, <span class="dv">33</span>, <span class="fl">36.67</span>, <span class="dv">42</span>, <span class="fl">51.67</span>, <span class="fl">53.33</span>, <span class="fl">49.67</span>, <span class="fl">39.67</span>, <span class="cn">NA</span>)</span>
-<span id="cb126-5"><a href="intro.html#cb126-5" aria-hidden="true" tabindex="-1"></a>glatt5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="fl">38.8</span>, <span class="fl">35.4</span>, <span class="fl">35.8</span>, <span class="fl">38.8</span>, <span class="fl">44.4</span>, <span class="fl">46.8</span>, <span class="fl">48.8</span>, <span class="fl">46.2</span>, <span class="cn">NA</span>, <span class="cn">NA</span>) </span>
-<span id="cb126-6"><a href="intro.html#cb126-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb126-7"><a href="intro.html#cb126-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Med base-R plot</span></span>
-<span id="cb126-8"><a href="intro.html#cb126-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(time, y)</span>
-<span id="cb126-9"><a href="intro.html#cb126-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, glatt3, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb126-10"><a href="intro.html#cb126-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, glatt5, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="intro.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eller med ggplot</span></span>
-<span id="cb127-2"><a href="intro.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb127-3"><a href="intro.html#cb127-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">time =</span> <span class="fu">rep</span>(time, <span class="dv">2</span>),</span>
-<span id="cb127-4"><a href="intro.html#cb127-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> <span class="fu">rep</span>(y, <span class="dv">2</span>),</span>
-<span id="cb127-5"><a href="intro.html#cb127-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">glatting =</span> <span class="fu">c</span>(glatt3, glatt5),</span>
-<span id="cb127-6"><a href="intro.html#cb127-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">vindulengde =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;3&quot;</span>, <span class="dv">12</span>), <span class="fu">rep</span>(<span class="st">&quot;5&quot;</span>, <span class="dv">12</span>))))</span>
-<span id="cb127-7"><a href="intro.html#cb127-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb127-8"><a href="intro.html#cb127-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time , <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb127-9"><a href="intro.html#cb127-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> glatting, <span class="at">color =</span> vindulengde))</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-113-2.png" width="672" /></p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="intro.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Les først inn dine utregninger</span></span>
+<span id="cb149-2"><a href="intro.html#cb149-2" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">12</span>)</span>
+<span id="cb149-3"><a href="intro.html#cb149-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">48</span>, <span class="dv">41</span>, <span class="dv">37</span>, <span class="dv">32</span>, <span class="dv">36</span>, <span class="dv">31</span>, <span class="dv">43</span>, <span class="dv">52</span>, <span class="dv">60</span>, <span class="dv">48</span>, <span class="dv">41</span>, <span class="dv">30</span>)</span>
+<span id="cb149-4"><a href="intro.html#cb149-4" aria-hidden="true" tabindex="-1"></a>glatt3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">42</span>, <span class="fl">36.67</span>, <span class="dv">35</span>, <span class="dv">33</span>, <span class="fl">36.67</span>, <span class="dv">42</span>, <span class="fl">51.67</span>, <span class="fl">53.33</span>, <span class="fl">49.67</span>, <span class="fl">39.67</span>, <span class="cn">NA</span>)</span>
+<span id="cb149-5"><a href="intro.html#cb149-5" aria-hidden="true" tabindex="-1"></a>glatt5 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="fl">38.8</span>, <span class="fl">35.4</span>, <span class="fl">35.8</span>, <span class="fl">38.8</span>, <span class="fl">44.4</span>, <span class="fl">46.8</span>, <span class="fl">48.8</span>, <span class="fl">46.2</span>, <span class="cn">NA</span>, <span class="cn">NA</span>) </span>
+<span id="cb149-6"><a href="intro.html#cb149-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-7"><a href="intro.html#cb149-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Med base-R plot</span></span>
+<span id="cb149-8"><a href="intro.html#cb149-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(time, y)</span>
+<span id="cb149-9"><a href="intro.html#cb149-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, glatt3, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb149-10"><a href="intro.html#cb149-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, glatt5, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="intro.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eller med ggplot</span></span>
+<span id="cb150-2"><a href="intro.html#cb150-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb150-3"><a href="intro.html#cb150-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">time =</span> <span class="fu">rep</span>(time, <span class="dv">2</span>),</span>
+<span id="cb150-4"><a href="intro.html#cb150-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> <span class="fu">rep</span>(y, <span class="dv">2</span>),</span>
+<span id="cb150-5"><a href="intro.html#cb150-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">glatting =</span> <span class="fu">c</span>(glatt3, glatt5),</span>
+<span id="cb150-6"><a href="intro.html#cb150-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">vindulengde =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;3&quot;</span>, <span class="dv">12</span>), <span class="fu">rep</span>(<span class="st">&quot;5&quot;</span>, <span class="dv">12</span>))))</span>
+<span id="cb150-7"><a href="intro.html#cb150-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb150-8"><a href="intro.html#cb150-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time , <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb150-9"><a href="intro.html#cb150-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> glatting, <span class="at">color =</span> vindulengde))</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-122-2.png" width="672" /></p>
 </details>
 <p><strong>d)</strong> Regn ut eksponensiell glatting for tidsrekken under med glattefaktor <span class="math inline">\(w = 0.1\)</span>:</p>
 <p><img src="bilder/oppgave1b.JPG" id="id" class="class" style="width:80.0%;height:80.0%" /></p>
@@ -547,27 +550,27 @@ Løsning
 Løsning
 </summary>
 <p>“Manuelt” i R:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="intro.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Les først inn dine utregninger</span></span>
-<span id="cb128-2"><a href="intro.html#cb128-2" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">10</span>)</span>
-<span id="cb128-3"><a href="intro.html#cb128-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">43</span>, <span class="dv">42</span>, <span class="dv">45</span>, <span class="dv">46</span>, <span class="dv">48</span>, <span class="dv">50</span>, <span class="dv">49</span>, <span class="dv">46</span>, <span class="dv">45</span>)</span>
-<span id="cb128-4"><a href="intro.html#cb128-4" aria-hidden="true" tabindex="-1"></a>exp01 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="fl">38.50</span>, <span class="fl">38.85</span>, <span class="fl">39.47</span>, <span class="fl">40.12</span>, <span class="fl">40.91</span>, <span class="fl">41.82</span>, <span class="fl">42.53</span>, <span class="fl">42.88</span>, <span class="fl">43.09</span>)</span>
-<span id="cb128-5"><a href="intro.html#cb128-5" aria-hidden="true" tabindex="-1"></a>exp08 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">42</span>, <span class="dv">42</span>, <span class="fl">44.40</span>, <span class="fl">45.68</span>, <span class="fl">47.54</span>, <span class="fl">49.51</span>, <span class="fl">49.10</span>, <span class="fl">46.62</span>, <span class="fl">45.32</span>) </span>
-<span id="cb128-6"><a href="intro.html#cb128-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-7"><a href="intro.html#cb128-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Med base-R plot</span></span>
-<span id="cb128-8"><a href="intro.html#cb128-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(time, y)</span>
-<span id="cb128-9"><a href="intro.html#cb128-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, exp01, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb128-10"><a href="intro.html#cb128-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, exp08, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-114-1.png" width="672" /></p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="intro.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eller med ggplot</span></span>
-<span id="cb129-2"><a href="intro.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb129-3"><a href="intro.html#cb129-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">time =</span> <span class="fu">rep</span>(time, <span class="dv">2</span>),</span>
-<span id="cb129-4"><a href="intro.html#cb129-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> <span class="fu">rep</span>(y, <span class="dv">2</span>),</span>
-<span id="cb129-5"><a href="intro.html#cb129-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">glatting =</span> <span class="fu">c</span>(exp01, exp08),</span>
-<span id="cb129-6"><a href="intro.html#cb129-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">glattefaktor =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;0.1&quot;</span>, <span class="dv">10</span>), <span class="fu">rep</span>(<span class="st">&quot;0.9&quot;</span>, <span class="dv">10</span>))))</span>
-<span id="cb129-7"><a href="intro.html#cb129-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
-<span id="cb129-8"><a href="intro.html#cb129-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time , <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb129-9"><a href="intro.html#cb129-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> glatting, <span class="at">color =</span> glattefaktor))</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-114-2.png" width="672" />
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="intro.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Les først inn dine utregninger</span></span>
+<span id="cb151-2"><a href="intro.html#cb151-2" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">10</span>)</span>
+<span id="cb151-3"><a href="intro.html#cb151-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">43</span>, <span class="dv">42</span>, <span class="dv">45</span>, <span class="dv">46</span>, <span class="dv">48</span>, <span class="dv">50</span>, <span class="dv">49</span>, <span class="dv">46</span>, <span class="dv">45</span>)</span>
+<span id="cb151-4"><a href="intro.html#cb151-4" aria-hidden="true" tabindex="-1"></a>exp01 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="fl">38.50</span>, <span class="fl">38.85</span>, <span class="fl">39.47</span>, <span class="fl">40.12</span>, <span class="fl">40.91</span>, <span class="fl">41.82</span>, <span class="fl">42.53</span>, <span class="fl">42.88</span>, <span class="fl">43.09</span>)</span>
+<span id="cb151-5"><a href="intro.html#cb151-5" aria-hidden="true" tabindex="-1"></a>exp08 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">42</span>, <span class="dv">42</span>, <span class="fl">44.40</span>, <span class="fl">45.68</span>, <span class="fl">47.54</span>, <span class="fl">49.51</span>, <span class="fl">49.10</span>, <span class="fl">46.62</span>, <span class="fl">45.32</span>) </span>
+<span id="cb151-6"><a href="intro.html#cb151-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-7"><a href="intro.html#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Med base-R plot</span></span>
+<span id="cb151-8"><a href="intro.html#cb151-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(time, y)</span>
+<span id="cb151-9"><a href="intro.html#cb151-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, exp01, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb151-10"><a href="intro.html#cb151-10" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(time, exp08, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="intro.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eller med ggplot</span></span>
+<span id="cb152-2"><a href="intro.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb152-3"><a href="intro.html#cb152-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">time =</span> <span class="fu">rep</span>(time, <span class="dv">2</span>),</span>
+<span id="cb152-4"><a href="intro.html#cb152-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">y =</span> <span class="fu">rep</span>(y, <span class="dv">2</span>),</span>
+<span id="cb152-5"><a href="intro.html#cb152-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">glatting =</span> <span class="fu">c</span>(exp01, exp08),</span>
+<span id="cb152-6"><a href="intro.html#cb152-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">glattefaktor =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;0.1&quot;</span>, <span class="dv">10</span>), <span class="fu">rep</span>(<span class="st">&quot;0.9&quot;</span>, <span class="dv">10</span>))))</span>
+<span id="cb152-7"><a href="intro.html#cb152-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
+<span id="cb152-8"><a href="intro.html#cb152-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> time , <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb152-9"><a href="intro.html#cb152-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> glatting, <span class="at">color =</span> glattefaktor))</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-123-2.png" width="672" />
 Det ser ut til at det er en stigende trend som avtar mot de siste observasjonene i tidsrekken.</p>
 </details>
 <p><strong>bonusspørsmål)</strong> Hva blir prediksjonen av <span class="math inline">\(Y_{11}\)</span> når du bruker modellen i henholdsvis oppgave d) og e)?</p>
@@ -581,18 +584,18 @@ Løsning
 <div id="r-øving" class="section level3" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> R-øving</h3>
 <p>Vi har lastet <a href="datasett/equinor.xlsx">ned den daglige prisen på Eqinoraksjen</a> over en 5-års periode fra Oslo Børs’ hjemmeside. Vi laster inn datasettet som før ved hjelp av <code>readxl</code>-pakken, og henter ut den aktuelle kolonnen. Legg merke til at vi bruker <code>rev()</code>-funksjonen til å reversere rekkefølgen til observasjonene slik at den første verdien kommer først:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="intro.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb130-2"><a href="intro.html#cb130-2" aria-hidden="true" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
-<span id="cb130-3"><a href="intro.html#cb130-3" aria-hidden="true" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)                </span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="intro.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb153-2"><a href="intro.html#cb153-2" aria-hidden="true" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
+<span id="cb153-3"><a href="intro.html#cb153-3" aria-hidden="true" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)                </span></code></pre></div>
 <p>Du kan så lage et raskt plott av tidsrekken:</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="intro.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="intro.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p>Både glidende gjennomsnitt og eksponensiell glatting har flere ulike implementeringer i R. For glidende gjennomsnitt skal vi bruke funksjonen <code>rollmean()</code> i pakken <code>zoo</code>. Du må først installere pakken og laste den inn;</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="intro.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;zoo&quot;</span>)</span>
-<span id="cb132-2"><a href="intro.html#cb132-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="intro.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;zoo&quot;</span>)</span>
+<span id="cb155-2"><a href="intro.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code></pre></div>
 <p>Hvis du leser litt på dokumentasjonen til <code>rollmean()</code> ved å kjøre <code>?rollmean</code> vil du se at du kan regne ut f.eks et glidende gjennomsnitt for Equinoraksjen med vindusstørrelse 5 ved å kjøre</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="intro.html#cb133-1" aria-hidden="true" tabindex="-1"></a>pris_glatt5 <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="intro.html#cb156-1" aria-hidden="true" tabindex="-1"></a>pris_glatt5 <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="cn">NA</span>)</span></code></pre></div>
 <p>Da får vi ut en ny vektor med lik lengde som den vi hadde, og som inneholder den glattede versjonen. Den fyller opp verdiene i starten og slutten som vi ikke kan regne ut med et glidende gjennomsnitt med NA, slik at vi kan tegne inn den glattede versjonen i samme plott som vi viste selve tidsrekken:</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="intro.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_glatt5, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="intro.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_glatt5, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p>Dersom du er interessert kan du lese mer <a href="https://tradingsim.com/blog/simple-moving-average/">her</a> om hvordan det glidende gjennomsnittet blir brukt som en investeringsstrategi.</p>
 <p>Tanken er at det glidende gjennomsnittet representerer den langsiktige trenden. Dersom tidrekken ligger under det glidende gjennomsnittet tolkes det som at aksjen er på vei nedover, og motsatt: dersom prisen ligger over det glidende gjennomsnittet, så er det et tegn på at aksjen er på vei oppover. Når de to seriene krysser hverandre går “alarmen”, og man tar stilling til om man skal kjøpe eller selge.</p>
 <p>Vindusstørrelsen velger man ut fra hvor hyppig man handler. For profesjonelle investorer som driver med handel i høy hastighet kan kanskje 5-dagersviduet som vi regnet ut over være nok. Andre med mellomlang og lang sikt vil gjerne bruke et vindu på 50 eller 200 dager.</p>
@@ -602,10 +605,10 @@ Løsning
 Løsning
 </summary>
 <p>Forutsatt at du har gjort det over kan du skrive</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="intro.html#cb135-1" aria-hidden="true" tabindex="-1"></a>pris_glatt200 <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">200</span>, <span class="at">fill =</span> <span class="cn">NA</span>)</span>
-<span id="cb135-2"><a href="intro.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb135-3"><a href="intro.html#cb135-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_glatt200, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="intro.html#cb158-1" aria-hidden="true" tabindex="-1"></a>pris_glatt200 <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">200</span>, <span class="at">fill =</span> <span class="cn">NA</span>)</span>
+<span id="cb158-2"><a href="intro.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb158-3"><a href="intro.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_glatt200, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
 <p>Nå kan vi jo ikke se det glidende gjennomsnittet for de siste observasjonene, så ved bare å sammenligne de siste observasjonene hvor vi også har det glidende gjennomsnittet så ligger prisen under det glidende gjennomsnittet, altså bør vi ikke investere (evt. selge, shorte etc.).</p>
 </details>
 <p>Et problem med analysen over er at vi trenger <em>fremtidige observasjoner</em> til å regne ut den glattede tidsrekken. Det betyr at vi kjenner den glattede versjonen av tidsrekken ved tid <span class="math inline">\(t\)</span> først ved tid <span class="math inline">\(t+200\)</span>. Vi kan enkelt lage en annen variant der vi glatter tidsrekken ved tid <span class="math inline">\(t\)</span> ved å ta gjennomsnittet av <span class="math inline">\(Y_{t-200}, Y_{t-199}, \ldots, Y_{t-1}\)</span> i stedet for <span class="math inline">\(Y_{t-100}, \ldots, Y_{t}, \ldots, Y_{t+100}\)</span>, altså at vi bare bruker fortiden. Det gjør du i R ved å legge til det ekstra argumentet <code>align = "right"</code> i funksjonen <code>rollmean</code>. Fordelen nå er at vi ved hvert tidspunkt kjenner både prisen på aksjen og den glattede varianten.</p>
@@ -614,30 +617,30 @@ Løsning
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="intro.html#cb136-1" aria-hidden="true" tabindex="-1"></a>pris_glatt200 <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">200</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">align =</span> <span class="st">&quot;right&quot;</span>)</span>
-<span id="cb136-2"><a href="intro.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb136-3"><a href="intro.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_glatt200, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="intro.html#cb159-1" aria-hidden="true" tabindex="-1"></a>pris_glatt200 <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">200</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">align =</span> <span class="st">&quot;right&quot;</span>)</span>
+<span id="cb159-2"><a href="intro.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb159-3"><a href="intro.html#cb159-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_glatt200, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 <p>I denne figuren ligger de siste prisene over det glidende gjennomsnittet noe som er indikasjon på en stigende trend. Altså kan en strategi være å investere i aksjen.</p>
 </details>
 <p><strong>Eksponensiell glatting</strong> har også et annet navn: Holt Winters Metode. En funksjon for å gjennomføre den finnes innebygget i R, og heter <code>HoltWinters()</code>. I denne funksjonen er vektparameteren <span class="math inline">\(w\)</span> representert ved argumentet <code>alpha</code>. Funksjonen har noen flere argumenter som ikke vi skal bruke, så dersom vi ønsker å regne ut den eksponensielle glattingen for Equinoraksjen med <span class="math inline">\(w = 0.5\)</span>, kjører vi:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="intro.html#cb137-1" aria-hidden="true" tabindex="-1"></a>pris_exp1 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(pris, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">beta =</span> <span class="cn">FALSE</span>, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="intro.html#cb160-1" aria-hidden="true" tabindex="-1"></a>pris_exp1 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(pris, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">beta =</span> <span class="cn">FALSE</span>, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>For å hente ut den glattede versjonen skriver vi</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="intro.html#cb138-1" aria-hidden="true" tabindex="-1"></a>pris_exp1<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="intro.html#cb161-1" aria-hidden="true" tabindex="-1"></a>pris_exp1<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>]</span></code></pre></div>
 <p><strong>Oppgave:</strong> Lag en ny figur der du tegner inn aksjeprisen, samt den eksponensielle glattingen med hhv. <span class="math inline">\(w = 0.5\)</span>, <span class="math inline">\(w = 0.01\)</span> og <span class="math inline">\(w = 0.99\)</span>.</p>
 <details>
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="intro.html#cb139-1" aria-hidden="true" tabindex="-1"></a>pris_exp1 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(pris, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">beta =</span> <span class="cn">FALSE</span>, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb139-2"><a href="intro.html#cb139-2" aria-hidden="true" tabindex="-1"></a>pris_exp2 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(pris, <span class="at">alpha =</span> .<span class="dv">01</span>, <span class="at">beta =</span> <span class="cn">FALSE</span>, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb139-3"><a href="intro.html#cb139-3" aria-hidden="true" tabindex="-1"></a>pris_exp3 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(pris, <span class="at">alpha =</span> .<span class="dv">99</span>, <span class="at">beta =</span> <span class="cn">FALSE</span>, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb139-4"><a href="intro.html#cb139-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb139-5"><a href="intro.html#cb139-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb139-6"><a href="intro.html#cb139-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_exp1<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>], <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb139-7"><a href="intro.html#cb139-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_exp2<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>], <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
-<span id="cb139-8"><a href="intro.html#cb139-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_exp3<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>], <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="intro.html#cb162-1" aria-hidden="true" tabindex="-1"></a>pris_exp1 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(pris, <span class="at">alpha =</span> .<span class="dv">5</span>, <span class="at">beta =</span> <span class="cn">FALSE</span>, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb162-2"><a href="intro.html#cb162-2" aria-hidden="true" tabindex="-1"></a>pris_exp2 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(pris, <span class="at">alpha =</span> .<span class="dv">01</span>, <span class="at">beta =</span> <span class="cn">FALSE</span>, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb162-3"><a href="intro.html#cb162-3" aria-hidden="true" tabindex="-1"></a>pris_exp3 <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(pris, <span class="at">alpha =</span> .<span class="dv">99</span>, <span class="at">beta =</span> <span class="cn">FALSE</span>, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb162-4"><a href="intro.html#cb162-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-5"><a href="intro.html#cb162-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb162-6"><a href="intro.html#cb162-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_exp1<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>], <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb162-7"><a href="intro.html#cb162-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_exp2<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>], <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb162-8"><a href="intro.html#cb162-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(pris_exp3<span class="sc">$</span>fitted[,<span class="st">&quot;xhat&quot;</span>], <span class="at">col =</span> <span class="st">&quot;green&quot;</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 </details>
 </div>
 </div>
@@ -651,7 +654,6 @@ Løsning
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -670,6 +672,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -690,6 +693,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

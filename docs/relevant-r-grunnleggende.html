@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.4 Relevante R-kommandoer | MET4 - Empiriske Metoder - Høst 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.4 Relevante R-kommandoer | MET4 - Empiriske Metoder - Høst 2022" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,8 @@
 <link rel="prev" href="oppgaverdeskriptiv.html"/>
 <link rel="next" href="hypotesetesting.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -128,6 +130,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -145,87 +148,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
-<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
+<li><a href="index.html#innledning" id="toc-innledning">Innledning</a></li>
+<li><a href="introduksjon-til-r.html#introduksjon-til-r" id="toc-introduksjon-til-r"><span class="toc-section-number">1</span> Introduksjon til R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
-<li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
-<li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
-<li class="chapter" data-level="1.4" data-path="pakker.html"><a href="pakker.html"><i class="fa fa-check"></i><b>1.4</b> Pakker</a></li>
-<li class="chapter" data-level="1.5" data-path="mappesti.html"><a href="mappesti.html"><i class="fa fa-check"></i><b>1.5</b> Mappesti</a></li>
-<li class="chapter" data-level="1.6" data-path="innlesing-av-data.html"><a href="innlesing-av-data.html"><i class="fa fa-check"></i><b>1.6</b> Innlesing av data</a></li>
-<li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
-<li class="chapter" data-level="1.8" data-path="r-plotting.html"><a href="r-plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
-<li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
-<li class="chapter" data-level="1.10" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
-<li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
+<li><a href="en-gjennomgang-av-rstudio.html#en-gjennomgang-av-rstudio" id="toc-en-gjennomgang-av-rstudio"><span class="toc-section-number">1.1</span> En gjennomgang av RStudio</a></li>
+<li><a href="enkle-beregninger-og-variabler.html#enkle-beregninger-og-variabler" id="toc-enkle-beregninger-og-variabler"><span class="toc-section-number">1.2</span> Enkle beregninger og variabler</a></li>
+<li><a href="vektorer.html#vektorer" id="toc-vektorer"><span class="toc-section-number">1.3</span> Vektorer</a></li>
+<li><a href="pakker.html#pakker" id="toc-pakker"><span class="toc-section-number">1.4</span> Pakker</a></li>
+<li><a href="mappesti.html#mappesti" id="toc-mappesti"><span class="toc-section-number">1.5</span> Mappesti</a></li>
+<li><a href="innlesing-av-data.html#innlesing-av-data" id="toc-innlesing-av-data"><span class="toc-section-number">1.6</span> Innlesing av data</a></li>
+<li><a href="statistiske-analyser.html#statistiske-analyser" id="toc-statistiske-analyser"><span class="toc-section-number">1.7</span> Statistiske analyser</a></li>
+<li><a href="r-plotting.html#r-plotting" id="toc-r-plotting"><span class="toc-section-number">1.8</span> Plotting</a></li>
+<li><a href="script.html#script" id="toc-script"><span class="toc-section-number">1.9</span> Script</a></li>
+<li><a href="pipe.html#pipe" id="toc-pipe"><span class="toc-section-number">1.10</span> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li><a href="r-ekstra.html#r-ekstra" id="toc-r-ekstra"><span class="toc-section-number">1.11</span> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
+<li><a href="grunnleggende-statistikk.html#grunnleggende-statistikk" id="toc-grunnleggende-statistikk"><span class="toc-section-number">2</span> Grunnleggende statistikk</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
-<li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
-<li class="chapter" data-level="2.3" data-path="oppgaverdeskriptiv.html"><a href="oppgaverdeskriptiv.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
-<li class="chapter" data-level="2.4" data-path="relevant-r-grunnleggende.html"><a href="relevant-r-grunnleggende.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
+<li><a href="deskriptiv-statistikk.html#deskriptiv-statistikk" id="toc-deskriptiv-statistikk"><span class="toc-section-number">2.1</span> Deskriptiv statistikk</a></li>
+<li><a href="utvalg-og-estimering.html#utvalg-og-estimering" id="toc-utvalg-og-estimering"><span class="toc-section-number">2.2</span> Utvalg og estimering</a></li>
+<li><a href="oppgaverdeskriptiv.html#oppgaverdeskriptiv" id="toc-oppgaverdeskriptiv"><span class="toc-section-number">2.3</span> Oppgaver</a></li>
+<li><a href="relevant-r-grunnleggende.html#relevant-r-grunnleggende" id="toc-relevant-r-grunnleggende"><span class="toc-section-number">2.4</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
+<li><a href="hypotesetesting.html#hypotesetesting" id="toc-hypotesetesting"><span class="toc-section-number">3</span> Hypotesetesting</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
-<li class="chapter" data-level="3.2" data-path="enpop.html"><a href="enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
-<li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
-<li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
-<li class="chapter" data-level="3.5" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
-<li class="chapter" data-level="3.6" data-path="relevante-r-testing.html"><a href="relevante-r-testing.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
+<li><a href="generelt-om-hypotesetesting.html#generelt-om-hypotesetesting" id="toc-generelt-om-hypotesetesting"><span class="toc-section-number">3.1</span> Generelt om hypotesetesting</a></li>
+<li><a href="enpop.html#enpop" id="toc-enpop"><span class="toc-section-number">3.2</span> Inferens om en populasjon</a></li>
+<li><a href="inferens-om-to-populasjoner.html#inferens-om-to-populasjoner" id="toc-inferens-om-to-populasjoner"><span class="toc-section-number">3.3</span> Inferens om to populasjoner</a></li>
+<li><a href="kjikvadrattester.html#kjikvadrattester" id="toc-kjikvadrattester"><span class="toc-section-number">3.4</span> Kjikvadrattester</a></li>
+<li><a href="oppgaver.html#oppgaver" id="toc-oppgaver"><span class="toc-section-number">3.5</span> Oppgaver</a></li>
+<li><a href="relevante-r-testing.html#relevante-r-testing" id="toc-relevante-r-testing"><span class="toc-section-number">3.6</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
+<li><a href="regresjon.html#regresjon" id="toc-regresjon"><span class="toc-section-number">4</span> Regresjon</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
-<li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
-<li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
-<li class="chapter" data-level="4.4" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
-<li class="chapter" data-level="4.5" data-path="relevante-r-regresjon.html"><a href="relevante-r-regresjon.html"><i class="fa fa-check"></i><b>4.5</b> Relevante R-kommandoer</a></li>
+<li><a href="enkel-regresjon.html#enkel-regresjon" id="toc-enkel-regresjon"><span class="toc-section-number">4.1</span> Enkel regresjon</a></li>
+<li><a href="multippel-regresjon.html#multippel-regresjon" id="toc-multippel-regresjon"><span class="toc-section-number">4.2</span> Multippel regresjon</a></li>
+<li><a href="modellbygging.html#modellbygging" id="toc-modellbygging"><span class="toc-section-number">4.3</span> Modellbygging</a></li>
+<li><a href="oppgaver-1.html#oppgaver-1" id="toc-oppgaver-1"><span class="toc-section-number">4.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-regresjon.html#relevante-r-regresjon" id="toc-relevante-r-regresjon"><span class="toc-section-number">4.5</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>5</b> Tidsrekker</a>
+<li><a href="tidsrekker.html#tidsrekker" id="toc-tidsrekker"><span class="toc-section-number">5</span> Tidsrekker</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>5.1</b> Introduksjon til tidsrekker</a></li>
-<li class="chapter" data-level="5.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>5.2</b> Trend og sesong</a></li>
-<li class="chapter" data-level="5.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>5.3</b> AR(p)</a></li>
-<li class="chapter" data-level="5.4" data-path="stasjonaritet.html"><a href="stasjonaritet.html"><i class="fa fa-check"></i><b>5.4</b> Stasjonaritet</a></li>
-<li class="chapter" data-level="5.5" data-path="autokorrelasjon.html"><a href="autokorrelasjon.html"><i class="fa fa-check"></i><b>5.5</b> Autokorrelasjon</a></li>
-<li class="chapter" data-level="5.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>5.6</b> MA(q)</a></li>
-<li class="chapter" data-level="5.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>5.7</b> ARMA og ARIMA</a></li>
-<li class="chapter" data-level="5.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>5.8</b> Modellbygging</a></li>
-<li class="chapter" data-level="5.9" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>5.9</b> Oppgaver</a></li>
-<li class="chapter" data-level="5.10" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.10</b> Relevante R-kommandoer</a></li>
+<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">5.1</span> Introduksjon til tidsrekker</a></li>
+<li><a href="trend-og-sesong.html#trend-og-sesong" id="toc-trend-og-sesong"><span class="toc-section-number">5.2</span> Trend og sesong</a></li>
+<li><a href="ar.html#ar" id="toc-ar"><span class="toc-section-number">5.3</span> AR(p)</a></li>
+<li><a href="stasjonaritet.html#stasjonaritet" id="toc-stasjonaritet"><span class="toc-section-number">5.4</span> Stasjonaritet</a></li>
+<li><a href="autokorrelasjon.html#autokorrelasjon" id="toc-autokorrelasjon"><span class="toc-section-number">5.5</span> Autokorrelasjon</a></li>
+<li><a href="ma.html#ma" id="toc-ma"><span class="toc-section-number">5.6</span> MA(q)</a></li>
+<li><a href="arma-arima.html#arma-arima" id="toc-arma-arima"><span class="toc-section-number">5.7</span> ARMA og ARIMA</a></li>
+<li><a href="modellbygging-1.html#modellbygging-1" id="toc-modellbygging-1"><span class="toc-section-number">5.8</span> Modellbygging</a></li>
+<li><a href="oppgaver-2.html#oppgaver-2" id="toc-oppgaver-2"><span class="toc-section-number">5.9</span> Oppgaver</a></li>
+<li><a href="relevante-r-tidsrekker.html#relevante-r-tidsrekker" id="toc-relevante-r-tidsrekker"><span class="toc-section-number">5.10</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæring</a>
+<li><a href="avansert-regresjon-og-maskinlæring.html#avansert-regresjon-og-maskinlæring" id="toc-avansert-regresjon-og-maskinlæring"><span class="toc-section-number">6</span> Avansert regresjon og maskinlæring</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>6.1</b> Logistisk regresjon</a></li>
-<li class="chapter" data-level="6.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>6.2</b> Introduksjon til maskinlæring med kNN</a></li>
-<li class="chapter" data-level="6.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>6.3</b> Paneldata</a></li>
-<li class="chapter" data-level="6.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>6.4</b> Oppgaver</a></li>
-<li class="chapter" data-level="6.5" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>6.5</b> Relevante R-kommandoer</a></li>
+<li><a href="logistisk-regresjon.html#logistisk-regresjon" id="toc-logistisk-regresjon"><span class="toc-section-number">6.1</span> Logistisk regresjon</a></li>
+<li><a href="introduksjon-til-maskinlæring-med-knn.html#introduksjon-til-maskinlæring-med-knn" id="toc-introduksjon-til-maskinlæring-med-knn"><span class="toc-section-number">6.2</span> Introduksjon til maskinlæring med kNN</a></li>
+<li><a href="paneldata.html#paneldata" id="toc-paneldata"><span class="toc-section-number">6.3</span> Paneldata</a></li>
+<li><a href="oppgaver-3.html#oppgaver-3" id="toc-oppgaver-3"><span class="toc-section-number">6.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-avansert-regresjon.html#relevante-r-avansert-regresjon" id="toc-relevante-r-avansert-regresjon"><span class="toc-section-number">6.5</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
+<li><a href="dataøvinger.html#dataøvinger" id="toc-dataøvinger"><span class="toc-section-number">7</span> Dataøvinger</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
-<li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
-<li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
-<li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
-<li class="chapter" data-level="7.5" data-path="dataøving-5.html"><a href="dataøving-5.html"><i class="fa fa-check"></i><b>7.5</b> Dataøving 5</a></li>
+<li><a href="dataøving-1.html#dataøving-1" id="toc-dataøving-1"><span class="toc-section-number">7.1</span> Dataøving 1</a></li>
+<li><a href="dataøving-2.html#dataøving-2" id="toc-dataøving-2"><span class="toc-section-number">7.2</span> Dataøving 2</a></li>
+<li><a href="dataøving-3.html#dataøving-3" id="toc-dataøving-3"><span class="toc-section-number">7.3</span> Dataøving 3</a></li>
+<li><a href="dataøving-4.html#dataøving-4" id="toc-dataøving-4"><span class="toc-section-number">7.4</span> Dataøving 4</a></li>
+<li><a href="dataøving-5.html#dataøving-5" id="toc-dataøving-5"><span class="toc-section-number">7.5</span> Dataøving 5</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8</b> Seminaroppgaver</a>
+<li><a href="seminar.html#seminar" id="toc-seminar"><span class="toc-section-number">8</span> Seminaroppgaver</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="seminar-1-grunnleggende-statistikk.html"><a href="seminar-1-grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>8.1</b> Seminar 1 - Grunnleggende statistikk</a></li>
-<li class="chapter" data-level="8.2" data-path="seminar-2-hypotesetesting.html"><a href="seminar-2-hypotesetesting.html"><i class="fa fa-check"></i><b>8.2</b> Seminar 2 - Hypotesetesting</a></li>
-<li class="chapter" data-level="8.3" data-path="seminar-3-regresjon-i.html"><a href="seminar-3-regresjon-i.html"><i class="fa fa-check"></i><b>8.3</b> Seminar 3 - Regresjon I</a></li>
-<li class="chapter" data-level="8.4" data-path="seminar-4-regresjon-ii.html"><a href="seminar-4-regresjon-ii.html"><i class="fa fa-check"></i><b>8.4</b> Seminar 4 - Regresjon II</a></li>
-<li class="chapter" data-level="8.5" data-path="seminar-5-tidsrekker.html"><a href="seminar-5-tidsrekker.html"><i class="fa fa-check"></i><b>8.5</b> Seminar 5 - Tidsrekker</a></li>
-<li class="chapter" data-level="8.6" data-path="seminar-6-avansert-regresjon-og-maskinlæring.html"><a href="seminar-6-avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>8.6</b> Seminar 6 - Avansert regresjon og maskinlæring</a></li>
+<li><a href="seminar-1---grunnleggende-statistikk.html#seminar-1---grunnleggende-statistikk" id="toc-seminar-1---grunnleggende-statistikk"><span class="toc-section-number">8.1</span> Seminar 1 - Grunnleggende statistikk</a></li>
+<li><a href="seminar-2---hypotesetesting.html#seminar-2---hypotesetesting" id="toc-seminar-2---hypotesetesting"><span class="toc-section-number">8.2</span> Seminar 2 - Hypotesetesting</a></li>
+<li><a href="seminar-3---regresjon-i.html#seminar-3---regresjon-i" id="toc-seminar-3---regresjon-i"><span class="toc-section-number">8.3</span> Seminar 3 - Regresjon I</a></li>
+<li><a href="seminar-4---regresjon-ii.html#seminar-4---regresjon-ii" id="toc-seminar-4---regresjon-ii"><span class="toc-section-number">8.4</span> Seminar 4 - Regresjon II</a></li>
+<li><a href="seminar-5---tidsrekker.html#seminar-5---tidsrekker" id="toc-seminar-5---tidsrekker"><span class="toc-section-number">8.5</span> Seminar 5 - Tidsrekker</a></li>
+<li><a href="seminar-6---avansert-regresjon-og-maskinlæring.html#seminar-6---avansert-regresjon-og-maskinlæring" id="toc-seminar-6---avansert-regresjon-og-maskinlæring"><span class="toc-section-number">8.6</span> Seminar 6 - Avansert regresjon og maskinlæring</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="eksamensoppgaver.html"><a href="eksamensoppgaver.html"><i class="fa fa-check"></i><b>9</b> Eksamensoppgaver</a>
+<li><a href="eksamensoppgaver.html#eksamensoppgaver" id="toc-eksamensoppgaver"><span class="toc-section-number">9</span> Eksamensoppgaver</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
-<li class="chapter" data-level="9.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li><a href="skoleeksamen.html#skoleeksamen" id="toc-skoleeksamen"><span class="toc-section-number">9.1</span> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html#tidligere-eksamensoppgaver-hjemmeeksamen" id="toc-tidligere-eksamensoppgaver-hjemmeeksamen"><span class="toc-section-number">9.2</span> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -258,14 +261,14 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Det antas at du har kontroll på hvilken mappesti R bruker, og at du kan forandre den dersom nødvendig.</p>
 <p>I denne modulen kan du anta at alle datasett består av <span class="math inline">\(p\)</span> kolonner (variabler) med variabelnavn og <span class="math inline">\(n\)</span> rader (observasjoner). Datasettene blir gitt enten som Excel-filer (<code>.xls</code> elle <code>.xlsx</code>) eller som <code>.csv</code>-filer. Dersom du ønsker å prøve på kommandoene selv, kan du laste ned følgende eksempelfiler: <a href="datasett/data.xls">data.xls</a>, <a href="datasett/data.xlsx">data.xlsx</a>, <a href="datasett/data.csv">data.csv</a>.</p>
 <p>Excel-filer kan leses inn i R ved hjelp av <code>read_excel()</code> som ligger i <code>readxl</code>-pakken:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="relevant-r-grunnleggende.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb27-2"><a href="relevant-r-grunnleggende.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="relevant-r-grunnleggende.html#cb27-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xls&quot;</span>)</span>
-<span id="cb27-4"><a href="relevant-r-grunnleggende.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ...eller dersom det er en .xlsx-fil:</span></span>
-<span id="cb27-5"><a href="relevant-r-grunnleggende.html#cb27-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="relevant-r-grunnleggende.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb28-2"><a href="relevant-r-grunnleggende.html#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="relevant-r-grunnleggende.html#cb28-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xls&quot;</span>)</span>
+<span id="cb28-4"><a href="relevant-r-grunnleggende.html#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ...eller dersom det er en .xlsx-fil:</span></span>
+<span id="cb28-5"><a href="relevant-r-grunnleggende.html#cb28-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xlsx&quot;</span>)</span></code></pre></div>
 <p><code>.csv</code>-filer kan lastes inn i R ved hjelp av <code>read_csv()</code> som ligger i <code>readr</code>-pakken:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="relevant-r-grunnleggende.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb28-2"><a href="relevant-r-grunnleggende.html#cb28-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="relevant-r-grunnleggende.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb29-2"><a href="relevant-r-grunnleggende.html#cb29-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
 <p>“csv” er en forkortelse for “comma separated values”, og grunnen til det kan du se ved å åpne opp <code>data.csv</code> i en ren tekst-editor. Da ser du at verdiene på rekken er separert med et komma. Av og til har disse filene litt andre formater, så vi må kunne håndtere følgende varianter:</p>
 <ul>
 <li>Dersom det ikke er komma som er brukt til å separere verdiene (det kan du alltid sjekke ved å se på filen i en tekst-editor), så kan du bruke funksjonen <code>read_delim</code> i stedet for <code>read_csv</code>, og bruke et argument for å spesifisere hvilket tegn som er brukt. Dersom det for eksempel er brukt semikolon “;”, kan du lese datasettet ved å bruke <code>read_delim("data.xlsx", delim = ";")</code>.</li>
@@ -276,63 +279,63 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="numerisk-deskriptiv-statistikk" class="section level3 unnumbered">
 <h3>Numerisk deskriptiv statistikk</h3>
 <p>Vi bruker eksempeldatasettene <a href="datasett/data_survey.csv">data_survey.csv</a> og <a href="datasett/data_fishermen_mercury.csv">data_fishermen_mercury.csv</a> som eksempler. Du skal kunne bruke følgende funksjoner for å regne ut numerisk deskriptiv statistikk:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="relevant-r-grunnleggende.html#cb29-1" aria-hidden="true" tabindex="-1"></a>survey    <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_survey.csv&quot;</span>)</span>
-<span id="cb29-2"><a href="relevant-r-grunnleggende.html#cb29-2" aria-hidden="true" tabindex="-1"></a>fishermen <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_fishermen_mercury.csv&quot;</span>)</span>
-<span id="cb29-3"><a href="relevant-r-grunnleggende.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="relevant-r-grunnleggende.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(survey<span class="sc">$</span>age)                          <span class="co"># Gjennomsnitt</span></span>
-<span id="cb29-5"><a href="relevant-r-grunnleggende.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(survey<span class="sc">$</span>age)                        <span class="co"># Median</span></span>
-<span id="cb29-6"><a href="relevant-r-grunnleggende.html#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="relevant-r-grunnleggende.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>party)                       <span class="co"># Kan lese av typetallet manuelt.</span></span>
-<span id="cb29-8"><a href="relevant-r-grunnleggende.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">table</span>(survey<span class="sc">$</span>party))            <span class="co"># Eller bruke funksjonen which.max()</span></span>
-<span id="cb29-9"><a href="relevant-r-grunnleggende.html#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-10"><a href="relevant-r-grunnleggende.html#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(fishermen<span class="sc">$</span>total_mercury)               <span class="co"># Standardavvik</span></span>
-<span id="cb29-11"><a href="relevant-r-grunnleggende.html#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury, <span class="fl">0.20</span>)   <span class="co"># Kvantiler</span></span>
-<span id="cb29-12"><a href="relevant-r-grunnleggende.html#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury)         <span class="co"># Kvartilene</span></span>
-<span id="cb29-13"><a href="relevant-r-grunnleggende.html#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="relevant-r-grunnleggende.html#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(fishermen<span class="sc">$</span>height, fishermen<span class="sc">$</span>weight)   <span class="co"># Korrelasjonskoeffisient</span></span>
-<span id="cb29-15"><a href="relevant-r-grunnleggende.html#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>religious)                   <span class="co"># Frekvenstabell </span></span>
-<span id="cb29-16"><a href="relevant-r-grunnleggende.html#cb29-16" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span>                                <span class="co"># Krysstabell av to variabler (krever</span></span>
-<span id="cb29-17"><a href="relevant-r-grunnleggende.html#cb29-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(party, religious) <span class="sc">%&gt;%</span>            <span class="co"># pipe-operatoren og select()-funks.  </span></span>
-<span id="cb29-18"><a href="relevant-r-grunnleggende.html#cb29-18" aria-hidden="true" tabindex="-1"></a>  table                                   <span class="co"># fra dplyr-pakken)</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="relevant-r-grunnleggende.html#cb30-1" aria-hidden="true" tabindex="-1"></a>survey    <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_survey.csv&quot;</span>)</span>
+<span id="cb30-2"><a href="relevant-r-grunnleggende.html#cb30-2" aria-hidden="true" tabindex="-1"></a>fishermen <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_fishermen_mercury.csv&quot;</span>)</span>
+<span id="cb30-3"><a href="relevant-r-grunnleggende.html#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="relevant-r-grunnleggende.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(survey<span class="sc">$</span>age)                          <span class="co"># Gjennomsnitt</span></span>
+<span id="cb30-5"><a href="relevant-r-grunnleggende.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(survey<span class="sc">$</span>age)                        <span class="co"># Median</span></span>
+<span id="cb30-6"><a href="relevant-r-grunnleggende.html#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="relevant-r-grunnleggende.html#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>party)                       <span class="co"># Kan lese av typetallet manuelt.</span></span>
+<span id="cb30-8"><a href="relevant-r-grunnleggende.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">table</span>(survey<span class="sc">$</span>party))            <span class="co"># Eller bruke funksjonen which.max()</span></span>
+<span id="cb30-9"><a href="relevant-r-grunnleggende.html#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="relevant-r-grunnleggende.html#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(fishermen<span class="sc">$</span>total_mercury)               <span class="co"># Standardavvik</span></span>
+<span id="cb30-11"><a href="relevant-r-grunnleggende.html#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury, <span class="fl">0.20</span>)   <span class="co"># Kvantiler</span></span>
+<span id="cb30-12"><a href="relevant-r-grunnleggende.html#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury)         <span class="co"># Kvartilene</span></span>
+<span id="cb30-13"><a href="relevant-r-grunnleggende.html#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-14"><a href="relevant-r-grunnleggende.html#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(fishermen<span class="sc">$</span>height, fishermen<span class="sc">$</span>weight)   <span class="co"># Korrelasjonskoeffisient</span></span>
+<span id="cb30-15"><a href="relevant-r-grunnleggende.html#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>religious)                   <span class="co"># Frekvenstabell </span></span>
+<span id="cb30-16"><a href="relevant-r-grunnleggende.html#cb30-16" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span>                                <span class="co"># Krysstabell av to variabler (krever</span></span>
+<span id="cb30-17"><a href="relevant-r-grunnleggende.html#cb30-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(party, religious) <span class="sc">%&gt;%</span>            <span class="co"># pipe-operatoren og select()-funks.  </span></span>
+<span id="cb30-18"><a href="relevant-r-grunnleggende.html#cb30-18" aria-hidden="true" tabindex="-1"></a>  table                                   <span class="co"># fra dplyr-pakken)</span></span></code></pre></div>
 </div>
 <div id="grafisk-deskriptiv-statistikk-med-ggplot2" class="section level3 unnumbered">
 <h3>Grafisk deskriptiv statistikk med <code>ggplot2</code></h3>
 <p>Du skal kunne lage følgende plott ved hjelp av <code>ggplot2</code>-pakken;</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="relevant-r-grunnleggende.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb30-2"><a href="relevant-r-grunnleggende.html#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="relevant-r-grunnleggende.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Boksplott</span></span>
-<span id="cb30-4"><a href="relevant-r-grunnleggende.html#cb30-4" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb30-5"><a href="relevant-r-grunnleggende.html#cb30-5" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
-<span id="cb30-6"><a href="relevant-r-grunnleggende.html#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury)) </span>
-<span id="cb30-7"><a href="relevant-r-grunnleggende.html#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-8"><a href="relevant-r-grunnleggende.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Deler opp i grupper basert på en annen variabel</span></span>
-<span id="cb30-9"><a href="relevant-r-grunnleggende.html#cb30-9" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb30-10"><a href="relevant-r-grunnleggende.html#cb30-10" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
-<span id="cb30-11"><a href="relevant-r-grunnleggende.html#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury, <span class="at">x =</span> <span class="fu">as.factor</span>(fisherman))) </span>
-<span id="cb30-12"><a href="relevant-r-grunnleggende.html#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-13"><a href="relevant-r-grunnleggende.html#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Søylediagram</span></span>
-<span id="cb30-14"><a href="relevant-r-grunnleggende.html#cb30-14" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb30-15"><a href="relevant-r-grunnleggende.html#cb30-15" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
-<span id="cb30-16"><a href="relevant-r-grunnleggende.html#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(religious)))</span>
-<span id="cb30-17"><a href="relevant-r-grunnleggende.html#cb30-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-18"><a href="relevant-r-grunnleggende.html#cb30-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
-<span id="cb30-19"><a href="relevant-r-grunnleggende.html#cb30-19" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb30-20"><a href="relevant-r-grunnleggende.html#cb30-20" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
-<span id="cb30-21"><a href="relevant-r-grunnleggende.html#cb30-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> age))</span>
-<span id="cb30-22"><a href="relevant-r-grunnleggende.html#cb30-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-23"><a href="relevant-r-grunnleggende.html#cb30-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Spredningsplott</span></span>
-<span id="cb30-24"><a href="relevant-r-grunnleggende.html#cb30-24" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb30-25"><a href="relevant-r-grunnleggende.html#cb30-25" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
-<span id="cb30-26"><a href="relevant-r-grunnleggende.html#cb30-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight))</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="relevant-r-grunnleggende.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb31-2"><a href="relevant-r-grunnleggende.html#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="relevant-r-grunnleggende.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Boksplott</span></span>
+<span id="cb31-4"><a href="relevant-r-grunnleggende.html#cb31-4" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
+<span id="cb31-5"><a href="relevant-r-grunnleggende.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
+<span id="cb31-6"><a href="relevant-r-grunnleggende.html#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury)) </span>
+<span id="cb31-7"><a href="relevant-r-grunnleggende.html#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="relevant-r-grunnleggende.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Deler opp i grupper basert på en annen variabel</span></span>
+<span id="cb31-9"><a href="relevant-r-grunnleggende.html#cb31-9" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
+<span id="cb31-10"><a href="relevant-r-grunnleggende.html#cb31-10" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
+<span id="cb31-11"><a href="relevant-r-grunnleggende.html#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury, <span class="at">x =</span> <span class="fu">as.factor</span>(fisherman))) </span>
+<span id="cb31-12"><a href="relevant-r-grunnleggende.html#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="relevant-r-grunnleggende.html#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Søylediagram</span></span>
+<span id="cb31-14"><a href="relevant-r-grunnleggende.html#cb31-14" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
+<span id="cb31-15"><a href="relevant-r-grunnleggende.html#cb31-15" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
+<span id="cb31-16"><a href="relevant-r-grunnleggende.html#cb31-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(religious)))</span>
+<span id="cb31-17"><a href="relevant-r-grunnleggende.html#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-18"><a href="relevant-r-grunnleggende.html#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram</span></span>
+<span id="cb31-19"><a href="relevant-r-grunnleggende.html#cb31-19" aria-hidden="true" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
+<span id="cb31-20"><a href="relevant-r-grunnleggende.html#cb31-20" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
+<span id="cb31-21"><a href="relevant-r-grunnleggende.html#cb31-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> age))</span>
+<span id="cb31-22"><a href="relevant-r-grunnleggende.html#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-23"><a href="relevant-r-grunnleggende.html#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Spredningsplott</span></span>
+<span id="cb31-24"><a href="relevant-r-grunnleggende.html#cb31-24" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
+<span id="cb31-25"><a href="relevant-r-grunnleggende.html#cb31-25" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
+<span id="cb31-26"><a href="relevant-r-grunnleggende.html#cb31-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight))</span></code></pre></div>
 <p>Du skal kunne grunnleggende bearbeiding av <code>ggplot</code>-figurer:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="relevant-r-grunnleggende.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En bearbeidet variant</span></span>
-<span id="cb31-2"><a href="relevant-r-grunnleggende.html#cb31-2" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb31-3"><a href="relevant-r-grunnleggende.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
-<span id="cb31-4"><a href="relevant-r-grunnleggende.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span>          <span class="co"># Dette er selve figuren</span></span>
-<span id="cb31-5"><a href="relevant-r-grunnleggende.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Høyde&quot;</span>) <span class="sc">+</span>                                    <span class="co"># Tittel x-akse</span></span>
-<span id="cb31-6"><a href="relevant-r-grunnleggende.html#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Vekt&quot;</span>) <span class="sc">+</span>                                     <span class="co"># Tittel y-akse</span></span>
-<span id="cb31-7"><a href="relevant-r-grunnleggende.html#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sammenheng mellom høyde og vekt&quot;</span>) <span class="sc">+</span>       <span class="co"># Tittel plott</span></span>
-<span id="cb31-8"><a href="relevant-r-grunnleggende.html#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()                                    <span class="co"># Ryddig layout</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="relevant-r-grunnleggende.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># En bearbeidet variant</span></span>
+<span id="cb32-2"><a href="relevant-r-grunnleggende.html#cb32-2" aria-hidden="true" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="relevant-r-grunnleggende.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
+<span id="cb32-4"><a href="relevant-r-grunnleggende.html#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span>          <span class="co"># Dette er selve figuren</span></span>
+<span id="cb32-5"><a href="relevant-r-grunnleggende.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Høyde&quot;</span>) <span class="sc">+</span>                                    <span class="co"># Tittel x-akse</span></span>
+<span id="cb32-6"><a href="relevant-r-grunnleggende.html#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Vekt&quot;</span>) <span class="sc">+</span>                                     <span class="co"># Tittel y-akse</span></span>
+<span id="cb32-7"><a href="relevant-r-grunnleggende.html#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sammenheng mellom høyde og vekt&quot;</span>) <span class="sc">+</span>       <span class="co"># Tittel plott</span></span>
+<span id="cb32-8"><a href="relevant-r-grunnleggende.html#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()                                    <span class="co"># Ryddig layout</span></span></code></pre></div>
 <!-- I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen). -->
 <!-- Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave. -->
 <!-- **På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.** -->
@@ -358,7 +361,6 @@ Publisert ved hjelp av bookdown</a></li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -377,6 +379,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -397,6 +400,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "toc_depth": 4

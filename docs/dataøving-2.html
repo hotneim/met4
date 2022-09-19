@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.2 Dataøving 2 | MET4 - Empiriske Metoder - Høst 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.2 Dataøving 2 | MET4 - Empiriske Metoder - Høst 2022" />
   <meta property="og:type" content="book" />
@@ -33,7 +33,8 @@
 <link rel="prev" href="dataøving-1.html"/>
 <link rel="next" href="dataøving-3.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
 
 
 
-
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
@@ -128,6 +130,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -145,87 +148,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
-<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
+<li><a href="index.html#innledning" id="toc-innledning">Innledning</a></li>
+<li><a href="introduksjon-til-r.html#introduksjon-til-r" id="toc-introduksjon-til-r"><span class="toc-section-number">1</span> Introduksjon til R</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
-<li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
-<li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
-<li class="chapter" data-level="1.4" data-path="pakker.html"><a href="pakker.html"><i class="fa fa-check"></i><b>1.4</b> Pakker</a></li>
-<li class="chapter" data-level="1.5" data-path="mappesti.html"><a href="mappesti.html"><i class="fa fa-check"></i><b>1.5</b> Mappesti</a></li>
-<li class="chapter" data-level="1.6" data-path="innlesing-av-data.html"><a href="innlesing-av-data.html"><i class="fa fa-check"></i><b>1.6</b> Innlesing av data</a></li>
-<li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
-<li class="chapter" data-level="1.8" data-path="r-plotting.html"><a href="r-plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
-<li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
-<li class="chapter" data-level="1.10" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
-<li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
+<li><a href="en-gjennomgang-av-rstudio.html#en-gjennomgang-av-rstudio" id="toc-en-gjennomgang-av-rstudio"><span class="toc-section-number">1.1</span> En gjennomgang av RStudio</a></li>
+<li><a href="enkle-beregninger-og-variabler.html#enkle-beregninger-og-variabler" id="toc-enkle-beregninger-og-variabler"><span class="toc-section-number">1.2</span> Enkle beregninger og variabler</a></li>
+<li><a href="vektorer.html#vektorer" id="toc-vektorer"><span class="toc-section-number">1.3</span> Vektorer</a></li>
+<li><a href="pakker.html#pakker" id="toc-pakker"><span class="toc-section-number">1.4</span> Pakker</a></li>
+<li><a href="mappesti.html#mappesti" id="toc-mappesti"><span class="toc-section-number">1.5</span> Mappesti</a></li>
+<li><a href="innlesing-av-data.html#innlesing-av-data" id="toc-innlesing-av-data"><span class="toc-section-number">1.6</span> Innlesing av data</a></li>
+<li><a href="statistiske-analyser.html#statistiske-analyser" id="toc-statistiske-analyser"><span class="toc-section-number">1.7</span> Statistiske analyser</a></li>
+<li><a href="r-plotting.html#r-plotting" id="toc-r-plotting"><span class="toc-section-number">1.8</span> Plotting</a></li>
+<li><a href="script.html#script" id="toc-script"><span class="toc-section-number">1.9</span> Script</a></li>
+<li><a href="pipe.html#pipe" id="toc-pipe"><span class="toc-section-number">1.10</span> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li><a href="r-ekstra.html#r-ekstra" id="toc-r-ekstra"><span class="toc-section-number">1.11</span> Oppsummering og ekstra oppgaver</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
+<li><a href="grunnleggende-statistikk.html#grunnleggende-statistikk" id="toc-grunnleggende-statistikk"><span class="toc-section-number">2</span> Grunnleggende statistikk</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
-<li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
-<li class="chapter" data-level="2.3" data-path="oppgaverdeskriptiv.html"><a href="oppgaverdeskriptiv.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
-<li class="chapter" data-level="2.4" data-path="relevant-r-grunnleggende.html"><a href="relevant-r-grunnleggende.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
+<li><a href="deskriptiv-statistikk.html#deskriptiv-statistikk" id="toc-deskriptiv-statistikk"><span class="toc-section-number">2.1</span> Deskriptiv statistikk</a></li>
+<li><a href="utvalg-og-estimering.html#utvalg-og-estimering" id="toc-utvalg-og-estimering"><span class="toc-section-number">2.2</span> Utvalg og estimering</a></li>
+<li><a href="oppgaverdeskriptiv.html#oppgaverdeskriptiv" id="toc-oppgaverdeskriptiv"><span class="toc-section-number">2.3</span> Oppgaver</a></li>
+<li><a href="relevant-r-grunnleggende.html#relevant-r-grunnleggende" id="toc-relevant-r-grunnleggende"><span class="toc-section-number">2.4</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
+<li><a href="hypotesetesting.html#hypotesetesting" id="toc-hypotesetesting"><span class="toc-section-number">3</span> Hypotesetesting</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
-<li class="chapter" data-level="3.2" data-path="enpop.html"><a href="enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
-<li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
-<li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
-<li class="chapter" data-level="3.5" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
-<li class="chapter" data-level="3.6" data-path="relevante-r-testing.html"><a href="relevante-r-testing.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
+<li><a href="generelt-om-hypotesetesting.html#generelt-om-hypotesetesting" id="toc-generelt-om-hypotesetesting"><span class="toc-section-number">3.1</span> Generelt om hypotesetesting</a></li>
+<li><a href="enpop.html#enpop" id="toc-enpop"><span class="toc-section-number">3.2</span> Inferens om en populasjon</a></li>
+<li><a href="inferens-om-to-populasjoner.html#inferens-om-to-populasjoner" id="toc-inferens-om-to-populasjoner"><span class="toc-section-number">3.3</span> Inferens om to populasjoner</a></li>
+<li><a href="kjikvadrattester.html#kjikvadrattester" id="toc-kjikvadrattester"><span class="toc-section-number">3.4</span> Kjikvadrattester</a></li>
+<li><a href="oppgaver.html#oppgaver" id="toc-oppgaver"><span class="toc-section-number">3.5</span> Oppgaver</a></li>
+<li><a href="relevante-r-testing.html#relevante-r-testing" id="toc-relevante-r-testing"><span class="toc-section-number">3.6</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
+<li><a href="regresjon.html#regresjon" id="toc-regresjon"><span class="toc-section-number">4</span> Regresjon</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
-<li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
-<li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
-<li class="chapter" data-level="4.4" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
-<li class="chapter" data-level="4.5" data-path="relevante-r-regresjon.html"><a href="relevante-r-regresjon.html"><i class="fa fa-check"></i><b>4.5</b> Relevante R-kommandoer</a></li>
+<li><a href="enkel-regresjon.html#enkel-regresjon" id="toc-enkel-regresjon"><span class="toc-section-number">4.1</span> Enkel regresjon</a></li>
+<li><a href="multippel-regresjon.html#multippel-regresjon" id="toc-multippel-regresjon"><span class="toc-section-number">4.2</span> Multippel regresjon</a></li>
+<li><a href="modellbygging.html#modellbygging" id="toc-modellbygging"><span class="toc-section-number">4.3</span> Modellbygging</a></li>
+<li><a href="oppgaver-1.html#oppgaver-1" id="toc-oppgaver-1"><span class="toc-section-number">4.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-regresjon.html#relevante-r-regresjon" id="toc-relevante-r-regresjon"><span class="toc-section-number">4.5</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>5</b> Tidsrekker</a>
+<li><a href="tidsrekker.html#tidsrekker" id="toc-tidsrekker"><span class="toc-section-number">5</span> Tidsrekker</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>5.1</b> Introduksjon til tidsrekker</a></li>
-<li class="chapter" data-level="5.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>5.2</b> Trend og sesong</a></li>
-<li class="chapter" data-level="5.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>5.3</b> AR(p)</a></li>
-<li class="chapter" data-level="5.4" data-path="stasjonaritet.html"><a href="stasjonaritet.html"><i class="fa fa-check"></i><b>5.4</b> Stasjonaritet</a></li>
-<li class="chapter" data-level="5.5" data-path="autokorrelasjon.html"><a href="autokorrelasjon.html"><i class="fa fa-check"></i><b>5.5</b> Autokorrelasjon</a></li>
-<li class="chapter" data-level="5.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>5.6</b> MA(q)</a></li>
-<li class="chapter" data-level="5.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>5.7</b> ARMA og ARIMA</a></li>
-<li class="chapter" data-level="5.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>5.8</b> Modellbygging</a></li>
-<li class="chapter" data-level="5.9" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>5.9</b> Oppgaver</a></li>
-<li class="chapter" data-level="5.10" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.10</b> Relevante R-kommandoer</a></li>
+<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">5.1</span> Introduksjon til tidsrekker</a></li>
+<li><a href="trend-og-sesong.html#trend-og-sesong" id="toc-trend-og-sesong"><span class="toc-section-number">5.2</span> Trend og sesong</a></li>
+<li><a href="ar.html#ar" id="toc-ar"><span class="toc-section-number">5.3</span> AR(p)</a></li>
+<li><a href="stasjonaritet.html#stasjonaritet" id="toc-stasjonaritet"><span class="toc-section-number">5.4</span> Stasjonaritet</a></li>
+<li><a href="autokorrelasjon.html#autokorrelasjon" id="toc-autokorrelasjon"><span class="toc-section-number">5.5</span> Autokorrelasjon</a></li>
+<li><a href="ma.html#ma" id="toc-ma"><span class="toc-section-number">5.6</span> MA(q)</a></li>
+<li><a href="arma-arima.html#arma-arima" id="toc-arma-arima"><span class="toc-section-number">5.7</span> ARMA og ARIMA</a></li>
+<li><a href="modellbygging-1.html#modellbygging-1" id="toc-modellbygging-1"><span class="toc-section-number">5.8</span> Modellbygging</a></li>
+<li><a href="oppgaver-2.html#oppgaver-2" id="toc-oppgaver-2"><span class="toc-section-number">5.9</span> Oppgaver</a></li>
+<li><a href="relevante-r-tidsrekker.html#relevante-r-tidsrekker" id="toc-relevante-r-tidsrekker"><span class="toc-section-number">5.10</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæring</a>
+<li><a href="avansert-regresjon-og-maskinlæring.html#avansert-regresjon-og-maskinlæring" id="toc-avansert-regresjon-og-maskinlæring"><span class="toc-section-number">6</span> Avansert regresjon og maskinlæring</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>6.1</b> Logistisk regresjon</a></li>
-<li class="chapter" data-level="6.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>6.2</b> Introduksjon til maskinlæring med kNN</a></li>
-<li class="chapter" data-level="6.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>6.3</b> Paneldata</a></li>
-<li class="chapter" data-level="6.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>6.4</b> Oppgaver</a></li>
-<li class="chapter" data-level="6.5" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>6.5</b> Relevante R-kommandoer</a></li>
+<li><a href="logistisk-regresjon.html#logistisk-regresjon" id="toc-logistisk-regresjon"><span class="toc-section-number">6.1</span> Logistisk regresjon</a></li>
+<li><a href="introduksjon-til-maskinlæring-med-knn.html#introduksjon-til-maskinlæring-med-knn" id="toc-introduksjon-til-maskinlæring-med-knn"><span class="toc-section-number">6.2</span> Introduksjon til maskinlæring med kNN</a></li>
+<li><a href="paneldata.html#paneldata" id="toc-paneldata"><span class="toc-section-number">6.3</span> Paneldata</a></li>
+<li><a href="oppgaver-3.html#oppgaver-3" id="toc-oppgaver-3"><span class="toc-section-number">6.4</span> Oppgaver</a></li>
+<li><a href="relevante-r-avansert-regresjon.html#relevante-r-avansert-regresjon" id="toc-relevante-r-avansert-regresjon"><span class="toc-section-number">6.5</span> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
+<li><a href="dataøvinger.html#dataøvinger" id="toc-dataøvinger"><span class="toc-section-number">7</span> Dataøvinger</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="dataøving-1.html"><a href="dataøving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
-<li class="chapter" data-level="7.2" data-path="dataøving-2.html"><a href="dataøving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
-<li class="chapter" data-level="7.3" data-path="dataøving-3.html"><a href="dataøving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
-<li class="chapter" data-level="7.4" data-path="dataøving-4.html"><a href="dataøving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
-<li class="chapter" data-level="7.5" data-path="dataøving-5.html"><a href="dataøving-5.html"><i class="fa fa-check"></i><b>7.5</b> Dataøving 5</a></li>
+<li><a href="dataøving-1.html#dataøving-1" id="toc-dataøving-1"><span class="toc-section-number">7.1</span> Dataøving 1</a></li>
+<li><a href="dataøving-2.html#dataøving-2" id="toc-dataøving-2"><span class="toc-section-number">7.2</span> Dataøving 2</a></li>
+<li><a href="dataøving-3.html#dataøving-3" id="toc-dataøving-3"><span class="toc-section-number">7.3</span> Dataøving 3</a></li>
+<li><a href="dataøving-4.html#dataøving-4" id="toc-dataøving-4"><span class="toc-section-number">7.4</span> Dataøving 4</a></li>
+<li><a href="dataøving-5.html#dataøving-5" id="toc-dataøving-5"><span class="toc-section-number">7.5</span> Dataøving 5</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8</b> Seminaroppgaver</a>
+<li><a href="seminar.html#seminar" id="toc-seminar"><span class="toc-section-number">8</span> Seminaroppgaver</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="seminar-1-grunnleggende-statistikk.html"><a href="seminar-1-grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>8.1</b> Seminar 1 - Grunnleggende statistikk</a></li>
-<li class="chapter" data-level="8.2" data-path="seminar-2-hypotesetesting.html"><a href="seminar-2-hypotesetesting.html"><i class="fa fa-check"></i><b>8.2</b> Seminar 2 - Hypotesetesting</a></li>
-<li class="chapter" data-level="8.3" data-path="seminar-3-regresjon-i.html"><a href="seminar-3-regresjon-i.html"><i class="fa fa-check"></i><b>8.3</b> Seminar 3 - Regresjon I</a></li>
-<li class="chapter" data-level="8.4" data-path="seminar-4-regresjon-ii.html"><a href="seminar-4-regresjon-ii.html"><i class="fa fa-check"></i><b>8.4</b> Seminar 4 - Regresjon II</a></li>
-<li class="chapter" data-level="8.5" data-path="seminar-5-tidsrekker.html"><a href="seminar-5-tidsrekker.html"><i class="fa fa-check"></i><b>8.5</b> Seminar 5 - Tidsrekker</a></li>
-<li class="chapter" data-level="8.6" data-path="seminar-6-avansert-regresjon-og-maskinlæring.html"><a href="seminar-6-avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>8.6</b> Seminar 6 - Avansert regresjon og maskinlæring</a></li>
+<li><a href="seminar-1---grunnleggende-statistikk.html#seminar-1---grunnleggende-statistikk" id="toc-seminar-1---grunnleggende-statistikk"><span class="toc-section-number">8.1</span> Seminar 1 - Grunnleggende statistikk</a></li>
+<li><a href="seminar-2---hypotesetesting.html#seminar-2---hypotesetesting" id="toc-seminar-2---hypotesetesting"><span class="toc-section-number">8.2</span> Seminar 2 - Hypotesetesting</a></li>
+<li><a href="seminar-3---regresjon-i.html#seminar-3---regresjon-i" id="toc-seminar-3---regresjon-i"><span class="toc-section-number">8.3</span> Seminar 3 - Regresjon I</a></li>
+<li><a href="seminar-4---regresjon-ii.html#seminar-4---regresjon-ii" id="toc-seminar-4---regresjon-ii"><span class="toc-section-number">8.4</span> Seminar 4 - Regresjon II</a></li>
+<li><a href="seminar-5---tidsrekker.html#seminar-5---tidsrekker" id="toc-seminar-5---tidsrekker"><span class="toc-section-number">8.5</span> Seminar 5 - Tidsrekker</a></li>
+<li><a href="seminar-6---avansert-regresjon-og-maskinlæring.html#seminar-6---avansert-regresjon-og-maskinlæring" id="toc-seminar-6---avansert-regresjon-og-maskinlæring"><span class="toc-section-number">8.6</span> Seminar 6 - Avansert regresjon og maskinlæring</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="eksamensoppgaver.html"><a href="eksamensoppgaver.html"><i class="fa fa-check"></i><b>9</b> Eksamensoppgaver</a>
+<li><a href="eksamensoppgaver.html#eksamensoppgaver" id="toc-eksamensoppgaver"><span class="toc-section-number">9</span> Eksamensoppgaver</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
-<li class="chapter" data-level="9.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li><a href="skoleeksamen.html#skoleeksamen" id="toc-skoleeksamen"><span class="toc-section-number">9.1</span> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
+<li><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html#tidligere-eksamensoppgaver-hjemmeeksamen" id="toc-tidligere-eksamensoppgaver-hjemmeeksamen"><span class="toc-section-number">9.2</span> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -255,8 +258,8 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="interaktiv-øvelse" class="section level3" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Interaktiv øvelse</h3>
 <p>Før vi tar fatt på dataanalysen begynner vi med litt R-trening i swirl. Har du allerede installert pakken <code>swirl</code> (skriv <code>install.packages("swirl")</code> i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="dataøving-2.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
-<span id="cb224-2"><a href="dataøving-2.html#cb224-2" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="dataøving-2.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
+<span id="cb247-2"><a href="dataøving-2.html#cb247-2" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn. Hvis du bruker samme navn som tidligere får du kanskje tilbud om å starte opp igjen der du slapp, men da kan du bare velge det nederste valget ‘No. Let me start something new’. Du velger så alternativet ‘R Programming’ hvor du får se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul 6 <strong>‘Subsetting Vectors’</strong> og modul 8 <strong>‘Logic’</strong>.</p>
 <p>Husk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl () før du begynner på neste del av datalabben. Lykke til!</p>
 </div>
@@ -270,9 +273,9 @@ Publisert ved hjelp av bookdown</a></li>
 <li><a href="datasett/roubik_2002_coffe_yield.xlsx"><code>roubik_2002_coffee_yield.xlsx</code></a></li>
 </ul>
 <p>Last ned disse filene og legg dem i en mappe på datamaskinen din. Åpne så <strong>RStudio</strong>, velg <code>File -&gt; New File -&gt; R Script</code> for å åpne et nytt Rscript, og lag gjerne en liten overskrift ved hjelp av kommentartegnet <code>#</code>. Lagre så scriptet ditt i samme mappen som du har lagt datasettene, slik at du nå har en mappe som ser ut som figuren under:</p>
-<p><img src="bilder/mappe2.png" width="381" /></p>
+<p><img src="bilder/mappe2.png" /><!-- --></p>
 <p>Det neste du må gjøre er å sørge for at du har satt opp riktig mappesti (working directory) i <strong>RStudio</strong>, og det gjør du raskest ved å velge <code>Session -&gt; Set Working Directory -&gt; To Source File Location</code>. Neste gang du skal jobbe med dette prosjektet kan du åpne <strong>RStudio</strong> ved å dobbeltklikke på <code>dataøving2.R</code>, og mappestien skal da settes automatisk til riktig mappe. I alle tilfeller skal vinduet ditt se omtrent slik ut:</p>
-<p><img src="bilder/rstudio2.png" width="210" /></p>
+<p><img src="bilder/rstudio2.png" /><!-- --></p>
 </div>
 <div id="oppgaver-til-øvingen" class="section level3" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> Oppgaver til øvingen:</h3>
@@ -282,9 +285,9 @@ Publisert ved hjelp av bookdown</a></li>
 <p>En liten kaffeplantasje i Costa Rica har begynt å eksperimentere med en ny kombinasjon av sprøytemidler som skal være like effektiv mot ugress, men samtidig enda mer skånsom mot kaffeplantene, slik at avlingen blir større. Innehaveren av plantasjen ønsker å sette opp et eksperiment for å undersøke denne påstanden. Han velger ut 25 tilfeldige jordlapper fordelt på hele eiendommen der han bruker de nye sprøytemidlene gjennom en hel sesong.</p>
 <p>Lang erfaring har vist at avlingen ved bruk av gammel metode er normalfordelt med forventning <span class="math inline">\(\mu = 100\)</span> og standardavvik <span class="math inline">\(\sigma = 10\)</span>, der vi har brukt en standardisert enhet for mengde avling per arealenhet. Hjelp bonden, ved å løse følgende oppgaver:</p>
 <p><strong>Oppgave 1.1:</strong> Les inn datasettet <code>testdatasdata.xsl</code> i <strong>RStudio</strong> og se på de første par radene. Det kan du gjøre ved å kjøre følgende kodelinjer:</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="dataøving-2.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)                                 <span class="co"># Pakke for å lese excel-filer</span></span>
-<span id="cb225-2"><a href="dataøving-2.html#cb225-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;testdata.xls&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
-<span id="cb225-3"><a href="dataøving-2.html#cb225-3" aria-hidden="true" tabindex="-1"></a>data                                            <span class="co"># Ser på datasettet</span></span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="dataøving-2.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)                                 <span class="co"># Pakke for å lese excel-filer</span></span>
+<span id="cb248-2"><a href="dataøving-2.html#cb248-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;testdata.xls&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
+<span id="cb248-3"><a href="dataøving-2.html#cb248-3" aria-hidden="true" tabindex="-1"></a>data                                            <span class="co"># Ser på datasettet</span></span></code></pre></div>
 <pre><code>## # A tibble: 25 x 4
 ##       X1    X2    A1    A2
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -309,20 +312,20 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Vi skal i denne oppgaven se på oppgave <strong>1a</strong> og <strong>1b</strong> som ble gitt på skoleeksamen i MET4 vårsemesteret 2019. Dette er det samme datasettet som vi så på i forrige dataøving. I <a href="https://journals.sagepub.com/doi/10.1177/0956797619829688">et amerikansk forsøk</a> ville man undersøke påstanden om at voldelige dataspill fører til voldelig adferd ved la to grupper spille hvert sitt dataspill. I det “voldelige” dataspillet var oppdraget å <em>skyte</em> og <em>drepe</em> et romvesen, mens i den ikke-voldelige varianten skulle man <em>finne</em> og <em>redde</em> romvesenet fra fare. Utover det var spillene helt likt utformet, og i etterkant av en spilleøkt ble deltakernes aggresjonsnivå målt på en skala fra 1 til 9 ved hjelp av en standard psykologisk test.</p>
 <p>I denne oppgaven skal vi i hovedsak finne ut om gruppen som spilte de voldelige dataspillet hadde signifikant høyere aggresjonsnivå enn kontrollgruppen.</p>
 <p><strong>Oppgave 2.1:</strong> Les inn datasettet <code>violence.xslx</code> på samme måte som i forrige dataøving. Hvis du allerede har kjørt <code>library(readxl)</code> trenger du ikke gjøre det igjen med mindre du har startet <strong>RStudio</strong> på nytt. Gi datasettet et passende navn, f.eks</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="dataøving-2.html#cb227-1" aria-hidden="true" tabindex="-1"></a>violence <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="dataøving-2.html#cb250-1" aria-hidden="true" tabindex="-1"></a>violence <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
 <p>Vi skal altså teste om aggresjonsnivået er forskjellig i de to gruppene. Da må vi trekke ut de aktuelle tallene fra datasettet. Som vi husker fra forelesningsnotatene trenger vi <em>to vektorer</em> for å gjøre en to-utvags <span class="math inline">\(t\)</span>-test: en vektor som inneholder aggresjonsnivået til gruppen som har spilt det voldelige dataspillet, og en vektor som inneholder aggresjonsnivået til gruppen som har spilt det ikke-voldelige dataspillet.</p>
 <p>La disse to vektorene få navn <code>voldelig</code> og <code>ikke_voldelig</code>, og lag dem ved å skrive følgende kodelinjer (samme som forrige dataøving):</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="dataøving-2.html#cb228-1" aria-hidden="true" tabindex="-1"></a>voldelig <span class="ot">&lt;-</span></span>
-<span id="cb228-2"><a href="dataøving-2.html#cb228-2" aria-hidden="true" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
-<span id="cb228-3"><a href="dataøving-2.html#cb228-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Violent&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb228-4"><a href="dataøving-2.html#cb228-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span></span>
-<span id="cb228-5"><a href="dataøving-2.html#cb228-5" aria-hidden="true" tabindex="-1"></a>  pull</span>
-<span id="cb228-6"><a href="dataøving-2.html#cb228-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb228-7"><a href="dataøving-2.html#cb228-7" aria-hidden="true" tabindex="-1"></a>ikke_voldelig <span class="ot">&lt;-</span></span>
-<span id="cb228-8"><a href="dataøving-2.html#cb228-8" aria-hidden="true" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
-<span id="cb228-9"><a href="dataøving-2.html#cb228-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Less Violent&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb228-10"><a href="dataøving-2.html#cb228-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span></span>
-<span id="cb228-11"><a href="dataøving-2.html#cb228-11" aria-hidden="true" tabindex="-1"></a>  pull</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="dataøving-2.html#cb251-1" aria-hidden="true" tabindex="-1"></a>voldelig <span class="ot">&lt;-</span></span>
+<span id="cb251-2"><a href="dataøving-2.html#cb251-2" aria-hidden="true" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
+<span id="cb251-3"><a href="dataøving-2.html#cb251-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Violent&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb251-4"><a href="dataøving-2.html#cb251-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span></span>
+<span id="cb251-5"><a href="dataøving-2.html#cb251-5" aria-hidden="true" tabindex="-1"></a>  pull</span>
+<span id="cb251-6"><a href="dataøving-2.html#cb251-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb251-7"><a href="dataøving-2.html#cb251-7" aria-hidden="true" tabindex="-1"></a>ikke_voldelig <span class="ot">&lt;-</span></span>
+<span id="cb251-8"><a href="dataøving-2.html#cb251-8" aria-hidden="true" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
+<span id="cb251-9"><a href="dataøving-2.html#cb251-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Less Violent&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb251-10"><a href="dataøving-2.html#cb251-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span></span>
+<span id="cb251-11"><a href="dataøving-2.html#cb251-11" aria-hidden="true" tabindex="-1"></a>  pull</span></code></pre></div>
 <p><strong>Oppgave 2.2:</strong> Vi er nå klare til å gjøre en to-utvalgs <span class="math inline">\(t\)</span>-test for om aggresjonsnivået er det samme i de to gruppene. Prøv å gjøre det nå, men vær bevisst på hvilke valg du gjør underveis, og som du mater inn i <code>t.test()</code>-funksjonen, f.eks:</p>
 <ul>
 <li>Antar du lik varians i de to gruppene? Hvorfor/Hvorfor ikke?</li>
@@ -330,13 +333,13 @@ Publisert ved hjelp av bookdown</a></li>
 </ul>
 <p><strong>Oppgave 2.3:</strong> En avgjørende detalj i studien som vi ser på i denne oppgaven er at forskerne også spurte forsøkspersonene hvorvidt de selv syntes spillet de spilte var voldelig. For å kunne trekke noen som helst lærdom fra et slikt forsøk er det viktig at den voldelige spillvarianten faktisk blir oppfattet som voldelig og vice versa. Vi ønsker dermed å undersøke nullhypotesen om at variablene <code>violence_tratment</code> og <code>experienced_violence</code> er uavhengige av hverandre. Den hypotesen er vi nødt til å forkaste for at forsøket skal være gyldig: hvis det ikke er noen sammenheng mellom opplevd og faktisk voldelighet er forsøket helt klart ugyldig.</p>
 <p>Første steg er å lage et nytt datasett der vi bare ta med oss de to kolonnene vi er interessert i. Kall det hva du vil, f.eks. <code>violence_redusert</code>. Vi bruker <code>select()</code>-funksjonen til å velge ut variablene vi trenger, se <a href="pipe.html#pipe">video om datavask</a> dersom du trenger å repetere denne funksjonen.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="dataøving-2.html#cb229-1" aria-hidden="true" tabindex="-1"></a>violence_redusert <span class="ot">&lt;-</span> </span>
-<span id="cb229-2"><a href="dataøving-2.html#cb229-2" aria-hidden="true" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span> </span>
-<span id="cb229-3"><a href="dataøving-2.html#cb229-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(violent_treatment, experienced_violence)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="dataøving-2.html#cb252-1" aria-hidden="true" tabindex="-1"></a>violence_redusert <span class="ot">&lt;-</span> </span>
+<span id="cb252-2"><a href="dataøving-2.html#cb252-2" aria-hidden="true" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span> </span>
+<span id="cb252-3"><a href="dataøving-2.html#cb252-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(violent_treatment, experienced_violence)</span></code></pre></div>
 <p>Skriv <code>violence_redusert</code> i konsollen for å bekrefte at du har valgt ut de korrekte kolonnene.</p>
 <p>Vi fortsetter som i videoforelesningen og lager en krysstabell for disse variablene</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="dataøving-2.html#cb230-1" aria-hidden="true" tabindex="-1"></a>krysstabell <span class="ot">&lt;-</span> <span class="fu">table</span>(violence_redusert) </span>
-<span id="cb230-2"><a href="dataøving-2.html#cb230-2" aria-hidden="true" tabindex="-1"></a>krysstabell</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="dataøving-2.html#cb253-1" aria-hidden="true" tabindex="-1"></a>krysstabell <span class="ot">&lt;-</span> <span class="fu">table</span>(violence_redusert) </span>
+<span id="cb253-2"><a href="dataøving-2.html#cb253-2" aria-hidden="true" tabindex="-1"></a>krysstabell</span></code></pre></div>
 <pre><code>##                  experienced_violence
 ## violent_treatment Less Violent Violent
 ##      Less Violent          114       9
@@ -350,8 +353,8 @@ Publisert ved hjelp av bookdown</a></li>
 <p>For å undersøke denne påstanden samlet Roubik inn historiske data over arabicaavlinger fra hele verden. Han delte verdens kaffeproduserende land inn i to kategorier: <em>Old world</em> som omfatter afrikanske og asiatiske land, og <em>New world</em> som omfatter land i Latin-Amerika. Han registrerte videre <em>gjennomsnittlig årlig avling</em> (målt i kg/hektar) i to perioder: 1961–80 og 1981–2001.</p>
 <p>Nøkkelen til analysen er at den afrikanske honningbien var en viktig pollinator i Afrika og Asia både i den første og andre perioden, men knapt eksisterte i Amerika før 1980. Etter 1980, derimot, økte utbredelsen av denne bien i Amerika, og ble fort naturalisert. Kan vi sette denne utviklingen i sammenheng med økt kaffeavling i Latin-Amerika etter 1980, og dermed skrote teorien om at kaffeplanter ikke drar nytte av insektspollinering?</p>
 <p><strong>Oppgave 3.1:</strong> For å undersøke dette kan vi bruke datasettet som Roubik brukte, som finnes i filen <code>roubik_2002_coffe_yield.xlsx</code>. Last datasettet inn i R på vanlig måte, og se på det:</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="dataøving-2.html#cb232-1" aria-hidden="true" tabindex="-1"></a>yield <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;roubik_2002_coffe_yield.xlsx&quot;</span>)</span>
-<span id="cb232-2"><a href="dataøving-2.html#cb232-2" aria-hidden="true" tabindex="-1"></a>yield</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="dataøving-2.html#cb255-1" aria-hidden="true" tabindex="-1"></a>yield <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;roubik_2002_coffe_yield.xlsx&quot;</span>)</span>
+<span id="cb255-2"><a href="dataøving-2.html#cb255-2" aria-hidden="true" tabindex="-1"></a>yield</span></code></pre></div>
 <pre><code>## # A tibble: 28 x 4
 ##    world country     yield_61_to_80 yield_81_to_01
 ##    &lt;chr&gt; &lt;chr&gt;                &lt;dbl&gt;          &lt;dbl&gt;
@@ -382,15 +385,15 @@ Publisert ved hjelp av bookdown</a></li>
 </ul>
 <p>Her må du bruke både <code>filter()</code> og <code>select()</code>, og du må avslutte med en <code>pull</code> for å oversette en en-kolonnes dataframe til en vektor.</p>
 <p>Dersom du har gjort det riktig, ser vektorene slik ut når du er ferdig:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="dataøving-2.html#cb234-1" aria-hidden="true" tabindex="-1"></a>new_p1</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="dataøving-2.html#cb257-1" aria-hidden="true" tabindex="-1"></a>new_p1</span></code></pre></div>
 <pre><code>##  [1] 9139 7686 9996 5488 5920 4096 4566 4965 5487 5227 2347 3089 1938</code></pre>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="dataøving-2.html#cb236-1" aria-hidden="true" tabindex="-1"></a>new_p2</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="dataøving-2.html#cb259-1" aria-hidden="true" tabindex="-1"></a>new_p2</span></code></pre></div>
 <pre><code>##  [1] 14620  8767  8729  8231  7740  7264  6408  6283  5740  5116  4124  3240
 ## [13]  2789</code></pre>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="dataøving-2.html#cb238-1" aria-hidden="true" tabindex="-1"></a>old_p1</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="dataøving-2.html#cb261-1" aria-hidden="true" tabindex="-1"></a>old_p1</span></code></pre></div>
 <pre><code>##  [1]  4251 10522  3509 10028  5667 17064  5904  4001  6604  4738  5716  3824
 ## [13]  3525  3393  3213</code></pre>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="dataøving-2.html#cb240-1" aria-hidden="true" tabindex="-1"></a>old_p2</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="dataøving-2.html#cb263-1" aria-hidden="true" tabindex="-1"></a>old_p2</span></code></pre></div>
 <pre><code>##  [1] 13380 11561  9652  9593  8797  7869  7354  7288  6055  5432  5394  3576
 ## [13]  3141  2391  2136</code></pre>
 <p><strong>Oppgave 3.3:</strong> Bruk en paret <span class="math inline">\(t\)</span>-test til å finne ut om kaffeavlingen i den gamle verden er signifikant forskjellig i de to tidsperiodene.</p>
@@ -497,7 +500,6 @@ Publisert ved hjelp av bookdown</a></li>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -516,6 +518,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -536,6 +539,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "toc_depth": 4
