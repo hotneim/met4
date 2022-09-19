@@ -807,6 +807,86 @@ accuracy(pred_exp, test)
 ```
 Hver kolonne i utskriften over representerer et slikt mål, og det er rad nummer to med navn "Test set" som vi er interessert i siden det er utregningen av disse målene mellom prediksjonene og testsettet (Den første raden representerer in-sample egenskapene). Jo mindre disse verdiene er jo mindre er avstanden mellom prediksjonene og de sanne verdiene i vårt testsett.
 
+## Oppgaver
+
+1. Første ordens autokorrelasjon til en tidsrekke $Y_t$ er lik $-0.5$. Andre ordens autokorrelasjon er lik $0.3$.
+    a. Tegn opp grafen til autokorrelasjonsfunksjonen til $Y_t$.
+    b. Forklar med ord hva det vil si for *observerte* verdier av $Y_t$ at autokorrelasjonsfunksjonen til $Y_t$ ser slik ut. 
+    c. Forklar hva som er forskjellen på autokorrelasjonsfunksjonen til $Y_t$ og den *empiriske* autokorrelasjonen til $Y_t$ som vi har regnet ut for eksempel ved hjelp av 100 observerte realiseringer av tidsrekken. 
+    d. Tegn opp en graf som kunne vært den empiriske autokorrelasjonsfunksjonen til $Y_t$ regnet ut for eksempel ved hjelp av 100 observerte realiseringer av tidsrekken.
+    
+<details><summary>Løsning</summary>
+
+> a. 
+> b. Første ordens autokorrelasjon er lik $-0.5$, noe som betyr at korrelasjonen mellom påfølgende observerte verdier av $Y_t$ er lik $-0.5$. I praksis betyr det at to påfølgende observasjoner vil ha en tendens til å være forskjellige fra hverandre. Hvis $Y_t$ er "liten" (på en eller annen relevant skala), så vil $Y_{t+1}$ ha en tendens til å være "stor". Og hvis $Y_{t+1}$ er "stor", ja da vil $Y_{t+2}$ igjen ha en tendens til å være "liten". 
+>
+>    Andre ordens autokorrelasjon er lik $0.3$, noe som betyr at korrelasjonen mellom to observasjoner som er observert med ett tidssteg mellom seg er lik $0.3$. I praksis betyr det at dersom $Y_t$ er "liten", så vil $Y_{t+2}$ også ha en tendens til å være "liten", men denne tendensen er noe svakere enn den som er mellom to påfølgende observasjoner, der absoluttverdien til autokorrelasjonen er $0.5$.
+>
+>    For eksempel kan vi tenke oss at en realisering av $Y_t$ ser slik ut:
+>
+> c. Dette er samme type spørsmål som vi kjenner til med forventningsverdi/gjennomsnitt, samt teoretisk og empirisk varians. En stokastisk variabel $X$ har en forventningsverdi $\mu$ og en varians $\sigma^2$, men disse er i praksis ukjente. Vi kan derimot *estimere* forventningsverdien ved å ta et gjennomsnitt $\overline X$, og vi kan *estimere* den teoretiske variansen ved å regne ut den *empiriske* variansen $s^2$. Store talls lov garanterer at dette er gode estimater, ved at $\overline X \rightarrow \mu$ og $s^2 \rightarrow \sigma^2$ når antall observasjoner går mot uendelig. 
+>
+> Vi har nøyaktig det samme forholdet mellom empiriske og teoretiske autokorrelasjoner. Autokorrelasjonsfunksjonen til $Y_t$ som vi beskrev over er den teoretiske, og den er ikke kjent i praksis med mindre vi simulerer fra en kjent tidsrekkemodell. 
+>
+> For et gitt datasett kan vi derimot regne ut den empiriske autokorrelasjonsfunksjonen
+
+
+
+
+</details>
+
+2. Vurdere hvilke(n) tidsrekkemodell(er) som passer til de empiriske autokorrelasjonsplottene under, regnet ut ved hjelp av $n=500$ observasjoner.
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, fig.height=4, fig.width=10, fig.retina=2}
+set.seed(69)
+library(forecast)
+library(patchwork)
+library(ggplot2)
+
+n <- 500
+
+ts1 <- arima.sim(n = n, list(ma = c(-0.2279, 0.2488)))
+ts1_acf <- 
+  ggAcf(ts1) +
+  theme_classic() +
+  scale_x_continuous(breaks = 1:15, limits = c(0,15)) +
+  ggtitle("a)") + xlab("") + ylab("")
+
+ts2 <- arima.sim(n = n, list(ar = c(0.588)))
+ts2_acf <- 
+  ggAcf(ts2) +
+  theme_classic() +
+  scale_x_continuous(breaks = 1:15, limits = c(0,15)) +
+  ggtitle("b)") + xlab("") + ylab("")
+
+ts3 <- arima.sim(n = n, list(ar = c(-0.5)))
+ts3_acf <- 
+  ggAcf(ts3) +
+  theme_classic() +
+  scale_x_continuous(breaks = 1:15, limits = c(0,15)) +
+  ggtitle("c)") + xlab("") + ylab("")
+
+
+
+(ts1_acf + ts2_acf + ts3_acf) 
+```
+
+<details><summary>Løsning</summary>
+
+> a. Vi har et statistisk signifikant negativt utslag på første lag, og et statistisk signifikant positivt utslag på andre lag. Det er ingen flere lags der autokorrelasjonsfunksjonen er stiatistisk signifikant forskjellig fra null. Det kan tyde på en MA(2)-prosess, med $\theta_1 <0$ og $\theta_2>0$.
+>
+> b. Autokorrelasjonsfunksjonen går sakte mot null med økende lag. Det kan tyde på en autoregressiv prosess, muligens en AR(1)-prosess med $\phi_1 > 0$.
+>
+> c. Autokorrelasjonsfunksjonen alternerer mellom positive og negative verdier, men i absoluttverdi ser de ut til å avta sakte mot null. Det kan tyde på en autoregressiv prosess, muligens en AR(1)-prosess med $\phi_1 < 0$.
+>
+> Det er ikke mulig å entydig fastslå hvilken modell som er "korrekt" ut fra et autokorrelasjonsplott. I alle tilfellene kan det være AR- eller MA-ledd som har for små koeffisienter, til at vi klarer å estimere dem til å være statistisk signifikant forskjellig fra null ved hjelp av datasettet som vi har. Det er også vanskelig å visuelt skille høyere ordens prosesser fra hverandre kun ved å se på autokorrelasjonsplottet. I det midterste plottet over for eksempel, kunne det like gjerne vært med andre- og tredjeordens AR-ledd, uten at vi ville klart å se så stor forskjell på plottet. 
+>
+> (I denne oppgaven er datasettene 500 observasjoner simulert fra henholdsvis en MA(2)-modell med $\theta_1 = -0.2279$ og $\theta_2 = 0.2488$, en AR(1)-modell med $\phi_1 = 0.588$, og en AR(1)-modell med $\phi_1 = -0.5$.)
+
+
+</details>
+
+
 ## Relevante R-kommandoer {#relevante-r-tidsrekker}
 
 ### Antakelser om datasettet {-}

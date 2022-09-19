@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2022</title>
+  <title>5.9 Oppgaver | MET4 - Empiriske Metoder - Høst 2022</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta property="og:title" content="5.9 Oppgaver | MET4 - Empiriske Metoder - Høst 2022" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.4 Oppgaver | MET4 - Empiriske Metoder - Høst 2022" />
+  <meta name="twitter:title" content="5.9 Oppgaver | MET4 - Empiriske Metoder - Høst 2022" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="paneldata.html"/>
-<link rel="next" href="relevante-r-avansert-regresjon.html"/>
+<link rel="prev" href="modellbygging-1.html"/>
+<link rel="next" href="relevante-r-tidsrekker.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -194,14 +194,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>5.6</b> MA(q)</a></li>
 <li class="chapter" data-level="5.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>5.7</b> ARMA og ARIMA</a></li>
 <li class="chapter" data-level="5.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>5.8</b> Modellbygging</a></li>
-<li class="chapter" data-level="5.9" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.9</b> Relevante R-kommandoer</a></li>
+<li class="chapter" data-level="5.9" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>5.9</b> Oppgaver</a></li>
+<li class="chapter" data-level="5.10" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.10</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæring</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>6.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="6.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>6.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="6.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>6.3</b> Paneldata</a></li>
-<li class="chapter" data-level="6.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>6.4</b> Oppgaver</a></li>
+<li class="chapter" data-level="6.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>6.4</b> Oppgaver</a></li>
 <li class="chapter" data-level="6.5" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>6.5</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
@@ -249,311 +250,59 @@ Publisert ved hjelp av bookdown</a></li>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="oppgaver-2" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Oppgaver</h2>
-<div id="oppgaver-om-logistisk-regresjon" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Oppgaver om logistisk regresjon</h3>
-<p>Kommentar: Oppgave 1 a) og oppgave 2) er svært like i <em>hva</em> du skal gjøre, bare at den siste er mer realistisk.</p>
-<p><strong>Oppgave 1 </strong></p>
-<p>Du har estimert en logistisk regresjonsmodell med to forklaringsvariabler <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span>. Koeffisientene i modellen er estimert til <span class="math inline">\(\hat{\beta}_0 = 0.4\)</span>, <span class="math inline">\(\hat{\beta}_1 = -0.1\)</span> og <span class="math inline">\(\hat{\beta}_2 = 0.3\)</span>. Du observerer så et nytt individ med forklaringsvariablene <span class="math inline">\(x_1 = 1\)</span> og <span class="math inline">\(x_2 = 2\)</span>.</p>
+<div id="oppgaver-2" class="section level2" number="5.9">
+<h2><span class="header-section-number">5.9</span> Oppgaver</h2>
+<ol style="list-style-type: decimal">
+<li>Første ordens autokorrelasjon til en tidsrekke <span class="math inline">\(Y_t\)</span> er lik <span class="math inline">\(-0.5\)</span>. Andre ordens autokorrelasjon er lik <span class="math inline">\(0.3\)</span>.
 <ol style="list-style-type: lower-alpha">
-<li>Prediker sannsynlighet for at <span class="math inline">\(Y=1\)</span> for dette individet.</li>
+<li>Tegn opp grafen til autokorrelasjonsfunksjonen til <span class="math inline">\(Y_t\)</span>.</li>
+<li>Forklar med ord hva det vil si for <em>observerte</em> verdier av <span class="math inline">\(Y_t\)</span> at autokorrelasjonsfunksjonen til <span class="math inline">\(Y_t\)</span> ser slik ut.</li>
+<li>Forklar hva som er forskjellen på autokorrelasjonsfunksjonen til <span class="math inline">\(Y_t\)</span> og den <em>empiriske</em> autokorrelasjonen til <span class="math inline">\(Y_t\)</span> som vi har regnet ut for eksempel ved hjelp av 100 observerte realiseringer av tidsrekken.</li>
+<li>Tegn opp en graf som kunne vært den empiriske autokorrelasjonsfunksjonen til <span class="math inline">\(Y_t\)</span> regnet ut for eksempel ved hjelp av 100 observerte realiseringer av tidsrekken.</li>
+</ol></li>
 </ol>
 <details>
 <summary>
 Løsning
 </summary>
-<p><span class="math display">\[z = \beta_0 + \beta_1x_1 + \beta_2x_2 = 0.4 -0.1\times1 + 0.3\times2 = 0.9\]</span>
-Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
-<span class="math display">\[P(Y=1|Z=z) = \frac{e^z}{1+e^z} = \frac{e^{0.9}}{1 + e^{0.9}} \approx 0.71.\]</span>
-</details>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Klassifiser det nye individet.</li>
-</ol>
-<details>
-<summary>
-Løsning
-</summary>
-Siden vi estimerer <span class="math inline">\(P(Y=1)\)</span> til å være <span class="math inline">\(0.71\)</span> som er større enn <span class="math inline">\(0.5\)</span> klassifiserer vi dette individet til <span class="math inline">\(\hat{y}=1\)</span>. Avhengig av kontekst, kan det være relevant å bruke enn høyere eller lavere terskel enn <span class="math inline">\(0.5\)</span>, men dette er altså standardverdien.
-</details>
-<p><strong>Oppgave 2 (Individuell Eksamen V2020 1 i))</strong></p>
-<p>Denne eksamensoppgaven handlet om luftforurensning der myndighetene bruker en målestasjon for å advare innbyggerne dersom konsentrasjonen av nitrogendioksid (NO<span class="math inline">\(_2\)</span>) overstiger 100 <span class="math inline">\(\mu\textrm{g}/\textrm{m}^3\)</span>. I en av deloppgavene tilpasses det en logistisk regresjonsmodell der responsvariabelen er en dummyvariabelen <code>danger_warning</code>, som indikerer om gjenomsnittskonsentrasjonen av NO<span class="math inline">\(_2\)</span> den aktuelle dagen oversteg 100 <span class="math inline">\(\mu\textrm{g}/\textrm{m}^3\)</span>. Dersom det skjer må myndighetene utstede et såkalt gult farevarsel. Den estimerte modellen er gitt i kolonne (2) i tabellen under.</p>
-<p>….. I morgen er det lørdag 16. mai, og i den aktuelle byen er det meldt en gjennomsnittlig temperatur på 19 <span class="math inline">\(^\circ\)</span>C og en gjennomsnittlig relativ luftfuktighet på 47%.</p>
-<ol style="list-style-type: lower-roman">
-<li>Bruk den logistiske regresjonsmodellen til å predikere <em>sannsynligheten</em> for at gjennomsnittlig NO<span class="math inline">\(\mathbf{_2}\)</span>-konsentrasjon overstiger 100 <span class="math inline">\(\mu\textrm{g}/\textrm{m}^3\)</span>. Gi en kort vurdering om myndighetene bør utstede gult farevarsel. (Husk at luftfuktigheten er gitt på skala 0–100, og ikke 0–1).</li>
-</ol>
-<p><img src="bilder/logistisk_output.JPG" width="240" /></p>
-<details>
-<summary>
-Løsning
-</summary>
-<p>Den predikerte log-oddsen får vi ved å sette inn for variablene (lørdag, temperatur, fuktighet, vinterdummyen er null):</p>
-<p><span class="math display">\[z = 5.052 + -2.292 - 0.086*19 - 0.044*47 = -0.942.\]</span>
-Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
-<p><span class="math display">\[P(Y=1|Z=z) = \frac{e^z}{1+e^z} = \frac{e^{-0.942}}{1 + e^{-0.942}} \approx 0.28.\]</span></p>
-<p>Den predikerte sannsynligheten er klart under 50%, som passer godt med den tidlighere analysen vår. Det er snakk om en forholdsvis varm lørdag i sommerhalvåret, og vi vil nok ikke utstede farevarsel.</p>
-<p>Det kan også være gode argumenter for at vi ikke nødvendigvis bruker 50% som terskel for farevarsel. Kanskje er det mer alvorlig å <em>ikke</em> utstede et farevarsel som burde vært sendt ut fordi det kan være farlig for folk, enn å utstede et unødvendig farevarsel. Føre var osv., og det kan tilsi at vi f.eks. bruker 40% eller 30% sannsynlighet som grense. Det kommer litt an på situasjonen, som vi ikke har full oversikt over her.</p>
-</details>
-</div>
-<div id="oppgaver-om-knn" class="section level3" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Oppgaver om KNN</h3>
-<p><strong>Oppgave 1 (Individuell hjemmeeksamen H2020, oppgave 3)</strong></p>
-<p>Vi har følgende datasett med seks observasjoner bestående av en binær responsvariabel <span class="math inline">\(y\)</span> og to forklaringsvariabler <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span>:</p>
-<table>
-<caption>
-<span id="tab:knn">Tabell 6.1: </span>Datasett
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-y
-</th>
-<th style="text-align:right;">
-x1
-</th>
-<th style="text-align:right;">
-x2
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-5
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-3
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-2
-</td>
-</tr>
-</tbody>
-</table>
-<p>Du observerer så forklaringsvariablene <span class="math inline">\((x_1, x_2) = (3, 3)\)</span> for et nytt individ.</p>
+<blockquote>
 <ol style="list-style-type: lower-alpha">
-<li>Regn ut hva klassifiseringen av <span class="math inline">\(y\)</span> blir for det nye individet ved å bruke k-nearest neighbor (KNN), med <span class="math inline">\(k=3\)</span>.</li>
+<li></li>
+<li><p>Første ordens autokorrelasjon er lik <span class="math inline">\(-0.5\)</span>, noe som betyr at korrelasjonen mellom påfølgende observerte verdier av <span class="math inline">\(Y_t\)</span> er lik <span class="math inline">\(-0.5\)</span>. I praksis betyr det at to påfølgende observasjoner vil ha en tendens til å være forskjellige fra hverandre. Hvis <span class="math inline">\(Y_t\)</span> er “liten” (på en eller annen relevant skala), så vil <span class="math inline">\(Y_{t+1}\)</span> ha en tendens til å være “stor”. Og hvis <span class="math inline">\(Y_{t+1}\)</span> er “stor”, ja da vil <span class="math inline">\(Y_{t+2}\)</span> igjen ha en tendens til å være “liten”.</p>
+<p>Andre ordens autokorrelasjon er lik <span class="math inline">\(0.3\)</span>, noe som betyr at korrelasjonen mellom to observasjoner som er observert med ett tidssteg mellom seg er lik <span class="math inline">\(0.3\)</span>. I praksis betyr det at dersom <span class="math inline">\(Y_t\)</span> er “liten”, så vil <span class="math inline">\(Y_{t+2}\)</span> også ha en tendens til å være “liten”, men denne tendensen er noe svakere enn den som er mellom to påfølgende observasjoner, der absoluttverdien til autokorrelasjonen er <span class="math inline">\(0.5\)</span>.</p>
+<p>For eksempel kan vi tenke oss at en realisering av <span class="math inline">\(Y_t\)</span> ser slik ut:</p></li>
+<li><p>Dette er samme type spørsmål som vi kjenner til med forventningsverdi/gjennomsnitt, samt teoretisk og empirisk varians. En stokastisk variabel <span class="math inline">\(X\)</span> har en forventningsverdi <span class="math inline">\(\mu\)</span> og en varians <span class="math inline">\(\sigma^2\)</span>, men disse er i praksis ukjente. Vi kan derimot <em>estimere</em> forventningsverdien ved å ta et gjennomsnitt <span class="math inline">\(\overline X\)</span>, og vi kan <em>estimere</em> den teoretiske variansen ved å regne ut den <em>empiriske</em> variansen <span class="math inline">\(s^2\)</span>. Store talls lov garanterer at dette er gode estimater, ved at <span class="math inline">\(\overline X \rightarrow \mu\)</span> og <span class="math inline">\(s^2 \rightarrow \sigma^2\)</span> når antall observasjoner går mot uendelig.</p></li>
 </ol>
+<p>Vi har nøyaktig det samme forholdet mellom empiriske og teoretiske autokorrelasjoner. Autokorrelasjonsfunksjonen til <span class="math inline">\(Y_t\)</span> som vi beskrev over er den teoretiske, og den er ikke kjent i praksis med mindre vi simulerer fra en kjent tidsrekkemodell.</p>
+<p>For et gitt datasett kan vi derimot regne ut den empiriske autokorrelasjonsfunksjonen</p>
+</blockquote>
+</details>
+<ol start="2" style="list-style-type: decimal">
+<li>Vurdere hvilke(n) tidsrekkemodell(er) som passer til de empiriske autokorrelasjonsplottene under, regnet ut ved hjelp av <span class="math inline">\(n=500\)</span> observasjoner.</li>
+</ol>
+<p><img src="met4_files/figure-html/unnamed-chunk-169-1.png" width="960" /></p>
 <details>
 <summary>
 Løsning
 </summary>
-<p>Vi begynner med å regne ut den euklidske avstanden mellom <span class="math inline">\((3,3)\)</span> og alle punktene <span class="math inline">\((x_1, x_2)\)</span> i datasettet vårt. F.eks er avstanden mellom <span class="math inline">\((3,3)\)</span> og <span class="math inline">\((3,4)\)</span></p>
-<p><span class="math display">\[\begin{equation*}
-d((3,3), (3,4)) = \sqrt{(3 - 3)^2 + (3 - 4)^2} = 1
-\end{equation*}\]</span></p>
-<p>Vi kan så legge disse avstandene inn i en egen kolonne i tabellen:</p>
-<table>
-<caption>
-<span id="tab:knnfasit">Tabell 6.2: </span>Utregnede avstander
-</caption>
-<thead>
-<tr>
-<th style="text-align:right;">
-y
-</th>
-<th style="text-align:right;">
-x1
-</th>
-<th style="text-align:right;">
-x2
-</th>
-<th style="text-align:right;">
-avstand
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1.000
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2.236
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2.000
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-3.000
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1.000
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3.162
-</td>
-</tr>
-</tbody>
-</table>
-<p>Vi ser da at observasjon <span class="math inline">\(1\)</span>,<span class="math inline">\(3\)</span> og <span class="math inline">\(5\)</span> med avstander på h.h.v. <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span> og <span class="math inline">\(1\)</span> er de tre nærmeste naboene, og blant dem er det 2 mot 1 i flertall for å klassifisere <span class="math inline">\(y\)</span> som en 1’er. Altså er <span class="math inline">\(\hat{y}=1\)</span>.</p>
-<p>Det går selvsagt an å løse oppgaven visuelt også.</p>
-</details>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Hvordan fungerer KNN når <span class="math inline">\(k = n\)</span>, hvor <span class="math inline">\(n\)</span> er antall observajoner i datasettet? Hva vil skje dersom <span class="math inline">\(k = 6\)</span> for dette datasettet?</li>
-</ol>
-<details>
-<summary>
-Løsning
-</summary>
-<p>Siden vi bare har seks observasjoner vil alle verdier av <span class="math inline">\(k\geq 6\)</span> fullstendig ignorere informasjonen som ligger i forklaringsvariablene. Klassifiseringen vil da bare være basert på om det totalt sett er mest 1’ere eller 0’ere. I dette spesifikke datasettet har vi totalt tre 1’ere og tre 0’ere, så enhver majortetsavstemning med <span class="math inline">\(k\geq 6\)</span> blir uavgjort. Altså vil det her ikke være mulig å oppnå flertall for verken 0’er eller 1’er for store verdier av <span class="math inline">\(k\)</span>.</p>
-</details>
-</div>
-<div id="oppgaver-om-paneldata" class="section level3" number="6.4.3">
-<h3><span class="header-section-number">6.4.3</span> Oppgaver om paneldata</h3>
-<p><strong>Oppgave 1</strong></p>
-<p>For et paneldata bestående av en responsvariabel <span class="math inline">\(Y\)</span> og en forklaringsvariabel <span class="math inline">\(X\)</span> har du estimert modellen</p>
-<p><span class="math display">\[y_{it} =  \beta_1 x_{it}  + v_t + \alpha_i + \epsilon_{it} \]</span>
-der du har betraktet <span class="math inline">\(\alpha_i\)</span> som faste effekter og <span class="math inline">\(v_t\)</span> som kategoriske variabler. Estimatet av <span class="math inline">\(\beta_1\)</span> er <span class="math inline">\(\hat{\beta}_1 = 1.5\)</span>.</p>
+<blockquote>
 <ol style="list-style-type: lower-alpha">
-<li>For individ <span class="math inline">\(4\)</span> i datasettet har du estimert <span class="math inline">\(\alpha_4\)</span> til å være <span class="math inline">\(0.2\)</span>. Videre er årseffekten for 2012, <span class="math inline">\(v_{2012}\)</span>, estimert til å være <span class="math inline">\(-0.5\)</span>. Prediker responsvariabelen til dette individet for 2012 dersom <span class="math inline">\(x_{4,2012} = 2\)</span>.</li>
+<li><p>Vi har et statistisk signifikant negativt utslag på første lag, og et statistisk signifikant positivt utslag på andre lag. Det er ingen flere lags der autokorrelasjonsfunksjonen er stiatistisk signifikant forskjellig fra null. Det kan tyde på en MA(2)-prosess, med <span class="math inline">\(\theta_1 &lt;0\)</span> og <span class="math inline">\(\theta_2&gt;0\)</span>.</p></li>
+<li><p>Autokorrelasjonsfunksjonen går sakte mot null med økende lag. Det kan tyde på en autoregressiv prosess, muligens en AR(1)-prosess med <span class="math inline">\(\phi_1 &gt; 0\)</span>.</p></li>
+<li><p>Autokorrelasjonsfunksjonen alternerer mellom positive og negative verdier, men i absoluttverdi ser de ut til å avta sakte mot null. Det kan tyde på en autoregressiv prosess, muligens en AR(1)-prosess med <span class="math inline">\(\phi_1 &lt; 0\)</span>.</p></li>
 </ol>
-<details>
-<summary>
-Løsning
-</summary>
-<span class="math display">\[\hat{y}_{4,2012}=\hat{\beta}_1 x_{4,2012}  + \hat{v}_{2012} + \hat{\alpha}_4 = 1.5\times2 -0.5 + 0.2 = 2.7\]</span>
+<p>Det er ikke mulig å entydig fastslå hvilken modell som er “korrekt” ut fra et autokorrelasjonsplott. I alle tilfellene kan det være AR- eller MA-ledd som har for små koeffisienter, til at vi klarer å estimere dem til å være statistisk signifikant forskjellig fra null ved hjelp av datasettet som vi har. Det er også vanskelig å visuelt skille høyere ordens prosesser fra hverandre kun ved å se på autokorrelasjonsplottet. I det midterste plottet over for eksempel, kunne det like gjerne vært med andre- og tredjeordens AR-ledd, uten at vi ville klart å se så stor forskjell på plottet.</p>
+<p>(I denne oppgaven er datasettene 500 observasjoner simulert fra henholdsvis en MA(2)-modell med <span class="math inline">\(\theta_1 = -0.2279\)</span> og <span class="math inline">\(\theta_2 = 0.2488\)</span>, en AR(1)-modell med <span class="math inline">\(\phi_1 = 0.588\)</span>, og en AR(1)-modell med <span class="math inline">\(\phi_1 = -0.5\)</span>.)</p>
+</blockquote>
 </details>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Du tilpasser også en tilsvarende modell med tilfeldige effekter. En Hausman test gir en p-verdi på <span class="math inline">\(0.23\)</span>. Hvilken modell skal du da bruke?</li>
-</ol>
-<details>
-<summary>
-Løsning
-</summary>
-<p>Forenklet sett har denne testen som nullhypotese at modellen med tilfeldige effekter er gyldig. Her er p-verdien veldig stor og vi har lite bevis for at denne nullhypotesen er feil. Vi kan altså bruke modellen med tilfeldige effekter.</p>
-<p>Dersom vi hadde fått forkastning ville det vært lurt å bruke modellen med faste effekter.</p>
-</details>
-<p><strong>Oppgave 2</strong></p>
-<p>Prøv deg på Oppgave 2 i den individuelle hjemmeeksamen H2020 som du finner i kapittel <a href="skoleeksamen.html#skoleeksamen">9.1</a>. Det er spesielt oppgave e) og f) som er relatert til paneldata, men vi bemerker at oppgave f) var “nøtten” i det oppgavesettet.</p>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="paneldata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="relevante-r-avansert-regresjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="modellbygging-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="relevante-r-tidsrekker.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

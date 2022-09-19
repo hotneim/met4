@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="introduksjon-til-maskinlæring-med-knn.html"/>
-<link rel="next" href="oppgaver-2.html"/>
+<link rel="next" href="oppgaver-3.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -194,14 +194,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>5.6</b> MA(q)</a></li>
 <li class="chapter" data-level="5.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>5.7</b> ARMA og ARIMA</a></li>
 <li class="chapter" data-level="5.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>5.8</b> Modellbygging</a></li>
-<li class="chapter" data-level="5.9" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.9</b> Relevante R-kommandoer</a></li>
+<li class="chapter" data-level="5.9" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>5.9</b> Oppgaver</a></li>
+<li class="chapter" data-level="5.10" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.10</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinlæring.html"><a href="avansert-regresjon-og-maskinlæring.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæring</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>6.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="6.2" data-path="introduksjon-til-maskinlæring-med-knn.html"><a href="introduksjon-til-maskinlæring-med-knn.html"><i class="fa fa-check"></i><b>6.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="6.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>6.3</b> Paneldata</a></li>
-<li class="chapter" data-level="6.4" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>6.4</b> Oppgaver</a></li>
+<li class="chapter" data-level="6.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>6.4</b> Oppgaver</a></li>
 <li class="chapter" data-level="6.5" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>6.5</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="dataøvinger.html"><a href="dataøvinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
@@ -314,13 +315,13 @@ der vi gjør de vanlige antakelsene om homoskedastisitet, uavhengige feilledd, o
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="paneldata.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  </span>
 <span id="cb184-2"><a href="paneldata.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
 <span id="cb184-3"><a href="paneldata.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> lnwg, <span class="at">color =</span> <span class="fu">factor</span>(id)))</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-174-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
 <p>her ser vi f.eks at alle individene har et dårlig år i 1983, mens 1985 virker å være et godt år. Det også tydelig at lønnen holder seg relavivt lik lønnen det foregående året. Det er altså rimelig å tro at det er fellestrekk i lønnen til individene for gitte år.</p>
 <p>La oss så lage et spredningsplott mellom <code>lnhr</code> og <code>lnwg</code> hvor vi fargelegger hvilket individ observasjonene kommer fra:</p>
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="paneldata.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  </span>
 <span id="cb185-2"><a href="paneldata.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df) <span class="sc">+</span></span>
 <span id="cb185-3"><a href="paneldata.html#cb185-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> lnhr, <span class="at">y =</span> lnwg, <span class="at">color =</span> <span class="fu">factor</span>(id)))</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
 <p>Ser vi på disse dataene samlet sett ser du til å være en klart positiv korrelasjon mellom lønn og antall timer jobbet. Men legg merke til at individ nr. 1 ligger på et høyere lønnsnivå og jobber mer enn de to andre individene. Det er dette som i stor grad skaper et bilde av en sterk positiv sammenheng mellom variablene. Hvis vi ser på de individuelle observasjonene (hver fargesky) hver for seg, virker ikke sammenhengen å være like sterk, og det har kanskje ikke like mye å si for lønnen om du individuelt velger å jobber mer. Dette svarer til fenomenet beskrevet i punkt 2. over.</p>
 </div>
 <div id="generelt-oppsett-av-modell" class="section level4" number="6.3.3.3">
@@ -427,7 +428,7 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 ##  0.408228 -0.062905 -0.279994</code></pre>
 <p>Det kan være nyttig å ta en visuell innspeksjon på hvordan de individuelle regresjonskurvene passer til dataene:</p>
 <div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="paneldata.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reg.fe)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-179-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
 <p>Denne figuren viser også hvordan regresjonskurven ville sett ut dersom vi hadde sett bort fra paneldatastrukturen og brukt en helt vanlig (pooled) regresjonsmodell. Sammenlignet med modellen med faste faste effekter (within) så ville vi da estimert effekten av jobbe mer til å være større. Selv om produktet her er <span class="math inline">\(3\)</span> individuelle regresjonsmodeller, presiserer vi at dette ikke er <span class="math inline">\(3\)</span> uavhengige analyser; alle observasjonene er brukt til å finne et estimat på <span class="math inline">\(\beta_1\)</span>.</p>
 <p>Vi husker at det også kunne være en felles tidskomponent <span class="math inline">\(v_t\)</span> i en slik modell og at denne kunne betraktes som en kategorisk variabel siden det typisk ikke er så mange (<span class="math inline">\(T\)</span>) av disse. Vi kan derfor bare legge til <code>year</code> som en ekstra (kategorisk) forklaringsvariabel forutsatt at den er koded som en <code>factor</code>:</p>
 <div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="paneldata.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.factor</span>(p.df<span class="sc">$</span>year)</span></code></pre></div>
@@ -542,7 +543,7 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
         </div>
       </div>
 <a href="introduksjon-til-maskinlæring-med-knn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="oppgaver-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="oppgaver-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

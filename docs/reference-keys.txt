@@ -88,6 +88,7 @@ kontrollspørsmåldiskusjonsspørsmål-2
 r-øving-5
 modellbygging-1
 r-øving-6
+oppgaver-2
 relevante-r-tidsrekker
 avansert-regresjon-og-maskinlæring
 logistisk-regresjon
@@ -109,7 +110,7 @@ forskjellige-parameteriseringer
 faste-effekter
 tilfeldige-effekter
 hausman-test
-oppgaver-2
+oppgaver-3
 oppgaver-om-logistisk-regresjon
 oppgaver-om-knn
 oppgaver-om-paneldata
