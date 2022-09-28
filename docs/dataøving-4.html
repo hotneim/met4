@@ -50,8 +50,6 @@
 
 
 
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/met4/icon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/met4/icon/favicon-16x16.png">
@@ -252,7 +250,16 @@ Publisert ved hjelp av bookdown</a></li>
             <section class="normal" id="section-">
 <div id="dataøving-4" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Dataøving 4</h2>
-<p>Kommer.</p>
+<p>I denne dataøvingen skal vi predikere strømprisen. Resultatene fra øvingen vår trengs som imput in <strong>Case 3</strong> i BED4, som for mange studenter går parallelt med MET4. Hvis du ikke tar BED4 dette semesteret, så går det helt fint også. Dataøvingen står fint på egne bein, og du kan uansett komme tilbake til disse resultatene hvis du for eksempel skal ta BED4 på et senere tidspunkt.</p>
+<p>Du har kanskje lagt merke til at R-kodingen i tidsrekkemodulen har en litt forskjellig stil fra det vi har gjort tidligere i kurset. I denne øvingen vil derfor størsteparten av koden blir oppgitt i oppgaveteksten. Din oppgave blir å kjøre koden, få ut figurer og resultater, samt å kommentere og tolke resultatene.</p>
+<div id="oppgave-1-last-inn-og-se-på-datasettet" class="section level3" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Oppgave 1: Last inn og se på datasettet</h3>
+<p>Denne gang er datasettet pakket inn i en såkalt <code>.Rdata</code>-fil. Det er et enkelt filformat for å lagre R-objekter. Last ned <a href="datasett/p_da.Rdata">p_da.Rdata</a>, og last datasettet inn i R ved å kjøre følgende kommando (der du selvsagt har satt arbeidsmappen til der du har lagt datafilen):</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="dataøving-4.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;p_DA.Rdata&quot;</span>)</span></code></pre></div>
+<p>Du skal nå få to tidsrekker i minnet: <code>n03</code> og <code>no5</code>, som i figuren under:</p>
+<p><img src="bilder/environ.png" width="800" /></p>
+<p>Disse to tidsrekkene inneholder strømprisen i to prisområder i Norge hver time fra 1. januar 2022 til og med 21. september 2022. Tidsrekken <code>no3</code> inneholder prisen for Midt-Norge (NO3) og <code>no5</code> inneholder prisen for Vest-Norge (NO5).</p>
+</div>
 </div>
             </section>
 

@@ -1,3 +1,215 @@
+--- 
+title: "MET4 - Empiriske Metoder - Høst 2022"
+author: "Håkon Otneim og Geir Drage Berentsen"
+site: bookdown::bookdown_site
+output: 
+  bookdown::gitbook:
+    split_by: "section"
+    config:
+      toc:
+        collapse: "section"
+        toc_depth: 4
+description: "Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole."
+---
+
+# Innledning {-}
+
+Placeholder
+
+
+### Fremdriftsplan {-}
+### Lærebok og pensum {-}
+
+<!--chapter:end:index.Rmd-->
+
+
+# Introduksjon til R 
+
+Placeholder
+
+
+## En gjennomgang av RStudio
+## Enkle beregninger og variabler
+## Vektorer
+## Pakker {#pakker}
+## Mappesti
+## Innlesing av data
+## Statistiske analyser
+## Plotting {#r-plotting}
+## Script
+## Pipe-operatoren `%>%` og enkel datavask {#pipe}
+## Oppsummering og ekstra oppgaver {#r-ekstra}
+
+<!--chapter:end:01-intro-til-r.Rmd-->
+
+
+# Grunnleggende statistikk
+
+Placeholder
+
+
+## Deskriptiv statistikk
+### Videoforelesninger
+### Kommentarer
+## Utvalg og estimering
+### Videoforelesninger
+### Kommentarer
+### Ekstra øving i R
+## Oppgaver {#oppgaverdeskriptiv}
+### Standard oppgaver
+### Nøtter
+## Relevante R-kommandoer {#relevant-r-grunnleggende}
+### Antakelser om datasett {-}
+### Numerisk deskriptiv statistikk {-}
+### Grafisk deskriptiv statistikk med `ggplot2` {-}
+
+<!--chapter:end:02-grunnleggende-statistikk.Rmd-->
+
+
+# Hypotesetesting
+
+Placeholder
+
+
+## Generelt om hypotesetesting
+### Videoforelesninger 
+### Kommentarer
+## Inferens om en populasjon {#enpop}
+### Videoforelesninger
+### Kommentarer
+## Inferens om to populasjoner
+### Videoforelesninger
+### Kommentarer
+## Kjikvadrattester
+### Videoforelesninger
+### Kommentarer
+## Oppgaver
+### Standard oppgaver
+## Relevante R-kommandoer {#relevante-r-testing}
+### Antakelser om datasett {-}
+### $t$-tester {-}
+### Varianstester {-}
+### Tester for andeler {-}
+### Kjikvadrattester {-}
+### Kritiske verdier i R {-}
+#### Kritiske verdier i T-fordelingen {-}
+#### Kritiske verdier i standardnormalfordelingen {-}
+#### Kritiske verdier i $\chi^2$-fordelingen {-}
+#### Kritiske verdier i F-fordelingen {-}
+
+<!--chapter:end:03-hypotesetesting.Rmd-->
+
+
+# Regresjon
+
+Placeholder
+
+
+## Enkel regresjon
+### Videoforelesninger
+### Kommentarer
+## Multippel regresjon
+### Videoforelesninger
+### Kommentarer
+## Modellbygging
+### Videoforelesninger
+### Kommentarer
+## Oppgaver
+### Regresjon med en forklaringsvariabel
+#### Oppgave 1 {-}
+#### Oppgave 2 {-}
+#### Oppgave 3 {-}
+### Multippel regresjon og modellbygging
+#### Oppgave 1 {-}
+#### Oppgave 2 
+#### (Oppgave 1) {-}
+#### (Oppgave 2) {-}
+#### (Oppgave 3) {-}
+#### (Oppgave 4) {-}
+#### (Oppgave 5) {-}
+#### (Oppgave 6) {-}
+## Relevante R-kommandoer {#relevante-r-regresjon}
+### Antakelser om datasett {-}
+### Tilpasse en lineær regresjonsmodell {-}
+### Prediksjoner, med konfidens- og prediksjonsintervall {-}
+### Lage residualplott {-}
+
+<!--chapter:end:04-regresjon.Rmd-->
+
+
+# Tidsrekker
+
+Placeholder
+
+
+## Introduksjon til tidsrekker {#intro}
+### Kontrollspørsmål
+### Oppgaver fra lærebok 
+### R-øving
+## Trend og sesong {#trend-og-sesong}
+### Kontrollspørsmål
+### R-øving
+## AR(p) {#ar}
+### Kontrollspørsmål
+### R-øving
+## Stasjonaritet {#stasjonaritet}
+### Kontrollspørsmål
+### Merk
+## Autokorrelasjon {#autokorrelasjon}
+### Kontrollspørsmål/Diskusjonsspørsmål
+### R-øving
+## MA(q) {#ma}
+### Kontrollspørsmål/Diskusjonsspørsmål
+### R-øving
+## ARMA og ARIMA {#arma-arima}
+### Kontrollspørsmål/Diskusjonsspørsmål
+### R-øving
+## Modellbygging 
+### R-øving
+## Oppgaver
+## Relevante R-kommandoer {#relevante-r-tidsrekker}
+### Antakelser om datasettet {-}
+### Nødvendige R-funksjoner {-}
+
+<!--chapter:end:05-tidsrekker.Rmd-->
+
+
+# Avansert regresjon og maskinlæring
+
+Placeholder
+
+
+## Logistisk regresjon
+### Videoforelesninger
+### Kontrollspørsmål
+### Teori
+## Introduksjon til maskinlæring med kNN
+### Videoforelesninger
+### Kontrollspørsmål
+### Teori
+## Paneldata
+### Videoforelesninger
+### Kontrollspørsmål
+### Teori og R
+#### Struktur på Paneldata
+#### Hva må vi ta hensyn til?
+#### Generelt oppsett av modell
+#### Forskjellige parameteriseringer
+#### Faste effekter
+#### Tilfeldige effekter
+#### Hausman test
+## Oppgaver
+### Oppgaver om logistisk regresjon
+### Oppgaver om KNN
+### Oppgaver om paneldata
+## Relevante R-kommandoer {#relevante-r-avansert-regresjon}
+### Antakelser om datasett {-}
+### Tilpasse en logistisk regresjonsmodell {-}
+### Trene en kNN-modell {-}
+### Paneldata {-}
+
+<!--chapter:end:06-avansert-regresjon-og-maskinlaering.Rmd-->
+
 
 # Dataøvinger
 
@@ -1080,3 +1292,33 @@ logreg_tot
 ```
 
 **Oppgave 2.8:** Gjør en tilsvarende klassifisering av kundene i testsettet med knn modellen `model4` og sammenlign med resultatet over. Hvilken modell foretrekker du? Hvilke egenskaper ved klassifisering tror du kredittgiver vektlegger?
+
+<!--chapter:end:07-dataøvinger.Rmd-->
+
+
+# Seminaroppgaver {#seminar}
+
+Placeholder
+
+
+## Seminar 1 - Grunnleggende statistikk 
+## Seminar 2 - Hypotesetesting 
+## Seminar 3 - Regresjon I
+## Seminar 4 - Regresjon II 
+## Seminar 5 - Tidsrekker 
+## Seminar 6 - Avansert regresjon og maskinlæring 
+
+<!--chapter:end:08-seminaroppgaver.Rmd-->
+
+
+# Eksamensoppgaver
+
+Placeholder
+
+
+## Tidligere eksamensoppgaver (skoleeksamen) {#skoleeksamen}
+### Rettelser og kommentarer til oppgaver og løsningsforslag {-}
+## Tidligere eksamensoppgaver (hjemmeeksamen)
+
+<!--chapter:end:09-Eksamensoppgaver.Rmd-->
+

@@ -149,3 +149,7 @@ seminar-6---avansert-regresjon-og-maskinlæring
 eksamensoppgaver
 skoleeksamen
 tidligere-eksamensoppgaver-hjemmeeksamen
+oppgave-1-3
+oppgave-2-3
+oppgave-3-2
+oppgave-1-last-inn-og-se-på-datasettet
