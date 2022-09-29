@@ -834,6 +834,14 @@ I denne dataøvingen skal vi predikere strømprisen. Resultatene fra øvingen v�
 
 Du har kanskje lagt merke til at R-kodingen i tidsrekkemodulen har en litt forskjellig stil fra det vi har gjort tidligere i kurset. I denne øvingen vil derfor størsteparten av koden blir oppgitt i oppgaveteksten. Din oppgave blir å kjøre koden, få ut figurer og resultater, samt å kommentere og tolke resultatene. 
 
+Vi starter med å laste inn noen pakker som vi kommer til å trenge. Som vanlig må du installere pakkene først dersom du ikke har gjort det allerede:
+
+```{r, message = FALSE}
+library(forecast)
+library(ggplot2)
+```
+
+
 ### Oppgave 1: Last inn og se på datasettet
 
 Denne gang er datasettet pakket inn i en såkalt `.Rdata`-fil. Det er et enkelt filformat for å lagre R-objekter. Last ned [p_da.Rdata](datasett/p_da.Rdata), og last datasettet inn i R ved å kjøre følgende kommando (der du selvsagt har satt arbeidsmappen til der du har lagt datafilen):
@@ -856,17 +864,17 @@ Disse to tidsrekkene inneholder strømprisen i to prisområder i Norge hver time
 
 [... **en eller annen motivasjon i BED4-språk om hvorfor vi er interessert i prognoser av den neste dags prisserie**...]
 
-Vi konsentrerer oss om NO3 i første omgang, og kikker raskt på datasettet ved å plotte tidsrekken direkte med `plot()`-funksjonen:
+Vi konsentrerer oss om NO3 i første omgang, og kikker raskt på datasettet ved å plotte tidsrekken direkte med `autoplot()`-funksjonen som vi finner i `forecast`-pakken:
 
 ```{r}
-plot(no3)
+autoplot(no3)
 ```
 
 På $x$-aksen har vi antall dager siden 1. januar 2022. Skriv en kort kommentar der du peker på noen viktige karakteristikker ved denne tidsrekken. Du må gjerne bruke `xlim`-argumentet i `plot()`-funksjonen for å zoome inn og se på mindre tidsperioder. Ser tidsrekken ut til å være stasjonær?
 
 ### Oppgave 2: Gjem bort den siste dagen slik at vi kan sjekke prediksjonene våre
 
-For å kunne gjøre en vurdering av hvor gode prediksjonene våre er, tar vi nå å deler opp datasettet vårt i to, der vi tar ut de siste 24 timene som vi kan bruke til å evaluere prediksjonene. Vi kaller disse to delene `no3_train`, som er den lange delen som vi skal bruke til å estimere en modell (*trene* en modell), og `no3_test` som er de siste 24 timene som vi skal bruke til å teste etterpå om modellen duger. 
+For å kunne gjøre en vurdering av hvor gode prediksjonene våre er, deler vi nå datasettet vårt i to, der vi tar ut de siste 24 timene som vi kan bruke til å evaluere prediksjonene. Vi kaller disse to delene `no3_train`, som er den lange delen som vi skal bruke til å estimere en modell (*trene* en modell), og `no3_test` som er de siste 24 timene som vi skal bruke til å teste etterpå om modellen duger. 
 
 Vi bruker funksjonen `window()` til å hente ut deler av tidsrekken, der vi må spesifisere start- og sluttverdier som vektorer med to elementer; en for dag og en for time. Det er 264 dager i datasettet vårt, så da får vi:
 
@@ -875,18 +883,144 @@ no3_train <- window(no3, start = c(1, 0), end = c(263, 23))
 no3_test  <- window(no3, start = c(264, 0), end = c(264, 23))
 ```
 
-Du kan nå dobbelsjekke at du har fått ut en enkelt dag i `no3_test` ved å kjøre `plot(no3_test)`.
+Du kan nå dobbelsjekke at du har fått ut en enkelt dag i `no3_test` ved å kjøre `autoplot(no3_test)`.
 
 ### Oppgave 3: Hent ut sesong og trend
 
-Vi har lært at et første steg i tidsrekkeanalyse er å hente ut eventuelle sesong og trendkomponenter. Vi har også sett at det er en enkel funksjon i R som kan gjøre dette for oss, nemlig `stl()`. Vi ønsker å bruke det meget praktiske `autoplot`
+Vi har lært at et første steg i tidsrekkeanalyse er å hente ut eventuelle sesong og trendkomponenter. Vi har også sett at det er en enkel funksjon i R som kan gjøre dette for oss, nemlig `stl()`, slik vi så i [seksjonen om trend og sesong](#trend-og-sesong).
 
 ```{r}
-dekomponert <- stl(no3, s.window = "periodic")
+dekomponert <- stl(no3_train, s.window = "periodic")
 autoplot(dekomponert)
-plot(dekomponert2, xlim = c(220, 260))
 ```
 
+Det var ikke så lett å se detaljer i sesongkomponenten i dette plottet, så vi zoomer inn på en mindre del av x-aksen:
+
+```{r, message=FALSE, warning = FALSE}
+autoplot(dekomponert) + xlim(245, 260)
+```
+
+Gi en kort beskrivelse av de ulike komponentene i tidsrekken.
+
+### Oppgave 4: Prediker treningstidsrekken 24 steg frem og visualiser resultatene.
+
+Vi skal nå slippe veldig billig unna! Denne oppgaven består egentlig av flere steg:
+
+1. Finn en statistisk modell for residualtidsrekken. Bruk for eksempel `auto.arima()` for å finne den ARIMA-modellen som passer best til treningsdatasettet.
+2. Bruk denne modellen til å predikere residualtidsrekken 24 steg frem.
+3. Skriv trendserien 24 steg frem. Her må vi ha en fornuftig måte å ekstrapolere som vi ikke har dekket eksplisitt i materialet vårt.
+4. Hekt på en ny dag med den daglige sesongvariasjonen.
+5. Legg sammen prediksjonene av residualene, trend- og sesongkomponenten for å lage en prediksjon av prisserien. 
+
+Vi kunne godt satt oss ned for å programmere disse stegene hver for seg. Heldigvis har noen gjort dette før oss, gjennom funksjonen `forecast()` i `forecast`-pakken. For å lage en prognose må vi sende inn den dekomponerte tidsrekken, sammen med en spesifikasjon av hvilken type statistisk tidsrekkemodell vi ønsker å tilpasse til residualtidsrekken (vi velger ARIMA, for det er den modellen vi har lært om), og hvor mange steg frem vi ønsker å predikere. Vi kan også legge til signifikansnivået for et prediksjonsintervall som vi vil ha på 95%:
+
+```{r}
+prognose <- forecast(dekomponert, method = "arima", h = 24, level = 95)
+```
+
+Vi kan visualisere resultatet ved hjelp av `autoplot()`. For å kunne se noe fornuftig i plottet så tar vi bare med de 100 siste observerte tidsstegene i tillegg til de 24 prediksjonene:
+
+
+```{r}
+autoplot(prognose, include = 100)
+```
+
+Gi en kommentar til dette plottet. 
+
+### Oppgave 5: Sammenlign prediksjonene med de faktiske observasjonene
+
+Vi kan nå finne frem igjen `no3_test`, som er en tidsrekke som inneholder de faktiske observasjonene for dagen der vi har gjort prediksjoner. La oss sammenligne. En måte å visualisere dette på er å hente ut prediksjonene fra `prognose`-objektet (de ligger under `$mean`), og sette det sammen med de faktiske observasjonene (som vi har lagret i `no3_test`). Vi kan også hente ut prediksjonsintervallene, og sette alt inn i en data frame:
+
+```{r, message = FALSE}
+# Setter prediksjoner, intervaller og observasjoner inn i samme data frame.  
+prediksjoner <- data.frame(
+  x = 1:24,                            # Timer i døgnet for x-aksen
+  prediksjon = prognose$mean,          # Predikerte priser
+  nedre = prognose$lower[,1],          # Nedre og øvre prediksjonsintervaller
+  ovre = prognose$upper[,1],
+  observert = no3_test                 # De faktiske observasjonene
+)
+
+# Lager plott
+ggplot(prediksjoner) +
+  geom_line(aes(x = x, y = prediksjon), linetype = "dashed") +    # Prediksjoner
+  geom_line(aes(x = x, y = nedre), colour = "darkred") +          # Nedre grense
+  geom_line(aes(x = x, y = ovre), colour = "darkred") +           # Øvre grense
+  geom_line(aes(x = x, y = observert), size = 1.5) +              # Observert
+  xlab("") + ylab("") +
+  ggtitle("24 timers prognose av strømpris") +
+  theme_minimal()
+```
+
+I dette plottet er prediksjonene av strømprisen vist som en stiplet linje, mens de prisene som faktisk ble observert er vist som en tykk heltrukken linje. Kommenter plottet.
+
+### Oppgave 6: Lag prediksjoner for neste dag
+
+Så langt har vi brukt alle dagene i datasettet vårt *bortsett fra den siste* til å predikere strømprisen på den siste dagen. Resultatene ser ut til å være gode. Du kan nå gjenta denne prosedyren, men i stedet for tidsrekken `no3_train` skal du nå bruke hele tidsrekken `no3` til å predikere prisen for dagen etter det -- den 21. september 2022 -- en dag der vi ikke har de faktisk realiserte prisene i datasettet vårt. 
+
+Du skal få et prediksjonsplott som ser slik ut:
+
+```{r, echo = FALSE}
+dekomponert2 <- stl(no3, s.window = "periodic")
+prognose2 <- forecast(dekomponert2, method = "arima", h = 24, level = 95)
+autoplot(prognose2, include = 100)
+```
+
+Du kan så samle prediksjonene i en data frame som i forrige oppgave, men der vi selvsagt ikke kan ha med en kolonne med observerte priser, siden vi ikke har dem tilgjengelige. Den endelige tabellen med observasjoner skal se slik ut:
+
+```{r, echo = FALSE}
+prediksjoner2 <- data.frame(
+  x = 1:24,                            # Timer i døgnet for x-aksen
+  prediksjon = prognose2$mean,          # Predikerte priser
+  nedre = prognose2$lower[,1],          # Nedre og øvre prediksjonsintervaller
+  ovre = prognose2$upper[,1]
+)
+
+prediksjoner2
+```
+
+Kommenter.
+
+### Oppgave 7: Lagre prediksjonene i en excel-fil.
+
+Hvis du tar BED4 dette semesteret (eller skal ta BED4 på et senere tidspunkt) så trenger du nå å eksportere disse prediksjonene til en Excel-fil. En pakke som kan gjøre dette er `writexl` (som du, igjen, er nødt til å installere før bruk: `install.packages("writexl")`). Hvis du har lagret prediksjonene i en data frame som heter `prediksjoner2`, så kan du skrive den ut i en Excel-fil på følgende måte:
+
+```{r, eval = FALSE}
+library(writexl)
+write_xlsx(prediksjoner2, "no3_prediksjoner.xlsx")
+```
+
+Du skal nå ha en Excel-fil med prediksjonene dine i filen `no3_prediksjoner.xlsx` i arbeidsmappen din.
+
+### Oppgave 8: Gjør det samme for `no5`
+
+Du kan nå gjenta øvelsen over for å få ut samme type prediksjoner for det andre prisområdet. Tidsrekken finner du i `no5` og prediksjonsplottet ser slik ut:
+
+```{r, echo = FALSE}
+dekomponert3 <- stl(no5, s.window = "periodic")
+prognose3 <- forecast(dekomponert3, method = "arima", h = 24, level = 95)
+autoplot(prognose3, include = 100)
+```
+
+Data framen med prediksjonene skal se slik ut:
+
+```{r}
+prediksjoner3 <- data.frame(
+  x = 1:24,                            # Timer i døgnet for x-aksen
+  prediksjon = prognose3$mean,          # Predikerte priser
+  nedre = prognose3$lower[,1],          # Nedre og øvre prediksjonsintervaller
+  ovre = prognose3$upper[,1]
+)
+
+prediksjoner3
+```
+
+```{r, eval = FALSE}
+write_xlsx(prediksjoner3, "no5_prediksjoner.xlsx")
+```
+
+
+Du kan laste ned de ferdige Excel-filene her for å kontrollere at du har fått det til: [`no3_prediksjoner.xlsx`](no3_prediksjoner.xlsx) og  [`no5_prediksjoner.xlsx`](no5_prediksjoner.xlsx).
 
 ## Dataøving 5
 

@@ -136,6 +136,14 @@ dataøving-3
 oppgave-1-interaktiv-øvelse-1
 oppgave-2-regresjonsanalyse
 dataøving-4
+oppgave-1-last-inn-og-se-på-datasettet
+oppgave-2-gjem-bort-den-siste-dagen-slik-at-vi-kan-sjekke-prediksjonene-våre
+oppgave-3-hent-ut-sesong-og-trend
+oppgave-4-prediker-treningstidsrekken-24-steg-frem-og-visualiser-resultatene.
+oppgave-5-sammenlign-prediksjonene-med-de-faktiske-observasjonene
+oppgave-6-lag-prediksjoner-for-neste-dag
+oppgave-7-lagre-prediksjonene-i-en-excel-fil.
+oppgave-8-gjør-det-samme-for-no5
 dataøving-5
 oppgave-1-interaktiv-øvelse-2
 oppgave-2---maskinlæring-logistisk-regresjon-og-k-nærmeste-naboer
@@ -149,7 +157,3 @@ seminar-6---avansert-regresjon-og-maskinlæring
 eksamensoppgaver
 skoleeksamen
 tidligere-eksamensoppgaver-hjemmeeksamen
-oppgave-1-3
-oppgave-2-3
-oppgave-3-2
-oppgave-1-last-inn-og-se-på-datasettet
