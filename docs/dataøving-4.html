@@ -252,7 +252,14 @@ Publisert ved hjelp av bookdown</a></li>
             <section class="normal" id="section-">
 <div id="dataøving-4" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Dataøving 4</h2>
-<p>I denne dataøvingen skal vi predikere strømprisen. Resultatene fra øvingen vår trengs som imput in <strong>Case 3</strong> i BED4, som for mange studenter går parallelt med MET4. Hvis du ikke tar BED4 dette semesteret, så går det helt fint også. Dataøvingen står fint på egne bein, og du kan uansett komme tilbake til disse resultatene hvis du for eksempel skal ta BED4 på et senere tidspunkt.</p>
+<p>En produsent som vil selge kraft til Nord Pool leverer salgsbud til kraftbørsen som spesifiserer, for hver time neste dag, hvor mange megawatt (MW) man er villig til å produsere til ulike priser. Fristen for å levere salgsbud er kl 12:00 dagen før produksjonen skal finne sted. For en vindkraftprodusent er det flere usikre faktorer man må ta stilling til når man skal levere salgsbud for neste dag:</p>
+<ol style="list-style-type: decimal">
+<li>Timeprisene i spotmarkedet (Euro/MW) er ukjente (blir ikke offentliggjort før kl 12:45).</li>
+<li>For å vite hvor mange megawatt (MW) man kan produsere i en gitt time trenger man å vite vindstyrken. Selv med gode værprognoser vil det fremdeles være betydelig usikkerhet knyttet til vindstyrken i de ulike timene neste dag.</li>
+<li>Dersom den faktiske produksjonen avviker fra det man har meldt inn vil det påløpe en straffekostnad. I timer med mye vind vil man måtte selge den overskytende produksjonen til en lavere pris enn spotprisen, og i timer med lite vind vil man måtte kompensere fleksible produsenter for å dekke opp for den manglende produksjonen. Straffekostnaden (Euro/MW) for over- eller underproduksjon er en ukjent størrelse på budgivningstidspunktet.</li>
+</ol>
+<p>I denne dataøvingen skal vi konsentrere oss om å lage prognoser for spotprisen. I case 3 i BED4 kommer dere også til å få bruk for vindstyrken og straffekostnadene, men å lage prognoser for disse vil kreve ferdigheter utover det som gjennomgås i MET4.</p>
+<p>Hvis du ikke tar BED4 dette semesteret, så går det helt fint også. Dataøvingen står fint på egne bein, og du kan uansett komme tilbake til disse resultatene hvis du for eksempel skal ta BED4 på et senere tidspunkt.</p>
 <p>Du har kanskje lagt merke til at R-kodingen i tidsrekkemodulen har en litt forskjellig stil fra det vi har gjort tidligere i kurset. I denne øvingen vil derfor størsteparten av koden blir oppgitt i oppgaveteksten. Din oppgave blir å kjøre koden, få ut figurer og resultater, samt å kommentere og tolke resultatene.</p>
 <p>Vi starter med å laste inn noen pakker som vi kommer til å trenge. Som vanlig må du installere pakkene først dersom du ikke har gjort det allerede:</p>
 <div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="dataøving-4.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
@@ -264,7 +271,6 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Du skal nå få to tidsrekker i minnet: <code>n03</code> og <code>no5</code>, som i figuren under:</p>
 <p><img src="bilder/environ.png" width="800" /></p>
 <p>Disse to tidsrekkene inneholder strømprisen i to prisområder i Norge hver time fra 1. januar 2022 til og med 21. september 2022. Tidsrekken <code>no3</code> inneholder prisen for Midt-Norge (NO3) og <code>no5</code> inneholder prisen for Vest-Norge (NO5).</p>
-<p>[… <strong>en eller annen motivasjon i BED4-språk om hvorfor vi er interessert i prognoser av den neste dags prisserie</strong>…]</p>
 <p>Vi konsentrerer oss om NO3 i første omgang, og kikker raskt på datasettet ved å plotte tidsrekken direkte med <code>autoplot()</code>-funksjonen som vi finner i <code>forecast</code>-pakken:</p>
 <div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="dataøving-4.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(no3)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-259-1.png" width="672" /></p>
@@ -408,6 +414,7 @@ Publisert ved hjelp av bookdown</a></li>
 ## 22 22   412.5279 266.3558 558.7000
 ## 23 23   390.6720 241.3325 540.0115
 ## 24 24   368.3594 215.4343 521.2845</code></pre>
+<p>Du lagrer den som en Excel-fil slik:</p>
 <div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="dataøving-4.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(prediksjoner3, <span class="st">&quot;no5_prediksjoner.xlsx&quot;</span>)</span></code></pre></div>
 <p>Du kan laste ned de ferdige Excel-filene her for å kontrollere at du har fått det til: <a href="no3_prediksjoner.xlsx"><code>no3_prediksjoner.xlsx</code></a> og <a href="no5_prediksjoner.xlsx"><code>no5_prediksjoner.xlsx</code></a>.</p>
 </div>
