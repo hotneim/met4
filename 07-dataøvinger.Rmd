@@ -1048,6 +1048,7 @@ Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står 
 
 I denne oppgaven skal vi se på de samme dataene som ble brukt i forelesningen om logistisk regresjon. Vi har data på 10000 kredittkortkunder og vi ønsker å kunne bygge og trene en best mulig modell til å predikere hvilke kunder som vil misligholde sin gjeld. 
 
+
 **Oppgave 2.1:** Vi starter med å få tak i dataene. Disse er integrert i pakken `ISLR`. Last inn pakken og ta en titt på dataene ved bruk av følgende linjer (hvordan du kommenterer er opp til deg):
 
 ```{r,  echo=T, results='hide', warning = F}
