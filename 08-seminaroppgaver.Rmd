@@ -224,18 +224,25 @@ Oppgaveformuleringene finner du i seksjon \@ref(skoleeksamen).
 
 ## Seminar 6 - Avansert regresjon og maskinlæring 
 
-Refleksjonsoppgaver:
+1. Nevn minst to grunner til at en ønsker å utføre en vanlig regresjonsanalyse. Reflekter så over hva hovedgrunnen er med å lage henholdsvis en KNN-modell og en regresjonsmodell.
 
-
-1. Nevn minst to grunner til at en ønsker å utføre en vanlig regresjonsanalyse. Reflekter så over hva hovedgrunnen er med å lage henholdsvis en KNN-modell og en regresjonsmodell.  
-
-2. Tegn et sett med observasjoner bestående av en dummy-variabel $Y$ og en kontinuerlig variabel $X$ i et xy-koordinatsystemet 
-hvor en ville fått bedre prediksjoner av $Y$ med KNN-metoden enn med logistisk-regresjon. 
-
-Vi vil ellers diskutere noen av oppgavene i seksjon 5.4 og eventuelle spørsmål som dukker opp.
+2. Diskuter i hvilken grad det er rimelig med komponenten $v_t$ i en paneldatamodell
 
 
 
+    $$y_{it} = \beta_0 + \beta_1 x_{it} + ...  + v_t + \alpha_i + \epsilon_{it} $$
+     
+dersom en skal analysere paneldata av følgende responsvariabler $y_{it}$:
 
- 
+a. Antall konkurser hver måned i ulike land.
+b. Timentlig energi-etterspørsel i norske kommuner.
+c. Lønn per år for forskjellige individer i et land.
+d. Kan du komme på en tidsinvariant forklaringsvariabel som er relevant for responsvariablene over? Gjør det noe om vi "glemmer" disse?
+
+3. Tegn et sett med observasjoner bestående av en dummy-variabel $Y$ og en kontinuerlig variabel $X$ i et xy-koordinatsystemet
+hvor en ville fått bedre prediksjoner av $Y$ med KNN-metoden enn med logistisk-regresjon.
+
+4. Prøv deg på eksamen H21 oppgave 3
+
+Oppgaveformuleringene finner du i seksjon \@ref(skoleeksamen).
 

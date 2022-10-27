@@ -962,7 +962,7 @@ I dette plottet er prediksjonene av strømprisen vist som en stiplet linje, mens
 
 ### Oppgave 6: Lag prediksjoner for neste dag
 
-Så langt har vi brukt alle dagene i datasettet vårt *bortsett fra den siste* til å predikere strømprisen på den siste dagen. Resultatene ser ut til å være gode. Du kan nå gjenta denne prosedyren, men i stedet for tidsrekken `no3_train` skal du nå bruke hele tidsrekken `no3` til å predikere prisen for dagen etter det -- den 21. september 2022 -- en dag der vi ikke har de faktisk realiserte prisene i datasettet vårt. 
+Så langt har vi brukt alle dagene i datasettet vårt *bortsett fra den siste* til å predikere strømprisen på den siste dagen. Resultatene ser ut til å være gode. Du kan nå gjenta denne prosedyren, men i stedet for tidsrekken `no3_train` skal du nå bruke hele tidsrekken `no3` til å predikere prisen for dagen etter det -- den 22. september 2022 -- en dag der vi ikke har de faktisk realiserte prisene i datasettet vårt. 
 
 Du skal få et prediksjonsplott som ser slik ut:
 
