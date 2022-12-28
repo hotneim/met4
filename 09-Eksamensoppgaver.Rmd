@@ -6,7 +6,7 @@ Her finner du tidligere eksamensoppgaver samt diverse (og lett redigert) korresp
 
 ## Tidligere eksamensoppgaver (skoleeksamen) {#skoleeksamen}
 
-I tabellen under finner du en lang rekke eksamenssett som er gitt tidligere i MET4 (og dets forløper INT010). Vi har lagt til en kolonne med oppgaver som åpenbart ligger utenfor pensum i dag. Utover det er selvsagt oppgavene relevante i større eller mindre grad for kurset i dag, uten at vi har mulighet til å gå nærmere inn på en slik detaljert rangering.
+I tabellen under finner du en lang rekke eksamenssett som er gitt tidligere i MET4. Vi har lagt til en kolonne med oppgaver som åpenbart ligger utenfor pensum i dag. Utover det er selvsagt oppgavene relevante i større eller mindre grad for kurset i dag, uten at vi har mulighet til å gå nærmere inn på en slik detaljert rangering.
 
 Lenger nede på siden finner du noen kommentarer og rettelser til oppgavesett og løsningsforslag som har dukket opp i ettertid.
 
@@ -27,142 +27,142 @@ Her vil du finne en del kommentarer og rettelser som er spesifikke for de enkelt
 
 Overskriftene under kan trykkes på, så ekspanderes innholdet for hver eksamen.
 
-<details><summary>Vår 2008</summary>
+<!-- <details><summary>Vår 2008</summary> -->
 
-**Spørsmål 1d:** *Vi skal regne ut forventet nytte. Hvorfor får vi $EX^2 =  20( var + \mu^2 )$?* 
+<!-- **Spørsmål 1d:** *Vi skal regne ut forventet nytte. Hvorfor får vi $EX^2 =  20( var + \mu^2 )$?*  -->
 
-Det er tatt utgangspunkt i den første regneregelen for varians i forelesningsnotatene. $Var(X)=E(X^2)-(E(X))^2$. Derav $E(X^2)=Var(X) +(E(X))^2$
+<!-- Det er tatt utgangspunkt i den første regneregelen for varians i forelesningsnotatene. $Var(X)=E(X^2)-(E(X))^2$. Derav $E(X^2)=Var(X) +(E(X))^2$ -->
 
-**Spørsmål 2a:** *Jeg lurer jeg på hvordan man kommer frem til $S^2$*?
+<!-- **Spørsmål 2a:** *Jeg lurer jeg på hvordan man kommer frem til $S^2$*? -->
 
-Du regner ut variansen til de to observasjonsseriene som er gitt i oppgaven (evt. standardavviket slik det er oppgitt i løsningsforslaget). Det kan du gjøre på en lommeregner, eller du kan bruke den informasjonen som er oppgitt. For den første serien er $S^2=1,835/7$ hvor 7 er $n-1$ med $n=8$ observasjoner.
+<!-- Du regner ut variansen til de to observasjonsseriene som er gitt i oppgaven (evt. standardavviket slik det er oppgitt i løsningsforslaget). Det kan du gjøre på en lommeregner, eller du kan bruke den informasjonen som er oppgitt. For den første serien er $S^2=1,835/7$ hvor 7 er $n-1$ med $n=8$ observasjoner. -->
 
-**Spørsmål 2b:** *Jeg lurer på hvorfor en skal bruke ensidig test der. Har du tid til å forklare meg det, for jeg ser ikke helt hvorfor det skal være ensidig. Kan det ikke være tosidig også?*
+<!-- **Spørsmål 2b:** *Jeg lurer på hvorfor en skal bruke ensidig test der. Har du tid til å forklare meg det, for jeg ser ikke helt hvorfor det skal være ensidig. Kan det ikke være tosidig også?* -->
 
-Jeg ser ingen dypere mening i dette. Oppgavegiver ber om ensidig test i b/c og tosidig i d - og i løsningsforslaget kommenterer vedkommende at man burde brukt ensidig test også i d for å sammenligne resultatet av testene. Pussig. Dersom jeg skal resonnerer utenfor oppgaven antar jeg at argumentet for ensidig test er at dersom sølvinnholdet endrer seg, knytter det seg til at de som lager penger har et incentiv til å begynne jukse med sølvinnholdet, mens det er vanskelig å se for seg hvorfor noen skulle øke sølvinnholdet i samme mynttype over tid. Dermed er man a priori villig til å se bort fra at sant sølvinnhold øker.
+<!-- Jeg ser ingen dypere mening i dette. Oppgavegiver ber om ensidig test i b/c og tosidig i d - og i løsningsforslaget kommenterer vedkommende at man burde brukt ensidig test også i d for å sammenligne resultatet av testene. Pussig. Dersom jeg skal resonnerer utenfor oppgaven antar jeg at argumentet for ensidig test er at dersom sølvinnholdet endrer seg, knytter det seg til at de som lager penger har et incentiv til å begynne jukse med sølvinnholdet, mens det er vanskelig å se for seg hvorfor noen skulle øke sølvinnholdet i samme mynttype over tid. Dermed er man a priori villig til å se bort fra at sant sølvinnhold øker. -->
 
-**Spørsmål 3b:** *I oppgaven får vi oppgitt at det er 39 observasjoner. I oppgave b skal vi finne konfidensintervall. Hvorfor bruker vi 36 som frihetsgrader når det står at det er n-2? Og hvilken formel brukes for å komme fram til 0,083?*
+<!-- **Spørsmål 3b:** *I oppgaven får vi oppgitt at det er 39 observasjoner. I oppgave b skal vi finne konfidensintervall. Hvorfor bruker vi 36 som frihetsgrader når det står at det er n-2? Og hvilken formel brukes for å komme fram til 0,083?* -->
 
-*(n-2)* har du nok fra plansjene om enkel regresjon dvs konstantledd pluss én variabel. Her blir det *n-3* (konstantledd pluss to forklaringsvariabler, *n-k-1*). *0,083* er oppgitt i regresjonsutskriften som standardavviket til koeffisienten.
+<!-- *(n-2)* har du nok fra plansjene om enkel regresjon dvs konstantledd pluss én variabel. Her blir det *n-3* (konstantledd pluss to forklaringsvariabler, *n-k-1*). *0,083* er oppgitt i regresjonsutskriften som standardavviket til koeffisienten. -->
 
-**Oppgave 3c:** *Skal man ikke her på $F$-testen bruke $(F, \alpha, k-1,n-k)$? Er ikke $k$ her 2? (arbeidskraft og kapital) og $n$ fortsatt 36? Fasiten sier frihetsgradene er 2 og 36.*
+<!-- **Oppgave 3c:** *Skal man ikke her på $F$-testen bruke $(F, \alpha, k-1,n-k)$? Er ikke $k$ her 2? (arbeidskraft og kapital) og $n$ fortsatt 36? Fasiten sier frihetsgradene er 2 og 36.* -->
 
-$F$-testen er $(F, \alpha, k,n-k-1)$ dersom $k$ er antall forklaringsvariabler i tillegg til konstantleddet (slik det er i bokas og min notasjon). $n$ er 39.
+<!-- $F$-testen er $(F, \alpha, k,n-k-1)$ dersom $k$ er antall forklaringsvariabler i tillegg til konstantleddet (slik det er i bokas og min notasjon). $n$ er 39. -->
 
-**Oppgave 3i** *Det spørres om hvordan man kan teste en hypotese om konstant skalautbytte! Jeg finner ikke ut av hvordan man gjør det! Kan du hjelpe meg med det?*
+<!-- **Oppgave 3i** *Det spørres om hvordan man kan teste en hypotese om konstant skalautbytte! Jeg finner ikke ut av hvordan man gjør det! Kan du hjelpe meg med det?* -->
 
-Jeg tror ikke dette er et spørsmål jeg ville gitt i denne formen. Våren 2008 lå kurset i siste semester. Da kunne vi forutsette at studentene skulle vite at konstant skalautbytte med denne funksjonsformen innebærer at summen av koeffisientene er én (Det ligger også inne som et punkt i plansjene mine om multikolinearitet, tror jeg). Da vi gjennomgikk $F$-testen for regresjon (test for om alle koeffisientene er null samtidig) nevnte jeg muntlig at $F$-testen også kan brukes på mindre grupper av koeffisienter. Man kan altså teste uttrykk av typen $\alpha+\beta=1$. Det som kommer i klammeparentes i løsningsforslaget har dere ingen forutsetning for å forstå siden heller ikke boken har med noe om dette. Kanskje ble det sagt noe om det på forelesningene det semesteret, eller kanskje oppgavegiveren har tatt det med i løsningsforslaget for spesielt interesserte...
- 
-</details>
+<!-- Jeg tror ikke dette er et spørsmål jeg ville gitt i denne formen. Våren 2008 lå kurset i siste semester. Da kunne vi forutsette at studentene skulle vite at konstant skalautbytte med denne funksjonsformen innebærer at summen av koeffisientene er én (Det ligger også inne som et punkt i plansjene mine om multikolinearitet, tror jeg). Da vi gjennomgikk $F$-testen for regresjon (test for om alle koeffisientene er null samtidig) nevnte jeg muntlig at $F$-testen også kan brukes på mindre grupper av koeffisienter. Man kan altså teste uttrykk av typen $\alpha+\beta=1$. Det som kommer i klammeparentes i løsningsforslaget har dere ingen forutsetning for å forstå siden heller ikke boken har med noe om dette. Kanskje ble det sagt noe om det på forelesningene det semesteret, eller kanskje oppgavegiveren har tatt det med i løsningsforslaget for spesielt interesserte... -->
 
-<details><summary>Høst 2008</summary>
+<!-- </details> -->
 
-**Oppgave 1d:** *Med 0.05,3,144 (5 %, 3 og 144 frihetsgrader) burde grensen vært på 2.67, men i fasiten står det 2.60.*
+<!-- <details><summary>Høst 2008</summary> -->
 
-Enig. Det må være trykkfeil i løsningsforslaget.
+<!-- **Oppgave 1d:** *Med 0.05,3,144 (5 %, 3 og 144 frihetsgrader) burde grensen vært på 2.67, men i fasiten står det 2.60.* -->
 
-**Oppgave 2d:** *Når man skal lage et konfidensintervall for koeffisienten til en av de uavhengige variablene i en multippel regresjon, hva er da riktig antall frihetsgrader for t-verdien? I H09 oppgave 2g benyttes $(n-k-1)$ mens i H08 oppgave 2d benyttes $(n-2)$.*
+<!-- Enig. Det må være trykkfeil i løsningsforslaget. -->
 
-Det er $n-k-1$ som er riktig frihetsgradstall, så løsningsforslaget høst 2008 må være feil.
+<!-- **Oppgave 2d:** *Når man skal lage et konfidensintervall for koeffisienten til en av de uavhengige variablene i en multippel regresjon, hva er da riktig antall frihetsgrader for t-verdien? I H09 oppgave 2g benyttes $(n-k-1)$ mens i H08 oppgave 2d benyttes $(n-2)$.* -->
 
-**Oppgave 3c:** *I Tabellen for kjikvadrattesten er $(f_i-e_i)^2 /e_i$ oppgitt å være 0,04 og 0,05 i hhv. 1. og 2. rekke. Deler man 1/228 og 1/212 får man hhv. ca 0,004 og 0,005. Dette slår dog ikke ut på konklusjon til testen.*
+<!-- Det er $n-k-1$ som er riktig frihetsgradstall, så løsningsforslaget høst 2008 må være feil. -->
 
-Du har rett.
+<!-- **Oppgave 3c:** *I Tabellen for kjikvadrattesten er $(f_i-e_i)^2 /e_i$ oppgitt å være 0,04 og 0,05 i hhv. 1. og 2. rekke. Deler man 1/228 og 1/212 får man hhv. ca 0,004 og 0,005. Dette slår dog ikke ut på konklusjon til testen.* -->
 
-</details>
+<!-- Du har rett. -->
 
-<details><summary>Vår 2009</summary>
+<!-- </details> -->
 
-**Oppgave 2c:** *Jeg lurer på hvorfor fasiten sier at frihetsgradene til $F$-testen er $F_{\alpha, k-1,n-1}$? Jeg trodde frihetsgradene ved denne testen var $F_{\alpha, k, n-k-1}?*
+<!-- <details><summary>Vår 2009</summary> -->
 
-Det ser for meg ut som om løsningsforslaget er riktig, og at du blander sammen denne F-testen med formelen for den nært beslektede F-testen knyttet til multippel regresjon.
+<!-- **Oppgave 2c:** *Jeg lurer på hvorfor fasiten sier at frihetsgradene til $F$-testen er $F_{\alpha, k-1,n-1}$? Jeg trodde frihetsgradene ved denne testen var $F_{\alpha, k, n-k-1}?* -->
 
-</details>
+<!-- Det ser for meg ut som om løsningsforslaget er riktig, og at du blander sammen denne F-testen med formelen for den nært beslektede F-testen knyttet til multippel regresjon. -->
 
-<details><summary>Høst 2009</summary>
+<!-- </details> -->
 
-**Oppgave 1a:** *”Population” brukes veldig fritt i boken, og kan, som jeg har forstått oversettes til både gruppe og populasjon. Eksempelvis i denne oppgaven med ”normalfordelte populasjoner”. Dette sjekkes jo vha dataene (fra utvalget?). Er det da snakk om hele populasjonen eller utvalget?*
+<!-- <details><summary>Høst 2009</summary> -->
 
-Populasjonene i den virkelige verden kan vi aldri observere, men det er de som har en fordeling. Så observerer vi utvalget som er trukket fra populasjonen til å teste hypoteser om populasjonen, for eksempel en hypotese om at populasjonen er normalfordelt. Du har sikkert rett i at vi noen ganger snakker om grupper for det som er en populasjon.
+<!-- **Oppgave 1a:** *”Population” brukes veldig fritt i boken, og kan, som jeg har forstått oversettes til både gruppe og populasjon. Eksempelvis i denne oppgaven med ”normalfordelte populasjoner”. Dette sjekkes jo vha dataene (fra utvalget?). Er det da snakk om hele populasjonen eller utvalget?* -->
 
-**Oppgave 2c:** *Vi skal drøfte et residualplott. I fasiten her står det at histogram og normalscore antyder at residualene ikke er normalfordelt? Vi har da godkjent mye dårligere figurer tidligere, med ca. likt antall observasjoner? I samme eksamenssett oppgave1 b) skal vi teste for lik varians. her er n1=14 og n2=9. videre skal v1=n1-1=14-1=13 og v2=n2-2=9-2=7 (jf. formel s. 442 i pensumboken) fasiten her sier derimot at v2=8?*
+<!-- Populasjonene i den virkelige verden kan vi aldri observere, men det er de som har en fordeling. Så observerer vi utvalget som er trukket fra populasjonen til å teste hypoteser om populasjonen, for eksempel en hypotese om at populasjonen er normalfordelt. Du har sikkert rett i at vi noen ganger snakker om grupper for det som er en populasjon. -->
 
-For å ta det siste først. Det er trykkfeil i boken på side 442. Når det gjelder residualplottet er jeg enig med deg. Man kunne like gjerne skrevet at det ikke er tydelig avvik fra normalitet.
+<!-- **Oppgave 2c:** *Vi skal drøfte et residualplott. I fasiten her står det at histogram og normalscore antyder at residualene ikke er normalfordelt? Vi har da godkjent mye dårligere figurer tidligere, med ca. likt antall observasjoner? I samme eksamenssett oppgave1 b) skal vi teste for lik varians. her er n1=14 og n2=9. videre skal v1=n1-1=14-1=13 og v2=n2-2=9-2=7 (jf. formel s. 442 i pensumboken) fasiten her sier derimot at v2=8?* -->
 
-**Oppgave 2g:** *I kompendiet står det at man bruker $k$ fra $t$-tabell med $n-2$ frihetsgrader, i fasiten her ser det ut til at de har brukt $n-k-1$?*
+<!-- For å ta det siste først. Det er trykkfeil i boken på side 442. Når det gjelder residualplottet er jeg enig med deg. Man kunne like gjerne skrevet at det ikke er tydelig avvik fra normalitet. -->
 
-Også i forelesningsnotatene står det *n-k-1* under multippel regresjon (plansje 269).
-</details>
+<!-- **Oppgave 2g:** *I kompendiet står det at man bruker $k$ fra $t$-tabell med $n-2$ frihetsgrader, i fasiten her ser det ut til at de har brukt $n-k-1$?* -->
 
-<details><summary>Vår 2010</summary>
+<!-- Også i forelesningsnotatene står det *n-k-1* under multippel regresjon (plansje 269). -->
+<!-- </details> -->
 
-**Oppgave 3d:** *Hvorfor blir det 12  F(12) - 10F(11)-(12-10) når $q=15$ og $\mu=10$?*
+<!-- <details><summary>Vår 2010</summary> -->
 
-Dette ser merkelig ut for meg også (Han som har laget oppgaven har sluttet.) Antar det skulle vært 15 og 14.
+<!-- **Oppgave 3d:** *Hvorfor blir det 12  F(12) - 10F(11)-(12-10) når $q=15$ og $\mu=10$?* -->
 
-</details>
+<!-- Dette ser merkelig ut for meg også (Han som har laget oppgaven har sluttet.) Antar det skulle vært 15 og 14. -->
 
-<details><summary>Høst 2010</summary>
+<!-- </details> -->
 
-**Oppgave 1a:** *I høsteksamen i 2010 oppgave 1a) har de brukt antall frihetsgrader lik 31. Jeg lurte på hvorfor det ikke blir 34, altså n-2? Hvordan vet vi når frihetsgrader er $n - k - 1$, og når det er $n - 2$?*
+<!-- <details><summary>Høst 2010</summary> -->
 
-For lineær regresjon er antall frihetsgrader lik $n$ minus antall parametre du har estimert i analysen din. I enkel regresjon antar vi formen på uttrykket $Y = \beta_1 X + \beta_0$ og må estimere $\beta_1$ og $\beta_0$, altså 2 parametre. Derfor blir regelen $n - 2$. I Multippel regresjon antar vi f.eks. en form på uttrykket $Y = \beta_2 X_2 + \beta_1 X_1 + \beta_0$ og må estimere $\beta_2$, $\beta_1$ og $\beta_0$, altså 3 stk. I regelen $n - k - 1$ er $k$ antall variable vi estimerer en koeffisient for ($k = 2$) og den siste "1" er for $\beta_0$. I eksempelet mitt blir det da $n - 3$. I eksamensoppgaven blir det $n - 5$.
+<!-- **Oppgave 1a:** *I høsteksamen i 2010 oppgave 1a) har de brukt antall frihetsgrader lik 31. Jeg lurte på hvorfor det ikke blir 34, altså n-2? Hvordan vet vi når frihetsgrader er $n - k - 1$, og når det er $n - 2$?* -->
 
-**Oppgave 1b:** *Har du mulighet til å sende meg utdypende forklaring på Eksamen H10 oppgave 1 b?*
+<!-- For lineær regresjon er antall frihetsgrader lik $n$ minus antall parametre du har estimert i analysen din. I enkel regresjon antar vi formen på uttrykket $Y = \beta_1 X + \beta_0$ og må estimere $\beta_1$ og $\beta_0$, altså 2 parametre. Derfor blir regelen $n - 2$. I Multippel regresjon antar vi f.eks. en form på uttrykket $Y = \beta_2 X_2 + \beta_1 X_1 + \beta_0$ og må estimere $\beta_2$, $\beta_1$ og $\beta_0$, altså 3 stk. I regelen $n - k - 1$ er $k$ antall variable vi estimerer en koeffisient for ($k = 2$) og den siste "1" er for $\beta_0$. I eksempelet mitt blir det da $n - 3$. I eksamensoppgaven blir det $n - 5$. -->
 
-Her er det det er feil i løsningsforslaget. Jeg tror oppgavegiver endret modellen etter at førsteutkastet til løsningsforslaget var klar, og så har løsningsforslaget ikke blitt oppdatert tilsvarende. Rett svar skal være $-0,160 \pm 2,042*0,034$.
+<!-- **Oppgave 1b:** *Har du mulighet til å sende meg utdypende forklaring på Eksamen H10 oppgave 1 b?* -->
 
-**Oppgave 1d:** *Hvordan er fremgangsmåten for å forstå at dette er en loglog-modell, og ikke en log-lin eller lin-log? Fasiten slår fast at det er en loglog, men forstår ikke helt hvordan man går frem.*
+<!-- Her er det det er feil i løsningsforslaget. Jeg tror oppgavegiver endret modellen etter at førsteutkastet til løsningsforslaget var klar, og så har løsningsforslaget ikke blitt oppdatert tilsvarende. Rett svar skal være $-0,160 \pm 2,042*0,034$. -->
 
-Modellen er loglog mellom pris (PG) og inntekt (I) fordi regresjonen er gjort med hensyn på logaritmen av disse to. I fasit tenker de nok at de isolerer de to variablene for å tolke dem for seg først. Vi har jo egentlig år lineært og kvadrert i modellen også. Kanskje man skal kalle hele modellen en log-log-lin-sq modell (ikke gjør det). Poenget er at loglog-forhold har tolkningen om at prosentvis økning i den ene svarer til prosentvis økning av den andre, som gjør seg fint i en diskusjon der man skal tolke en modell.
+<!-- **Oppgave 1d:** *Hvordan er fremgangsmåten for å forstå at dette er en loglog-modell, og ikke en log-lin eller lin-log? Fasiten slår fast at det er en loglog, men forstår ikke helt hvordan man går frem.* -->
 
-</details>
+<!-- Modellen er loglog mellom pris (PG) og inntekt (I) fordi regresjonen er gjort med hensyn på logaritmen av disse to. I fasit tenker de nok at de isolerer de to variablene for å tolke dem for seg først. Vi har jo egentlig år lineært og kvadrert i modellen også. Kanskje man skal kalle hele modellen en log-log-lin-sq modell (ikke gjør det). Poenget er at loglog-forhold har tolkningen om at prosentvis økning i den ene svarer til prosentvis økning av den andre, som gjør seg fint i en diskusjon der man skal tolke en modell. -->
 
-<details><summary>Høst 2012</summary>
+<!-- </details> -->
 
-**Oppgave 1a:** *I løsningsforslaget er Analyse 2 omtalt som «enveis faktoranalyse». Er dette riktig?*
+<!-- <details><summary>Høst 2012</summary> -->
 
-Nei, det er en trykkfeil. Det skulle stått «enveis variansanalyse». Faktoranalyse er en helt annen metode som ligger utenfor pensum, men som noen ganger foreleses i forbindelse med hjemmeeksamen.
+<!-- **Oppgave 1a:** *I løsningsforslaget er Analyse 2 omtalt som «enveis faktoranalyse». Er dette riktig?* -->
 
-**Oppgave 1d:** *Hvor en skal regne ut en kritisk grense for $F$ på 5% sign.nivå for v1= 175 og v2= 569. Hvorfor er det brukt en ensidig test her? (gir verdi 1,18) Er det ikke mer naturlig å bruke en tosidig her? En annen ting, er det nok å se på p-verdi eller må man regne ut en kritisk grense?*
+<!-- Nei, det er en trykkfeil. Det skulle stått «enveis variansanalyse». Faktoranalyse er en helt annen metode som ligger utenfor pensum, men som noen ganger foreleses i forbindelse med hjemmeeksamen. -->
 
-Enig med deg. Det er ikke noe holdepunkt for å bruke ensidig test her. Jeg har ment å bruke tosidig test, men brukt feil tabell – 0.05 i stedet for 0.025. Korrekt kritisk grense skulle dermed være 1,22. Det er ingen grunn til å regne ut kritisk grense hvis det er gitt en programutskrift med p-verdi
+<!-- **Oppgave 1d:** *Hvor en skal regne ut en kritisk grense for $F$ på 5% sign.nivå for v1= 175 og v2= 569. Hvorfor er det brukt en ensidig test her? (gir verdi 1,18) Er det ikke mer naturlig å bruke en tosidig her? En annen ting, er det nok å se på p-verdi eller må man regne ut en kritisk grense?* -->
 
-</details>
+<!-- Enig med deg. Det er ikke noe holdepunkt for å bruke ensidig test her. Jeg har ment å bruke tosidig test, men brukt feil tabell – 0.05 i stedet for 0.025. Korrekt kritisk grense skulle dermed være 1,22. Det er ingen grunn til å regne ut kritisk grense hvis det er gitt en programutskrift med p-verdi -->
 
-<details><summary>Høst 2015</summary>
+<!-- </details> -->
 
-**Oppgave 1b:** *I H15-eksamen b) bruker vi en ensidig t-test for å se om koeffisienten er 0 eller negativ. Jeg lurer på hvordan fasiten kom fram til antall frihetsgrader. Antall observasjoner er 898. Er det sånn at antall frihetsgrader er 893 fordi vi har et konstantledd og 4 frihetsgrader? Dersom det hadde vært en tosidig test, hadde vi fått samme antall frihetsgrader?*
+<!-- <details><summary>Høst 2015</summary> -->
 
-Det stemmer at man trekker fra antall estimerte parametre. Tosidig vs ensidig påvirker ikke antall frihetsgrader, men påvirker signifikansnivået du bruker.
+<!-- **Oppgave 1b:** *I H15-eksamen b) bruker vi en ensidig t-test for å se om koeffisienten er 0 eller negativ. Jeg lurer på hvordan fasiten kom fram til antall frihetsgrader. Antall observasjoner er 898. Er det sånn at antall frihetsgrader er 893 fordi vi har et konstantledd og 4 frihetsgrader? Dersom det hadde vært en tosidig test, hadde vi fått samme antall frihetsgrader?* -->
 
-**Oppgave 1b:** *Vi gjennomføre en t-test for koeffisienten i en regresjonsmodell. Hvorfor finner vi her testobservatoren ved å ta koeffisienten delt på standardavvik? Er dette en formel, eller kan du forklare nærmere intuisjonen bak dette?*
+<!-- Det stemmer at man trekker fra antall estimerte parametre. Tosidig vs ensidig påvirker ikke antall frihetsgrader, men påvirker signifikansnivået du bruker. -->
 
-Se kapittel 16-4d og 17-2h i boken for formelene. Altså, $t = \frac{\widehat \beta - \beta}{s_{b}}$ hvor $s_{b} = \frac{s_{\epsilon}}{\sqrt{(n-1) s_x^2}}$ er standardavviket til regresjonskoeffisienten.
+<!-- **Oppgave 1b:** *Vi gjennomføre en t-test for koeffisienten i en regresjonsmodell. Hvorfor finner vi her testobservatoren ved å ta koeffisienten delt på standardavvik? Er dette en formel, eller kan du forklare nærmere intuisjonen bak dette?* -->
 
-Dette minner om å sammenligne avvik i forventningen på en normalfordeling, ved å dele på standardavviket til estimatoren $\widehat \mu = \overline X$, som er $s/\sqrt{n}$.
+<!-- Se kapittel 16-4d og 17-2h i boken for formelene. Altså, $t = \frac{\widehat \beta - \beta}{s_{b}}$ hvor $s_{b} = \frac{s_{\epsilon}}{\sqrt{(n-1) s_x^2}}$ er standardavviket til regresjonskoeffisienten. -->
 
-**Oppgave 1b og 1c:** *I b) bruker man t-test for to utvalg, mens i c) bruker man t-test for matchede par. Kommer det av at i b) har man to utvalg, mens i c) tester man forventet poengsum i samme utvalg, men med ulike sensorer? Jeg vet ikke om jeg helt har skjønt når man skal bruke t-test for matchede par.*
+<!-- Dette minner om å sammenligne avvik i forventningen på en normalfordeling, ved å dele på standardavviket til estimatoren $\widehat \mu = \overline X$, som er $s/\sqrt{n}$. -->
 
-Matchede par vil jo gi større presisjon til å vurdere om de to sensorene retter forskjellig. Vi kan bruke matchede par fordi de to sensorene har rettet nøyaktig de samme eksamensoppgavene. Altså har vi fjernet kilden til variasjon som ellers kommer av at ulike studenter scorer ulikt på prøven.
+<!-- **Oppgave 1b og 1c:** *I b) bruker man t-test for to utvalg, mens i c) bruker man t-test for matchede par. Kommer det av at i b) har man to utvalg, mens i c) tester man forventet poengsum i samme utvalg, men med ulike sensorer? Jeg vet ikke om jeg helt har skjønt når man skal bruke t-test for matchede par.* -->
 
-I b) skal vi jo teste om den samme sensoren retter likt, men vi vet jo ikke om de to gruppene av studenter (som altså ikke er de samme, hver student har bare tatt eksamen en gang) egentlig burde gjøre det like godt på eksamen. Dermed er det to utvalg. Du kan se video om matchede par om dette.
+<!-- Matchede par vil jo gi større presisjon til å vurdere om de to sensorene retter forskjellig. Vi kan bruke matchede par fordi de to sensorene har rettet nøyaktig de samme eksamensoppgavene. Altså har vi fjernet kilden til variasjon som ellers kommer av at ulike studenter scorer ulikt på prøven. -->
 
-Man bruker T-test fordi standardavviket også må estimeres i analysen, det har ikke så mye med matchede par i seg selv å gjøre.
+<!-- I b) skal vi jo teste om den samme sensoren retter likt, men vi vet jo ikke om de to gruppene av studenter (som altså ikke er de samme, hver student har bare tatt eksamen en gang) egentlig burde gjøre det like godt på eksamen. Dermed er det to utvalg. Du kan se video om matchede par om dette. -->
 
-**Oppgave 1e:** *I oppgave e) blir vi bedt om å bruke modell 2 hvor vi har 3 koeffisienter og 1 konstantledd. hvorfor er antall frihetsgrader fortsatt 893 og ikke 894 (da vi har en mindre koeffisient i modell 2 sammenlignet med modell 5)? Men i oppgave e) bruker man tosidig test, men er usikker på om det har noe å si for antall frihetsgrader.*
+<!-- Man bruker T-test fordi standardavviket også må estimeres i analysen, det har ikke så mye med matchede par i seg selv å gjøre. -->
 
-Det har nok gått litt fort i fasit på oppgave e), det skal være 894 frihetsgrader, men fordi antallet er veldig stort (over 200) har det heller ikke noe å si. 
+<!-- **Oppgave 1e:** *I oppgave e) blir vi bedt om å bruke modell 2 hvor vi har 3 koeffisienter og 1 konstantledd. hvorfor er antall frihetsgrader fortsatt 893 og ikke 894 (da vi har en mindre koeffisient i modell 2 sammenlignet med modell 5)? Men i oppgave e) bruker man tosidig test, men er usikker på om det har noe å si for antall frihetsgrader.* -->
 
-</details>
+<!-- Det har nok gått litt fort i fasit på oppgave e), det skal være 894 frihetsgrader, men fordi antallet er veldig stort (over 200) har det heller ikke noe å si.  -->
 
-<details><summary>Høst 2016</summary>
+<!-- </details> -->
 
-**Oppgave 1h:** *I oppgave 1 h, eksamen høst 2016 bes det om å regne ut "... variansen til andelen klager (av kandidatene som møtte) våren 2014 og våren 2015." I løsningsforslaget bruker man imidlertid  data oppgitt for vår 2013 og 2014 til å regne variansen til andelen klager for henholdsvis våren 2014 og 2015. Hvorfor skal man her bruke fjoråret til å regne ut variansen til andel klager for gjeldende år?*
+<!-- <details><summary>Høst 2016</summary> -->
 
-De har bommet med året.
+<!-- **Oppgave 1h:** *I oppgave 1 h, eksamen høst 2016 bes det om å regne ut "... variansen til andelen klager (av kandidatene som møtte) våren 2014 og våren 2015." I løsningsforslaget bruker man imidlertid  data oppgitt for vår 2013 og 2014 til å regne variansen til andelen klager for henholdsvis våren 2014 og 2015. Hvorfor skal man her bruke fjoråret til å regne ut variansen til andel klager for gjeldende år?* -->
 
-</details>
+<!-- De har bommet med året. -->
+
+<!-- </details> -->
 
 <details><summary>Vår 2017</summary>
 

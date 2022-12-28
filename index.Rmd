@@ -1,5 +1,5 @@
 --- 
-title: "MET4 - Empiriske Metoder - Høst 2022"
+title: "MET4 - Empiriske Metoder - Vår 2023"
 author: "Håkon Otneim og Geir Drage Berentsen"
 site: bookdown::bookdown_site
 output: 
@@ -35,41 +35,39 @@ På denne siden vil du finne alle videosnuttene med kommentarer til lærebokens 
 
 ### Fremdriftsplan {-}
 
-Vi har laget et forslag til progresjon i tabellen under. Kolonnen "jobbe med" refererer til tema på denne siden som dere finner igjen i menyen til venstre. I hovedsak bruker vi to uker på hvert tema i kurset og aktivitetene i disse ukene er strukturert som følger:
+Vi har laget et forslag til progresjon i tabellen under. Kolonnen "jobbe med" refererer til tema på denne siden som dere finner igjen i menyen til venstre. I hovedsak bruker vi to uker på hvert tema i kurset og aktivitetene i disse ukene er i all hovedsag strukturert som følger:
 
-**Uke 1**: Selvstudie av det respektive temaet ved hjelp av videoer, regneoppgaver og teori på denne nettsiden. Det er derfor ingen aktivitet i Aud Max på mandagen disse ukene.  På torsdager er det dialogbasert undervisning i Aud A, hvor du kan komme å jobbe med oppgavene som du finner under hvert tema til venstre. Foreleser vil være tilgjengelig.
+**Uke 1**: Selvstudie av det respektive temaet ved hjelp av videoer, regneoppgaver og teori på denne nettsiden. Vi tar derfor en dag uten noen organisert aktivitet, og så tar vi en dag i 2. etasje på biblioteket der dere kan jobbe sammen i grupper med regneoppgaver. **Vi passer på at alle har noen å jobbe med, så du må gjerne komme selv om du ikke har noen spesifikke som du har planlagt å sitte med.** Regneoppgavene finner du under hvert tema til venstre. Foreleser vil være tilgjengelig.
 
-**Uke 2**: På mandager gir vi en oversiktsforelesning i temaet i Aud MAX, mens det på torsdager blir oppgaveseminar i plenum i Aud A (se \@ref(seminar) for seminaroppgavene). 
+**Uke 2**: Vi gir en oversiktsforelesning i temaet og tar et seminar med mer utfordrende oppgaver i fellesskap, begge deler i Aud A (se Avsnitt \@ref(seminar) for seminaroppgavene). 
 
 Ingen av de fysiske aktivitetene vil bli tatt opp eller streamet. Videoene og teorien på denne nettsiden er et mer en godt nok digitalt tilbud. Notatene fra oversiktsforelesningene og oppgaveseminar (Se \@ref(seminar)) vil bli lagt ut på Canvas.
 
- Selv om det nå legges opp til et fleksibelt undervisningsopplegg der tempo og progresjon til dels kan tilpasses den enkeltes timeplan og studieteknikk, er det viktig å jobbe jevnt med kurset. **MET4 er et krevende kurs som krever full innsats fra første til siste dag.** For eksempel får en mye bedre utbytte av av de fysiske aktivitetene dersom man på forhånd har sett videoene og gjort noen av  regneoppgavene relatert til temaet.
+Selv om det nå legges opp til et fleksibelt undervisningsopplegg der tempo og progresjon til dels kan tilpasses den enkeltes timeplan og studieteknikk, er det viktig å jobbe jevnt med kurset. **MET4 er et krevende kurs som krever full innsats fra første til siste dag.** For eksempel får en mye bedre utbytte av av de fysiske aktivitetene dersom man på forhånd har sett videoene og gjort noen av  regneoppgavene relatert til temaet.
 
-Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. I kalenderen under er ukene med grønn farge uker vi har tid på datasal med studentassistenter. Du finner dataøvingene i menyen til venstre.
+Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekker vi gjenom dataøvinger med studentassistenter. I kalenderen under har vi markert ukene der vi har tid på datasal med studentassistenter med grønn farge. Du finner oppgaver til dataøvingene i menyen til venstre.
 
 
 <!-- Vi vil som en hovedregel bruke tirsdagen som en ren kontakttime der kursansvalig(e) er tilgjengelige for spørsmål og diskusjon, mens torsdagstimen blir mer strukturert, med oppgaveregning i plenum (se \@ref(seminar) for seminaroppgavene) og oversiktsforelesninger. **Begge disse aktivitetene er digitale i starten av semesteret, men dette vil bli flyttet til Aud Max så snart vi kan**. -->
 
 Legg merke til følgende viktige datoer:
 
-- **30. september:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
-- **12. oktober:** Frist for innlevering av den obligatoriske innleveringen.
-- **14.--16. november:** Gruppebasert hjemmeeksamen.
-- **21. november:** Individuell **hjemme**eksamen.
+- **30. januar:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
+- **10. mars:** Frist for innlevering av den obligatoriske innleveringen.
+- **24.--26. april:** Gruppebasert hjemmeeksamen.
+- **8. mai:** Individuell **hjemme**eksamen.
 
 ```{r, echo = F, message = FALSE, warning = FALSE}
 options(knitr.kable.NA = '')
 library(dplyr)
 library(kableExtra)
 
-readxl::read_excel("diverse/tidsplan-H22.xlsx") %>% 
+readxl::read_excel("diverse/tidsplan-V23.xlsx") %>% 
   kbl() %>%
   kable_styling(bootstrap_options = c("condensed", "hover"),
                 fixed_thead = T) %>%
-    row_spec(c(3, 5, 7, 10, 11) , background = "#2E8B5750")
-  
-  # row_spec(c(3, 5, 8, 10, 12) , background = "#2E8B5750") %>% 
-  # row_spec(14, bold = T, background = "DarkRed", color = "white")
+    row_spec(c(3, 5, 8, 10, 14) , background = "#2E8B5750") %>% 
+    row_spec(13, bold = T, background = "DarkRed", color = "white")
 ```
 
 
