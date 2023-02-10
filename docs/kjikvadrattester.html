@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.4 Kjikvadrattester | MET4 - Empiriske Metoder - Vår 2023</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.4 Kjikvadrattester | MET4 - Empiriske Metoder - Vår 2023" />
   <meta property="og:type" content="book" />
@@ -304,8 +304,7 @@ som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math
 ##  8      1           1
 ##  9      2           1
 ## 10      2           2
-## # … with 142 more rows
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+## # … with 142 more rows</code></pre>
 <p>Vi legger merke til at strukturen på datasettet er litt annerledes enn krysstabellen som er vist s. 601 i læreboken. I stedet for at vi har telt opp antall studenter i hver enkelt kominasjon av «bachelorgrad» og «masterprofil», har vi fått oppgitt en tabell der hver rad representerer en enkeltstudents fagkombinasjon. Vi kan dog enkelt lage en krysstabell i R:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="kjikvadrattester.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(mba)</span></code></pre></div>
 <pre><code>##       MBA Major

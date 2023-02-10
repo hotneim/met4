@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.5 Oppgaver | MET4 - Empiriske Metoder - Vår 2023</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.5 Oppgaver | MET4 - Empiriske Metoder - Vår 2023" />
   <meta property="og:type" content="book" />
@@ -629,13 +629,13 @@ Løsning
 <ol start="2" style="list-style-type: lower-alpha">
 <li>P-verdier for tosidige tester kan være litt tricky å forstå. Vi er altså ute etter sannsynligheten for at noe “minst like ekstremt og til fordel for <span class="math inline">\(H_1\)</span> intreffer”. For en tosidig test ville vi også reagert på store negative verdier av <span class="math inline">\(Z\)</span>, og “minst like ekstremt” i negativ retning ville vært <span class="math inline">\(Z &lt; - 1.00\)</span>. Altså blir p-verdien</li>
 </ol>
-<p><span class="math display">\[p-verdi = P(Z &lt; -1.00\quad \text{og/eller}\quad Z &gt; 1.00)\\ = P(Z &lt; -1.00) + P(Z &gt; 1.00) = 2P(Z &gt; 1.00) = 2*(1 - 0.841) = 0.317\]</span></p>
+<p><span class="math display">\[\text{P-value} = P(Z &lt; -1.00\quad \text{og/eller}\quad Z &gt; 1.00)\\ = P(Z &lt; -1.00) + P(Z &gt; 1.00) = 2P(Z &gt; 1.00) = 2*(1 - 0.841) = 0.317\]</span></p>
 <ol start="3" style="list-style-type: lower-alpha">
-<li>Testobservatoren er da gitt ved</li>
+<li>Regner på nytt ut <span class="math inline">\(\hat{p}_1 = 0.95, \hat{p}_2 = 0.90, \hat{p} = 0.925\)</span>. Testobservatoren er da gitt ved</li>
 </ol>
-<p><span class="math display">\[Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(1/n_1 + 1/n_2)}} = \frac{0.95 - 0.90}{\sqrt{0.475(1-0.475)(1/200 + 1/200)}}=1.89\]</span></p>
+<p><span class="math display">\[Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(1/n_1 + 1/n_2)}} = \frac{0.95 - 0.90}{\sqrt{0.925(1-0.925)(1/200 + 1/200)}}=1.89\]</span></p>
 <p>P-verdien er som før gitt ved</p>
-<p><span class="math display">\[ P-value = 2P(Z &gt; 1.89) = 2*(1 - 0.97) = 0.06 \]</span></p>
+<p><span class="math display">\[ \text{P-value} = 2P(Z &gt; 1.89) = 2*(1 - 0.97) = 0.06 \]</span></p>
 <p>Vi ser at p-verdien avtar når andelene blir større. Vi er her ganske nære på å forkaste <span class="math inline">\(H_0\)</span> selv om differansen mellom <span class="math inline">\(\hat{p}_1\)</span> og <span class="math inline">\(\hat{p}_2\)</span> er den samme som i oppgave a. I nevneren til testobservatoren ser vi at variansen til differansen <span class="math inline">\(\hat{p}_1 - \hat{p}_2\)</span> er proposjonal med <span class="math inline">\(\hat{p}(1-\hat{p})\)</span>. Denne vil bli mindre når <span class="math inline">\(\hat{p}\)</span> nærmer seg 1 (eller 0), og er størst når <span class="math inline">\(\hat{p} = 0.5\)</span>. Vi er derfor sikrere på at differansen <span class="math inline">\(\hat{p}_1 - \hat{p}_2\)</span> i oppgave b. ligger nær den sanne differansen i populasjon sammenlignet med oppgave a. Bevismateriale mot <span class="math inline">\(H_1\)</span> øker (p-verdien går ned), men i dette tilfellet holder det ikke til å forkaste <span class="math inline">\(H_0\)</span>.</p>
 </blockquote>
 <!-- z = (0.5 - 0.45)/sqrt(0.475*(1 - 0.475)*(1/200 + 1/200)) -->

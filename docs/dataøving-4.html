@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.4 Dataøving 4 | MET4 - Empiriske Metoder - Vår 2023</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.4 Dataøving 4 | MET4 - Empiriske Metoder - Vår 2023" />
   <meta property="og:type" content="book" />
@@ -335,6 +335,8 @@ Publisert ved hjelp av bookdown</a></li>
 <span id="cb286-16"><a href="dataøving-4.html#cb286-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;&quot;</span>) <span class="sc">+</span></span>
 <span id="cb286-17"><a href="dataøving-4.html#cb286-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;24 timers prognose av strømpris&quot;</span>) <span class="sc">+</span></span>
 <span id="cb286-18"><a href="dataøving-4.html#cb286-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.</code></pre>
 <p><img src="met4_files/figure-html/unnamed-chunk-265-1.png" width="672" /></p>
 <p>I dette plottet er prediksjonene av strømprisen vist som en stiplet linje, mens de prisene som faktisk ble observert er vist som en tykk heltrukken linje. Kommenter plottet.</p>
 </div>
@@ -374,8 +376,8 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="oppgave-7-lagre-prediksjonene-i-en-excel-fil." class="section level3 hasAnchor" number="7.4.7">
 <h3><span class="header-section-number">7.4.7</span> Oppgave 7: Lagre prediksjonene i en excel-fil.<a href="dataøving-4.html#oppgave-7-lagre-prediksjonene-i-en-excel-fil." class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hvis du tar BED4 dette semesteret (eller skal ta BED4 på et senere tidspunkt) så trenger du nå å eksportere disse prediksjonene til en Excel-fil. En pakke som kan gjøre dette er <code>writexl</code> (som du, igjen, er nødt til å installere før bruk: <code>install.packages("writexl")</code>). Hvis du har lagret prediksjonene i en data frame som heter <code>prediksjoner2</code>, så kan du skrive den ut i en Excel-fil på følgende måte:</p>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="dataøving-4.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
-<span id="cb288-2"><a href="dataøving-4.html#cb288-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(prediksjoner2, <span class="st">&quot;no3_prediksjoner.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="dataøving-4.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb289-2"><a href="dataøving-4.html#cb289-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(prediksjoner2, <span class="st">&quot;no3_prediksjoner.xlsx&quot;</span>)</span></code></pre></div>
 <p>Du skal nå ha en Excel-fil med prediksjonene dine i filen <code>no3_prediksjoner.xlsx</code> i arbeidsmappen din.</p>
 </div>
 <div id="oppgave-8-gjør-det-samme-for-no5" class="section level3 hasAnchor" number="7.4.8">
@@ -383,14 +385,14 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Du kan nå gjenta øvelsen over for å få ut samme type prediksjoner for det andre prisområdet. Tidsrekken finner du i <code>no5</code> og prediksjonsplottet ser slik ut:</p>
 <p><img src="met4_files/figure-html/unnamed-chunk-269-1.png" width="672" /></p>
 <p>Data framen med prediksjonene skal se slik ut:</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="dataøving-4.html#cb289-1" aria-hidden="true" tabindex="-1"></a>prediksjoner3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb289-2"><a href="dataøving-4.html#cb289-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>,                            <span class="co"># Timer i døgnet for x-aksen</span></span>
-<span id="cb289-3"><a href="dataøving-4.html#cb289-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">prediksjon =</span> prognose3<span class="sc">$</span>mean,          <span class="co"># Predikerte priser</span></span>
-<span id="cb289-4"><a href="dataøving-4.html#cb289-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nedre =</span> prognose3<span class="sc">$</span>lower[,<span class="dv">1</span>],          <span class="co"># Nedre og øvre prediksjonsintervaller</span></span>
-<span id="cb289-5"><a href="dataøving-4.html#cb289-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ovre =</span> prognose3<span class="sc">$</span>upper[,<span class="dv">1</span>]</span>
-<span id="cb289-6"><a href="dataøving-4.html#cb289-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb289-7"><a href="dataøving-4.html#cb289-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb289-8"><a href="dataøving-4.html#cb289-8" aria-hidden="true" tabindex="-1"></a>prediksjoner3</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="dataøving-4.html#cb290-1" aria-hidden="true" tabindex="-1"></a>prediksjoner3 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb290-2"><a href="dataøving-4.html#cb290-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>,                            <span class="co"># Timer i døgnet for x-aksen</span></span>
+<span id="cb290-3"><a href="dataøving-4.html#cb290-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">prediksjon =</span> prognose3<span class="sc">$</span>mean,          <span class="co"># Predikerte priser</span></span>
+<span id="cb290-4"><a href="dataøving-4.html#cb290-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nedre =</span> prognose3<span class="sc">$</span>lower[,<span class="dv">1</span>],          <span class="co"># Nedre og øvre prediksjonsintervaller</span></span>
+<span id="cb290-5"><a href="dataøving-4.html#cb290-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ovre =</span> prognose3<span class="sc">$</span>upper[,<span class="dv">1</span>]</span>
+<span id="cb290-6"><a href="dataøving-4.html#cb290-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb290-7"><a href="dataøving-4.html#cb290-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb290-8"><a href="dataøving-4.html#cb290-8" aria-hidden="true" tabindex="-1"></a>prediksjoner3</span></code></pre></div>
 <pre><code>##     x prediksjon    nedre     ovre
 ## 1   1   346.3622 310.5934 382.1310
 ## 2   2   338.6796 286.6895 390.6698
@@ -417,7 +419,7 @@ Publisert ved hjelp av bookdown</a></li>
 ## 23 23   390.6720 241.3325 540.0115
 ## 24 24   368.3594 215.4343 521.2845</code></pre>
 <p>Du lagrer den som en Excel-fil slik:</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="dataøving-4.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(prediksjoner3, <span class="st">&quot;no5_prediksjoner.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="dataøving-4.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(prediksjoner3, <span class="st">&quot;no5_prediksjoner.xlsx&quot;</span>)</span></code></pre></div>
 <p>Du kan laste ned de ferdige Excel-filene her for å kontrollere at du har fått det til: <a href="no3_prediksjoner.xlsx"><code>no3_prediksjoner.xlsx</code></a> og <a href="no5_prediksjoner.xlsx"><code>no5_prediksjoner.xlsx</code></a>.</p>
 </div>
 </div>

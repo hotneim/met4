@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.1 Dataøving 1 | MET4 - Empiriske Metoder - Vår 2023</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.1 Dataøving 1 | MET4 - Empiriske Metoder - Vår 2023" />
   <meta property="og:type" content="book" />
@@ -285,7 +285,7 @@ Publisert ved hjelp av bookdown</a></li>
 <h4><span class="header-section-number">7.1.2.2</span> Vinduene i Rstudio og det å jobbe med R<a href="dataøving-1.html#vinduene-i-rstudio-og-det-å-jobbe-med-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Første gang du åpner Rstudio vil du se tre vinduer. Et fjerde vindu åpner du med å klikke på <strong>File</strong> i menyen, så <strong>New File</strong>, og så <strong>R Script</strong>. Figur <a href="dataøving-1.html#fig:rstudio1">7.1</a> viser en oversikt over de fire vinduene. Det er viktig at du forstår forskjellen på de to vinduene til venstre.</p>
 <div class="figure"><span style="display:block;" id="fig:rstudio1"></span>
-<img src="bilder/Rstudio1.PNG" alt="Oversikt over vinduene i RStudio." width="590" />
+<img src="bilder/Rstudio1.PNG" alt="Oversikt over vinduene i RStudio."  />
 <p class="caption">
 Figur 7.1: Oversikt over vinduene i RStudio.
 </p>
@@ -302,7 +302,7 @@ Figur 7.1: Oversikt over vinduene i RStudio.
 <p>Her er <code>a</code> og <code>b</code> objekter/variabler som vi definerer ved bruk av ‘tildelingspilen’ <code>&lt;-</code> (du kan også bruke <code>=</code>). Det går an å lagre objekter i egne filer, men vi skal se at det stort sett er smartere å lagre ‘oppskriften’ (selve koden) på hvordan de lages i en egen <code>.R</code>-fil.</p>
 <p>Det øverste vinduet til venstre (a) viser en <code>.R</code>-fil (et skript). En <code>.R</code>-fil fungerer som et manuskript med R-kommandoer (kode) og kan lagres slik at du kan senere kan se hvilke kommandoer du har brukt i analysen og eventuelt fortsette der du slapp. I Del 2 av denne dataøvingen skal du selv lage en <code>.R</code>-fil som inneholder alle kommandoer som brukes i en enkel analyse. Når du vil at R skal utføre noen av kommandoene du har skrevet i <code>.R</code>-filen markerer du bare disse (eller lar pekeren stå i linjen du vil kjøre) og trykker <strong>Ctrl + Enter</strong> (<strong>Cmd + Enter</strong> på Mac):</p>
 <div class="figure"><span style="display:block;" id="fig:rstudiorun"></span>
-<img src="bilder/Rstudiorun.PNG" alt="Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk **ctrl + Enter** (**Cmd + Enter på Mac**)" width="238" />
+<img src="bilder/Rstudiorun.PNG" alt="Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk **ctrl + Enter** (**Cmd + Enter på Mac**)"  />
 <p class="caption">
 Figur 7.2: Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk <strong>ctrl + Enter</strong> (<strong>Cmd + Enter på Mac</strong>)
 </p>
@@ -322,7 +322,7 @@ Figur 7.2: Utførelse av kommandoer du har skrevet i R filen. Marker eller la pe
 <!-- ``` -->
 <p>R kommer med en rekke “innebygde” funksjoner som kan utføre ulike statistiske analyser. For eksempel kan en t-test utføres med å bruke en funksjon som heter nettopp <code>t.test()</code>. Alle slike funksjoner kommer med en dokumentasjon som viser hva funksjonen gjør og hvordan den skal brukes. For å tilgang til denne dokumentasjonen skriver man <code>?</code> foran funksjonen i konsollen. Skriver du f.eks <code>?t.test</code> ser du at det dukker opp en side i vinduet nede til høyre:</p>
 <div class="figure"><span style="display:block;" id="fig:dokumentasjon"></span>
-<img src="bilder/dokumentasjon.JPG" alt="Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. Dette vinduet kan åpnes til et større vindu som vist over" width="312" />
+<img src="bilder/dokumentasjon.JPG" alt="Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. Dette vinduet kan åpnes til et større vindu som vist over"  />
 <p class="caption">
 Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. Dette vinduet kan åpnes til et større vindu som vist over
 </p>
@@ -374,19 +374,19 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p>For å starte swirl skriver du så følgende i konsollen:</p>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="dataøving-1.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du velge alternativet ‘R Programming’ (<strong>1</strong> og så <strong>enter</strong>). Du får så se alle modulene dette kurset inneholder:</p>
-<p><img src="bilder/swirl1.PNG" width="466" /></p>
+<p><img src="bilder/swirl1.PNG" /><!-- --></p>
 <p>I denne øvingen skal du prøve deg på modul 1 <strong>‘Basic Building Blocks’</strong>, modul 4 <strong>‘Vectors’</strong> (kun første halvdel), og modul 12 <strong>‘Looking at Data’</strong>. I modul 1 vil du lære litt om de mest grunnleggende operasjonene som kan gjøres i R. Modul 4 ser nærmere på vektorer og her er første halvdel av modulen mest relevant. Modul 12 tar for seg det å utforske strukturen på et datasett. Start med modul 1 (<strong>1</strong> og så <strong>Enter</strong>). Du vil bli bedt om å gjøre enkle operasjoner i R og av og til må du svare på multiple choice spørsmål:</p>
-<p><img src="bilder/swirl2.PNG" width="461" /></p>
+<p><img src="bilder/swirl2.PNG" /><!-- --></p>
 <p>Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (<strong>Esc</strong>) før du begynner på del to av øvingen. Lykke til!</p>
 </div>
 <div id="oppgave-2-innlesning-av-data-og-deskriptiv-statistikk-i-r" class="section level3 hasAnchor" number="7.1.4">
 <h3><span class="header-section-number">7.1.4</span> Oppgave 2: Innlesning av data og deskriptiv statistikk i R<a href="dataøving-1.html#oppgave-2-innlesning-av-data-og-deskriptiv-statistikk-i-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>I denne oppgaven skal vi lese inn noen data og produsere enkel deskriptiv statistikk av disse dataene. Dataene kommer fra <a href="https://journals.sagepub.com/doi/10.1177/0956797619829688">et amerikansk forsøk</a> hvor man ville undersøke påstanden om at voldelige dataspill fører til voldelig adferd ved la to grupper spille hvert sitt dataspill. I det “voldelige” dataspillet var oppdraget å <em>skyte</em> og <em>drepe</em> et romvesen, mens i den ikke-voldelige varianten skulle man <em>finne</em> og <em>redde</em> romvesenet fra fare. Utover det var spillene helt likt utformet, og i etterkant av en spilleøkt ble deltakernes aggresjonsnivå målt på en skala fra 1 til 9 ved hjelp av en standard psykologisk test. Dette datasettet ble brukt i eksamensoppgaven vårsemesteret 2019.</p>
 <p><strong>Oppgave 2.1.</strong> <a href="datasett/violence.xlsx">Last ned filen violence.xslx</a>. Denne filen lagrer du fortrinnsvis i en egen mappe der du ønsker at filer fra denne øvingen skal ligge. Åpne så <strong>RStudio</strong>, velg <code>File -&gt; New File -&gt; R Script</code> for å åpne et nytt Rscript. Lagre så scriptet ditt i samme mappen som du har lagt datasettet, slik at du nå har en mappe som ser ut som figuren under:</p>
-<p><img src="bilder/mappe.JPG" width="518" /></p>
+<p><img src="bilder/mappe.JPG" /><!-- --></p>
 <p>Når vi skal lese inn data, lagre figurer og andre ting har R en standard ‘mappesti’ (working directory) den leter/lagrer i. Du kan se hva denne stien peker på ved å skrive <code>getwd()</code> i konsollen. Du skal nå spesifisere denne mappestien til mappen du har opprettet. Dette gjør du raskest ved å velge <code>Session -&gt; Set Working Directory -&gt; To Source File Location</code>. Neste gang du skal jobbe med dette prosjektet kan du åpne <strong>RStudio</strong> ved å dobbeltklikke på <code>dataøving1.R</code>, og mappestien skal da settes automatisk til riktig mappe.</p>
 <p>Lag gjerne en liten overskrift ved hjelp av kommentartegnet <code>#</code> slik at .R filen din ser omtrent slik ut:</p>
-<p><img src="bilder/rstudio3.JPG" width="356" /></p>
+<p><img src="bilder/rstudio3.JPG" /><!-- --></p>
 <p><strong>Oppgave 2.2.</strong> Du skal nå lese inn excel filen du lagret i over i R. Selv om det finnes mange funksjoner som allerede er innebygget i R, må man noen ganger installere ekstra ‘pakker’ for å få tilgang til spesielle funksjoner. For å lese inn en excel fil trenger du nettopp en slik ikke standard funksjon. Denne finnes i pakken <code>readxl</code>. Selve installeringen kan du gjøre direkte i konsollen med å skrive (hvis du ikke har gjort det allerede, for eksempel da du gikk gjennom <a href="pakker.html#pakker">forelesningsvideoen om R-pakker</a>):</p>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="dataøving-1.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
 <p>Pakken legger seg da i en bibliotekmappe der R er installert. For å gi R beskjed om å laste inn funksjonene til pakken du nettopp installerte bruker du funksjonen <code>library()</code>. Du har nå tilgang til en funksjon kalt <code>read_excel()</code> som du kan bruke til å lese inn excel filen:</p>
@@ -429,7 +429,7 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p>Sjekk nå at dette har fungert ved å skrive <code>voldelig</code> og <code>ikke_voldelig</code> inn i konsollen for å se at det faktisk er vektorer som inneholder tallene 1 – 9. Bruk også noen minutter til å prøve å forstå hva kodelinjene over faktisk gjør.</p>
 <p>(<strong>NB!</strong> Pass på at du skriver <code>Violent</code> og <code>Less Violent</code> helt riktig med store og små bokstaver, ellers vil det ikke fungere!)</p>
 <p><strong>Oppgave 2.5.</strong> I eksamensoppgaven fra 2019 får vi oppgitt deskriptiv statistikk over aggresjonsnivået for de to gruppene i følgende tabell:</p>
-<p><img src="bilder/descriptive.png" width="624" /></p>
+<p><img src="bilder/descriptive.png" /><!-- --></p>
 <p>Bruk funksjoner som <code>min()</code>, <code>max()</code>, <code>median()</code>, <code>mean()</code>, <code>length()</code> og <code>summary()</code> til å finne ut om tallene stemmer (Du vil se at datasettet ditt inneholder noen færre observasjoner enn det som er oppgitt i tabellen, som gjør at tallene er litt forskjellige).</p>
 <p><strong>Oppgave 2.6.</strong> Vi skal nå lage et histogram av hver av gruppene du lagret som vektorer i tidligere. Vi kan først kikke på Figur <a href="deskriptiv-statistikk.html#fig:to-histogrammer">2.1</a> og koden som lagde disse figurene for å få en idé om hva vi må gjøre. Et svært viktig punkt er føgende:</p>
 <p><strong><code>ggplot</code>-funksjonen skal alltid ha hele datasettet (en data frame) som argument!!</strong></p>
