@@ -764,15 +764,15 @@ c. Gjenta a., denne gangen med $x_1 = 190$ og $x_2 = 180$. Fastslå effekten på
 
 > b. P-verdier for tosidige tester kan være litt tricky å forstå. Vi er altså ute etter sannsynligheten for at noe "minst like ekstremt og til fordel for $H_1$ intreffer". For en tosidig test ville vi også reagert på store negative verdier av $Z$, og "minst like ekstremt" i negativ retning ville vært $Z < - 1.00$. Altså blir p-verdien
 >
->$$p-verdi = P(Z < -1.00\quad \text{og/eller}\quad Z > 1.00)\\ = P(Z < -1.00) + P(Z > 1.00) = 2P(Z > 1.00) = 2*(1 - 0.841) = 0.317$$
+>$$\text{P-value} = P(Z < -1.00\quad \text{og/eller}\quad Z > 1.00)\\ = P(Z < -1.00) + P(Z > 1.00) = 2P(Z > 1.00) = 2*(1 - 0.841) = 0.317$$
 >
-> c. Testobservatoren er da gitt ved
+> c. Regner på nytt ut $\hat{p}_1 = 0.95, \hat{p}_2 = 0.90, \hat{p} = 0.925$. Testobservatoren er da gitt ved
 >
->$$Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(1/n_1 + 1/n_2)}} = \frac{0.95 - 0.90}{\sqrt{0.475(1-0.475)(1/200 + 1/200)}}=1.89$$
+>$$Z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(1/n_1 + 1/n_2)}} = \frac{0.95 - 0.90}{\sqrt{0.925(1-0.925)(1/200 + 1/200)}}=1.89$$
 >
 > P-verdien er som før gitt ved
 >
-> $$ P-value = 2P(Z > 1.89) = 2*(1 - 0.97) = 0.06 $$
+> $$ \text{P-value} = 2P(Z > 1.89) = 2*(1 - 0.97) = 0.06 $$
 >
 > Vi ser at p-verdien avtar når andelene blir større. Vi er her ganske nære på å forkaste $H_0$ selv om differansen mellom $\hat{p}_1$ og $\hat{p}_2$ er den samme som i oppgave a. I nevneren til testobservatoren ser vi at variansen til differansen $\hat{p}_1 - \hat{p}_2$ er proposjonal med $\hat{p}(1-\hat{p})$. Denne vil bli mindre når $\hat{p}$ nærmer seg 1 (eller 0), og er størst når $\hat{p} = 0.5$. Vi er derfor sikrere på at differansen $\hat{p}_1 - \hat{p}_2$ i oppgave b. ligger nær den sanne differansen i populasjon sammenlignet med oppgave a. Bevismateriale mot $H_1$ øker (p-verdien går ned), men i dette tilfellet holder det ikke til å forkaste $H_0$. 
 
