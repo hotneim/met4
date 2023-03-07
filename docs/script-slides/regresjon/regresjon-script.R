@@ -41,7 +41,7 @@ conf_interval <- data.frame(x = x, pred)
 ggplot(cars) +
   geom_point(aes(x = Odometer, y = Price)) +
   geom_line(aes(x = x, y = fit), data = conf_interval) +
-  geom_ribbon(aes(x = x, ymin = lwr, ymax = upr), 
+  geom_ribbon(aes(x = x, ymin = lwr, ymax = upr),
               data = conf_interval, alpha = .3) +
   ggtitle("Med konfidensintervall for regresjonslinjen")
 
@@ -52,9 +52,9 @@ pred_interval <- data.frame(x = x, pred)
 ggplot(cars) +
   geom_point(aes(x = Odometer, y = Price)) +
   geom_line(aes(x = Odometer, y = fit), data = regresjonslinjen) +
-  geom_ribbon(aes(x = x, ymin = lwr, ymax = upr), 
+  geom_ribbon(aes(x = x, ymin = lwr, ymax = upr),
               data = conf_interval, alpha = .3) +
-  geom_ribbon(aes(x = x, ymin = lwr, ymax = upr), 
+  geom_ribbon(aes(x = x, ymin = lwr, ymax = upr),
               data = pred_interval, alpha = .3) +
     ggtitle("...og med prediksjonsidensintervall for regresjonslinjen i tillegg")
 
@@ -139,7 +139,7 @@ stargazer(reg, type = "html", out = "regresjonstabell.html")
 # Innflytelsesrike observasjoner
 
 oslo <- data.frame(fritak = c(4, 4.5, 3.8, 5.2, 0, 6, 2.8, 7.5, 14.1),
-                   lesing = c(48, 52, 53, 53.5, 50, 52, 50, 52, 65)) 
+                   lesing = c(48, 52, 53, 53.5, 50, 52, 50, 52, 65))
 
 oslofit1 <- lm(lesing ~ fritak, data = oslo)
 oslofit2 <- lm(lesing ~ fritak, data = oslo[-9,])
@@ -158,7 +158,7 @@ cooks_avstand <- data.frame(obs = 1:nrow(oslo),
 
 ggplot(cooks_avstand, aes(x = obs, y = cook)) +
   geom_col()
-  
+
 ## CASE: APPLE OG NETFLIX
 
 library(readr)
@@ -166,7 +166,7 @@ library(stargazer)
 library(ggplot2)
 
 # Leser datasett
-nasdaq <- read_csv("Xr04-NASDAQ.csv")
+nasdaq <- read_csv("Xr04-NASDAQ.xls")
 
 # Kjører regresjonene
 apple   <- lm(Index ~ AAPL, data = nasdaq)
@@ -312,7 +312,7 @@ reg4 <- lm(lesing ~ log(folketall) + driftsutgifter,
 summary(reg4)
 
 # Fjerner driftsutgifter, lager ny tabell
-reg5 <- lm(lesing ~ log(folketall), 
+reg5 <- lm(lesing ~ log(folketall),
            data = skoledata)
 stargazer(reg4, reg5, type = "text")
 
