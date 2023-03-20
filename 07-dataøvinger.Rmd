@@ -774,7 +774,7 @@ ggplot(visits, aes(x = Week, y = Museum)) +
 
 **Oppgave 2.10:** Kommenter kort regresjonsutskriften fra oppgave 2.6 og figuren fra oppgave 2.9. Ser det fornuftig ut?
 
-**Oppgave 2.11:** Se på saken heller fra museets side. De mener at det er besøkstallene fra *etter* åpningen i 2005 som skal brukes til å estimere regresjonsmodellen. Det er lett å forstå hvorfor de ønsker det, for da ser det ut som at det er omtrent like mange besøkende på museet som i fornøyelsesparken.
+**Oppgave 2.11:** Se på saken heller fra museets side. De mener at det er besøkstallene fra *etter* åpningen i 1995 som skal brukes til å estimere regresjonsmodellen. Det er lett å forstå hvorfor de ønsker det, for da ser det ut som at det er omtrent like mange besøkende på museet som i fornøyelsesparken.
 
 ```{r, echo = FALSE}
 # Setter subset manuelt her, men vi kunne ganske enkelt sluppet den jobben.
@@ -1135,18 +1135,18 @@ ifelse(pred > 0.5, "Yes", "No")
 ```
 Som navnet tilsier, vurderer `ifelse` funksjonen en logisk test i første argumentet (`pred > 0.5` hvor `pred` er misligholdsannsynlighetene vi predikerte) og hvis testen har verdi `TRUE` gir den ut det du skriver i det andre argumentet (`"Yes"`), og det tredje argumentet (`"No"`) ellers. Vi ser at individet med 1000 \$ i gjeld blir klassifisert som "`r ifelse(pred > 0.5, "Yes", "No")[1]`", mens individet med 2000 \$ i gjeld blir klassifisert som "`r ifelse(pred > 0.5, "Yes", "No")[2]`".    
 
-**Oppgave 2.4:** Lag en ny modell ved navn `model2` hvor du bruker den kategoriske variabelen `student` som forklaringsvariabel.
+**Oppgave 2.5:** Lag en ny modell ved navn `model2` hvor du bruker den kategoriske variabelen `student` som forklaringsvariabel.
 
 * Hvilken effekt har det å være student på for oddsen for mislighold? 
 * Prediker sannsynligheten for at en student og en ikke-student misligholder gjelden sin.
 
-**Oppgave 2.5:** Lag en tredje model ved navn `model3` hvor du bruker alle forklaringsvariablene. 
+**Oppgave 2.6:** Lag en tredje model ved navn `model3` hvor du bruker alle forklaringsvariablene. 
 
 * Hvilken effekt har det å være student på for oddsen for mislighold nå? Sammenlign med forrige oppgave.
 * Undersøk visuelt om det er en sammenheng mellom `student` og `balance` med å lage et boxplot over `balance` for studenter og et for ikke-studenter (hint: se Oppgave 2.2). 
 * Prediker sannsynligheten for mislighold for en ikke-student og en student med lik `balance` og `income` på henholdsvis 1500 $ og 10000 $. Sammenlign med prediksjonen du gjorde i Oppgav 2.4. Basert på `model2` og `model3`, hvordan skal kredittgiver forholde seg til en student versus en ikke-student dersom a) Ingen informasjon om `balance` eller `income` er oppgitt og b) dersom en vet `balance` og `income`?  
 
-**Oppgave 2.6:** I denne oppgaven skal vi trene opp en knn (k-nærmeste-naboer) modell til å gjøre en tilsvarende klassifisering som den logistiske regresjonsmodellen gjorde over. Funksjonen `train` som vi trenger er inneholdt i pakken `caret` (som må installeres ved hjelp av `install.packages("caret")`). Vi velger å tilpasse en modell hvor antall naboer "k" velges automatisk med kryssvalidering vi argumentet "`trControl":  
+**Oppgave 2.7:** I denne oppgaven skal vi trene opp en knn (k-nærmeste-naboer) modell til å gjøre en tilsvarende klassifisering som den logistiske regresjonsmodellen gjorde over. Funksjonen `train` som vi trenger er inneholdt i pakken `caret` (som må installeres ved hjelp av `install.packages("caret")`). Vi velger å tilpasse en modell hvor antall naboer "k" velges automatisk med kryssvalidering vi argumentet "`trControl":  
 
 
 ```{r, message = F, warning = F}
@@ -1181,7 +1181,7 @@ predict(model4, newdata = to_kunder)
 ```
 Merk at i motsetning til de logistiske regresjonsmodellene som predikerte sannsynligheter klassifiserer knn modellen kundene direkte som "Yes"/"No". 
 
-**Oppgave 2.7:** Vi ønsker å vurdere hvilken av `model3` (logistisk regresjon) og `model4` (knn) som er best. Vi kan da sjekke hvor godt de klarer å klassifisere testsettet vårt hvor vi vet hvem som har misligholdt lånene sine. Vi starter med å hente ut de sanne verdiene av `default` i treningssettet: 
+**Oppgave 2.8:** Vi ønsker å vurdere hvilken av `model3` (logistisk regresjon) og `model4` (knn) som er best. Vi kan da sjekke hvor godt de klarer å klassifisere testsettet vårt hvor vi vet hvem som har misligholdt lånene sine. Vi starter med å hente ut de sanne verdiene av `default` i treningssettet: 
 
 ```{r}
 sann <- test$default  # Den sanne verdien av default i testdataene
@@ -1222,4 +1222,4 @@ logreg_tot
 
 ```
 
-**Oppgave 2.8:** Gjør en tilsvarende klassifisering av kundene i testsettet med knn modellen `model4` og sammenlign med resultatet over. Hvilken modell foretrekker du? Hvilke egenskaper ved klassifisering tror du kredittgiver vektlegger?
+**Oppgave 2.9:** Gjør en tilsvarende klassifisering av kundene i testsettet med knn modellen `model4` og sammenlign med resultatet over. Hvilken modell foretrekker du? Hvilke egenskaper ved klassifisering tror du kredittgiver vektlegger?
