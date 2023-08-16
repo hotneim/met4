@@ -1,5 +1,5 @@
 --- 
-title: "MET4 - Empiriske Metoder - Vår 2023"
+title: "MET4 - Empiriske Metoder - Høst 2023"
 author: "Håkon Otneim og Geir Drage Berentsen"
 site: bookdown::bookdown_site
 output: 
@@ -52,22 +52,21 @@ Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekke
 
 Legg merke til følgende viktige datoer:
 
-- **30. januar:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
-- **10. mars:** Frist for innlevering av den obligatoriske innleveringen.
-- **24.--26. april:** Gruppebasert hjemmeeksamen.
-- **8. mai:** Individuell **hjemme**eksamen.
+- **29. september:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
+- **13. oktober:** Frist for innlevering av den obligatoriske innleveringen.
+- **20.--22. november:** Gruppebasert hjemmeeksamen.
+- **29. november:** Individuell **skole**eksamen.
 
 ```{r, echo = F, message = FALSE, warning = FALSE}
 options(knitr.kable.NA = '')
 library(dplyr)
 library(kableExtra)
 
-readxl::read_excel("diverse/tidsplan-V23.xlsx") %>% 
+readxl::read_excel("diverse/tidsplan-H23.xlsx") %>% 
   kbl() %>%
   kable_styling(bootstrap_options = c("condensed", "hover"),
                 fixed_thead = T) %>%
-    row_spec(c(3, 5, 8, 10, 14) , background = "#2E8B5750") %>% 
-    row_spec(13, bold = T, background = "DarkRed", color = "white")
+    row_spec(c(3, 5, 7, 10, 11) , background = "#2E8B5750") 
 ```
 
 
