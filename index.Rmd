@@ -1,5 +1,5 @@
 --- 
-title: "MET4 - Empiriske Metoder - Høst 2023"
+title: "MET4 - Empiriske Metoder - Vår 2024"
 author: "Håkon Otneim og Geir Drage Berentsen"
 site: bookdown::bookdown_site
 output: 
@@ -16,13 +16,13 @@ description: "Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis 
 
 
 <figure style="float:right; padding:10px; text-align:center">
-  <img alt="Håkon" src="bilder/hakon.jpg" width="130" height="130"/>
-  <figcaption>Håkon</figcaption>
+  <img alt="Julie" src="bilder/Julie.jpg" width="130" height="130"/>
+  <figcaption>Julie</figcaption>
 </figure>
 
 Velkommen til hjemmesiden for kurset [MET4 - Empiriske metoder](https://www.nhh.no/emner/empiriske-metoder/), som er et obligatorisk kurs på Bachelorprogrammet i Økonomi og Administrasjon ved Norges Handelshøyskole. Dette er et kurs i anvendt statistikk, spesielt tilpasset økonomistudiet, og vi skal fokusere på korrekt bruk av statistisk metodikk for å løse relevante problemstillinger i en verden der innsamlet data utgjør en stadig større del av beslutningsgrunlaget i bedrifts- og samfunnsstyring.
 
-Kursansvarlige er Håkon Otneim og Geir Drage Berentsen, som begge jobber ved Institutt for Foretaksøkonomi ved NHH.
+Kursansvarlige er Julie Brun Bjørkheim og Geir Drage Berentsen, som begge jobber ved Institutt for Foretaksøkonomi ved NHH.
 
 <figure style="float:right; padding:10px; text-align:center">
   <img alt="Håkon" src="bilder/geir.jpg" width="130" height="130"/>
@@ -37,7 +37,7 @@ På denne siden vil du finne alle videosnuttene med kommentarer til lærebokens 
 
 Vi har laget et forslag til progresjon i tabellen under. Kolonnen "jobbe med" refererer til tema på denne siden som dere finner igjen i menyen til venstre. I hovedsak bruker vi to uker på hvert tema i kurset og aktivitetene i disse ukene er i all hovedsag strukturert som følger:
 
-**Uke 1**: Selvstudie av det respektive temaet ved hjelp av videoer, regneoppgaver og teori på denne nettsiden. Vi tar derfor en dag uten noen organisert aktivitet, og så tar vi en dag i 2. etasje på biblioteket der dere kan jobbe sammen i grupper med regneoppgaver. **Vi passer på at alle har noen å jobbe med, så du må gjerne komme selv om du ikke har noen spesifikke som du har planlagt å sitte med.** Regneoppgavene finner du under hvert tema til venstre. Foreleser vil være tilgjengelig.
+**Uke 1**: Selvstudie av det respektive temaet ved hjelp av videoer, regneoppgaver og teori på denne nettsiden. Vi tar derfor en dag uten noen organisert aktivitet, og så tar vi en dag der dere kan komme i Aud. A og spørre om ting dere lurer på samt jobbe med regneoppgaver. **Vi passer på at alle har noen å jobbe med, så du må gjerne komme selv om du ikke har noen spesifikke som du har planlagt å sitte med.** Regneoppgavene finner du under hvert tema til venstre. Foreleser vil være tilgjengelig.
 
 **Uke 2**: Vi gir en oversiktsforelesning i temaet og tar et seminar med mer utfordrende oppgaver i fellesskap, begge deler i Aud A (se Avsnitt \@ref(seminar) for seminaroppgavene). 
 
@@ -52,21 +52,21 @@ Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekke
 
 Legg merke til følgende viktige datoer:
 
-- **29. september:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
-- **13. oktober:** Frist for innlevering av den obligatoriske innleveringen.
-- **20.--22. november:** Gruppebasert hjemmeeksamen.
-- **29. november:** Individuell **skole**eksamen.
+- **1. mars:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
+- **15. mars:** Frist for innlevering av den obligatoriske innleveringen.
+- **22.--24. april:** Gruppebasert hjemmeeksamen.
+- **06. mai:** Individuell **skole**eksamen.
 
 ```{r, echo = F, message = FALSE, warning = FALSE}
 options(knitr.kable.NA = '')
 library(dplyr)
 library(kableExtra)
 
-readxl::read_excel("diverse/tidsplan-H23.xlsx") %>% 
+readxl::read_excel("diverse/tidsplan-V24.xlsx") %>% 
   kbl() %>%
   kable_styling(bootstrap_options = c("condensed", "hover"),
                 fixed_thead = T) %>%
-    row_spec(c(3, 5, 7, 10, 11) , background = "#2E8B5750") 
+    row_spec(c(3, 6, 9, 12, 14) , background = "#2E8B5750") 
 ```
 
 
