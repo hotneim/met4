@@ -540,8 +540,16 @@ pf(1094.997, 2, 97, lower.tail = FALSE)
 som er veldig liten. Altså bekrefter analysen at det er sammenheng mellom forklaringsvariablene og responsvariabelen. Hva ville du tenkt var galt om vi ikke fikk denne konklusjonen fra F-testen, gitt den modellen vi har brukt til å generere dataene? Hint: Det er faktisk en reell sammenheng her.
 </blockquote></details>
 
-#### Oppgave 2 
-Denne oppgaven følger samme premiss som oppgave 1, men handler om kolinearitet. Last ned datasettene [1](genererte_datasett/colinearity_1.RData) og [2](genererte_datasett/colinearity_2.RData), hvor y er responsvariabel og forklaringsvariable er navngitt x. 
+#### Oppgave 2 {-}
+Denne oppgaven følger samme premiss som oppgave 1, men handler om kolinearitet. Last ned datasettene [1](genererte_datasett/colinearity_1.RData) og [2](genererte_datasett/colinearity_2.RData), hvor y er responsvariabel og forklaringsvariable er navngitt x.
+
+Disse dataene er lagret som .RData filer. For å laste inn dataene i R laster du filene over ned i en mappe, setter mappestien til denne mappen og kjører følgende R-kommandoer:
+
+```{r, eval = FALSE}
+load("colinearity_1.RData")
+load("colinearity_2.RData")
+```
+
 
 - Finn kolinearitet
 

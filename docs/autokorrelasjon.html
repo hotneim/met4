@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.5 Autokorrelasjon | MET4 - Empiriske Metoder - Høst 2023</title>
+  <title>5.5 Autokorrelasjon | MET4 - Empiriske Metoder - Vår 2024</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.5 Autokorrelasjon | MET4 - Empiriske Metoder - Høst 2023" />
+  <meta property="og:title" content="5.5 Autokorrelasjon | MET4 - Empiriske Metoder - Vår 2024" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.5 Autokorrelasjon | MET4 - Empiriske Metoder - Høst 2023" />
+  <meta name="twitter:title" content="5.5 Autokorrelasjon | MET4 - Empiriske Metoder - Vår 2024" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -51,8 +51,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/met4/icon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/met4/icon/favicon-16x16.png">
@@ -102,7 +100,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +113,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -129,6 +127,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -244,7 +246,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2023</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2024</a>
           </h1>
         </div>
 
@@ -267,24 +269,24 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="r-øving-3" class="section level3 hasAnchor" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> R-øving<a href="autokorrelasjon.html#r-øving-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>1. Utregning av ACF</strong> I R bruker vi funsksjonen <code>acf()</code> til å lage autokorrelasjonsplott. La oss i første omgang gjenskape noen av figurene fra videoen ved hjelp av simuleringer. For eksempel kan vi laget til to tidsrekker som på forrige oppgavesett, en hvit støy og en AR(1):</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="autokorrelasjon.html#cb176-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb176-2"><a href="autokorrelasjon.html#cb176-2" tabindex="-1"></a>hvit_støy <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb176-3"><a href="autokorrelasjon.html#cb176-3" tabindex="-1"></a>ar1 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fl">0.95</span>), n)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="autokorrelasjon.html#cb29-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb29-2"><a href="autokorrelasjon.html#cb29-2" aria-hidden="true" tabindex="-1"></a>hvit_støy <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb29-3"><a href="autokorrelasjon.html#cb29-3" aria-hidden="true" tabindex="-1"></a>ar1 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fl">0.95</span>), n)</span></code></pre></div>
 <p>Autokorrelasjonsplottene til disse to tidsrekkene kan vi få frem ved å anvende <code>acf()</code>-funksjonen på dem:</p>
 <!-- ```{r fig.subcap=c('Autokorrelasjonsplott til en simulert hvit støy prosess', 'Autokorrelasjonsplott til en simulert AR(1)-prosess'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2} -->
 <!-- acf(hvit_støy) -->
 <!-- acf(ar1) -->
 <!-- ``` -->
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="autokorrelasjon.html#cb177-1" tabindex="-1"></a><span class="fu">acf</span>(hvit_støy)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="autokorrelasjon.html#cb178-1" tabindex="-1"></a><span class="fu">acf</span>(ar1)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-151-2.png" width="672" /></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="autokorrelasjon.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(hvit_støy)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="autokorrelasjon.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(ar1)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-30-2.png" width="672" /></p>
 <p>Vi ser igjen mønsteret fra videoen: Hvit støy består av ukorrelerte observasjoner, mens AR(1)-modellen består av observasjoner som bygger på forrige observasjon, slik at det er en viss korrelasjon, og dermed avhengighet fra dag til dag. Det ser vi igjen i autokorrelasjonsplottet som gir tydelig utslag, og der korrelasjonen går gradvis mot null med økende avstand mellom observasjonene.</p>
 <p><strong>2. ACF som sjekk av modell</strong> En sjekk vi gjerne gjør for å se om en estimert tidsrekkemodell passer dataene våre, er å se autokorrelasjonen til residualene i modellen er liten. Det betyr nemlig at modellen plukker opp den (lineære) avhengigheten i tidsrekken. For en AR(1) modell er residualene f.eks gitt ved <span class="math inline">\(\hat{u}_t = Y_t - \hat{\phi}Y_{t-1}\)</span>, men disse er tilgjengelig direkte fra modell estimeringen i R:</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="autokorrelasjon.html#cb179-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb179-2"><a href="autokorrelasjon.html#cb179-2" tabindex="-1"></a>ar1_estimat <span class="ot">&lt;-</span> <span class="fu">Arima</span>(ar1, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb179-3"><a href="autokorrelasjon.html#cb179-3" tabindex="-1"></a><span class="fu">acf</span>(ar1_estimat<span class="sc">$</span>residuals)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-152-1.png" width="672" /></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="autokorrelasjon.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb32-2"><a href="autokorrelasjon.html#cb32-2" aria-hidden="true" tabindex="-1"></a>ar1_estimat <span class="ot">&lt;-</span> <span class="fu">Arima</span>(ar1, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb32-3"><a href="autokorrelasjon.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(ar1_estimat<span class="sc">$</span>residuals)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <p><strong>3. Oppgave:</strong> Prøv nå å plotte autokorrelasjonsfunksjonen for for følgende tre tidsrekker, og knytt en kort kommentar til hver av dem om hva du lærer om tidsrekken ved å se på autokorrelasjonsplottet til:</p>
 <ol style="list-style-type: decimal">
 <li>Prisen på Equinor-aksjen, som vi jobbet med i det første oppgavesettet.</li>
@@ -293,11 +295,11 @@ Publisert ved hjelp av bookdown</a></li>
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="autokorrelasjon.html#cb180-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb180-2"><a href="autokorrelasjon.html#cb180-2" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
-<span id="cb180-3"><a href="autokorrelasjon.html#cb180-3" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)</span>
-<span id="cb180-4"><a href="autokorrelasjon.html#cb180-4" tabindex="-1"></a><span class="fu">acf</span>(pris)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="autokorrelasjon.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb33-2"><a href="autokorrelasjon.html#cb33-2" aria-hidden="true" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
+<span id="cb33-3"><a href="autokorrelasjon.html#cb33-3" aria-hidden="true" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)</span>
+<span id="cb33-4"><a href="autokorrelasjon.html#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(pris)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <p>Vi ser at det er høy positiv autokorrelasjon selv for store avstander (lag). En lav pris (historisk sett) vil være assosiert med lave priser de foregående dagene og tilsvarende for høye priser. Dette stemmer bra med teorien med at dersom markedet er effisient (ikke pensum, slapp av!) skal prisen følge en tilfeldig gang, selv om dette ikke alltid er tilfellet. Det kan altså se ut til at prisen idag er tilnærmet prisen i går pluss ny støy.</p>
 </details>
 <ol start="2" style="list-style-type: decimal">
@@ -307,9 +309,9 @@ Løsning
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="autokorrelasjon.html#cb181-1" tabindex="-1"></a>pr_avkastning <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(pris))<span class="er">)</span></span>
-<span id="cb181-2"><a href="autokorrelasjon.html#cb181-2" tabindex="-1"></a><span class="fu">acf</span>(pr_avkastning)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="autokorrelasjon.html#cb34-1" aria-hidden="true" tabindex="-1"></a>pr_avkastning <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(pris))<span class="er">)</span></span>
+<span id="cb34-2"><a href="autokorrelasjon.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(pr_avkastning)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <p>Her ser vi at autokorrelasjon er svært lav uansett lag. Det virker altså ikke å være noen lineær sammenheng mellom avkastningen fra en dag til den neste (og den om 2, 3, .. dagen). Dette stemmer bra med at prisen i teorien skal følge en tilfeldig gang og at det i et effisient marked ikke skal gå an å predikere avkastningen for en aksje, noe som i teorien hadde vært mulige hadde det vært en positiv autokorrelasjon.</p>
 </details>
 <ol start="3" style="list-style-type: decimal">
@@ -319,13 +321,13 @@ Løsning
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="autokorrelasjon.html#cb182-1" tabindex="-1"></a><span class="fu">library</span>(fpp)</span>
-<span id="cb182-2"><a href="autokorrelasjon.html#cb182-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb182-3"><a href="autokorrelasjon.html#cb182-3" tabindex="-1"></a></span>
-<span id="cb182-4"><a href="autokorrelasjon.html#cb182-4" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span>
-<span id="cb182-5"><a href="autokorrelasjon.html#cb182-5" tabindex="-1"></a></span>
-<span id="cb182-6"><a href="autokorrelasjon.html#cb182-6" tabindex="-1"></a><span class="fu">acf</span>(dekomponert<span class="sc">$</span>time.series[ ,<span class="dv">3</span>], <span class="at">na.action =</span> na.pass)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-157-1.png" width="672" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="autokorrelasjon.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fpp)</span>
+<span id="cb35-2"><a href="autokorrelasjon.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb35-3"><a href="autokorrelasjon.html#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="autokorrelasjon.html#cb35-4" aria-hidden="true" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span>
+<span id="cb35-5"><a href="autokorrelasjon.html#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="autokorrelasjon.html#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(dekomponert<span class="sc">$</span>time.series[ ,<span class="dv">3</span>], <span class="at">na.action =</span> na.pass)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
 Figuren er litt misvisende siden ett lag i figuren svarer til ett år, og siden vi har kvartalsvise observasjoner har vi 4 acf verdier per år. Det kan se ut til at det er en årlig sesongvariasjon som ikke har blitt dekomponert fullt ut av tidsrekken pga av disse toppene i acf som kommer 1,2,3. .. året.
 </details>
 <p>Til slutt: husk at også autokorrelasjonsplottene må pyntes og ordnes på hvis vi skal vise dem til andre i rapporter, innleveringer etc. Du kan stort sett bruke de samme argumetene som i vanlige plott: <code>xlab =</code>, <code>ylab =</code>, <code>main =</code> osv.</p>

@@ -34,7 +34,7 @@ knitr::include_graphics("bilder/gun.PNG")
 <!--     a. Gjør oppgave 1a og 1b på dette oppgavesettet. -->
 <!--     b. Kan du foreslå en *grafisk* fremstilling som kan vise eventuelle forskjeller i responstid før og etter omleggingen? -->
     
-5. La oss anta at 50 avgangsstudenter som gikk ut av NHHs masterprogram i fjor svarte på et spørreskjema hvor mye de har i startlønn i sin første jobb. Gjennomsnittslønnen var 450.000, med et standardavvik på 120.000. Anta videre at lønnsfordeningen for årets studenter er den samme (og se bort fra inflasjon). 
+5. La oss anta at 50 avgangsstudenter som gikk ut av NHHs masterprogram i fjor svarte på et spørreskjema hvor mye de har i startlønn i sin første jobb. Gjennomsnittslønnen var 450.000, med et standardavvik på 120.000. Anta videre at lønnsfordelingen for årets studenter er den samme (og se bort fra inflasjon). 
     a. Estimer sannsynligheten for at gjennomsnittlig startlønn for 50 responenter i år vil være større enn 450.000.
     b. Estimer sannsynligheten for at gjennomsnittlig startlønn for 50 responenter i år vil være større enn 500.000.
     

@@ -1106,7 +1106,7 @@ Vi lager en modell hvor vi bruker variabelen `balance` (gjeld) som forklaringsva
 model1 <- glm(default ~ balance, data = train,
               family = "binomial")
 ```
-Syntaksen til `glm`-funksjonen er veldig lik den vi bruker i regresjon (`lm`-funksjonen) bortsett fra at vi på spesifisere argumentet `family = "binomial"` for at å fortelle `R` at vi ønsker å gjøre en logistisk regresjon. Merk at vi bruker treningssettet til å estimere (trene) modellen ved å spesifisere argumentet `data = train`. 
+Syntaksen til `glm`-funksjonen er veldig lik den vi bruker i regresjon (`lm`-funksjonen) bortsett fra at vi må spesifisere argumentet `family = "binomial"` for at å fortelle `R` at vi ønsker å gjøre en logistisk regresjon. Merk at vi bruker treningssettet til å estimere (trene) modellen ved å spesifisere argumentet `data = train`. 
 
 Det kan være lurt å se om forklaringsvariabelen `balance` har en signifikant effekt på `default` ved å bruke `summary` funksjonen:
 ```{r, eval = F}

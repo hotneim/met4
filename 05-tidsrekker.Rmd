@@ -934,7 +934,7 @@ forecast::auto.arima(ts)
 >
 > d. En ARIMA(2,1,2)-modell:
 >
->     $$\Delta Y_t = -0.0001\Delta Y_{t-1} + 0.4345\Delta Y_{t-2} + 0.2207u_{t-1} + 0.8386u_{t-2},$$
+>     $$\Delta Y_t = -0.0001\Delta Y_{t-1} + 0.4345\Delta Y_{t-2} + 0.2207u_{t-1} + 0.8386u_{t-2} + u_t,$$
 >   
 >    Med andre ord er førstedifferansen til $Y_t$ en ARMA(2,2)-modell. 
 > 
