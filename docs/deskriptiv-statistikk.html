@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Høst 2023</title>
+  <title>2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Vår 2024</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Høst 2023" />
+  <meta property="og:title" content="2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Vår 2024" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Høst 2023" />
+  <meta name="twitter:title" content="2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - Vår 2024" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -51,8 +51,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/met4/icon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/met4/icon/favicon-16x16.png">
@@ -102,7 +100,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +113,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -129,6 +127,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -244,7 +246,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2023</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2024</a>
           </h1>
         </div>
 
@@ -271,9 +273,10 @@ Publisert ved hjelp av bookdown</a></li>
 <li>Kapittel <strong>4</strong> går litt mer i dybden om numeriske deskriptive teknikker, som gjennomsnitt, median, standardavvik, korrelasjon, osv. Dette skal være dekket greit i forelesningen, men boken går litt lenger.</li>
 </ul>
 <p>Det kan være en fin øvelse å kikke på eksemplene i læreboken og forsøke å gjenskape noen av Excel-figurene i R. Se på eksempel 3.2, der man skal lage to histogrammer over historiske avkastninger for to ulike investeringsstrategier. Vi leser inn datasettet (last ned fra Canvas) som under og kikker på det:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="deskriptiv-statistikk.html#cb18-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb18-2"><a href="deskriptiv-statistikk.html#cb18-2" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm03-02.xlsx&quot;</span>)</span>
-<span id="cb18-3"><a href="deskriptiv-statistikk.html#cb18-3" tabindex="-1"></a>returns</span></code></pre></div>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.3.2</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="deskriptiv-statistikk.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-2"><a href="deskriptiv-statistikk.html#cb2-2" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm03-02.xlsx&quot;</span>)</span>
+<span id="cb2-3"><a href="deskriptiv-statistikk.html#cb2-3" aria-hidden="true" tabindex="-1"></a>returns</span></code></pre></div>
 <pre><code>## # A tibble: 50 × 2
 ##    `Return A` `Return B`
 ##         &lt;dbl&gt;      &lt;dbl&gt;
@@ -290,11 +293,11 @@ Publisert ved hjelp av bookdown</a></li>
 ## # ℹ 40 more rows</code></pre>
 <p>Hver stategi har sin kolonne. Merk at variabelnavnene har mellomrom i seg, noe som er upraktisk når vi jobber med et seriøst programmeringsspråk. En god vane er å rett og slett gi dem nye navn, ved f.eks. å kjøre <code>colnames(returns) &lt;- c("returnA", "returnB")</code>, eller så må vi alltid referere til variabelnavnene ved å bruke slike “backticks” som vi ser under.</p>
 <p>Vi kan lage to enkle histogrammer slik vi gjorde det i forelesningen:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="deskriptiv-statistikk.html#cb20-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb20-2"><a href="deskriptiv-statistikk.html#cb20-2" tabindex="-1"></a><span class="fu">ggplot</span>(returns, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Return A</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb20-3"><a href="deskriptiv-statistikk.html#cb20-3" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
-<span id="cb20-4"><a href="deskriptiv-statistikk.html#cb20-4" tabindex="-1"></a><span class="fu">ggplot</span>(returns, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Return B</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb20-5"><a href="deskriptiv-statistikk.html#cb20-5" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="deskriptiv-statistikk.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a href="deskriptiv-statistikk.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(returns, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Return A</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="deskriptiv-statistikk.html#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
+<span id="cb4-4"><a href="deskriptiv-statistikk.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(returns, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Return B</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="deskriptiv-statistikk.html#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:to-histogrammer"></span>
 <img src="met4_files/figure-html/to-histogrammer-1.png" alt="To histogrammer" width="672" /><img src="met4_files/figure-html/to-histogrammer-2.png" alt="To histogrammer" width="672" />
 <p class="caption">

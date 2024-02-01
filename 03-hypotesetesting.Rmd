@@ -566,17 +566,17 @@ Introduksjon til hypotesetesting
 
 </details>
 
-7. Med sterkt fall i flyreiser og passasjerer på grunn av koronakrisen virker det sannsynlig at det blir færre forsinkelser i flytrafikken. Før krisen hevdet et flyselskap at de landet presist 92 % av flyreisene. I et tilfeldig utvalg flyreiser hos det samme selskapet under krisen ble 148 av 165 vurdert til å være presise. Kan vi konkludere på 5 % signifikansnivå at det er færre forsinkelser under koronakrisen? 
+7. Med sterkt fall i flyreiser og passasjerer på grunn av koronakrisen var det i samme periode sannsynlig med færre forsinkelser i flytrafikken. Før krisen hevdet et flyselskap at de landet presist 92 % av flyreisene. I et tilfeldig utvalg flyreiser hos det samme selskapet under krisen ble 156 av 165 vurdert til å være presise. Kan vi konkludere på 5 % signifikansnivå at det er færre forsinkelser under koronakrisen? 
 
 
 <details><summary>Løsning</summary>
->La $p$ være den sanne andelen av flyreiser som blir forsinket under krisen. Vi skal da teste $H_0: p = 0.92$ mot $H_1: p < 0.92$. Vårt estimat på $p$ er $\hat{p}=148/165 \approx 0.90$ og testobservatoren er gitt ved
+>La $p$ være den sanne andelen av flyreiser som kommer presist under krisen. Vi skal da teste $H_0: p = 0.92$ mot $H_1: p > 0.92$. Vårt estimat på $p$ er $\hat{p}=156/165 \approx 0.945$ og testobservatoren er gitt ved
 
->$$z = \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)/n}} = \frac{0.90 - 0.92}{\sqrt{0.92(1 - 0.92)/165}} \approx -0.95$$
->Dersom vi bruker kritisk verdi ville forkastningsområdet vært $z < -1.645$ og siden $z> -1.645$ kan vi altså ikke forkaste $H_0$. Alternativt kan vi regne ut p-verdien som er "sannsynligheten for det vi har observert eller noe enda mer til fordel for $H_1$. En enda mer negativ verdi enn -0.95 ville vært til fordel for $H_1$, derfor er 
+>$$z = \frac{\hat{p} - p_0}{\sqrt{p_0(1 - p_0)/n}} = \frac{0.945 - 0.92}{\sqrt{0.92(1 - 0.92)/165}} \approx 1.18$$
+>Dersom vi bruker kritisk verdi ville forkastningsområdet vært $z > 1.645$ og siden $z < 1.645$ kan vi altså ikke forkaste $H_0$. Alternativt kan vi regne ut p-verdien som er "sannsynligheten for det vi har observert eller noe enda mer til fordel for $H_1$. En enda mer positiv verdi enn 1.18 ville vært til fordel for $H_1$, derfor er 
 
->$$p-verdi = P(Z < - 0.95) = 0.17$$
->og vi kan derfor *ikke* forkaste $H_0$ siden p-verdien *ikke* er mindre enn 0.05.
+>$$p-verdi = P(Z >  1.18) = = 1 - P(Z < 1.18) \approx 0.12$$
+>og vi kan derfor *ikke* forkaste $H_0$ siden p-verdien *ikke* er mindre enn 0.05. TIPS: $P(Z<1.18) =$ `pnorm(1.18)` i R.
 
 </details>
 
