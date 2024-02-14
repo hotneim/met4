@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.8 Plotting | MET4 - Empiriske Metoder - Høst 2023</title>
+  <title>1.8 Plotting | MET4 - Empiriske Metoder - Vår 2024</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.8 Plotting | MET4 - Empiriske Metoder - Høst 2023" />
+  <meta property="og:title" content="1.8 Plotting | MET4 - Empiriske Metoder - Vår 2024" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.8 Plotting | MET4 - Empiriske Metoder - Høst 2023" />
+  <meta name="twitter:title" content="1.8 Plotting | MET4 - Empiriske Metoder - Vår 2024" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -102,7 +102,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +115,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -129,6 +129,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -244,7 +248,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2023</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2024</a>
           </h1>
         </div>
 
@@ -257,41 +261,41 @@ Publisert ved hjelp av bookdown</a></li>
 <iframe src="https://player.vimeo.com/video/638313396?h=4832e32309" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
 </iframe>
 <p>Vi lager vår første figur i R ved å bruke den innebygde <code>plot()</code>-funksjonen. Vi går så over til å se hvordan vi kan lage det samme plottet ved å bruke <code>ggplot</code>-pakken, som er det vi kommer til å bruke til å lage figurer i dette kurset. Vi ser også hvordan vi kan gå frem for å <em>lagre</em> plottet som en pdf-fil i arbeidsmappen vår.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-plotting.html#cb11-1" tabindex="-1"></a><span class="co"># Et viktig element i dataanalyse er å lage grafiske presentasjoner av datasett. </span></span>
-<span id="cb11-2"><a href="r-plotting.html#cb11-2" tabindex="-1"></a><span class="co"># La oss lage et enkelt spredningsplott av våre to variabler ved å bruke den </span></span>
-<span id="cb11-3"><a href="r-plotting.html#cb11-3" tabindex="-1"></a><span class="co"># innebygde plottefunksjonen i R.</span></span>
-<span id="cb11-4"><a href="r-plotting.html#cb11-4" tabindex="-1"></a><span class="fu">plot</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2)</span>
-<span id="cb11-5"><a href="r-plotting.html#cb11-5" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="r-plotting.html#cb11-6" tabindex="-1"></a><span class="co"># Gjør noen justeringer:</span></span>
-<span id="cb11-7"><a href="r-plotting.html#cb11-7" tabindex="-1"></a><span class="fu">plot</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2,</span>
-<span id="cb11-8"><a href="r-plotting.html#cb11-8" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">20</span>,</span>
-<span id="cb11-9"><a href="r-plotting.html#cb11-9" tabindex="-1"></a>     <span class="at">bty =</span> <span class="st">&quot;l&quot;</span>,</span>
-<span id="cb11-10"><a href="r-plotting.html#cb11-10" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;X1&quot;</span>,</span>
-<span id="cb11-11"><a href="r-plotting.html#cb11-11" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;X2&quot;</span>)</span>
-<span id="cb11-12"><a href="r-plotting.html#cb11-12" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="r-plotting.html#cb11-13" tabindex="-1"></a><span class="co"># I dette kurset skal vi heller bruke ggplot2-pakken til plotting:</span></span>
-<span id="cb11-14"><a href="r-plotting.html#cb11-14" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-15"><a href="r-plotting.html#cb11-15" tabindex="-1"></a></span>
-<span id="cb11-16"><a href="r-plotting.html#cb11-16" tabindex="-1"></a><span class="co"># Her er koden for å lage et enkelt spredningsplott for X1 og X2-kolonnenene i</span></span>
-<span id="cb11-17"><a href="r-plotting.html#cb11-17" tabindex="-1"></a><span class="co"># datasettet vårt:</span></span>
-<span id="cb11-18"><a href="r-plotting.html#cb11-18" tabindex="-1"></a><span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb11-19"><a href="r-plotting.html#cb11-19" tabindex="-1"></a></span>
-<span id="cb11-20"><a href="r-plotting.html#cb11-20" tabindex="-1"></a><span class="co"># Vi lagrer plottet ved å kjøre ggsave-kommandoen rett etter plottekommandoen:</span></span>
-<span id="cb11-21"><a href="r-plotting.html#cb11-21" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;testplot.pdf&quot;</span>)</span>
-<span id="cb11-22"><a href="r-plotting.html#cb11-22" tabindex="-1"></a></span>
-<span id="cb11-23"><a href="r-plotting.html#cb11-23" tabindex="-1"></a><span class="co"># En mer fleksibel måte å gjøre dette på er å lagre plottet i en variabel, og så</span></span>
-<span id="cb11-24"><a href="r-plotting.html#cb11-24" tabindex="-1"></a><span class="co"># gi navnet til plottet inn som et argument i ggsave-funksjonen. </span></span>
-<span id="cb11-25"><a href="r-plotting.html#cb11-25" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb11-26"><a href="r-plotting.html#cb11-26" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;testplot.pdf&quot;</span>, p)</span>
-<span id="cb11-27"><a href="r-plotting.html#cb11-27" tabindex="-1"></a></span>
-<span id="cb11-28"><a href="r-plotting.html#cb11-28" tabindex="-1"></a><span class="co"># På den måten så kan vi lagre plottet p når som helst, vi trenger ikke </span></span>
-<span id="cb11-29"><a href="r-plotting.html#cb11-29" tabindex="-1"></a><span class="co"># nødvendigvis gjøre det rett etter plottekommandoene.</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-plotting.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Et viktig element i dataanalyse er å lage grafiske presentasjoner av datasett. </span></span>
+<span id="cb11-2"><a href="r-plotting.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># La oss lage et enkelt spredningsplott av våre to variabler ved å bruke den </span></span>
+<span id="cb11-3"><a href="r-plotting.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># innebygde plottefunksjonen i R.</span></span>
+<span id="cb11-4"><a href="r-plotting.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2)</span>
+<span id="cb11-5"><a href="r-plotting.html#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="r-plotting.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Gjør noen justeringer:</span></span>
+<span id="cb11-7"><a href="r-plotting.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2,</span>
+<span id="cb11-8"><a href="r-plotting.html#cb11-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">pch =</span> <span class="dv">20</span>,</span>
+<span id="cb11-9"><a href="r-plotting.html#cb11-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">bty =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb11-10"><a href="r-plotting.html#cb11-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;X1&quot;</span>,</span>
+<span id="cb11-11"><a href="r-plotting.html#cb11-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;X2&quot;</span>)</span>
+<span id="cb11-12"><a href="r-plotting.html#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="r-plotting.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># I dette kurset skal vi heller bruke ggplot2-pakken til plotting:</span></span>
+<span id="cb11-14"><a href="r-plotting.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-15"><a href="r-plotting.html#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="r-plotting.html#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Her er koden for å lage et enkelt spredningsplott for X1 og X2-kolonnenene i</span></span>
+<span id="cb11-17"><a href="r-plotting.html#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co"># datasettet vårt:</span></span>
+<span id="cb11-18"><a href="r-plotting.html#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb11-19"><a href="r-plotting.html#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="r-plotting.html#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Vi lagrer plottet ved å kjøre ggsave-kommandoen rett etter plottekommandoen:</span></span>
+<span id="cb11-21"><a href="r-plotting.html#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;testplot.pdf&quot;</span>)</span>
+<span id="cb11-22"><a href="r-plotting.html#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="r-plotting.html#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co"># En mer fleksibel måte å gjøre dette på er å lagre plottet i en variabel, og så</span></span>
+<span id="cb11-24"><a href="r-plotting.html#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co"># gi navnet til plottet inn som et argument i ggsave-funksjonen. </span></span>
+<span id="cb11-25"><a href="r-plotting.html#cb11-25" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb11-26"><a href="r-plotting.html#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;testplot.pdf&quot;</span>, p)</span>
+<span id="cb11-27"><a href="r-plotting.html#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="r-plotting.html#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co"># På den måten så kan vi lagre plottet p når som helst, vi trenger ikke </span></span>
+<span id="cb11-29"><a href="r-plotting.html#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="co"># nødvendigvis gjøre det rett etter plottekommandoene.</span></span></code></pre></div>
 <p><strong>Oppgave:</strong> Klarer du, for eksempel ved å søke etter relevante ggplot-kommandoer på nettet, å få prikkene i plottet til å bli større, og samtidig gjøre dem blå?</p>
 <details>
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-plotting.html#cb12-1" tabindex="-1"></a><span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-plotting.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code></pre></div>
 </details>
 </div>
             </section>

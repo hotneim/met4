@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.4 Seminar 4 - Regresjon II | MET4 - Empiriske Metoder - Høst 2023</title>
+  <title>8.4 Seminar 4 - Regresjon II | MET4 - Empiriske Metoder - Vår 2024</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.28 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.4 Seminar 4 - Regresjon II | MET4 - Empiriske Metoder - Høst 2023" />
+  <meta property="og:title" content="8.4 Seminar 4 - Regresjon II | MET4 - Empiriske Metoder - Vår 2024" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.4 Seminar 4 - Regresjon II | MET4 - Empiriske Metoder - Høst 2023" />
+  <meta name="twitter:title" content="8.4 Seminar 4 - Regresjon II | MET4 - Empiriske Metoder - Vår 2024" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -102,7 +102,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
+code span.bu { } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +115,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.im { } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -129,6 +129,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -244,7 +248,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2023</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2024</a>
           </h1>
         </div>
 
@@ -257,7 +261,7 @@ Publisert ved hjelp av bookdown</a></li>
 <ol style="list-style-type: decimal">
 <li>Vi har lyst til å forstå forskjellen på den statistiske <em>modellen</em> <span class="math inline">\(Y = \beta_0 + \beta_1X + \epsilon\)</span> der <span class="math inline">\(\epsilon\)</span> er normalfordelt med forventningsverdi 0 og varians <span class="math inline">\(\sigma^2\)</span>, og det vi faktisk observerer, som er par av observasjoner <span class="math inline">\((X_1, Y_1), \ldots, (X_n, Y_n)\)</span>. Klarer du å illustrere denne forskjellen ved å fortsette på tegningen under? Her har vi satt <span class="math inline">\(n=4\)</span>.</li>
 </ol>
-<p><img src="bilder/oppg_regresjonsmodell.jpg" width="738" /></p>
+<p><img src="bilder/oppg_regresjonsmodell.jpg" /><!-- --></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Et lite firma som selger babyutstyr ser god effekt av å markedsføre produktene sine på Youtube. For å analysere denne sammenhengen nøyere samler de inn historiske data på hvor mye de har brukt på Youtube-reklame (<code>youtube</code>) i løpet av en måned, og omsetningen den måneden (<code>sales</code>), og gjennomfører så en enkel lineær regresjon med <code>youtube</code> som forklaringsvariabel og <code>sales</code> som responsvariabel. Gi en kort fortolkning av regresjonsutskriften under:</li>
 </ol>
@@ -284,11 +288,11 @@ Publisert ved hjelp av bookdown</a></li>
 <ol start="3" style="list-style-type: decimal">
 <li>I figuren under har vi plottet inn datasettet, den estimerte regresjonslinjen (rød heltrukken strek), samt linjen <span class="math inline">\(y = x\)</span> (sort stiplet linje). Hvordan skal babyutstyrforhandleren tolke denne figuren?</li>
 </ol>
-<p><img src="met4_files/figure-html/unnamed-chunk-299-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-294-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Ved hjelp av den estimerte regresjonsmodellen lager babyutstyrforhandleren følgende plott av residualene mot de predikerte verdiene for hver observasjon i datasettet. Hva sier denne figuren oss om lineær regresjon som modell for sammenhengen mellom penger brukt på markedsføring og omsetning?</li>
 </ol>
-<p><img src="met4_files/figure-html/unnamed-chunk-300-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-295-1.png" width="672" /></p>
 <p>Det er gjort mange forsøk på å forklare hvorfor noen land er rike, mens andre land er fattige, se f.eks hjemmeeksamen i MET4, V17. En mulig forklaring kan ligge in landenes fysiske og geografiske egenskaper. For eksempel, kan det hende at land som har ulendt terreng kan ha større vanskeligheter med å bygge infrastruktur og frakte varer enn land som er helt flate, og dermed ende opp som fattigere av den grunn?</p>
 <p>Vi ser på et lite datasett (<a href="https://xcelab.net/rm/statistical-rethinking/">lånt fra boken <em>Statistical Rethinking</em></a>) der vi har et mål på landenes rikdom (logaritmen av BNP, <code>log_gdp</code>), samt et mål på hvor ulendt terrenget er i det landet (<code>rugged</code>). Vi har også mer informasjon om landene, for eksempel om det ligger i Afrika eller ikke (<code>cont_africa</code>).</p>
 <p>Vi har gjort tre regresjonsanalyser i R, med følgende utskrifter:</p>

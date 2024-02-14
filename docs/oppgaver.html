@@ -51,6 +51,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/met4/icon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/met4/icon/favicon-16x16.png">
@@ -887,8 +889,8 @@ Løsning
 <p>Forkastelsesområdet er <span class="math inline">\(\chi^2 &gt; \chi^2_{\alpha, (r - 1)(s - 1)} = \chi^2_{0.05, 2} = 5.99\)</span>. Siden <span class="math inline">\(\chi^2 = 5.0378 &lt; 5.99\)</span> forkaster vi <em>ikke</em> <span class="math inline">\(H_0\)</span> på 5 % signifikansnivå.</p>
 <p>I R ville vi gjort følgende:</p>
 </blockquote>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="oppgaver.html#cb41-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">268</span>, <span class="dv">216</span>, <span class="dv">164</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> T)</span>
-<span id="cb41-2"><a href="oppgaver.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(f)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="oppgaver.html#cb72-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">268</span>, <span class="dv">216</span>, <span class="dv">164</span>, <span class="dv">15</span>, <span class="dv">17</span>, <span class="dv">20</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> T)</span>
+<span id="cb72-2"><a href="oppgaver.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(f)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 

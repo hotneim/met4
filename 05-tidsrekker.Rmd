@@ -352,7 +352,7 @@ dekomponert <- stl(ausbeer, s.window = "periodic")
 
 Vi kan hente ut de ulike komponentene ved å bruke dollartegnet: `dekomponert$time.series`. Pakken `forecast` har en egen plottefunksjon, `autoplot` som er spesialdesignet for tidsrekkeobjekter. Prøv å plotte de tre komponentene hver for seg ved å kjøre:
 
-```{r, fig.height=7}
+```{r autoplot, fig.height=7}
 autoplot(dekomponert)
 ```
 

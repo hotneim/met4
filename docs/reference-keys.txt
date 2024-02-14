@@ -61,7 +61,6 @@ kommentarer-8
 oppgaver-1
 regresjon-med-en-forklaringsvariabel
 multippel-regresjon-og-modellbygging
-oppgave-2-1
 relevante-r-regresjon
 tidsrekker
 intro
@@ -157,6 +156,3 @@ seminar-6---avansert-regresjon-og-maskinlæring
 eksamensoppgaver
 skoleeksamen
 tidligere-eksamensoppgaver-hjemmeeksamen
-oppgave-1-3
-oppgave-2-3
-oppgave-3-2
