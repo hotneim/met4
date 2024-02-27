@@ -105,7 +105,7 @@ b. Bestem hvilke av de følgende utsagn om den estimerte korrelasjonen mellom $X
 
 2. Under ser du et residualplott og et QQ-plot for en regresjonsanalyse. Hvilke brudd på antagelsene for lineær regresjon ser du? Dersom alle andre kriterier er oppfylt, hvilke konsekvenser har disse bruddene? 
 
-```{r, hetro, echo = F, message=F}
+```{r, hetro, echo = F, message=F, warning=F}
 library(lindia)
 set.seed(1)
 x=rep(1:300,2)
@@ -116,7 +116,7 @@ eps = rnorm(300,mean=0,sd=sqrt(sigma2))
 y=a+b*x + eps
 mod <- lm(y ~ x)
 plots <- gg_diagnose(mod, plot.all = F)
-include <- plots[c(3, 4)]
+include <- plots[c(4, 5)]
 plot_all(include)
 
 ```
