@@ -268,7 +268,7 @@ Vi skal i denne øvingen prøve å finne en god modell for dax-indeksen:</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="modellbygging-1.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
 <span id="cb200-2"><a href="modellbygging-1.html#cb200-2" aria-hidden="true" tabindex="-1"></a>dax <span class="ot">&lt;-</span> EuStockMarkets[ ,<span class="dv">1</span>]</span>
 <span id="cb200-3"><a href="modellbygging-1.html#cb200-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dax)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-171-1.png" width="672" /></p>
 <p><strong>2. Trening og test data</strong>
 Vi ønsker f.eks å teste hvor god modellen er til å predikere de 10 siste observasjonene i datasettet. Vi deler derfor dataene inn i et treningssett bestående av alle observasjoner utenom disse 10 siste observasjonene, og et testsett bestående av de 10 siste observasjonene:</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="modellbygging-1.html#cb201-1" aria-hidden="true" tabindex="-1"></a>trening <span class="ot">&lt;-</span> <span class="fu">head</span>(dax, <span class="fu">length</span>(dax) <span class="sc">-</span> <span class="dv">10</span>)</span>

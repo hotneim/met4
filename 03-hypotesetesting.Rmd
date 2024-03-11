@@ -1079,7 +1079,7 @@ De kritiske verdiene finner vi ved å bruke kvantilfunksjonene til den respektiv
 
 Dersom du f.eks skal utføre en t-test for $H_0: \mu = \mu_0$ mot $H_1: \mu < \mu_0$, med signifikansnivå $\alpha = 0.05$ og har $40$ observasjoner er kritisk verdi:
 
-  ```{r, eval = TRUE}
+```{r, eval = TRUE}
 qt(0.05, df = 40 - 1)
 ```
 og du forkaster da dersom din testobservator $T$ er mindre enn dette tallet.
@@ -1093,7 +1093,7 @@ qt(1 - 0.05, df = 40 - 1)
 og du forkaster dersom din testobservator $T$ er større enn dette tallet.
 
 For en to-sidig test ($H_1: \mu\neq \mu_0$) forkaster du dersom $T$ faller uten for intervallet:
-  ```{r, eval = TRUE}
+```{r, eval = TRUE}
 L <- qt(0.05/2, df = 40 - 1)
 U <- qt(1 - 0.05/2, df = 40 - 1)
 c(U,L)
@@ -1102,7 +1102,7 @@ c(U,L)
 #### Kritiske verdier i standardnormalfordelingen {-}
 Helt likt som for t-fordelingen bare at det ikke er noen frihetsgrader involvert:
 
-  ```{r, eval = TRUE}
+```{r, eval = TRUE}
 
 # Ensidig mu < mu0, alpha = 0.05
 qnorm(0.05)
@@ -1156,14 +1156,14 @@ $$F = \frac{S_{1}^2}{S_{2}^2}.$$
 
 Har vi brukt $30$ observasjoner til å regne ut $S_{1}^2$ og $25$ observasjoner til å regne ut $S_{1}^2$ blir kritisk verdi i en to-sidig test der $H_1: \sigma_{1}^2 \neq \sigma_{2}^2$ :
 
-  ```{r, eval = TRUE}
+```{r, eval = TRUE}
 # Kritisk verdi, 5% nivå, tosidig test
 
 qf(1 - 0.05/2, df1 = 30 - 1, df2 = 25 - 1)
 ```
 Er det en ensidig test hvor $H_1: \sigma_{1}^2 > \sigma_{2}^2$ blir kritisk verdi:
 
-  ```{r, eval = TRUE}
+```{r, eval = TRUE}
 # Kritisk verdi, 5% nivå, ensidig test
 
 qf(1 - 0.05, df1 = 30 - 1, df2 = 25 - 1)

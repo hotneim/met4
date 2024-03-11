@@ -29,7 +29,12 @@ Lykke til!
 
 **a)** Regn ut et glidende gjennomsnitt med vindusstørrelse 3 for følgende tidsrekke:
 
-![](bilder/oppgave1.jpg){#id .class width=80% height=80%}
+```{r, echo = F}
+knitr::include_graphics("bilder/oppgave1.jpg")
+```
+
+<!-- ![](bilder/oppgave1.jpg){#id .class width=80% height=80%} -->
+
 <details><summary>Løsning</summary>
 
 |t|     Glidende gjennomsnitt   |
@@ -110,7 +115,13 @@ ggplot(df) +
 
 **d)** Regn ut eksponensiell glatting for tidsrekken under med glattefaktor $w = 0.1$:
 
-![](bilder/oppgave1b.jpg){#id .class width=80% height=80%}
+
+```{r, echo = F}
+knitr::include_graphics("bilder/oppgave1b.jpg")
+```
+
+
+<!-- ![](bilder/oppgave1b.jpg){#id .class width=80% height=80%} -->
 
 <details><summary>Løsning</summary>
 
