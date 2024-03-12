@@ -291,11 +291,11 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Første kolonne inneholder informasjon om tidspunkt, og temperaturen er inneholdt i andre kolonne. La oss plotte både temperaturrekken og den <em>differensierte</em> temperaturrekken (dvs. forskjellen fra dag til dag). Hvis vi avslører at den differensierte tidsrekken kan regnes ut ved å kjøre <code>difftemp &lt;- diff(temp$Mean)</code>, skulle det nå være grei skuring å produsere følgende to enkle plott:</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="ma.html#cb188-1" aria-hidden="true" tabindex="-1"></a>difftemp <span class="ot">&lt;-</span> <span class="fu">diff</span>(temp<span class="sc">$</span>Mean)</span>
 <span id="cb188-2"><a href="ma.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(temp<span class="sc">$</span>Mean, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-161-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-159-1.png" width="672" /></p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="ma.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(difftemp, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-161-2.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-159-2.png" width="672" /></p>
 <p>Lag videre autokorrelasjonsplottet som vist i videoen for den differensierte tidsrekken:</p>
-<p><img src="met4_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-160-1.png" width="672" /></p>
 <p>I autokorrelasjonsplottet ser vi nettopp et slikt MA-mønster som vi så i videoen; nemlig at autokorrelasjonen plutselig blir null (eller omtrent null) for et gitt lag. I dette tilfellet har vi at første ordens autokorrelasjon er klart forskjellig fra null, men at den fra og med <span class="math inline">\(k = 2\)</span> nesten ikke har utslag.</p>
 <p>Hvis de differensierte temperaturmålingene faktisk er MA(1), kan den skrives slik:</p>
 <p><span class="math display">\[Y_t = c + \theta u_{t-1} + u_t,\]</span>

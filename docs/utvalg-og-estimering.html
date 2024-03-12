@@ -348,8 +348,8 @@ men problemet i praksis er at vi gjerne ikke kjenner <span class="math inline">\
 <p>Som demonstrert i forelesningen kan vi i R simulere standard normalfordelte observasjoner (dvs normalfordelte observasjoner med <span class="math inline">\(\mu = 0\)</span> og <span class="math inline">\(\sigma^2 = 1\)</span>) med kommandoen <code>rnorm(n)</code>, der <code>n</code> er antallet observasjoner vi ønsker. For eksempel kan vi kjøre følgende kode for å generere 10 observasjoner (du vil helt sikkert få andre verdier):</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="utvalg-og-estimering.html#cb24-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb24-2"><a href="utvalg-og-estimering.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(n)</span></code></pre></div>
-<pre><code>##  [1] -0.8251277  0.3345260  0.0610822  0.4377380  0.3963359  0.7990214
-##  [7]  0.8751150  0.4053839  0.9507692 -1.9261844</code></pre>
+<pre><code>##  [1]  0.5879075 -0.9265888 -0.2487402 -1.7799865  0.4988653 -0.8542371
+##  [7]  0.8409628 -1.5037851 -0.4702345 -0.2661606</code></pre>
 <p>Ved å skrive <code>mean(dnorm(n))</code> i stedet regner vi ut gjennomsnittet av observasjonene direkte.</p>
 <p>La oss gjøre dette 100 ganger og notere ned gjennomsnittet hver gang. I stedet for å gjøre det manuelt, kan vi skrive et lite program som gjør dette for oss ved å bruke en for-løkke. Det er ikke nødvendig (eller pensum) å forstå akkurat hvordan dette fungerer, men dersom du kjører følgende linjer vil du få en ny vektor <code>gj.snitt</code> som inneholder 100 slike gjennomsnitt:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="utvalg-og-estimering.html#cb26-1" aria-hidden="true" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>

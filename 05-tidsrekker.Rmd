@@ -29,9 +29,25 @@ Lykke til!
 
 **a)** Regn ut et glidende gjennomsnitt med vindusstørrelse 3 for følgende tidsrekke:
 
-```{r, echo = F, out.width="300px"}
-knitr::include_graphics("bilder/oppgave1.jpg")
-```
+|t|Y|
+|:---|:---|
+| 1 |48|
+| 2 |41|
+| 3 |37|
+| 4 |32|
+| 5 |36|
+| 6 |31|
+| 7 |43|
+| 8 |52|
+| 9 |60|
+|10 |48|
+|11 |41|
+|12 |30|
+
+
+<!-- ```{r, echo = F, out.width="300px"} -->
+<!-- knitr::include_graphics("bilder/oppgave1.jpg") -->
+<!-- ``` -->
 
 <!-- ![](bilder/oppgave1.jpg){#id .class width=80% height=80%} -->
 
@@ -115,13 +131,23 @@ ggplot(df) +
 
 **d)** Regn ut eksponensiell glatting for tidsrekken under med glattefaktor $w = 0.1$:
 
+|t|Y|
+|:---|:---|
+| 1 |38|
+| 2 |43|
+| 3 |42|
+| 4 |45|
+| 5 |46|
+| 6 |48|
+| 7 |50|
+| 8 |49|
+| 9 |46|
+|10 |45|
 
-```{r, echo = F, out.width="300px"}
-knitr::include_graphics("bilder/oppgave1b.jpg")
-```
 
-
-<!-- ![](bilder/oppgave1b.jpg){#id .class width=80% height=80%} -->
+<!--  ```{r, echo = F, out.width="300px"} -->
+<!--  knitr::include_graphics("bilder/oppgave1b.jpg") -->
+<!--  ``` -->
 
 <details><summary>Løsning</summary>
 

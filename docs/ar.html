@@ -278,11 +278,11 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="ar.html#cb169-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
 <span id="cb169-2"><a href="ar.html#cb169-2" aria-hidden="true" tabindex="-1"></a>hvit_støy <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
 <span id="cb169-3"><a href="ar.html#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hvit_støy, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
 <p>Vi kan bruke funksjonen <code>arima.sim()</code> til å simulere tidsrekker fra AR-modellen (og den mer generelle ARIMA-modellen, mer om det senere). Du kan for eksempel simulere <span class="math inline">\(n\)</span> observasjoner fra en AR(1)-prosess med <span class="math inline">\(\phi = 0.95\)</span> ved hjelp av følgende kommandoer:</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="ar.html#cb170-1" aria-hidden="true" tabindex="-1"></a>ar1 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fl">0.95</span>), n)</span>
 <span id="cb170-2"><a href="ar.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ar1, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-140-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
 <p>I det siste eksempelet trekker <code>arima.sim()</code>-funskjonen hvit-støy-prosessen <span class="math inline">\(u_t\)</span> fra <code>rnorm()</code>-funksjonen, men det kan vi endre på hvis vi vil, se hjelpesiden <code>?arima.sim</code>. Videre kan vi bruke denne funksjonen til å simulere fra hvit støy ved å sette <code>model</code>-argumentet til en tom liste (<code>model = list()</code>), eller vi kan simulere fra en AR(2)-prosess med <span class="math inline">\(\phi_1 = 0.2\)</span> og <span class="math inline">\(\phi_2 = 0.1\)</span> ved å sette <code>model = list(ar = c(0.2, 0.1))</code>.</p>
 <p><strong>2. Estimere.</strong></p>
 <p>La oss i første omgang si at vi har observert tidsrekken <code>ar1</code> som vi simulerte over, at vi mistenker at den følger en AR(1)-prosess <span class="math inline">\(Y_t = \phi Y_{t-1} + u_t\)</span>, og at vi ønsker å estimere den ukjente parameteren <span class="math inline">\(\phi\)</span> ved hjelp av observasjonene. Som vi antydet i <strong>AR</strong>-videoen kan vi i dette tilfellet betrakte det som et regresjonsproblem med <span class="math inline">\(Y_t\)</span> som responsvariabel og <span class="math inline">\(Y_{t-1}\)</span> som forklaringsvariabel. La oss lage en <code>data.frame</code> med disse to kolonnene, og se hva vi får når vi bruker <code>lm()</code>-funksjonen. .</p>
@@ -332,7 +332,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="ar.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotter den opprinnerlige tidsrekken, sammen med prediksjon og</span></span>
 <span id="cb177-2"><a href="ar.html#cb177-2" aria-hidden="true" tabindex="-1"></a><span class="co"># prediksjonsintervall</span></span>
 <span id="cb177-3"><a href="ar.html#cb177-3" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(prediksjon)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-146-1.png" width="672" /></p>
+<p><img src="met4_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
 </div>
 </div>
             </section>
