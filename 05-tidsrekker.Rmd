@@ -29,7 +29,7 @@ Lykke til!
 
 **a)** Regn ut et glidende gjennomsnitt med vindusstørrelse 3 for følgende tidsrekke:
 
-```{r, echo = F}
+```{r, echo = F, out.width="300px"}
 knitr::include_graphics("bilder/oppgave1.jpg")
 ```
 
@@ -116,7 +116,7 @@ ggplot(df) +
 **d)** Regn ut eksponensiell glatting for tidsrekken under med glattefaktor $w = 0.1$:
 
 
-```{r, echo = F}
+```{r, echo = F, out.width="300px"}
 knitr::include_graphics("bilder/oppgave1b.jpg")
 ```
 
