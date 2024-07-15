@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7.2 Dataøving 2 | MET4 - Empiriske Metoder - Vår 2024</title>
+  <title>7.2 Dataøving 2 | MET4 - Empiriske Metoder - Høst 2024</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7.2 Dataøving 2 | MET4 - Empiriske Metoder - Vår 2024" />
+  <meta property="og:title" content="7.2 Dataøving 2 | MET4 - Empiriske Metoder - Høst 2024" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7.2 Dataøving 2 | MET4 - Empiriske Metoder - Vår 2024" />
+  <meta name="twitter:title" content="7.2 Dataøving 2 | MET4 - Empiriske Metoder - Høst 2024" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -102,7 +102,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +115,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -248,7 +248,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2024</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2024</a>
           </h1>
         </div>
 
@@ -261,8 +261,8 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="interaktiv-øvelse" class="section level3 hasAnchor" number="7.2.1">
 <h3><span class="header-section-number">7.2.1</span> Interaktiv øvelse<a href="dataøving-2.html#interaktiv-øvelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Før vi tar fatt på dataanalysen begynner vi med litt R-trening i swirl. Har du allerede installert pakken <code>swirl</code> (skriv <code>install.packages("swirl")</code> i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="dataøving-2.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
-<span id="cb252-2"><a href="dataøving-2.html#cb252-2" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="dataøving-2.html#cb252-1" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
+<span id="cb252-2"><a href="dataøving-2.html#cb252-2" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn. Hvis du bruker samme navn som tidligere får du kanskje tilbud om å starte opp igjen der du slapp, men da kan du bare velge det nederste valget ‘No. Let me start something new’. Du velger så alternativet ‘R Programming’ hvor du får se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul 6 <strong>‘Subsetting Vectors’</strong> og modul 8 <strong>‘Logic’</strong>.</p>
 <p>Husk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl () før du begynner på neste del av datalabben. Lykke til!</p>
 </div>
@@ -288,9 +288,9 @@ Publisert ved hjelp av bookdown</a></li>
 <p>En liten kaffeplantasje i Costa Rica har begynt å eksperimentere med en ny kombinasjon av sprøytemidler som skal være like effektiv mot ugress, men samtidig enda mer skånsom mot kaffeplantene, slik at avlingen blir større. Innehaveren av plantasjen ønsker å sette opp et eksperiment for å undersøke denne påstanden. Han velger ut 25 tilfeldige jordlapper fordelt på hele eiendommen der han bruker de nye sprøytemidlene gjennom en hel sesong.</p>
 <p>Lang erfaring har vist at avlingen ved bruk av gammel metode er normalfordelt med forventning <span class="math inline">\(\mu = 100\)</span> og standardavvik <span class="math inline">\(\sigma = 10\)</span>, der vi har brukt en standardisert enhet for mengde avling per arealenhet. Hjelp bonden, ved å løse følgende oppgaver:</p>
 <p><strong>Oppgave 1.1:</strong> Les inn datasettet <code>testdatasdata.xsl</code> i <strong>RStudio</strong> og se på de første par radene. Det kan du gjøre ved å kjøre følgende kodelinjer:</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="dataøving-2.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)                                 <span class="co"># Pakke for å lese excel-filer</span></span>
-<span id="cb253-2"><a href="dataøving-2.html#cb253-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;testdata.xls&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
-<span id="cb253-3"><a href="dataøving-2.html#cb253-3" aria-hidden="true" tabindex="-1"></a>data                                            <span class="co"># Ser på datasettet</span></span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="dataøving-2.html#cb253-1" tabindex="-1"></a><span class="fu">library</span>(readxl)                                 <span class="co"># Pakke for å lese excel-filer</span></span>
+<span id="cb253-2"><a href="dataøving-2.html#cb253-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;testdata.xls&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
+<span id="cb253-3"><a href="dataøving-2.html#cb253-3" tabindex="-1"></a>data                                            <span class="co"># Ser på datasettet</span></span></code></pre></div>
 <pre><code>## # A tibble: 25 × 4
 ##       X1    X2    A1    A2
 ##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -315,20 +315,20 @@ Publisert ved hjelp av bookdown</a></li>
 <p>Vi skal i denne oppgaven se på oppgave <strong>1a</strong> og <strong>1b</strong> som ble gitt på skoleeksamen i MET4 vårsemesteret 2019. Dette er det samme datasettet som vi så på i forrige dataøving. I <a href="https://journals.sagepub.com/doi/10.1177/0956797619829688">et amerikansk forsøk</a> ville man undersøke påstanden om at voldelige dataspill fører til voldelig adferd ved la to grupper spille hvert sitt dataspill. I det “voldelige” dataspillet var oppdraget å <em>skyte</em> og <em>drepe</em> et romvesen, mens i den ikke-voldelige varianten skulle man <em>finne</em> og <em>redde</em> romvesenet fra fare. Utover det var spillene helt likt utformet, og i etterkant av en spilleøkt ble deltakernes aggresjonsnivå målt på en skala fra 1 til 9 ved hjelp av en standard psykologisk test.</p>
 <p>I denne oppgaven skal vi i hovedsak finne ut om gruppen som spilte de voldelige dataspillet hadde signifikant høyere aggresjonsnivå enn kontrollgruppen.</p>
 <p><strong>Oppgave 2.1:</strong> Les inn datasettet <code>violence.xslx</code> på samme måte som i forrige dataøving. Hvis du allerede har kjørt <code>library(readxl)</code> trenger du ikke gjøre det igjen med mindre du har startet <strong>RStudio</strong> på nytt. Gi datasettet et passende navn, f.eks</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="dataøving-2.html#cb255-1" aria-hidden="true" tabindex="-1"></a>violence <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="dataøving-2.html#cb255-1" tabindex="-1"></a>violence <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
 <p>Vi skal altså teste om aggresjonsnivået er forskjellig i de to gruppene. Da må vi trekke ut de aktuelle tallene fra datasettet. Som vi husker fra forelesningsnotatene trenger vi <em>to vektorer</em> for å gjøre en to-utvags <span class="math inline">\(t\)</span>-test: en vektor som inneholder aggresjonsnivået til gruppen som har spilt det voldelige dataspillet, og en vektor som inneholder aggresjonsnivået til gruppen som har spilt det ikke-voldelige dataspillet.</p>
 <p>La disse to vektorene få navn <code>voldelig</code> og <code>ikke_voldelig</code>, og lag dem ved å skrive følgende kodelinjer (samme som forrige dataøving):</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="dataøving-2.html#cb256-1" aria-hidden="true" tabindex="-1"></a>voldelig <span class="ot">&lt;-</span></span>
-<span id="cb256-2"><a href="dataøving-2.html#cb256-2" aria-hidden="true" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
-<span id="cb256-3"><a href="dataøving-2.html#cb256-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Violent&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb256-4"><a href="dataøving-2.html#cb256-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span></span>
-<span id="cb256-5"><a href="dataøving-2.html#cb256-5" aria-hidden="true" tabindex="-1"></a>  pull</span>
-<span id="cb256-6"><a href="dataøving-2.html#cb256-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb256-7"><a href="dataøving-2.html#cb256-7" aria-hidden="true" tabindex="-1"></a>ikke_voldelig <span class="ot">&lt;-</span></span>
-<span id="cb256-8"><a href="dataøving-2.html#cb256-8" aria-hidden="true" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
-<span id="cb256-9"><a href="dataøving-2.html#cb256-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Less Violent&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb256-10"><a href="dataøving-2.html#cb256-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span></span>
-<span id="cb256-11"><a href="dataøving-2.html#cb256-11" aria-hidden="true" tabindex="-1"></a>  pull</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="dataøving-2.html#cb256-1" tabindex="-1"></a>voldelig <span class="ot">&lt;-</span></span>
+<span id="cb256-2"><a href="dataøving-2.html#cb256-2" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
+<span id="cb256-3"><a href="dataøving-2.html#cb256-3" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Violent&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb256-4"><a href="dataøving-2.html#cb256-4" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span></span>
+<span id="cb256-5"><a href="dataøving-2.html#cb256-5" tabindex="-1"></a>  pull</span>
+<span id="cb256-6"><a href="dataøving-2.html#cb256-6" tabindex="-1"></a></span>
+<span id="cb256-7"><a href="dataøving-2.html#cb256-7" tabindex="-1"></a>ikke_voldelig <span class="ot">&lt;-</span></span>
+<span id="cb256-8"><a href="dataøving-2.html#cb256-8" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
+<span id="cb256-9"><a href="dataøving-2.html#cb256-9" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Less Violent&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb256-10"><a href="dataøving-2.html#cb256-10" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span></span>
+<span id="cb256-11"><a href="dataøving-2.html#cb256-11" tabindex="-1"></a>  pull</span></code></pre></div>
 <p><strong>Oppgave 2.2:</strong> Vi er nå klare til å gjøre en to-utvalgs <span class="math inline">\(t\)</span>-test for om aggresjonsnivået er det samme i de to gruppene. Prøv å gjøre det nå, men vær bevisst på hvilke valg du gjør underveis, og som du mater inn i <code>t.test()</code>-funksjonen, f.eks:</p>
 <ul>
 <li>Antar du lik varians i de to gruppene? Hvorfor/Hvorfor ikke?</li>
@@ -336,13 +336,13 @@ Publisert ved hjelp av bookdown</a></li>
 </ul>
 <p><strong>Oppgave 2.3:</strong> En avgjørende detalj i studien som vi ser på i denne oppgaven er at forskerne også spurte forsøkspersonene hvorvidt de selv syntes spillet de spilte var voldelig. For å kunne trekke noen som helst lærdom fra et slikt forsøk er det viktig at den voldelige spillvarianten faktisk blir oppfattet som voldelig og vice versa. Vi ønsker dermed å undersøke nullhypotesen om at variablene <code>violence_tratment</code> og <code>experienced_violence</code> er uavhengige av hverandre. Den hypotesen er vi nødt til å forkaste for at forsøket skal være gyldig: hvis det ikke er noen sammenheng mellom opplevd og faktisk voldelighet er forsøket helt klart ugyldig.</p>
 <p>Første steg er å lage et nytt datasett der vi bare ta med oss de to kolonnene vi er interessert i. Kall det hva du vil, f.eks. <code>violence_redusert</code>. Vi bruker <code>select()</code>-funksjonen til å velge ut variablene vi trenger, se <a href="pipe.html#pipe">video om datavask</a> dersom du trenger å repetere denne funksjonen.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="dataøving-2.html#cb257-1" aria-hidden="true" tabindex="-1"></a>violence_redusert <span class="ot">&lt;-</span> </span>
-<span id="cb257-2"><a href="dataøving-2.html#cb257-2" aria-hidden="true" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span> </span>
-<span id="cb257-3"><a href="dataøving-2.html#cb257-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(violent_treatment, experienced_violence)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="dataøving-2.html#cb257-1" tabindex="-1"></a>violence_redusert <span class="ot">&lt;-</span> </span>
+<span id="cb257-2"><a href="dataøving-2.html#cb257-2" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span> </span>
+<span id="cb257-3"><a href="dataøving-2.html#cb257-3" tabindex="-1"></a>  <span class="fu">select</span>(violent_treatment, experienced_violence)</span></code></pre></div>
 <p>Skriv <code>violence_redusert</code> i konsollen for å bekrefte at du har valgt ut de korrekte kolonnene.</p>
 <p>Vi fortsetter som i videoforelesningen og lager en krysstabell for disse variablene</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="dataøving-2.html#cb258-1" aria-hidden="true" tabindex="-1"></a>krysstabell <span class="ot">&lt;-</span> <span class="fu">table</span>(violence_redusert) </span>
-<span id="cb258-2"><a href="dataøving-2.html#cb258-2" aria-hidden="true" tabindex="-1"></a>krysstabell</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="dataøving-2.html#cb258-1" tabindex="-1"></a>krysstabell <span class="ot">&lt;-</span> <span class="fu">table</span>(violence_redusert) </span>
+<span id="cb258-2"><a href="dataøving-2.html#cb258-2" tabindex="-1"></a>krysstabell</span></code></pre></div>
 <pre><code>##                  experienced_violence
 ## violent_treatment Less Violent Violent
 ##      Less Violent          114       9
@@ -356,8 +356,8 @@ Publisert ved hjelp av bookdown</a></li>
 <p>For å undersøke denne påstanden samlet Roubik inn historiske data over arabicaavlinger fra hele verden. Han delte verdens kaffeproduserende land inn i to kategorier: <em>Old world</em> som omfatter afrikanske og asiatiske land, og <em>New world</em> som omfatter land i Latin-Amerika. Han registrerte videre <em>gjennomsnittlig årlig avling</em> (målt i kg/hektar) i to perioder: 1961–80 og 1981–2001.</p>
 <p>Nøkkelen til analysen er at den afrikanske honningbien var en viktig pollinator i Afrika og Asia både i den første og andre perioden, men knapt eksisterte i Amerika før 1980. Etter 1980, derimot, økte utbredelsen av denne bien i Amerika, og ble fort naturalisert. Kan vi sette denne utviklingen i sammenheng med økt kaffeavling i Latin-Amerika etter 1980, og dermed skrote teorien om at kaffeplanter ikke drar nytte av insektspollinering?</p>
 <p><strong>Oppgave 3.1:</strong> For å undersøke dette kan vi bruke datasettet som Roubik brukte, som finnes i filen <code>roubik_2002_coffe_yield.xlsx</code>. Last datasettet inn i R på vanlig måte, og se på det:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="dataøving-2.html#cb260-1" aria-hidden="true" tabindex="-1"></a>yield <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;roubik_2002_coffe_yield.xlsx&quot;</span>)</span>
-<span id="cb260-2"><a href="dataøving-2.html#cb260-2" aria-hidden="true" tabindex="-1"></a>yield</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="dataøving-2.html#cb260-1" tabindex="-1"></a>yield <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;roubik_2002_coffe_yield.xlsx&quot;</span>)</span>
+<span id="cb260-2"><a href="dataøving-2.html#cb260-2" tabindex="-1"></a>yield</span></code></pre></div>
 <pre><code>## # A tibble: 28 × 4
 ##    world country     yield_61_to_80 yield_81_to_01
 ##    &lt;chr&gt; &lt;chr&gt;                &lt;dbl&gt;          &lt;dbl&gt;
@@ -388,15 +388,15 @@ Publisert ved hjelp av bookdown</a></li>
 </ul>
 <p>Her må du bruke både <code>filter()</code> og <code>select()</code>, og du må avslutte med en <code>pull</code> for å oversette en en-kolonnes dataframe til en vektor.</p>
 <p>Dersom du har gjort det riktig, ser vektorene slik ut når du er ferdig:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="dataøving-2.html#cb262-1" aria-hidden="true" tabindex="-1"></a>new_p1</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="dataøving-2.html#cb262-1" tabindex="-1"></a>new_p1</span></code></pre></div>
 <pre><code>##  [1] 9139 7686 9996 5488 5920 4096 4566 4965 5487 5227 2347 3089 1938</code></pre>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="dataøving-2.html#cb264-1" aria-hidden="true" tabindex="-1"></a>new_p2</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="dataøving-2.html#cb264-1" tabindex="-1"></a>new_p2</span></code></pre></div>
 <pre><code>##  [1] 14620  8767  8729  8231  7740  7264  6408  6283  5740  5116  4124  3240
 ## [13]  2789</code></pre>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="dataøving-2.html#cb266-1" aria-hidden="true" tabindex="-1"></a>old_p1</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="dataøving-2.html#cb266-1" tabindex="-1"></a>old_p1</span></code></pre></div>
 <pre><code>##  [1]  4251 10522  3509 10028  5667 17064  5904  4001  6604  4738  5716  3824
 ## [13]  3525  3393  3213</code></pre>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="dataøving-2.html#cb268-1" aria-hidden="true" tabindex="-1"></a>old_p2</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="dataøving-2.html#cb268-1" tabindex="-1"></a>old_p2</span></code></pre></div>
 <pre><code>##  [1] 13380 11561  9652  9593  8797  7869  7354  7288  6055  5432  5394  3576
 ## [13]  3141  2391  2136</code></pre>
 <p><strong>Oppgave 3.3:</strong> Bruk en paret <span class="math inline">\(t\)</span>-test til å finne ut om kaffeavlingen i den gamle verden er signifikant forskjellig i de to tidsperiodene.</p>

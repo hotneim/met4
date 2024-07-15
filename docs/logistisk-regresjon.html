@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.1 Logistisk regresjon | MET4 - Empiriske Metoder - Vår 2024</title>
+  <title>6.1 Logistisk regresjon | MET4 - Empiriske Metoder - Høst 2024</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.1 Logistisk regresjon | MET4 - Empiriske Metoder - Vår 2024" />
+  <meta property="og:title" content="6.1 Logistisk regresjon | MET4 - Empiriske Metoder - Høst 2024" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.1 Logistisk regresjon | MET4 - Empiriske Metoder - Vår 2024" />
+  <meta name="twitter:title" content="6.1 Logistisk regresjon | MET4 - Empiriske Metoder - Høst 2024" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -102,7 +102,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +115,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -248,7 +248,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2024</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2024</a>
           </h1>
         </div>
 
@@ -284,9 +284,9 @@ Publisert ved hjelp av bookdown</a></li>
 <p><a href="https://www.statlearning.com/">An introduction to statistical learning</a> (trykk på “Download the first edition”)</p>
 <p>Denne boken er for øvrig pensum i <strong>BAN404</strong>. Logistisk regresjon er omhandlet i kapittel <em>4.3</em> (avsnitt 4.3.5 er ikke pensum). Eksempelet vårt er tatt herfra, og datasettet er, som vist i forelesningsscriptet, inkludert i bokens egen R-pakke <code>ISLR</code>.</p>
 <p>Bruk litt tid på å lese gjennom disse sidene, konseptet er ganske godt forklart. Bli også kjent med R-syntaksen, som ligner på den vi allerede kan for vanlig lineær regresjon. Vi bruker f.eks.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="logistisk-regresjon.html#cb209-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(default <span class="sc">~</span> balance, </span>
-<span id="cb209-2"><a href="logistisk-regresjon.html#cb209-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> Default,</span>
-<span id="cb209-3"><a href="logistisk-regresjon.html#cb209-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="logistisk-regresjon.html#cb209-1" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(default <span class="sc">~</span> balance, </span>
+<span id="cb209-2"><a href="logistisk-regresjon.html#cb209-2" tabindex="-1"></a>            <span class="at">data =</span> Default,</span>
+<span id="cb209-3"><a href="logistisk-regresjon.html#cb209-3" tabindex="-1"></a>            <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
 <p>Når du er klar til å prøve selv, kan du se på oppg <em>10a</em>, <em>b</em> og første del av <em>d</em> på s. 171 i ISLR. Dette datasettet er også inneholdt i <code>ISLR</code>-pakken.</p>
 </div>
 </div>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.3 Vektorer | MET4 - Empiriske Metoder - Vår 2024</title>
+  <title>1.3 Vektorer | MET4 - Empiriske Metoder - Høst 2024</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.3 Vektorer | MET4 - Empiriske Metoder - Vår 2024" />
+  <meta property="og:title" content="1.3 Vektorer | MET4 - Empiriske Metoder - Høst 2024" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.3 Vektorer | MET4 - Empiriske Metoder - Vår 2024" />
+  <meta name="twitter:title" content="1.3 Vektorer | MET4 - Empiriske Metoder - Høst 2024" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -102,7 +102,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +115,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -248,7 +248,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2024</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2024</a>
           </h1>
         </div>
 
@@ -261,47 +261,47 @@ Publisert ved hjelp av bookdown</a></li>
 <iframe src="https://player.vimeo.com/video/638313322?h=abdebf4b44" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
 </iframe>
 <p>Vi introduserer begrepet <em>vektorer</em> som er svært viktig i statistikk generel og R spesielt. En vektor er ganske enkelt en samling med tall, og når vi senere begynner å jobbe med data kommer vi til å lagre observasjoner av ulikt slag i vektorer. Vi ser også at vi kan gjøre operasjoner på vektorer ved å bruke <em>funksjoner</em>. For eksempel bruker vi <code>sum()</code>-funksjonen til å regne ut summen av alle tallene som er lagret i en vektor.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="vektorer.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vi kan lage en vektor på følgende måte:</span></span>
-<span id="cb3-2"><a href="vektorer.html#cb3-2" aria-hidden="true" tabindex="-1"></a>vector1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">7.8</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="fl">0.16</span>, <span class="sc">-</span><span class="dv">3</span>)</span>
-<span id="cb3-3"><a href="vektorer.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="vektorer.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Skriv ut:</span></span>
-<span id="cb3-5"><a href="vektorer.html#cb3-5" aria-hidden="true" tabindex="-1"></a>vector1</span>
-<span id="cb3-6"><a href="vektorer.html#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="vektorer.html#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plukke ut verdier</span></span>
-<span id="cb3-8"><a href="vektorer.html#cb3-8" aria-hidden="true" tabindex="-1"></a>vector1[<span class="dv">1</span>]        <span class="co"># Plukker ut verdier med hakeparanteser</span></span>
-<span id="cb3-9"><a href="vektorer.html#cb3-9" aria-hidden="true" tabindex="-1"></a>vector1[<span class="dv">10</span>]       <span class="co"># Out-of-range error</span></span>
-<span id="cb3-10"><a href="vektorer.html#cb3-10" aria-hidden="true" tabindex="-1"></a>vector1[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]      <span class="co"># Plukke ut en sekvens</span></span>
-<span id="cb3-11"><a href="vektorer.html#cb3-11" aria-hidden="true" tabindex="-1"></a>vector1[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]   <span class="co"># Plukke ut verdier basert på en ny vektor!</span></span>
-<span id="cb3-12"><a href="vektorer.html#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="vektorer.html#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Bokstaven &quot;c&quot; står for combine. R gjør det veldig enkelt å jobbe med </span></span>
-<span id="cb3-14"><a href="vektorer.html#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># vektorer:</span></span>
-<span id="cb3-15"><a href="vektorer.html#cb3-15" aria-hidden="true" tabindex="-1"></a>vector1 <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb3-16"><a href="vektorer.html#cb3-16" aria-hidden="true" tabindex="-1"></a>vector1<span class="sc">*</span><span class="dv">3</span></span>
-<span id="cb3-17"><a href="vektorer.html#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="vektorer.html#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Vi kan bruke *funksjoner* til å regne ut forskjellige ting:</span></span>
-<span id="cb3-19"><a href="vektorer.html#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(vector1)</span>
-<span id="cb3-20"><a href="vektorer.html#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(vector1)</span>
-<span id="cb3-21"><a href="vektorer.html#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vector1)</span>
-<span id="cb3-22"><a href="vektorer.html#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(vector1)</span>
-<span id="cb3-23"><a href="vektorer.html#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="vektorer.html#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Vi kan lage vektorer av andre ting enn tall:</span></span>
-<span id="cb3-25"><a href="vektorer.html#cb3-25" aria-hidden="true" tabindex="-1"></a>vector2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>)</span>
-<span id="cb3-26"><a href="vektorer.html#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="vektorer.html#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># ... men en vektor kan bare inneholde en datatype.</span></span>
-<span id="cb3-28"><a href="vektorer.html#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="vektorer.html#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Kanksje trenger vi standardavviket senere?</span></span>
-<span id="cb3-30"><a href="vektorer.html#cb3-30" aria-hidden="true" tabindex="-1"></a>sd_vector1 <span class="ot">&lt;-</span> <span class="fu">sd</span>(vector1)</span>
-<span id="cb3-31"><a href="vektorer.html#cb3-31" aria-hidden="true" tabindex="-1"></a>sd_vector1</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="vektorer.html#cb3-1" tabindex="-1"></a><span class="co"># Vi kan lage en vektor på følgende måte:</span></span>
+<span id="cb3-2"><a href="vektorer.html#cb3-2" tabindex="-1"></a>vector1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">7.8</span>, <span class="dv">10</span>, <span class="dv">2</span>, <span class="fl">0.16</span>, <span class="sc">-</span><span class="dv">3</span>)</span>
+<span id="cb3-3"><a href="vektorer.html#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="vektorer.html#cb3-4" tabindex="-1"></a><span class="co"># Skriv ut:</span></span>
+<span id="cb3-5"><a href="vektorer.html#cb3-5" tabindex="-1"></a>vector1</span>
+<span id="cb3-6"><a href="vektorer.html#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="vektorer.html#cb3-7" tabindex="-1"></a><span class="co"># Plukke ut verdier</span></span>
+<span id="cb3-8"><a href="vektorer.html#cb3-8" tabindex="-1"></a>vector1[<span class="dv">1</span>]        <span class="co"># Plukker ut verdier med hakeparanteser</span></span>
+<span id="cb3-9"><a href="vektorer.html#cb3-9" tabindex="-1"></a>vector1[<span class="dv">10</span>]       <span class="co"># Out-of-range error</span></span>
+<span id="cb3-10"><a href="vektorer.html#cb3-10" tabindex="-1"></a>vector1[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]      <span class="co"># Plukke ut en sekvens</span></span>
+<span id="cb3-11"><a href="vektorer.html#cb3-11" tabindex="-1"></a>vector1[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)]   <span class="co"># Plukke ut verdier basert på en ny vektor!</span></span>
+<span id="cb3-12"><a href="vektorer.html#cb3-12" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="vektorer.html#cb3-13" tabindex="-1"></a><span class="co"># Bokstaven &quot;c&quot; står for combine. R gjør det veldig enkelt å jobbe med </span></span>
+<span id="cb3-14"><a href="vektorer.html#cb3-14" tabindex="-1"></a><span class="co"># vektorer:</span></span>
+<span id="cb3-15"><a href="vektorer.html#cb3-15" tabindex="-1"></a>vector1 <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb3-16"><a href="vektorer.html#cb3-16" tabindex="-1"></a>vector1<span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb3-17"><a href="vektorer.html#cb3-17" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="vektorer.html#cb3-18" tabindex="-1"></a><span class="co"># Vi kan bruke *funksjoner* til å regne ut forskjellige ting:</span></span>
+<span id="cb3-19"><a href="vektorer.html#cb3-19" tabindex="-1"></a><span class="fu">length</span>(vector1)</span>
+<span id="cb3-20"><a href="vektorer.html#cb3-20" tabindex="-1"></a><span class="fu">mean</span>(vector1)</span>
+<span id="cb3-21"><a href="vektorer.html#cb3-21" tabindex="-1"></a><span class="fu">sum</span>(vector1)</span>
+<span id="cb3-22"><a href="vektorer.html#cb3-22" tabindex="-1"></a><span class="fu">sd</span>(vector1)</span>
+<span id="cb3-23"><a href="vektorer.html#cb3-23" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="vektorer.html#cb3-24" tabindex="-1"></a><span class="co"># Vi kan lage vektorer av andre ting enn tall:</span></span>
+<span id="cb3-25"><a href="vektorer.html#cb3-25" tabindex="-1"></a>vector2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;hello&quot;</span>, <span class="st">&quot;world&quot;</span>)</span>
+<span id="cb3-26"><a href="vektorer.html#cb3-26" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="vektorer.html#cb3-27" tabindex="-1"></a><span class="co"># ... men en vektor kan bare inneholde en datatype.</span></span>
+<span id="cb3-28"><a href="vektorer.html#cb3-28" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="vektorer.html#cb3-29" tabindex="-1"></a><span class="co"># Kanksje trenger vi standardavviket senere?</span></span>
+<span id="cb3-30"><a href="vektorer.html#cb3-30" tabindex="-1"></a>sd_vector1 <span class="ot">&lt;-</span> <span class="fu">sd</span>(vector1)</span>
+<span id="cb3-31"><a href="vektorer.html#cb3-31" tabindex="-1"></a>sd_vector1</span></code></pre></div>
 <p><strong>Oppgave:</strong> Beregn maksimum- og minimumsverdien av <code>vector1</code>, samt medianen, ved å bruke funksjoner i R. (<strong>Hint:</strong> en dårlig skjult hemmelighet i anvendt programmering er at dersom vi ikke vet navnet på funksjonen vi skal bruke, så er Google vår’ beste venn!)</p>
 <details>
 <summary>
 Løsning
 </summary>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="vektorer.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Relevante Google-søk: &quot;minimum value r&quot;, &quot;maximum r&quot;, &quot;median r&quot;</span></span>
-<span id="cb4-2"><a href="vektorer.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="vektorer.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(vector1)</span>
-<span id="cb4-4"><a href="vektorer.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(vector1)</span>
-<span id="cb4-5"><a href="vektorer.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(vector1)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="vektorer.html#cb4-1" tabindex="-1"></a><span class="co"># Relevante Google-søk: &quot;minimum value r&quot;, &quot;maximum r&quot;, &quot;median r&quot;</span></span>
+<span id="cb4-2"><a href="vektorer.html#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="vektorer.html#cb4-3" tabindex="-1"></a><span class="fu">min</span>(vector1)</span>
+<span id="cb4-4"><a href="vektorer.html#cb4-4" tabindex="-1"></a><span class="fu">max</span>(vector1)</span>
+<span id="cb4-5"><a href="vektorer.html#cb4-5" tabindex="-1"></a><span class="fu">median</span>(vector1)</span></code></pre></div>
 </details>
 </div>
             </section>

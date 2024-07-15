@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.11 Oppsummering og ekstra oppgaver | MET4 - Empiriske Metoder - Vår 2024</title>
+  <title>1.11 Oppsummering og ekstra oppgaver | MET4 - Empiriske Metoder - Høst 2024</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.11 Oppsummering og ekstra oppgaver | MET4 - Empiriske Metoder - Vår 2024" />
+  <meta property="og:title" content="1.11 Oppsummering og ekstra oppgaver | MET4 - Empiriske Metoder - Høst 2024" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.11 Oppsummering og ekstra oppgaver | MET4 - Empiriske Metoder - Vår 2024" />
+  <meta name="twitter:title" content="1.11 Oppsummering og ekstra oppgaver | MET4 - Empiriske Metoder - Høst 2024" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -102,7 +102,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -115,7 +115,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -248,7 +248,7 @@ Publisert ved hjelp av bookdown</a></li>
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Vår 2024</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - Høst 2024</a>
           </h1>
         </div>
 
@@ -281,31 +281,31 @@ Publisert ved hjelp av bookdown</a></li>
 </ul>
 <p>Dersom du har fulgt modulen selv har du nå kanskje skrevet et lite script i tekstvinduet som ser ut omtrent som koden under. Når du har gjort alt riktig, skal du nå kunne kjøre gjennom disse kodelinjene uten feilmeldinger ved hjelp av <code>Ctrl-Enter</code>.</p>
 <p><strong>Dette er helt grunnleggende (Spør om hjelp! Gi hjelp!). Har du problemer her, sørg for å få dem ordnet. Spør først en medstudent om hjelp, og deretter eventuelt studentassistent eller foreleser. Studenter som har god erfaring med data og/eller programmering, kan lære mye av å hjelpe medstudenter løse feilmeldinger.</strong></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-ekstra.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Introduksjon til R</span></span>
-<span id="cb15-2"><a href="r-ekstra.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -------------------</span></span>
-<span id="cb15-3"><a href="r-ekstra.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="r-ekstra.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Laster inn nødvendige pakker</span></span>
-<span id="cb15-5"><a href="r-ekstra.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb15-6"><a href="r-ekstra.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb15-7"><a href="r-ekstra.html#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="r-ekstra.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Laster inn datasettet</span></span>
-<span id="cb15-9"><a href="r-ekstra.html#cb15-9" aria-hidden="true" tabindex="-1"></a>testdata <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(<span class="st">&quot;testdata.xls&quot;</span>)</span>
-<span id="cb15-10"><a href="r-ekstra.html#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-11"><a href="r-ekstra.html#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Gjør t-testen til spørsmål F i den første dataøvingen</span></span>
-<span id="cb15-12"><a href="r-ekstra.html#cb15-12" aria-hidden="true" tabindex="-1"></a>testresultat <span class="ot">&lt;-</span> <span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, </span>
-<span id="cb15-13"><a href="r-ekstra.html#cb15-13" aria-hidden="true" tabindex="-1"></a>                       testdata<span class="sc">$</span>X2, </span>
-<span id="cb15-14"><a href="r-ekstra.html#cb15-14" aria-hidden="true" tabindex="-1"></a>                       <span class="at">var.equal =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb15-15"><a href="r-ekstra.html#cb15-15" aria-hidden="true" tabindex="-1"></a>                       <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
-<span id="cb15-16"><a href="r-ekstra.html#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-17"><a href="r-ekstra.html#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Skriver ut resultatet av denne t-testen</span></span>
-<span id="cb15-18"><a href="r-ekstra.html#cb15-18" aria-hidden="true" tabindex="-1"></a>testresultat</span>
-<span id="cb15-19"><a href="r-ekstra.html#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-20"><a href="r-ekstra.html#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Lager et plott av variabelen X1 mot X2</span></span>
-<span id="cb15-21"><a href="r-ekstra.html#cb15-21" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span></span>
-<span id="cb15-22"><a href="r-ekstra.html#cb15-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>()</span>
-<span id="cb15-23"><a href="r-ekstra.html#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-24"><a href="r-ekstra.html#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Lagrer plottet</span></span>
-<span id="cb15-25"><a href="r-ekstra.html#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;testplot.pdf&quot;</span>, <span class="at">plot =</span> p)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-ekstra.html#cb15-1" tabindex="-1"></a><span class="co"># Introduksjon til R</span></span>
+<span id="cb15-2"><a href="r-ekstra.html#cb15-2" tabindex="-1"></a><span class="co"># -------------------</span></span>
+<span id="cb15-3"><a href="r-ekstra.html#cb15-3" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="r-ekstra.html#cb15-4" tabindex="-1"></a><span class="co"># Laster inn nødvendige pakker</span></span>
+<span id="cb15-5"><a href="r-ekstra.html#cb15-5" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb15-6"><a href="r-ekstra.html#cb15-6" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-7"><a href="r-ekstra.html#cb15-7" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="r-ekstra.html#cb15-8" tabindex="-1"></a><span class="co"># Laster inn datasettet</span></span>
+<span id="cb15-9"><a href="r-ekstra.html#cb15-9" tabindex="-1"></a>testdata <span class="ot">&lt;-</span> <span class="fu">read_xls</span>(<span class="st">&quot;testdata.xls&quot;</span>)</span>
+<span id="cb15-10"><a href="r-ekstra.html#cb15-10" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="r-ekstra.html#cb15-11" tabindex="-1"></a><span class="co"># Gjør t-testen til spørsmål F i den første dataøvingen</span></span>
+<span id="cb15-12"><a href="r-ekstra.html#cb15-12" tabindex="-1"></a>testresultat <span class="ot">&lt;-</span> <span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, </span>
+<span id="cb15-13"><a href="r-ekstra.html#cb15-13" tabindex="-1"></a>                       testdata<span class="sc">$</span>X2, </span>
+<span id="cb15-14"><a href="r-ekstra.html#cb15-14" tabindex="-1"></a>                       <span class="at">var.equal =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb15-15"><a href="r-ekstra.html#cb15-15" tabindex="-1"></a>                       <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</span>
+<span id="cb15-16"><a href="r-ekstra.html#cb15-16" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="r-ekstra.html#cb15-17" tabindex="-1"></a><span class="co"># Skriver ut resultatet av denne t-testen</span></span>
+<span id="cb15-18"><a href="r-ekstra.html#cb15-18" tabindex="-1"></a>testresultat</span>
+<span id="cb15-19"><a href="r-ekstra.html#cb15-19" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="r-ekstra.html#cb15-20" tabindex="-1"></a><span class="co"># Lager et plott av variabelen X1 mot X2</span></span>
+<span id="cb15-21"><a href="r-ekstra.html#cb15-21" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span></span>
+<span id="cb15-22"><a href="r-ekstra.html#cb15-22" tabindex="-1"></a>        <span class="fu">geom_point</span>()</span>
+<span id="cb15-23"><a href="r-ekstra.html#cb15-23" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="r-ekstra.html#cb15-24" tabindex="-1"></a><span class="co"># Lagrer plottet</span></span>
+<span id="cb15-25"><a href="r-ekstra.html#cb15-25" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;testplot.pdf&quot;</span>, <span class="at">plot =</span> p)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><p>Lagre scriptet ditt. I RStudio velger du <code>File -&gt; Save</code> og trykker <code>Ok</code> dersom det kommer opp et vindu om <em>character encoding</em> e.l. Finn en fornuftig plassering (gjerne i samme mappe som øvelsesdatasettet) og gi filen et fornuftig navn. Standard filending for R-script er <code>.R</code>, men det er skjult for de fleste Windowsbrukere. Lukk RStudio.</p></li>
 <li><p>Du kan nå åpne skriptfilen i RStudio igjen. Enten ved å dobbeltklikke på den, eller ved å åpne RStudio, velge <code>File -&gt; Open file</code>, og så videre (dersom skriptet ikke allerede ligger åpnet). Du kan også åpne skriptfilen i en hvilken som helst notatbok (Notebook e.l.) og se at det er en helt standard, <em>ren tekstfil</em>. Hva er fordelen med å lagre en analyse som <em>et skript</em> versus å gjøre ting i et menydrevet grafisk grensesnitt?</p></li>
@@ -319,11 +319,11 @@ Løsning
 <ol start="3" style="list-style-type: decimal">
 <li>Vi skal nå pynte på plottet og gjøre det riktig pent. Det gjør vi ved å legge til nye linjer i ggplot-kommandoen. Erstatt den nest siste linjen i skriptet med kommandoen under, og se at du får en figur omtrent som den som følger under det igjen (vi bruker aksetitler i henhold til oppgavene i den første datalabben, der vi får vite at datasettet representerer kvalitet på kaffeavlingen før og etter en omlegging i produksjonsmetode):</li>
 </ol>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-ekstra.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="r-ekstra.html#cb16-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb16-3"><a href="r-ekstra.html#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">xlab</span>(<span class="st">&quot;Produksjonsmetode 1&quot;</span>) <span class="sc">+</span></span>
-<span id="cb16-4"><a href="r-ekstra.html#cb16-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ylab</span>(<span class="st">&quot;Produksjonsmetode 2&quot;</span>) <span class="sc">+</span></span>
-<span id="cb16-5"><a href="r-ekstra.html#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_classic</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-ekstra.html#cb16-1" tabindex="-1"></a><span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="r-ekstra.html#cb16-2" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="r-ekstra.html#cb16-3" tabindex="-1"></a>        <span class="fu">xlab</span>(<span class="st">&quot;Produksjonsmetode 1&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="r-ekstra.html#cb16-4" tabindex="-1"></a>        <span class="fu">ylab</span>(<span class="st">&quot;Produksjonsmetode 2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="r-ekstra.html#cb16-5" tabindex="-1"></a>        <span class="fu">theme_classic</span>()</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-18-1.png" width="576" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Merk at vi bruker “+”-tegnet til å legge til flere “lag” med grafiske egenskaper til plottet. Hvert “lag” består av en funksjon, som ofte kan ta argumenter; f.eks. brukes funksjonen <code>geom_point()</code> til å lage prikker, og så kan vi f.eks. bruke argumentet <code>size</code> til å styre størrelsen på prikkene. Kan du finne ut hva hvert enkelt av disse “lagene” gjør? Hint: ta bort en linje av gangen, og se hva som skjer. Pass på at det er et pluss mellom hvert lag.</p></li>
@@ -334,12 +334,12 @@ Løsning
 Forslag
 </summary>
 <p>Prøv for eksempel dette:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-ekstra.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="r-ekstra.html#cb17-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb17-3"><a href="r-ekstra.html#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ggtitle</span>(<span class="st">&quot;Produksjonskvalitet&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-4"><a href="r-ekstra.html#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">xlab</span>(<span class="st">&quot;Ny aksetittel&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-5"><a href="r-ekstra.html#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ylab</span>(<span class="st">&quot;Enda en aksetittel&quot;</span>) <span class="sc">+</span></span>
-<span id="cb17-6"><a href="r-ekstra.html#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_light</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-ekstra.html#cb17-1" tabindex="-1"></a><span class="fu">ggplot</span>(testdata, <span class="fu">aes</span>(<span class="at">x =</span> X1, <span class="at">y =</span> X2)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="r-ekstra.html#cb17-2" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">shape =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="r-ekstra.html#cb17-3" tabindex="-1"></a>        <span class="fu">ggtitle</span>(<span class="st">&quot;Produksjonskvalitet&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="r-ekstra.html#cb17-4" tabindex="-1"></a>        <span class="fu">xlab</span>(<span class="st">&quot;Ny aksetittel&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="r-ekstra.html#cb17-5" tabindex="-1"></a>        <span class="fu">ylab</span>(<span class="st">&quot;Enda en aksetittel&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="r-ekstra.html#cb17-6" tabindex="-1"></a>        <span class="fu">theme_light</span>()</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-19-1.png" width="576" /></p>
 </details>
 <ol start="6" style="list-style-type: decimal">

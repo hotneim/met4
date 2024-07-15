@@ -1,5 +1,5 @@
 --- 
-title: "MET4 - Empiriske Metoder - Vår 2024"
+title: "MET4 - Empiriske Metoder - Høst 2024"
 author: "Håkon Otneim og Geir Drage Berentsen"
 site: bookdown::bookdown_site
 output: 
@@ -52,21 +52,29 @@ Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekke
 
 Legg merke til følgende viktige datoer:
 
-- **1. mars:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
-- **15. mars:** Frist for innlevering av den obligatoriske innleveringen.
-- **22.--24. april:** Gruppebasert hjemmeeksamen.
-- **06. mai:** Individuell **skole**eksamen.
+<!-- - **1. mars:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen. -->
+<!-- - **15. mars:** Frist for innlevering av den obligatoriske innleveringen. -->
+<!-- - **22.--24. april:** Gruppebasert hjemmeeksamen. -->
+<!-- - **06. mai:** Individuell **skole**eksamen. -->
+
+- **27. september:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
+- **11. oktober:** Frist for innlevering av den obligatoriske innleveringen.
+- **18.--20. november:** Gruppebasert hjemmeeksamen.
+- **27. november:** Individuell **skole**eksamen. Dette er en 3 timers skriftlig eksamen (les: penn og papir). TILLATTE HJELPEMIDLER: Alle trykte/egenskrevne hjelpemidler, samt kalkulator. Altså kan dere ta med så mange utskrifter, bøker og notater som dere ønsker. 
+
+
+
 
 ```{r, echo = F, message = FALSE, warning = FALSE}
 options(knitr.kable.NA = '')
 library(dplyr)
 library(kableExtra)
 
-readxl::read_excel("diverse/tidsplan-V24.xlsx") %>% 
+readxl::read_excel("diverse/tidsplan-H24.xlsx") %>% 
   kbl() %>%
   kable_styling(bootstrap_options = c("condensed", "hover"),
                 fixed_thead = T) %>%
-    row_spec(c(3, 6, 9, 12, 14) , background = "#2E8B5750") 
+    row_spec(c(3, 5, 7, 10, 11) , background = "#2E8B5750") 
 ```
 
 
