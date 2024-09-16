@@ -228,7 +228,7 @@ der $k = t_{1-\alpha/2}$ hentes fra $T$-tabell med $n-2$ frihetsgrader
 
 $$\big[0.067 \pm 1.98\cdot0.005\big] = \big[0.0571, 0.0769\big]$$
 
-- Vi kan se at $\beta_1$ ikke er signifikant forskjellig fra 0 på 5% signifikansnivå, ved at et 95% konfidensintervall ikke inneholder null.
+- Vi kan se at $\beta_1$ er signifikant forskjellig fra 0 på 5% signifikansnivå, ved at et 95% konfidensintervall ikke inneholder null.
 
 ---
 
