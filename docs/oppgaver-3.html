@@ -53,6 +53,8 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/met4/icon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/met4/icon/favicon-16x16.png">
@@ -76,7 +78,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -307,88 +309,44 @@ Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
 <p><strong>Oppgave 1 (Individuell hjemmeeksamen H2020, oppgave 3)</strong></p>
 <p>Vi har følgende datasett med seks observasjoner bestående av en binær responsvariabel <span class="math inline">\(y\)</span> og to forklaringsvariabler <span class="math inline">\(x_1\)</span> og <span class="math inline">\(x_2\)</span>:</p>
 <table>
-<caption>
-<span id="tab:knn">Tabell 6.1: </span>Datasett
-</caption>
+<caption><span id="tab:knn">Tabell 6.1: </span>Datasett</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-y
-</th>
-<th style="text-align:right;">
-x1
-</th>
-<th style="text-align:right;">
-x2
-</th>
+<tr class="header">
+<th align="right">y</th>
+<th align="right">x1</th>
+<th align="right">x2</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">4</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-5
-</td>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">5</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-3
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">3</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-6
-</td>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">6</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-3
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">3</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-2
-</td>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">2</td>
 </tr>
 </tbody>
 </table>
@@ -406,109 +364,51 @@ d((3,3), (3,4)) = \sqrt{(3 - 3)^2 + (3 - 4)^2} = 1
 \end{equation*}\]</span></p>
 <p>Vi kan så legge disse avstandene inn i en egen kolonne i tabellen:</p>
 <table>
-<caption>
-<span id="tab:knnfasit">Tabell 6.2: </span>Utregnede avstander
-</caption>
+<caption><span id="tab:knnfasit">Tabell 6.2: </span>Utregnede avstander</caption>
 <thead>
-<tr>
-<th style="text-align:right;">
-y
-</th>
-<th style="text-align:right;">
-x1
-</th>
-<th style="text-align:right;">
-x2
-</th>
-<th style="text-align:right;">
-avstand
-</th>
+<tr class="header">
+<th align="right">y</th>
+<th align="right">x1</th>
+<th align="right">x2</th>
+<th align="right">avstand</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-1.000
-</td>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">1.000</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-2.236
-</td>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">2.236</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-2.000
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">2.000</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-3.000
-</td>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">6</td>
+<td align="right">3.000</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-1.000
-</td>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">1.000</td>
 </tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3.162
-</td>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">2</td>
+<td align="right">3.162</td>
 </tr>
 </tbody>
 </table>
