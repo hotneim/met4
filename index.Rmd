@@ -59,8 +59,7 @@ Legg merke til følgende viktige datoer:
 
 - **1.mars** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen.
 - **14.mars** Frist for innlevering av den obligatoriske innleveringen.
-- **kommer** Gruppebasert hjemmeeksamen.
-- **kommer** Individuell **skole**eksamen. Dette er en 3 timers skriftlig eksamen (les: penn og papir). TILLATTE HJELPEMIDLER: Alle trykte/egenskrevne hjelpemidler, samt kalkulator. Altså kan dere ta med så mange utskrifter, bøker og notater som dere ønsker. 
+- **29.april** Individuell digital **skole**eksamen.Eksamen vil være en 6 timers digital skoleeksamen. Eksamen vil ha fokus på  både teori og dataanalyse i R. Begge delene er like omfattende og vil bli vurdert samlet hvor det settes en karakter. Hele eksamen vil gjennomføres digitalt og kandidaten disponerer selv hvor mye tid som brukes på teori og dataanalyse.  TILLATTE HJELPEMIDLER: Alle trykte/egenskrevne hjelpemidler. Altså kan dere ta med så mange utskrifter, bøker og notater som dere ønsker. 
 
 
 
