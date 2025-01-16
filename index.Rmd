@@ -73,7 +73,7 @@ readxl::read_excel("diverse/tidsplan-V25.xlsx") %>%
   kbl() %>%
   kable_styling(bootstrap_options = c("condensed", "hover"),
                 fixed_thead = T) %>%
-    row_spec(c(3, 6, 9, 12, 15) , background = "#c3debd") 
+    row_spec(c(3, 6, 9, 12, 16) , background = "#c3debd") 
 ```
 
 
