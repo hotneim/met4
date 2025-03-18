@@ -291,7 +291,7 @@ Publisert ved hjelp av bookdown</a></li>
 <h4><span class="header-section-number">7.1.2.2</span> Vinduene i Rstudio og det å jobbe med R<a href="dataøving-1.html#vinduene-i-rstudio-og-det-å-jobbe-med-r" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Første gang du åpner Rstudio vil du se tre vinduer. Et fjerde vindu åpner du med å klikke på <strong>File</strong> i menyen, så <strong>New File</strong>, og så <strong>R Script</strong>. Figur <a href="dataøving-1.html#fig:rstudio1">7.1</a> viser en oversikt over de fire vinduene. Det er viktig at du forstår forskjellen på de to vinduene til venstre.</p>
 <div class="figure"><span style="display:block;" id="fig:rstudio1"></span>
-<img src="bilder/Rstudio1.PNG" alt="Oversikt over vinduene i RStudio."  />
+<img src="bilder/Rstudio1.PNG" alt="Oversikt over vinduene i RStudio." width="590" />
 <p class="caption">
 Figur 7.1: Oversikt over vinduene i RStudio.
 </p>
@@ -308,7 +308,7 @@ Figur 7.1: Oversikt over vinduene i RStudio.
 <p>Her er <code>a</code> og <code>b</code> objekter/variabler som vi definerer ved bruk av ‘tildelingspilen’ <code>&lt;-</code> (du kan også bruke <code>=</code>). Det går an å lagre objekter i egne filer, men vi skal se at det stort sett er smartere å lagre ‘oppskriften’ (selve koden) på hvordan de lages i en egen <code>.R</code>-fil.</p>
 <p>Det øverste vinduet til venstre (a) viser en <code>.R</code>-fil (et skript). En <code>.R</code>-fil fungerer som et manuskript med R-kommandoer (kode) og kan lagres slik at du kan senere kan se hvilke kommandoer du har brukt i analysen og eventuelt fortsette der du slapp. I Del 2 av denne dataøvingen skal du selv lage en <code>.R</code>-fil som inneholder alle kommandoer som brukes i en enkel analyse. Når du vil at R skal utføre noen av kommandoene du har skrevet i <code>.R</code>-filen markerer du bare disse (eller lar pekeren stå i linjen du vil kjøre) og trykker <strong>Ctrl + Enter</strong> (<strong>Cmd + Enter</strong> på Mac):</p>
 <div class="figure"><span style="display:block;" id="fig:rstudiorun"></span>
-<img src="bilder/Rstudiorun.PNG" alt="Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk **ctrl + Enter** (**Cmd + Enter på Mac**)"  />
+<img src="bilder/Rstudiorun.PNG" alt="Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk **ctrl + Enter** (**Cmd + Enter på Mac**)" width="238" />
 <p class="caption">
 Figur 7.2: Utførelse av kommandoer du har skrevet i R filen. Marker eller la pekeren stå i linjen du vil kjøre og trykk <strong>ctrl + Enter</strong> (<strong>Cmd + Enter på Mac</strong>)
 </p>
@@ -380,9 +380,9 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p>For å starte swirl skriver du så følgende i konsollen:</p>
 <div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="dataøving-1.html#cb242-1" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du velge alternativet ‘R Programming’ (<strong>1</strong> og så <strong>enter</strong>). Du får så se alle modulene dette kurset inneholder:</p>
-<p><img src="bilder/swirl1.PNG" /><!-- --></p>
+<p><img src="bilder/swirl1.PNG" width="466" /></p>
 <p>I denne øvingen skal du prøve deg på modul 1 <strong>‘Basic Building Blocks’</strong>, modul 4 <strong>‘Vectors’</strong> (kun første halvdel), og modul 12 <strong>‘Looking at Data’</strong>. I modul 1 vil du lære litt om de mest grunnleggende operasjonene som kan gjøres i R. Modul 4 ser nærmere på vektorer og her er første halvdel av modulen mest relevant. Modul 12 tar for seg det å utforske strukturen på et datasett. Start med modul 1 (<strong>1</strong> og så <strong>Enter</strong>). Du vil bli bedt om å gjøre enkle operasjoner i R og av og til må du svare på multiple choice spørsmål:</p>
-<p><img src="bilder/swirl2.PNG" /><!-- --></p>
+<p><img src="bilder/swirl2.PNG" width="461" /></p>
 <p>Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (<strong>Esc</strong>) før du begynner på del to av øvingen. Lykke til!</p>
 </div>
 <div id="oppgave-2-innlesning-av-data-og-deskriptiv-statistikk-i-r" class="section level3 hasAnchor" number="7.1.4">
@@ -435,7 +435,7 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p>Sjekk nå at dette har fungert ved å skrive <code>voldelig</code> og <code>ikke_voldelig</code> inn i konsollen for å se at det faktisk er vektorer som inneholder tallene 1 – 9. Bruk også noen minutter til å prøve å forstå hva kodelinjene over faktisk gjør.</p>
 <p>(<strong>NB!</strong> Pass på at du skriver <code>Violent</code> og <code>Less Violent</code> helt riktig med store og små bokstaver, ellers vil det ikke fungere!)</p>
 <p><strong>Oppgave 2.5.</strong> I eksamensoppgaven fra 2019 får vi oppgitt deskriptiv statistikk over aggresjonsnivået for de to gruppene i følgende tabell:</p>
-<p><img src="bilder/descriptive.png" /><!-- --></p>
+<p><img src="bilder/descriptive.png" width="624" /></p>
 <p>Bruk funksjoner som <code>min()</code>, <code>max()</code>, <code>median()</code>, <code>mean()</code>, <code>length()</code> og <code>summary()</code> til å finne ut om tallene stemmer (Du vil se at datasettet ditt inneholder noen færre observasjoner enn det som er oppgitt i tabellen, som gjør at tallene er litt forskjellige).</p>
 <p><strong>Oppgave 2.6.</strong> Vi skal nå lage et histogram av hver av gruppene du lagret som vektorer i tidligere. Vi kan først kikke på Figur <a href="deskriptiv-statistikk.html#fig:to-histogrammer">2.1</a> og koden som lagde disse figurene for å få en idé om hva vi må gjøre. Et svært viktig punkt er føgende:</p>
 <p><strong><code>ggplot</code>-funksjonen skal alltid ha hele datasettet (en data frame) som argument!!</strong></p>
