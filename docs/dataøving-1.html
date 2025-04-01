@@ -267,7 +267,7 @@ Publisert ved hjelp av bookdown</a></li>
 <div id="om-r-og-rstudio" class="section level3 hasAnchor" number="7.1.2">
 <h3><span class="header-section-number">7.1.2</span> Om R og Rstudio<a href="dataøving-1.html#om-r-og-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R er et program/programmeringsspråk som er spesialdesignet til å utføre statistiske analyser. R er basert på at du må skrive forskjellige kommandoer for å utføre utregninger og analyser. Gjennomsnittet av 3, 2 og 5 finner man for eksempel ved å skrive:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="dataøving-1.html#cb234-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="dataøving-1.html#cb238-1" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">5</span>))</span></code></pre></div>
 <p>Dette kan for mange være litt uvant i starten, men datalabbene vil gi deg god trening på denne type tankegang.</p>
 <p>Rstudio er et program som gjør det enklere å bruke R. På samme måte som Word kan hjelpe deg til å lage fine og oversiktlige tekster, kan Rstudio hjelpe deg til å utføre fine og oversiktlige statistiske analyser. Rstudio er et redigeringsprogram som vi i dette kurset skal bruke til å redigere og utføre R-kommandoer.</p>
 <div id="installere-r-og-rstudio" class="section level4 hasAnchor" number="7.1.2.1">
@@ -297,13 +297,13 @@ Figur 7.1: Oversikt over vinduene i RStudio.
 </p>
 </div>
 <p>Nederste vindu til venstre (b) viser R-konsollen og det er her alle utregninger blir gjennomført. I dette vinduet kan du for eksempel skrive</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="dataøving-1.html#cb235-1" tabindex="-1"></a>(<span class="dv">3</span><span class="sc">*</span><span class="dv">5</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>)<span class="sc">*</span>(<span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="dataøving-1.html#cb239-1" tabindex="-1"></a>(<span class="dv">3</span><span class="sc">*</span><span class="dv">5</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span>)<span class="sc">*</span>(<span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 57</code></pre>
 <p>Her er <code>(3*5 - 3/4)*(2 + 2)</code> en såkalt kommando og det er programmet R som finner ut hva du mener med kommandoen og gir deg svaret <code>57</code> i retur. Du kan se at R tillater standard matteoperasjoner som gange, deling, pluss og minus (<code>*, /, +, -</code>).</p>
 <p>R er det vi kaller ‘objektbasert’, som betyr at du kan definere ‘objekter’ (ofte kalt variabler). Utregningen over kan for eksempel også regnes ut ved å skrive:</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="dataøving-1.html#cb237-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">*</span><span class="dv">5</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span></span>
-<span id="cb237-2"><a href="dataøving-1.html#cb237-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb237-3"><a href="dataøving-1.html#cb237-3" tabindex="-1"></a>a<span class="sc">*</span>b</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="dataøving-1.html#cb241-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">*</span><span class="dv">5</span> <span class="sc">-</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">4</span></span>
+<span id="cb241-2"><a href="dataøving-1.html#cb241-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb241-3"><a href="dataøving-1.html#cb241-3" tabindex="-1"></a>a<span class="sc">*</span>b</span></code></pre></div>
 <pre><code>## [1] 57</code></pre>
 <p>Her er <code>a</code> og <code>b</code> objekter/variabler som vi definerer ved bruk av ‘tildelingspilen’ <code>&lt;-</code> (du kan også bruke <code>=</code>). Det går an å lagre objekter i egne filer, men vi skal se at det stort sett er smartere å lagre ‘oppskriften’ (selve koden) på hvordan de lages i en egen <code>.R</code>-fil.</p>
 <p>Det øverste vinduet til venstre (a) viser en <code>.R</code>-fil (et skript). En <code>.R</code>-fil fungerer som et manuskript med R-kommandoer (kode) og kan lagres slik at du kan senere kan se hvilke kommandoer du har brukt i analysen og eventuelt fortsette der du slapp. I Del 2 av denne dataøvingen skal du selv lage en <code>.R</code>-fil som inneholder alle kommandoer som brukes i en enkel analyse. Når du vil at R skal utføre noen av kommandoene du har skrevet i <code>.R</code>-filen markerer du bare disse (eller lar pekeren stå i linjen du vil kjøre) og trykker <strong>Ctrl + Enter</strong> (<strong>Cmd + Enter</strong> på Mac):</p>
@@ -340,33 +340,33 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <h4><span class="header-section-number">7.1.2.4</span> Skriv pen R-kode!<a href="dataøving-1.html#skriv-pen-r-kode" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Det er viktig at R-koden du skriver er veldokumentert og skrevet på en oversiktlig og pen måte. Hvis vi ønsker å skrive kommentarer til koder som står i <code>.R</code>-filen bruker vi tegnet <code>#</code> foran kommentaren. Dette gjør at R ikke prøver å evaluere kommentaren som en R-kode. Det finnes en rekke konvensjoner når det kommer til mellomrom, linjeskift, navngivning av objekter og lignende. Vi anbefaler tipsene som er oppsummert på (<a href="http://adv-r.had.co.nz/Style.html" class="uri">http://adv-r.had.co.nz/Style.html</a>)[<a href="http://adv-r.had.co.nz/Style.html" class="uri">http://adv-r.had.co.nz/Style.html</a>], men det er selvsagt lov å ha sine egne preferanser.</p>
 <p>Under ser du et eksempel på dårlig praksis ved R-koding. Her er det manglende dokumentasjon, dårlig navngivning og ingen ‘luft’ i form av mellomrom og linjeskift. Dette gjør at du eller andre vil måtte bruke unødvendig mye tid på å finne ut hva koden faktisk gjør på et senere tidspunkt.</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="dataøving-1.html#cb239-1" tabindex="-1"></a><span class="co"># Dårlig praksis:</span></span>
-<span id="cb239-2"><a href="dataøving-1.html#cb239-2" tabindex="-1"></a></span>
-<span id="cb239-3"><a href="dataøving-1.html#cb239-3" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb239-4"><a href="dataøving-1.html#cb239-4" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">readxl</span>(<span class="at">file=</span><span class="st">&quot;financedata.xlsx&quot;</span>,<span class="at">sheetIndex =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb239-5"><a href="dataøving-1.html#cb239-5" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb239-6"><a href="dataøving-1.html#cb239-6" tabindex="-1"></a>Ø95<span class="ot">&lt;-</span><span class="fu">mean</span>(d<span class="sc">$</span>value)<span class="sc">-</span><span class="fu">qt</span>(<span class="fl">0.975</span>,<span class="at">df=</span><span class="fu">length</span>(d<span class="sc">$</span>value)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">sd</span>(d<span class="sc">$</span>value)  </span>
-<span id="cb239-7"><a href="dataøving-1.html#cb239-7" tabindex="-1"></a>N95<span class="ot">&lt;-</span><span class="fu">mean</span>(d<span class="sc">$</span>value)<span class="sc">+</span><span class="fu">qt</span>(<span class="fl">0.975</span>,<span class="at">df=</span><span class="fu">length</span>(d<span class="sc">$</span>value)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">sd</span>(d<span class="sc">$</span>value)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="dataøving-1.html#cb243-1" tabindex="-1"></a><span class="co"># Dårlig praksis:</span></span>
+<span id="cb243-2"><a href="dataøving-1.html#cb243-2" tabindex="-1"></a></span>
+<span id="cb243-3"><a href="dataøving-1.html#cb243-3" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb243-4"><a href="dataøving-1.html#cb243-4" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">readxl</span>(<span class="at">file=</span><span class="st">&quot;financedata.xlsx&quot;</span>,<span class="at">sheetIndex =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb243-5"><a href="dataøving-1.html#cb243-5" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb243-6"><a href="dataøving-1.html#cb243-6" tabindex="-1"></a>Ø95<span class="ot">&lt;-</span><span class="fu">mean</span>(d<span class="sc">$</span>value)<span class="sc">-</span><span class="fu">qt</span>(<span class="fl">0.975</span>,<span class="at">df=</span><span class="fu">length</span>(d<span class="sc">$</span>value)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">sd</span>(d<span class="sc">$</span>value)  </span>
+<span id="cb243-7"><a href="dataøving-1.html#cb243-7" tabindex="-1"></a>N95<span class="ot">&lt;-</span><span class="fu">mean</span>(d<span class="sc">$</span>value)<span class="sc">+</span><span class="fu">qt</span>(<span class="fl">0.975</span>,<span class="at">df=</span><span class="fu">length</span>(d<span class="sc">$</span>value)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="fu">sd</span>(d<span class="sc">$</span>value)</span></code></pre></div>
 <p>Følgende R kode gir det samme resultatet men er mye mer oversiktlig siden den er mer luftig, er brutt ned i biter, er godt dokumentert og har fornuftige objektnavn:</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="dataøving-1.html#cb240-1" tabindex="-1"></a><span class="co"># God praksis:</span></span>
-<span id="cb240-2"><a href="dataøving-1.html#cb240-2" tabindex="-1"></a></span>
-<span id="cb240-3"><a href="dataøving-1.html#cb240-3" tabindex="-1"></a><span class="co"># ---------- Analyse av data</span></span>
-<span id="cb240-4"><a href="dataøving-1.html#cb240-4" tabindex="-1"></a></span>
-<span id="cb240-5"><a href="dataøving-1.html#cb240-5" tabindex="-1"></a><span class="co"># Nødvendige pakker i analysen</span></span>
-<span id="cb240-6"><a href="dataøving-1.html#cb240-6" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb240-7"><a href="dataøving-1.html#cb240-7" tabindex="-1"></a></span>
-<span id="cb240-8"><a href="dataøving-1.html#cb240-8" tabindex="-1"></a><span class="co"># Les data, fjern NA-verdier og hent ut gjeld</span></span>
-<span id="cb240-9"><a href="dataøving-1.html#cb240-9" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">readxl</span>(<span class="at">file =</span> <span class="st">&quot;financedata.xlsx&quot;</span>, <span class="at">sheetIndex =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb240-10"><a href="dataøving-1.html#cb240-10" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb240-11"><a href="dataøving-1.html#cb240-11" tabindex="-1"></a>debt <span class="ot">&lt;-</span> my_data<span class="sc">$</span>debt</span>
-<span id="cb240-12"><a href="dataøving-1.html#cb240-12" tabindex="-1"></a></span>
-<span id="cb240-13"><a href="dataøving-1.html#cb240-13" tabindex="-1"></a><span class="co"># Konfidensintervall</span></span>
-<span id="cb240-14"><a href="dataøving-1.html#cb240-14" tabindex="-1"></a>n_obs <span class="ot">&lt;-</span> <span class="fu">length</span>(debt)     <span class="co"># antall observasjoner</span></span>
-<span id="cb240-15"><a href="dataøving-1.html#cb240-15" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>             <span class="co"># signifikansnivå  </span></span>
-<span id="cb240-16"><a href="dataøving-1.html#cb240-16" tabindex="-1"></a>average <span class="ot">&lt;-</span> <span class="fu">mean</span>(debt)     <span class="co"># gjennomsnitt</span></span>
-<span id="cb240-17"><a href="dataøving-1.html#cb240-17" tabindex="-1"></a>st_dev <span class="ot">&lt;-</span> <span class="fu">sd</span>(debt)        <span class="co"># standardavvik</span></span>
-<span id="cb240-18"><a href="dataøving-1.html#cb240-18" tabindex="-1"></a>lower <span class="ot">&lt;-</span> average <span class="sc">-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> n_obs <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>st_dev<span class="sc">/</span><span class="fu">sqrt</span>(n)  <span class="co"># nedre grense</span></span>
-<span id="cb240-19"><a href="dataøving-1.html#cb240-19" tabindex="-1"></a>upper <span class="ot">&lt;-</span> average <span class="sc">+</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> n_obs <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>st_dev<span class="sc">/</span><span class="fu">sqrt</span>(n)  <span class="co"># øvre grense</span></span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="dataøving-1.html#cb244-1" tabindex="-1"></a><span class="co"># God praksis:</span></span>
+<span id="cb244-2"><a href="dataøving-1.html#cb244-2" tabindex="-1"></a></span>
+<span id="cb244-3"><a href="dataøving-1.html#cb244-3" tabindex="-1"></a><span class="co"># ---------- Analyse av data</span></span>
+<span id="cb244-4"><a href="dataøving-1.html#cb244-4" tabindex="-1"></a></span>
+<span id="cb244-5"><a href="dataøving-1.html#cb244-5" tabindex="-1"></a><span class="co"># Nødvendige pakker i analysen</span></span>
+<span id="cb244-6"><a href="dataøving-1.html#cb244-6" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb244-7"><a href="dataøving-1.html#cb244-7" tabindex="-1"></a></span>
+<span id="cb244-8"><a href="dataøving-1.html#cb244-8" tabindex="-1"></a><span class="co"># Les data, fjern NA-verdier og hent ut gjeld</span></span>
+<span id="cb244-9"><a href="dataøving-1.html#cb244-9" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">readxl</span>(<span class="at">file =</span> <span class="st">&quot;financedata.xlsx&quot;</span>, <span class="at">sheetIndex =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb244-10"><a href="dataøving-1.html#cb244-10" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb244-11"><a href="dataøving-1.html#cb244-11" tabindex="-1"></a>debt <span class="ot">&lt;-</span> my_data<span class="sc">$</span>debt</span>
+<span id="cb244-12"><a href="dataøving-1.html#cb244-12" tabindex="-1"></a></span>
+<span id="cb244-13"><a href="dataøving-1.html#cb244-13" tabindex="-1"></a><span class="co"># Konfidensintervall</span></span>
+<span id="cb244-14"><a href="dataøving-1.html#cb244-14" tabindex="-1"></a>n_obs <span class="ot">&lt;-</span> <span class="fu">length</span>(debt)     <span class="co"># antall observasjoner</span></span>
+<span id="cb244-15"><a href="dataøving-1.html#cb244-15" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span>             <span class="co"># signifikansnivå  </span></span>
+<span id="cb244-16"><a href="dataøving-1.html#cb244-16" tabindex="-1"></a>average <span class="ot">&lt;-</span> <span class="fu">mean</span>(debt)     <span class="co"># gjennomsnitt</span></span>
+<span id="cb244-17"><a href="dataøving-1.html#cb244-17" tabindex="-1"></a>st_dev <span class="ot">&lt;-</span> <span class="fu">sd</span>(debt)        <span class="co"># standardavvik</span></span>
+<span id="cb244-18"><a href="dataøving-1.html#cb244-18" tabindex="-1"></a>lower <span class="ot">&lt;-</span> average <span class="sc">-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> n_obs <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>st_dev<span class="sc">/</span><span class="fu">sqrt</span>(n)  <span class="co"># nedre grense</span></span>
+<span id="cb244-19"><a href="dataøving-1.html#cb244-19" tabindex="-1"></a>upper <span class="ot">&lt;-</span> average <span class="sc">+</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> n_obs <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">*</span>st_dev<span class="sc">/</span><span class="fu">sqrt</span>(n)  <span class="co"># øvre grense</span></span></code></pre></div>
 <p>Vi oppfordrer deg til å prøve å skrive R-kode som er pen og oversiktlig i datalabbene fremover. Dårlige vaner kan være vonde å vende!</p>
 </div>
 </div>
@@ -374,11 +374,11 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <h3><span class="header-section-number">7.1.3</span> Oppgave 1: Interaktiv øvelse<a href="dataøving-1.html#oppgave-1-interaktiv-øvelse" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Her skal du bruke et læringsverktøy kalt <code>swirl</code> som vil ta deg gjennom en interaktive øvelse hvor du må utføre forskjellige oppgaver i konsollen. I flere av dataøvingene vil det være en slik interaktiv del. Her er tanken at du skal leke deg litt med R.</p>
 <p>Før du kan begynne må du installere <code>swirl</code>. Kopier derfor følgende tre linjer og lim dem inn i R-konsollen:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="dataøving-1.html#cb241-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</span>
-<span id="cb241-2"><a href="dataøving-1.html#cb241-2" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
-<span id="cb241-3"><a href="dataøving-1.html#cb241-3" tabindex="-1"></a><span class="fu">install_course</span>(<span class="st">&quot;R Programming&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="dataøving-1.html#cb245-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</span>
+<span id="cb245-2"><a href="dataøving-1.html#cb245-2" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
+<span id="cb245-3"><a href="dataøving-1.html#cb245-3" tabindex="-1"></a><span class="fu">install_course</span>(<span class="st">&quot;R Programming&quot;</span>)</span></code></pre></div>
 <p>For å starte swirl skriver du så følgende i konsollen:</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="dataøving-1.html#cb242-1" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="dataøving-1.html#cb246-1" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du velge alternativet ‘R Programming’ (<strong>1</strong> og så <strong>enter</strong>). Du får så se alle modulene dette kurset inneholder:</p>
 <p><img src="bilder/swirl1.PNG" width="466" /></p>
 <p>I denne øvingen skal du prøve deg på modul 1 <strong>‘Basic Building Blocks’</strong>, modul 4 <strong>‘Vectors’</strong> (kun første halvdel), og modul 12 <strong>‘Looking at Data’</strong>. I modul 1 vil du lære litt om de mest grunnleggende operasjonene som kan gjøres i R. Modul 4 ser nærmere på vektorer og her er første halvdel av modulen mest relevant. Modul 12 tar for seg det å utforske strukturen på et datasett. Start med modul 1 (<strong>1</strong> og så <strong>Enter</strong>). Du vil bli bedt om å gjøre enkle operasjoner i R og av og til må du svare på multiple choice spørsmål:</p>
@@ -394,16 +394,16 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p>Lag gjerne en liten overskrift ved hjelp av kommentartegnet <code>#</code> slik at .R filen din ser omtrent slik ut:</p>
 <p><img src="bilder/rstudio3.JPG" /><!-- --></p>
 <p><strong>Oppgave 2.2.</strong> Du skal nå lese inn excel filen du lagret i over i R. Selv om det finnes mange funksjoner som allerede er innebygget i R, må man noen ganger installere ekstra ‘pakker’ for å få tilgang til spesielle funksjoner. For å lese inn en excel fil trenger du nettopp en slik ikke standard funksjon. Denne finnes i pakken <code>readxl</code>. Selve installeringen kan du gjøre direkte i konsollen med å skrive (hvis du ikke har gjort det allerede, for eksempel da du gikk gjennom <a href="pakker.html#pakker">forelesningsvideoen om R-pakker</a>):</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="dataøving-1.html#cb243-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="dataøving-1.html#cb247-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span></code></pre></div>
 <p>Pakken legger seg da i en bibliotekmappe der R er installert. For å gi R beskjed om å laste inn funksjonene til pakken du nettopp installerte bruker du funksjonen <code>library()</code>. Du har nå tilgang til en funksjon kalt <code>read_excel()</code> som du kan bruke til å lese inn excel filen:</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="dataøving-1.html#cb244-1" tabindex="-1"></a><span class="co"># MET4 - Dataøving 1</span></span>
-<span id="cb244-2"><a href="dataøving-1.html#cb244-2" tabindex="-1"></a><span class="co"># ------------------</span></span>
-<span id="cb244-3"><a href="dataøving-1.html#cb244-3" tabindex="-1"></a></span>
-<span id="cb244-4"><a href="dataøving-1.html#cb244-4" tabindex="-1"></a><span class="co"># les inn data</span></span>
-<span id="cb244-5"><a href="dataøving-1.html#cb244-5" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb244-6"><a href="dataøving-1.html#cb244-6" tabindex="-1"></a>violence <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="dataøving-1.html#cb248-1" tabindex="-1"></a><span class="co"># MET4 - Dataøving 1</span></span>
+<span id="cb248-2"><a href="dataøving-1.html#cb248-2" tabindex="-1"></a><span class="co"># ------------------</span></span>
+<span id="cb248-3"><a href="dataøving-1.html#cb248-3" tabindex="-1"></a></span>
+<span id="cb248-4"><a href="dataøving-1.html#cb248-4" tabindex="-1"></a><span class="co"># les inn data</span></span>
+<span id="cb248-5"><a href="dataøving-1.html#cb248-5" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb248-6"><a href="dataøving-1.html#cb248-6" tabindex="-1"></a>violence <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
 <p>Marker linjene du nettopp skrev i R-skriptet ditt og trykk <strong>Ctrl + Enter</strong> (<strong>Cmd + Enter</strong>), for å opprette objektet <code>violence</code> som inneholder datasettet. Funksjonen <code>ls()</code> lister opp alle objekter som har blitt definert. Du kan prøve selv å skrive følgende i konsollen:</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="dataøving-1.html#cb245-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="dataøving-1.html#cb249-1" tabindex="-1"></a><span class="fu">ls</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;violence&quot;</code></pre>
 <p>Du ser at det har kommet et nytt objekt som heter <code>violence</code>. En tilsvarende oversikt finner du i vinduet øverst til høyre i Rstudio (se Figur <a href="dataøving-1.html#fig:rstudio1">7.1</a>) hvor du også kan klikke på objektet for å se nærmere på det.</p>
 <p><strong>Oppgave 2.3.</strong> Ta en titt på strukturen til datasettet du nettopp leste inn. Husker du kanskje noe fra den interaktive øvelsen ‘Looking at Data’? Når du gjør slike små utforskninger kan du gjerne jobbe direkte i konsollen, og det du gjør i dette punktet trenger nødvendigvis ikke være med i .R-filen din. Gå til konsollen og bruk funksjoner som <code>class</code>, <code>dim</code>, <code>names</code>, <code>head</code> og <code>str</code> for å utforske strukturen på dataene. Vi ser at det er 5 variabler:</p>
@@ -417,21 +417,21 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p><strong>Oppgave 2.4</strong></p>
 <p>Vi skal se nærmere på om aggresjonsnivået er forskjellig i de to gruppene. Da må vi trekke ut de aktuelle tallene fra datasettet. Vi ønsker å velge ut <em>to vektorer</em> for å gjøre denne sammenligningen: en vektor som inneholder aggresjonsnivået til gruppen som har spilt det voldelige dataspillet, og en vektor som inneholder aggresjonsnivået til gruppen som har spilt det ikke-voldelige dataspillet.</p>
 <p>La disse to vektorene få navn <code>voldelig</code> og <code>ikke_voldelig</code>, og lag dem ved å skrive følgende kodelinjer (se <a href="pipe.html#pipe">video om pipe-operatoren og enkel datavask</a> for en forklaring av disse funksjonene. Den siste linjen, <code>pull</code>, gjør en dataframe med én kolonne om til en vektor) :</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="dataøving-1.html#cb247-1" tabindex="-1"></a><span class="co"># Laster inn dplyr-pakken for </span></span>
-<span id="cb247-2"><a href="dataøving-1.html#cb247-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb247-3"><a href="dataøving-1.html#cb247-3" tabindex="-1"></a></span>
-<span id="cb247-4"><a href="dataøving-1.html#cb247-4" tabindex="-1"></a><span class="co"># Vektorer med aggresjonsnivå til gruppen som har spilt voldelig/ikke-voldelig spill </span></span>
-<span id="cb247-5"><a href="dataøving-1.html#cb247-5" tabindex="-1"></a>voldelig <span class="ot">&lt;-</span> </span>
-<span id="cb247-6"><a href="dataøving-1.html#cb247-6" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span> </span>
-<span id="cb247-7"><a href="dataøving-1.html#cb247-7" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Violent&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb247-8"><a href="dataøving-1.html#cb247-8" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span> </span>
-<span id="cb247-9"><a href="dataøving-1.html#cb247-9" tabindex="-1"></a>  pull</span>
-<span id="cb247-10"><a href="dataøving-1.html#cb247-10" tabindex="-1"></a></span>
-<span id="cb247-11"><a href="dataøving-1.html#cb247-11" tabindex="-1"></a>ikke_voldelig <span class="ot">&lt;-</span> </span>
-<span id="cb247-12"><a href="dataøving-1.html#cb247-12" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span> </span>
-<span id="cb247-13"><a href="dataøving-1.html#cb247-13" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Less Violent&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb247-14"><a href="dataøving-1.html#cb247-14" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span> </span>
-<span id="cb247-15"><a href="dataøving-1.html#cb247-15" tabindex="-1"></a>  pull</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="dataøving-1.html#cb251-1" tabindex="-1"></a><span class="co"># Laster inn dplyr-pakken for </span></span>
+<span id="cb251-2"><a href="dataøving-1.html#cb251-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb251-3"><a href="dataøving-1.html#cb251-3" tabindex="-1"></a></span>
+<span id="cb251-4"><a href="dataøving-1.html#cb251-4" tabindex="-1"></a><span class="co"># Vektorer med aggresjonsnivå til gruppen som har spilt voldelig/ikke-voldelig spill </span></span>
+<span id="cb251-5"><a href="dataøving-1.html#cb251-5" tabindex="-1"></a>voldelig <span class="ot">&lt;-</span> </span>
+<span id="cb251-6"><a href="dataøving-1.html#cb251-6" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span> </span>
+<span id="cb251-7"><a href="dataøving-1.html#cb251-7" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Violent&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb251-8"><a href="dataøving-1.html#cb251-8" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span> </span>
+<span id="cb251-9"><a href="dataøving-1.html#cb251-9" tabindex="-1"></a>  pull</span>
+<span id="cb251-10"><a href="dataøving-1.html#cb251-10" tabindex="-1"></a></span>
+<span id="cb251-11"><a href="dataøving-1.html#cb251-11" tabindex="-1"></a>ikke_voldelig <span class="ot">&lt;-</span> </span>
+<span id="cb251-12"><a href="dataøving-1.html#cb251-12" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span> </span>
+<span id="cb251-13"><a href="dataøving-1.html#cb251-13" tabindex="-1"></a>  <span class="fu">filter</span>(violent_treatment <span class="sc">==</span> <span class="st">&quot;Less Violent&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb251-14"><a href="dataøving-1.html#cb251-14" tabindex="-1"></a>  <span class="fu">select</span>(aggression_level) <span class="sc">%&gt;%</span> </span>
+<span id="cb251-15"><a href="dataøving-1.html#cb251-15" tabindex="-1"></a>  pull</span></code></pre></div>
 <p>Sjekk nå at dette har fungert ved å skrive <code>voldelig</code> og <code>ikke_voldelig</code> inn i konsollen for å se at det faktisk er vektorer som inneholder tallene 1 – 9. Bruk også noen minutter til å prøve å forstå hva kodelinjene over faktisk gjør.</p>
 <p>(<strong>NB!</strong> Pass på at du skriver <code>Violent</code> og <code>Less Violent</code> helt riktig med store og små bokstaver, ellers vil det ikke fungere!)</p>
 <p><strong>Oppgave 2.5.</strong> I eksamensoppgaven fra 2019 får vi oppgitt deskriptiv statistikk over aggresjonsnivået for de to gruppene i følgende tabell:</p>
@@ -440,23 +440,23 @@ Figur 7.3: Dokumentasjon av funksjoner dukker opp i et vindu nede til høyre. De
 <p><strong>Oppgave 2.6.</strong> Vi skal nå lage et histogram av hver av gruppene du lagret som vektorer i tidligere. Vi kan først kikke på Figur <a href="deskriptiv-statistikk.html#fig:to-histogrammer">2.1</a> og koden som lagde disse figurene for å få en idé om hva vi må gjøre. Et svært viktig punkt er føgende:</p>
 <p><strong><code>ggplot</code>-funksjonen skal alltid ha hele datasettet (en data frame) som argument!!</strong></p>
 <p>Det betyr at vi <em>ikke</em> skal bruke de to vektorene <code>voldelig</code> og <code>ikke_voldelig</code>, slik som i <code>hist()</code>-funksjonen, men bruke hele datasettet <code>violence</code>. Vi ser av oversikten over at variabelen som inneholder aggresjonsnivået er <code>aggression_level</code>, så det er den vi skal bruke som <span class="math inline">\(x\)</span>-argument. Ved å ta utgangspunkt i koden som lagde Figur <a href="deskriptiv-statistikk.html#fig:to-histogrammer">2.1</a>, kan vi gjøre et første forsøk (der vi husker å laste inn <code>ggplot2</code>-pakken først):</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="dataøving-1.html#cb248-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb248-2"><a href="dataøving-1.html#cb248-2" tabindex="-1"></a><span class="fu">ggplot</span>(violence, <span class="fu">aes</span>(<span class="at">x =</span> aggression_level)) <span class="sc">+</span></span>
-<span id="cb248-3"><a href="dataøving-1.html#cb248-3" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="dataøving-1.html#cb252-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb252-2"><a href="dataøving-1.html#cb252-2" tabindex="-1"></a><span class="fu">ggplot</span>(violence, <span class="fu">aes</span>(<span class="at">x =</span> aggression_level)) <span class="sc">+</span></span>
+<span id="cb252-3"><a href="dataøving-1.html#cb252-3" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-219-1.png" width="672" /></p>
 <p>Nesten! Det eneste problemet er at vi har ett histogram for alle observasjonene, mens det vi egentlig ønsket var å lage et histogram for hver av gruppene. Dette er såre enkelt i <code>ggplot2</code>. Det eneste vi trenger å gjøre er å identifisere den variabelen i datasettet som angir gruppetilhørighet (sjekk variabeloversikten over, svaret er <code>violent_treatment</code>), og så plusse på en funksjon som heter <code>facet_wrap()</code> som vist under.</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="dataøving-1.html#cb249-1" tabindex="-1"></a><span class="fu">ggplot</span>(violence, <span class="fu">aes</span>(<span class="at">x =</span> aggression_level)) <span class="sc">+</span></span>
-<span id="cb249-2"><a href="dataøving-1.html#cb249-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>) <span class="sc">+</span></span>
-<span id="cb249-3"><a href="dataøving-1.html#cb249-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> violent_treatment)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-218-1.png" width="672" /></p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="dataøving-1.html#cb253-1" tabindex="-1"></a><span class="fu">ggplot</span>(violence, <span class="fu">aes</span>(<span class="at">x =</span> aggression_level)) <span class="sc">+</span></span>
+<span id="cb253-2"><a href="dataøving-1.html#cb253-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>) <span class="sc">+</span></span>
+<span id="cb253-3"><a href="dataøving-1.html#cb253-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> violent_treatment)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-220-1.png" width="672" /></p>
 <p>Dersom vi i stedet ønsker et skalert histogram kan vi spesifisere <code>y</code>-argumentet på følgende vis:</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="dataøving-1.html#cb250-1" tabindex="-1"></a><span class="fu">ggplot</span>(violence, <span class="fu">aes</span>(<span class="at">x =</span> aggression_level, <span class="at">y =</span> ..density.. )) <span class="sc">+</span></span>
-<span id="cb250-2"><a href="dataøving-1.html#cb250-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>) <span class="sc">+</span></span>
-<span id="cb250-3"><a href="dataøving-1.html#cb250-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> violent_treatment)</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="dataøving-1.html#cb254-1" tabindex="-1"></a><span class="fu">ggplot</span>(violence, <span class="fu">aes</span>(<span class="at">x =</span> aggression_level, <span class="at">y =</span> ..density.. )) <span class="sc">+</span></span>
+<span id="cb254-2"><a href="dataøving-1.html#cb254-2" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">9</span>) <span class="sc">+</span></span>
+<span id="cb254-3"><a href="dataøving-1.html#cb254-3" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> violent_treatment)</span></code></pre></div>
 <p><strong>Oppgave 2.7.</strong> Når man skal sammenligne sentrum og spredning i to grupper er et boxplott et ypperlig alternativ og vi kan da bruke funksjonen <code>boxplot()</code> i “base R”, eller funksjonen <code>geom_boxplot()</code> hvis vi heller ønsker å benytte <code>ggplot2</code>. Vi holder oss til det siste alternativet her, og ser at kodelinjene ligner på det vi laget over.</p>
 <p>Dersom vi ønsker å lage et enkelt boxplot av en variabel for å sammenligne spredingen i to eller flere grupper kan vi skrive</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="dataøving-1.html#cb251-1" tabindex="-1"></a><span class="fu">ggplot</span>(a, <span class="fu">aes</span>(<span class="at">x =</span> b, <span class="at">y =</span> c)) <span class="sc">+</span></span>
-<span id="cb251-2"><a href="dataøving-1.html#cb251-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="dataøving-1.html#cb255-1" tabindex="-1"></a><span class="fu">ggplot</span>(a, <span class="fu">aes</span>(<span class="at">x =</span> b, <span class="at">y =</span> c)) <span class="sc">+</span></span>
+<span id="cb255-2"><a href="dataøving-1.html#cb255-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p>Her må du selv erstatte bokstavene a, b og c i henhold til følgende regel:</p>
 <ul>
 <li><code>a</code> er navnet på datasettet.</li>

@@ -1034,7 +1034,7 @@ Z <- (p1_hatt - p2_hatt)/sqrt((1/n1 + 1/n2)*p_hatt*(1-p_hatt))
 
 Testobservatorene må da sammenlingnes med relevant kvantil i normalfordelingen, som du enten finner i tabell i læreboken eller ved å bruke funksjonen `qnorm()` med ønsket kvantil som argument.
 
-### Kjikvadrattester {-}
+### Kjikvadrattester for goodness-of-fit {-}
 
 Hvis vi skal teste for goodness-of-fit for en fordeling kan vi raskt regne ut testobservatoren direkte. Vi bruker eksempelet fra forelesningsvideoen:
 
@@ -1068,6 +1068,39 @@ immigration <-
            col_names = c("many", "some", "few", "none"))
 chisq.test(immigration)
 ```
+
+### Kjikvadrattester for uavhengighet {-}
+
+```{r, echo = F, message=F}
+library(dplyr)
+library(readxl)
+violence <- read_excel("datasett/violence.xlsx")
+```
+
+Som eksempel kan vi ta oppgaven fra Dataøving 2. Vi starter med å lese inn dataene:
+
+```{r, eval = F, warning=F}
+# les inn data
+library(readxl)
+violence <- read_excel("violence.xlsx")
+```
+Vi bruker `select()` til å velge de to variablene vi er interessert i og funksjonen `table()` til å lage en krysstabell:
+
+```{r voldelig}
+violence_redusert <-
+  violence %>%
+  select(violent_treatment, experienced_violence)
+krysstabell <- table(violence_redusert)
+
+```
+Det ser ut til at det er en klar sammenheng mellom faktisk og opplevd voldelighet ved at de fleste forsøkspersonene havner på diagonalen i krysstabellen over.
+
+Nå skal vi utføre en test av nullhypotesen $H_0$: faktisk og opplevd voldelighet er uavhengige kjennetegn, mot den alternative hypotesen $H_1:$ at de er avhengige kjennetegn. Dette er en chikvadrattest som kan utføres i R på følgende måte:
+
+```{r chisq}
+chisq.test(krysstabell)
+```
+og vi ser at vi får en soleklar forkastning. Dette er også logisk gitt hva vi faktisk tester her.
 
 ### Kritiske verdier i R {-}
 
