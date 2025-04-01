@@ -1091,6 +1091,7 @@ violence_redusert <-
   violence %>%
   select(violent_treatment, experienced_violence)
 krysstabell <- table(violence_redusert)
+krysstabell
 
 ```
 Det ser ut til at det er en klar sammenheng mellom faktisk og opplevd voldelighet ved at de fleste forsøkspersonene havner på diagonalen i krysstabellen over.

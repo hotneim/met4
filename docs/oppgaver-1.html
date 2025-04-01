@@ -416,11 +416,11 @@ Løsning
 <ol style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="oppgaver-1.html#cb110-1" tabindex="-1"></a>df_tv <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb110-2"><a href="oppgaver-1.html#cb110-2" tabindex="-1"></a>  <span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">42</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">34</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">32</span>, <span class="dv">33</span>, <span class="dv">18</span>, <span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">34</span>, <span class="dv">18</span>),</span>
-<span id="cb110-3"><a href="oppgaver-1.html#cb110-3" tabindex="-1"></a>  <span class="at">Overvekt =</span> <span class="fu">c</span>(<span class="dv">17</span>,  <span class="dv">5</span>, <span class="sc">-</span><span class="dv">1</span>,  <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">15</span>,  <span class="dv">5</span>,  <span class="dv">7</span>, <span class="sc">-</span><span class="dv">7</span>,  <span class="dv">7</span>,  <span class="dv">6</span>,  <span class="dv">7</span>,  <span class="dv">4</span>, <span class="dv">15</span>, <span class="sc">-</span><span class="dv">5</span>))</span>
-<span id="cb110-4"><a href="oppgaver-1.html#cb110-4" tabindex="-1"></a>  </span>
-<span id="cb110-5"><a href="oppgaver-1.html#cb110-5" tabindex="-1"></a><span class="fu">plot</span>(df_tv<span class="sc">$</span>TV_titting, df_tv<span class="sc">$</span>Overvekt, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;TV-titting&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Overvekt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="oppgaver-1.html#cb111-1" tabindex="-1"></a>df_tv <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb111-2"><a href="oppgaver-1.html#cb111-2" tabindex="-1"></a>  <span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">42</span>, <span class="dv">35</span>, <span class="dv">28</span>, <span class="dv">34</span>, <span class="dv">37</span>, <span class="dv">38</span>, <span class="dv">32</span>, <span class="dv">33</span>, <span class="dv">18</span>, <span class="dv">28</span>, <span class="dv">36</span>, <span class="dv">29</span>, <span class="dv">29</span>, <span class="dv">34</span>, <span class="dv">18</span>),</span>
+<span id="cb111-3"><a href="oppgaver-1.html#cb111-3" tabindex="-1"></a>  <span class="at">Overvekt =</span> <span class="fu">c</span>(<span class="dv">17</span>,  <span class="dv">5</span>, <span class="sc">-</span><span class="dv">1</span>,  <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">15</span>,  <span class="dv">5</span>,  <span class="dv">7</span>, <span class="sc">-</span><span class="dv">7</span>,  <span class="dv">7</span>,  <span class="dv">6</span>,  <span class="dv">7</span>,  <span class="dv">4</span>, <span class="dv">15</span>, <span class="sc">-</span><span class="dv">5</span>))</span>
+<span id="cb111-4"><a href="oppgaver-1.html#cb111-4" tabindex="-1"></a>  </span>
+<span id="cb111-5"><a href="oppgaver-1.html#cb111-5" tabindex="-1"></a><span class="fu">plot</span>(df_tv<span class="sc">$</span>TV_titting, df_tv<span class="sc">$</span>Overvekt, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;TV-titting&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Overvekt&quot;</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <blockquote>
 <p>Plottet viser en ganske tydelig trend om at TV-titting og overvekt er relaterte. Dette kan vi undersøke nærmere.</p>
@@ -448,8 +448,8 @@ Løsning
 <blockquote>
 <p>Vi estimerer en regresjonsmodell fra dataene og skriver ut tabellen med resultatene:</p>
 </blockquote>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="oppgaver-1.html#cb111-1" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Overvekt <span class="sc">~</span> TV_titting, df_tv)</span>
-<span id="cb111-2"><a href="oppgaver-1.html#cb111-2" tabindex="-1"></a><span class="fu">summary</span>(reg)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="oppgaver-1.html#cb112-1" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(Overvekt <span class="sc">~</span> TV_titting, df_tv)</span>
+<span id="cb112-2"><a href="oppgaver-1.html#cb112-2" tabindex="-1"></a><span class="fu">summary</span>(reg)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Overvekt ~ TV_titting, data = df_tv)
@@ -468,9 +468,9 @@ Løsning
 ## Residual standard error: 4.026 on 13 degrees of freedom
 ## Multiple R-squared:  0.7057, Adjusted R-squared:  0.683 
 ## F-statistic: 31.17 on 1 and 13 DF,  p-value: 8.88e-05</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="oppgaver-1.html#cb113-1" tabindex="-1"></a><span class="co"># For en finere utskrift kan du bruke følgende:</span></span>
-<span id="cb113-2"><a href="oppgaver-1.html#cb113-2" tabindex="-1"></a><span class="co"># library(stargazer)</span></span>
-<span id="cb113-3"><a href="oppgaver-1.html#cb113-3" tabindex="-1"></a><span class="co"># stargazer(reg, type=&quot;text&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="oppgaver-1.html#cb114-1" tabindex="-1"></a><span class="co"># For en finere utskrift kan du bruke følgende:</span></span>
+<span id="cb114-2"><a href="oppgaver-1.html#cb114-2" tabindex="-1"></a><span class="co"># library(stargazer)</span></span>
+<span id="cb114-3"><a href="oppgaver-1.html#cb114-3" tabindex="-1"></a><span class="co"># stargazer(reg, type=&quot;text&quot;)</span></span></code></pre></div>
 <blockquote>
 <p>Det er tydelig sigifikans for at hver av parameterne er ulik null. For <span class="math inline">\(\beta_1\)</span> betyr dette at trenden vi observerte i spredningplottet var signifikant. Videre kan vi tolke det positive fortegnet til <span class="math inline">\(\beta_1\)</span> som at flere timer TV-titting er relatert med økt overvekt.</p>
 </blockquote>
@@ -487,37 +487,37 @@ Løsning
 =\left[0.8942 - 2.16\times0.1602,  0.8942 + 2.16\times0.1602\right]\\
 =\left[0.5481, 1.2402\right]\]</span>
 e)</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="oppgaver-1.html#cb114-1" tabindex="-1"></a>reg.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
-<span id="cb114-2"><a href="oppgaver-1.html#cb114-2" tabindex="-1"></a>reg.pred</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="oppgaver-1.html#cb115-1" tabindex="-1"></a>reg.pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
+<span id="cb115-2"><a href="oppgaver-1.html#cb115-2" tabindex="-1"></a>reg.pred</span></code></pre></div>
 <pre><code>##        fit       lwr      upr
 ## 1 4.614735 -4.380262 13.60973</code></pre>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="oppgaver-1.html#cb116-1" tabindex="-1"></a><span class="co"># stargazer(reg.pred, type=&quot;text&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="oppgaver-1.html#cb117-1" tabindex="-1"></a><span class="co"># stargazer(reg.pred, type=&quot;text&quot;)</span></span></code></pre></div>
 <blockquote>
 <p>Dersom vi trekker et nytt barn som ser 30 timer på TV per uke, vil barnet i 95 % av tilfellene være innenfor prediksjonsintervallet dersom vi hadde gjentatt dette mange ganger.</p>
 </blockquote>
 <ol start="6" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="oppgaver-1.html#cb117-1" tabindex="-1"></a>reg.conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span>
-<span id="cb117-2"><a href="oppgaver-1.html#cb117-2" tabindex="-1"></a>reg.conf</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="oppgaver-1.html#cb118-1" tabindex="-1"></a>reg.conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">30</span>)), <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span>
+<span id="cb118-2"><a href="oppgaver-1.html#cb118-2" tabindex="-1"></a>reg.conf</span></code></pre></div>
 <pre><code>##        fit      lwr      upr
 ## 1 4.614735 2.317582 6.911888</code></pre>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="oppgaver-1.html#cb119-1" tabindex="-1"></a><span class="co">#evt </span></span>
-<span id="cb119-2"><a href="oppgaver-1.html#cb119-2" tabindex="-1"></a><span class="co"># library(stargazer)</span></span>
-<span id="cb119-3"><a href="oppgaver-1.html#cb119-3" tabindex="-1"></a><span class="co"># stargazer(reg.conf, type=&quot;text&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="oppgaver-1.html#cb120-1" tabindex="-1"></a><span class="co">#evt </span></span>
+<span id="cb120-2"><a href="oppgaver-1.html#cb120-2" tabindex="-1"></a><span class="co"># library(stargazer)</span></span>
+<span id="cb120-3"><a href="oppgaver-1.html#cb120-3" tabindex="-1"></a><span class="co"># stargazer(reg.conf, type=&quot;text&quot;)</span></span></code></pre></div>
 <blockquote>
 <p>Konfidensintervallet viser hvor <em>gjennomsnittet</em> av målinger på <em>et nytt sett</em> med barn som ser 30 timer på TV per uke vil ligge i 95 % av nye eksperimenter.</p>
 </blockquote>
 <ol start="7" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="oppgaver-1.html#cb120-1" tabindex="-1"></a>reg.zero <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">0</span>)), <span class="at">interval =</span> <span class="st">&quot;prediction&quot;</span>)</span>
-<span id="cb120-2"><a href="oppgaver-1.html#cb120-2" tabindex="-1"></a>reg.zero</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="oppgaver-1.html#cb121-1" tabindex="-1"></a>reg.zero <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">TV_titting =</span> <span class="fu">c</span>(<span class="dv">0</span>)), <span class="at">interval =</span> <span class="st">&quot;prediction&quot;</span>)</span>
+<span id="cb121-2"><a href="oppgaver-1.html#cb121-2" tabindex="-1"></a>reg.zero</span></code></pre></div>
 <pre><code>##         fit       lwr      upr
 ## 1 -22.21237 -36.30997 -8.11477</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="oppgaver-1.html#cb122-1" tabindex="-1"></a><span class="co"># evt</span></span>
-<span id="cb122-2"><a href="oppgaver-1.html#cb122-2" tabindex="-1"></a><span class="co"># library(stargazer) </span></span>
-<span id="cb122-3"><a href="oppgaver-1.html#cb122-3" tabindex="-1"></a><span class="co"># stargazer(reg.zero, type=&quot;text&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="oppgaver-1.html#cb123-1" tabindex="-1"></a><span class="co"># evt</span></span>
+<span id="cb123-2"><a href="oppgaver-1.html#cb123-2" tabindex="-1"></a><span class="co"># library(stargazer) </span></span>
+<span id="cb123-3"><a href="oppgaver-1.html#cb123-3" tabindex="-1"></a><span class="co"># stargazer(reg.zero, type=&quot;text&quot;)</span></span></code></pre></div>
 <blockquote>
 <p>Beste gjetning er at barn som ser 0 timer på TV i uken er 22.2 kg under normalvekt (!). Et kjapt søk viser at barn på 10 år veier mellom 25.5 og 39 kg. Det høres urimelig ut at veldig lite TV-titting har sammenheng med ekstrem underernæring blant den samme populasjonen av barn som ser rundt 30 timer på TV i uken.</p>
 <p>Det er flere ting som kan gå galt når man gjør en slik analyse av en modell:</p>
@@ -599,12 +599,12 @@ og
   \beta_1 S_X^2 &amp;= S_{XY}.
 \end{align}\]</span></p>
 <p>Da blir</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="oppgaver-1.html#cb123-1" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">/</span> <span class="dv">110</span></span>
-<span id="cb123-2"><a href="oppgaver-1.html#cb123-2" tabindex="-1"></a>beta_1</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="oppgaver-1.html#cb124-1" tabindex="-1"></a>beta_1 <span class="ot">&lt;-</span> <span class="dv">8</span> <span class="sc">/</span> <span class="dv">110</span></span>
+<span id="cb124-2"><a href="oppgaver-1.html#cb124-2" tabindex="-1"></a>beta_1</span></code></pre></div>
 <pre><code>## [1] 0.07272727</code></pre>
 <p>og</p>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="oppgaver-1.html#cb125-1" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="sc">-</span> beta_1 <span class="sc">*</span> <span class="dv">40</span></span>
-<span id="cb125-2"><a href="oppgaver-1.html#cb125-2" tabindex="-1"></a>beta_0</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="oppgaver-1.html#cb126-1" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="sc">-</span> beta_1 <span class="sc">*</span> <span class="dv">40</span></span>
+<span id="cb126-2"><a href="oppgaver-1.html#cb126-2" tabindex="-1"></a>beta_0</span></code></pre></div>
 <pre><code>## [1] 17.09091</code></pre>
 </div>
 </details>
@@ -667,15 +667,15 @@ Løsning
 <h4>Oppgave 1<a href="oppgaver-1.html#oppgave-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Denne oppgaven skal gi et forhold til hvordan teorien funker i praksis. Vi skal simulere data fra konstruerte modeller gjøre analyser på dem. Fordelen med å begynne her er at man får er forhold til hvordan statistikk kan og bør tolkes utfra teorien. Med virkelige data vil antagelsene som ligger til grunn for modellene stort sett være brutt, i større eller mindre grad, og kjernen i god statistisk analyse er å vite hva man kan og ikke kan gjøre likevel. God kjennskap til hvordan det burde funke i teorien er en viktig byggestein for statistisk forståelse.</p>
 <p>Vi generer opp data som skal brukes til å estimere en model. <code>rnorm</code> trekker tall fra en standard normalfordeling. <code>mutate()</code> legger til nye kolonner i dataframe-en basert på allerede eksisterende kolonner. <code>set.seed()</code> setter startpunktet for pseudotilfeldige tall, og om du setter samme seed får du de samme tilfeldige tallene som vi har brukt.</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="oppgaver-1.html#cb127-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb127-2"><a href="oppgaver-1.html#cb127-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
-<span id="cb127-3"><a href="oppgaver-1.html#cb127-3" tabindex="-1"></a>df_mdl <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb127-4"><a href="oppgaver-1.html#cb127-4" tabindex="-1"></a>  <span class="at">x1 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
-<span id="cb127-5"><a href="oppgaver-1.html#cb127-5" tabindex="-1"></a>  <span class="at">x2 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
-<span id="cb127-6"><a href="oppgaver-1.html#cb127-6" tabindex="-1"></a>  <span class="at">eps =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) </span>
-<span id="cb127-7"><a href="oppgaver-1.html#cb127-7" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb127-8"><a href="oppgaver-1.html#cb127-8" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">2</span> <span class="sc">*</span> x1 <span class="sc">+</span> (<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span> x2 <span class="sc">+</span> eps</span>
-<span id="cb127-9"><a href="oppgaver-1.html#cb127-9" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="oppgaver-1.html#cb128-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb128-2"><a href="oppgaver-1.html#cb128-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
+<span id="cb128-3"><a href="oppgaver-1.html#cb128-3" tabindex="-1"></a>df_mdl <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb128-4"><a href="oppgaver-1.html#cb128-4" tabindex="-1"></a>  <span class="at">x1 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb128-5"><a href="oppgaver-1.html#cb128-5" tabindex="-1"></a>  <span class="at">x2 =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb128-6"><a href="oppgaver-1.html#cb128-6" tabindex="-1"></a>  <span class="at">eps =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>) </span>
+<span id="cb128-7"><a href="oppgaver-1.html#cb128-7" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb128-8"><a href="oppgaver-1.html#cb128-8" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">2</span> <span class="sc">*</span> x1 <span class="sc">+</span> (<span class="sc">-</span><span class="dv">1</span>) <span class="sc">*</span> x2 <span class="sc">+</span> eps</span>
+<span id="cb128-9"><a href="oppgaver-1.html#cb128-9" tabindex="-1"></a>)</span></code></pre></div>
 <ol style="list-style-type: lower-alpha">
 <li><p>Hva er de eksakte parameterne i modellen som passer til dataene vi har generert, og hva er fordelingen til hver av forklaringsvariablene og støy-leddet? Er betingelsen om uavhengig feilledd oppfylt?</p></li>
 <li><p>Generér opp dataene selv og estimer parameterne basert på dataene. Tolk estimatene.</p></li>
@@ -701,8 +701,8 @@ fordi vi har trukket dem fra en normalfordeling med forventning 0 og standardavv
 hvor parameterne er eksakt fordi vi har laget dataene selv.</p></li>
 <li></li>
 </ol>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="oppgaver-1.html#cb128-1" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df_mdl)</span>
-<span id="cb128-2"><a href="oppgaver-1.html#cb128-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="oppgaver-1.html#cb129-1" tabindex="-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> df_mdl)</span>
+<span id="cb129-2"><a href="oppgaver-1.html#cb129-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ===============================================
 ##                         Dependent variable:    
@@ -730,9 +730,9 @@ hvor parameterne er eksakt fordi vi har laget dataene selv.</p></li>
 <ol start="3" style="list-style-type: lower-alpha">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="oppgaver-1.html#cb130-1" tabindex="-1"></a>new_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span>, <span class="at">x2 =</span> <span class="dv">1</span>)</span>
-<span id="cb130-2"><a href="oppgaver-1.html#cb130-2" tabindex="-1"></a>reg_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> new_df, <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
-<span id="cb130-3"><a href="oppgaver-1.html#cb130-3" tabindex="-1"></a>reg_conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> new_df, <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="oppgaver-1.html#cb131-1" tabindex="-1"></a>new_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span>, <span class="at">x2 =</span> <span class="dv">1</span>)</span>
+<span id="cb131-2"><a href="oppgaver-1.html#cb131-2" tabindex="-1"></a>reg_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> new_df, <span class="at">interval =</span> <span class="st">&quot;predict&quot;</span>)</span>
+<span id="cb131-3"><a href="oppgaver-1.html#cb131-3" tabindex="-1"></a>reg_conf <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg, <span class="at">newdata =</span> new_df, <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Prediksjonsintervall
 ## ====================
@@ -758,7 +758,7 @@ Estimert prediksjonsintervall er bredere enn det estimerte intervallet. Dette ko
 <li><p>Vi burde få at <span class="math inline">\(\bar{Y}|X_1,X_2 = 1\)</span> er innenfor konfidensintervallet, noe ser ut til å være oppfylt. Tolkningen er at dersom vi kjører analysen på mange ulike datasett vil <span class="math inline">\(\bar{Y}|X_1,X_2 = 1\)</span> havne innenfor konfidensintervallet i 95 % av tilfellene. Dette kan du prøve selv, bare pass på at du ikke setter seed-et før du generer opp et nytt datasett.</p></li>
 <li><p>Svaret gis i regresjonstabellen</p></li>
 </ol>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="oppgaver-1.html#cb133-1" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="oppgaver-1.html#cb134-1" tabindex="-1"></a><span class="fu">stargazer</span>(reg, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ===============================================
 ##                         Dependent variable:    
@@ -783,7 +783,7 @@ Estimert prediksjonsintervall er bredere enn det estimerte intervallet. Dette ko
 ## ===============================================
 ## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <p>F-statistikken er angitt som <span class="math inline">\(1094.997\)</span> med frihetsgrader <span class="math inline">\(2, 97\)</span>. P-verdien regnes som</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="oppgaver-1.html#cb135-1" tabindex="-1"></a><span class="fu">pf</span>(<span class="fl">1094.997</span>, <span class="dv">2</span>, <span class="dv">97</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="oppgaver-1.html#cb136-1" tabindex="-1"></a><span class="fu">pf</span>(<span class="fl">1094.997</span>, <span class="dv">2</span>, <span class="dv">97</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## [1] 2.716911e-67</code></pre>
 som er veldig liten. Altså bekrefter analysen at det er sammenheng mellom forklaringsvariablene og responsvariabelen. Hva ville du tenkt var galt om vi ikke fikk denne konklusjonen fra F-testen, gitt den modellen vi har brukt til å generere dataene? Hint: Det er faktisk en reell sammenheng her.
 </blockquote>
@@ -793,8 +793,8 @@ som er veldig liten. Altså bekrefter analysen at det er sammenheng mellom forkl
 <h4>Oppgave 2<a href="oppgaver-1.html#oppgave-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Denne oppgaven følger samme premiss som oppgave 1, men handler om kolinearitet. Last ned datasettene <a href="genererte_datasett/colinearity_1.RData">1</a> og <a href="genererte_datasett/colinearity_2.RData">2</a>, hvor y er responsvariabel og forklaringsvariable er navngitt x.</p>
 <p>Disse dataene er lagret som .RData filer. For å laste inn dataene i R laster du filene over ned i en mappe, setter mappestien til denne mappen og kjører følgende R-kommandoer:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="oppgaver-1.html#cb137-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;colinearity_1.RData&quot;</span>)</span>
-<span id="cb137-2"><a href="oppgaver-1.html#cb137-2" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;colinearity_2.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="oppgaver-1.html#cb138-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;colinearity_1.RData&quot;</span>)</span>
+<span id="cb138-2"><a href="oppgaver-1.html#cb138-2" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;colinearity_2.RData&quot;</span>)</span></code></pre></div>
 <ul>
 <li><p>Finn kolinearitet</p></li>
 <li><p>Hva må man passe dersom man skal lage en regresjonsmodell for responsen Y?</p></li>
@@ -808,13 +808,13 @@ Løsning
 <li></li>
 </ol>
 <p>Vi kan begynne med å plotte forholdet mellom de ulike variablene:</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="oppgaver-1.html#cb138-1" tabindex="-1"></a><span class="fu">pairs</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin1)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="oppgaver-1.html#cb139-1" tabindex="-1"></a><span class="fu">pairs</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin1)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-105-1.png" width="672" /></p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="oppgaver-1.html#cb139-1" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(df_colin1), <span class="at">method =</span> <span class="st">&quot;number&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="oppgaver-1.html#cb140-1" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(df_colin1), <span class="at">method =</span> <span class="st">&quot;number&quot;</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
 <p>Her ser det ut som vi har et forhold mellom <span class="math inline">\((X_2, X_3)\)</span>. Videre ser det ut som at alle tre forklaringsvariable har en sammenheng med responsvariablen <span class="math inline">\(Y\)</span>.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="oppgaver-1.html#cb140-1" tabindex="-1"></a>reg_colin1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin1)</span>
-<span id="cb140-2"><a href="oppgaver-1.html#cb140-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg_colin1, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="oppgaver-1.html#cb141-1" tabindex="-1"></a>reg_colin1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin1)</span>
+<span id="cb141-2"><a href="oppgaver-1.html#cb141-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg_colin1, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ===============================================
 ##                         Dependent variable:    
@@ -843,7 +843,7 @@ Løsning
 ## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <p><span class="math inline">\(X_1\)</span> og <span class="math inline">\(X_2\)</span> kommer ut som signifikante, og <span class="math inline">\(X_3\)</span> ved lavere signifikansnivå.</p>
 <p>Vi kan sjekke variance inflation factor (VIF)</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="oppgaver-1.html#cb142-1" tabindex="-1"></a><span class="fu">vif</span>(reg_colin1)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="oppgaver-1.html#cb143-1" tabindex="-1"></a><span class="fu">vif</span>(reg_colin1)</span></code></pre></div>
 <pre><code>##       x1       x2       x3 
 ## 1.018945 1.785963 1.774712</code></pre>
 <p>som oppgir at estimeringen i seg selv ikke burde være noe problem.</p>
@@ -863,13 +863,13 @@ og vi kan tenke oss at dette representerer det kausale forholdet mellom variable
 <li></li>
 </ol>
 <p>Plott forholdet mellom de ulike variablene:</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="oppgaver-1.html#cb144-1" tabindex="-1"></a><span class="fu">pairs</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin2)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="oppgaver-1.html#cb145-1" tabindex="-1"></a><span class="fu">pairs</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin2)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="oppgaver-1.html#cb145-1" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(df_colin2), <span class="at">method =</span> <span class="st">&quot;number&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="oppgaver-1.html#cb146-1" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(df_colin2), <span class="at">method =</span> <span class="st">&quot;number&quot;</span>)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
 <p>Her ser vi et tydelig forhold mellom parene <span class="math inline">\((X_3, X_4)\)</span>, <span class="math inline">\((X_4, X_5)\)</span>, <span class="math inline">\((X_3, X_5)\)</span> og <span class="math inline">\((X_2, X_5)\)</span>. Ellers ser det kun ut som det er et tydelig forhold mellom <span class="math inline">\(Y\)</span> og <span class="math inline">\(X_1, X_2\)</span>. Med så mange forhold kan det være snakk om multikolinearitet, som ikke er så lett å se utfra 2D-plott.</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="oppgaver-1.html#cb146-1" tabindex="-1"></a>reg_colin2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin2)</span>
-<span id="cb146-2"><a href="oppgaver-1.html#cb146-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg_colin2, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="oppgaver-1.html#cb147-1" tabindex="-1"></a>reg_colin2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> df_colin2)</span>
+<span id="cb147-2"><a href="oppgaver-1.html#cb147-2" tabindex="-1"></a><span class="fu">stargazer</span>(reg_colin2, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## ===============================================
 ##                         Dependent variable:    
@@ -903,7 +903,7 @@ og vi kan tenke oss at dette representerer det kausale forholdet mellom variable
 ## ===============================================
 ## Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <p>Vi ser på VIF for om det kan være problemer med estimering grunnet kolinearitet</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="oppgaver-1.html#cb148-1" tabindex="-1"></a><span class="fu">stargazer</span>(<span class="fu">vif</span>(reg_colin2), <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;VIF&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="oppgaver-1.html#cb149-1" tabindex="-1"></a><span class="fu">stargazer</span>(<span class="fu">vif</span>(reg_colin2), <span class="at">type =</span> <span class="st">&quot;text&quot;</span>, <span class="at">title =</span> <span class="st">&quot;VIF&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## VIF
 ## =============================
