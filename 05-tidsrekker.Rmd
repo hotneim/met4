@@ -357,16 +357,16 @@ lines(pris_exp3$fitted[,"xhat"], col = "green")
 
 ### R-øving
 
-**1. Data.** I pakken `fpp` finnes en tidsrekke som heter `ausbeer`, som er den kvartalsvise produksjonen av øl i Australia fra 1956 til 2008. Du kan få tak i det og se på tidsrekken ved å kjøre følgende  kommandoer:
+**1. Data.** I pakken `fpp2` finnes en tidsrekke som heter `ausbeer`, som er den kvartalsvise produksjonen av øl i Australia fra 1956 til 2008. Du kan få tak i det og se på tidsrekken ved å kjøre følgende  kommandoer:
 
 ```{r, eval = FALSE}
-install.packages("fpp")
-library(fpp)
+install.packages("fpp2")
+library(fpp2)
 plot(ausbeer)
 ```
 
 ```{r,warning = FALSE, echo = FALSE, message = FALSE}
-library(fpp)
+library(fpp2)
 plot(ausbeer)
 ```
 
@@ -593,7 +593,7 @@ Her ser vi at autokorrelasjon er svært lav uansett lag. Det virker altså ikke 
 <details><summary>Løsning</summary>
 
 ```{r, message = FALSE, warning = FALSE}
-library(fpp)
+library(fpp2)
 library(forecast)
 
 dekomponert <- stl(ausbeer, s.window = "periodic")
