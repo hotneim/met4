@@ -1,5 +1,5 @@
 --- 
-title: "MET4 - Empiriske Metoder - vår 2025"
+title: "MET4 - Empiriske Metoder - høst 2025"
 author: "Håkon Otneim og Geir Drage Berentsen"
 site: bookdown::bookdown_site
 output: 
@@ -16,13 +16,13 @@ description: "Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis 
 
 
 <figure style="float:right; padding:10px; text-align:center">
-  <img alt="Julie" src="bilder/Julie.jpg" width="130" height="130"/>
-  <figcaption>Julie</figcaption>
+  <img alt="Sondre" src="bilder/sondreholleland.jpg" width="130" height="130"/>
+  <figcaption>Sondre</figcaption>
 </figure>
 
 Velkommen til hjemmesiden for kurset [MET4 - Empiriske metoder](https://www.nhh.no/emner/empiriske-metoder/), som er et obligatorisk kurs på Bachelorprogrammet i Økonomi og Administrasjon ved Norges Handelshøyskole. Dette er et kurs i anvendt statistikk, spesielt tilpasset økonomistudiet, og vi skal fokusere på korrekt bruk av statistisk metodikk for å løse relevante problemstillinger i en verden der innsamlet data utgjør en stadig større del av beslutningsgrunlaget i bedrifts- og samfunnsstyring.
 
-Kursansvarlige er Julie Brun Bjørkheim og Geir Drage Berentsen, som begge jobber ved Institutt for Foretaksøkonomi ved NHH.
+Kursansvarlige er Sondre Hølleland og Geir Drage Berentsen, som begge jobber ved Institutt for Foretaksøkonomi ved NHH.
 
 <figure style="float:right; padding:10px; text-align:center">
   <img alt="Håkon" src="bilder/geir.jpg" width="130" height="130"/>
@@ -52,14 +52,15 @@ Praktisk bruk av statistiske metoder står sentralt i MET4, og denne delen dekke
 
 Legg merke til følgende viktige datoer:
 
-<!-- - **1. mars:** Siste frist for oppmelding av grupper til obligatorisk øvelse og hjemmeeksamen. -->
-<!-- - **15. mars:** Frist for innlevering av den obligatoriske innleveringen. -->
-<!-- - **22.--24. april:** Gruppebasert hjemmeeksamen. -->
-<!-- - **06. mai:** Individuell **skole**eksamen. -->
 
-- **1.mars** Siste frist for oppmelding av grupper til obligatorisk øvelse.
-- **14.mars** Frist for innlevering av den obligatoriske innleveringen.
-- **29.april** Individuell digital **skole**eksamen.Eksamen vil være en 6 timers digital skoleeksamen. Eksamen vil ha fokus på  både teori og dataanalyse i R. Begge delene er like omfattende og vil bli vurdert samlet hvor det settes en karakter. Hele eksamen vil gjennomføres digitalt og kandidaten disponerer selv hvor mye tid som brukes på teori og dataanalyse.  TILLATTE HJELPEMIDLER: Alle trykte/egenskrevne hjelpemidler. Altså kan dere ta med så mange utskrifter, bøker og notater som dere ønsker. 
+
+<!-- - **1.mars** Siste frist for oppmelding av grupper til obligatorisk øvelse. -->
+<!-- - **14.mars** Frist for innlevering av den obligatoriske innleveringen. -->
+<!-- - **29.april** Individuell digital **skole**eksamen.Eksamen vil være en 6 timers digital skoleeksamen. Eksamen vil ha fokus på  både teori og dataanalyse i R. Begge delene er like omfattende og vil bli vurdert samlet hvor det settes en karakter. Hele eksamen vil gjennomføres digitalt og kandidaten disponerer selv hvor mye tid som brukes på teori og dataanalyse.  TILLATTE HJELPEMIDLER: Alle trykte/egenskrevne hjelpemidler. Altså kan dere ta med så mange utskrifter, bøker og notater som dere ønsker.  -->
+
+- **26.september** Siste frist for oppmelding av grupper til obligatorisk øvelse.
+- **10.oktober** Frist for innlevering av den obligatoriske innleveringen.
+- **25.november** Individuell digital **skole**eksamen. Eksamen vil være en 6 timers digital skoleeksamen. Eksamen vil ha fokus på  både teori og dataanalyse i R. Begge delene er like omfattende og vil bli vurdert samlet hvor det settes en karakter. Hele eksamen vil gjennomføres digitalt på skolen og kandidaten disponerer selv hvor mye tid som brukes på teori og dataanalyse.  TILLATTE HJELPEMIDLER: Alle trykte/egenskrevne hjelpemidler. Altså kan dere ta med så mange utskrifter, bøker og notater som dere ønsker. 
 
 
 
@@ -69,11 +70,11 @@ options(knitr.kable.NA = '')
 library(dplyr)
 library(kableExtra)
 
-readxl::read_excel("diverse/tidsplan-V25.xlsx") %>% 
+readxl::read_excel("diverse/tidsplan-H25.xlsx") %>% 
   kbl() %>%
   kable_styling(bootstrap_options = c("condensed", "hover"),
                 fixed_thead = T) %>%
-    row_spec(c(3, 6, 9, 12, 16) , background = "#c3debd") 
+    row_spec(c(3, 5, 7, 10, 11) , background = "#c3debd") 
 ```
 
 
