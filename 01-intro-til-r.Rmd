@@ -7,9 +7,9 @@ Vi må installere to ting på maskinen vår før vi går videre; selve programer
 
 1. Gå til [r-project.org](https://cran.uib.no/) for å laste ned R til ditt operativsystem, og installer på vanlig måte uten å forandre på foreslåtte innstillinger.
 
-2. Gå til [rstudio.com](https://rstudio.com/), og naviger deg frem til siden for **RStudio**. Du skal der laste ned desktop-versjonen av programmet ("Open source edition") for ditt operativsystem og  installere på vanlig måte. Det er heller ikke her nødvendig å forandre på de foreslåtte innstillingene.
+2. Gå til [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/). Du skal der laste ned **RStudio** programmet for ditt operativsystem og installere på vanlig måte. Det er heller ikke her nødvendig å forandre på de foreslåtte innstillingene.
 
-Du kan så åpne RStudio, og følge sekvensen av videoforelesniger som følger under. 
+Du kan så åpne RStudio, og følge sekvensen av videoforelesninger som følger under. 
 
 ## En gjennomgang av RStudio
 
