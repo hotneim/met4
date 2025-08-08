@@ -62,7 +62,7 @@ knitr::include_graphics("fig-rettsak1.jpg")
 
 Sagt med andre ord: vår hypotese er at tetthetsfunksjonen til $X$ ser slik ut:
 
-```{r, echo = F, message = FALSE, fig.width = 10, fig.height = 6, fig.retina = 4, fig.align='center'}
+```{r, echo = F, message = FALSE, warning=F, fig.width = 10, fig.height = 6, fig.retina = 4, fig.align='center'}
 
 library(dplyr)
 library(ggplot2)
@@ -118,7 +118,7 @@ $$H_0: \mu = \mu_0 \textrm{  mot  } H_1: \mu \neq \mu_0$$
 - Forkastningsområde ved $\alpha = 5\%$ signifikansnivå:
 
 
-```{r, echo = F, fig.width = 8, fig.height = 6, fig.retina = 4, fig.align='center'}
+```{r, echo = F, warning = F, fig.width = 8, fig.height = 6, fig.retina = 4, fig.align='center'}
 plot <- tibble(x0 = seq(-4, 4, length.out = 500)) %>% 
   mutate(f = dnorm(x0, mean = 0, sd = 1)) %>% 
   ggplot +
@@ -370,7 +370,7 @@ $F$-fordelt med $\nu_1 = n_1-1$ og $\nu_2 = n_2-1$ frihetsgrader
 $$\sigma_1^2 = \sigma_2^2$$
 * Testobservatoren blir da
 $$F = \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} = \frac{S_1^2}{S_2^2}$$
-og vi forkaster $H_0$ på $95\%$ nivå dersom $F > k_{0.975}^{F_{n_1-1, n_2-2}}$. 
+og vi forkaster $H_0$ på $95\%$ nivå dersom $F > k_{0.975}^{F_{n_1-1, n_2-1}}$. 
 * Kritisk verdi finner vi i tabell i boken, eller vi kan gjennomføre testen i R.
 * `r knitr::asis_output("\U1F480  \U1F480")` **NB!!** Sett alltid den største variansen øverst i brøken, og den minste variansen nederst når du gjør denne testen manuelt (som på skoleeksamen)!!`r knitr::asis_output("\U1F480  \U1F480")`
 
