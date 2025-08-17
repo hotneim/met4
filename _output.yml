@@ -1,4 +1,20 @@
+# bookdown::gitbook:
+#   toc_depth: 2
+#   css: style.css
+#   config:
+#     toc:
+#       before: |
+#         <a href="https://www.nhh.no/"><img src="bilder/nhh.png" width="240"></a>
+#         <li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
+#       after: |
+#           <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
+#           <li><a href="https://www.nhh.no/en/employees/faculty/geir-drage-berentsen/">Geir Drage Berentsen</a></li>
+#           <li><a href="https://github.com/rstudio/bookdown">
+#           Publisert ved hjelp av bookdown</a></li>
+#   includes:
+#     in_header: header.html
 bookdown::gitbook:
+  md_extensions: "+ascii_identifiers"
   toc_depth: 2
   css: style.css
   config:
@@ -7,9 +23,8 @@ bookdown::gitbook:
         <a href="https://www.nhh.no/"><img src="bilder/nhh.png" width="240"></a>
         <li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
       after: |
-          <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
-          <li><a href="https://www.nhh.no/en/employees/faculty/geir-drage-berentsen/">Geir Drage Berentsen</a></li>
-          <li><a href="https://github.com/rstudio/bookdown">
-          Publisert ved hjelp av bookdown</a></li>
+        <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
+        <li><a href="https://www.nhh.no/en/employees/faculty/geir-drage-berentsen/">Geir Drage Berentsen</a></li>
+        <li><a href="https://github.com/rstudio/bookdown">Publisert ved hjelp av bookdown</a></li>
   includes:
     in_header: header.html

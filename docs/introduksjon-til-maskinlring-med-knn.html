@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.5 Autokorrelasjon | MET4 - Empiriske Metoder - høst 2025</title>
+  <title>6.2 Introduksjon til maskinlæring med kNN | MET4 - Empiriske Metoder - høst 2025</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.5 Autokorrelasjon | MET4 - Empiriske Metoder - høst 2025" />
+  <meta property="og:title" content="6.2 Introduksjon til maskinlæring med kNN | MET4 - Empiriske Metoder - høst 2025" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.5 Autokorrelasjon | MET4 - Empiriske Metoder - høst 2025" />
+  <meta name="twitter:title" content="6.2 Introduksjon til maskinlæring med kNN | MET4 - Empiriske Metoder - høst 2025" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="stasjonaritet.html"/>
-<link rel="next" href="ma.html"/>
+<link rel="prev" href="logistisk-regresjon.html"/>
+<link rel="next" href="paneldata.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -257,83 +257,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="autokorrelasjon" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Autokorrelasjon<a href="autokorrelasjon.html#autokorrelasjon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<iframe src="https://player.vimeo.com/video/467120768" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+<div id="introduksjon-til-maskinlring-med-knn" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Introduksjon til maskinlæring med kNN<a href="introduksjon-til-maskinlring-med-knn.html#introduksjon-til-maskinlring-med-knn" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="videoforelesninger-10" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Videoforelesninger<a href="introduksjon-til-maskinlring-med-knn.html#videoforelesninger-10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div style="padding:56.25% 0 0 0;position:relative;">
+<iframe src="https://vimeo.com/showcase/7802427/embed" allowfullscreen frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;">
 </iframe>
-<div id="kontrollsprsmaldiskusjonssprsmal" class="section level3 hasAnchor" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> Kontrollspørsmål/Diskusjonsspørsmål<a href="autokorrelasjon.html#kontrollsprsmaldiskusjonssprsmal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<ol style="list-style-type: decimal">
-<li>Formuler med egne ord: Hva er autokorrelasjon?</li>
-<li>Hva kan vi lære ved å se på autokorrelasjonsplottet til en tidsrekke?</li>
-<li>Kan du komme på noe vi <em>ikke</em> kan finne ut av ved å se på korrelasjoneplottet til en tidsrekke?</li>
-</ol>
 </div>
-<div id="r-ving-3" class="section level3 hasAnchor" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> R-øving<a href="autokorrelasjon.html#r-ving-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>1. Utregning av ACF</strong> I R bruker vi funsksjonen <code>acf()</code> til å lage autokorrelasjonsplott. La oss i første omgang gjenskape noen av figurene fra videoen ved hjelp av simuleringer. For eksempel kan vi laget til to tidsrekker som på forrige oppgavesett, en hvit støy og en AR(1):</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="autokorrelasjon.html#cb183-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb183-2"><a href="autokorrelasjon.html#cb183-2" tabindex="-1"></a>hvit_støy <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb183-3"><a href="autokorrelasjon.html#cb183-3" tabindex="-1"></a>ar1 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fl">0.95</span>), n)</span></code></pre></div>
-<p>Autokorrelasjonsplottene til disse to tidsrekkene kan vi få frem ved å anvende <code>acf()</code>-funksjonen på dem:</p>
-<!-- ```{r fig.subcap=c('Autokorrelasjonsplott til en simulert hvit støy prosess', 'Autokorrelasjonsplott til en simulert AR(1)-prosess'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2} -->
-<!-- acf(hvit_støy) -->
-<!-- acf(ar1) -->
-<!-- ``` -->
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="autokorrelasjon.html#cb184-1" tabindex="-1"></a><span class="fu">acf</span>(hvit_støy)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="autokorrelasjon.html#cb185-1" tabindex="-1"></a><span class="fu">acf</span>(ar1)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-148-2.png" width="672" /></p>
-<p>Vi ser igjen mønsteret fra videoen: Hvit støy består av ukorrelerte observasjoner, mens AR(1)-modellen består av observasjoner som bygger på forrige observasjon, slik at det er en viss korrelasjon, og dermed avhengighet fra dag til dag. Det ser vi igjen i autokorrelasjonsplottet som gir tydelig utslag, og der korrelasjonen går gradvis mot null med økende avstand mellom observasjonene.</p>
-<p><strong>2. ACF som sjekk av modell</strong> En sjekk vi gjerne gjør for å se om en estimert tidsrekkemodell passer dataene våre, er å se autokorrelasjonen til residualene i modellen er liten. Det betyr nemlig at modellen plukker opp den (lineære) avhengigheten i tidsrekken. For en AR(1) modell er residualene f.eks gitt ved <span class="math inline">\(\hat{u}_t = Y_t - \hat{\phi}Y_{t-1}\)</span>, men disse er tilgjengelig direkte fra modell estimeringen i R:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="autokorrelasjon.html#cb186-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb186-2"><a href="autokorrelasjon.html#cb186-2" tabindex="-1"></a>ar1_estimat <span class="ot">&lt;-</span> <span class="fu">Arima</span>(ar1, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb186-3"><a href="autokorrelasjon.html#cb186-3" tabindex="-1"></a><span class="fu">acf</span>(ar1_estimat<span class="sc">$</span>residuals)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
-<p><strong>3. Oppgave:</strong> Prøv nå å plotte autokorrelasjonsfunksjonen for for følgende tre tidsrekker, og knytt en kort kommentar til hver av dem om hva du lærer om tidsrekken ved å se på autokorrelasjonsplottet til:</p>
-<ol style="list-style-type: decimal">
-<li>Prisen på Equinor-aksjen, som vi jobbet med i det første oppgavesettet.</li>
-</ol>
-<details>
-<summary>
-Løsning
-</summary>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="autokorrelasjon.html#cb187-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb187-2"><a href="autokorrelasjon.html#cb187-2" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
-<span id="cb187-3"><a href="autokorrelasjon.html#cb187-3" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)</span>
-<span id="cb187-4"><a href="autokorrelasjon.html#cb187-4" tabindex="-1"></a><span class="fu">acf</span>(pris)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
-<p>Vi ser at det er høy positiv autokorrelasjon selv for store avstander (lag). En lav pris (historisk sett) vil være assosiert med lave priser de foregående dagene og tilsvarende for høye priser. Dette stemmer bra med teorien med at dersom markedet er effisient (ikke pensum, slapp av!) skal prisen følge en tilfeldig gang, selv om dette ikke alltid er tilfellet. Det kan altså se ut til at prisen idag er tilnærmet prisen i går pluss ny støy.</p>
-</details>
-<ol start="2" style="list-style-type: decimal">
-<li>Equinoraksjens <em>prosentvise avkastning</em> (som er tilnærmet lik <code>diff(log(pris))</code> fra dag til dag.</li>
-</ol>
-<details>
-<summary>
-Løsning
-</summary>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="autokorrelasjon.html#cb188-1" tabindex="-1"></a>pr_avkastning <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(pris))<span class="er">)</span></span>
-<span id="cb188-2"><a href="autokorrelasjon.html#cb188-2" tabindex="-1"></a><span class="fu">acf</span>(pr_avkastning)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
-<p>Her ser vi at autokorrelasjon er svært lav uansett lag. Det virker altså ikke å være noen lineær sammenheng mellom avkastningen fra en dag til den neste (og den om 2, 3, .. dagen). Dette stemmer bra med at prisen i teorien skal følge en tilfeldig gang og at det i et effisient marked ikke skal gå an å predikere avkastningen for en aksje, noe som i teorien hadde vært mulige hadde det vært en positiv autokorrelasjon.</p>
-</details>
-<ol start="3" style="list-style-type: decimal">
-<li>Tidsrekken som er igjen etter at du fjernet trend og sesong fra ølproduksjonstidsrekken i det andre oppgavesettet.</li>
-</ol>
-<details>
-<summary>
-Løsning
-</summary>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="autokorrelasjon.html#cb189-1" tabindex="-1"></a><span class="fu">library</span>(fpp2)</span>
-<span id="cb189-2"><a href="autokorrelasjon.html#cb189-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb189-3"><a href="autokorrelasjon.html#cb189-3" tabindex="-1"></a></span>
-<span id="cb189-4"><a href="autokorrelasjon.html#cb189-4" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span>
-<span id="cb189-5"><a href="autokorrelasjon.html#cb189-5" tabindex="-1"></a></span>
-<span id="cb189-6"><a href="autokorrelasjon.html#cb189-6" tabindex="-1"></a><span class="fu">acf</span>(dekomponert<span class="sc">$</span>time.series[ ,<span class="dv">3</span>], <span class="at">na.action =</span> na.pass)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
-Figuren er litt misvisende siden ett lag i figuren svarer til ett år, og siden vi har kvartalsvise observasjoner har vi 4 acf verdier per år. Det kan se ut til at det er en årlig sesongvariasjon som ikke har blitt dekomponert fullt ut av tidsrekken pga av disse toppene i acf som kommer 1,2,3. .. året.
-</details>
-<p>Til slutt: husk at også autokorrelasjonsplottene må pyntes og ordnes på hvis vi skal vise dem til andre i rapporter, innleveringer etc. Du kan stort sett bruke de samme argumetene som i vanlige plott: <code>xlab =</code>, <code>ylab =</code>, <code>main =</code> osv.</p>
+</div>
+<div id="kontrollsprsmal-5" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Kontrollspørsmål<a href="introduksjon-til-maskinlring-med-knn.html#kontrollsprsmal-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>For hvilke typer responsvariabler bruker vi KNN?</li>
+<li>Hvordan fungerer KNN teoretisk sett?</li>
+<li>Hva er den praktiske tolkningen av KNN?</li>
+<li>Hvordan påvirker valget av <span class="math inline">\(k\)</span> måten KNN fungerer på?</li>
+<li>Hvordan velger vi <span class="math inline">\(k\)</span>?</li>
+</ul>
+</div>
+<div id="teori-1" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Teori<a href="introduksjon-til-maskinlring-med-knn.html#teori-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Kanskje har du allerede hørt om maskinlæring, “data science”, prediktiv modellering, “business analytics”, etc., og kanskje har du fått med deg at disse tingene virkelig er i vinden for tiden. Som akademisk institusjon skal vi selvsagt være på vakt mot å la popularitet være en avgjørende faktor for hva vi driver med, men, som en kollega så treffende uttrykte seg: “Internett er kommet for å bli.” Det skjer utrolig mye verdiskapning når vi får tak i den verdifulle informasjonen som ligger gjemt i de store datamengdene, og næringslivet skriker etter kompetanse. NHH har som svar på dette opprettet masterprofilen “Business Analytics (BAN)” (som ironisk nok er blitt superpopulær!), og det er naturlig å gi en liten smakebit på hva det går ut på i MET4. Det herlige er at vi ikke trenger å dykke så dypt i detaljene for å få brukbar innsikt i hva som skjer.</p>
+<p>Overgangen fra logistisk regresjon er naturlig. Vi bruker det vi kan fra regresjonsanalyse til å sette opp en modell der vi <em>forklarer</em> utfallet i en dummyvariabel ved hjelp av et sett forklaringsvariable i allerede observerte data. I første omgang kan vi si at den moderne anvendelsen av logistisk regresjon (kall det gjerne en form for maskinlæring) er å bruke data til å estimere sammenhengen mellom <span class="math inline">\(X\)</span>-ene og responsvariabelen <span class="math inline">\(Y\)</span>, og så bruke denne sammengengen til å predikere <span class="math inline">\(Y\)</span> for nye <span class="math inline">\(X\)</span>.</p>
+<p>Artikkelen <a href="https://projecteuclid.org/euclid.ss/1294167961"><em>To explain or to predict</em> av Galit Shmueli</a> forklarer distinksjonen mellom det å forklare og det å predikere godt, og skal være noenlunde lesbar for en interessert student.</p>
+<p>Eksempelet fra logistisk regresjon er et godt eksempel på en anvendelse: Vi predikerer sannsynligheten for at kunder vil misligholde gjelden i fremtiden, basert på karakteristika vi kan observere nå. Slike sannsynligheter kan vi mate inn i en strategisk analyse for å bestemme oss hvem som skal få innvilget nye lån, men på en systematisk måte der vi sørger for at vi oppnår nødvendige profittmarginer og håndterer risiko på en fornuftig måte, og kan ta hensyn til f.eks. etiske avveininger. Selv om vi ut fra eget behov for profitt og innenfor en akseptabel risikoprofil kan tilby nye lån til kunder med 15% sannsynlighet for å havne i betalingsproblemer, bør vi likevel gjøre det? <em>Poenget her er at du ikke kan gjøre slike vurderinger før du faktisk kan estimere sannsynligheten for mislighold!</em> Statistikken er bunnplanken, og blir mer og mer relevant etter hvert som vi innser at svarene ligger i å analysere data.</p>
+<p>Vi går videre til et annet eksempel. En teleoperatør med abonnementskunder ser at det er en systematikk i hvilke kunder som sier opp avtalene sine. Ved å se på spredningsplottet under (rød prikk = kunde som har sagt opp abonnementet), ser det ut til at <em>nye</em> kunder med <em>dyre</em> abonnementer har en tendens til å forlate oss. Kan vi sette opp en klassifiseringsregel der som vi kan anvende på <em>alle</em> kundene våre, som automatisk plukker ut kunder som har f.eks. mer enn 50% sannsynlighet for å si opp? Denne listen kan vi så sende videre til markedsavdelingen, som kan sette i verk forebyggende tiltak (f.eks. lokke de inn i bindende avtaler…?), og vi kan oppnå en <em>umiddelbar</em> gevinst.</p>
+<div class="figure"><span style="display:block;" id="fig:churn"></span>
+<img src="met4_files/figure-html/churn-1.png" alt="Røde prikker er kunder som har sagt opp abbonnementet sitt, svarte prikker er kunder som ikke har gjort det. Finn den optimale avveiningen mellom systematikk og tilfeldig variasjon." width="672" />
+<p class="caption">
+Figur 6.1: Røde prikker er kunder som har sagt opp abbonnementet sitt, svarte prikker er kunder som ikke har gjort det. Finn den optimale avveiningen mellom systematikk og tilfeldig variasjon.
+</p>
+</div>
+<p>Vi kan angripe dette datasettet på to måter:</p>
+<ul>
+<li>Vi estimerer sannsynligheter ved hjelp av logistisk regresjon. Den stramme strukturen gjør at klassifiseringsgrensen alltid utgjør en rett linje i koordinatsystemet.</li>
+<li>Vi ser også på en annen klassifiseringsregel: kNN (<em>k</em> nearest neighbours), som ikke bruker sannsynlighetsmodeller eller regresjonsparametre til å klassifisere, men heller er en enkel regel basert på følgende prinsipp:</li>
+</ul>
+<blockquote>
+<p>Hvis et flertall av kundene som er mest lik meg har sagt opp, er det mer enn 50% sannsynlig at også jeg vil si opp.</p>
+</blockquote>
+<p>Her bruker vi litt tid på detaljer, men det handler i grunn bare om å lage en presis definisjom om hvem vi definerer som de kundene som ligner mest på meg, og svaret er de <span class="math inline">\(k\)</span> kundene som ligger nærmest meg i koordinatsystemet.</p>
+<p>På samme måte som for logistisk regresjon kan vi lese mer om kNN i <a href="https://www.statlearning.com/">ISLR</a>. På s. 39–42 står det hvordan teknikken fungerer, og i forelesningsnotatene og det medfølgende scriptet ser vi hvordan det kan gjøres i praksis.</p>
+<p>Når vi forstår hvordan kNN fungerer, er neste steg å reflektere litt over hvordan vi har tenkt å velge parameteren <span class="math inline">\(k\)</span> i praksis. Vi så i forelesningen at:</p>
+<ul>
+<li><p>Vi kan ikke velge <span class="math inline">\(k\)</span> for liten. Da ser vi for mye på støy og tilfeldigheter. Vi kan enkelt tenke oss at jeg er en lavrisikokunde, selv om de to kundene som er nærmest meg i koordinatsystemet sa opp av en eller annen grunn. Hvis vi velger <span class="math inline">\(k = 3\)</span>, vil jeg likevel bli klassifisert som høyrisiko og bli bombardert med unødvendig reklame (som i seg selv kan gjøre stor skade!) Hadde vi heller valgt <span class="math inline">\(k = 50\)</span> eller <span class="math inline">\(k=500\)</span> ville disse to raringene ikke bli tatt hensyn til, men blitt dominert av alle andre i området som faktisk ikke har sagt opp. Altså: <strong>vi kan ikke henge oss for mye opp i detaljene og den tilfeldige variasjonen!</strong></p></li>
+<li><p>Vi kan heller ikke velge <span class="math inline">\(k\)</span> for stor, for det vil til slutt nærme seg en situasjon det det bare blir en avstemning mellom alle kundene i datasettet. Det er flest kunder som ikke sier opp avtalen, så da blir alle kunder klassifisert som lavrisiko. Altså: <strong>vi vil heller ikke ignorere variasjonen i datamaterialet!</strong> Hele poenget er jo å lære noe nyttig fra hvordan prikkene fordeler seg i koordinatsystemet.</p></li>
+</ul>
+<p>I Figur <a href="introduksjon-til-maskinlring-med-knn.html#fig:churn">6.1</a> kan du prøve følgende: En liten <span class="math inline">\(k\)</span> svarer til å se nøye på figuren (putt hodet ditt helt inntil skjermen!), og virkelig legge merke til hvor hver eneste en av de røde prikkene befinner seg. Å velge en større <span class="math inline">\(k\)</span> svarer til å trekke lenger bort, og kanskje begynne å myse litt, slik at du får øye på systematikken, nemlig at det røde dominerer nede til høyre i figuren. Til slutt står du i rommet ved siden av med lukkede øyne, og da ser du plutselig ingenting! Et eller annet sted i mellom der ønsker vi å være.</p>
+<p><em>Kryssvalidering</em> er en systematisk og generell måte å velge <em>k</em> for KNN (og tilsvarende parametre i andre maskinlæringsmetoder), som litt lenger enn å bare dele datasettet inn i trenings- og testdata <a href="https://www.statlearning.com/">ISLR</a> behandler temaet på s. 181–186, men det er forholdsvis teknisk og skrevet i lys av noen metoder som vi ikke har sett på i MET4.</p>
 </div>
 </div>
             </section>
@@ -341,8 +313,8 @@ Figuren er litt misvisende siden ett lag i figuren svarer til ett år, og siden 
           </div>
         </div>
       </div>
-<a href="stasjonaritet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ma.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="logistisk-regresjon.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="paneldata.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

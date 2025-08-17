@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.5 Autokorrelasjon | MET4 - Empiriske Metoder - høst 2025</title>
+  <title>8.6 Seminar 6 - Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - høst 2025</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.5 Autokorrelasjon | MET4 - Empiriske Metoder - høst 2025" />
+  <meta property="og:title" content="8.6 Seminar 6 - Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - høst 2025" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.5 Autokorrelasjon | MET4 - Empiriske Metoder - høst 2025" />
+  <meta name="twitter:title" content="8.6 Seminar 6 - Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - høst 2025" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="stasjonaritet.html"/>
-<link rel="next" href="ma.html"/>
+<link rel="prev" href="seminar-5---tidsrekker.html"/>
+<link rel="next" href="eksamensoppgaver.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -257,92 +257,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="autokorrelasjon" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Autokorrelasjon<a href="autokorrelasjon.html#autokorrelasjon" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<iframe src="https://player.vimeo.com/video/467120768" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-</iframe>
-<div id="kontrollsprsmaldiskusjonssprsmal" class="section level3 hasAnchor" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> Kontrollspørsmål/Diskusjonsspørsmål<a href="autokorrelasjon.html#kontrollsprsmaldiskusjonssprsmal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="seminar-6---avansert-regresjon-og-maskinlring" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Seminar 6 - Avansert regresjon og maskinlæring<a href="seminar-6---avansert-regresjon-og-maskinlring.html#seminar-6---avansert-regresjon-og-maskinlring" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li>Formuler med egne ord: Hva er autokorrelasjon?</li>
-<li>Hva kan vi lære ved å se på autokorrelasjonsplottet til en tidsrekke?</li>
-<li>Kan du komme på noe vi <em>ikke</em> kan finne ut av ved å se på korrelasjoneplottet til en tidsrekke?</li>
+<li><p>Nevn minst to grunner til at en ønsker å utføre en vanlig regresjonsanalyse. Reflekter så over hva hovedgrunnen er med å lage henholdsvis en KNN-modell og en regresjonsmodell.</p></li>
+<li><p>Diskuter i hvilken grad det er rimelig med komponenten <span class="math inline">\(v_t\)</span> i en paneldatamodell</p>
+<p><span class="math display">\[y_{it} = \beta_0 + \beta_1 x_{it} + ...  + v_t + \alpha_i + \epsilon_{it} \]</span></p></li>
 </ol>
-</div>
-<div id="r-ving-3" class="section level3 hasAnchor" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> R-øving<a href="autokorrelasjon.html#r-ving-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>1. Utregning av ACF</strong> I R bruker vi funsksjonen <code>acf()</code> til å lage autokorrelasjonsplott. La oss i første omgang gjenskape noen av figurene fra videoen ved hjelp av simuleringer. For eksempel kan vi laget til to tidsrekker som på forrige oppgavesett, en hvit støy og en AR(1):</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="autokorrelasjon.html#cb183-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">50</span></span>
-<span id="cb183-2"><a href="autokorrelasjon.html#cb183-2" tabindex="-1"></a>hvit_støy <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb183-3"><a href="autokorrelasjon.html#cb183-3" tabindex="-1"></a>ar1 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fl">0.95</span>), n)</span></code></pre></div>
-<p>Autokorrelasjonsplottene til disse to tidsrekkene kan vi få frem ved å anvende <code>acf()</code>-funksjonen på dem:</p>
-<!-- ```{r fig.subcap=c('Autokorrelasjonsplott til en simulert hvit støy prosess', 'Autokorrelasjonsplott til en simulert AR(1)-prosess'), out.width='.49\\linewidth', fig.asp=1, fig.ncol = 2} -->
-<!-- acf(hvit_støy) -->
-<!-- acf(ar1) -->
-<!-- ``` -->
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="autokorrelasjon.html#cb184-1" tabindex="-1"></a><span class="fu">acf</span>(hvit_støy)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-148-1.png" width="672" /></p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="autokorrelasjon.html#cb185-1" tabindex="-1"></a><span class="fu">acf</span>(ar1)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-148-2.png" width="672" /></p>
-<p>Vi ser igjen mønsteret fra videoen: Hvit støy består av ukorrelerte observasjoner, mens AR(1)-modellen består av observasjoner som bygger på forrige observasjon, slik at det er en viss korrelasjon, og dermed avhengighet fra dag til dag. Det ser vi igjen i autokorrelasjonsplottet som gir tydelig utslag, og der korrelasjonen går gradvis mot null med økende avstand mellom observasjonene.</p>
-<p><strong>2. ACF som sjekk av modell</strong> En sjekk vi gjerne gjør for å se om en estimert tidsrekkemodell passer dataene våre, er å se autokorrelasjonen til residualene i modellen er liten. Det betyr nemlig at modellen plukker opp den (lineære) avhengigheten i tidsrekken. For en AR(1) modell er residualene f.eks gitt ved <span class="math inline">\(\hat{u}_t = Y_t - \hat{\phi}Y_{t-1}\)</span>, men disse er tilgjengelig direkte fra modell estimeringen i R:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="autokorrelasjon.html#cb186-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb186-2"><a href="autokorrelasjon.html#cb186-2" tabindex="-1"></a>ar1_estimat <span class="ot">&lt;-</span> <span class="fu">Arima</span>(ar1, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb186-3"><a href="autokorrelasjon.html#cb186-3" tabindex="-1"></a><span class="fu">acf</span>(ar1_estimat<span class="sc">$</span>residuals)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
-<p><strong>3. Oppgave:</strong> Prøv nå å plotte autokorrelasjonsfunksjonen for for følgende tre tidsrekker, og knytt en kort kommentar til hver av dem om hva du lærer om tidsrekken ved å se på autokorrelasjonsplottet til:</p>
-<ol style="list-style-type: decimal">
-<li>Prisen på Equinor-aksjen, som vi jobbet med i det første oppgavesettet.</li>
+<p>dersom en skal analysere paneldata av følgende responsvariabler <span class="math inline">\(y_{it}\)</span>:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Antall konkurser hver måned i ulike land.</li>
+<li>Timentlig energi-etterspørsel i norske kommuner.</li>
+<li>Lønn per år for forskjellige individer i et land.</li>
+<li>Kan du komme på en tidsinvariant forklaringsvariabel som er relevant for responsvariablene over? Gjør det noe om vi “glemmer” disse?</li>
 </ol>
-<details>
-<summary>
-Løsning
-</summary>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="autokorrelasjon.html#cb187-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb187-2"><a href="autokorrelasjon.html#cb187-2" tabindex="-1"></a>equinor <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;equinor.xlsx&quot;</span>)</span>
-<span id="cb187-3"><a href="autokorrelasjon.html#cb187-3" tabindex="-1"></a>pris <span class="ot">&lt;-</span> <span class="fu">rev</span>(equinor<span class="sc">$</span>Siste)</span>
-<span id="cb187-4"><a href="autokorrelasjon.html#cb187-4" tabindex="-1"></a><span class="fu">acf</span>(pris)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
-<p>Vi ser at det er høy positiv autokorrelasjon selv for store avstander (lag). En lav pris (historisk sett) vil være assosiert med lave priser de foregående dagene og tilsvarende for høye priser. Dette stemmer bra med teorien med at dersom markedet er effisient (ikke pensum, slapp av!) skal prisen følge en tilfeldig gang, selv om dette ikke alltid er tilfellet. Det kan altså se ut til at prisen idag er tilnærmet prisen i går pluss ny støy.</p>
-</details>
-<ol start="2" style="list-style-type: decimal">
-<li>Equinoraksjens <em>prosentvise avkastning</em> (som er tilnærmet lik <code>diff(log(pris))</code> fra dag til dag.</li>
-</ol>
-<details>
-<summary>
-Løsning
-</summary>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="autokorrelasjon.html#cb188-1" tabindex="-1"></a>pr_avkastning <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(pris))<span class="er">)</span></span>
-<span id="cb188-2"><a href="autokorrelasjon.html#cb188-2" tabindex="-1"></a><span class="fu">acf</span>(pr_avkastning)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
-<p>Her ser vi at autokorrelasjon er svært lav uansett lag. Det virker altså ikke å være noen lineær sammenheng mellom avkastningen fra en dag til den neste (og den om 2, 3, .. dagen). Dette stemmer bra med at prisen i teorien skal følge en tilfeldig gang og at det i et effisient marked ikke skal gå an å predikere avkastningen for en aksje, noe som i teorien hadde vært mulige hadde det vært en positiv autokorrelasjon.</p>
-</details>
 <ol start="3" style="list-style-type: decimal">
-<li>Tidsrekken som er igjen etter at du fjernet trend og sesong fra ølproduksjonstidsrekken i det andre oppgavesettet.</li>
+<li><p>Tegn et sett med observasjoner bestående av en dummy-variabel <span class="math inline">\(Y\)</span> og en kontinuerlig variabel <span class="math inline">\(X\)</span> i et xy-koordinatsystemet
+hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span> med KNN-metoden enn med logistisk-regresjon.</p></li>
+<li><p>Prøv deg på eksamen H21 oppgave 3</p></li>
 </ol>
-<details>
-<summary>
-Løsning
-</summary>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="autokorrelasjon.html#cb189-1" tabindex="-1"></a><span class="fu">library</span>(fpp2)</span>
-<span id="cb189-2"><a href="autokorrelasjon.html#cb189-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb189-3"><a href="autokorrelasjon.html#cb189-3" tabindex="-1"></a></span>
-<span id="cb189-4"><a href="autokorrelasjon.html#cb189-4" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span>
-<span id="cb189-5"><a href="autokorrelasjon.html#cb189-5" tabindex="-1"></a></span>
-<span id="cb189-6"><a href="autokorrelasjon.html#cb189-6" tabindex="-1"></a><span class="fu">acf</span>(dekomponert<span class="sc">$</span>time.series[ ,<span class="dv">3</span>], <span class="at">na.action =</span> na.pass)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
-Figuren er litt misvisende siden ett lag i figuren svarer til ett år, og siden vi har kvartalsvise observasjoner har vi 4 acf verdier per år. Det kan se ut til at det er en årlig sesongvariasjon som ikke har blitt dekomponert fullt ut av tidsrekken pga av disse toppene i acf som kommer 1,2,3. .. året.
-</details>
-<p>Til slutt: husk at også autokorrelasjonsplottene må pyntes og ordnes på hvis vi skal vise dem til andre i rapporter, innleveringer etc. Du kan stort sett bruke de samme argumetene som i vanlige plott: <code>xlab =</code>, <code>ylab =</code>, <code>main =</code> osv.</p>
+<p>Oppgaveformuleringene finner du i seksjon <a href="skoleeksamen.html#skoleeksamen">9.1</a>.</p>
+
 </div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="stasjonaritet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ma.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="seminar-5---tidsrekker.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="eksamensoppgaver.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
