@@ -155,4 +155,4 @@ seminar-5---tidsrekker
 seminar-6---avansert-regresjon-og-maskinlring
 eksamensoppgaver
 skoleeksamen
-tidligere-eksamensoppgaver-hjemmeeksamen
+tidligere-hjemmeeksamen

@@ -75,7 +75,7 @@ sigma    <- 65                      # Henter fra teksten
 Z <- (gj.snitt - mu0)/(sigma/sqrt(n))   # Verdien av testobservatoren
 Z                                       # Skriver ut testobservatoren
 ```
-Vi ser at testobservatoren har samme verdi som i Excel-gjennomgangen. Kritisk verdi finner vi fra tabell (ensidig, 5%), eller rett fra R:
+Vi ser at testobservatoren har samme verdi som i Excel-gjennomgangen. Kritisk verdi finner vi rett fra R:
 
 ```{r}
 qnorm(0.95)
@@ -120,7 +120,7 @@ s        <- sd(data$Newspaper)
 (gj.snitt - mu0)/(s/sqrt(n))
 ```
 
-Signifikansnivået er satt til $\alpha = 1\%$ i eksempelet. Kritisk verdi finner vi i $t$-tabell eller rett fra R:
+Signifikansnivået er satt til $\alpha = 1\%$ i eksempelet. Kritisk verdi finner vi rett fra R:
 
 ```{r}
 qt(0.99, df = n-1)
@@ -286,7 +286,6 @@ var.test(bottle$`Machine 1`, bottle$`Machine 2`,
          alternative = "greater")
 ```
 
-Også her kan du sammenligne med tallene som fremgår av bokens gjennomgang, og sørg for at du får til dette på egen hånd, *spesielt* det å finne frem i tabellen, for det *må* du kunne på eksamen.
 
 Til slutt har vi test for to andeler i kapittel **13-5**. De setter opp to varianter, en der vi sjekker om differansen mellom to andeler er *like* ($p_1 - p_2 = 0$), som er det vi har dett på i forelesning, men det går selvsagt like fint å sette opp en nullhypotese der differansen mellom andelene er lik et bestemt tall $D$. 
 
@@ -362,7 +361,7 @@ Nå har det seg slik at vi *har* observert $n$ utfall fra fordelingen, og utfall
 Vi kom frem til en fornuftig testobservator:
 
 $$\chi^2 = \sum_{i=1}^k \frac{(f_i - e_i)^2}{e_i},$$
-som er $\chi^2$-fordelt med $k-1$ frihetsgrader dersom nullhypotesen er sann. Det betyr at vi kan gå inn i $\chi^2$-tabellen for å sjekke om verdien av testobservatoren er for stor (dvs, $f$´ene er for forskjellige fra $e$`ene) at vi ikke lenger tror at $(p_1, \ldots, p_k)$ er den sanne sannsynlighetsfordelingen.
+som er $\chi^2$-fordelt med $k-1$ frihetsgrader dersom nullhypotesen er sann. Det betyr at vi kan sjekke om verdien av testobservatoren så stor (dvs, $f$´ene er for forskjellige fra $e$`ene) at vi ikke lenger tror at $(p_1, \ldots, p_k)$ er den sanne sannsynlighetsfordelingen.
 
 Vi gjorde eksempelet i dette delkapitlet i forelesningen, og brukte følgende kommandoer:
 
@@ -452,7 +451,7 @@ Introduksjon til hypotesetesting
 >
 >$$Z = \frac{\overline{x} - \mu}{\sigma/\sqrt{n}} = \frac{150 - 150}{10/\sqrt{100}}=0$$
 >
-> p-verdi$=2P(Z > 0) = 2\times0.5=1$. Vi kan ikke forkaste nullhypotesen $H_0: \mu = 0$. Faktisk er det ekstremt sannsynlig (p-verdi = 1) å observere det vi har observert dersom nullhypotesen er sann. 
+> p-verdi$=2P(Z > 0) = 2\times0.5=1$. Vi kan ikke forkaste nullhypotesen $H_0: \mu = 150$. Faktisk er det ekstremt sannsynlig (p-verdi = 1) å observere det vi har observert dersom nullhypotesen er sann. 
 
 </details>
 
@@ -999,7 +998,7 @@ L <- qchisq(0.025, df = n - 1)
 U <- qchisq(0.975, df = n - 1)
 ```
 
-Vi må så sammenligne verdien av testobservatoren `T` med de kritiske verdiene `L` og `U`. Legg merke til at vi har brukt en funksjon i R (`qchisq()`) for å finne de aktuelle kvantilene i kjikvadratfordelingen. Alternativt kan vi slå opp i tabell.
+Vi må så sammenligne verdien av testobservatoren `T` med de kritiske verdiene `L` og `U`. Legg merke til at vi har brukt en funksjon i R (`qchisq()`) for å finne de aktuelle kvantilene i kjikvadratfordelingen. 
 
 For to-utvalgs varianstest kan vi bruke funksjonen `var.test()`:
 
@@ -1105,7 +1104,7 @@ og vi ser at vi får en soleklar forkastning. Dette er også logisk gitt hva vi 
 
 ### Kritiske verdier i R {-}
 
-Som vi har sett over baserer tester i R seg stort sett på en eller annen datainput. Som output får du både testobservator og p-verdi. Hvis du allikevel av en eller annen grunn (f.eks. på en hjemmeeksamen) trenger å finne en kritisk verdi i en fordeling, så kan det være nyttig å vite hvordan man gjør dette i R i stedet for å slå opp i en eller annen tabell i en bok.
+Som vi har sett over baserer tester i R seg stort sett på en eller annen datainput. Som output får du både testobservator og p-verdi. Hvis du allikevel av en eller annen grunn (f.eks. på eksamen) trenger å finne en kritisk verdi i en fordeling, så kan det være nyttig å vite hvordan man gjør dette i R.
 
 De kritiske verdiene finner vi ved å bruke kvantilfunksjonene til den respektive fordelingen. Disse funksjonene har alltid et argument `p` og har som output det tallet som har sannsynlighetsmasse `p` til venstre for seg. Du må derfor velge `p` ut fra signifikansnivå og om det er en ensidig/tosidig test.
 

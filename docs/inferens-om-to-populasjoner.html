@@ -232,8 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="eksamensoppgaver.html"><a href="eksamensoppgaver.html"><i class="fa fa-check"></i><b>9</b> Eksamensoppgaver</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
-<li class="chapter" data-level="9.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere skoleeksamener</a></li>
+<li class="chapter" data-level="9.2" data-path="tidligere-hjemmeeksamen.html"><a href="tidligere-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere hjemmeeksamen</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -360,7 +360,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ## ratio of variances 
 ##           1.398807</code></pre>
-<p>Også her kan du sammenligne med tallene som fremgår av bokens gjennomgang, og sørg for at du får til dette på egen hånd, <em>spesielt</em> det å finne frem i tabellen, for det <em>må</em> du kunne på eksamen.</p>
 <p>Til slutt har vi test for to andeler i kapittel <strong>13-5</strong>. De setter opp to varianter, en der vi sjekker om differansen mellom to andeler er <em>like</em> (<span class="math inline">\(p_1 - p_2 = 0\)</span>), som er det vi har dett på i forelesning, men det går selvsagt like fint å sette opp en nullhypotese der differansen mellom andelene er lik et bestemt tall <span class="math inline">\(D\)</span>.</p>
 <p>Det finnes ingen ferdig prosedyre for denne testen i R, men vi kan sette den opp likevel ved å regne ut testobservatoren fra datasettet. Vi ser på eksempel 13.9, der vi får oppgitt salget av en del forskjellige varenummer, og vi ønsker å finne ut om andelen «9077» er større i Supermarked 1 enn i Supermarked 2:</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="inferens-om-to-populasjoner.html#cb57-1" tabindex="-1"></a><span class="co"># Laster inn data. Her er det to utvalg med forskjellig antall observasjoner, så jeg </span></span>

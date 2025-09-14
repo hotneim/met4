@@ -232,8 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="eksamensoppgaver.html"><a href="eksamensoppgaver.html"><i class="fa fa-check"></i><b>9</b> Eksamensoppgaver</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
-<li class="chapter" data-level="9.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere skoleeksamener</a></li>
+<li class="chapter" data-level="9.2" data-path="tidligere-hjemmeeksamen.html"><a href="tidligere-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere hjemmeeksamen</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb78-9"><a href="relevante-r-testing.html#cb78-9" tabindex="-1"></a><span class="co"># Kritiske verdier</span></span>
 <span id="cb78-10"><a href="relevante-r-testing.html#cb78-10" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.025</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
 <span id="cb78-11"><a href="relevante-r-testing.html#cb78-11" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.975</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
-<p>Vi må så sammenligne verdien av testobservatoren <code>T</code> med de kritiske verdiene <code>L</code> og <code>U</code>. Legg merke til at vi har brukt en funksjon i R (<code>qchisq()</code>) for å finne de aktuelle kvantilene i kjikvadratfordelingen. Alternativt kan vi slå opp i tabell.</p>
+<p>Vi må så sammenligne verdien av testobservatoren <code>T</code> med de kritiske verdiene <code>L</code> og <code>U</code>. Legg merke til at vi har brukt en funksjon i R (<code>qchisq()</code>) for å finne de aktuelle kvantilene i kjikvadratfordelingen.</p>
 <p>For to-utvalgs varianstest kan vi bruke funksjonen <code>var.test()</code>:</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="relevante-r-testing.html#cb79-1" tabindex="-1"></a><span class="fu">var.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2)</span></code></pre></div>
 <p>Vi kan også her gjøre ensidige tester ved å sette <code>alternative =</code>-argumentet til enten <code>"less"</code> eller <code>"greater"</code>.</p>
@@ -414,7 +414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="kritiske-verdier-i-r" class="section level3 unnumbered hasAnchor">
 <h3>Kritiske verdier i R<a href="relevante-r-testing.html#kritiske-verdier-i-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Som vi har sett over baserer tester i R seg stort sett på en eller annen datainput. Som output får du både testobservator og p-verdi. Hvis du allikevel av en eller annen grunn (f.eks. på en hjemmeeksamen) trenger å finne en kritisk verdi i en fordeling, så kan det være nyttig å vite hvordan man gjør dette i R i stedet for å slå opp i en eller annen tabell i en bok.</p>
+<p>Som vi har sett over baserer tester i R seg stort sett på en eller annen datainput. Som output får du både testobservator og p-verdi. Hvis du allikevel av en eller annen grunn (f.eks. på eksamen) trenger å finne en kritisk verdi i en fordeling, så kan det være nyttig å vite hvordan man gjør dette i R.</p>
 <p>De kritiske verdiene finner vi ved å bruke kvantilfunksjonene til den respektive fordelingen. Disse funksjonene har alltid et argument <code>p</code> og har som output det tallet som har sannsynlighetsmasse <code>p</code> til venstre for seg. Du må derfor velge <code>p</code> ut fra signifikansnivå og om det er en ensidig/tosidig test.</p>
 <div id="kritiske-verdier-i-t-fordelingen" class="section level4 unnumbered hasAnchor">
 <h4>Kritiske verdier i T-fordelingen<a href="relevante-r-testing.html#kritiske-verdier-i-t-fordelingen" class="anchor-section" aria-label="Anchor link to header"></a></h4>

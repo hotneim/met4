@@ -4,7 +4,7 @@
 
 Her finner du tidligere eksamensoppgaver samt diverse (og lett redigert) korrespondanse mellom studenter og studentassistenter som kan være nyttig for senere årganger av studenter.
 
-## Tidligere eksamensoppgaver (skoleeksamen) {#skoleeksamen}
+## Tidligere skoleeksamener {#skoleeksamen}
 
 I tabellen under finner du en lang rekke eksamenssett som er gitt tidligere i MET4. Vi har lagt til en kolonne med oppgaver som åpenbart ligger utenfor pensum i dag. Utover det er selvsagt oppgavene relevante i større eller mindre grad for kurset i dag, uten at vi har mulighet til å gå nærmere inn på en slik detaljert rangering.
 
@@ -225,7 +225,7 @@ For residualserien er den litt kort til å konkludere bare fra plottet om varian
 Forventningen er konstant, og lik 0, om det er ca like mange punkter over som under 0-linjen over tid. Det ser ut til å være tilfelle her.
 </details>
 
-## Tidligere eksamensoppgaver (hjemmeeksamen)
+## Tidligere hjemmeeksamen
 
 Her finner du oppgavene som er gitt ved hjemmeeksamen etter at eksamensformen ble lagt om i 2017. Merk at besvarelsen skal leveres som en sammenhengende rapport, og at løsningsforslagene under ikke oppfyller det kravet, men heller er en skisse av kodesnutter som *kan* brukes til å besvare spørsmålene. For vår 2018 har vi et sett med eksempelbesvarelser på ulike karakternivåer, med sensors kommentarer.
 

@@ -232,8 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="eksamensoppgaver.html"><a href="eksamensoppgaver.html"><i class="fa fa-check"></i><b>9</b> Eksamensoppgaver</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
-<li class="chapter" data-level="9.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere skoleeksamener</a></li>
+<li class="chapter" data-level="9.2" data-path="tidligere-hjemmeeksamen.html"><a href="tidligere-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere hjemmeeksamen</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -277,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Nå har det seg slik at vi <em>har</em> observert <span class="math inline">\(n\)</span> utfall fra fordelingen, og utfall <span class="math inline">\(u_i\)</span> har skjedd <span class="math inline">\(f_i\)</span> ganger. <strong>Vi lurer da på om de observerte frekvensene (<span class="math inline">\(f_i\)</span>) er så forskjellige fra de <em>forventede</em> frekvensene (<span class="math inline">\(e_i\)</span>) at vi ikke lenger tror at <span class="math inline">\(p_1, \ldots,p_k\)</span> er den sanne sannsynlighetsfordelingen.</strong></p>
 <p>Vi kom frem til en fornuftig testobservator:</p>
 <p><span class="math display">\[\chi^2 = \sum_{i=1}^k \frac{(f_i - e_i)^2}{e_i},\]</span>
-som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math inline">\(k-1\)</span> frihetsgrader dersom nullhypotesen er sann. Det betyr at vi kan gå inn i <span class="math inline">\(\chi^2\)</span>-tabellen for å sjekke om verdien av testobservatoren er for stor (dvs, <span class="math inline">\(f\)</span>´ene er for forskjellige fra <span class="math inline">\(e\)</span>`ene) at vi ikke lenger tror at <span class="math inline">\((p_1, \ldots, p_k)\)</span> er den sanne sannsynlighetsfordelingen.</p>
+som er <span class="math inline">\(\chi^2\)</span>-fordelt med <span class="math inline">\(k-1\)</span> frihetsgrader dersom nullhypotesen er sann. Det betyr at vi kan sjekke om verdien av testobservatoren så stor (dvs, <span class="math inline">\(f\)</span>´ene er for forskjellige fra <span class="math inline">\(e\)</span>`ene) at vi ikke lenger tror at <span class="math inline">\((p_1, \ldots, p_k)\)</span> er den sanne sannsynlighetsfordelingen.</p>
 <p>Vi gjorde eksempelet i dette delkapitlet i forelesningen, og brukte følgende kommandoer:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="kjikvadrattester.html#cb59-1" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.45</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>)  <span class="co"># Fordeling under H0</span></span>
 <span id="cb59-2"><a href="kjikvadrattester.html#cb59-2" tabindex="-1"></a>f  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">102</span>, <span class="dv">82</span>, <span class="dv">16</span>)       <span class="co"># Observerte frekvenser</span></span>

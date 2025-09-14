@@ -564,9 +564,9 @@ Du må kunne lese inn datasettet, estimere en logistisk regresjonsmodell, og skr
 ```{r, eval = FALSE}
 df <- readxl::read_excel("datasett/data-reg.xlsx")
 
-model1 <- glm(x3 ~ x1 + x2, data = df,
+model_logistisk <- glm(x3 ~ x1 + x2, data = df,
               family = "binomial")
-summary(model1)
+summary(model_logistisk)
 ```
 
 Dersom du skal bruke logistisk regresjon til å predikere verdien av den binære responsvariabelen for nye "individer" må du først være i stand til å dele opp datasettet i et testsett og et treningssett. Det holder å kunne gjøre en enkel splitt basert på rekkenummer. Her utgjør treningsdatasettet de første 70 observasjonene og testdatasettet resten:
@@ -576,7 +576,15 @@ treningssett     <- df[1:70, ]
 testsett         <- df[71:nrow(df), ]
 ```
 
-Du vil da estimere modellen ved å bruke treningsdatasettet, og du kan teste prediksjonsevnen ved å predikere utfallet i observasjonene i testdatasettet ved p bruke `predict()`:
+Du vil da estimere modellen ved å bruke treningsdatasettet:
+
+```{r, eval = FALSE}
+
+model1 <- glm(x3 ~ x1 + x2, data = treningssett,
+              family = "binomial")
+```
+
+og du kan teste prediksjonsevnen ved å predikere utfallet i observasjonene i testdatasettet ved p bruke `predict()`:
 
 ```{r, eval = FALSE}
 predikert <- predict(model1, newdata = testsett, type = "response")

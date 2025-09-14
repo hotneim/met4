@@ -232,8 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="eksamensoppgaver.html"><a href="eksamensoppgaver.html"><i class="fa fa-check"></i><b>9</b> Eksamensoppgaver</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere eksamensoppgaver (skoleeksamen)</a></li>
-<li class="chapter" data-level="9.2" data-path="tidligere-eksamensoppgaver-hjemmeeksamen.html"><a href="tidligere-eksamensoppgaver-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere eksamensoppgaver (hjemmeeksamen)</a></li>
+<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere skoleeksamener</a></li>
+<li class="chapter" data-level="9.2" data-path="tidligere-hjemmeeksamen.html"><a href="tidligere-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere hjemmeeksamen</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
@@ -293,7 +293,7 @@ der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 <span id="cb34-6"><a href="enpop.html#cb34-6" tabindex="-1"></a>Z <span class="ot">&lt;-</span> (gj.snitt <span class="sc">-</span> mu0)<span class="sc">/</span>(sigma<span class="sc">/</span><span class="fu">sqrt</span>(n))   <span class="co"># Verdien av testobservatoren</span></span>
 <span id="cb34-7"><a href="enpop.html#cb34-7" tabindex="-1"></a>Z                                       <span class="co"># Skriver ut testobservatoren</span></span></code></pre></div>
 <pre><code>## [1] 2.460462</code></pre>
-<p>Vi ser at testobservatoren har samme verdi som i Excel-gjennomgangen. Kritisk verdi finner vi fra tabell (ensidig, 5%), eller rett fra R:</p>
+<p>Vi ser at testobservatoren har samme verdi som i Excel-gjennomgangen. Kritisk verdi finner vi rett fra R:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="enpop.html#cb36-1" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code></pre></div>
 <pre><code>## [1] 1.644854</code></pre>
 <p>Uansett; vi forkaster <span class="math inline">\(H_0\)</span> siden testobservatoren er større enn kritisk verdi.</p>
@@ -315,7 +315,7 @@ der vi legger merke til at det blir brukt en ensidig test (hvorfor?).</p>
 <span id="cb38-9"><a href="enpop.html#cb38-9" tabindex="-1"></a><span class="co"># Testobservator:</span></span>
 <span id="cb38-10"><a href="enpop.html#cb38-10" tabindex="-1"></a>(gj.snitt <span class="sc">-</span> mu0)<span class="sc">/</span>(s<span class="sc">/</span><span class="fu">sqrt</span>(n))</span></code></pre></div>
 <pre><code>## [1] 2.236869</code></pre>
-<p>Signifikansnivået er satt til <span class="math inline">\(\alpha = 1\%\)</span> i eksempelet. Kritisk verdi finner vi i <span class="math inline">\(t\)</span>-tabell eller rett fra R:</p>
+<p>Signifikansnivået er satt til <span class="math inline">\(\alpha = 1\%\)</span> i eksempelet. Kritisk verdi finner vi rett fra R:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="enpop.html#cb40-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.99</span>, <span class="at">df =</span> n<span class="dv">-1</span>)</span></code></pre></div>
 <pre><code>## [1] 2.351983</code></pre>
 <p>Altså forkaster vi <strong>ikke</strong> nullhypotesen. Sjekk gjerne verdiene vi regnet ut over og se at de stemmer overens med det som står i boken. Alternativt bruker vi <code>t.test()</code>-funksjonen direkte:</p>
