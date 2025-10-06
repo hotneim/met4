@@ -952,7 +952,7 @@ ggplot(prediksjoner) +
   geom_line(aes(x = x, y = prediksjon), linetype = "dashed") +    # Prediksjoner
   geom_line(aes(x = x, y = nedre), colour = "darkred") +          # Nedre grense
   geom_line(aes(x = x, y = ovre), colour = "darkred") +           # Øvre grense
-  geom_line(aes(x = x, y = observert), size = 1.5) +              # Observert
+  geom_line(aes(x = x, y = observert), linewidth = 1.5) +         # Observert
   xlab("") + ylab("") +
   ggtitle("24 timers prognose av strømpris") +
   theme_minimal()

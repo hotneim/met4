@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.4 Relevante R-kommandoer | MET4 - Empiriske Metoder - høst 2025</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.4 Relevante R-kommandoer | MET4 - Empiriske Metoder - høst 2025" />
   <meta property="og:type" content="book" />
@@ -67,8 +67,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -78,7 +79,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -265,14 +266,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Det antas at du har kontroll på hvilken mappesti R bruker, og at du kan forandre den dersom nødvendig.</p>
 <p>I denne modulen kan du anta at alle datasett består av <span class="math inline">\(p\)</span> kolonner (variabler) med variabelnavn og <span class="math inline">\(n\)</span> rader (observasjoner). Datasettene blir gitt enten som Excel-filer (<code>.xls</code> elle <code>.xlsx</code>) eller som <code>.csv</code>-filer. Dersom du ønsker å prøve på kommandoene selv, kan du laste ned følgende eksempelfiler: <a href="datasett/data.xls">data.xls</a>, <a href="datasett/data.xlsx">data.xlsx</a>, <a href="datasett/data.csv">data.csv</a>.</p>
 <p>Excel-filer kan leses inn i R ved hjelp av <code>read_excel()</code> som ligger i <code>readxl</code>-pakken:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="relevant-r-grunnleggende.html#cb28-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb28-2"><a href="relevant-r-grunnleggende.html#cb28-2" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="relevant-r-grunnleggende.html#cb28-3" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xls&quot;</span>)</span>
-<span id="cb28-4"><a href="relevant-r-grunnleggende.html#cb28-4" tabindex="-1"></a><span class="co"># ...eller dersom det er en .xlsx-fil:</span></span>
-<span id="cb28-5"><a href="relevant-r-grunnleggende.html#cb28-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="relevant-r-grunnleggende.html#cb27-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb27-2"><a href="relevant-r-grunnleggende.html#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="relevant-r-grunnleggende.html#cb27-3" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xls&quot;</span>)</span>
+<span id="cb27-4"><a href="relevant-r-grunnleggende.html#cb27-4" tabindex="-1"></a><span class="co"># ...eller dersom det er en .xlsx-fil:</span></span>
+<span id="cb27-5"><a href="relevant-r-grunnleggende.html#cb27-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data.xlsx&quot;</span>)</span></code></pre></div>
 <p><code>.csv</code>-filer kan lastes inn i R ved hjelp av <code>read_csv()</code> som ligger i <code>readr</code>-pakken:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="relevant-r-grunnleggende.html#cb29-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb29-2"><a href="relevant-r-grunnleggende.html#cb29-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="relevant-r-grunnleggende.html#cb28-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb28-2"><a href="relevant-r-grunnleggende.html#cb28-2" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data.csv&quot;</span>)</span></code></pre></div>
 <p>“csv” er en forkortelse for “comma separated values”, og grunnen til det kan du se ved å åpne opp <code>data.csv</code> i en ren tekst-editor. Da ser du at verdiene på rekken er separert med et komma. Av og til har disse filene litt andre formater, så vi må kunne håndtere følgende varianter:</p>
 <ul>
 <li>Dersom det ikke er komma som er brukt til å separere verdiene (det kan du alltid sjekke ved å se på filen i en tekst-editor), så kan du bruke funksjonen <code>read_delim</code> i stedet for <code>read_csv</code>, og bruke et argument for å spesifisere hvilket tegn som er brukt. Dersom det for eksempel er brukt semikolon “;”, kan du lese datasettet ved å bruke <code>read_delim("data.xlsx", delim = ";")</code>.</li>
@@ -283,63 +284,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="numerisk-deskriptiv-statistikk" class="section level3 unnumbered hasAnchor">
 <h3>Numerisk deskriptiv statistikk<a href="relevant-r-grunnleggende.html#numerisk-deskriptiv-statistikk" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vi bruker eksempeldatasettene <a href="datasett/data_survey.csv">data_survey.csv</a> og <a href="datasett/data_fishermen_mercury.csv">data_fishermen_mercury.csv</a> som eksempler. Du skal kunne bruke følgende funksjoner for å regne ut numerisk deskriptiv statistikk:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="relevant-r-grunnleggende.html#cb30-1" tabindex="-1"></a>survey    <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_survey.csv&quot;</span>)</span>
-<span id="cb30-2"><a href="relevant-r-grunnleggende.html#cb30-2" tabindex="-1"></a>fishermen <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_fishermen_mercury.csv&quot;</span>)</span>
-<span id="cb30-3"><a href="relevant-r-grunnleggende.html#cb30-3" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="relevant-r-grunnleggende.html#cb30-4" tabindex="-1"></a><span class="fu">mean</span>(survey<span class="sc">$</span>age)                          <span class="co"># Gjennomsnitt</span></span>
-<span id="cb30-5"><a href="relevant-r-grunnleggende.html#cb30-5" tabindex="-1"></a><span class="fu">median</span>(survey<span class="sc">$</span>age)                        <span class="co"># Median</span></span>
-<span id="cb30-6"><a href="relevant-r-grunnleggende.html#cb30-6" tabindex="-1"></a></span>
-<span id="cb30-7"><a href="relevant-r-grunnleggende.html#cb30-7" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>party)                       <span class="co"># Kan lese av typetallet manuelt.</span></span>
-<span id="cb30-8"><a href="relevant-r-grunnleggende.html#cb30-8" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">table</span>(survey<span class="sc">$</span>party))            <span class="co"># Eller bruke funksjonen which.max()</span></span>
-<span id="cb30-9"><a href="relevant-r-grunnleggende.html#cb30-9" tabindex="-1"></a></span>
-<span id="cb30-10"><a href="relevant-r-grunnleggende.html#cb30-10" tabindex="-1"></a><span class="fu">sd</span>(fishermen<span class="sc">$</span>total_mercury)               <span class="co"># Standardavvik</span></span>
-<span id="cb30-11"><a href="relevant-r-grunnleggende.html#cb30-11" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury, <span class="fl">0.20</span>)   <span class="co"># Kvantiler</span></span>
-<span id="cb30-12"><a href="relevant-r-grunnleggende.html#cb30-12" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury)         <span class="co"># Kvartilene</span></span>
-<span id="cb30-13"><a href="relevant-r-grunnleggende.html#cb30-13" tabindex="-1"></a></span>
-<span id="cb30-14"><a href="relevant-r-grunnleggende.html#cb30-14" tabindex="-1"></a><span class="fu">cor</span>(fishermen<span class="sc">$</span>height, fishermen<span class="sc">$</span>weight)   <span class="co"># Korrelasjonskoeffisient</span></span>
-<span id="cb30-15"><a href="relevant-r-grunnleggende.html#cb30-15" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>religious)                   <span class="co"># Frekvenstabell </span></span>
-<span id="cb30-16"><a href="relevant-r-grunnleggende.html#cb30-16" tabindex="-1"></a>survey <span class="sc">%&gt;%</span>                                <span class="co"># Krysstabell av to variabler (krever</span></span>
-<span id="cb30-17"><a href="relevant-r-grunnleggende.html#cb30-17" tabindex="-1"></a>  <span class="fu">select</span>(party, religious) <span class="sc">%&gt;%</span>            <span class="co"># pipe-operatoren og select()-funks.  </span></span>
-<span id="cb30-18"><a href="relevant-r-grunnleggende.html#cb30-18" tabindex="-1"></a>  table                                   <span class="co"># fra dplyr-pakken)</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="relevant-r-grunnleggende.html#cb29-1" tabindex="-1"></a>survey    <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_survey.csv&quot;</span>)</span>
+<span id="cb29-2"><a href="relevant-r-grunnleggende.html#cb29-2" tabindex="-1"></a>fishermen <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data_fishermen_mercury.csv&quot;</span>)</span>
+<span id="cb29-3"><a href="relevant-r-grunnleggende.html#cb29-3" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="relevant-r-grunnleggende.html#cb29-4" tabindex="-1"></a><span class="fu">mean</span>(survey<span class="sc">$</span>age)                          <span class="co"># Gjennomsnitt</span></span>
+<span id="cb29-5"><a href="relevant-r-grunnleggende.html#cb29-5" tabindex="-1"></a><span class="fu">median</span>(survey<span class="sc">$</span>age)                        <span class="co"># Median</span></span>
+<span id="cb29-6"><a href="relevant-r-grunnleggende.html#cb29-6" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="relevant-r-grunnleggende.html#cb29-7" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>party)                       <span class="co"># Kan lese av typetallet manuelt.</span></span>
+<span id="cb29-8"><a href="relevant-r-grunnleggende.html#cb29-8" tabindex="-1"></a><span class="fu">which.max</span>(<span class="fu">table</span>(survey<span class="sc">$</span>party))            <span class="co"># Eller bruke funksjonen which.max()</span></span>
+<span id="cb29-9"><a href="relevant-r-grunnleggende.html#cb29-9" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="relevant-r-grunnleggende.html#cb29-10" tabindex="-1"></a><span class="fu">sd</span>(fishermen<span class="sc">$</span>total_mercury)               <span class="co"># Standardavvik</span></span>
+<span id="cb29-11"><a href="relevant-r-grunnleggende.html#cb29-11" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury, <span class="fl">0.20</span>)   <span class="co"># Kvantiler</span></span>
+<span id="cb29-12"><a href="relevant-r-grunnleggende.html#cb29-12" tabindex="-1"></a><span class="fu">quantile</span>(fishermen<span class="sc">$</span>total_mercury)         <span class="co"># Kvartilene</span></span>
+<span id="cb29-13"><a href="relevant-r-grunnleggende.html#cb29-13" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="relevant-r-grunnleggende.html#cb29-14" tabindex="-1"></a><span class="fu">cor</span>(fishermen<span class="sc">$</span>height, fishermen<span class="sc">$</span>weight)   <span class="co"># Korrelasjonskoeffisient</span></span>
+<span id="cb29-15"><a href="relevant-r-grunnleggende.html#cb29-15" tabindex="-1"></a><span class="fu">table</span>(survey<span class="sc">$</span>religious)                   <span class="co"># Frekvenstabell </span></span>
+<span id="cb29-16"><a href="relevant-r-grunnleggende.html#cb29-16" tabindex="-1"></a>survey <span class="sc">%&gt;%</span>                                <span class="co"># Krysstabell av to variabler (krever</span></span>
+<span id="cb29-17"><a href="relevant-r-grunnleggende.html#cb29-17" tabindex="-1"></a>  <span class="fu">select</span>(party, religious) <span class="sc">%&gt;%</span>            <span class="co"># pipe-operatoren og select()-funks.  </span></span>
+<span id="cb29-18"><a href="relevant-r-grunnleggende.html#cb29-18" tabindex="-1"></a>  table                                   <span class="co"># fra dplyr-pakken)</span></span></code></pre></div>
 </div>
 <div id="grafisk-deskriptiv-statistikk-med-ggplot2" class="section level3 unnumbered hasAnchor">
 <h3>Grafisk deskriptiv statistikk med <code>ggplot2</code><a href="relevant-r-grunnleggende.html#grafisk-deskriptiv-statistikk-med-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Du skal kunne lage følgende plott ved hjelp av <code>ggplot2</code>-pakken;</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="relevant-r-grunnleggende.html#cb31-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb31-2"><a href="relevant-r-grunnleggende.html#cb31-2" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="relevant-r-grunnleggende.html#cb31-3" tabindex="-1"></a><span class="co"># Boksplott</span></span>
-<span id="cb31-4"><a href="relevant-r-grunnleggende.html#cb31-4" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb31-5"><a href="relevant-r-grunnleggende.html#cb31-5" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
-<span id="cb31-6"><a href="relevant-r-grunnleggende.html#cb31-6" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury)) </span>
-<span id="cb31-7"><a href="relevant-r-grunnleggende.html#cb31-7" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="relevant-r-grunnleggende.html#cb31-8" tabindex="-1"></a><span class="co"># Deler opp i grupper basert på en annen variabel</span></span>
-<span id="cb31-9"><a href="relevant-r-grunnleggende.html#cb31-9" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb31-10"><a href="relevant-r-grunnleggende.html#cb31-10" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
-<span id="cb31-11"><a href="relevant-r-grunnleggende.html#cb31-11" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury, <span class="at">x =</span> <span class="fu">as.factor</span>(fisherman))) </span>
-<span id="cb31-12"><a href="relevant-r-grunnleggende.html#cb31-12" tabindex="-1"></a></span>
-<span id="cb31-13"><a href="relevant-r-grunnleggende.html#cb31-13" tabindex="-1"></a><span class="co"># Søylediagram</span></span>
-<span id="cb31-14"><a href="relevant-r-grunnleggende.html#cb31-14" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb31-15"><a href="relevant-r-grunnleggende.html#cb31-15" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
-<span id="cb31-16"><a href="relevant-r-grunnleggende.html#cb31-16" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(religious)))</span>
-<span id="cb31-17"><a href="relevant-r-grunnleggende.html#cb31-17" tabindex="-1"></a></span>
-<span id="cb31-18"><a href="relevant-r-grunnleggende.html#cb31-18" tabindex="-1"></a><span class="co"># Histogram</span></span>
-<span id="cb31-19"><a href="relevant-r-grunnleggende.html#cb31-19" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
-<span id="cb31-20"><a href="relevant-r-grunnleggende.html#cb31-20" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
-<span id="cb31-21"><a href="relevant-r-grunnleggende.html#cb31-21" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> age))</span>
-<span id="cb31-22"><a href="relevant-r-grunnleggende.html#cb31-22" tabindex="-1"></a></span>
-<span id="cb31-23"><a href="relevant-r-grunnleggende.html#cb31-23" tabindex="-1"></a><span class="co"># Spredningsplott</span></span>
-<span id="cb31-24"><a href="relevant-r-grunnleggende.html#cb31-24" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb31-25"><a href="relevant-r-grunnleggende.html#cb31-25" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
-<span id="cb31-26"><a href="relevant-r-grunnleggende.html#cb31-26" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight))</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="relevant-r-grunnleggende.html#cb30-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb30-2"><a href="relevant-r-grunnleggende.html#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="relevant-r-grunnleggende.html#cb30-3" tabindex="-1"></a><span class="co"># Boksplott</span></span>
+<span id="cb30-4"><a href="relevant-r-grunnleggende.html#cb30-4" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
+<span id="cb30-5"><a href="relevant-r-grunnleggende.html#cb30-5" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
+<span id="cb30-6"><a href="relevant-r-grunnleggende.html#cb30-6" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury)) </span>
+<span id="cb30-7"><a href="relevant-r-grunnleggende.html#cb30-7" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="relevant-r-grunnleggende.html#cb30-8" tabindex="-1"></a><span class="co"># Deler opp i grupper basert på en annen variabel</span></span>
+<span id="cb30-9"><a href="relevant-r-grunnleggende.html#cb30-9" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
+<span id="cb30-10"><a href="relevant-r-grunnleggende.html#cb30-10" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
+<span id="cb30-11"><a href="relevant-r-grunnleggende.html#cb30-11" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> total_mercury, <span class="at">x =</span> <span class="fu">as.factor</span>(fisherman))) </span>
+<span id="cb30-12"><a href="relevant-r-grunnleggende.html#cb30-12" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="relevant-r-grunnleggende.html#cb30-13" tabindex="-1"></a><span class="co"># Søylediagram</span></span>
+<span id="cb30-14"><a href="relevant-r-grunnleggende.html#cb30-14" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
+<span id="cb30-15"><a href="relevant-r-grunnleggende.html#cb30-15" tabindex="-1"></a>  ggplot <span class="sc">+</span></span>
+<span id="cb30-16"><a href="relevant-r-grunnleggende.html#cb30-16" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(religious)))</span>
+<span id="cb30-17"><a href="relevant-r-grunnleggende.html#cb30-17" tabindex="-1"></a></span>
+<span id="cb30-18"><a href="relevant-r-grunnleggende.html#cb30-18" tabindex="-1"></a><span class="co"># Histogram</span></span>
+<span id="cb30-19"><a href="relevant-r-grunnleggende.html#cb30-19" tabindex="-1"></a>survey <span class="sc">%&gt;%</span> </span>
+<span id="cb30-20"><a href="relevant-r-grunnleggende.html#cb30-20" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
+<span id="cb30-21"><a href="relevant-r-grunnleggende.html#cb30-21" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> age))</span>
+<span id="cb30-22"><a href="relevant-r-grunnleggende.html#cb30-22" tabindex="-1"></a></span>
+<span id="cb30-23"><a href="relevant-r-grunnleggende.html#cb30-23" tabindex="-1"></a><span class="co"># Spredningsplott</span></span>
+<span id="cb30-24"><a href="relevant-r-grunnleggende.html#cb30-24" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
+<span id="cb30-25"><a href="relevant-r-grunnleggende.html#cb30-25" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
+<span id="cb30-26"><a href="relevant-r-grunnleggende.html#cb30-26" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight))</span></code></pre></div>
 <p>Du skal kunne grunnleggende bearbeiding av <code>ggplot</code>-figurer:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="relevant-r-grunnleggende.html#cb32-1" tabindex="-1"></a><span class="co"># En bearbeidet variant</span></span>
-<span id="cb32-2"><a href="relevant-r-grunnleggende.html#cb32-2" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
-<span id="cb32-3"><a href="relevant-r-grunnleggende.html#cb32-3" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
-<span id="cb32-4"><a href="relevant-r-grunnleggende.html#cb32-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span>          <span class="co"># Dette er selve figuren</span></span>
-<span id="cb32-5"><a href="relevant-r-grunnleggende.html#cb32-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Høyde&quot;</span>) <span class="sc">+</span>                                    <span class="co"># Tittel x-akse</span></span>
-<span id="cb32-6"><a href="relevant-r-grunnleggende.html#cb32-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Vekt&quot;</span>) <span class="sc">+</span>                                     <span class="co"># Tittel y-akse</span></span>
-<span id="cb32-7"><a href="relevant-r-grunnleggende.html#cb32-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sammenheng mellom høyde og vekt&quot;</span>) <span class="sc">+</span>       <span class="co"># Tittel plott</span></span>
-<span id="cb32-8"><a href="relevant-r-grunnleggende.html#cb32-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>()                                    <span class="co"># Ryddig layout</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="relevant-r-grunnleggende.html#cb31-1" tabindex="-1"></a><span class="co"># En bearbeidet variant</span></span>
+<span id="cb31-2"><a href="relevant-r-grunnleggende.html#cb31-2" tabindex="-1"></a>fishermen <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a href="relevant-r-grunnleggende.html#cb31-3" tabindex="-1"></a>  ggplot <span class="sc">+</span> </span>
+<span id="cb31-4"><a href="relevant-r-grunnleggende.html#cb31-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span>          <span class="co"># Dette er selve figuren</span></span>
+<span id="cb31-5"><a href="relevant-r-grunnleggende.html#cb31-5" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Høyde&quot;</span>) <span class="sc">+</span>                                    <span class="co"># Tittel x-akse</span></span>
+<span id="cb31-6"><a href="relevant-r-grunnleggende.html#cb31-6" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Vekt&quot;</span>) <span class="sc">+</span>                                     <span class="co"># Tittel y-akse</span></span>
+<span id="cb31-7"><a href="relevant-r-grunnleggende.html#cb31-7" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Sammenheng mellom høyde og vekt&quot;</span>) <span class="sc">+</span>       <span class="co"># Tittel plott</span></span>
+<span id="cb31-8"><a href="relevant-r-grunnleggende.html#cb31-8" tabindex="-1"></a>  <span class="fu">theme_classic</span>()                                    <span class="co"># Ryddig layout</span></span></code></pre></div>
 <!-- I tabellen under finner du noen oppgaver som du kan bryne deg på for å sjekke forståelsen din og trene på metodene som vi har gått gjennom i denne modulen. Vi peker også på noen tidligere eksamensoppgaver som er relevante til denne tematikken, du finner oppgavene under seksjon \@ref(skoleeksamen). -->
 <!-- Har du en eldre utgave av boken kan du laste ned [dette dokumentet](oppgaver/Recommended excercises.doc) for en oversikt over oppgavenummer tilbake til 7. utgave. -->
 <!-- **På Canvas finner du en .zip-fil som inneholder alle datasettene, samt løsningsforslag til oppgavene i læreboken.** -->
@@ -375,43 +376,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"toc_depth": 4
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "toc_depth": 4
+  }
 });
 });
 </script>

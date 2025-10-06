@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7.5 Dataøving 5 | MET4 - Empiriske Metoder - høst 2025</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7.5 Dataøving 5 | MET4 - Empiriske Metoder - høst 2025" />
   <meta property="og:type" content="book" />
@@ -67,8 +67,9 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -78,7 +79,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -262,8 +263,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="oppgave-1-interaktiv-velse-2" class="section level3 hasAnchor" number="7.5.1">
 <h3><span class="header-section-number">7.5.1</span> Oppgave 1: Interaktiv øvelse<a href="dataving-5.html#oppgave-1-interaktiv-velse-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Før vi tar fatt på dataanalysens begynner vi som vanlig med litt R-trening i swirl. Har du allerede installert pakken swirl (skriv <code>install.packages("swirl")</code> i konsoll hvis ikke) starter du opp swirl med å skrive følgende i konsollen:</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="dataving-5.html#cb301-1" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
-<span id="cb301-2"><a href="dataving-5.html#cb301-2" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="dataving-5.html#cb299-1" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
+<span id="cb299-2"><a href="dataving-5.html#cb299-2" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 <p>Du vil i starten bli bedt om å skrive inn ditt navn og så følger litt info om hvordan swirl fungerer. Du blir så bedt om å velge kurs. Her skal du først velge alternativet ‘R Programming’. Merk at du kanskje må trykke alternativet <strong>‘No. Let me start something new’</strong> for å komme tilbake til hovedmenyen etter å ha brukt swirl tidligere. Du får så se alle modulene dette kurset inneholder. I denne øvingen skal du prøve deg på modul 9 <strong>‘Functions’</strong>. I denne modulen vil du lære litt om funksjoner i R.</p>
 <p>Merk at det helt til høyre vil står hvor langt du har kommet i prosent. Står du helt fast med et punkt kan du skrive <code>skip()</code> for å hoppe over dette punktet. Når du har fullført en modul blir du spurt om du vil motta ‘credit’ for å ha fullført modulen. Her kan du svare nei. Ønsker du å avbryte underveis skriver du <code>bye()</code>. Skriver du inn det samme navnet når du eventuelt starter swirl igjen kan du fortsette der du slapp. Husk å avslutt swirl (<code>esc</code>) før du begynner på del to av øvingen. Lykke til!</p>
 </div>
@@ -271,9 +272,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.5.2</span> Oppgave 2 - Maskinlæring: Logistisk regresjon og k nærmeste naboer<a href="dataving-5.html#oppgave-2---maskinlring-logistisk-regresjon-og-k-nrmeste-naboer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>I denne oppgaven skal vi se på de samme dataene som ble brukt i forelesningen om logistisk regresjon. Vi har data på 10000 kredittkortkunder og vi ønsker å kunne bygge og trene en best mulig modell til å predikere hvilke kunder som vil misligholde sin gjeld.</p>
 <p><strong>Oppgave 2.1:</strong> Vi starter med å få tak i dataene. Disse er integrert i pakken <code>ISLR</code>. Last inn pakken og ta en titt på dataene ved bruk av følgende linjer (hvordan du kommenterer er opp til deg):</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="dataving-5.html#cb302-1" tabindex="-1"></a><span class="fu">library</span>(ISLR)       <span class="co"># Pakke som inneholder dataene     </span></span>
-<span id="cb302-2"><a href="dataving-5.html#cb302-2" tabindex="-1"></a><span class="fu">head</span>(Default)       <span class="co"># Viser starten på dataframen</span></span>
-<span id="cb302-3"><a href="dataving-5.html#cb302-3" tabindex="-1"></a><span class="fu">str</span>(Default)        <span class="co"># Viser hvilke typer variabler dataframen inneholder</span></span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="dataving-5.html#cb300-1" tabindex="-1"></a><span class="fu">library</span>(ISLR)       <span class="co"># Pakke som inneholder dataene     </span></span>
+<span id="cb300-2"><a href="dataving-5.html#cb300-2" tabindex="-1"></a><span class="fu">head</span>(Default)       <span class="co"># Viser starten på dataframen</span></span>
+<span id="cb300-3"><a href="dataving-5.html#cb300-3" tabindex="-1"></a><span class="fu">str</span>(Default)        <span class="co"># Viser hvilke typer variabler dataframen inneholder</span></span></code></pre></div>
 <ul>
 <li>Responsvariabelen er
 <ul>
@@ -287,45 +288,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <p><strong>Oppgave 2.2:</strong> Det neste vi gjør er å visuelt undersøke avhengigheten mellom det å misligholde (<code>default</code>) og hvor stor gjeld (<code>balance</code>) kunden har . Vanligvis når vi visuelt skal inspisere sammenhengen mellom to variabler lager vi et spredningsplott. Men når den ene variabelen er kategorisk er det mer informativt å sammenligne to boksplott av den kontinuerlige variabelen for hver av gruppene den kategoriske variabelen representer. Dette kan gjøres på følgende måte:</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="dataving-5.html#cb303-1" tabindex="-1"></a><span class="fu">boxplot</span>(balance <span class="sc">~</span> default, <span class="at">data =</span> Default,</span>
-<span id="cb303-2"><a href="dataving-5.html#cb303-2" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;balance&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;default&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="dataving-5.html#cb301-1" tabindex="-1"></a><span class="fu">boxplot</span>(balance <span class="sc">~</span> default, <span class="at">data =</span> Default,</span>
+<span id="cb301-2"><a href="dataving-5.html#cb301-2" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;balance&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;default&quot;</span>)</span></code></pre></div>
 <p>Her er det formelen <code>balance ~ default</code> som gjør at <code>boxplot()</code> funksjonen lager to boksplott av <code>balance</code>; et for gruppen som misligholdt (“Yes”) og et for gruppen som ikke misligholdt (“No”). Reflekter over figuren og gjør deg opp en mening om sammenhengen mellom <code>default</code> og <code>balance</code>.</p>
 <p><strong>Oppgave 2.3:</strong> Det er lurt å dele inn dataene i et treningssett og et testsett når vi driver med maskinlæring. Treningsettet bruker vi til å tilpasse (trene/lære) modellen, mens testsettet bruker vi til å se hvor godt forskjellige modeller presterer. Dette kan gjøres på flere måter, men vi velger her å bruke pakken <code>dplyr</code> som ble beskrevet i siste del av datalabb 2.</p>
 <p>Først legger vi til en unik id til hver kunde. Vi lar id-nummeret være lik radnummeret til kunden og til dette bruker vi funksjonen <code>mutate</code>:</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="dataving-5.html#cb304-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb304-2"><a href="dataving-5.html#cb304-2" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> Default <span class="sc">%&gt;%</span></span>
-<span id="cb304-3"><a href="dataving-5.html#cb304-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>()) </span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="dataving-5.html#cb302-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb302-2"><a href="dataving-5.html#cb302-2" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> Default <span class="sc">%&gt;%</span></span>
+<span id="cb302-3"><a href="dataving-5.html#cb302-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>()) </span></code></pre></div>
 <p>Siden vi nå skal trekke et utvalg av dataene våre kan det være lurt å sikre at resultatet er reprodusibelt ved å sette</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="dataving-5.html#cb305-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="dataving-5.html#cb303-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) </span></code></pre></div>
 <p>foran koden som følger. Du kan gjerne velge et annet tall enn 123, men når en gjør dette i forkant av en tilfeldig trekning i R er trekningen bestemt.</p>
 <p>Så trekker vi et treningssett bestående av 70 % av dataene ved bruk av funksjonen <code>sample_frac</code>:</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="dataving-5.html#cb306-1" tabindex="-1"></a>train <span class="ot">&lt;-</span> my_data <span class="sc">%&gt;%</span>  </span>
-<span id="cb306-2"><a href="dataving-5.html#cb306-2" tabindex="-1"></a>  <span class="fu">sample_frac</span>(.<span class="dv">70</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="dataving-5.html#cb304-1" tabindex="-1"></a>train <span class="ot">&lt;-</span> my_data <span class="sc">%&gt;%</span>  </span>
+<span id="cb304-2"><a href="dataving-5.html#cb304-2" tabindex="-1"></a>  <span class="fu">sample_frac</span>(.<span class="dv">70</span>)</span></code></pre></div>
 <p>De resterende kundene bruker vi som testsett ved bruk av funksjonen <code>anti_join</code>:</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="dataving-5.html#cb307-1" tabindex="-1"></a>test <span class="ot">&lt;-</span> my_data <span class="sc">%&gt;%</span>         <span class="co"># Treningssettet er da de resterende 30 % av dataene</span></span>
-<span id="cb307-2"><a href="dataving-5.html#cb307-2" tabindex="-1"></a>  <span class="fu">anti_join</span>(train, <span class="at">by =</span> <span class="st">&#39;id&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="dataving-5.html#cb305-1" tabindex="-1"></a>test <span class="ot">&lt;-</span> my_data <span class="sc">%&gt;%</span>         <span class="co"># Treningssettet er da de resterende 30 % av dataene</span></span>
+<span id="cb305-2"><a href="dataving-5.html#cb305-2" tabindex="-1"></a>  <span class="fu">anti_join</span>(train, <span class="at">by =</span> <span class="st">&#39;id&#39;</span>)</span></code></pre></div>
 <p>Koden over trekker ut alle kunder som ikke har lik <code>id</code> som i treningssettet som derfor svarer til de resterende 30 % av dataene.</p>
 <p><strong>Oppgave 2.4:</strong> Vi forklarer i denne oppgaven hvordan en logistisk regresjonsmodell kan estimeres, tolkes og brukes. Du vil måtte lage nye modeller med tilsvarende koder i oppgavene som følger.</p>
 <p>Vi lager en modell hvor vi bruker variabelen <code>balance</code> (gjeld) som forklaringsvariabel. Vi bruker da funksjonen <code>glm</code>:</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="dataving-5.html#cb308-1" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(default <span class="sc">~</span> balance, <span class="at">data =</span> train,</span>
-<span id="cb308-2"><a href="dataving-5.html#cb308-2" tabindex="-1"></a>              <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="dataving-5.html#cb306-1" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(default <span class="sc">~</span> balance, <span class="at">data =</span> train,</span>
+<span id="cb306-2"><a href="dataving-5.html#cb306-2" tabindex="-1"></a>              <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span></code></pre></div>
 <p>Syntaksen til <code>glm</code>-funksjonen er veldig lik den vi bruker i regresjon (<code>lm</code>-funksjonen) bortsett fra at vi må spesifisere argumentet <code>family = "binomial"</code> for at å fortelle <code>R</code> at vi ønsker å gjøre en logistisk regresjon. Merk at vi bruker treningssettet til å estimere (trene) modellen ved å spesifisere argumentet <code>data = train</code>.</p>
 <p>Det kan være lurt å se om forklaringsvariabelen <code>balance</code> har en signifikant effekt på <code>default</code> ved å bruke <code>summary</code> funksjonen:</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="dataving-5.html#cb309-1" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="dataving-5.html#cb307-1" tabindex="-1"></a><span class="fu">summary</span>(model1)</span></code></pre></div>
 <p>For å tolke hvilken effekt <code>balance</code> (gjeld) har på <code>default</code> (mislighold) er det lurt å regne ut hva effekt en økning på 1 $ i <code>balance</code> har på oddsen for <code>default</code> (Se forelesning):</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="dataving-5.html#cb310-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(model1))</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="dataving-5.html#cb308-1" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(model1))</span></code></pre></div>
 <pre><code>##  (Intercept)      balance 
 ## 2.205746e-05 1.005567e+00</code></pre>
 <p>Vi ser at oddsen for <code>default</code> øker med en faktor 1.0056 (en 0.56 % økning) dersom <code>balance</code> øker med 1 $.</p>
 <p>Si at du ønsker å predikere sannsynligheten for hvorvidt to kunder med henholdsvis 1000 $ og 2000 $ i <code>balance</code> vil misligholde sitt lån. Da kan vi bruke <code>predict</code><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> på følgende måte:</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="dataving-5.html#cb312-1" tabindex="-1"></a>to_personer <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">balance =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>))</span>
-<span id="cb312-2"><a href="dataving-5.html#cb312-2" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(model1, <span class="at">newdata =</span> to_personer, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
-<span id="cb312-3"><a href="dataving-5.html#cb312-3" tabindex="-1"></a>pred</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="dataving-5.html#cb310-1" tabindex="-1"></a>to_personer <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">balance =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>))</span>
+<span id="cb310-2"><a href="dataving-5.html#cb310-2" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(model1, <span class="at">newdata =</span> to_personer, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
+<span id="cb310-3"><a href="dataving-5.html#cb310-3" tabindex="-1"></a>pred</span></code></pre></div>
 <pre><code>##           1           2 
 ## 0.005648303 0.593966756</code></pre>
 <p>Det første argumentet i funksjonen <code>predict</code> er hvilken modell vi skal bruke i prediksjonen (<code>model1</code>). Det andre argumentet <code>newdata</code> er hvilke kunder vi ønsker å predikere misligholdsannsynligheter for. Vi setter dette argumentet til <code>data.frame</code>’n vi har kalt <code>to_personer</code> hvor hver rad svarer til en kunde med et sett forklaringsvariabler (i dette tilfellet to kunder og derfor to rader). Det er viktig at den inneholder en (eller flere) kolonne(r) med kolonnenavn som svarer til navnet til forklaringsvariabelen(e) vi har brukt i modellen. Argumentet <code>type = "response"</code> gjør at vi får returnert sannsynligheten for mislighold og ikke bare verdien av det lineære leddet i modellen.</p>
 <p>Hvis vi ut fra disse sannsynlighetene ønsker en klassifiseringsregel som klassifiserer om kunden vil misliholde eller ikke (“Yes/No”) er det naturlig å tildele kunden “Yes” hvis misligholdsannsynligheten overstiger en hvis grense og “No” hvis ikke. Det kan det tenkes at kredittgiver vil være enten konservativ (sette grensen lavt, si 0.3) eller liberal (sette grensen høyt, si 0.7), men i eksempelet under bruker vi en “nøytral” grense på 0.5:</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="dataving-5.html#cb314-1" tabindex="-1"></a><span class="fu">ifelse</span>(pred <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="dataving-5.html#cb312-1" tabindex="-1"></a><span class="fu">ifelse</span>(pred <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)</span></code></pre></div>
 <pre><code>##     1     2 
 ##  &quot;No&quot; &quot;Yes&quot;</code></pre>
 <p>Som navnet tilsier, vurderer <code>ifelse</code> funksjonen en logisk test i første argumentet (<code>pred &gt; 0.5</code> hvor <code>pred</code> er misligholdsannsynlighetene vi predikerte) og hvis testen har verdi <code>TRUE</code> gir den ut det du skriver i det andre argumentet (<code>"Yes"</code>), og det tredje argumentet (<code>"No"</code>) ellers. Vi ser at individet med 1000 $ i gjeld blir klassifisert som “No”, mens individet med 2000 $ i gjeld blir klassifisert som “Yes”.</p>
@@ -341,55 +342,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Prediker sannsynligheten for mislighold for en ikke-student og en student med lik <code>balance</code> og <code>income</code> på henholdsvis 1500 $ og 10000 $. Sammenlign med prediksjonen du gjorde i Oppgav 2.4. Basert på <code>model2</code> og <code>model3</code>, hvordan skal kredittgiver forholde seg til en student versus en ikke-student dersom a) Ingen informasjon om <code>balance</code> eller <code>income</code> er oppgitt og b) dersom en vet <code>balance</code> og <code>income</code>?</li>
 </ul>
 <p><strong>Oppgave 2.7:</strong> I denne oppgaven skal vi trene opp en knn (k-nærmeste-naboer) modell til å gjøre en tilsvarende klassifisering som den logistiske regresjonsmodellen gjorde over. Funksjonen <code>train</code> som vi trenger er inneholdt i pakken <code>caret</code> (som må installeres ved hjelp av <code>install.packages("caret")</code>). Vi velger å tilpasse en modell hvor antall naboer “k” velges automatisk med kryssvalidering vi argumentet “`trControl”:</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="dataving-5.html#cb316-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb316-2"><a href="dataving-5.html#cb316-2" tabindex="-1"></a></span>
-<span id="cb316-3"><a href="dataving-5.html#cb316-3" tabindex="-1"></a><span class="co"># R-kode dersom vi vil velge k automatisk</span></span>
-<span id="cb316-4"><a href="dataving-5.html#cb316-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200</span>)</span>
-<span id="cb316-5"><a href="dataving-5.html#cb316-5" tabindex="-1"></a>trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method  =</span> <span class="st">&quot;cv&quot;</span>, <span class="co"># 5-fold kryssvalidering</span></span>
-<span id="cb316-6"><a href="dataving-5.html#cb316-6" tabindex="-1"></a>                          <span class="at">number  =</span> <span class="dv">5</span>)</span>
-<span id="cb316-7"><a href="dataving-5.html#cb316-7" tabindex="-1"></a></span>
-<span id="cb316-8"><a href="dataving-5.html#cb316-8" tabindex="-1"></a><span class="co"># Tilpasser modellen</span></span>
-<span id="cb316-9"><a href="dataving-5.html#cb316-9" tabindex="-1"></a>model4 <span class="ot">&lt;-</span> <span class="fu">train</span>(default <span class="sc">~</span> balance <span class="sc">+</span> income <span class="sc">+</span> student,</span>
-<span id="cb316-10"><a href="dataving-5.html#cb316-10" tabindex="-1"></a>                 <span class="at">data =</span> train,</span>
-<span id="cb316-11"><a href="dataving-5.html#cb316-11" tabindex="-1"></a>                 <span class="at">method =</span> <span class="st">&quot;knn&quot;</span>,</span>
-<span id="cb316-12"><a href="dataving-5.html#cb316-12" tabindex="-1"></a>                 <span class="at">trControl  =</span> trControl,</span>
-<span id="cb316-13"><a href="dataving-5.html#cb316-13" tabindex="-1"></a>                 <span class="at">metric     =</span> <span class="st">&quot;Accuracy&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="dataving-5.html#cb314-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb314-2"><a href="dataving-5.html#cb314-2" tabindex="-1"></a></span>
+<span id="cb314-3"><a href="dataving-5.html#cb314-3" tabindex="-1"></a><span class="co"># R-kode dersom vi vil velge k automatisk</span></span>
+<span id="cb314-4"><a href="dataving-5.html#cb314-4" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">200</span>)</span>
+<span id="cb314-5"><a href="dataving-5.html#cb314-5" tabindex="-1"></a>trControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method  =</span> <span class="st">&quot;cv&quot;</span>, <span class="co"># 5-fold kryssvalidering</span></span>
+<span id="cb314-6"><a href="dataving-5.html#cb314-6" tabindex="-1"></a>                          <span class="at">number  =</span> <span class="dv">5</span>)</span>
+<span id="cb314-7"><a href="dataving-5.html#cb314-7" tabindex="-1"></a></span>
+<span id="cb314-8"><a href="dataving-5.html#cb314-8" tabindex="-1"></a><span class="co"># Tilpasser modellen</span></span>
+<span id="cb314-9"><a href="dataving-5.html#cb314-9" tabindex="-1"></a>model4 <span class="ot">&lt;-</span> <span class="fu">train</span>(default <span class="sc">~</span> balance <span class="sc">+</span> income <span class="sc">+</span> student,</span>
+<span id="cb314-10"><a href="dataving-5.html#cb314-10" tabindex="-1"></a>                 <span class="at">data =</span> train,</span>
+<span id="cb314-11"><a href="dataving-5.html#cb314-11" tabindex="-1"></a>                 <span class="at">method =</span> <span class="st">&quot;knn&quot;</span>,</span>
+<span id="cb314-12"><a href="dataving-5.html#cb314-12" tabindex="-1"></a>                 <span class="at">trControl  =</span> trControl,</span>
+<span id="cb314-13"><a href="dataving-5.html#cb314-13" tabindex="-1"></a>                 <span class="at">metric     =</span> <span class="st">&quot;Accuracy&quot;</span>)</span></code></pre></div>
 <p>Vi kan sjekke hvilken k som ble valgt på følgende måte (siden kryssvalidering bruker tilfeldige trekninger kan resultatet bli noe foreskjellig fra gang til gang, selv om datasettet er det samme):</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="dataving-5.html#cb317-1" tabindex="-1"></a><span class="co"># Hvilken k valgte kryssvalideringen?</span></span>
-<span id="cb317-2"><a href="dataving-5.html#cb317-2" tabindex="-1"></a>k <span class="ot">&lt;-</span> model4<span class="sc">$</span>finalModel<span class="sc">$</span>k</span>
-<span id="cb317-3"><a href="dataving-5.html#cb317-3" tabindex="-1"></a>k</span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="dataving-5.html#cb315-1" tabindex="-1"></a><span class="co"># Hvilken k valgte kryssvalideringen?</span></span>
+<span id="cb315-2"><a href="dataving-5.html#cb315-2" tabindex="-1"></a>k <span class="ot">&lt;-</span> model4<span class="sc">$</span>finalModel<span class="sc">$</span>k</span>
+<span id="cb315-3"><a href="dataving-5.html#cb315-3" tabindex="-1"></a>k</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <p>Som for de andre modellene bruker vi funksjonen <code>predict</code> når vi skal predikere og syntaksen er helt lik:</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="dataving-5.html#cb319-1" tabindex="-1"></a>to_kunder <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">balance =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>), <span class="at">income =</span> <span class="dv">10000</span>, <span class="at">student =</span> <span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>))</span>
-<span id="cb319-2"><a href="dataving-5.html#cb319-2" tabindex="-1"></a><span class="fu">predict</span>(model4, <span class="at">newdata =</span> to_kunder)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="dataving-5.html#cb317-1" tabindex="-1"></a>to_kunder <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">balance =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">2000</span>), <span class="at">income =</span> <span class="dv">10000</span>, <span class="at">student =</span> <span class="fu">c</span>(<span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;Yes&quot;</span>))</span>
+<span id="cb317-2"><a href="dataving-5.html#cb317-2" tabindex="-1"></a><span class="fu">predict</span>(model4, <span class="at">newdata =</span> to_kunder)</span></code></pre></div>
 <pre><code>## [1] No  Yes
 ## Levels: No Yes</code></pre>
 <p>Merk at i motsetning til de logistiske regresjonsmodellene som predikerte sannsynligheter klassifiserer knn modellen kundene direkte som “Yes”/“No”.</p>
 <p><strong>Oppgave 2.8:</strong> Vi ønsker å vurdere hvilken av <code>model3</code> (logistisk regresjon) og <code>model4</code> (knn) som er best. Vi kan da sjekke hvor godt de klarer å klassifisere testsettet vårt hvor vi vet hvem som har misligholdt lånene sine. Vi starter med å hente ut de sanne verdiene av <code>default</code> i treningssettet:</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="dataving-5.html#cb321-1" tabindex="-1"></a>sann <span class="ot">&lt;-</span> test<span class="sc">$</span>default  <span class="co"># Den sanne verdien av default i testdataene</span></span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="dataving-5.html#cb319-1" tabindex="-1"></a>sann <span class="ot">&lt;-</span> test<span class="sc">$</span>default  <span class="co"># Den sanne verdien av default i testdataene</span></span></code></pre></div>
 <p>Disse skal vi så sammenligne med hvordan modellene klassifiserer de samme kundene basert på de andre variablene. Vi gjør først klassifiseringen med den logistiske regresjonsmodellen:</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="dataving-5.html#cb322-1" tabindex="-1"></a>pred_logreg <span class="ot">&lt;-</span> <span class="fu">predict</span>(model3, <span class="at">newdata =</span> test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="co"># Predikert sannsynlighet</span></span>
-<span id="cb322-2"><a href="dataving-5.html#cb322-2" tabindex="-1"></a>klass_logreg <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(pred_logreg <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)            <span class="co"># Klassifisering av kundene</span></span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="dataving-5.html#cb320-1" tabindex="-1"></a>pred_logreg <span class="ot">&lt;-</span> <span class="fu">predict</span>(model3, <span class="at">newdata =</span> test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>) <span class="co"># Predikert sannsynlighet</span></span>
+<span id="cb320-2"><a href="dataving-5.html#cb320-2" tabindex="-1"></a>klass_logreg <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(pred_logreg <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;No&quot;</span>)            <span class="co"># Klassifisering av kundene</span></span></code></pre></div>
 <p>En oversikt over hvor mange riktige/feil klassifiseringer modellen gjør kan lett oppsummeres med en kontigenstabell. For å lage en kontigenstabell i R bruker vi funksjonen <code>table</code>:</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="dataving-5.html#cb323-1" tabindex="-1"></a>logreg_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(sann, klass_logreg) <span class="co"># Kontigenstabell</span></span>
-<span id="cb323-2"><a href="dataving-5.html#cb323-2" tabindex="-1"></a>logreg_tab</span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="dataving-5.html#cb321-1" tabindex="-1"></a>logreg_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(sann, klass_logreg) <span class="co"># Kontigenstabell</span></span>
+<span id="cb321-2"><a href="dataving-5.html#cb321-2" tabindex="-1"></a>logreg_tab</span></code></pre></div>
 <pre><code>##      klass_logreg
 ## sann    No  Yes
 ##   No  2889   11
 ##   Yes   70   30</code></pre>
 <p>Her kan vi f.eks se at 2889 kunder blir riktig klassifisert som “No”, dvs at de ikke misligholdt lånet og modellen spår at de ikke vil misligholde lånet. Merk at diagonalen (2889 og 30) representerer korrekte klassifiseringer, mens av-diagonal (11 og 70) representer feil klassifiseringer.</p>
 <p>Det kan være en fordel å dele kontigenstabellen over med totalt antall kunder for å få andelel i stedet. Funksjonen <code>prop.table</code> gjør nettopp dette:</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="dataving-5.html#cb325-1" tabindex="-1"></a>logreg_tab_norm <span class="ot">&lt;-</span> logreg_tab <span class="sc">%&gt;%</span> </span>
-<span id="cb325-2"><a href="dataving-5.html#cb325-2" tabindex="-1"></a>  prop.table <span class="sc">%&gt;%</span>  <span class="co"># normaliser</span></span>
-<span id="cb325-3"><a href="dataving-5.html#cb325-3" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)        <span class="co"># rund av til 3 desimaler</span></span>
-<span id="cb325-4"><a href="dataving-5.html#cb325-4" tabindex="-1"></a>logreg_tab_norm</span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="dataving-5.html#cb323-1" tabindex="-1"></a>logreg_tab_norm <span class="ot">&lt;-</span> logreg_tab <span class="sc">%&gt;%</span> </span>
+<span id="cb323-2"><a href="dataving-5.html#cb323-2" tabindex="-1"></a>  prop.table <span class="sc">%&gt;%</span>  <span class="co"># normaliser</span></span>
+<span id="cb323-3"><a href="dataving-5.html#cb323-3" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)        <span class="co"># rund av til 3 desimaler</span></span>
+<span id="cb323-4"><a href="dataving-5.html#cb323-4" tabindex="-1"></a>logreg_tab_norm</span></code></pre></div>
 <pre><code>##      klass_logreg
 ## sann     No   Yes
 ##   No  0.963 0.004
 ##   Yes 0.023 0.010</code></pre>
 <p>Summen av diagonalen på denne tabellen (0.963 og 0.01) gir da totalt andel korrekt klassifiseringer:</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="dataving-5.html#cb327-1" tabindex="-1"></a>logreg_tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">diag</span>(logreg_tab_norm))               <span class="co"># Total andel korrekt klassfisering</span></span>
-<span id="cb327-2"><a href="dataving-5.html#cb327-2" tabindex="-1"></a>logreg_tot</span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="dataving-5.html#cb325-1" tabindex="-1"></a>logreg_tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">diag</span>(logreg_tab_norm))               <span class="co"># Total andel korrekt klassfisering</span></span>
+<span id="cb325-2"><a href="dataving-5.html#cb325-2" tabindex="-1"></a>logreg_tot</span></code></pre></div>
 <pre><code>## [1] 0.973</code></pre>
 <p><strong>Oppgave 2.9:</strong> Gjør en tilsvarende klassifisering av kundene i testsettet med knn modellen <code>model4</code> og sammenlign med resultatet over. Hvilken modell foretrekker du? Hvilke egenskaper ved klassifisering tror du kredittgiver vektlegger?</p>
 
@@ -422,43 +423,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"toc_depth": 4
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "toc_depth": 4
+  }
 });
 });
 </script>
