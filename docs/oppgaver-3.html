@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.4 Oppgaver | MET4 - Empiriske Metoder - høst 2025</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.4 Oppgaver | MET4 - Empiriske Metoder - høst 2025" />
   <meta property="og:type" content="book" />
@@ -291,7 +291,7 @@ Siden vi estimerer <span class="math inline">\(P(Y=1)\)</span> til å være <spa
 <ol style="list-style-type: lower-roman">
 <li>Bruk den logistiske regresjonsmodellen til å predikere <em>sannsynligheten</em> for at gjennomsnittlig NO<span class="math inline">\(\mathbf{_2}\)</span>-konsentrasjon overstiger 100 <span class="math inline">\(\mu\textrm{g}/\textrm{m}^3\)</span>. Gi en kort vurdering om myndighetene bør utstede gult farevarsel. (Husk at luftfuktigheten er gitt på skala 0–100, og ikke 0–1).</li>
 </ol>
-<p><img src="bilder/logistisk_output.jpg" /><!-- --></p>
+<p><img src="bilder/logistisk_output.jpg" width="240" /></p>
 <details>
 <summary>
 Løsning
@@ -311,39 +311,39 @@ Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
 <table>
 <caption><span id="tab:knn">Tabell 6.1: </span>Datasett</caption>
 <thead>
-<tr>
+<tr class="header">
 <th align="right">y</th>
 <th align="right">x1</th>
 <th align="right">x2</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">4</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="right">0</td>
 <td align="right">4</td>
 <td align="right">5</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="right">1</td>
 <td align="right">5</td>
 <td align="right">3</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">6</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="right">1</td>
 <td align="right">4</td>
 <td align="right">3</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="right">1</td>
 <td align="right">6</td>
 <td align="right">2</td>
@@ -366,7 +366,7 @@ d((3,3), (3,4)) = \sqrt{(3 - 3)^2 + (3 - 4)^2} = 1
 <table>
 <caption><span id="tab:knnfasit">Tabell 6.2: </span>Utregnede avstander</caption>
 <thead>
-<tr>
+<tr class="header">
 <th align="right">y</th>
 <th align="right">x1</th>
 <th align="right">x2</th>
@@ -374,37 +374,37 @@ d((3,3), (3,4)) = \sqrt{(3 - 3)^2 + (3 - 4)^2} = 1
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">4</td>
 <td align="right">1.000</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="right">0</td>
 <td align="right">4</td>
 <td align="right">5</td>
 <td align="right">2.236</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="right">1</td>
 <td align="right">5</td>
 <td align="right">3</td>
 <td align="right">2.000</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">6</td>
 <td align="right">3.000</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="right">1</td>
 <td align="right">4</td>
 <td align="right">3</td>
 <td align="right">1.000</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="right">1</td>
 <td align="right">6</td>
 <td align="right">2</td>
@@ -474,43 +474,43 @@ Løsning
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"toc_depth": 4
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "toc_depth": 4
+  }
 });
 });
 </script>
