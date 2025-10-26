@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - høst 2025</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 Deskriptiv statistikk | MET4 - Empiriske Metoder - høst 2025" />
   <meta property="og:type" content="book" />
@@ -277,9 +277,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Kapittel <strong>4</strong> går litt mer i dybden om numeriske deskriptive teknikker, som gjennomsnitt, median, standardavvik, korrelasjon, osv. Dette skal være dekket greit i forelesningen, men boken går litt lenger.</li>
 </ul>
 <p>Det kan være en fin øvelse å kikke på eksemplene i læreboken og forsøke å gjenskape noen av Excel-figurene i R. Se på eksempel 3.2, der man skal lage to histogrammer over historiske avkastninger for to ulike investeringsstrategier. Vi leser inn datasettet (last ned fra Canvas) som under og kikker på det:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="deskriptiv-statistikk.html#cb18-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb18-2"><a href="deskriptiv-statistikk.html#cb18-2" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm03-02.xlsx&quot;</span>)</span>
-<span id="cb18-3"><a href="deskriptiv-statistikk.html#cb18-3" tabindex="-1"></a>returns</span></code></pre></div>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 4.3.3</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="deskriptiv-statistikk.html#cb19-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb19-2"><a href="deskriptiv-statistikk.html#cb19-2" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">&quot;Xm03-02.xlsx&quot;</span>)</span>
+<span id="cb19-3"><a href="deskriptiv-statistikk.html#cb19-3" tabindex="-1"></a>returns</span></code></pre></div>
 <pre><code>## # A tibble: 50 × 2
 ##    `Return A` `Return B`
 ##         &lt;dbl&gt;      &lt;dbl&gt;
@@ -296,11 +297,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ 40 more rows</code></pre>
 <p>Hver stategi har sin kolonne. Merk at variabelnavnene har mellomrom i seg, noe som er upraktisk når vi jobber med et seriøst programmeringsspråk. En god vane er å rett og slett gi dem nye navn, ved f.eks. å kjøre <code>colnames(returns) &lt;- c("returnA", "returnB")</code>, eller så må vi alltid referere til variabelnavnene ved å bruke slike “backticks” som vi ser under.</p>
 <p>Vi kan lage to enkle histogrammer slik vi gjorde det i forelesningen:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="deskriptiv-statistikk.html#cb20-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb20-2"><a href="deskriptiv-statistikk.html#cb20-2" tabindex="-1"></a><span class="fu">ggplot</span>(returns, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Return A</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb20-3"><a href="deskriptiv-statistikk.html#cb20-3" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
-<span id="cb20-4"><a href="deskriptiv-statistikk.html#cb20-4" tabindex="-1"></a><span class="fu">ggplot</span>(returns, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Return B</span><span class="st">`</span>)) <span class="sc">+</span></span>
-<span id="cb20-5"><a href="deskriptiv-statistikk.html#cb20-5" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="deskriptiv-statistikk.html#cb21-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-2"><a href="deskriptiv-statistikk.html#cb21-2" tabindex="-1"></a><span class="fu">ggplot</span>(returns, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Return A</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="deskriptiv-statistikk.html#cb21-3" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span>
+<span id="cb21-4"><a href="deskriptiv-statistikk.html#cb21-4" tabindex="-1"></a><span class="fu">ggplot</span>(returns, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">`</span><span class="at">Return B</span><span class="st">`</span>)) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="deskriptiv-statistikk.html#cb21-5" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:to-histogrammer"></span>
 <img src="met4_files/figure-html/to-histogrammer-1.png" alt="To histogrammer" width="672" /><img src="met4_files/figure-html/to-histogrammer-2.png" alt="To histogrammer" width="672" />
 <p class="caption">
@@ -334,43 +335,43 @@ Figur 2.1: To histogrammer
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "toc_depth": 4
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
 });
 });
 </script>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.5 Relevante R-kommandoer | MET4 - Empiriske Metoder - høst 2025</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.5 Relevante R-kommandoer | MET4 - Empiriske Metoder - høst 2025" />
   <meta property="og:type" content="book" />
@@ -268,61 +268,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="tilpasse-en-liner-regresjonsmodell" class="section level3 unnumbered hasAnchor">
 <h3>Tilpasse en lineær regresjonsmodell<a href="relevante-r-regresjon.html#tilpasse-en-liner-regresjonsmodell" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Her er et lekedatasett med tre forklaringsvariabler <code>x1</code>, <code>x2</code> og <code>x3</code>, samt en responsvariabel <code>y</code>: <a href="datasett/data-reg.xlsx">data-reg.xsls</a>.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="relevante-r-regresjon.html#cb150-1" tabindex="-1"></a><span class="co"># Last inn data</span></span>
-<span id="cb150-2"><a href="relevante-r-regresjon.html#cb150-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb150-3"><a href="relevante-r-regresjon.html#cb150-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data-reg.xlsx&quot;</span>)</span>
-<span id="cb150-4"><a href="relevante-r-regresjon.html#cb150-4" tabindex="-1"></a></span>
-<span id="cb150-5"><a href="relevante-r-regresjon.html#cb150-5" tabindex="-1"></a><span class="co"># Syntaksen for å tilpasse en lineær regresjonsmodell med responsvariabel y og</span></span>
-<span id="cb150-6"><a href="relevante-r-regresjon.html#cb150-6" tabindex="-1"></a><span class="co"># forklaringsvariabler x1, x2, x3 i datasettet df er som følger:</span></span>
-<span id="cb150-7"><a href="relevante-r-regresjon.html#cb150-7" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2 <span class="sc">+</span> x3, <span class="at">data =</span> df)</span>
-<span id="cb150-8"><a href="relevante-r-regresjon.html#cb150-8" tabindex="-1"></a></span>
-<span id="cb150-9"><a href="relevante-r-regresjon.html#cb150-9" tabindex="-1"></a><span class="co"># Dersom vi vil ha med interaksjonsledded mellom x1 og x3 kan vi skrive</span></span>
-<span id="cb150-10"><a href="relevante-r-regresjon.html#cb150-10" tabindex="-1"></a><span class="co"># kommandoen under. Da vil også x1 og x3 automatisk bli med som variabler i</span></span>
-<span id="cb150-11"><a href="relevante-r-regresjon.html#cb150-11" tabindex="-1"></a><span class="co"># tillegg til interaksjonsledde x1*x3.</span></span>
-<span id="cb150-12"><a href="relevante-r-regresjon.html#cb150-12" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2<span class="sc">*</span>x3, <span class="at">data =</span> df)</span>
-<span id="cb150-13"><a href="relevante-r-regresjon.html#cb150-13" tabindex="-1"></a></span>
-<span id="cb150-14"><a href="relevante-r-regresjon.html#cb150-14" tabindex="-1"></a><span class="co"># Log transformasjoner kan vi skrive rett inn i formelen</span></span>
-<span id="cb150-15"><a href="relevante-r-regresjon.html#cb150-15" tabindex="-1"></a>reg3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(y) <span class="sc">~</span> x1 <span class="sc">+</span> <span class="fu">log</span>(x2) <span class="sc">+</span> x3, <span class="at">data =</span> df)</span>
-<span id="cb150-16"><a href="relevante-r-regresjon.html#cb150-16" tabindex="-1"></a></span>
-<span id="cb150-17"><a href="relevante-r-regresjon.html#cb150-17" tabindex="-1"></a><span class="co"># Andre transformasjoner, som for eksempel dersom vi ønsker å ta med</span></span>
-<span id="cb150-18"><a href="relevante-r-regresjon.html#cb150-18" tabindex="-1"></a><span class="co"># andregradsleddet x1^2, er greiest å få til dersom vi først lager en ny kolonne</span></span>
-<span id="cb150-19"><a href="relevante-r-regresjon.html#cb150-19" tabindex="-1"></a><span class="co"># med kvadratene til x1, og så lager til regresjonen på vanlig måte:</span></span>
-<span id="cb150-20"><a href="relevante-r-regresjon.html#cb150-20" tabindex="-1"></a>df_ny <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">x1_kvadrat =</span> x1<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb150-21"><a href="relevante-r-regresjon.html#cb150-21" tabindex="-1"></a>reg4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x1_kvadrat<span class="sc">+</span> x2 <span class="sc">+</span> x3, <span class="at">data =</span> df_ny)</span>
-<span id="cb150-22"><a href="relevante-r-regresjon.html#cb150-22" tabindex="-1"></a></span>
-<span id="cb150-23"><a href="relevante-r-regresjon.html#cb150-23" tabindex="-1"></a><span class="co"># Vi kan skrive ut et sammendrag for regresjonsmodellen ved hjelp av summary():</span></span>
-<span id="cb150-24"><a href="relevante-r-regresjon.html#cb150-24" tabindex="-1"></a><span class="fu">summary</span>(reg1)</span>
-<span id="cb150-25"><a href="relevante-r-regresjon.html#cb150-25" tabindex="-1"></a></span>
-<span id="cb150-26"><a href="relevante-r-regresjon.html#cb150-26" tabindex="-1"></a><span class="co"># Pakken stargazer inneholder en funksjon for å lage pene regresjonstabeller:</span></span>
-<span id="cb150-27"><a href="relevante-r-regresjon.html#cb150-27" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
-<span id="cb150-28"><a href="relevante-r-regresjon.html#cb150-28" tabindex="-1"></a><span class="fu">stargazer</span>(reg1, reg2, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span>
-<span id="cb150-29"><a href="relevante-r-regresjon.html#cb150-29" tabindex="-1"></a></span>
-<span id="cb150-30"><a href="relevante-r-regresjon.html#cb150-30" tabindex="-1"></a><span class="co"># Man kan endre type-argumentet til &quot;html&quot;, og sette out-argumentet til et</span></span>
-<span id="cb150-31"><a href="relevante-r-regresjon.html#cb150-31" tabindex="-1"></a><span class="co"># filnavn hvis du vil skrive ut tabellen til en fil.</span></span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="relevante-r-regresjon.html#cb151-1" tabindex="-1"></a><span class="co"># Last inn data</span></span>
+<span id="cb151-2"><a href="relevante-r-regresjon.html#cb151-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb151-3"><a href="relevante-r-regresjon.html#cb151-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data-reg.xlsx&quot;</span>)</span>
+<span id="cb151-4"><a href="relevante-r-regresjon.html#cb151-4" tabindex="-1"></a></span>
+<span id="cb151-5"><a href="relevante-r-regresjon.html#cb151-5" tabindex="-1"></a><span class="co"># Syntaksen for å tilpasse en lineær regresjonsmodell med responsvariabel y og</span></span>
+<span id="cb151-6"><a href="relevante-r-regresjon.html#cb151-6" tabindex="-1"></a><span class="co"># forklaringsvariabler x1, x2, x3 i datasettet df er som følger:</span></span>
+<span id="cb151-7"><a href="relevante-r-regresjon.html#cb151-7" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2 <span class="sc">+</span> x3, <span class="at">data =</span> df)</span>
+<span id="cb151-8"><a href="relevante-r-regresjon.html#cb151-8" tabindex="-1"></a></span>
+<span id="cb151-9"><a href="relevante-r-regresjon.html#cb151-9" tabindex="-1"></a><span class="co"># Dersom vi vil ha med interaksjonsledded mellom x1 og x3 kan vi skrive</span></span>
+<span id="cb151-10"><a href="relevante-r-regresjon.html#cb151-10" tabindex="-1"></a><span class="co"># kommandoen under. Da vil også x1 og x3 automatisk bli med som variabler i</span></span>
+<span id="cb151-11"><a href="relevante-r-regresjon.html#cb151-11" tabindex="-1"></a><span class="co"># tillegg til interaksjonsledde x1*x3.</span></span>
+<span id="cb151-12"><a href="relevante-r-regresjon.html#cb151-12" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2<span class="sc">*</span>x3, <span class="at">data =</span> df)</span>
+<span id="cb151-13"><a href="relevante-r-regresjon.html#cb151-13" tabindex="-1"></a></span>
+<span id="cb151-14"><a href="relevante-r-regresjon.html#cb151-14" tabindex="-1"></a><span class="co"># Log transformasjoner kan vi skrive rett inn i formelen</span></span>
+<span id="cb151-15"><a href="relevante-r-regresjon.html#cb151-15" tabindex="-1"></a>reg3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(y) <span class="sc">~</span> x1 <span class="sc">+</span> <span class="fu">log</span>(x2) <span class="sc">+</span> x3, <span class="at">data =</span> df)</span>
+<span id="cb151-16"><a href="relevante-r-regresjon.html#cb151-16" tabindex="-1"></a></span>
+<span id="cb151-17"><a href="relevante-r-regresjon.html#cb151-17" tabindex="-1"></a><span class="co"># Andre transformasjoner, som for eksempel dersom vi ønsker å ta med</span></span>
+<span id="cb151-18"><a href="relevante-r-regresjon.html#cb151-18" tabindex="-1"></a><span class="co"># andregradsleddet x1^2, er greiest å få til dersom vi først lager en ny kolonne</span></span>
+<span id="cb151-19"><a href="relevante-r-regresjon.html#cb151-19" tabindex="-1"></a><span class="co"># med kvadratene til x1, og så lager til regresjonen på vanlig måte:</span></span>
+<span id="cb151-20"><a href="relevante-r-regresjon.html#cb151-20" tabindex="-1"></a>df_ny <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">x1_kvadrat =</span> x1<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb151-21"><a href="relevante-r-regresjon.html#cb151-21" tabindex="-1"></a>reg4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x1_kvadrat<span class="sc">+</span> x2 <span class="sc">+</span> x3, <span class="at">data =</span> df_ny)</span>
+<span id="cb151-22"><a href="relevante-r-regresjon.html#cb151-22" tabindex="-1"></a></span>
+<span id="cb151-23"><a href="relevante-r-regresjon.html#cb151-23" tabindex="-1"></a><span class="co"># Vi kan skrive ut et sammendrag for regresjonsmodellen ved hjelp av summary():</span></span>
+<span id="cb151-24"><a href="relevante-r-regresjon.html#cb151-24" tabindex="-1"></a><span class="fu">summary</span>(reg1)</span>
+<span id="cb151-25"><a href="relevante-r-regresjon.html#cb151-25" tabindex="-1"></a></span>
+<span id="cb151-26"><a href="relevante-r-regresjon.html#cb151-26" tabindex="-1"></a><span class="co"># Pakken stargazer inneholder en funksjon for å lage pene regresjonstabeller:</span></span>
+<span id="cb151-27"><a href="relevante-r-regresjon.html#cb151-27" tabindex="-1"></a><span class="fu">library</span>(stargazer)</span>
+<span id="cb151-28"><a href="relevante-r-regresjon.html#cb151-28" tabindex="-1"></a><span class="fu">stargazer</span>(reg1, reg2, <span class="at">type =</span> <span class="st">&quot;text&quot;</span>)</span>
+<span id="cb151-29"><a href="relevante-r-regresjon.html#cb151-29" tabindex="-1"></a></span>
+<span id="cb151-30"><a href="relevante-r-regresjon.html#cb151-30" tabindex="-1"></a><span class="co"># Man kan endre type-argumentet til &quot;html&quot;, og sette out-argumentet til et</span></span>
+<span id="cb151-31"><a href="relevante-r-regresjon.html#cb151-31" tabindex="-1"></a><span class="co"># filnavn hvis du vil skrive ut tabellen til en fil.</span></span></code></pre></div>
 </div>
 <div id="prediksjoner-med-konfidens--og-prediksjonsintervall" class="section level3 unnumbered hasAnchor">
 <h3>Prediksjoner, med konfidens- og prediksjonsintervall<a href="relevante-r-regresjon.html#prediksjoner-med-konfidens--og-prediksjonsintervall" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La oss si at vi ønsker å predikere verdien av responsvariabelen for følgende verdier av forklaringsvariablene:</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th align="right">x1</th>
 <th align="right">x2</th>
 <th align="right">x3</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="right">10</td>
 <td align="right">95</td>
 <td align="right">1</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="right">20</td>
 <td align="right">96</td>
 <td align="right">1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="right">30</td>
 <td align="right">100</td>
 <td align="right">0</td>
@@ -330,48 +330,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Da må vi først samle verdiene av forklaringsvariablene i en data frame; det kan vi enten gjøre direkte i R:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="relevante-r-regresjon.html#cb151-1" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>), <span class="at">x2 =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">96</span>, <span class="dv">100</span>), <span class="at">x3 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="relevante-r-regresjon.html#cb152-1" tabindex="-1"></a>ny_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>), <span class="at">x2 =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">96</span>, <span class="dv">100</span>), <span class="at">x3 =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>))</span></code></pre></div>
 <p>Et alternativ kan være å lage til et regneark i Excel, og så lese det inn ved hjelp av <code>read_excel()</code>. <strong>Det er viktig at variabelnavnene i det nye datasettet er eksakt de samme som forklaringsvariablene i datasettet du brukte til å estimere regresjonsmodellen!</strong> Vi kan lage prediksjon med 95% konfidensintervall ved hjelp av <code>predict()</code>:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="relevante-r-regresjon.html#cb152-1" tabindex="-1"></a>prediksjoner <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg1, </span>
-<span id="cb152-2"><a href="relevante-r-regresjon.html#cb152-2" tabindex="-1"></a>                        <span class="at">newdata =</span> ny_data, </span>
-<span id="cb152-3"><a href="relevante-r-regresjon.html#cb152-3" tabindex="-1"></a>                        <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>, </span>
-<span id="cb152-4"><a href="relevante-r-regresjon.html#cb152-4" tabindex="-1"></a>                        <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="relevante-r-regresjon.html#cb153-1" tabindex="-1"></a>prediksjoner <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg1, </span>
+<span id="cb153-2"><a href="relevante-r-regresjon.html#cb153-2" tabindex="-1"></a>                        <span class="at">newdata =</span> ny_data, </span>
+<span id="cb153-3"><a href="relevante-r-regresjon.html#cb153-3" tabindex="-1"></a>                        <span class="at">interval =</span> <span class="st">&quot;confidence&quot;</span>, </span>
+<span id="cb153-4"><a href="relevante-r-regresjon.html#cb153-4" tabindex="-1"></a>                        <span class="at">level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
 <p>Resultatet blir en ny data frame med kolonnene <code>fit</code> (prediksjoner), samt <code>lwr</code> og <code>upr</code>, som inneholder nedre og øvre grense i konfidensintervallet henholdsvis. Du kan endre til prediksjonsintervaller ved å bytte ut <code>"confidence"</code> med <code>"prediction"</code> (eventuelt <code>"none"</code> hvis du ikke ønsker noe intervall).</p>
 </div>
 <div id="lage-residualplott" class="section level3 unnumbered hasAnchor">
 <h3>Lage residualplott<a href="relevante-r-regresjon.html#lage-residualplott" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Vi må kunne lage følgende residualplott i R, her demonstrert med regresjonsmodellen <code>reg1</code> som vi laget over:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="relevante-r-regresjon.html#cb153-1" tabindex="-1"></a><span class="co"># Henter ut residualer og predikerte verdier fra modellen, og setter de inn som </span></span>
-<span id="cb153-2"><a href="relevante-r-regresjon.html#cb153-2" tabindex="-1"></a><span class="co"># kolonner i en dataframe:</span></span>
-<span id="cb153-3"><a href="relevante-r-regresjon.html#cb153-3" tabindex="-1"></a>residualer <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">residualer =</span> reg1<span class="sc">$</span>residuals,</span>
-<span id="cb153-4"><a href="relevante-r-regresjon.html#cb153-4" tabindex="-1"></a>                         <span class="at">predikert =</span> reg1<span class="sc">$</span>fitted.values)</span>
-<span id="cb153-5"><a href="relevante-r-regresjon.html#cb153-5" tabindex="-1"></a></span>
-<span id="cb153-6"><a href="relevante-r-regresjon.html#cb153-6" tabindex="-1"></a><span class="co"># Spredningsplott, residualer mot predikerte verdier</span></span>
-<span id="cb153-7"><a href="relevante-r-regresjon.html#cb153-7" tabindex="-1"></a><span class="fu">ggplot</span>(residualer, <span class="fu">aes</span>(<span class="at">x =</span> predikert, <span class="at">y =</span> residualer)) <span class="sc">+</span></span>
-<span id="cb153-8"><a href="relevante-r-regresjon.html#cb153-8" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb153-9"><a href="relevante-r-regresjon.html#cb153-9" tabindex="-1"></a></span>
-<span id="cb153-10"><a href="relevante-r-regresjon.html#cb153-10" tabindex="-1"></a><span class="co"># Autokorrelasjonsplott</span></span>
-<span id="cb153-11"><a href="relevante-r-regresjon.html#cb153-11" tabindex="-1"></a><span class="fu">acf</span>(reg1<span class="sc">$</span>residuals)</span>
-<span id="cb153-12"><a href="relevante-r-regresjon.html#cb153-12" tabindex="-1"></a></span>
-<span id="cb153-13"><a href="relevante-r-regresjon.html#cb153-13" tabindex="-1"></a><span class="co"># Histogram for å sjekke normalantakelsen</span></span>
-<span id="cb153-14"><a href="relevante-r-regresjon.html#cb153-14" tabindex="-1"></a><span class="fu">ggplot</span>(residualer, <span class="fu">aes</span>(<span class="at">x =</span> residualer)) <span class="sc">+</span></span>
-<span id="cb153-15"><a href="relevante-r-regresjon.html#cb153-15" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span>
-<span id="cb153-16"><a href="relevante-r-regresjon.html#cb153-16" tabindex="-1"></a></span>
-<span id="cb153-17"><a href="relevante-r-regresjon.html#cb153-17" tabindex="-1"></a><span class="co"># QQ-plott, observasjonene ligger langs en rett linje hvis de er normalfordelte</span></span>
-<span id="cb153-18"><a href="relevante-r-regresjon.html#cb153-18" tabindex="-1"></a><span class="fu">ggplot</span>(residualer, <span class="fu">aes</span>(<span class="at">sample =</span> residualer)) <span class="sc">+</span></span>
-<span id="cb153-19"><a href="relevante-r-regresjon.html#cb153-19" tabindex="-1"></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
-<span id="cb153-20"><a href="relevante-r-regresjon.html#cb153-20" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>()</span>
-<span id="cb153-21"><a href="relevante-r-regresjon.html#cb153-21" tabindex="-1"></a></span>
-<span id="cb153-22"><a href="relevante-r-regresjon.html#cb153-22" tabindex="-1"></a><span class="co"># Regner ut og plotter Cooks avstand:</span></span>
-<span id="cb153-23"><a href="relevante-r-regresjon.html#cb153-23" tabindex="-1"></a>infl <span class="ot">&lt;-</span> <span class="fu">influence.measures</span>(reg1)</span>
-<span id="cb153-24"><a href="relevante-r-regresjon.html#cb153-24" tabindex="-1"></a></span>
-<span id="cb153-25"><a href="relevante-r-regresjon.html#cb153-25" tabindex="-1"></a><span class="co"># Lager enkelt plott av Cooks avstand</span></span>
-<span id="cb153-26"><a href="relevante-r-regresjon.html#cb153-26" tabindex="-1"></a>cooks_avstand <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">obs =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df),</span>
-<span id="cb153-27"><a href="relevante-r-regresjon.html#cb153-27" tabindex="-1"></a>                            <span class="at">cook =</span> infl<span class="sc">$</span>infmat[, <span class="st">&quot;cook.d&quot;</span>],</span>
-<span id="cb153-28"><a href="relevante-r-regresjon.html#cb153-28" tabindex="-1"></a>                            <span class="at">cook_infl =</span> infl<span class="sc">$</span>is.inf[, <span class="st">&quot;cook.d&quot;</span>])</span>
-<span id="cb153-29"><a href="relevante-r-regresjon.html#cb153-29" tabindex="-1"></a></span>
-<span id="cb153-30"><a href="relevante-r-regresjon.html#cb153-30" tabindex="-1"></a><span class="fu">ggplot</span>(cooks_avstand, <span class="fu">aes</span>(<span class="at">x =</span> obs, <span class="at">y =</span> cook)) <span class="sc">+</span></span>
-<span id="cb153-31"><a href="relevante-r-regresjon.html#cb153-31" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="relevante-r-regresjon.html#cb154-1" tabindex="-1"></a><span class="co"># Henter ut residualer og predikerte verdier fra modellen, og setter de inn som </span></span>
+<span id="cb154-2"><a href="relevante-r-regresjon.html#cb154-2" tabindex="-1"></a><span class="co"># kolonner i en dataframe:</span></span>
+<span id="cb154-3"><a href="relevante-r-regresjon.html#cb154-3" tabindex="-1"></a>residualer <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">residualer =</span> reg1<span class="sc">$</span>residuals,</span>
+<span id="cb154-4"><a href="relevante-r-regresjon.html#cb154-4" tabindex="-1"></a>                         <span class="at">predikert =</span> reg1<span class="sc">$</span>fitted.values)</span>
+<span id="cb154-5"><a href="relevante-r-regresjon.html#cb154-5" tabindex="-1"></a></span>
+<span id="cb154-6"><a href="relevante-r-regresjon.html#cb154-6" tabindex="-1"></a><span class="co"># Spredningsplott, residualer mot predikerte verdier</span></span>
+<span id="cb154-7"><a href="relevante-r-regresjon.html#cb154-7" tabindex="-1"></a><span class="fu">ggplot</span>(residualer, <span class="fu">aes</span>(<span class="at">x =</span> predikert, <span class="at">y =</span> residualer)) <span class="sc">+</span></span>
+<span id="cb154-8"><a href="relevante-r-regresjon.html#cb154-8" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb154-9"><a href="relevante-r-regresjon.html#cb154-9" tabindex="-1"></a></span>
+<span id="cb154-10"><a href="relevante-r-regresjon.html#cb154-10" tabindex="-1"></a><span class="co"># Autokorrelasjonsplott</span></span>
+<span id="cb154-11"><a href="relevante-r-regresjon.html#cb154-11" tabindex="-1"></a><span class="fu">acf</span>(reg1<span class="sc">$</span>residuals)</span>
+<span id="cb154-12"><a href="relevante-r-regresjon.html#cb154-12" tabindex="-1"></a></span>
+<span id="cb154-13"><a href="relevante-r-regresjon.html#cb154-13" tabindex="-1"></a><span class="co"># Histogram for å sjekke normalantakelsen</span></span>
+<span id="cb154-14"><a href="relevante-r-regresjon.html#cb154-14" tabindex="-1"></a><span class="fu">ggplot</span>(residualer, <span class="fu">aes</span>(<span class="at">x =</span> residualer)) <span class="sc">+</span></span>
+<span id="cb154-15"><a href="relevante-r-regresjon.html#cb154-15" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span>
+<span id="cb154-16"><a href="relevante-r-regresjon.html#cb154-16" tabindex="-1"></a></span>
+<span id="cb154-17"><a href="relevante-r-regresjon.html#cb154-17" tabindex="-1"></a><span class="co"># QQ-plott, observasjonene ligger langs en rett linje hvis de er normalfordelte</span></span>
+<span id="cb154-18"><a href="relevante-r-regresjon.html#cb154-18" tabindex="-1"></a><span class="fu">ggplot</span>(residualer, <span class="fu">aes</span>(<span class="at">sample =</span> residualer)) <span class="sc">+</span></span>
+<span id="cb154-19"><a href="relevante-r-regresjon.html#cb154-19" tabindex="-1"></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
+<span id="cb154-20"><a href="relevante-r-regresjon.html#cb154-20" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>()</span>
+<span id="cb154-21"><a href="relevante-r-regresjon.html#cb154-21" tabindex="-1"></a></span>
+<span id="cb154-22"><a href="relevante-r-regresjon.html#cb154-22" tabindex="-1"></a><span class="co"># Regner ut og plotter Cooks avstand:</span></span>
+<span id="cb154-23"><a href="relevante-r-regresjon.html#cb154-23" tabindex="-1"></a>infl <span class="ot">&lt;-</span> <span class="fu">influence.measures</span>(reg1)</span>
+<span id="cb154-24"><a href="relevante-r-regresjon.html#cb154-24" tabindex="-1"></a></span>
+<span id="cb154-25"><a href="relevante-r-regresjon.html#cb154-25" tabindex="-1"></a><span class="co"># Lager enkelt plott av Cooks avstand</span></span>
+<span id="cb154-26"><a href="relevante-r-regresjon.html#cb154-26" tabindex="-1"></a>cooks_avstand <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">obs =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df),</span>
+<span id="cb154-27"><a href="relevante-r-regresjon.html#cb154-27" tabindex="-1"></a>                            <span class="at">cook =</span> infl<span class="sc">$</span>infmat[, <span class="st">&quot;cook.d&quot;</span>],</span>
+<span id="cb154-28"><a href="relevante-r-regresjon.html#cb154-28" tabindex="-1"></a>                            <span class="at">cook_infl =</span> infl<span class="sc">$</span>is.inf[, <span class="st">&quot;cook.d&quot;</span>])</span>
+<span id="cb154-29"><a href="relevante-r-regresjon.html#cb154-29" tabindex="-1"></a></span>
+<span id="cb154-30"><a href="relevante-r-regresjon.html#cb154-30" tabindex="-1"></a><span class="fu">ggplot</span>(cooks_avstand, <span class="fu">aes</span>(<span class="at">x =</span> obs, <span class="at">y =</span> cook)) <span class="sc">+</span></span>
+<span id="cb154-31"><a href="relevante-r-regresjon.html#cb154-31" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
 <p>Alle plottene over kan justeres og pyntes, for eksempel ved å gjøre endringer som i <a href="r-plotting.html#r-plotting">R-videoen om plotting</a>. Se også forelesningsscriptet for flere tips om presentasjon av residualplott.</p>
 
 </div>
@@ -397,43 +397,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "toc_depth": 4
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
 });
 });
 </script>

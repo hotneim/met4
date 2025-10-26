@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.6 Relevante R-kommandoer | MET4 - Empiriske Metoder - høst 2025</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.6 Relevante R-kommandoer | MET4 - Empiriske Metoder - høst 2025" />
   <meta property="og:type" content="book" />
@@ -268,30 +268,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="t-tester" class="section level3 unnumbered hasAnchor">
 <h3><span class="math inline">\(t\)</span>-tester<a href="relevante-r-testing.html#t-tester" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Du må kunne gjøre de ulike <span class="math inline">\(t\)</span>-testene ved hjelp av <code>t.test()</code>-funksjonen. vi bruker eksempeldatasettet <a href="datasett/testdata.xls">testdata.xls</a> som illustrasjon, som inneholder de to kolonnene <code>X1</code> og <code>X2</code>. I bunn og grunn handler det om å hente ut de relevante kolonnene i datasettet som vektorer, og så å sette argumentene i <code>t.test()</code>-funksjonen riktig.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="relevante-r-testing.html#cb73-1" tabindex="-1"></a><span class="co"># Tosidig, ett-utvalgs $t$-test for om forventningen til `X1` er lik 100:</span></span>
-<span id="cb73-2"><a href="relevante-r-testing.html#cb73-2" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, <span class="at">mu =</span> <span class="dv">100</span>)</span>
-<span id="cb73-3"><a href="relevante-r-testing.html#cb73-3" tabindex="-1"></a></span>
-<span id="cb73-4"><a href="relevante-r-testing.html#cb73-4" tabindex="-1"></a><span class="co"># Samme testen, men ensidig med alternativhypotese om at $\mu &gt; 100$</span></span>
-<span id="cb73-5"><a href="relevante-r-testing.html#cb73-5" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, <span class="at">mu =</span> <span class="dv">100</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
-<span id="cb73-6"><a href="relevante-r-testing.html#cb73-6" tabindex="-1"></a></span>
-<span id="cb73-7"><a href="relevante-r-testing.html#cb73-7" tabindex="-1"></a><span class="co"># For å gjøre ensidig test den andre veien bytter du ut `&quot;greater&quot;` med `&quot;less&quot;`.</span></span>
-<span id="cb73-8"><a href="relevante-r-testing.html#cb73-8" tabindex="-1"></a></span>
-<span id="cb73-9"><a href="relevante-r-testing.html#cb73-9" tabindex="-1"></a><span class="co"># Vanlig to-utvalgs $t$-test for om forventningen til `X1` og `X2` er like:</span></span>
-<span id="cb73-10"><a href="relevante-r-testing.html#cb73-10" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2)</span>
-<span id="cb73-11"><a href="relevante-r-testing.html#cb73-11" tabindex="-1"></a></span>
-<span id="cb73-12"><a href="relevante-r-testing.html#cb73-12" tabindex="-1"></a><span class="co"># Vanlig to-utvalgs t-test der vi antar at variansen i de to populasjonene er like:</span></span>
-<span id="cb73-13"><a href="relevante-r-testing.html#cb73-13" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb73-14"><a href="relevante-r-testing.html#cb73-14" tabindex="-1"></a></span>
-<span id="cb73-15"><a href="relevante-r-testing.html#cb73-15" tabindex="-1"></a><span class="co"># Parret to-utvalgs $t$-test, som bare gir mening dersom de to vektorene med</span></span>
-<span id="cb73-16"><a href="relevante-r-testing.html#cb73-16" tabindex="-1"></a><span class="co"># observasjoner er like lange, og dersom observasjonene er matchet opp slik at</span></span>
-<span id="cb73-17"><a href="relevante-r-testing.html#cb73-17" tabindex="-1"></a><span class="co"># første element i den første vektoren skal matches mot første elemenet i den</span></span>
-<span id="cb73-18"><a href="relevante-r-testing.html#cb73-18" tabindex="-1"></a><span class="co"># andre vektoret etc.:</span></span>
-<span id="cb73-19"><a href="relevante-r-testing.html#cb73-19" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="relevante-r-testing.html#cb74-1" tabindex="-1"></a><span class="co"># Tosidig, ett-utvalgs $t$-test for om forventningen til `X1` er lik 100:</span></span>
+<span id="cb74-2"><a href="relevante-r-testing.html#cb74-2" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, <span class="at">mu =</span> <span class="dv">100</span>)</span>
+<span id="cb74-3"><a href="relevante-r-testing.html#cb74-3" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="relevante-r-testing.html#cb74-4" tabindex="-1"></a><span class="co"># Samme testen, men ensidig med alternativhypotese om at $\mu &gt; 100$</span></span>
+<span id="cb74-5"><a href="relevante-r-testing.html#cb74-5" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, <span class="at">mu =</span> <span class="dv">100</span>, <span class="at">alternative =</span> <span class="st">&quot;greater&quot;</span>)</span>
+<span id="cb74-6"><a href="relevante-r-testing.html#cb74-6" tabindex="-1"></a></span>
+<span id="cb74-7"><a href="relevante-r-testing.html#cb74-7" tabindex="-1"></a><span class="co"># For å gjøre ensidig test den andre veien bytter du ut `&quot;greater&quot;` med `&quot;less&quot;`.</span></span>
+<span id="cb74-8"><a href="relevante-r-testing.html#cb74-8" tabindex="-1"></a></span>
+<span id="cb74-9"><a href="relevante-r-testing.html#cb74-9" tabindex="-1"></a><span class="co"># Vanlig to-utvalgs $t$-test for om forventningen til `X1` og `X2` er like:</span></span>
+<span id="cb74-10"><a href="relevante-r-testing.html#cb74-10" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2)</span>
+<span id="cb74-11"><a href="relevante-r-testing.html#cb74-11" tabindex="-1"></a></span>
+<span id="cb74-12"><a href="relevante-r-testing.html#cb74-12" tabindex="-1"></a><span class="co"># Vanlig to-utvalgs t-test der vi antar at variansen i de to populasjonene er like:</span></span>
+<span id="cb74-13"><a href="relevante-r-testing.html#cb74-13" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb74-14"><a href="relevante-r-testing.html#cb74-14" tabindex="-1"></a></span>
+<span id="cb74-15"><a href="relevante-r-testing.html#cb74-15" tabindex="-1"></a><span class="co"># Parret to-utvalgs $t$-test, som bare gir mening dersom de to vektorene med</span></span>
+<span id="cb74-16"><a href="relevante-r-testing.html#cb74-16" tabindex="-1"></a><span class="co"># observasjoner er like lange, og dersom observasjonene er matchet opp slik at</span></span>
+<span id="cb74-17"><a href="relevante-r-testing.html#cb74-17" tabindex="-1"></a><span class="co"># første element i den første vektoren skal matches mot første elemenet i den</span></span>
+<span id="cb74-18"><a href="relevante-r-testing.html#cb74-18" tabindex="-1"></a><span class="co"># andre vektoret etc.:</span></span>
+<span id="cb74-19"><a href="relevante-r-testing.html#cb74-19" tabindex="-1"></a><span class="fu">t.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Vi kan bytte ut alternativhypotesen til ensidige tester over alt ved å sette <code>alternative =</code> til ønskelig verdi.</p>
 <p>Videre kan vi tenke oss tilfeller der observasjonsvektorene ikke er like lange, og for eksempel kommer i en excel-fil slik som <a href="datasett/ulik-lengde.xlsx">denne</a> der den ene kolonnen inneholder flere tall enn den andre. Det gjør ingenting. Vi kan lese inn datasettet på vanlig måte, og legger merke til at de “tomme” plassene i tabellen blir fylt med <code>NA</code>. Vi kan kjøre <span class="math inline">\(t\)</span>-testene på vanlig måte.</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="relevante-r-testing.html#cb74-1" tabindex="-1"></a>testdata2 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">&quot;ulik-lengde.xlsx&quot;</span>)</span>
-<span id="cb74-2"><a href="relevante-r-testing.html#cb74-2" tabindex="-1"></a>testdata2</span>
-<span id="cb74-3"><a href="relevante-r-testing.html#cb74-3" tabindex="-1"></a><span class="fu">t.test</span>(testdata2<span class="sc">$</span>X1, testdata2<span class="sc">$</span>X2)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="relevante-r-testing.html#cb75-1" tabindex="-1"></a>testdata2 <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">&quot;ulik-lengde.xlsx&quot;</span>)</span>
+<span id="cb75-2"><a href="relevante-r-testing.html#cb75-2" tabindex="-1"></a>testdata2</span>
+<span id="cb75-3"><a href="relevante-r-testing.html#cb75-3" tabindex="-1"></a><span class="fu">t.test</span>(testdata2<span class="sc">$</span>X1, testdata2<span class="sc">$</span>X2)</span></code></pre></div>
 <pre><code>## # A tibble: 15 × 2
 ##       X1    X2
 ##    &lt;dbl&gt; &lt;dbl&gt;
@@ -325,87 +325,87 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="varianstester" class="section level3 unnumbered hasAnchor">
 <h3>Varianstester<a href="relevante-r-testing.html#varianstester" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Varianstest for ett uvalg er ikke bygget inn i R som en egen funksjon. Da må vi gjøre den “semi-automatisk” og regne ut testobservatoren ved å bruke formelen direkte. Her tester vi om variansen til <code>X2</code>-kolonnen i testdatasettet er lik 10:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="relevante-r-testing.html#cb77-1" tabindex="-1"></a><span class="co"># Varianstest</span></span>
-<span id="cb77-2"><a href="relevante-r-testing.html#cb77-2" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(testdata<span class="sc">$</span>X2)</span>
-<span id="cb77-3"><a href="relevante-r-testing.html#cb77-3" tabindex="-1"></a>sigma_0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb77-4"><a href="relevante-r-testing.html#cb77-4" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(testdata<span class="sc">$</span>X2)</span>
-<span id="cb77-5"><a href="relevante-r-testing.html#cb77-5" tabindex="-1"></a></span>
-<span id="cb77-6"><a href="relevante-r-testing.html#cb77-6" tabindex="-1"></a><span class="co"># Testobservatoren</span></span>
-<span id="cb77-7"><a href="relevante-r-testing.html#cb77-7" tabindex="-1"></a>T <span class="ot">&lt;-</span> (n<span class="dv">-1</span>)<span class="sc">*</span>s<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>sigma_0<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb77-8"><a href="relevante-r-testing.html#cb77-8" tabindex="-1"></a></span>
-<span id="cb77-9"><a href="relevante-r-testing.html#cb77-9" tabindex="-1"></a><span class="co"># Kritiske verdier</span></span>
-<span id="cb77-10"><a href="relevante-r-testing.html#cb77-10" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.025</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb77-11"><a href="relevante-r-testing.html#cb77-11" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.975</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="relevante-r-testing.html#cb78-1" tabindex="-1"></a><span class="co"># Varianstest</span></span>
+<span id="cb78-2"><a href="relevante-r-testing.html#cb78-2" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">sd</span>(testdata<span class="sc">$</span>X2)</span>
+<span id="cb78-3"><a href="relevante-r-testing.html#cb78-3" tabindex="-1"></a>sigma_0 <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb78-4"><a href="relevante-r-testing.html#cb78-4" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(testdata<span class="sc">$</span>X2)</span>
+<span id="cb78-5"><a href="relevante-r-testing.html#cb78-5" tabindex="-1"></a></span>
+<span id="cb78-6"><a href="relevante-r-testing.html#cb78-6" tabindex="-1"></a><span class="co"># Testobservatoren</span></span>
+<span id="cb78-7"><a href="relevante-r-testing.html#cb78-7" tabindex="-1"></a>T <span class="ot">&lt;-</span> (n<span class="dv">-1</span>)<span class="sc">*</span>s<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>sigma_0<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb78-8"><a href="relevante-r-testing.html#cb78-8" tabindex="-1"></a></span>
+<span id="cb78-9"><a href="relevante-r-testing.html#cb78-9" tabindex="-1"></a><span class="co"># Kritiske verdier</span></span>
+<span id="cb78-10"><a href="relevante-r-testing.html#cb78-10" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.025</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb78-11"><a href="relevante-r-testing.html#cb78-11" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.975</span>, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
 <p>Vi må så sammenligne verdien av testobservatoren <code>T</code> med de kritiske verdiene <code>L</code> og <code>U</code>. Legg merke til at vi har brukt en funksjon i R (<code>qchisq()</code>) for å finne de aktuelle kvantilene i kjikvadratfordelingen.</p>
 <p>For to-utvalgs varianstest kan vi bruke funksjonen <code>var.test()</code>:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="relevante-r-testing.html#cb78-1" tabindex="-1"></a><span class="fu">var.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="relevante-r-testing.html#cb79-1" tabindex="-1"></a><span class="fu">var.test</span>(testdata<span class="sc">$</span>X1, testdata<span class="sc">$</span>X2)</span></code></pre></div>
 <p>Vi kan også her gjøre ensidige tester ved å sette <code>alternative =</code>-argumentet til enten <code>"less"</code> eller <code>"greater"</code>.</p>
 </div>
 <div id="tester-for-andeler" class="section level3 unnumbered hasAnchor">
 <h3>Tester for andeler<a href="relevante-r-testing.html#tester-for-andeler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Både for ett-utvalgs og to-utvalgs test for andeler kan vi fylle inn tall direkte i testobservatoren på denne måten (sett inn for de nødvendige verdiene):</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="relevante-r-testing.html#cb79-1" tabindex="-1"></a><span class="co"># Ett-utvalgs test for andeler</span></span>
-<span id="cb79-2"><a href="relevante-r-testing.html#cb79-2" tabindex="-1"></a>p_hatt <span class="ot">&lt;-</span> <span class="fu">mean</span>(testdata<span class="sc">$</span>A1)</span>
-<span id="cb79-3"><a href="relevante-r-testing.html#cb79-3" tabindex="-1"></a>p_null <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb79-4"><a href="relevante-r-testing.html#cb79-4" tabindex="-1"></a>n      <span class="ot">&lt;-</span> <span class="fu">length</span>(testdata<span class="sc">$</span>A1) </span>
-<span id="cb79-5"><a href="relevante-r-testing.html#cb79-5" tabindex="-1"></a></span>
-<span id="cb79-6"><a href="relevante-r-testing.html#cb79-6" tabindex="-1"></a>Z <span class="ot">&lt;-</span> (p_hatt <span class="sc">-</span> p_null)<span class="sc">/</span><span class="fu">sqrt</span>(p_null<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p_null)<span class="sc">/</span>n)   </span>
-<span id="cb79-7"><a href="relevante-r-testing.html#cb79-7" tabindex="-1"></a></span>
-<span id="cb79-8"><a href="relevante-r-testing.html#cb79-8" tabindex="-1"></a><span class="co"># To-utvalgs test for andeler</span></span>
-<span id="cb79-9"><a href="relevante-r-testing.html#cb79-9" tabindex="-1"></a>p1_hatt <span class="ot">&lt;-</span> <span class="fu">mean</span>(testdata<span class="sc">$</span>A1)</span>
-<span id="cb79-10"><a href="relevante-r-testing.html#cb79-10" tabindex="-1"></a>p2_hatt <span class="ot">&lt;-</span> <span class="fu">mean</span>(testdata<span class="sc">$</span>A2)</span>
-<span id="cb79-11"><a href="relevante-r-testing.html#cb79-11" tabindex="-1"></a></span>
-<span id="cb79-12"><a href="relevante-r-testing.html#cb79-12" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="fu">length</span>(testdata<span class="sc">$</span>X1)</span>
-<span id="cb79-13"><a href="relevante-r-testing.html#cb79-13" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="fu">length</span>(testdata<span class="sc">$</span>X2)</span>
-<span id="cb79-14"><a href="relevante-r-testing.html#cb79-14" tabindex="-1"></a></span>
-<span id="cb79-15"><a href="relevante-r-testing.html#cb79-15" tabindex="-1"></a>p_hatt <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(testdata<span class="sc">$</span>A1, testdata<span class="sc">$</span>A2))        <span class="co"># &lt;- Regner ut felles p_hatt</span></span>
-<span id="cb79-16"><a href="relevante-r-testing.html#cb79-16" tabindex="-1"></a></span>
-<span id="cb79-17"><a href="relevante-r-testing.html#cb79-17" tabindex="-1"></a>Z <span class="ot">&lt;-</span> (p1_hatt <span class="sc">-</span> p2_hatt)<span class="sc">/</span><span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span>n1 <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>p_hatt<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p_hatt))</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="relevante-r-testing.html#cb80-1" tabindex="-1"></a><span class="co"># Ett-utvalgs test for andeler</span></span>
+<span id="cb80-2"><a href="relevante-r-testing.html#cb80-2" tabindex="-1"></a>p_hatt <span class="ot">&lt;-</span> <span class="fu">mean</span>(testdata<span class="sc">$</span>A1)</span>
+<span id="cb80-3"><a href="relevante-r-testing.html#cb80-3" tabindex="-1"></a>p_null <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb80-4"><a href="relevante-r-testing.html#cb80-4" tabindex="-1"></a>n      <span class="ot">&lt;-</span> <span class="fu">length</span>(testdata<span class="sc">$</span>A1) </span>
+<span id="cb80-5"><a href="relevante-r-testing.html#cb80-5" tabindex="-1"></a></span>
+<span id="cb80-6"><a href="relevante-r-testing.html#cb80-6" tabindex="-1"></a>Z <span class="ot">&lt;-</span> (p_hatt <span class="sc">-</span> p_null)<span class="sc">/</span><span class="fu">sqrt</span>(p_null<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p_null)<span class="sc">/</span>n)   </span>
+<span id="cb80-7"><a href="relevante-r-testing.html#cb80-7" tabindex="-1"></a></span>
+<span id="cb80-8"><a href="relevante-r-testing.html#cb80-8" tabindex="-1"></a><span class="co"># To-utvalgs test for andeler</span></span>
+<span id="cb80-9"><a href="relevante-r-testing.html#cb80-9" tabindex="-1"></a>p1_hatt <span class="ot">&lt;-</span> <span class="fu">mean</span>(testdata<span class="sc">$</span>A1)</span>
+<span id="cb80-10"><a href="relevante-r-testing.html#cb80-10" tabindex="-1"></a>p2_hatt <span class="ot">&lt;-</span> <span class="fu">mean</span>(testdata<span class="sc">$</span>A2)</span>
+<span id="cb80-11"><a href="relevante-r-testing.html#cb80-11" tabindex="-1"></a></span>
+<span id="cb80-12"><a href="relevante-r-testing.html#cb80-12" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="fu">length</span>(testdata<span class="sc">$</span>X1)</span>
+<span id="cb80-13"><a href="relevante-r-testing.html#cb80-13" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="fu">length</span>(testdata<span class="sc">$</span>X2)</span>
+<span id="cb80-14"><a href="relevante-r-testing.html#cb80-14" tabindex="-1"></a></span>
+<span id="cb80-15"><a href="relevante-r-testing.html#cb80-15" tabindex="-1"></a>p_hatt <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(testdata<span class="sc">$</span>A1, testdata<span class="sc">$</span>A2))        <span class="co"># &lt;- Regner ut felles p_hatt</span></span>
+<span id="cb80-16"><a href="relevante-r-testing.html#cb80-16" tabindex="-1"></a></span>
+<span id="cb80-17"><a href="relevante-r-testing.html#cb80-17" tabindex="-1"></a>Z <span class="ot">&lt;-</span> (p1_hatt <span class="sc">-</span> p2_hatt)<span class="sc">/</span><span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span>n1 <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>p_hatt<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p_hatt))</span></code></pre></div>
 <p>Testobservatorene må da sammenlingnes med relevant kvantil i normalfordelingen, som du enten finner i tabell i læreboken eller ved å bruke funksjonen <code>qnorm()</code> med ønsket kvantil som argument.</p>
 </div>
 <div id="kjikvadrattester-for-goodness-of-fit" class="section level3 unnumbered hasAnchor">
 <h3>Kjikvadrattester for goodness-of-fit<a href="relevante-r-testing.html#kjikvadrattester-for-goodness-of-fit" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hvis vi skal teste for goodness-of-fit for en fordeling kan vi raskt regne ut testobservatoren direkte. Vi bruker eksempelet fra forelesningsvideoen:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="relevante-r-testing.html#cb80-1" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.45</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>)  <span class="co"># Fordeling under H0</span></span>
-<span id="cb80-2"><a href="relevante-r-testing.html#cb80-2" tabindex="-1"></a>f  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">102</span>, <span class="dv">82</span>, <span class="dv">16</span>)       <span class="co"># Observerte frekvenser</span></span>
-<span id="cb80-3"><a href="relevante-r-testing.html#cb80-3" tabindex="-1"></a>e  <span class="ot">&lt;-</span> p0<span class="sc">*</span><span class="fu">sum</span>(f)            <span class="co"># Forv. frekv. under H0</span></span>
-<span id="cb80-4"><a href="relevante-r-testing.html#cb80-4" tabindex="-1"></a></span>
-<span id="cb80-5"><a href="relevante-r-testing.html#cb80-5" tabindex="-1"></a>T  <span class="ot">&lt;-</span> <span class="fu">sum</span>((f <span class="sc">-</span> e)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>e)     <span class="co"># Testobservator</span></span>
-<span id="cb80-6"><a href="relevante-r-testing.html#cb80-6" tabindex="-1"></a></span>
-<span id="cb80-7"><a href="relevante-r-testing.html#cb80-7" tabindex="-1"></a>c  <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(.<span class="dv">95</span>, <span class="at">df =</span> <span class="dv">2</span>)  <span class="co"># Kritisk verdi</span></span>
-<span id="cb80-8"><a href="relevante-r-testing.html#cb80-8" tabindex="-1"></a></span>
-<span id="cb80-9"><a href="relevante-r-testing.html#cb80-9" tabindex="-1"></a><span class="co"># Forkast H0?</span></span>
-<span id="cb80-10"><a href="relevante-r-testing.html#cb80-10" tabindex="-1"></a>T <span class="sc">&gt;</span> c</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="relevante-r-testing.html#cb81-1" tabindex="-1"></a>p0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.45</span>, <span class="fl">0.40</span>, <span class="fl">0.15</span>)  <span class="co"># Fordeling under H0</span></span>
+<span id="cb81-2"><a href="relevante-r-testing.html#cb81-2" tabindex="-1"></a>f  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">102</span>, <span class="dv">82</span>, <span class="dv">16</span>)       <span class="co"># Observerte frekvenser</span></span>
+<span id="cb81-3"><a href="relevante-r-testing.html#cb81-3" tabindex="-1"></a>e  <span class="ot">&lt;-</span> p0<span class="sc">*</span><span class="fu">sum</span>(f)            <span class="co"># Forv. frekv. under H0</span></span>
+<span id="cb81-4"><a href="relevante-r-testing.html#cb81-4" tabindex="-1"></a></span>
+<span id="cb81-5"><a href="relevante-r-testing.html#cb81-5" tabindex="-1"></a>T  <span class="ot">&lt;-</span> <span class="fu">sum</span>((f <span class="sc">-</span> e)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>e)     <span class="co"># Testobservator</span></span>
+<span id="cb81-6"><a href="relevante-r-testing.html#cb81-6" tabindex="-1"></a></span>
+<span id="cb81-7"><a href="relevante-r-testing.html#cb81-7" tabindex="-1"></a>c  <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(.<span class="dv">95</span>, <span class="at">df =</span> <span class="dv">2</span>)  <span class="co"># Kritisk verdi</span></span>
+<span id="cb81-8"><a href="relevante-r-testing.html#cb81-8" tabindex="-1"></a></span>
+<span id="cb81-9"><a href="relevante-r-testing.html#cb81-9" tabindex="-1"></a><span class="co"># Forkast H0?</span></span>
+<span id="cb81-10"><a href="relevante-r-testing.html#cb81-10" tabindex="-1"></a>T <span class="sc">&gt;</span> c</span></code></pre></div>
 <p>Alternativt så kan vi bruke <code>chisq.test()</code>-funksjonen direkte. Pass på å bruke riktige argumentnavn (<code>x =</code> og <code>p =</code>) når du skal gjøre goodness-of-fit:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="relevante-r-testing.html#cb81-1" tabindex="-1"></a><span class="co"># Eventuelt direkte</span></span>
-<span id="cb81-2"><a href="relevante-r-testing.html#cb81-2" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> f, <span class="at">p =</span> p0)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="relevante-r-testing.html#cb82-1" tabindex="-1"></a><span class="co"># Eventuelt direkte</span></span>
+<span id="cb82-2"><a href="relevante-r-testing.html#cb82-2" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="at">x =</span> f, <span class="at">p =</span> p0)</span></code></pre></div>
 <p>Dersom du skal teste for uavhengighet så kan du anta at datasettet kommer som en ferdig kontingenstabell, med den ene gruppeinndelingen langs kolonnene, og den andre gruppeinndelingen langs radene. En slik tabell kan du sende rett inn i <code>chisq.test()</code>-funksjonen for å gjøre en test for uavhengighet:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="relevante-r-testing.html#cb82-1" tabindex="-1"></a><span class="co"># Test for uavhengighet</span></span>
-<span id="cb82-2"><a href="relevante-r-testing.html#cb82-2" tabindex="-1"></a>immigration <span class="ot">&lt;-</span></span>
-<span id="cb82-3"><a href="relevante-r-testing.html#cb82-3" tabindex="-1"></a>  <span class="fu">read_xls</span>(<span class="st">&quot;immigration-wide.xls&quot;</span>,</span>
-<span id="cb82-4"><a href="relevante-r-testing.html#cb82-4" tabindex="-1"></a>           <span class="at">range =</span> <span class="st">&quot;B2:E12&quot;</span>,</span>
-<span id="cb82-5"><a href="relevante-r-testing.html#cb82-5" tabindex="-1"></a>           <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&quot;many&quot;</span>, <span class="st">&quot;some&quot;</span>, <span class="st">&quot;few&quot;</span>, <span class="st">&quot;none&quot;</span>))</span>
-<span id="cb82-6"><a href="relevante-r-testing.html#cb82-6" tabindex="-1"></a><span class="fu">chisq.test</span>(immigration)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="relevante-r-testing.html#cb83-1" tabindex="-1"></a><span class="co"># Test for uavhengighet</span></span>
+<span id="cb83-2"><a href="relevante-r-testing.html#cb83-2" tabindex="-1"></a>immigration <span class="ot">&lt;-</span></span>
+<span id="cb83-3"><a href="relevante-r-testing.html#cb83-3" tabindex="-1"></a>  <span class="fu">read_xls</span>(<span class="st">&quot;immigration-wide.xls&quot;</span>,</span>
+<span id="cb83-4"><a href="relevante-r-testing.html#cb83-4" tabindex="-1"></a>           <span class="at">range =</span> <span class="st">&quot;B2:E12&quot;</span>,</span>
+<span id="cb83-5"><a href="relevante-r-testing.html#cb83-5" tabindex="-1"></a>           <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&quot;many&quot;</span>, <span class="st">&quot;some&quot;</span>, <span class="st">&quot;few&quot;</span>, <span class="st">&quot;none&quot;</span>))</span>
+<span id="cb83-6"><a href="relevante-r-testing.html#cb83-6" tabindex="-1"></a><span class="fu">chisq.test</span>(immigration)</span></code></pre></div>
 </div>
 <div id="kjikvadrattester-for-uavhengighet" class="section level3 unnumbered hasAnchor">
 <h3>Kjikvadrattester for uavhengighet<a href="relevante-r-testing.html#kjikvadrattester-for-uavhengighet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Som eksempel kan vi ta oppgaven fra Dataøving 2. Vi starter med å lese inn dataene:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="relevante-r-testing.html#cb83-1" tabindex="-1"></a><span class="co"># les inn data</span></span>
-<span id="cb83-2"><a href="relevante-r-testing.html#cb83-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb83-3"><a href="relevante-r-testing.html#cb83-3" tabindex="-1"></a>violence <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="relevante-r-testing.html#cb84-1" tabindex="-1"></a><span class="co"># les inn data</span></span>
+<span id="cb84-2"><a href="relevante-r-testing.html#cb84-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb84-3"><a href="relevante-r-testing.html#cb84-3" tabindex="-1"></a>violence <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;violence.xlsx&quot;</span>)</span></code></pre></div>
 <p>Vi bruker <code>select()</code> til å velge de to variablene vi er interessert i og funksjonen <code>table()</code> til å lage en krysstabell:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="relevante-r-testing.html#cb84-1" tabindex="-1"></a>violence_redusert <span class="ot">&lt;-</span></span>
-<span id="cb84-2"><a href="relevante-r-testing.html#cb84-2" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
-<span id="cb84-3"><a href="relevante-r-testing.html#cb84-3" tabindex="-1"></a>  <span class="fu">select</span>(violent_treatment, experienced_violence)</span>
-<span id="cb84-4"><a href="relevante-r-testing.html#cb84-4" tabindex="-1"></a>krysstabell <span class="ot">&lt;-</span> <span class="fu">table</span>(violence_redusert)</span>
-<span id="cb84-5"><a href="relevante-r-testing.html#cb84-5" tabindex="-1"></a>krysstabell</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="relevante-r-testing.html#cb85-1" tabindex="-1"></a>violence_redusert <span class="ot">&lt;-</span></span>
+<span id="cb85-2"><a href="relevante-r-testing.html#cb85-2" tabindex="-1"></a>  violence <span class="sc">%&gt;%</span></span>
+<span id="cb85-3"><a href="relevante-r-testing.html#cb85-3" tabindex="-1"></a>  <span class="fu">select</span>(violent_treatment, experienced_violence)</span>
+<span id="cb85-4"><a href="relevante-r-testing.html#cb85-4" tabindex="-1"></a>krysstabell <span class="ot">&lt;-</span> <span class="fu">table</span>(violence_redusert)</span>
+<span id="cb85-5"><a href="relevante-r-testing.html#cb85-5" tabindex="-1"></a>krysstabell</span></code></pre></div>
 <pre><code>##                  experienced_violence
 ## violent_treatment Less Violent Violent
 ##      Less Violent          114       9
 ##      Violent                33      93</code></pre>
 <p>Det ser ut til at det er en klar sammenheng mellom faktisk og opplevd voldelighet ved at de fleste forsøkspersonene havner på diagonalen i krysstabellen over.</p>
 <p>Nå skal vi utføre en test av nullhypotesen <span class="math inline">\(H_0\)</span>: faktisk og opplevd voldelighet er uavhengige kjennetegn, mot den alternative hypotesen <span class="math inline">\(H_1:\)</span> at de er avhengige kjennetegn. Dette er en chikvadrattest som kan utføres i R på følgende måte:</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="relevante-r-testing.html#cb86-1" tabindex="-1"></a><span class="fu">chisq.test</span>(krysstabell)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="relevante-r-testing.html#cb87-1" tabindex="-1"></a><span class="fu">chisq.test</span>(krysstabell)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
@@ -420,52 +420,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="kritiske-verdier-i-t-fordelingen" class="section level4 unnumbered hasAnchor">
 <h4>Kritiske verdier i T-fordelingen<a href="relevante-r-testing.html#kritiske-verdier-i-t-fordelingen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Dersom du f.eks skal utføre en t-test for <span class="math inline">\(H_0: \mu = \mu_0\)</span> mot <span class="math inline">\(H_1: \mu &lt; \mu_0\)</span>, med signifikansnivå <span class="math inline">\(\alpha = 0.05\)</span> og har <span class="math inline">\(40\)</span> observasjoner er kritisk verdi:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="relevante-r-testing.html#cb88-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.05</span>, <span class="at">df =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="relevante-r-testing.html#cb89-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="fl">0.05</span>, <span class="at">df =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] -1.684875</code></pre>
 <p>og du forkaster da dersom din testobservator <span class="math inline">\(T\)</span> er mindre enn dette tallet.</p>
 <p>Hadde alternativ hypotesen vært <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span> ville kritisk verdi vært</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="relevante-r-testing.html#cb90-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span>, <span class="at">df =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="relevante-r-testing.html#cb91-1" tabindex="-1"></a><span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span>, <span class="at">df =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 1.684875</code></pre>
 <p>og du forkaster dersom din testobservator <span class="math inline">\(T\)</span> er større enn dette tallet.</p>
 <p>For en to-sidig test (<span class="math inline">\(H_1: \mu\neq \mu_0\)</span>) forkaster du dersom <span class="math inline">\(T\)</span> faller uten for intervallet:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="relevante-r-testing.html#cb92-1" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb92-2"><a href="relevante-r-testing.html#cb92-2" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb92-3"><a href="relevante-r-testing.html#cb92-3" tabindex="-1"></a><span class="fu">c</span>(U,L)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="relevante-r-testing.html#cb93-1" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb93-2"><a href="relevante-r-testing.html#cb93-2" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">40</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb93-3"><a href="relevante-r-testing.html#cb93-3" tabindex="-1"></a><span class="fu">c</span>(U,L)</span></code></pre></div>
 <pre><code>## [1]  2.022691 -2.022691</code></pre>
 </div>
 <div id="kritiske-verdier-i-standardnormalfordelingen" class="section level4 unnumbered hasAnchor">
 <h4>Kritiske verdier i standardnormalfordelingen<a href="relevante-r-testing.html#kritiske-verdier-i-standardnormalfordelingen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Helt likt som for t-fordelingen bare at det ikke er noen frihetsgrader involvert:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="relevante-r-testing.html#cb94-1" tabindex="-1"></a><span class="co"># Ensidig mu &lt; mu0, alpha = 0.05</span></span>
-<span id="cb94-2"><a href="relevante-r-testing.html#cb94-2" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="relevante-r-testing.html#cb95-1" tabindex="-1"></a><span class="co"># Ensidig mu &lt; mu0, alpha = 0.05</span></span>
+<span id="cb95-2"><a href="relevante-r-testing.html#cb95-2" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.05</span>)</span></code></pre></div>
 <pre><code>## [1] -1.644854</code></pre>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="relevante-r-testing.html#cb96-1" tabindex="-1"></a><span class="co"># Ensidig mu &gt; mu0, alpha = 0.05</span></span>
-<span id="cb96-2"><a href="relevante-r-testing.html#cb96-2" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="relevante-r-testing.html#cb97-1" tabindex="-1"></a><span class="co"># Ensidig mu &gt; mu0, alpha = 0.05</span></span>
+<span id="cb97-2"><a href="relevante-r-testing.html#cb97-2" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span>)</span></code></pre></div>
 <pre><code>## [1] 1.644854</code></pre>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="relevante-r-testing.html#cb98-1" tabindex="-1"></a><span class="co"># Tosidig</span></span>
-<span id="cb98-2"><a href="relevante-r-testing.html#cb98-2" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)</span>
-<span id="cb98-3"><a href="relevante-r-testing.html#cb98-3" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)</span>
-<span id="cb98-4"><a href="relevante-r-testing.html#cb98-4" tabindex="-1"></a><span class="fu">c</span>(U,L)</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="relevante-r-testing.html#cb99-1" tabindex="-1"></a><span class="co"># Tosidig</span></span>
+<span id="cb99-2"><a href="relevante-r-testing.html#cb99-2" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb99-3"><a href="relevante-r-testing.html#cb99-3" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb99-4"><a href="relevante-r-testing.html#cb99-4" tabindex="-1"></a><span class="fu">c</span>(U,L)</span></code></pre></div>
 <pre><code>## [1]  1.959964 -1.959964</code></pre>
 <p>Alternativt er det bare å pugge tallene <span class="math inline">\(1.64\)</span> og <span class="math inline">\(1.96\)</span>.</p>
 </div>
 <div id="kritiske-verdier-i-chi2-fordelingen" class="section level4 unnumbered hasAnchor">
 <h4>Kritiske verdier i <span class="math inline">\(\chi^2\)</span>-fordelingen<a href="relevante-r-testing.html#kritiske-verdier-i-chi2-fordelingen" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="relevante-r-testing.html#cb100-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, ensidig test, nedre hale, 30 frihetsgrader</span></span>
-<span id="cb100-2"><a href="relevante-r-testing.html#cb100-2" tabindex="-1"></a></span>
-<span id="cb100-3"><a href="relevante-r-testing.html#cb100-3" tabindex="-1"></a><span class="fu">qchisq</span>(<span class="fl">0.05</span>, <span class="at">df =</span> <span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="relevante-r-testing.html#cb101-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, ensidig test, nedre hale, 30 frihetsgrader</span></span>
+<span id="cb101-2"><a href="relevante-r-testing.html#cb101-2" tabindex="-1"></a></span>
+<span id="cb101-3"><a href="relevante-r-testing.html#cb101-3" tabindex="-1"></a><span class="fu">qchisq</span>(<span class="fl">0.05</span>, <span class="at">df =</span> <span class="dv">30</span>)</span></code></pre></div>
 <pre><code>## [1] 18.49266</code></pre>
 <p>og du forkaster dersom testobservatoren er mindre enn dette tallet.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="relevante-r-testing.html#cb102-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, ensidig test, øvre hale, 30 frihetsgrader</span></span>
-<span id="cb102-2"><a href="relevante-r-testing.html#cb102-2" tabindex="-1"></a></span>
-<span id="cb102-3"><a href="relevante-r-testing.html#cb102-3" tabindex="-1"></a><span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span>, <span class="at">df =</span> <span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="relevante-r-testing.html#cb103-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, ensidig test, øvre hale, 30 frihetsgrader</span></span>
+<span id="cb103-2"><a href="relevante-r-testing.html#cb103-2" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="relevante-r-testing.html#cb103-3" tabindex="-1"></a><span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span>, <span class="at">df =</span> <span class="dv">30</span>)</span></code></pre></div>
 <pre><code>## [1] 43.77297</code></pre>
 <p>og du forkaster dersom testobservatoren er større enn dette tallet.</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="relevante-r-testing.html#cb104-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, tosidig test, 30 frihetsgrader</span></span>
-<span id="cb104-2"><a href="relevante-r-testing.html#cb104-2" tabindex="-1"></a></span>
-<span id="cb104-3"><a href="relevante-r-testing.html#cb104-3" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">30</span>)</span>
-<span id="cb104-4"><a href="relevante-r-testing.html#cb104-4" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">30</span>)</span>
-<span id="cb104-5"><a href="relevante-r-testing.html#cb104-5" tabindex="-1"></a><span class="fu">c</span>(L, U)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="relevante-r-testing.html#cb105-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, tosidig test, 30 frihetsgrader</span></span>
+<span id="cb105-2"><a href="relevante-r-testing.html#cb105-2" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="relevante-r-testing.html#cb105-3" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">30</span>)</span>
+<span id="cb105-4"><a href="relevante-r-testing.html#cb105-4" tabindex="-1"></a>U <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df =</span> <span class="dv">30</span>)</span>
+<span id="cb105-5"><a href="relevante-r-testing.html#cb105-5" tabindex="-1"></a><span class="fu">c</span>(L, U)</span></code></pre></div>
 <pre><code>## [1] 16.79077 46.97924</code></pre>
 <p>og du forkaster nullhypotesen dersom testobservatoren havner utenfor dette intervallet.</p>
 </div>
@@ -475,14 +475,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[F = \frac{S_{1}^2}{S_{2}^2}.\]</span></p>
 <p>Uavhengig om det er en ensidig eller tosidig test, trenger vi da bare å sjekke om testobservatoren overstiger den kritiske verdien i den øvre halen i F-fordelingen.</p>
 <p>Har vi brukt <span class="math inline">\(30\)</span> observasjoner til å regne ut <span class="math inline">\(S_{1}^2\)</span> og <span class="math inline">\(25\)</span> observasjoner til å regne ut <span class="math inline">\(S_{1}^2\)</span> blir kritisk verdi i en to-sidig test der <span class="math inline">\(H_1: \sigma_{1}^2 \neq \sigma_{2}^2\)</span> :</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="relevante-r-testing.html#cb106-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, tosidig test</span></span>
-<span id="cb106-2"><a href="relevante-r-testing.html#cb106-2" tabindex="-1"></a></span>
-<span id="cb106-3"><a href="relevante-r-testing.html#cb106-3" tabindex="-1"></a><span class="fu">qf</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df1 =</span> <span class="dv">30</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">df2 =</span> <span class="dv">25</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="relevante-r-testing.html#cb107-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, tosidig test</span></span>
+<span id="cb107-2"><a href="relevante-r-testing.html#cb107-2" tabindex="-1"></a></span>
+<span id="cb107-3"><a href="relevante-r-testing.html#cb107-3" tabindex="-1"></a><span class="fu">qf</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>, <span class="at">df1 =</span> <span class="dv">30</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">df2 =</span> <span class="dv">25</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 2.217443</code></pre>
 <p>Er det en ensidig test hvor <span class="math inline">\(H_1: \sigma_{1}^2 &gt; \sigma_{2}^2\)</span> blir kritisk verdi:</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="relevante-r-testing.html#cb108-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, ensidig test</span></span>
-<span id="cb108-2"><a href="relevante-r-testing.html#cb108-2" tabindex="-1"></a></span>
-<span id="cb108-3"><a href="relevante-r-testing.html#cb108-3" tabindex="-1"></a><span class="fu">qf</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span>, <span class="at">df1 =</span> <span class="dv">30</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">df2 =</span> <span class="dv">25</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="relevante-r-testing.html#cb109-1" tabindex="-1"></a><span class="co"># Kritisk verdi, 5% nivå, ensidig test</span></span>
+<span id="cb109-2"><a href="relevante-r-testing.html#cb109-2" tabindex="-1"></a></span>
+<span id="cb109-3"><a href="relevante-r-testing.html#cb109-3" tabindex="-1"></a><span class="fu">qf</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.05</span>, <span class="at">df1 =</span> <span class="dv">30</span> <span class="sc">-</span> <span class="dv">1</span>, <span class="at">df2 =</span> <span class="dv">25</span> <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 1.945259</code></pre>
 <p>Husk: Du kan definere hva som er <span class="math inline">\(S_{1}^2\)</span> og <span class="math inline">\(S_{2}^2\)</span>, og med strategien over definerer du alltid <span class="math inline">\(S_{1}^2\)</span> til være den av variansene som er størst.</p>
 
@@ -510,43 +510,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "toc_depth": 4
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
 });
 });
 </script>

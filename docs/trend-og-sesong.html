@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.2 Trend og sesong | MET4 - Empiriske Metoder - høst 2025</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.44 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.2 Trend og sesong | MET4 - Empiriske Metoder - høst 2025" />
   <meta property="og:type" content="book" />
@@ -271,23 +271,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-ving-1" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> R-øving<a href="trend-og-sesong.html#r-ving-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>1. Data.</strong> I pakken <code>fpp2</code> finnes en tidsrekke som heter <code>ausbeer</code>, som er den kvartalsvise produksjonen av øl i Australia fra 1956 til 2008. Du kan få tak i det og se på tidsrekken ved å kjøre følgende kommandoer:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="trend-og-sesong.html#cb168-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;fpp2&quot;</span>)</span>
-<span id="cb168-2"><a href="trend-og-sesong.html#cb168-2" tabindex="-1"></a><span class="fu">library</span>(fpp2)</span>
-<span id="cb168-3"><a href="trend-og-sesong.html#cb168-3" tabindex="-1"></a><span class="fu">plot</span>(ausbeer)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="trend-og-sesong.html#cb169-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;fpp2&quot;</span>)</span>
+<span id="cb169-2"><a href="trend-og-sesong.html#cb169-2" tabindex="-1"></a><span class="fu">library</span>(fpp2)</span>
+<span id="cb169-3"><a href="trend-og-sesong.html#cb169-3" tabindex="-1"></a><span class="fu">plot</span>(ausbeer)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 <p>Vi ser at det er en klar trendkomponent, selv om den ikke er lineær, samt en årlig sesongvariasjon.</p>
 <p><strong>2. Dekomponering.</strong> Funksjonen <code>stl</code> <em>dekomponerer</em> tidsrekken i de tre komponentene: trend, sesong, og tilfeldig variasjon. For å få tilgang på denne funskjonen trenger vi pakken <code>forecast</code>:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="trend-og-sesong.html#cb169-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forecast&quot;</span>)</span>
-<span id="cb169-2"><a href="trend-og-sesong.html#cb169-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="trend-og-sesong.html#cb170-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forecast&quot;</span>)</span>
+<span id="cb170-2"><a href="trend-og-sesong.html#cb170-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
 <p>Vi så kan kjøre funksjonen slik:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="trend-og-sesong.html#cb170-1" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="trend-og-sesong.html#cb171-1" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span></code></pre></div>
 <p>Vi kan hente ut de ulike komponentene ved å bruke dollartegnet: <code>dekomponert$time.series</code>. Pakken <code>forecast</code> har en egen plottefunksjon, <code>autoplot</code> som er spesialdesignet for tidsrekkeobjekter. Prøv å plotte de tre komponentene hver for seg ved å kjøre:</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="trend-og-sesong.html#cb171-1" tabindex="-1"></a><span class="fu">autoplot</span>(dekomponert)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="trend-og-sesong.html#cb172-1" tabindex="-1"></a><span class="fu">autoplot</span>(dekomponert)</span></code></pre></div>
 <p><img src="met4_files/figure-html/autoplot-1.png" width="672" /></p>
 <p><strong>3. Predikere.</strong> For predikering bruker vi funksjonen <code>forecast()</code>, som tar en estimert modell som input, og som bruker modellen til å skrive frem tidsrekken ved å estimere fremtidige verdier. Dekomponeringen over utgjør også en modell som vi kan bruke til å predikere fremtidige observasjoner med.</p>
 <p>Kodesnutten under viser hvordan man predikerer <span class="math inline">\(10\)</span> tidssteg frem i tid ved å sette <code>h = 10</code> i funksjonen. I tillegg kan funksjonen regne ut prediksjonsintervall med en gitt dekningsgrad, her velger vi <code>level = 0.95</code> for <span class="math inline">\(95\%\)</span> prediksjonsintervall. Resultatet lagrer vi i objektet <code>prediksjon</code>. Dette objektet kan vi plotte ved bruk av <code>autoplot</code>-funksjonen:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="trend-og-sesong.html#cb172-1" tabindex="-1"></a>prediksjon <span class="ot">&lt;-</span> <span class="fu">forecast</span>(dekomponert, <span class="at">h =</span> <span class="dv">10</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb172-2"><a href="trend-og-sesong.html#cb172-2" tabindex="-1"></a><span class="fu">autoplot</span>(prediksjon)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="trend-og-sesong.html#cb173-1" tabindex="-1"></a>prediksjon <span class="ot">&lt;-</span> <span class="fu">forecast</span>(dekomponert, <span class="at">h =</span> <span class="dv">10</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb173-2"><a href="trend-og-sesong.html#cb173-2" tabindex="-1"></a><span class="fu">autoplot</span>(prediksjon)</span></code></pre></div>
 <p><img src="met4_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
 </div>
 </div>
@@ -311,43 +311,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "toc_depth": 4
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
 });
 });
 </script>
