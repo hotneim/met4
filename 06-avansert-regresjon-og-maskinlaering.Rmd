@@ -601,6 +601,16 @@ klassifisering    <- ifelse(pred_test > 0.5, 1, 0)   # Klassifisering av kundene
 table(sann, klassifisering)                          # Kontigenstabell
 ```
 
+Det kan i flere sammenhenger være nyttig med en normalisert kontigenstabell, med andeler istedet for antall i hver celle. Da kan man bruke funksjonen `prop.table()` på følgene måte:
+
+```{r, eval = FALSE}
+library(dplyr) # Hvis du vil bruke pipe-operatoren
+
+table(sann, klassifisering) %>% 
+  prop.table
+
+```
+
 Et par ekstra bemerkninger:
 - Du kan predikere responsvariabel for nye kombinasjoner av forklaringsvariablene ved å lage en data frame som du sender inn i `newdata`-argumentet til `predict()`-funksjonen på akkurat samme måte som for [vanlig regresjon](#relevante-r-regresjon). 
 
@@ -637,7 +647,13 @@ k <- model3$finalModel$k
 k
 ```
 
-`predict()`-funksjonen fungerer på samme måte som for lineær og logistisk regresjon.
+`predict()`-funksjonen kan så brukes til å klassifisere et nytt datasett direkte, for eksempel testsettet:
+
+```{r, eval = FALSE}
+klassifisering_knn <- predict(model3, newdata = testsett)
+table(sann, klassifisering_knn)
+```
+
 
 ### Paneldata {-}
 
