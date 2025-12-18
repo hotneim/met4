@@ -2,7 +2,7 @@
 # ---------------------------------- #
 # R-SCRIPT                           #
 # MET4 - EMPIRISKE METODER           #
-# NHH NORGES HANDELSHØYSKOLE         #
+# NHH NORGES HANDELSH?YSKOLE         #
 #                                    #
 # MODUL 3: Regresjon                 #
 # ---------------------------------- #
@@ -18,9 +18,9 @@ head(cars)
 
 ggplot(cars) +
   geom_point(aes(x = Odometer, y = Price)) +
-  ggtitle("Kjørelengde vs. Pris")
+  ggtitle("Kj?relengde vs. Pris")
 
-# Møt din nye bestevenn: lm()-funksjonen
+# M?t din nye bestevenn: lm()-funksjonen
 reg <- lm(Price ~ Odometer, data = cars)
 summary(reg)
 
@@ -59,7 +59,7 @@ ggplot(cars) +
     ggtitle("...og med prediksjonsidensintervall for regresjonslinjen i tillegg")
 
 
-# Residualplott for å se etter heteroskedastisitet
+# Residualplott for ? se etter heteroskedastisitet
 str(reg)
 
 residualer <- data.frame(residualer = reg$residuals,
@@ -68,7 +68,7 @@ residualer <- data.frame(residualer = reg$residuals,
 ggplot(residualer, aes(x = predikert, y = residualer)) +
   geom_point()
 
-# Residualplott for å se etter autokorrelasjon
+# Residualplott for ? se etter autokorrelasjon
 residualer <- data.frame(residualer = reg$residuals,
                          t = 1:length(reg$residuals))
 
@@ -79,7 +79,7 @@ ggplot(residualer, aes(x = t, y = residualer)) +
 # Autokorrelasjonsplott
 acf(reg$residuals)
 
-# Histogram over residualer for å sjekke normalitetsantakelsen.
+# Histogram over residualer for ? sjekke normalitetsantakelsen.
 residualer <- data.frame(residualer = reg$residuals)
 ggplot(residualer, aes(x = residualer)) +
   geom_histogram()
@@ -97,7 +97,7 @@ ggplot(cars) +
   geom_point(aes(x = Odometer, y = Price)) +
   geom_line(aes(x = Odometer, y = fit), data = regresjonslinjen) +
   ggtitle("Bildata med estimert regresjonslinje") +
-  xlab("Kjørelengde") +
+  xlab("Kj?relengde") +
   ylab("Pris") +
   theme_classic()
 
@@ -164,11 +164,12 @@ ggplot(cooks_avstand, aes(x = obs, y = cook)) +
 library(readr)
 library(stargazer)
 library(ggplot2)
+library(readxl)
 
 # Leser datasett
-nasdaq <- read_csv("Xr04-NASDAQ.xls")
+nasdaq <- read_excel("Xr04-NASDAQ.xls")
 
-# Kjører regresjonene
+# Kj?rer regresjonene
 apple   <- lm(Index ~ AAPL, data = nasdaq)
 netflix <- lm(Index ~ NFLX, data = nasdaq)
 
@@ -234,7 +235,7 @@ ggplot(cooks_avstand, aes(x = obs, y = cook)) +
 
 ## DEL II: Multippel regresjon
 
-# Går R^2 opp ved å forklare Nasdaq-indeksen med både Netflix og Apple?
+# G?r R^2 opp ved ? forklare Nasdaq-indeksen med b?de Netflix og Apple?
 begge <- lm(Index ~ AAPL + NFLX, data = nasdaq)
 stargazer(apple, netflix, begge, type = "text")
 
@@ -278,7 +279,7 @@ head(skoledata)
 reg1 <- lm(lesing ~ folketall, data = skoledata)
 reg2 <- lm(lesing ~ driftsutgifter, data = skoledata)
 
-# Forklarer lesing vha *både* f.tall og dr.utgifter
+# Forklarer lesing vha *b?de* f.tall og dr.utgifter
 reg3 <- lm(lesing ~ folketall + driftsutgifter,
            data = skoledata)
 
@@ -316,7 +317,7 @@ reg5 <- lm(lesing ~ log(folketall),
            data = skoledata)
 stargazer(reg4, reg5, type = "text")
 
-# Eksempel på å lage en ny kolonne med kvadrater i skoledatasettet:
+# Eksempel p? ? lage en ny kolonne med kvadrater i skoledatasettet:
 skoledata2 <- cbind(skoledata,
                     antall_kvadert = skoledata$antall^2)
 
