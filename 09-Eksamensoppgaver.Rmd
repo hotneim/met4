@@ -23,9 +23,7 @@ skoleeksamen %>%
 
 ### Rettelser og kommentarer til oppgaver og løsningsforslag {-}
 
-Her vil du finne en del kommentarer og rettelser som er spesifikke for de enkelte oppgavesettene. Dette er basert på et dokument som [Jarle Møen](https://www.nhh.no/en/employees/faculty/jarle-moen/) startet på i sin tid, og som senere er oppdatert av [Benjamin Narum](https://www.nhh.no/en/employees/faculty/benjamin-narum/). [Curipod](nhh.curipod.com) tok over for denne oversikten, så man finner andre spørsmål og svar der som også er mer nylig. Søk eller bruk "tags" for årgangene av oppgaver. Vi lar spørsmålene under stå i tilfelle de også er av nytte.
-
-Overskriftene under kan trykkes på, så ekspanderes innholdet for hver eksamen.
+Her vil du finne en del kommentarer og rettelser som er spesifikke for de enkelte oppgavesettene. Overskriftene under kan trykkes på, så ekspanderes innholdet for hver eksamen.
 
 <!-- <details><summary>Vår 2008</summary> -->
 
