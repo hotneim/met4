@@ -60,7 +60,7 @@ Legg merke til følgende viktige datoer:
 
 - **13.februar** Siste frist for oppmelding av grupper til obligatorisk øvelse.
 - **13. mars** Frist for innlevering av den obligatoriske innleveringen.
-- **TBD** Individuell digital **skole**eksamen. Eksamen vil være en 6 timers digital skoleeksamen. Eksamen vil ha fokus på  både teori og dataanalyse i R. Begge delene er like omfattende og vil bli vurdert samlet hvor det settes en karakter. Hele eksamen vil gjennomføres digitalt på skolen og kandidaten disponerer selv hvor mye tid som brukes på teori og dataanalyse.  
+- **23. april** Individuell digital **skole**eksamen. Eksamen vil være en 6 timers digital skoleeksamen. Eksamen vil ha fokus på  både teori og dataanalyse i R. Begge delene er like omfattende og vil bli vurdert samlet hvor det settes en karakter. Hele eksamen vil gjennomføres digitalt på skolen og kandidaten disponerer selv hvor mye tid som brukes på teori og dataanalyse.  
 
 
 
