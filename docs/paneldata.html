@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.3 Paneldata | MET4 - Empiriske Metoder - vår 2026</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.3 Paneldata | MET4 - Empiriske Metoder - vår 2026" />
   <meta property="og:type" content="book" />
@@ -289,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="struktur-pa-paneldata" class="section level4 hasAnchor" number="6.3.3.1">
 <h4><span class="header-section-number">6.3.3.1</span> Struktur på Paneldata<a href="paneldata.html#struktur-pa-paneldata" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Til nå har vi typisk observert <span class="math inline">\(n\)</span> individer <em>en</em> gang. Hvis vi holder oss til eksempelet fra videoforelesningen, kan vi tenke oss at vi har spurt <span class="math inline">\(n\)</span> arbeidstakere om hvor mange timer de jobbet forrige år (<span class="math inline">\(X\)</span>), og hvor mye de hadde i timelønn (<span class="math inline">\(Y\)</span>). Da ville datasettet sett omtrent slik ut:</p>
-<p><img src="bilder/panel1.PNG" width="76" /></p>
+<p><img src="bilder/panel1.PNG" /><!-- --></p>
 <p>Her er <span class="math inline">\(y_i\)</span> timelønn til arbeidstaker nummer <span class="math inline">\(i\)</span>, og <span class="math inline">\(x_i\)</span> er antall timer jobbet for arbeidstaker nummer <span class="math inline">\(i\)</span>. Hvis vi så ønsker å se om det er en sammenheng mellom disse to variablene, kan vi sette opp en enkel regresjonsmodell som vi har gjort før:</p>
 <p><span class="math display">\[\begin{equation}
 y_i = \alpha + \beta x_i + \epsilon_i,
@@ -297,7 +297,7 @@ y_i = \alpha + \beta x_i + \epsilon_i,
 \end{equation}\]</span>
 der vi gjør de vanlige antakelsene om homoskedastisitet, uavhengige feilledd, og selvsagt at forklaringsvariabelen er <em>eksogen</em>, dvs at de stokastiske variablene <span class="math inline">\(X\)</span> og <span class="math inline">\(\epsilon\)</span> er <em>uavhengige fra hverandre</em>. Hvis vi aksepterer det, så kan vi estimere <span class="math inline">\(\beta\)</span> ved hjelp av minste kvadreters metode (OLS - orinary least squares), som vi kan tolke som forventet økning i timelønn ved å jobbe en time ekstra.</p>
 <p>For paneldata har vi ikke lenger kun observert <span class="math inline">\(n\)</span> arbeidstakere 1 gang, men spurt <span class="math inline">\(N\)</span> arbeidstakere <span class="math inline">\(T\)</span> ganger, slik at vi trenger to indekser til å identifisere hver enkelt observasjon: <span class="math inline">\(y_{i,t}\)</span> er timelønn til arbeidstaker nummer <span class="math inline">\(i\)</span> ved tidspunkt <span class="math inline">\(t\)</span>. Våre observerte <span class="math inline">\(X\)</span>er og <span class="math inline">\(Y\)</span>er kan vi samle i en tabell som før, se illustrasjonen under. Legg merke til at det bare er de to første kolonnene for <span class="math inline">\(X\)</span> og <span class="math inline">\(Y\)</span> som utgjør de faktiske observasjonene, mens de to neste kolonnene sier hvilket individ som er observert, og ved hvilket tidspunkt observasjonen er utført, og viser bare indeksene til <span class="math inline">\(X\)</span>- og <span class="math inline">\(Y\)</span>-observasjonene. Kall det gjerne <em>metadata</em>, og vi trenger den informasjonen når vi skal utføre paneldatateknikker.</p>
-<p><img src="bilder/panel2.PNG" width="492" /></p>
+<p><img src="bilder/panel2.PNG" /><!-- --></p>
 <p>Formatet i tabellen over kalles gjerne et <em>langt</em> format, og omtrent samtlige R-pakker og funksjoner som brukes til å analysere panel data forventer at dataene er organisert på denne måten.</p>
 <p>Vi kan ta en titt på hvordan dette ser ut i R for eksempelet vårt:</p>
 <div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="paneldata.html#cb215-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)              <span class="co"># Leser inn datasettet</span></span>
@@ -399,21 +399,32 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 \end{align}\]</span></p>
 <p>som har individuelle skjæringspunkt med <span class="math inline">\(y\)</span>-aksen (<span class="math inline">\(\hat{\alpha}_i\)</span>) for å justere for forskjellig lønnsnivå, men hvor <em>alle</em> observasjonene har blitt brukt til å estimere det felles stigningstallet <span class="math inline">\(\hat{\beta}_1\)</span>.</p>
 <p>Det er verdt å merke seg at denne metoden ikke kan brukes dersom forklaringsvariabelen ikke varierer med tid (eksempelvis kjønn). Da vil nemlig <span class="math inline">\(x_{it} - \overline{x}_i = x_{it} - x_{it} = 0\)</span>, og vi har derfor ingen mulighet til å estimere <span class="math inline">\(\beta_1\)</span> med OLS.</p>
-<p>Det finnes flere pakker som kan estimere slike modeller i R, men en veldig enkel pakke å bruke heter <code>plm</code>. Det første vi gjør er å laste pakken forså å “oversette” dataene våre til paneldata. På denne måten forstår <code>plm</code> funksjonen hva som er individ indeksen og hva som er tidsinndeksen:</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="paneldata.html#cb219-1" tabindex="-1"></a><span class="fu">library</span>(plm)      <span class="co"># Pakke for å estimere faste effekter</span></span>
-<span id="cb219-2"><a href="paneldata.html#cb219-2" tabindex="-1"></a></span>
-<span id="cb219-3"><a href="paneldata.html#cb219-3" tabindex="-1"></a><span class="co"># Oversetter til panel data frame</span></span>
-<span id="cb219-4"><a href="paneldata.html#cb219-4" tabindex="-1"></a>p.df <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(df,</span>
-<span id="cb219-5"><a href="paneldata.html#cb219-5" tabindex="-1"></a>                    <span class="at">index =</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span> ,<span class="st">&quot;year&quot;</span>))</span></code></pre></div>
-<p>Syntaksen for å bruke <code>plm</code> funksjonen er svært lik den for <code>lm</code> og <code>glm</code>. For å bruke en modell med faste effekter må man huske å spesifiserer argumentet <code>model = "within"</code>:</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="paneldata.html#cb220-1" tabindex="-1"></a>reg.fe <span class="ot">&lt;-</span> <span class="fu">plm</span>(lnwg <span class="sc">~</span> lnhr,</span>
-<span id="cb220-2"><a href="paneldata.html#cb220-2" tabindex="-1"></a>              <span class="at">data =</span> p.df,</span>
-<span id="cb220-3"><a href="paneldata.html#cb220-3" tabindex="-1"></a>              <span class="at">model =</span> <span class="st">&quot;within&quot;</span>)</span>
-<span id="cb220-4"><a href="paneldata.html#cb220-4" tabindex="-1"></a><span class="fu">summary</span>(reg.fe)</span></code></pre></div>
-<pre><code>## Oneway (individual) effect Within Model
+<!-- Det finnes flere pakker som kan estimere slike modeller i R, men en veldig enkel pakke å bruke heter `plm`. Det første vi gjør er å laste pakken forså å "oversette" dataene våre til paneldata. På denne måten forstår `plm` funksjonen hva som er individ indeksen og hva som er tidsinndeksen:
+
+
+``` r
+library(plm)      # Pakke for å estimere faste effekter
+
+# Oversetter til panel data frame
+p.df <- pdata.frame(df,
+                    index = c("id" ,"year"))
+```
+
+Syntaksen for å bruke `plm` funksjonen er svært lik den for `lm` og `glm`. For å bruke en modell med faste effekter må man huske å spesifiserer argumentet `model = "within"`:
+
+
+``` r
+reg.fe <- plm(lnwg ~ lnhr,
+              data = p.df,
+              model = "within")
+summary(reg.fe)
+```
+
+```
+## Oneway (individual) effect Within Model
 ## 
 ## Call:
-## plm(formula = lnwg ~ lnhr, data = p.df, model = &quot;within&quot;)
+## plm(formula = lnwg ~ lnhr, data = p.df, model = "within")
 ## 
 ## Balanced Panel: n = 3, T = 10, N = 30
 ## 
@@ -422,59 +433,103 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 ## -0.270016 -0.042538 -0.011427  0.051738  0.336355 
 ## 
 ## Coefficients:
-##      Estimate Std. Error t-value Pr(&gt;|t|)
+##      Estimate Std. Error t-value Pr(>|t|)
 ## lnhr  0.36293    0.26210  1.3847   0.1779
 ## 
 ## Total Sum of Squares:    0.37546
 ## Residual Sum of Squares: 0.34967
 ## R-Squared:      0.068678
 ## Adj. R-Squared: -0.038782
-## F-statistic: 1.91731 on 1 and 26 DF, p-value: 0.17792</code></pre>
-<p>Vi ser at den estimerte <span class="math inline">\(\beta_1\)</span> effekten av å jobbe mer estimeres til <span class="math inline">\(0.36\)</span>. Vi kan også få ut estimatene for de faste effektene <span class="math inline">\(\alpha_1\)</span>, <span class="math inline">\(\alpha_2\)</span> og <span class="math inline">\(\alpha_3\)</span>:</p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="paneldata.html#cb222-1" tabindex="-1"></a><span class="fu">fixef</span>(reg.fe)</span></code></pre></div>
-<pre><code>##         1         2         3 
-##  0.408228 -0.062905 -0.279994</code></pre>
-<p>Det kan være nyttig å ta en visuell innspeksjon på hvordan de individuelle regresjonskurvene passer til dataene:</p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="paneldata.html#cb224-1" tabindex="-1"></a><span class="fu">plot</span>(reg.fe)</span></code></pre></div>
-<p><img src="met4_files/figure-html/unnamed-chunk-190-1.png" width="672" /></p>
+## F-statistic: 1.91731 on 1 and 26 DF, p-value: 0.17792
+```
+-->
+<p>Det finnes flere pakker som kan estimere slike modeller i R. Den moderne standarden, som både er enkel å bruke og effektiv på store datasett, heter <code>fixest</code> (med kommandoen <code>feols</code>). Syntaksen for å bruke <code>plm</code> funksjonen er svært lik den for <code>lm</code> og <code>glm</code>. For å inkludere faste effekter legger vi dem inn bak en vertikal strek:</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="paneldata.html#cb219-1" tabindex="-1"></a><span class="fu">library</span>(fixest)      <span class="co"># Pakke for å estimere faste effekter</span></span>
+<span id="cb219-2"><a href="paneldata.html#cb219-2" tabindex="-1"></a></span>
+<span id="cb219-3"><a href="paneldata.html#cb219-3" tabindex="-1"></a>reg.fe <span class="ot">&lt;-</span> <span class="fu">feols</span>(lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id, <span class="co"># id er FE-variabelen</span></span>
+<span id="cb219-4"><a href="paneldata.html#cb219-4" tabindex="-1"></a>                <span class="at">data =</span> df)</span>
+<span id="cb219-5"><a href="paneldata.html#cb219-5" tabindex="-1"></a><span class="fu">summary</span>(reg.fe)</span></code></pre></div>
+<pre><code>## OLS estimation, Dep. Var.: lnwg
+## Observations: 30
+## Fixed-effects: id: 3
+## Standard-errors: IID 
+##      Estimate Std. Error t value Pr(&gt;|t|) 
+## lnhr 0.362926   0.262103 1.38467  0.17792 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## RMSE: 0.107962     Adj. R2: 0.88527 
+##                  Within R2: 0.068678</code></pre>
+<p>Vi ser at den estimerte <span class="math inline">\(\beta_1\)</span> (effekten av å jobbe mer) estimeres til <span class="math inline">\(0.36\)</span>. Vi kan også få ut estimatene for de faste effektene <span class="math inline">\(\alpha_1\)</span>, <span class="math inline">\(\alpha_2\)</span> og <span class="math inline">\(\alpha_3\)</span>:</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="paneldata.html#cb221-1" tabindex="-1"></a>fe <span class="ot">&lt;-</span> <span class="fu">fixef</span>(reg.fe) <span class="co">#henter ut FE</span></span>
+<span id="cb221-2"><a href="paneldata.html#cb221-2" tabindex="-1"></a>fe<span class="sc">$</span>id <span class="co">#viser for ID</span></span></code></pre></div>
+<pre><code>##           1           2           3 
+##  0.40822782 -0.06290504 -0.27999382</code></pre>
+<p>Det kan være nyttig å ta en visuell innspeksjon på hvordan de individuelle regresjonskurvene passer til dataene. Til å gjøre dette trenger vi en annen pakke, <code>plm</code>, som har denne funksjonen innebygd:</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="paneldata.html#cb223-1" tabindex="-1"></a><span class="fu">library</span>(plm)</span>
+<span id="cb223-2"><a href="paneldata.html#cb223-2" tabindex="-1"></a><span class="co"># klargjør og kjører samme modell med plm som med feols</span></span>
+<span id="cb223-3"><a href="paneldata.html#cb223-3" tabindex="-1"></a><span class="do">## Oversetter til panel data frame</span></span>
+<span id="cb223-4"><a href="paneldata.html#cb223-4" tabindex="-1"></a>p.df <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(df,</span>
+<span id="cb223-5"><a href="paneldata.html#cb223-5" tabindex="-1"></a>                    <span class="at">index =</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span> ,<span class="st">&quot;year&quot;</span>))</span>
+<span id="cb223-6"><a href="paneldata.html#cb223-6" tabindex="-1"></a>reg.fe2 <span class="ot">&lt;-</span> <span class="fu">plm</span>(lnwg <span class="sc">~</span> lnhr,</span>
+<span id="cb223-7"><a href="paneldata.html#cb223-7" tabindex="-1"></a>              <span class="at">data =</span> p.df,</span>
+<span id="cb223-8"><a href="paneldata.html#cb223-8" tabindex="-1"></a>              <span class="at">model =</span> <span class="st">&quot;within&quot;</span>)</span>
+<span id="cb223-9"><a href="paneldata.html#cb223-9" tabindex="-1"></a></span>
+<span id="cb223-10"><a href="paneldata.html#cb223-10" tabindex="-1"></a><span class="co"># plotter</span></span>
+<span id="cb223-11"><a href="paneldata.html#cb223-11" tabindex="-1"></a><span class="fu">plot</span>(reg.fe2)</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-191-1.png" width="672" /></p>
 <p>Denne figuren viser også hvordan regresjonskurven ville sett ut dersom vi hadde sett bort fra paneldatastrukturen og brukt en helt vanlig (pooled) regresjonsmodell. Sammenlignet med modellen med faste faste effekter (within) så ville vi da estimert effekten av jobbe mer til å være større. Selv om produktet her er <span class="math inline">\(3\)</span> individuelle regresjonsmodeller, presiserer vi at dette ikke er <span class="math inline">\(3\)</span> uavhengige analyser; alle observasjonene er brukt til å finne et estimat på <span class="math inline">\(\beta_1\)</span>.</p>
-<p>Vi husker at det også kunne være en felles tidskomponent <span class="math inline">\(v_t\)</span> i en slik modell og at denne kunne betraktes som en kategorisk variabel siden det typisk ikke er så mange (<span class="math inline">\(T\)</span>) av disse. Vi kan derfor bare legge til <code>year</code> som en ekstra (kategorisk) forklaringsvariabel forutsatt at den er koded som en <code>factor</code>:</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="paneldata.html#cb225-1" tabindex="-1"></a><span class="fu">is.factor</span>(p.df<span class="sc">$</span>year)</span></code></pre></div>
-<pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="paneldata.html#cb227-1" tabindex="-1"></a>reg.fe <span class="ot">&lt;-</span> <span class="fu">plm</span>(lnwg <span class="sc">~</span> lnhr <span class="sc">+</span> year,</span>
-<span id="cb227-2"><a href="paneldata.html#cb227-2" tabindex="-1"></a>              <span class="at">data =</span> p.df,</span>
-<span id="cb227-3"><a href="paneldata.html#cb227-3" tabindex="-1"></a>              <span class="at">model =</span> <span class="st">&quot;within&quot;</span>)</span>
-<span id="cb227-4"><a href="paneldata.html#cb227-4" tabindex="-1"></a><span class="fu">summary</span>(reg.fe)</span></code></pre></div>
-<pre><code>## Oneway (individual) effect Within Model
-## 
-## Call:
-## plm(formula = lnwg ~ lnhr + year, data = p.df, model = &quot;within&quot;)
-## 
-## Balanced Panel: n = 3, T = 10, N = 30
-## 
-## Residuals:
-##       Min.    1st Qu.     Median    3rd Qu.       Max. 
-## -0.1740253 -0.0689048  0.0054976  0.0668643  0.2081334 
-## 
-## Coefficients:
-##           Estimate Std. Error t-value Pr(&gt;|t|)
-## lnhr      0.182181   0.317431  0.5739   0.5735
-## year1980  0.030310   0.095869  0.3162   0.7557
-## year1981  0.015762   0.095752  0.1646   0.8712
-## year1982 -0.050297   0.095805 -0.5250   0.6064
-## year1983 -0.063590   0.103765 -0.6128   0.5481
-## year1984  0.031862   0.102964  0.3094   0.7607
-## year1985  0.162429   0.095752  1.6964   0.1081
-## year1986  0.066977   0.095869  0.6986   0.4942
-## year1987  0.082429   0.095752  0.8609   0.4013
-## year1988  0.087881   0.095682  0.9185   0.3712
-## 
-## Total Sum of Squares:    0.37546
-## Residual Sum of Squares: 0.23334
-## R-Squared:      0.37853
-## Adj. R-Squared: -0.060163
-## F-statistic: 1.03543 on 10 and 17 DF, p-value: 0.45624</code></pre>
+<!-- Vi husker at det også kunne være en felles tidskomponent $v_t$ i en slik modell og at denne kunne betraktes som en kategorisk variabel siden det typisk ikke er så mange ($T$) av disse. Vi kan derfor bare legge til `year`  som en ekstra (kategorisk) forklaringsvariabel forutsatt at den er koded som en `factor`:-->
+<p>Vi husker at det også kunne være en felles tidskomponent <span class="math inline">\(v_t\)</span> i en slik modell og at denne kunne betraktes som en kategorisk variabel siden det typisk ikke er så mange (<span class="math inline">\(T\)</span>) av disse. Vi kan derfor bare legge til <code>year</code> som en ekstra (kategorisk) forklaringsvariabel. Med <code>feols</code> kan vi gjøre dette ved å skrive <code>i()</code> rundt variabelnavnet:</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="paneldata.html#cb224-1" tabindex="-1"></a>reg.fe <span class="ot">&lt;-</span> <span class="fu">feols</span>(lnwg <span class="sc">~</span> lnhr <span class="sc">+</span> <span class="fu">i</span>(year) <span class="sc">|</span> id,</span>
+<span id="cb224-2"><a href="paneldata.html#cb224-2" tabindex="-1"></a>                <span class="at">data =</span> df)</span>
+<span id="cb224-3"><a href="paneldata.html#cb224-3" tabindex="-1"></a><span class="fu">summary</span>(reg.fe)</span></code></pre></div>
+<pre><code>## OLS estimation, Dep. Var.: lnwg
+## Observations: 30
+## Fixed-effects: id: 3
+## Standard-errors: IID 
+##             Estimate Std. Error   t value Pr(&gt;|t|) 
+## lnhr        0.182181   0.317431  0.573923  0.57354 
+## year::1980  0.030310   0.095869  0.316164  0.75573 
+## year::1981  0.015762   0.095752  0.164617  0.87119 
+## year::1982 -0.050297   0.095805 -0.524995  0.60637 
+## year::1983 -0.063590   0.103765 -0.612830  0.54810 
+## year::1984  0.031862   0.102964  0.309446  0.76074 
+## year::1985  0.162429   0.095752  1.696351  0.10805 
+## year::1986  0.066977   0.095869  0.698630  0.49423 
+## year::1987  0.082429   0.095752  0.860860  0.40129 
+## year::1988  0.087881   0.095682  0.918473  0.37122 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## RMSE: 0.088193     Adj. R2: 0.882908
+##                  Within R2: 0.378525</code></pre>
 <p>For dette lekedatasettet kunne vi strengt tatt også betraktet <span class="math inline">\(\alpha_i\)</span>-leddene som kategoriske variabler, men som sagt er som regel <span class="math inline">\(N\)</span> for stor til at dette lar seg gjøre.</p>
+<p>I praksis pleier vi ofte bare legge inn faste effekter direkte, i stedet for å bruke kategoriske variabler (med mindre vi er interesserte i koeffisientene på disse kategoriske variablene spesifikt). Det er mer effektivt, og vi slipper at de dukker opp sammen med de koeffisientene vi er interesserte i. Vi ser at dette gir akkurat samme resultat som tidligere (men er mye enklere å implementere):</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="paneldata.html#cb226-1" tabindex="-1"></a>reg.fe3 <span class="ot">&lt;-</span> <span class="fu">feols</span>(lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year,</span>
+<span id="cb226-2"><a href="paneldata.html#cb226-2" tabindex="-1"></a>                <span class="at">data =</span> df)</span>
+<span id="cb226-3"><a href="paneldata.html#cb226-3" tabindex="-1"></a><span class="fu">etable</span>(reg.fe, reg.fe3)</span></code></pre></div>
+<pre><code>##                           reg.fe         reg.fe3
+## Dependent Var.:             lnwg            lnwg
+##                                                 
+## lnhr             0.1822 (0.3174) 0.1822 (0.3174)
+## year = 1980      0.0303 (0.0959)                
+## year = 1981      0.0158 (0.0958)                
+## year = 1982     -0.0503 (0.0958)                
+## year = 1983     -0.0636 (0.1038)                
+## year = 1984      0.0319 (0.1030)                
+## year = 1985      0.1624 (0.0958)                
+## year = 1986      0.0670 (0.0959)                
+## year = 1987      0.0824 (0.0958)                
+## year = 1988      0.0879 (0.0957)                
+## Fixed-Effects:  ---------------- ---------------
+## id                           Yes             Yes
+## year                          No             Yes
+## _______________ ________________ _______________
+## S.E. type                    IID             IID
+## Observations                  30              30
+## R2                       0.93136         0.93136
+## Within R2                0.37853         0.01901
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
 <div id="tilfeldige-effekter" class="section level4 hasAnchor" number="6.3.3.6">
 <h4><span class="header-section-number">6.3.3.6</span> Tilfeldige effekter<a href="paneldata.html#tilfeldige-effekter" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -490,12 +545,13 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 <li>Bayesiansk estimering.</li>
 </ul>
 <p>De to siste metodene er mye brukt for å estimere tilfeldige effekter.</p>
-<p>I R kan vi fortsatt bruke <code>plm</code>, men må endre <code>model</code> argumentet til <code>"random"</code>:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="paneldata.html#cb229-1" tabindex="-1"></a><span class="co"># tilfeldig effekt modell</span></span>
-<span id="cb229-2"><a href="paneldata.html#cb229-2" tabindex="-1"></a>reg.re <span class="ot">&lt;-</span> <span class="fu">plm</span>(lnwg <span class="sc">~</span> lnhr,</span>
-<span id="cb229-3"><a href="paneldata.html#cb229-3" tabindex="-1"></a>              <span class="at">data =</span> p.df,</span>
-<span id="cb229-4"><a href="paneldata.html#cb229-4" tabindex="-1"></a>              <span class="at">model =</span> <span class="st">&quot;random&quot;</span>)</span>
-<span id="cb229-5"><a href="paneldata.html#cb229-5" tabindex="-1"></a><span class="fu">summary</span>(reg.re)</span></code></pre></div>
+<!--I R kan vi fortsatt bruke `plm`, men må endre `model` argumentet til `"random"`: -->
+<p>I R trenger vi nok en gang <code>plm</code> (som vi gjorde for å plotte de faste effektene over), men må endre <code>model</code>-argumentet til <code>"random"</code>:</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="paneldata.html#cb228-1" tabindex="-1"></a><span class="co"># tilfeldig effekt modell</span></span>
+<span id="cb228-2"><a href="paneldata.html#cb228-2" tabindex="-1"></a>reg.re <span class="ot">&lt;-</span> <span class="fu">plm</span>(lnwg <span class="sc">~</span> lnhr,</span>
+<span id="cb228-3"><a href="paneldata.html#cb228-3" tabindex="-1"></a>              <span class="at">data =</span> p.df,</span>
+<span id="cb228-4"><a href="paneldata.html#cb228-4" tabindex="-1"></a>              <span class="at">model =</span> <span class="st">&quot;random&quot;</span>)</span>
+<span id="cb228-5"><a href="paneldata.html#cb228-5" tabindex="-1"></a><span class="fu">summary</span>(reg.re)</span></code></pre></div>
 <pre><code>## Oneway (individual) effect Random Effect Model 
 ##    (Swamy-Arora&#39;s transformation)
 ## 
@@ -533,15 +589,17 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 <p>En modell med faste effekter vil være mulig å bruke i alle tilfeller, mens en modell med tilfeldige effekter har strengere krav til hvordan disse individuelle effektene oppfører seg. Dersom disse er oppfylt er det en fordel å bruke en modell med tilfeldige effekter.</p>
 <p>En strategi for å finne riktig modell er å estimere begge modellene forså å utføre en såkalt Hausman test. Nullhypotesen er da at den riktige modellen er den med tilfeldige effekter. Forkaster vi bruker vi modellen med faste effekter, forkaster vi ikke bruker vi modellen med tilfeldige effekter.</p>
 <p>I R utfører vi testen slik:</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="paneldata.html#cb231-1" tabindex="-1"></a><span class="co"># Hausman test</span></span>
-<span id="cb231-2"><a href="paneldata.html#cb231-2" tabindex="-1"></a><span class="fu">phtest</span>(reg.fe, reg.re)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="paneldata.html#cb230-1" tabindex="-1"></a><span class="co"># Hausman test</span></span>
+<span id="cb230-2"><a href="paneldata.html#cb230-2" tabindex="-1"></a><span class="co"># Vi trenger modellene vi har laget med plm, som heter reg.fe2 og reg.re</span></span>
+<span id="cb230-3"><a href="paneldata.html#cb230-3" tabindex="-1"></a></span>
+<span id="cb230-4"><a href="paneldata.html#cb230-4" tabindex="-1"></a><span class="fu">phtest</span>(reg.fe2, reg.re)</span></code></pre></div>
 <pre><code>## 
 ##  Hausman Test
 ## 
-## data:  lnwg ~ lnhr + year
-## chisq = 6.6775, df = 1, p-value = 0.009764
+## data:  lnwg ~ lnhr
+## chisq = 2.5836, df = 1, p-value = 0.108
 ## alternative hypothesis: one model is inconsistent</code></pre>
-<p>Siden vi får forkastning vil den beste modellen for dette (leke-) datasettet være modellen med faste effekter.</p>
+<p>Siden vi får forkastning vil den beste modellen for dette (leke-)datasettet være modellen med faste effekter.</p>
 </div>
 </div>
 </div>
@@ -565,43 +623,43 @@ y_{Nt} &amp;= \hat{\alpha}_N + \hat{\beta}_1 x_{Nt}   \\
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section",
-"toc_depth": 4
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "toc_depth": 4
+  }
 });
 });
 </script>

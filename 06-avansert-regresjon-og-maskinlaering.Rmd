@@ -299,7 +299,7 @@ som har individuelle skjæringspunkt med $y$-aksen ($\hat{\alpha}_i$) for å jus
 
 Det er verdt å merke seg at denne metoden ikke kan brukes dersom forklaringsvariabelen ikke varierer med tid (eksempelvis kjønn). Da vil nemlig $x_{it} - \overline{x}_i = x_{it} - x_{it} = 0$, og vi har derfor ingen mulighet til å estimere $\beta_1$ med OLS. 
 
-Det finnes flere pakker som kan estimere slike modeller i R, men en veldig enkel pakke å bruke heter `plm`. Det første vi gjør er å laste pakken forså å "oversette" dataene våre til paneldata. På denne måten forstår `plm` funksjonen hva som er individ indeksen og hva som er tidsinndeksen:
+<!-- Det finnes flere pakker som kan estimere slike modeller i R, men en veldig enkel pakke å bruke heter `plm`. Det første vi gjør er å laste pakken forså å "oversette" dataene våre til paneldata. På denne måten forstår `plm` funksjonen hva som er individ indeksen og hva som er tidsinndeksen:
 
 ```{r, warning = F, message=F}
 library(plm)      # Pakke for å estimere faste effekter
@@ -320,35 +320,63 @@ reg.fe <- plm(lnwg ~ lnhr,
 summary(reg.fe)
 
 ```
+--> 
 
-Vi ser at den estimerte $\beta_1$ effekten av å jobbe mer estimeres til $0.36$. Vi kan også få ut estimatene for de faste effektene $\alpha_1$, $\alpha_2$ og $\alpha_3$: 
+Det finnes flere pakker som kan estimere slike modeller i R. Den moderne standarden, som både er enkel å bruke og effektiv på store datasett, heter `fixest` (med kommandoen `feols`). Syntaksen for å bruke `plm` funksjonen er svært lik den for `lm` og `glm`. For å inkludere faste effekter legger vi dem inn bak en vertikal strek:
 
-```{r}
-fixef(reg.fe)
+```{r, warning = F}
+library(fixest)      # Pakke for å estimere faste effekter
 
+reg.fe <- feols(lnwg ~ lnhr | id, # id er FE-variabelen
+                data = df)
+summary(reg.fe)
 ```
 
-Det kan være nyttig å ta en visuell innspeksjon på hvordan de individuelle regresjonskurvene passer til dataene:
+
+Vi ser at den estimerte $\beta_1$ (effekten av å jobbe mer) estimeres til $0.36$. Vi kan også få ut estimatene for de faste effektene $\alpha_1$, $\alpha_2$ og $\alpha_3$: 
 
 ```{r}
-plot(reg.fe)
+fe <- fixef(reg.fe) #henter ut FE
+fe$id #viser for ID
+```
+
+Det kan være nyttig å ta en visuell innspeksjon på hvordan de individuelle regresjonskurvene passer til dataene. Til å gjøre dette trenger vi en annen pakke, `plm`, som har denne funksjonen innebygd:
+
+```{r, warning = F, message=F}
+library(plm)
+# klargjør og kjører samme modell med plm som med feols
+## Oversetter til panel data frame
+p.df <- pdata.frame(df,
+                    index = c("id" ,"year"))
+reg.fe2 <- plm(lnwg ~ lnhr,
+              data = p.df,
+              model = "within")
+
+# plotter
+plot(reg.fe2)
 ```
 
 Denne figuren viser også hvordan regresjonskurven ville sett ut dersom vi hadde sett bort fra paneldatastrukturen og brukt en helt vanlig (pooled) regresjonsmodell. Sammenlignet med modellen med faste faste effekter (within) så ville vi da estimert effekten av jobbe mer til å være større. Selv om produktet her er $3$ individuelle regresjonsmodeller, presiserer vi at dette ikke er $3$ uavhengige analyser; alle observasjonene er brukt til å finne et estimat på $\beta_1$.        
 
-Vi husker at det også kunne være en felles tidskomponent $v_t$ i en slik modell og at denne kunne betraktes som en kategorisk variabel siden det typisk ikke er så mange ($T$) av disse. Vi kan derfor bare legge til `year`  som en ekstra (kategorisk) forklaringsvariabel forutsatt at den er koded som en `factor`:
+<!-- Vi husker at det også kunne være en felles tidskomponent $v_t$ i en slik modell og at denne kunne betraktes som en kategorisk variabel siden det typisk ikke er så mange ($T$) av disse. Vi kan derfor bare legge til `year`  som en ekstra (kategorisk) forklaringsvariabel forutsatt at den er koded som en `factor`:-->
+
+Vi husker at det også kunne være en felles tidskomponent $v_t$ i en slik modell og at denne kunne betraktes som en kategorisk variabel siden det typisk ikke er så mange ($T$) av disse. Vi kan derfor bare legge til `year`  som en ekstra (kategorisk) forklaringsvariabel. Med `feols` kan vi gjøre dette ved å skrive `i()` rundt variabelnavnet:
+
 
 ```{r}
-is.factor(p.df$year)
-
-reg.fe <- plm(lnwg ~ lnhr + year,
-              data = p.df,
-              model = "within")
+reg.fe <- feols(lnwg ~ lnhr + i(year) | id,
+                data = df)
 summary(reg.fe)
-
 ```
 For dette lekedatasettet kunne vi strengt tatt også betraktet $\alpha_i$-leddene som kategoriske variabler, men som sagt er som regel $N$ for stor til at dette lar seg gjøre.
 
+I praksis pleier vi ofte bare legge inn faste effekter direkte, i stedet for å bruke kategoriske variabler (med mindre vi er interesserte i koeffisientene på disse kategoriske variablene spesifikt). Det er mer effektivt, og vi slipper at de dukker opp sammen med de koeffisientene vi er interesserte i. Vi ser at dette gir akkurat samme resultat som tidligere (men er mye enklere å implementere):
+
+```{r}
+reg.fe3 <- feols(lnwg ~ lnhr | id + year,
+                data = df)
+etable(reg.fe, reg.fe3)
+```
 
 #### Tilfeldige effekter
 Hovedmotivasjonen for analysen av paneldataene er å finne ut hva effekten av å jobbe mer er ($\beta_1$). Vi vet at det eksisterer individuelle effekter $\alpha_i$ som en konsekvens av datastrukturen, men vi er ikke nødvendigvis interessert i disse verdiene i seg selv.  
@@ -368,7 +396,9 @@ En modell med tilfeldige effekter brukes dersom det er rimelig å anta at de ind
 
 De to siste metodene er mye brukt for å estimere tilfeldige effekter. 
 
-I R kan vi fortsatt bruke `plm`, men må endre `model` argumentet til `"random"`:
+<!--I R kan vi fortsatt bruke `plm`, men må endre `model` argumentet til `"random"`: -->
+
+I R trenger vi nok en gang `plm` (som vi gjorde for å plotte de faste effektene over), men må endre `model`-argumentet til `"random"`:
 
 ```{r}
 # tilfeldig effekt modell
@@ -389,9 +419,11 @@ I R utfører vi testen slik:
 
 ```{r}
 # Hausman test
-phtest(reg.fe, reg.re)
+# Vi trenger modellene vi har laget med plm, som heter reg.fe2 og reg.re
+
+phtest(reg.fe2, reg.re)
 ```
-Siden vi får forkastning vil den beste modellen for dette (leke-) datasettet være modellen med faste effekter.
+Siden vi får forkastning vil den beste modellen for dette (leke-)datasettet være modellen med faste effekter.
 
 ## Oppgaver
 
