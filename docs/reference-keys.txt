@@ -116,8 +116,6 @@ identifikasjon
 det-ideelle-eksperimentet
 ekso
 trusler-mot-identifikasjon
-eksempel-1-frer-sykehusopphold-til-darligere-helse
-eks2
 i-en-ideell-verden-randomiserte-kontrollerte-forsk-rct
 kontrollvariabler
 FE
@@ -133,6 +131,7 @@ oppgaver-3
 oppgaver-om-logistisk-regresjon
 oppgaver-om-knn
 oppgaver-om-paneldata
+oppgaver-om-kausal-identifikasjon
 relevante-r-avansert-regresjon
 datavinger
 dataving-1

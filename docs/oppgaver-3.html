@@ -453,6 +453,214 @@ Løsning
 </details>
 <p><strong>Oppgave 2</strong></p>
 <p>Prøv deg på Oppgave 2 i den individuelle hjemmeeksamen H2020 som du finner i kapittel <a href="skoleeksamen.html#skoleeksamen">9.1</a>. Det er spesielt oppgave e) og f) som er relatert til paneldata, men vi bemerker at oppgave f) var “nøtten” i det oppgavesettet.</p>
+<p><strong>Oppgave 3</strong></p>
+<p>Vi fortsetter å bruke datasettet <code>panel_liten</code>, som du kan laste ned lenger opp på denne siden.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Kjør en regresjon med lønn (<code>lnwg</code>) som utfallsvariabel og arbeidstimer (<code>lnhr</code>) som forklaringsvariabel, der du antar tilfeldige effekter. Tolk koeffisienten på arbeidstimer.</p></li>
+<li><p>Er det noen grunn til å være bekymret for om koeffisienten fra modellen over fanger opp noe annet eller mer enn <em>effekten</em> av å jobbe flere arbeidstimer på lønn?</p></li>
+<li><p>Vi skal nå legge til faste effekter. Vi skal ta i bruk pakken <code>fixest</code> og kommandoen <code>fe_model</code>, som egner seg godt for å estimere faste effekter. Tolk koeffisienten i modellen med faste effekter, og sammenlikn med modellen uten. Hva kan være årsaker til at estimatet endrer seg?</p></li>
+<li><p>Vi legger nå også til tidsfaste effekter. Tolk koeffisienten, sammenlikn med de to foregående modellene. Hva kan forklare at koeffisienten har endret seg?</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<ol style="list-style-type: lower-alpha">
+<li>Setter opp modellen (bruker pakken <code>fixest</code> og <code>feols</code> fordi vi skal bruke disse i senere deloppgaver):</li>
+</ol>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="oppgaver-3.html#cb245-1" tabindex="-1"></a><span class="fu">library</span>(readr)    <span class="co"># Lese inn csv-filer</span></span>
+<span id="cb245-2"><a href="oppgaver-3.html#cb245-2" tabindex="-1"></a><span class="fu">library</span>(fixest)   <span class="co"># Faste effekter (effektiv, og håndterer så mange faste effekter vi vil)</span></span>
+<span id="cb245-3"><a href="oppgaver-3.html#cb245-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="oppgaver-3.html#cb246-1" tabindex="-1"></a><span class="co"># kjører først modellen uten faste effekter</span></span>
+<span id="cb246-2"><a href="oppgaver-3.html#cb246-2" tabindex="-1"></a>re <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb246-3"><a href="oppgaver-3.html#cb246-3" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr , </span>
+<span id="cb246-4"><a href="oppgaver-3.html#cb246-4" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb246-5"><a href="oppgaver-3.html#cb246-5" tabindex="-1"></a>)</span>
+<span id="cb246-6"><a href="oppgaver-3.html#cb246-6" tabindex="-1"></a><span class="fu">etable</span>(re)</span></code></pre></div>
+<pre><code>##                                re
+## Dependent Var.:              lnwg
+##                                  
+## Constant        -12.76*** (2.817)
+## lnhr            2.041*** (0.3698)
+## _______________ _________________
+## S.E. type                     IID
+## Observations                   30
+## R2                        0.52114
+## Adj. R2                   0.50403
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Modellen uten faste effekter gir en koeffisient på <code>lnhr</code> lik 2.04, som er statistisk signifikant på 0,1 %-nivå. Fordi både lønn og arbeidstimer er log-transformerte, tolker vi dette som en elastisitet: En økning i arbeidstimer på 1 % er assosiert med en økning i timelønn på omtrent 2 %.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>Vi bør være forsiktige med å tolke dette som at flere arbeidstimer fører til høyere lønn. Fra modulen om OLS-betingelser husker vi at eksogenitet krever at det ikke er noen systematisk sammenheng mellom forklaringsvariabelen og restleddet. Her kan vi tenke oss at personer som jobber mange timer er systematisk annerledes enn de som jobber få timer – de kan ha høyere utdanning, mer erfaring, eller jobbe i andre typer stillinger. Slike egenskaper påvirker trolig også lønna, og ligger i restleddet. Da er eksogenitetsbetingelsen sannsynligvis brutt, og koeffisienten plukker opp mer enn bare sammenhengen mellom arbeidstimer og lønn.</p></li>
+<li><p>Kjører først modellen med faste effekter (fortsetter her videre fra deloppgave a)):</p></li>
+</ol>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="oppgaver-3.html#cb248-1" tabindex="-1"></a><span class="co"># legger først til individ-FE</span></span>
+<span id="cb248-2"><a href="oppgaver-3.html#cb248-2" tabindex="-1"></a>fe_id <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb248-3"><a href="oppgaver-3.html#cb248-3" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id , <span class="co"># her er id individfaste effekter</span></span>
+<span id="cb248-4"><a href="oppgaver-3.html#cb248-4" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb248-5"><a href="oppgaver-3.html#cb248-5" tabindex="-1"></a>)</span>
+<span id="cb248-6"><a href="oppgaver-3.html#cb248-6" tabindex="-1"></a></span>
+<span id="cb248-7"><a href="oppgaver-3.html#cb248-7" tabindex="-1"></a><span class="co"># skriv ut tabell</span></span>
+<span id="cb248-8"><a href="oppgaver-3.html#cb248-8" tabindex="-1"></a><span class="fu">etable</span>(re, fe_id)</span></code></pre></div>
+<pre><code>##                                re           fe_id
+## Dependent Var.:              lnwg            lnwg
+##                                                  
+## Constant        -12.76*** (2.817)                
+## lnhr            2.041*** (0.3698) 0.3629 (0.2621)
+## Fixed-Effects:  ----------------- ---------------
+## id                             No             Yes
+## _______________ _________________ _______________
+## S.E. type                     IID             IID
+## Observations                   30              30
+## R2                        0.52114         0.89714
+## Within R2                      --         0.06868
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Når vi inkluderer individfaste effekter faller koeffisienten dramatisk, fra 2,04 til 0,36, og den er ikke lenger statistisk signifikant. Dette er fordi modellen nå utelukkende bruker variasjon <em>innad i</em> hvert individ over tid: Tjener person <span class="math inline">\(i\)</span> mer i år hvor hun jobber flere timer enn i år hvor hun jobber færre? Alle tidskonstante egenskaper ved personen – som evner, utdanningsnivå og personlighet – holdes konstant gjennom de individfaste effektene. At koeffisienten faller så mye tyder på at den sterke, positive sammenhengen i den første modellen i stor grad var drevet av forskjeller <em>mellom</em> individer: Personer som jobber mye har høy lønn, men dette kan skyldes at de har egenskaper som gir både mange arbeidstimer og høy lønn.</p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Fortsetter videre på koden, og legger til tidsfaste effekter:</li>
+</ol>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="oppgaver-3.html#cb250-1" tabindex="-1"></a><span class="co"># legger også til års-FE</span></span>
+<span id="cb250-2"><a href="oppgaver-3.html#cb250-2" tabindex="-1"></a>fe_id_t <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb250-3"><a href="oppgaver-3.html#cb250-3" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year, <span class="co"># her er id og year individ- og årsfaste effekter</span></span>
+<span id="cb250-4"><a href="oppgaver-3.html#cb250-4" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb250-5"><a href="oppgaver-3.html#cb250-5" tabindex="-1"></a>)</span>
+<span id="cb250-6"><a href="oppgaver-3.html#cb250-6" tabindex="-1"></a><span class="fu">etable</span>(re, fe_id, fe_id_t)</span></code></pre></div>
+<pre><code>##                                re           fe_id         fe_id_t
+## Dependent Var.:              lnwg            lnwg            lnwg
+##                                                                  
+## Constant        -12.76*** (2.817)                                
+## lnhr            2.041*** (0.3698) 0.3629 (0.2621) 0.1822 (0.3174)
+## Fixed-Effects:  ----------------- --------------- ---------------
+## id                             No             Yes             Yes
+## year                           No              No             Yes
+## _______________ _________________ _______________ _______________
+## S.E. type                     IID             IID             IID
+## Observations                   30              30              30
+## R2                        0.52114         0.89714         0.93136
+## Within R2                      --         0.06868         0.01901
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+Når vi i tillegg legger til tidsfaste effekter faller koeffisienten ytterligere, til 0,18, og er fortsatt ikke statistisk signifikant. Tidsfaste effekter kontrollerer for alt som er felles for alle individer i et gitt år, for eksempel generell lønnsvekst eller makroøkonomiske svingninger. At koeffisienten faller litt videre tyder på at noe av den gjenværende sammenhengen var drevet av felles tidstrender: I gode år jobber folk mer og tjener mer, uten at det nødvendigvis er arbeidstimene som driver lønna. Etter å ha kontrollert for både individ- og tidseffekter er den estimerte sammenhengen mellom arbeidstimer og timelønn liten og ikke statistisk signifikant.
+</details>
+</div>
+<div id="oppgaver-om-kausal-identifikasjon" class="section level3 hasAnchor" number="6.5.4">
+<h3><span class="header-section-number">6.5.4</span> Oppgaver om kausal identifikasjon<a href="oppgaver-3.html#oppgaver-om-kausal-identifikasjon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Oppgave 1</strong></p>
+<p>En kommune vurderer å innføre gratis skolemåltider for å bedre elevenes skoleprestasjoner.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Formuler et presist kausalt spørsmål. Hva vil du manipulere, hva vil du måle, og hva sammenlignes med hva?</p></li>
+<li><p>Beskriv det ideelle eksperimentet for å besvare dette spørsmålet. Hvorfor ville randomisering vært viktig?</p></li>
+<li><p>Kommunen har ikke mulighet til å randomisere, men innfører tiltaket på tre skoler som melder sin interesse. Forklar hvorfor denne “frivillige” tildelingen gjør det vanskelig å trekke kausale slutninger. Hvilket begrep beskriver dette problemet?</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<ol style="list-style-type: lower-alpha">
+<li><p>Et presist kausalt spørsmål kan være: “Hva er effekten av å tilby gratis skolemåltider på elevenes karaktersnitt ved utgangen av skoleåret?” Vi manipulerer tilgangen til gratis skolemåltider (behandlingen), vi måler skoleprestasjoner (f.eks. gjennomsnittskarakter), og vi sammenligner elever som får gratis måltider med elever som ikke får det.</p></li>
+<li><p>Det ideelle eksperimentet ville vært å tilfeldig dele elever (eller skoler) i to grupper: én gruppe som får gratis skolemåltider, og én gruppe som ikke får det. Randomiseringen sikrer at de to gruppene i gjennomsnitt er like på alle andre egenskaper – familiebakgrunn, motivasjon, skolekvalitet, osv. Da vet vi at enhver forskjell i skoleprestasjoner må skyldes skolemåltidene, og ikke andre faktorer.</p></li>
+<li><p>Når skolene selv melder sin interesse, får vi et seleksjonsproblem (seleksjonsskjevhet). Skoler som melder seg er sannsynligvis systematisk forskjellige fra skoler som ikke gjør det – kanskje har de mer engasjerte rektorer, mer ressurssterke foreldre, eller allerede et fokus på elevvelferd. Disse egenskapene kan i seg selv påvirke skoleprestasjoner. Da kan vi ikke vite om en eventuell forbedring skyldes skolemåltidene eller de underliggende forskjellene mellom skolene.</p></li>
+</ol>
+</details>
+<p><strong>Oppgave 2</strong></p>
+<p>En dagligvarekjede ønsker å finne ut om lokal markedsføring øker omsetningen. De har data fra 200 butikker, og estimerer følgende modell:
+<span class="math display">\[\log(\text{Omsetning}_i) = \beta_0 + \beta_1 \log(\text{Reklamekroner}_i) + \varepsilon_i\]</span>
+der <span class="math inline">\(\text{Omsetning}_i\)</span> er månedlig omsetning i kroner for butikk <span class="math inline">\(i\)</span>, og <span class="math inline">\(\text{Reklamekroner}_i\)</span> er beløpet butikken brukte på lokal reklame (flyers, Facebook-annonser o.l.) den måneden.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Forklar med egne ord hva eksogenitetsbetingelsen <span class="math inline">\(\mathbb{E}[\varepsilon_i \vert x_i]=0\)</span> krever i denne sammenhengen. Hva må vi anta om restleddet?</p></li>
+<li><p>Nevn minst to variabler som kan tenkes å ligge i restleddet <span class="math inline">\(\varepsilon_i\)</span>, og som sannsynligvis er korrelert med hvor mye butikken bruker på reklame. Tegn gjerne et DAG-diagram.</p></li>
+<li><p>Hvis du kunne observert én av disse variablene – for eksempel butikkens beliggenhet (sentrum vs. utkant) – hvordan ville du inkludert den i modellen? Forklar hvordan dette “stenger ned” en kanal for endogenitet.</p></li>
+<li><p>Noen av variablene du nevnte i b) er kanskje ikke observerbare. Hva kunne vi gjort dersom vi hadde hatt data fra de samme butikkene over flere måneder?</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<ol style="list-style-type: lower-alpha">
+<li><p>Eksogenitetsbetingelsen krever at restleddet <span class="math inline">\(\varepsilon_i\)</span> – alt annet som påvirker omsetningen utover reklame – ikke er systematisk relatert til hvor mye butikken bruker på reklame. Hvis vi visste at en butikk brukte 50 000 kroner på reklame denne måneden, skal dette ikke fortelle oss noe om de andre faktorene som påvirker omsetningen. Intuitivt: butikker som bruker mye på reklame skal ikke være systematisk annerledes (på relevante måter) enn butikker som bruker lite.</p></li>
+<li><p>To aktuelle variabler:</p></li>
+</ol>
+<ul>
+<li><em>Beliggenhet/kundetrafikk</em>: Butikker i sentrum har typisk høyere omsetning <em>og</em> større markedsføringsbudsjetter (kanskje fordi hovedkontoret allokerer mer til butikker med høy kundetrafikk). Beliggenhet påvirker altså både reklamebruk og omsetning, og skaper en spuriøs sammenheng.</li>
+<li><em>Butikkstørrelse (areal)</em>: Større butikker har bredere vareutvalg og høyere omsetning, og vil trolig også ha større reklamebudsjetter. Igjen påvirker størrelse begge variablene i modellen.</li>
+</ul>
+<p>Begge variablene er felles årsaker som påvirker både forklaringsvariabelen og utfallsvariabelen. I et DAG-diagram ville vi tegnet piler fra beliggenhet (eller størrelse) til <em>både</em> reklamekroner og omsetning.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><p>Vi kan inkludere beliggenhet som kontrollvariabel:
+<span class="math display">\[\log(\text{Omsetning}_i) = \beta_0 + \beta_1 \log(\text{Reklamekroner}_i) + \beta_2 \text{Sentrum}_i + \varepsilon_i\]</span>
+Når vi kontrollerer for beliggenhet, sammenligner vi i praksis butikker med <em>lik</em> beliggenhet. Dermed “stenger vi ned” kanalen der beliggenhet påvirker både reklamebudsjett og omsetning. <span class="math inline">\(\beta_1\)</span> fanger da bare opp sammenhengen mellom reklame og omsetning <em>innenfor</em> samme type beliggenhet.</p></li>
+<li><p>Dersom vi har data fra de samme butikkene over flere måneder, har vi paneldata. Da kan vi inkludere butikkfaste effekter, som kontrollerer for <em>alle</em> tidskonstante egenskaper ved butikken – inkludert beliggenhet, størrelse, og andre ting vi kanskje ikke observerer direkte. Vi identifiserer da sammenhengen mellom reklame og omsetning utelukkende fra variasjon <em>innad i</em> hver butikk over tid: Selger butikk <span class="math inline">\(i\)</span> mer i måneder der den bruker mer på reklame enn i måneder der den bruker mindre?</p></li>
+</ol>
+</details>
+<p><strong>Oppgave 3</strong></p>
+<p>Et forsikringsselskap ønsker å undersøke om kunder som har kjøpt en utvidet helseforsikring har lavere helseutgifter enn kunder med standardforsikring. De finner at kunder med utvidet forsikring faktisk har <em>høyere</em> helseutgifter.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Forklar hvorfor dette ikke nødvendigvis betyr at utvidet forsikring fører til høyere utgifter. Bruk begrepet seleksjonsskjevhet i svaret ditt.</p></li>
+<li><p>I sykehuseksempelet observerer vi at innlagte pasienter har dårligere helse enn resten av befolkningen, og konkluderer ikke med at sykehusopphold forårsaker dårlig helse. Hva er den felles mekanismen i disse to eksemplene?</p></li>
+<li><p>Hvordan kunne du designet en studie som unngår seleksjonsskjevheten?</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<ol style="list-style-type: lower-alpha">
+<li><p>Det er ikke tilfeldig hvem som kjøper utvidet forsikring. Personer som velger utvidet helseforsikring gjør det sannsynligvis <em>fordi</em> de forventer å ha høye helseutgifter – kanskje de har kroniske sykdommer, driver med risikosport, eller har familiær disposisjon for sykdom. Disse personene ville hatt høyere helseutgifter uansett hvilken forsikring de hadde. Seleksjonen inn i utvidet forsikring er altså drevet av egenskaper som også påvirker utfallet (helseutgifter), noe som gjør at en naiv sammenligning overestimerer “effekten” av forsikringen.</p></li>
+<li><p>Den felles mekanismen er seleksjonsskjevhet: I begge tilfellene er det ikke tilfeldig hvem som mottar “behandlingen”. Sykehuspasienter er innlagt fordi de allerede er syke, og forsikringskunder velger utvidet dekning fordi de forventer høye utgifter. I begge tilfellene driver egenskaper som eksisterte <em>før</em> behandlingen både seleksjonen inn i behandlingsgruppen og utfallet vi måler. En naiv sammenligning av gruppene fanger derfor opp disse forhåndsforskjellene, ikke behandlingseffekten.</p></li>
+<li><p>En randomisert, kontrollert studie: Trekk tilfeldig hvem som får tilbud om utvidet forsikring (f.eks. til redusert pris), slik at valget ikke drives av forventede helseutgifter. Alternativt kunne man utnytte en situasjon der noen kunder tilfeldig fikk tilbudt utvidet forsikring, for eksempel gjennom en kampanje rettet mot et tilfeldig utvalg av kundene.</p></li>
+</ol>
+</details>
+<p><strong>Oppgave 4</strong></p>
+<p>La oss si at Bergen kommune har innført et piggdekkgebyr på 50 kroner per døgn for å redusere svevestøv. Nabokommunen Øygarden innførte ikke et slikt gebyr. En forsker ønsker å bruke difference-in-differences for å estimere effekten av piggdekkgebyret på luftkvalitet (målt som gjennomsnittlig konsentrasjon av svevestøv, PM<span class="math inline">\(_{10}\)</span>, i <span class="math inline">\(\mu \text{ g}/m^3\)</span>).</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Sett opp DiD-designet: Hvem er behandlingsgruppen og kontrollgruppen? Hva er “før”- og “etter”-periodene? Skriv opp regresjonsmodellen forskeren bør estimere.</p></li>
+<li><p>Hvilken antakelse må holde for at forskeren skal kunne tolke <span class="math inline">\(\beta_3\)</span> som den kausale effekten av piggdekkgebyret? Diskuter om du synes denne antakelsen er rimelig her. Tenk på hva som driver luftkvalitet i de to kommunene.</p></li>
+<li><p>Kan du tenke deg en måte behandlingen i Bergen kan ha påvirket luftkvaliteten i Øygarden? Hva betyr det for DiD-estimatet dersom det er slike spillovers mellom behandlings- og kontrollgruppen? (Hint: Tenk på hva bilister som kjører mellom kommunene gjør.)</p></li>
+<li><p>Forskeren finner at <span class="math inline">\(\hat{\beta}_3 = -4,2\)</span> med en <span class="math inline">\(p\)</span>-verdi på 0,03. Tolk dette resultatet. Hva betyr det, og er du overbevist om at det er en kausal effekt?</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<ol style="list-style-type: lower-alpha">
+<li><p>Behandlingsgruppen er Bergen (innfører piggdekkgebyr). Kontrollgruppen er Øygarden (innfører ikke gebyr). “Før”-perioden er tiden før gebyret ble innført (f.eks. forrige vinter), og “etter”-perioden er tiden etter innføringen (f.eks. første vinter med gebyr). Regresjonsmodellen:
+<span class="math display">\[\text{PM}_{10,it} = \beta_0 + \beta_1 \text{Bergen}_i + \beta_2 \text{Etter}_t + \beta_3 (\text{Bergen}_i \times \text{Etter}_t) + \varepsilon_{it}\]</span>
+der <span class="math inline">\(\beta_3\)</span> er DiD-estimatet – den estimerte effekten av piggdekkgebyret på svevestøvnivået.</p></li>
+<li><p>Antakelsen om parallelle trender må holde: Luftkvaliteten i Bergen og Øygarden ville fulgt <em>samme utvikling</em> i fravær av piggdekkgebyret. Det er grunner til å være skeptisk. Bergen er en stor by med langt høyere trafikktetthet, tunneler, og mer kompleks topografi (fjord og fjell som “fanger” forurenset luft) enn Øygarden. Faktorer som påvirker luftkvaliteten – f.eks. byggeaktivitet, endringer i trafikkmønstre, eller værforhold – kan slå ulikt ut i de to kommunene. Dersom noe annet enn piggdekkgebyret endret seg i Bergen mellom periodene (f.eks. et stort veiprosjekt ble ferdigstilt), vil dette forstyrre estimatet. På den annen side er Øygarden en nabokommune med lignende klima, og piggdekkgebyret ble innført på et bestemt tidspunkt som trolig var uavhengig av kortsiktige endringer i luftkvalitet. Hvis trendene i PM<span class="math inline">\(_{10}\)</span> var like i de to kommunene i årene før innføringen, styrker det troverdigheten.</p></li>
+<li><p>Mange bilister pendler mellom Bergen og Øygarden. Dersom piggdekkgebyret gjør at pendlere bytter til piggfrie dekk, vil disse bilene også forurense mindre når de kjører i Øygarden. Da <em>forbedres</em> luftkvaliteten i kontrollgruppen som en følge av behandlingen i Bergen. Kontrollgruppen viser da ikke lenger det “rene” kontrafaktiske utfallet – altså hva som ville skjedd uten piggdekkgebyret – fordi den selv er påvirket av tiltaket. Konsekvensen er at DiD-estimatet vil <em>undervurdere</em> den sanne effekten av gebyret: Luftkvaliteten forbedres i begge kommuner, og forskjellen mellom dem blir mindre enn den faktiske effekten.</p></li>
+<li><p>Estimatet <span class="math inline">\(\hat{\beta}_3 = -4,2\)</span> betyr at svevestøvkonsentrasjonen i Bergen falt med 4,2 <span class="math inline">\(\mu\)</span>g/m<span class="math inline">\(^3\)</span> mer enn i Øygarden etter innføringen av piggdekkgebyret, og denne forskjellen er statistisk signifikant på 5 %-nivå (<span class="math inline">\(p = 0,03\)</span>). Om vi er overbevist om at dette er en kausal effekt, avhenger av om antakelsene diskutert i b) og c) holder. Spesielt bør vi vurdere om noe annet enn piggdekkgebyret endret seg i Bergen rundt samme tidspunkt, og om parallelle trender er en rimelig antakelse gitt de strukturelle forskjellene mellom kommunene. Estimatet er et plausibelt utgangspunkt, men vi bør være forsiktige med å konkludere med kausalitet uten å ha undersøkt trendene før innføringen og vurdert om spillovers mellom kommunene kan ha påvirket kontrollgruppen.</p></li>
+</ol>
+</details>
+<p><strong>Oppgave 5</strong></p>
+<p>Les følgende oppsummering av en (fiktiv) studie:</p>
+<blockquote>
+<p><em>En forskergruppe undersøkte effekten av å innføre fleksibel arbeidstid på ansattes produktivitet. Studien brukte et naturlig eksperiment: I 2021 innførte bedrifter i næring A fleksibel arbeidstid som følge av nye bransjenormer, mens bedrifter i næring B beholdt faste arbeidstider. Forskerne sammenlignet produktivitetsendringen i de to gruppene fra 2020 til 2022, og fant at bedrifter med fleksibel arbeidstid hadde 8 % høyere produktivitetsvekst (<span class="math inline">\(p &lt; 0,05\)</span>).</em></p>
+</blockquote>
+<ol style="list-style-type: lower-alpha">
+<li><p>Hvilken identifikasjonsstrategi bruker forskerne? Skriv opp regresjonsmodellen de sannsynligvis har estimert.</p></li>
+<li><p>Hvilke antakelser må holde for at vi skal tolke dette som en kausal effekt? Vurder om antakelsene er rimelige i denne konteksten.</p></li>
+<li><p>Forskerne hevder at de har funnet at fleksibel arbeidstid <em>øker</em> produktiviteten. Er du enig i denne konklusjonen? Identifiser minst én trussel mot denne tolkningen.</p></li>
+<li><p>Foreslå ett konkret grep forskerne kunne tatt for å styrke troverdigheten til studien.</p></li>
+</ol>
+<details>
+<summary>
+Løsning
+</summary>
+<ol style="list-style-type: lower-alpha">
+<li><p>Forskerne bruker en difference-in-differences-strategi. Regresjonsmodellen de sannsynligvis har estimert er:
+<span class="math display">\[\log(\text{Produktivitet}_{it}) = \beta_0 + \beta_1 \text{NæringA}_i + \beta_2 \text{Etter2021}_t + \beta_3 (\text{NæringA}_i \times \text{Etter2021}_t) + \varepsilon_{it}\]</span>
+der <span class="math inline">\(\beta_3\)</span> er DiD-estimatet som måler den relative produktivitetsveksten i næring A sammenlignet med næring B.</p></li>
+<li><p>To sentrale antakelser:</p></li>
+</ol>
+<ul>
+<li><p><em>Parallelle trender:</em> Produktiviteten i næring A og B ville fulgt samme utvikling i fravær av fleksibel arbeidstid. Dette er problematisk fordi ulike næringer typisk påvirkes av helt ulike markedskrefter, teknologiske endringer og konjunktursykluser. At to <em>forskjellige næringer</em> ville hatt parallell produktivitetsutvikling er en sterk antakelse.</p></li>
+<li><p><em>Ingen spillovers mellom gruppene:</em> Innføring av fleksibel arbeidstid i næring A skal ikke påvirke produktiviteten i næring B. Dette kan brytes f.eks. dersom de konkurrerer om de samme arbeidstakerne, slik at næring B mister ansatte til næring A.</p></li>
+</ul>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><p>Det er flere trusler mot den kausale tolkningen. Forskerne sier at fleksibel arbeidstid ble innført “som følge av nye bransjenormer”. Men disse normene kan ha inneholdt langt mer enn bare fleksibel arbeidstid – kanskje også nye digitale verktøy, nye ledelsesmetoder, eller omstrukturering. Da er det ikke fleksibel arbeidstid i seg selv som driver produktivitetsveksten, men hele pakken av endringer som fulgte med de nye bransjenormene. I tillegg kan det tenkes at næring A var i en vekstfase og næring B i en nedgangsfase uavhengig av arbeidstidsordningen. Da vil DiD-estimatet fange opp denne forskjellen og feilaktig tilskrive den fleksibel arbeidstid.</p></li>
+<li><p>Forskerne kunne styrket troverdigheten ved å vise at produktivitetstrenden var parallell i de to næringene <em>før</em> 2021 (en pre-trend-analyse). Dersom produktivitetsveksten var lik i for eksempel 2018, 2019 og 2020, er det mer overbevisende at avviket etter 2021 skyldes innføringen av fleksibel arbeidstid, og ikke underliggende trendforskjeller. Et annet grep kunne vært å bruke flere kontrollgrupper (næring C, D, osv.) for å sjekke om resultatet er robust.</p></li>
+</ol>
+</details>
 </div>
 </div>
             </section>

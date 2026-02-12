@@ -358,7 +358,8 @@ Satt inn for $\beta_0$ blir det
 \begin{align}
   \left ( \frac{\sum_{i} Y_i}{N} -  \beta_1 \frac{\sum_{i} X_i}{N} \right ) \frac{\sum_{i} X_i}{N}  + \beta_1\frac{\sum_{i} X_i^2}{N}  &= \frac{\sum_{i} X_i Y_i}{N} \\
   \beta_1 \left ( \frac{\sum_{i} X_i^2}{N} -  \left ( \frac{\sum_{i} X_i}{N} \right )^2 \right ) &= \frac{\sum_{i} X_i Y_i}{N} - \frac{\sum_{i} X_i}{N}\frac{\sum_{i} Y_i}{N} \\
-  \beta_1 S_X^2 &= S_{XY}.
+  \beta_1 S_X^2 &= S_{XY} \\ 
+  \beta_1=\frac{S_{XY}}{S_X^2}
 \end{align}
 
 Da blir 
@@ -451,6 +452,30 @@ c. Her ser det ut som at vi har perioder med høy varians etterfulgt av perioder
 d. Her ser det ut som at støyen har en relasjon i tid, og at høye/lave verdier henger sammen med høye/laver verdier. Det er ikke åpenbart at det er dette som foregår, og vi burde undersøkt det nærmere. Senere i kurset skal vi håndtere dette ved bruk av tidsrekkemodeller.
 
 Merk at det ikke alltid er lett å se direkte fra figurene hva som er galt. Riktig bruk av statistiske tester og diagnoseplott kan hjelpe med å oppdage brudd på betingelsene. Figurene i denne oppgaven er generert ved simulering, vi kan derfor vite akkurat hva som er galt. For virkelige data vil kunne være vanskeligere å tolke fordi det ikke nødvendigvis er én ting som er galt om gangen. Man må også være på vakt for overtolkning av det som egentlig er tilfeldigheter.
+
+</blockquote></details>
+
+
+#### Oppgave 4 {-}
+I en analyse skal en økonom teste om å ta høyere utdanning fører til at arbeidstakere får høyere lønn i arbeidslivet. Hun kjører følgende regresjon, som tester sammenhengen mellom (log av) lønn fem år etter endt utdanning og antall år med utdanning, på individnivå:
+
+$$ ln(\text{lønn}_i) = \beta_0+\beta_1\text{antall år med utdanning}_i+\varepsilon_i $$
+
+a) Er det grunn til å være bekymret for utelatt variabelskjevhet her? I hvilken retning påvirker den i så fall koeffisienten $\beta_1$?
+
+b) Økonomen argumenterer for at $\beta_1$ måler hvor mye høyere lønn en arbeidstaker får, dersom den tar ett års ekstra utdanning. Er dette en rimelig tolkning? 
+
+c) Hvordan ville du tolket $\beta_1$?
+
+<details>
+<summary>Løsning</summary><blockquote>
+Dette er ment som en refleksjonsoppgave, og har ikke nødvendigvis én fasit. Under er noen momenter det kan være naturlig å trekke frem. 
+
+a) Det kan tenkes at det er forskjell i karakteristikkene på personer som tar høyere utdanning. De for eksempel være mer akademisk/analytisk anlagte, eller ha foreldre med bedre økonomi. Dette er også faktorer som bidrar til at lønnen kan bli høyere. Det er altså utelatte variabler her som er positivt korrelert med både forklaringsvariabelen (lengde på utdanning) og utfallsvariabelen (lønn), og som dermed trekker $\beta_1$ opp.
+
+b) Nei, dette er ikke en rimelig tolkning. Eksogenitetsantakelsen er brutt når vi har utelatte variabler, og her fanger koeffisienten opp mer enn bare effekten av ett års ekstra utdanning på arbeidstakerens lønn. 
+
+c) Koeffisienten $\beta_1$ kan tolkes som at ett års ekstra utdanning er *assosiert med* $\beta_1 $ % høyere lønn. Alternativt kan man for eksempel si at arbeidstakere med ett år lengre utdanning *i gjennomsnitt* har $\beta_1$ % høyere lønn enn de som ett år kortere utdanning. Merk at vi her tolker $\beta_1$ som prosent fordi vi har tatt logaritmen av utfallsvariabelen, og dermed får en (tilnærmet) prosentvis endring.
 
 </blockquote></details>
 

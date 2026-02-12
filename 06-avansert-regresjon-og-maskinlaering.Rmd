@@ -480,7 +480,7 @@ Dersom dette vilkåret ikke holder sier vi at $x_i$ er **endogen**. Da blir regr
 
 <!-- Legge inn en smak av potential outcomes her? --> 
 
-##### Eksempel 1: Fører sykehusopphold til dårligere helse?
+##### Eksempel 1: Fører sykehusopphold til dårligere helse? {-}
 <!-- Formål: Vise seleksjon --> 
 Et typisk lærebokeksempel (se for eksempel Angrist og Pischke, 2009) er sykehusopphold. La oss si at vi ønsker å lære noe om hvorvidt sykehusopphold bedrer helsetilstanden til de innlagte. 
 I gjennomsnitt har en pasient innlagt på sykehus signifikant dårligere helsetilstand enn noen som ikke er innlagt på sykehus. Dersom vi skulle gjort en regresjon eller en hypotesetest, ville denne konkludert med at innlagte på sykehus har dårligere helse enn befolkningen forøvrig. Betyr det at sykehusbehandling *fører til* dårligere helsetilstand? Det høres lite sannsynlig ut. Det er mer nærliggende å tro at pasienter som er innlagt på sykehus, er innlagt fordi de *allerede* har dårligere helsetilstand enn befolkningen forøvrig. I dette eksempelet er altså $X_i$ og $\varepsilon_i$ korrelert. Det er lettere å tro på omvendt kausalitet -- altså at det er den dårlige helsetilstanden som førte til sykehusoppholdet -- enn opprinnelige tolkningen om at sykehusoppholdet førte til dårligere helsetilstand! 
@@ -488,7 +488,7 @@ I gjennomsnitt har en pasient innlagt på sykehus signifikant dårligere helseti
 Dette er et klassisk eksempel på **seleksjonsskjevhet**: Forventningsskjevhet i estimatene som introduseres fordi individene tildeles behandling på bakgrunn av ikke-tilfeldige egenskaper som eksisterte før behandlingen trådde i kraft. Individene ville hatt ulik helse også i fravær av behandlingen -- vi kan derfor ikke sammenlikne disse gruppene for å lære noe om effekten av behandlingen på utfallet vi var interessert i. 
 
 
-##### Eksempel 2: Fører lengre utdanning til høyere lønn? ([Angrist og Krueger, 1991](https://www.jstor.org/stable/2937954)) {#eks2}
+##### Eksempel 2: Fører lengre utdanning til høyere lønn? ([Angrist og Krueger, 1991](https://www.jstor.org/stable/2937954))  {-#eks2}
 Effekten av utdanning på lønn er et sentralt spørsmål i arbeidsmarkedsøkonomien. Umiddelbart kan man fristes til å ville kjøre en regresjon med lønn på venstre side av likhetstegnet, og hvor lang utdanning individet har på høyre side av likhetstegnet. La oss kalle utfallsvariabelen lønn $w_i$, og la oss kalle variabelen for hvor mange års utdanning individet har fullført $x_i$. Da vil en enkel regresjonslikning se slik ut: 
 $$ \log w_i = \beta_0 + \beta_1 x_i + \varepsilon_i$$ 
 Dersom $x_i$ er eksogen kan vi tolke $\beta_1$ som at ett års ekstra utdanning fører til at individet får omtrent $\beta_1 \%$ høyere lønn. 
@@ -499,7 +499,6 @@ La oss bruke dette datasettet^[Datasettet vi skal bruke er en forenklet versjon 
 
 ```{r last-data, message=FALSE, warning = F, eval = F}
 library(dplyr)
-library(modelsummary)
 load("Angrist_Krueger_eksempelfil")
 ```
 
@@ -540,18 +539,18 @@ Hvis vi skal omformulere diagrammet over til en regresjonsmodell, vil den ta den
 $$y_i=\beta_0+\beta_1x_i+\beta_2A_i+\varepsilon_i$$
 Pilen mellom $A_i$ og $x_i$ forteller oss at disse to variablene er korrelerte, og tilsvarende for $A_i$ og $y_i$. Formelt innebærer dette (generelt) at $\mathbb{E}[A_i x_i]\neq0$ og $\mathbb{E}[A_i y_i]\neq0$. Se for deg at vi i stedet for å inkludere $A_i$, hadde kjørt den enkle regresjonen med bare $x_i$ som forklaringsvariabel:
 $$y_i=\beta_0+\beta_1x_i+\xi_i\qquad \text{der } \xi_i=\beta_2A_i+\varepsilon_i$$
-Fordi det er sammenheng mellom $A$ og $y$, inneholder det nye restleddet vårt $\xi$ nå også $A$. I avsnitt \@ref(ekso) så vi at vi trenger *eksogenitet* for å kunne trekke kausale slutninger, som krevde at det ikke var noen sammenheng mellom forklaringsvariabelen og restleddet ($\mathbb{E}[\varepsilon_i\vert x_i]=0$). Dette ser vi tydelig at ikke kan være tilfelle når restleddet $\xi_i$ inneholder $A_i$. $A_i$ er jo korrelert med $x$, så da blir $\mathbb{E}[\xi_i\vert x_i]\neq0$, og eksogenitetsbetingelsen er brutt. Dette er en formell illustrasjon av *utelatt variabelskjevhet*, som vi diskuterte i eksempelet i avsnitt \@ref(eks2): Når det er en utelatt variabel som er korrelert med både utfalls- og forklaringsvariabelen vår, fanger $\beta_1$ opp mer enn bare effekten av $x_i$ på $y_i$. 
+Fordi det er sammenheng mellom $A$ og $y$, inneholder det nye restleddet vårt $\xi$ nå også $A$. I avsnitt \@ref(ekso) så vi at vi trenger *eksogenitet* for å kunne trekke kausale slutninger, som krevde at det ikke var noen sammenheng mellom forklaringsvariabelen og restleddet ($\mathbb{E}[\varepsilon_i\vert x_i]=0$). Dette ser vi tydelig at ikke kan være tilfelle når restleddet $\xi_i$ inneholder $A_i$. $A_i$ er jo korrelert med $x$, så da blir $\mathbb{E}[\xi_i\vert x_i]\neq0$, og eksogenitetsbetingelsen er brutt. Dette er en formell illustrasjon av *utelatt variabelskjevhet*, som vi diskuterte i [eksempel 2](#eks2): Når det er en utelatt variabel som er korrelert med både utfalls- og forklaringsvariabelen vår, fanger $\beta_1$ opp mer enn bare effekten av $x_i$ på $y_i$. 
 
 Dersom vi observerer $A_i$ kan vi i stedet inkluderer  denne  som **kontrollvariabel**, som i den multipple regresjonsmodellen over. Da løser vi dette endogenitetsproblemet, og kan lettere tolke $\beta_1$ kausalt. Merk at $A_i$ ikke selv trenger å være eksogen (ukorrelert med restleddet $\varepsilon_i$) for at vi skal kunne inkludere den som kontrollvariabel -- men dersom vi ønsker å gi $\beta_2$ en kausal tolkning, må vi ha like strenge krav til $A_i$ som vi her har stilt til $x_i$. I praksis er det imidlertid en begrensning at vi ikke alltid observerer alle variabler som påvirker både $x_i$ og $y_i$. Noen ganger betyr dette at vi må være forsiktige i tolkningene våre -- andre ganger kan vi gjøre antakelser som lar oss implisitt kontrollere for uobserverte variabler, for eksempel hvis vi har paneldata. Dette diskuteres mer i neste avsnitt.
 
 
 ##### Faste effekter {#FE}
-I modulen om [paneldata](paneldata) introduseres et eksempel på faste effekter. Vi satte opp en paneldatamodell med en individkomponent $\alpha_i$ og en tidskomponent $\nu_t$:
+I modulen om [paneldata](#paneldata) introduseres et eksempel på faste effekter. Vi satte opp en paneldatamodell med en individkomponent $\alpha_i$ og en tidskomponent $\nu_t$:
 $$ y_{it}=\beta_1x_{it}+\nu_t+\alpha_i+\varepsilon_{it}$$
 Her er  $\alpha_i$ konstant for samme enhet $i$ (lik for samme enhet over tid), og $\nu_t$ konstant for samme tidsperiode $t$ (lik for alle enheter innad i én periode). 
-I [eksempel 2](eks2) diskuterte vi at ulike evner kan være korrelert med hvor lang skolegang ulike personer tar, og med lønna de får etter endt skolegang. Hvis vi tenker at evner er noe man er født med, og et slags permanent personlighetstrekk, vil dette fanges opp av $\alpha_i$, som inneholder alle egenskaper som er konstante ved en person. Tilsvarende kan tids-faste effekter ($\nu_t$) være nyttige å inkludere, fordi de fanger opp makroøkonomiske sjokk eller generell lønnsvekst, slik at vi får en renere sammenlikning av ulike tidsperioder. 
+I [eksempel 2](#eks2) diskuterte vi at ulike evner kan være korrelert med hvor lang skolegang ulike personer tar, og med lønna de får etter endt skolegang. Hvis vi tenker at evner er noe man er født med, og et slags permanent personlighetstrekk, vil dette fanges opp av $\alpha_i$, som inneholder alle egenskaper som er konstante ved en person. Tilsvarende kan tids-faste effekter ($\nu_t$) være nyttige å inkludere, fordi de fanger opp makroøkonomiske sjokk eller generell lønnsvekst, slik at vi får en renere sammenlikning av ulike tidsperioder. 
 
-I litteraturen kalles modeller med både individ- og tidsfaste effekter ofte *toveis faste effekter* (two-way fixed effects, TWFE), og vi kan estimere dette som faste effekter. Vi bruker datasettet `panel_liten.xls` fra modulen om [paneldata](paneldata) for å illustrere. Her er vi nysgjerrige på sammenhengen mellom lønn (`lnwg`) og antallet timer en arbeidstaker jobber (`lnhr`). Også her kan det være rimelig å inkludere individ-faste effekter $\alpha_i$. Igjen kan disse fange opp noens evner, eller langsiktig arbeidskapasitet, som også vil påvirke lønnsnivå utover effekten på antall arbeidstimer. Tidsfaste effekter vil for eksempel fange opp endringer i lovverket som påvirker hvor mange timer det er lovlig å jobbe, eller hvor mye overtidsbetalt man skal få. 
+I litteraturen kalles modeller med både individ- og tidsfaste effekter ofte *toveis faste effekter* (two-way fixed effects, TWFE), og vi kan estimere dette som faste effekter. Vi bruker datasettet `panel_liten.xls` fra modulen om [paneldata](#paneldata) for å illustrere. Her er vi nysgjerrige på sammenhengen mellom lønn (`lnwg`) og antallet timer en arbeidstaker jobber (`lnhr`). Også her kan det være rimelig å inkludere individ-faste effekter $\alpha_i$. Igjen kan disse fange opp noens evner, eller langsiktig arbeidskapasitet, som også vil påvirke lønnsnivå utover effekten på antall arbeidstimer. Tidsfaste effekter vil for eksempel fange opp endringer i lovverket som påvirker hvor mange timer det er lovlig å jobbe, eller hvor mye overtidsbetalt man skal få. 
 ```{r FE, message=FALSE, warning=FALSE, eval=F}
 # Starter som i paneldatamodulen ... 
 # Last inn data
@@ -1008,6 +1007,209 @@ Dersom vi hadde fått forkastning ville det vært lurt å bruke modellen med fas
 **Oppgave 2**
 
 Prøv deg på Oppgave 2 i den individuelle hjemmeeksamen H2020 som du finner i kapittel \@ref(skoleeksamen). Det er spesielt oppgave e) og f) som er relatert til paneldata, men vi bemerker at oppgave f) var "nøtten" i det oppgavesettet.
+
+**Oppgave 3**
+
+Vi fortsetter å bruke datasettet `panel_liten`, som du kan laste ned lenger opp på denne siden.
+
+a) Kjør en regresjon med lønn (`lnwg`) som utfallsvariabel og arbeidstimer (`lnhr`) som forklaringsvariabel, der du antar tilfeldige effekter. Tolk koeffisienten på arbeidstimer. 
+
+b) Er det noen grunn til å være bekymret for om koeffisienten fra modellen over fanger opp noe annet eller mer enn *effekten* av å jobbe flere arbeidstimer på lønn? 
+
+c) Vi skal nå legge til faste effekter. Vi skal ta i bruk pakken `fixest` og kommandoen `fe_model`, som egner seg godt for å estimere faste effekter. Tolk koeffisienten i modellen med faste effekter, og sammenlikn med modellen uten. Hva kan være årsaker til at estimatet endrer seg? 
+
+
+d) Vi legger nå også til tidsfaste effekter. Tolk koeffisienten, sammenlikn med de to foregående modellene. Hva kan forklare at koeffisienten har endret seg? 
+
+<details><summary>Løsning</summary>
+a) Setter opp modellen (bruker pakken `fixest` og `feols` fordi vi skal bruke disse i senere deloppgaver):
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
+library(readr)    # Lese inn csv-filer
+library(fixest)   # Faste effekter (effektiv, og håndterer så mange faste effekter vi vil)
+df <- read_csv("panel_liten.csv")
+```
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(readr)    # Lese inn csv-filer
+library(fixest)   # Faste effekter (effektiv, og håndterer så mange faste effekter vi vil)
+df <- read_csv("datasett/panel_liten.csv")
+```
+
+```{r, message=FALSE, warning=FALSE}
+# kjører først modellen uten faste effekter
+re <- feols(
+  lnwg ~ lnhr , 
+  data = df
+)
+etable(re)
+```
+
+Modellen uten faste effekter gir en koeffisient på `lnhr` lik 2.04, som er statistisk signifikant på 0,1 %-nivå. Fordi både lønn og arbeidstimer er log-transformerte, tolker vi dette som en elastisitet: En økning i arbeidstimer på 1 % er assosiert med en økning i timelønn på omtrent 2 %. 
+
+
+b) Vi bør være forsiktige med å tolke dette som at flere arbeidstimer fører til høyere lønn. Fra modulen om OLS-betingelser husker vi at eksogenitet krever at det ikke er noen systematisk sammenheng mellom forklaringsvariabelen og restleddet. Her kan vi tenke oss at personer som jobber mange timer er systematisk annerledes enn de som jobber få timer -- de kan ha høyere utdanning, mer erfaring, eller jobbe i andre typer stillinger. Slike egenskaper påvirker trolig også lønna, og ligger i restleddet. Da er eksogenitetsbetingelsen sannsynligvis brutt, og koeffisienten plukker opp mer enn bare sammenhengen mellom arbeidstimer og lønn.
+
+c) Kjører først modellen med faste effekter (fortsetter her videre fra deloppgave a)): 
+```{r, message=FALSE, warning=FALSE}
+# legger først til individ-FE
+fe_id <- feols(
+  lnwg ~ lnhr | id , # her er id individfaste effekter
+  data = df
+)
+
+# skriv ut tabell
+etable(re, fe_id)
+```
+
+
+Når vi inkluderer individfaste effekter faller koeffisienten dramatisk, fra 2,04 til 0,36, og den er ikke lenger statistisk signifikant. Dette er fordi modellen nå utelukkende bruker variasjon *innad i* hvert individ over tid: Tjener person $i$ mer i år hvor hun jobber flere timer enn i år hvor hun jobber færre? Alle tidskonstante egenskaper ved personen -- som evner, utdanningsnivå og personlighet -- holdes konstant gjennom de individfaste effektene. At koeffisienten faller så mye tyder på at den sterke, positive sammenhengen i den første modellen i stor grad var drevet av forskjeller *mellom* individer: Personer som jobber mye har høy lønn, men dette kan skyldes at de har egenskaper som gir både mange arbeidstimer og høy lønn. 
+
+d) Fortsetter videre på koden, og legger til tidsfaste effekter: 
+
+```{r, message=FALSE, warning=FALSE}
+# legger også til års-FE
+fe_id_t <- feols(
+  lnwg ~ lnhr | id + year, # her er id og year individ- og årsfaste effekter
+  data = df
+)
+etable(re, fe_id, fe_id_t)
+```
+Når vi i tillegg legger til tidsfaste effekter faller koeffisienten ytterligere, til 0,18, og er fortsatt ikke statistisk signifikant. Tidsfaste effekter kontrollerer for alt som er felles for alle individer i et gitt år, for eksempel generell lønnsvekst eller makroøkonomiske svingninger. At koeffisienten faller litt videre tyder på at noe av den gjenværende sammenhengen var drevet av felles tidstrender: I gode år jobber folk mer og tjener mer, uten at det nødvendigvis er arbeidstimene som driver lønna. Etter å ha kontrollert for både individ- og tidseffekter er den estimerte sammenhengen mellom arbeidstimer og timelønn liten og ikke statistisk signifikant.
+</details>
+
+
+### Oppgaver om kausal identifikasjon
+**Oppgave 1**
+
+En kommune vurderer å innføre gratis skolemåltider for å bedre elevenes skoleprestasjoner.
+
+a) Formuler et presist kausalt spørsmål. Hva vil du manipulere, hva vil du måle, og hva sammenlignes med hva?
+
+b) Beskriv det ideelle eksperimentet for å besvare dette spørsmålet. Hvorfor ville randomisering vært viktig?
+
+c) Kommunen har ikke mulighet til å randomisere, men innfører tiltaket på tre skoler som melder sin interesse. Forklar hvorfor denne "frivillige" tildelingen gjør det vanskelig å trekke kausale slutninger. Hvilket begrep beskriver dette problemet?
+
+<details><summary>Løsning</summary>
+
+a) Et presist kausalt spørsmål kan være: "Hva er effekten av å tilby gratis skolemåltider på elevenes karaktersnitt ved utgangen av skoleåret?" Vi manipulerer tilgangen til gratis skolemåltider (behandlingen), vi måler skoleprestasjoner (f.eks. gjennomsnittskarakter), og vi sammenligner elever som får gratis måltider med elever som ikke får det.
+
+b) Det ideelle eksperimentet ville vært å tilfeldig dele elever (eller skoler) i to grupper: én gruppe som får gratis skolemåltider, og én gruppe som ikke får det. Randomiseringen sikrer at de to gruppene i gjennomsnitt er like på alle andre egenskaper -- familiebakgrunn, motivasjon, skolekvalitet, osv. Da vet vi at enhver forskjell i skoleprestasjoner må skyldes skolemåltidene, og ikke andre faktorer.
+
+c) Når skolene selv melder sin interesse, får vi et seleksjonsproblem (seleksjonsskjevhet). Skoler som melder seg er sannsynligvis systematisk forskjellige fra skoler som ikke gjør det -- kanskje har de mer engasjerte rektorer, mer ressurssterke foreldre, eller allerede et fokus på elevvelferd. Disse egenskapene kan i seg selv påvirke skoleprestasjoner. Da kan vi ikke vite om en eventuell forbedring skyldes skolemåltidene eller de underliggende forskjellene mellom skolene.
+
+</details>
+
+**Oppgave 2**
+
+En dagligvarekjede ønsker å finne ut om lokal markedsføring øker omsetningen. De har data fra 200 butikker, og estimerer følgende modell:
+$$\log(\text{Omsetning}_i) = \beta_0 + \beta_1 \log(\text{Reklamekroner}_i) + \varepsilon_i$$
+der $\text{Omsetning}_i$ er månedlig omsetning i kroner for butikk $i$, og $\text{Reklamekroner}_i$ er beløpet butikken brukte på lokal reklame (flyers, Facebook-annonser o.l.) den måneden.
+
+a) Forklar med egne ord hva eksogenitetsbetingelsen $\mathbb{E}[\varepsilon_i \vert x_i]=0$ krever i denne sammenhengen. Hva må vi anta om restleddet?
+
+b) Nevn minst to variabler som kan tenkes å ligge i restleddet $\varepsilon_i$, og som sannsynligvis er korrelert med hvor mye butikken bruker på reklame. Tegn gjerne et DAG-diagram.
+
+c) Hvis du kunne observert én av disse variablene -- for eksempel butikkens beliggenhet (sentrum vs. utkant) -- hvordan ville du inkludert den i modellen? Forklar hvordan dette "stenger ned" en kanal for endogenitet.
+
+d) Noen av variablene du nevnte i b) er kanskje ikke observerbare. Hva kunne vi gjort dersom vi hadde hatt data fra de samme butikkene over flere måneder?
+
+<details><summary>Løsning</summary>
+
+a) Eksogenitetsbetingelsen krever at restleddet $\varepsilon_i$ -- alt annet som påvirker omsetningen utover reklame -- ikke er systematisk relatert til hvor mye butikken bruker på reklame. Hvis vi visste at en butikk brukte 50 000 kroner på reklame denne måneden, skal dette ikke fortelle oss noe om de andre faktorene som påvirker omsetningen. Intuitivt: butikker som bruker mye på reklame skal ikke være systematisk annerledes (på relevante måter) enn butikker som bruker lite.
+
+b) To aktuelle variabler:
+
+* *Beliggenhet/kundetrafikk*: Butikker i sentrum har typisk høyere omsetning *og* større markedsføringsbudsjetter (kanskje fordi hovedkontoret allokerer mer til butikker med høy kundetrafikk). Beliggenhet påvirker altså både reklamebruk og omsetning, og skaper en spuriøs sammenheng.
+* *Butikkstørrelse (areal)*: Større butikker har bredere vareutvalg og høyere omsetning, og vil trolig også ha større reklamebudsjetter. Igjen påvirker størrelse begge variablene i modellen.
+
+Begge variablene er felles årsaker som påvirker både forklaringsvariabelen og utfallsvariabelen. I et DAG-diagram ville vi tegnet piler fra beliggenhet (eller størrelse) til *både* reklamekroner og omsetning.
+
+c) Vi kan inkludere beliggenhet som kontrollvariabel:
+$$\log(\text{Omsetning}_i) = \beta_0 + \beta_1 \log(\text{Reklamekroner}_i) + \beta_2 \text{Sentrum}_i + \varepsilon_i$$
+Når vi kontrollerer for beliggenhet, sammenligner vi i praksis butikker med *lik* beliggenhet. Dermed "stenger vi ned" kanalen der beliggenhet påvirker både reklamebudsjett og omsetning. $\beta_1$ fanger da bare opp sammenhengen mellom reklame og omsetning *innenfor* samme type beliggenhet.
+
+d) Dersom vi har data fra de samme butikkene over flere måneder, har vi paneldata. Da kan vi inkludere butikkfaste effekter, som kontrollerer for *alle* tidskonstante egenskaper ved butikken -- inkludert beliggenhet, størrelse, og andre ting vi kanskje ikke observerer direkte. Vi identifiserer da sammenhengen mellom reklame og omsetning utelukkende fra variasjon *innad i* hver butikk over tid: Selger butikk $i$ mer i måneder der den bruker mer på reklame enn i måneder der den bruker mindre?
+
+</details>
+
+**Oppgave 3**
+
+Et forsikringsselskap ønsker å undersøke om kunder som har kjøpt en utvidet helseforsikring har lavere helseutgifter enn kunder med standardforsikring. De finner at kunder med utvidet forsikring faktisk har *høyere* helseutgifter.
+
+a) Forklar hvorfor dette ikke nødvendigvis betyr at utvidet forsikring fører til høyere utgifter. Bruk begrepet seleksjonsskjevhet i svaret ditt.
+
+b) I sykehuseksempelet observerer vi at innlagte pasienter har dårligere helse enn resten av befolkningen, og konkluderer ikke med at sykehusopphold forårsaker dårlig helse. Hva er den felles mekanismen i disse to eksemplene?
+
+c) Hvordan kunne du designet en studie som unngår seleksjonsskjevheten?
+
+<details><summary>Løsning</summary>
+
+a) Det er ikke tilfeldig hvem som kjøper utvidet forsikring. Personer som velger utvidet helseforsikring gjør det sannsynligvis *fordi* de forventer å ha høye helseutgifter -- kanskje de har kroniske sykdommer, driver med risikosport, eller har familiær disposisjon for sykdom. Disse personene ville hatt høyere helseutgifter uansett hvilken forsikring de hadde. Seleksjonen inn i utvidet forsikring er altså drevet av egenskaper som også påvirker utfallet (helseutgifter), noe som gjør at en naiv sammenligning overestimerer "effekten" av forsikringen.
+
+b) Den felles mekanismen er seleksjonsskjevhet: I begge tilfellene er det ikke tilfeldig hvem som mottar "behandlingen". Sykehuspasienter er innlagt fordi de allerede er syke, og forsikringskunder velger utvidet dekning fordi de forventer høye utgifter. I begge tilfellene driver egenskaper som eksisterte *før* behandlingen både seleksjonen inn i behandlingsgruppen og utfallet vi måler. En naiv sammenligning av gruppene fanger derfor opp disse forhåndsforskjellene, ikke behandlingseffekten.
+
+c) En randomisert, kontrollert studie: Trekk tilfeldig hvem som får tilbud om utvidet forsikring (f.eks. til redusert pris), slik at valget ikke drives av forventede helseutgifter. Alternativt kunne man utnytte en situasjon der noen kunder tilfeldig fikk tilbudt utvidet forsikring, for eksempel gjennom en kampanje rettet mot et tilfeldig utvalg av kundene.
+
+</details>
+
+**Oppgave 4**
+
+La oss si at Bergen kommune har innført et piggdekkgebyr på 50 kroner per døgn for å redusere svevestøv. Nabokommunen Øygarden innførte ikke et slikt gebyr. En forsker ønsker å bruke difference-in-differences for å estimere effekten av piggdekkgebyret på luftkvalitet (målt som gjennomsnittlig konsentrasjon av svevestøv, PM$_{10}$, i $\mu \text{ g}/m^3$).
+
+a) Sett opp DiD-designet: Hvem er behandlingsgruppen og kontrollgruppen? Hva er "før"- og "etter"-periodene? Skriv opp regresjonsmodellen forskeren bør estimere.
+
+b) Hvilken antakelse må holde for at forskeren skal kunne tolke $\beta_3$ som den kausale effekten av piggdekkgebyret? Diskuter om du synes denne antakelsen er rimelig her. Tenk på hva som driver luftkvalitet i de to kommunene.
+
+c) Kan du tenke deg en måte behandlingen i Bergen kan ha påvirket luftkvaliteten i Øygarden? Hva betyr det for DiD-estimatet dersom det er slike spillovers mellom behandlings- og kontrollgruppen? (Hint: Tenk på hva bilister som kjører mellom kommunene gjør.)
+
+d) Forskeren finner at $\hat{\beta}_3 = -4,2$ med en $p$-verdi på 0,03. Tolk dette resultatet. Hva betyr det, og er du overbevist om at det er en kausal effekt?
+
+<details><summary>Løsning</summary>
+
+a) Behandlingsgruppen er Bergen (innfører piggdekkgebyr). Kontrollgruppen er Øygarden (innfører ikke gebyr). "Før"-perioden er tiden før gebyret ble innført (f.eks. forrige vinter), og "etter"-perioden er tiden etter innføringen (f.eks. første vinter med gebyr). Regresjonsmodellen:
+$$\text{PM}_{10,it} = \beta_0 + \beta_1 \text{Bergen}_i + \beta_2 \text{Etter}_t + \beta_3 (\text{Bergen}_i \times \text{Etter}_t) + \varepsilon_{it}$$
+der $\beta_3$ er DiD-estimatet -- den estimerte effekten av piggdekkgebyret på svevestøvnivået.
+
+b) Antakelsen om parallelle trender må holde: Luftkvaliteten i Bergen og Øygarden ville fulgt *samme utvikling* i fravær av piggdekkgebyret. Det er grunner til å være skeptisk. Bergen er en stor by med langt høyere trafikktetthet, tunneler, og mer kompleks topografi (fjord og fjell som "fanger" forurenset luft) enn Øygarden. Faktorer som påvirker luftkvaliteten -- f.eks. byggeaktivitet, endringer i trafikkmønstre, eller værforhold -- kan slå ulikt ut i de to kommunene. Dersom noe annet enn piggdekkgebyret endret seg i Bergen mellom periodene (f.eks. et stort veiprosjekt ble ferdigstilt), vil dette forstyrre estimatet. På den annen side er Øygarden en nabokommune med lignende klima, og piggdekkgebyret ble innført på et bestemt tidspunkt som trolig var uavhengig av kortsiktige endringer i luftkvalitet. Hvis trendene i PM$_{10}$ var like i de to kommunene i årene før innføringen, styrker det troverdigheten.
+
+c) Mange bilister pendler mellom Bergen og Øygarden. Dersom piggdekkgebyret gjør at pendlere bytter til piggfrie dekk, vil disse bilene også forurense mindre når de kjører i Øygarden. Da *forbedres* luftkvaliteten i kontrollgruppen som en følge av behandlingen i Bergen. Kontrollgruppen viser da ikke lenger det "rene" kontrafaktiske utfallet -- altså hva som ville skjedd uten piggdekkgebyret -- fordi den selv er påvirket av tiltaket. Konsekvensen er at DiD-estimatet vil *undervurdere* den sanne effekten av gebyret: Luftkvaliteten forbedres i begge kommuner, og forskjellen mellom dem blir mindre enn den faktiske effekten.
+
+d) Estimatet $\hat{\beta}_3 = -4,2$ betyr at svevestøvkonsentrasjonen i Bergen falt med 4,2 $\mu$g/m$^3$ mer enn i Øygarden etter innføringen av piggdekkgebyret, og denne forskjellen er statistisk signifikant på 5 %-nivå ($p = 0,03$). Om vi er overbevist om at dette er en kausal effekt, avhenger av om antakelsene diskutert i b) og c) holder. Spesielt bør vi vurdere om noe annet enn piggdekkgebyret endret seg i Bergen rundt samme tidspunkt, og om parallelle trender er en rimelig antakelse gitt de strukturelle forskjellene mellom kommunene. Estimatet er et plausibelt utgangspunkt, men vi bør være forsiktige med å konkludere med kausalitet uten å ha undersøkt trendene før innføringen og vurdert om spillovers mellom kommunene kan ha påvirket kontrollgruppen.
+
+</details>
+
+**Oppgave 5**
+
+Les følgende oppsummering av en (fiktiv) studie:
+
+> *En forskergruppe undersøkte effekten av å innføre fleksibel arbeidstid på ansattes produktivitet. Studien brukte et naturlig eksperiment: I 2021 innførte bedrifter i næring A fleksibel arbeidstid som følge av nye bransjenormer, mens bedrifter i næring B beholdt faste arbeidstider. Forskerne sammenlignet produktivitetsendringen i de to gruppene fra 2020 til 2022, og fant at bedrifter med fleksibel arbeidstid hadde 8 % høyere produktivitetsvekst ($p < 0,05$).*
+
+a) Hvilken identifikasjonsstrategi bruker forskerne? Skriv opp regresjonsmodellen de sannsynligvis har estimert.
+
+b) Hvilke antakelser må holde for at vi skal tolke dette som en kausal effekt? Vurder om antakelsene er rimelige i denne konteksten.
+
+c) Forskerne hevder at de har funnet at fleksibel arbeidstid *øker* produktiviteten. Er du enig i denne konklusjonen? Identifiser minst én trussel mot denne tolkningen.
+
+d) Foreslå ett konkret grep forskerne kunne tatt for å styrke troverdigheten til studien.
+
+<details><summary>Løsning</summary>
+
+a) Forskerne bruker en difference-in-differences-strategi. Regresjonsmodellen de sannsynligvis har estimert er:
+$$\log(\text{Produktivitet}_{it}) = \beta_0 + \beta_1 \text{NæringA}_i + \beta_2 \text{Etter2021}_t + \beta_3 (\text{NæringA}_i \times \text{Etter2021}_t) + \varepsilon_{it}$$
+der $\beta_3$ er DiD-estimatet som måler den relative produktivitetsveksten i næring A sammenlignet med næring B.
+
+b) To sentrale antakelser:
+
+* *Parallelle trender:* Produktiviteten i næring A og B ville fulgt samme utvikling i fravær av fleksibel arbeidstid. Dette er problematisk fordi ulike næringer typisk påvirkes av helt ulike markedskrefter, teknologiske endringer og konjunktursykluser. At to *forskjellige næringer* ville hatt parallell produktivitetsutvikling er en sterk antakelse.
+
+* *Ingen spillovers mellom gruppene:* Innføring av fleksibel arbeidstid i næring A skal ikke påvirke produktiviteten i næring B. Dette kan brytes f.eks. dersom de konkurrerer om de samme arbeidstakerne, slik at næring B mister ansatte til næring A.
+
+c) Det er flere trusler mot den kausale tolkningen. Forskerne sier at fleksibel arbeidstid ble innført "som følge av nye bransjenormer". Men disse normene kan ha inneholdt langt mer enn bare fleksibel arbeidstid -- kanskje også nye digitale verktøy, nye ledelsesmetoder, eller omstrukturering. Da er det ikke fleksibel arbeidstid i seg selv som driver produktivitetsveksten, men hele pakken av endringer som fulgte med de nye bransjenormene. I tillegg kan det tenkes at næring A var i en vekstfase og næring B i en nedgangsfase uavhengig av arbeidstidsordningen. Da vil DiD-estimatet fange opp denne forskjellen og feilaktig tilskrive den fleksibel arbeidstid.
+
+d) Forskerne kunne styrket troverdigheten ved å vise at produktivitetstrenden var parallell i de to næringene *før* 2021 (en pre-trend-analyse). Dersom produktivitetsveksten var lik i for eksempel 2018, 2019 og 2020, er det mer overbevisende at avviket etter 2021 skyldes innføringen av fleksibel arbeidstid, og ikke underliggende trendforskjeller. Et annet grep kunne vært å bruke flere kontrollgrupper (næring C, D, osv.) for å sjekke om resultatet er robust.
+
+</details>
+
 
 ## Relevante R-kommandoer {#relevante-r-avansert-regresjon}
 
