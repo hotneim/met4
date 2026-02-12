@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6.4 Identifikasjon og kausalitet | MET4 - Empiriske Metoder - vår 2026</title>
+  <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6.4 Identifikasjon og kausalitet | MET4 - Empiriske Metoder - vår 2026" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6.4 Identifikasjon og kausalitet | MET4 - Empiriske Metoder - vår 2026" />
+  
+  <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
+  
+
+<meta name="author" content="Håkon Otneim og Geir Drage Berentsen" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="paneldata.html"/>
+<link rel="next" href="oppgaver-3.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/met4/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/met4/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/met4/icon/favicon-16x16.png">
+<link rel="manifest" href="/met4/icon/site.webmanifest">
+<link rel="mask-icon" href="/met4/icon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/met4/icon/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/met4/icon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://www.nhh.no/"><img src="bilder/nhh.png" width="240"></a>
+<li><a href="./index.html">MET4 - EMPIRISKE METODER</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Innledning</a></li>
+<li class="chapter" data-level="1" data-path="introduksjon-til-r.html"><a href="introduksjon-til-r.html"><i class="fa fa-check"></i><b>1</b> Introduksjon til R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="en-gjennomgang-av-rstudio.html"><a href="en-gjennomgang-av-rstudio.html"><i class="fa fa-check"></i><b>1.1</b> En gjennomgang av RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="enkle-beregninger-og-variabler.html"><a href="enkle-beregninger-og-variabler.html"><i class="fa fa-check"></i><b>1.2</b> Enkle beregninger og variabler</a></li>
+<li class="chapter" data-level="1.3" data-path="vektorer.html"><a href="vektorer.html"><i class="fa fa-check"></i><b>1.3</b> Vektorer</a></li>
+<li class="chapter" data-level="1.4" data-path="pakker.html"><a href="pakker.html"><i class="fa fa-check"></i><b>1.4</b> Pakker</a></li>
+<li class="chapter" data-level="1.5" data-path="mappesti.html"><a href="mappesti.html"><i class="fa fa-check"></i><b>1.5</b> Mappesti</a></li>
+<li class="chapter" data-level="1.6" data-path="innlesing-av-data.html"><a href="innlesing-av-data.html"><i class="fa fa-check"></i><b>1.6</b> Innlesing av data</a></li>
+<li class="chapter" data-level="1.7" data-path="statistiske-analyser.html"><a href="statistiske-analyser.html"><i class="fa fa-check"></i><b>1.7</b> Statistiske analyser</a></li>
+<li class="chapter" data-level="1.8" data-path="r-plotting.html"><a href="r-plotting.html"><i class="fa fa-check"></i><b>1.8</b> Plotting</a></li>
+<li class="chapter" data-level="1.9" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
+<li class="chapter" data-level="1.10" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>1.10</b> Pipe-operatoren <code>%&gt;%</code> og enkel datavask</a></li>
+<li class="chapter" data-level="1.11" data-path="r-ekstra.html"><a href="r-ekstra.html"><i class="fa fa-check"></i><b>1.11</b> Oppsummering og ekstra oppgaver</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="grunnleggende-statistikk.html"><a href="grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>2</b> Grunnleggende statistikk</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="deskriptiv-statistikk.html"><a href="deskriptiv-statistikk.html"><i class="fa fa-check"></i><b>2.1</b> Deskriptiv statistikk</a></li>
+<li class="chapter" data-level="2.2" data-path="utvalg-og-estimering.html"><a href="utvalg-og-estimering.html"><i class="fa fa-check"></i><b>2.2</b> Utvalg og estimering</a></li>
+<li class="chapter" data-level="2.3" data-path="oppgaverdeskriptiv.html"><a href="oppgaverdeskriptiv.html"><i class="fa fa-check"></i><b>2.3</b> Oppgaver</a></li>
+<li class="chapter" data-level="2.4" data-path="relevant-r-grunnleggende.html"><a href="relevant-r-grunnleggende.html"><i class="fa fa-check"></i><b>2.4</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hypotesetesting.html"><a href="hypotesetesting.html"><i class="fa fa-check"></i><b>3</b> Hypotesetesting</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="generelt-om-hypotesetesting.html"><a href="generelt-om-hypotesetesting.html"><i class="fa fa-check"></i><b>3.1</b> Generelt om hypotesetesting</a></li>
+<li class="chapter" data-level="3.2" data-path="enpop.html"><a href="enpop.html"><i class="fa fa-check"></i><b>3.2</b> Inferens om en populasjon</a></li>
+<li class="chapter" data-level="3.3" data-path="inferens-om-to-populasjoner.html"><a href="inferens-om-to-populasjoner.html"><i class="fa fa-check"></i><b>3.3</b> Inferens om to populasjoner</a></li>
+<li class="chapter" data-level="3.4" data-path="kjikvadrattester.html"><a href="kjikvadrattester.html"><i class="fa fa-check"></i><b>3.4</b> Kjikvadrattester</a></li>
+<li class="chapter" data-level="3.5" data-path="oppgaver.html"><a href="oppgaver.html"><i class="fa fa-check"></i><b>3.5</b> Oppgaver</a></li>
+<li class="chapter" data-level="3.6" data-path="relevante-r-testing.html"><a href="relevante-r-testing.html"><i class="fa fa-check"></i><b>3.6</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="regresjon.html"><a href="regresjon.html"><i class="fa fa-check"></i><b>4</b> Regresjon</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="enkel-regresjon.html"><a href="enkel-regresjon.html"><i class="fa fa-check"></i><b>4.1</b> Enkel regresjon</a></li>
+<li class="chapter" data-level="4.2" data-path="multippel-regresjon.html"><a href="multippel-regresjon.html"><i class="fa fa-check"></i><b>4.2</b> Multippel regresjon</a></li>
+<li class="chapter" data-level="4.3" data-path="modellbygging.html"><a href="modellbygging.html"><i class="fa fa-check"></i><b>4.3</b> Modellbygging</a></li>
+<li class="chapter" data-level="4.4" data-path="oppgaver-1.html"><a href="oppgaver-1.html"><i class="fa fa-check"></i><b>4.4</b> Oppgaver</a></li>
+<li class="chapter" data-level="4.5" data-path="relevante-r-regresjon.html"><a href="relevante-r-regresjon.html"><i class="fa fa-check"></i><b>4.5</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="tidsrekker.html"><a href="tidsrekker.html"><i class="fa fa-check"></i><b>5</b> Tidsrekker</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>5.1</b> Introduksjon til tidsrekker</a></li>
+<li class="chapter" data-level="5.2" data-path="trend-og-sesong.html"><a href="trend-og-sesong.html"><i class="fa fa-check"></i><b>5.2</b> Trend og sesong</a></li>
+<li class="chapter" data-level="5.3" data-path="ar.html"><a href="ar.html"><i class="fa fa-check"></i><b>5.3</b> AR(p)</a></li>
+<li class="chapter" data-level="5.4" data-path="stasjonaritet.html"><a href="stasjonaritet.html"><i class="fa fa-check"></i><b>5.4</b> Stasjonaritet</a></li>
+<li class="chapter" data-level="5.5" data-path="autokorrelasjon.html"><a href="autokorrelasjon.html"><i class="fa fa-check"></i><b>5.5</b> Autokorrelasjon</a></li>
+<li class="chapter" data-level="5.6" data-path="ma.html"><a href="ma.html"><i class="fa fa-check"></i><b>5.6</b> MA(q)</a></li>
+<li class="chapter" data-level="5.7" data-path="arma-arima.html"><a href="arma-arima.html"><i class="fa fa-check"></i><b>5.7</b> ARMA og ARIMA</a></li>
+<li class="chapter" data-level="5.8" data-path="modellbygging-1.html"><a href="modellbygging-1.html"><i class="fa fa-check"></i><b>5.8</b> Modellbygging</a></li>
+<li class="chapter" data-level="5.9" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>5.9</b> Oppgaver</a></li>
+<li class="chapter" data-level="5.10" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.10</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinling.html"><a href="avansert-regresjon-og-maskinling.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>6.1</b> Logistisk regresjon</a></li>
+<li class="chapter" data-level="6.2" data-path="introduksjon-til-maskinlring-med-knn.html"><a href="introduksjon-til-maskinlring-med-knn.html"><i class="fa fa-check"></i><b>6.2</b> Introduksjon til maskinlæring med kNN</a></li>
+<li class="chapter" data-level="6.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>6.3</b> Paneldata</a></li>
+<li class="chapter" data-level="6.4" data-path="identifikasjon-og-kausalitet.html"><a href="identifikasjon-og-kausalitet.html"><i class="fa fa-check"></i><b>6.4</b> Identifikasjon og kausalitet</a></li>
+<li class="chapter" data-level="6.5" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>6.5</b> Oppgaver</a></li>
+<li class="chapter" data-level="6.6" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>6.6</b> Relevante R-kommandoer</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="datavinger.html"><a href="datavinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="dataving-1.html"><a href="dataving-1.html"><i class="fa fa-check"></i><b>7.1</b> Dataøving 1</a></li>
+<li class="chapter" data-level="7.2" data-path="dataving-2.html"><a href="dataving-2.html"><i class="fa fa-check"></i><b>7.2</b> Dataøving 2</a></li>
+<li class="chapter" data-level="7.3" data-path="dataving-3.html"><a href="dataving-3.html"><i class="fa fa-check"></i><b>7.3</b> Dataøving 3</a></li>
+<li class="chapter" data-level="7.4" data-path="dataving-4.html"><a href="dataving-4.html"><i class="fa fa-check"></i><b>7.4</b> Dataøving 4</a></li>
+<li class="chapter" data-level="7.5" data-path="dataving-5.html"><a href="dataving-5.html"><i class="fa fa-check"></i><b>7.5</b> Dataøving 5</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="seminar.html"><a href="seminar.html"><i class="fa fa-check"></i><b>8</b> Seminaroppgaver</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="seminar-1---grunnleggende-statistikk.html"><a href="seminar-1---grunnleggende-statistikk.html"><i class="fa fa-check"></i><b>8.1</b> Seminar 1 - Grunnleggende statistikk</a></li>
+<li class="chapter" data-level="8.2" data-path="seminar-2---hypotesetesting.html"><a href="seminar-2---hypotesetesting.html"><i class="fa fa-check"></i><b>8.2</b> Seminar 2 - Hypotesetesting</a></li>
+<li class="chapter" data-level="8.3" data-path="seminar-3---regresjon-i.html"><a href="seminar-3---regresjon-i.html"><i class="fa fa-check"></i><b>8.3</b> Seminar 3 - Regresjon I</a></li>
+<li class="chapter" data-level="8.4" data-path="seminar-4---regresjon-ii.html"><a href="seminar-4---regresjon-ii.html"><i class="fa fa-check"></i><b>8.4</b> Seminar 4 - Regresjon II</a></li>
+<li class="chapter" data-level="8.5" data-path="seminar-5---tidsrekker.html"><a href="seminar-5---tidsrekker.html"><i class="fa fa-check"></i><b>8.5</b> Seminar 5 - Tidsrekker</a></li>
+<li class="chapter" data-level="8.6" data-path="seminar-6---avansert-regresjon-og-maskinlring.html"><a href="seminar-6---avansert-regresjon-og-maskinlring.html"><i class="fa fa-check"></i><b>8.6</b> Seminar 6 - Avansert regresjon og maskinlæring</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="eksamensoppgaver.html"><a href="eksamensoppgaver.html"><i class="fa fa-check"></i><b>9</b> Eksamensoppgaver</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="skoleeksamen.html"><a href="skoleeksamen.html"><i class="fa fa-check"></i><b>9.1</b> Tidligere skoleeksamener</a></li>
+<li class="chapter" data-level="9.2" data-path="tidligere-hjemmeeksamen.html"><a href="tidligere-hjemmeeksamen.html"><i class="fa fa-check"></i><b>9.2</b> Tidligere hjemmeeksamen</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.nhh.no/en/employees/faculty/hakon-otneim/">Håkon Otneim</a></li>
+<li><a href="https://www.nhh.no/en/employees/faculty/geir-drage-berentsen/">Geir Drage Berentsen</a></li>
+<li><a href="https://github.com/rstudio/bookdown">Publisert ved hjelp av bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MET4 - Empiriske Metoder - vår 2026</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="identifikasjon-og-kausalitet" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Identifikasjon og kausalitet<a href="identifikasjon-og-kausalitet.html#identifikasjon-og-kausalitet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Litteratur</strong> Denne modulen er godt dekket av Scott Cunninghams <em>Causal Inference: The Mixtape</em>, tilgjengelig på <a href="https://mixtape.scunning.com" class="uri">https://mixtape.scunning.com</a>. Cunningham har også nyttige data- og kodeeksempler. Se særlig kapittel 4 og 8. Kapittel 7 og 9 beskriver eksempler på metoder for å studere naturlige eksperimenter (Differences-in-Differences og instrumentelle variabler), som vi bare ser kort på i dette kurset. Det er ikke meningen at vi skal lære å gjennomføre disse mer avanserte regresjonsmetodene. Målet er i stedet at vi skal lære å reflektere over kausalitetsspørsmålet, og vite om noen vanlige løsninger når variasjonen vi er interessert i, i utgangspunktet er endogen.</p>
+<p>For deg som er særlig interessert anbefales boka <em>Mastering ’Metrics</em> av Angrist og Pischke (2015), som bl.a. er tilgjengelig på NHH-biblioteket. Kapittel 1 og 2 er mest sentrale for oss. Kapittel 3 og 5 beskriver eksempler på metoder for å studere naturlige eksperimenter (Differences-in-Differences og instrumentelle variabler).</p>
+<div id="kausalitet" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Kausalitet<a href="identifikasjon-og-kausalitet.html#kausalitet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hittil i faget har vi i stor grad beskrevet statistiske sammenhenger. Vi har kunnet observere en korrelasjon (om to variabler samvarierer) og andre statistiske trender, eksempelvis om et utfall systematisk er større enn null. Vi har imidlertid i liten grad kunne sagt noe om <em>effekter</em> eller om én variabel har <em>forårsaket</em> en endring i en annen variabel.</p>
+<p>Ofte er målet med statistisk analyse å si noe om hvorvidt én variabel <em>påvirker</em> en annen variabel, eller om en hendelse <em>fører til</em> en annen hendelse. Dette kaller vi å trekke <strong>kausale slutninger</strong>, nemlig slutninger som sier noe om en årsakssammenheng. Det ligger noen vilkår til grunn for at det skal være mulig å tolke en sammenheng kausalt, men disse vilkårene lar seg som regel ikke teste med data. I praksis er dette ofte et tolkningsspørsmål: Hvis vi har brukt data til å finne en statistisk sammenheng, hva forteller denne sammenhengen oss om virkeligheten?</p>
+<p>Hittil i kurset har vi understreket at å gjennomføre statistiske tester (som hypotesetester) eller estimere parametere (for eksempel med lineær regresjonsanalyse) ikke er tilstrekkelig for å trekke kausale slutninger. Denne delen introduserer noen verktøy for å vurdere om det er rimelig å trekke en kausal slutning i ulike situasjoner, og hvilke grep vi kan ta for å gjøre det mer rimelig.</p>
+</div>
+<div id="identifikasjon" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Identifikasjon<a href="identifikasjon-og-kausalitet.html#identifikasjon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Første steg i empirisk analyse er alltid å bestemme seg for et forskningsspørsmål. I denne sammenhengen: Hva er effekten du vil estimere? Det innebærer å stille et presist og målbart spørsmål. La oss si at vi ønsker å si noe om effekten av å ta høyere utdanning på fremtidig lønn. Selv om dette antyder et spørsmål, er det ikke nok til å sette fingeren på hvilken parameter vi trenger å estimere. For å bestemme oss for denne parameteren, er det nyttig med et tankeeksperiment: Hva vil vi endre, og hva vil vi måle? Ved å se for oss at vi <em>tvinger</em> noen til å ta ett års ekstra skolegang, hva skjer med lønna deres fem år senere?</p>
+<p>Identifikasjon er et sentralt begrep i økonometrien, og omhandler <em>parameteren</em> vi ønsker å si noe om. Ofte kan vi hente denne fra en teoretisk modell, eller fra et bredere, mer generelt forskningsspørsmål vi vil vite mer om. Der estimering handler om hva vi kan si på bakgrunn av den dataen vi har foran oss, er identifikasjon mer abstrakt. Vi sier at en parameter er <strong>identifisert</strong> hvis vi kan bestemme den basert på data som kan observeres (men ikke nødvendigvis som vi observerer). Vi kan tenke på dette som at vi klarer å forestille oss en setting vi kan bruke til å identifisere parameteren – selv om vi ikke nødvendigvis har dataen.</p>
+<div id="det-ideelle-eksperimentet" class="section level4 hasAnchor" number="6.4.2.1">
+<h4><span class="header-section-number">6.4.2.1</span> Det ideelle eksperimentet<a href="identifikasjon-og-kausalitet.html#det-ideelle-eksperimentet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Den enkleste måten å tenke på identifikasjon på er å sette opp et ideelt eksperiment. Gitt parameteren du vil identifisere, hva er den ideelle måten å måle dette på? Still deg selv tre spørsmål:</p>
+<ol style="list-style-type: decimal">
+<li>Hva vil du manipulere? Hvilken variabel vil du endre, og hvor mye?</li>
+<li>Hva vil du måle? Hvilket utfall, og når?</li>
+<li>Hva sammenlignes med hva? Hvem er behandlingsgruppen, hvem er kontrollgruppen, og hvorfor er de sammenlignbare?</li>
+</ol>
+<p>Det tredje spørsmålet er det viktigste, og det skiller ofte gode forskningsdesign fra dårlige. En effekt er alltid en forskjell mellom det som skjedde og det som ville skjedd uten behandlingen. Det ideelle eksperimentet må gi oss begge deler. I praksis løser vi dette med randomisering. Hvis vi tilfeldig bestemmer hvem som får behandlingen, vil behandlings- og kontrollgruppen i gjennomsnitt være like i utgangspunktet. Da kan vi tilskrive forskjellen i utfall til behandlingen, og ikke til andre faktorer som skiller gruppene.</p>
+<p>La oss gå tilbake til spørsmålet om utdanning. Vi vil vite effekten av ett års ekstra skolegang på lønn fem år senere. Hva er det ideelle eksperimentet?</p>
+<ul>
+<li>Manipulasjon: Vi tvinger noen til å ta ett ekstra år med utdanning, mens andre ikke får lov.</li>
+<li>Utfall: Vi måler lønna til begge grupper fem år etter.</li>
+<li>Sammenligning: Fordi vi tilfeldig bestemte hvem som fikk ekstra utdanning, er gruppene sammenlignbare. De har samme evner, samme motivasjon, samme bakgrunn i gjennomsnitt, og forskjellen i lønn må derfor skyldes utdanningen.</li>
+</ul>
+<p>Vi kan selvsagt ikke gjennomføre dette eksperimentet. Men det gir oss et referansepunkt. Når vi skal vurdere en empirisk strategi (enten vår egen eller noen andres) er det nyttig å spørre seg hvor nær vi kommer det ideelle eksperimentet, og hvilke antakelser som kreves for å komme dit.</p>
+</div>
+</div>
+<div id="ekso" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> Eksogenitet som identifikasjonsbetingelse: Når kan vi gi en statistisk sammenheng en kausal tolkning?<a href="identifikasjon-og-kausalitet.html#ekso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Når vi skal tolke en statistisk sammenheng som en årsakssammenheng trenger vi både å si noe om en sammenheng vi ser i virkeligheten (noe deskriptivt), og å si noe om hva som ville skjedd under andre omstendigheter (noe <strong>kontrafaktisk</strong>). I den moderne økonometrilitteraturen omtales dette rammeverket som “potensielle utfall”. Tenk deg at vi kunne observert det samme individet i to helt like settinger som bare er ulike på én måte, nemlig at det mottar en form for behandling (treatment) i den ene settingen og ikke mottar slik behandling. Da kunne vi sammenliknet de to utfallene og vært sikre på at enhver forskjell i utfallene må skyldes behandlingen individet mottok. I virkeligheten kan det kontrafaktiske utfallet nødvendigvis ikke observeres, og vi må tilnærme oss dette idealet ved å holde så mange faktorer som mulig, konstante. Siden dette aldri vil bli helt ideelt – eller kan testes – må vi gjøre <em>antakelser</em> for å kunne trekke kausale konklusjoner. Hvorvidt disse antakelsene er rimelige, vil variere fra kontekst til kontekst.</p>
+<p>I praksis anvender vi ofte regresjonsmodeller for å trekke ut statistiske sammenhenger. I modulen om “Enkel regresjon” gjennomgikk vi noen forutsetninger for OLS. En enkel regresjonslikning kunne se slik ut:
+<span class="math display">\[y_{i}=\beta_0+\beta_1x_{i}+\varepsilon_{i}\]</span>
+Med denne likningen deler vi opp <span class="math inline">\(y_i\)</span> i tre deler: Konstantleddet <span class="math inline">\(\beta_0\)</span>, det <span class="math inline">\(x\)</span> forklarer (<span class="math inline">\(\beta_1x_i\)</span>) og det <span class="math inline">\(x\)</span> ikke forklarer (restleddet <span class="math inline">\(\varepsilon_i\)</span>).</p>
+<p>Én sentral betingelse for OLS var <strong>eksogenitet</strong>, nemlig at forventningsverdien til restleddet <span class="math inline">\(\varepsilon_i\)</span> gitt forklaringsvariabelen <span class="math inline">\(X_i\)</span>, er lik null:
+<span class="math display">\[\mathbb{E}[\varepsilon_i \vert x_i]=0\]</span>
+Dette innebærer at det ikke må være noen systematisk sammenheng mellom restleddet og forklaringsvariabelen – vilkåret forutsetter bl.a. at det ikke er noen korrelasjon mellom <span class="math inline">\(\varepsilon\)</span> og <span class="math inline">\(x\)</span>, slik at <span class="math inline">\(\mathbb{E}[\varepsilon_i x_i]=0\)</span>. Intuitivt krever eksogenitet at oppdelingen av <span class="math inline">\(y_i\)</span> i ulike deler er “ren”, dvs. at det vi putter i <span class="math inline">\(\varepsilon\)</span>-boksen virkelig er uavhengig av <span class="math inline">\(x\)</span>. Hvis noe i <span class="math inline">\(\varepsilon\)</span>-boksen egentlig hører sammen med <span class="math inline">\(x\)</span>, har vi et problem.</p>
+<p>Dersom dette vilkåret ikke holder sier vi at <span class="math inline">\(x_i\)</span> er <strong>endogen</strong>. Da blir regresjonsparameteren <span class="math inline">\(\beta_1\)</span> forventningsskjev, og plukker opp noe mer enn bare sammenhengen mellom forklaringsvariabelen <span class="math inline">\(X_i\)</span> og utfallsvariabelen <span class="math inline">\(Y_i\)</span>. Vi skal se på noen eksempler lenger ned.</p>
+<div id="trusler-mot-identifikasjon" class="section level4 hasAnchor" number="6.4.3.1">
+<h4><span class="header-section-number">6.4.3.1</span> Trusler mot identifikasjon<a href="identifikasjon-og-kausalitet.html#trusler-mot-identifikasjon" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<!-- Legge inn en smak av potential outcomes her? -->
+<div id="eksempel-1-frer-sykehusopphold-til-darligere-helse" class="section level5 hasAnchor" number="6.4.3.1.1">
+<h5><span class="header-section-number">6.4.3.1.1</span> Eksempel 1: Fører sykehusopphold til dårligere helse?<a href="identifikasjon-og-kausalitet.html#eksempel-1-frer-sykehusopphold-til-darligere-helse" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<!-- Formål: Vise seleksjon -->
+<p>Et typisk lærebokeksempel (se for eksempel Angrist og Pischke, 2009) er sykehusopphold. La oss si at vi ønsker å lære noe om hvorvidt sykehusopphold bedrer helsetilstanden til de innlagte.
+I gjennomsnitt har en pasient innlagt på sykehus signifikant dårligere helsetilstand enn noen som ikke er innlagt på sykehus. Dersom vi skulle gjort en regresjon eller en hypotesetest, ville denne konkludert med at innlagte på sykehus har dårligere helse enn befolkningen forøvrig. Betyr det at sykehusbehandling <em>fører til</em> dårligere helsetilstand? Det høres lite sannsynlig ut. Det er mer nærliggende å tro at pasienter som er innlagt på sykehus, er innlagt fordi de <em>allerede</em> har dårligere helsetilstand enn befolkningen forøvrig. I dette eksempelet er altså <span class="math inline">\(X_i\)</span> og <span class="math inline">\(\varepsilon_i\)</span> korrelert. Det er lettere å tro på omvendt kausalitet – altså at det er den dårlige helsetilstanden som førte til sykehusoppholdet – enn opprinnelige tolkningen om at sykehusoppholdet førte til dårligere helsetilstand!</p>
+<p>Dette er et klassisk eksempel på <strong>seleksjonsskjevhet</strong>: Forventningsskjevhet i estimatene som introduseres fordi individene tildeles behandling på bakgrunn av ikke-tilfeldige egenskaper som eksisterte før behandlingen trådde i kraft. Individene ville hatt ulik helse også i fravær av behandlingen – vi kan derfor ikke sammenlikne disse gruppene for å lære noe om effekten av behandlingen på utfallet vi var interessert i.</p>
+</div>
+<div id="eks2" class="section level5 hasAnchor" number="6.4.3.1.2">
+<h5><span class="header-section-number">6.4.3.1.2</span> Eksempel 2: Fører lengre utdanning til høyere lønn? (<a href="https://www.jstor.org/stable/2937954">Angrist og Krueger, 1991</a>)<a href="identifikasjon-og-kausalitet.html#eks2" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Effekten av utdanning på lønn er et sentralt spørsmål i arbeidsmarkedsøkonomien. Umiddelbart kan man fristes til å ville kjøre en regresjon med lønn på venstre side av likhetstegnet, og hvor lang utdanning individet har på høyre side av likhetstegnet. La oss kalle utfallsvariabelen lønn <span class="math inline">\(w_i\)</span>, og la oss kalle variabelen for hvor mange års utdanning individet har fullført <span class="math inline">\(x_i\)</span>. Da vil en enkel regresjonslikning se slik ut:
+<span class="math display">\[ \log w_i = \beta_0 + \beta_1 x_i + \varepsilon_i\]</span>
+Dersom <span class="math inline">\(x_i\)</span> er eksogen kan vi tolke <span class="math inline">\(\beta_1\)</span> som at ett års ekstra utdanning fører til at individet får omtrent <span class="math inline">\(\beta_1 \%\)</span> høyere lønn.</p>
+<p>La oss bruke dette datasettet<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
+<p><a href="datasett/Angrist_Krueger_eksempelfil">Angrist_Krueger_eksempelfil</a></p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="identifikasjon-og-kausalitet.html#cb232-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb232-2"><a href="identifikasjon-og-kausalitet.html#cb232-2" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb232-3"><a href="identifikasjon-og-kausalitet.html#cb232-3" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Angrist_Krueger_eksempelfil&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="identifikasjon-og-kausalitet.html#cb233-1" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm</span>(logwage <span class="sc">~</span> educ, <span class="at">data =</span> AK)</span>
+<span id="cb233-2"><a href="identifikasjon-og-kausalitet.html#cb233-2" tabindex="-1"></a><span class="fu">summary</span>(ols)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = logwage ~ educ, data = AK)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.4013 -0.2388  0.0788  0.3437  3.5403 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 5.040010   0.013297   379.0   &lt;2e-16 ***
+## educ        0.069262   0.001029    67.3   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.6482 on 33600 degrees of freedom
+## Multiple R-squared:  0.1188, Adjusted R-squared:  0.1188 
+## F-statistic:  4529 on 1 and 33600 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Dersom vi tror på denne “naïve” modellen, tolker vi det altså som at ett års ekstra skolegang fører til at ukentlig lønn øker med 7 %. Det er imidlertid gode grunner til også å være skeptisk til denne modellen. Vi kan tenke oss at det er flere årsaker til at noen individer har flere års skolegang enn andre. Personer som har bedre akademiske evner vil sannsynligvis velge å ta lengre utdanning enn de som er mindre akademisk anlagt. I mange sammenhenger vil også personer med akademiske evner få høyere lønn – også i fravær av høyere utdanning. Da risikerer vi at <span class="math inline">\(\beta_1\)</span> fanger opp mer enn bare effekten av utdanning på lønn – den fanger også opp effekten av å ha bedre evner. <!-- Slik kan vi også tenke på sosioøkonomiske forhold. Personer fra rike familier har ofte mulighet til å ta lengre utdanning enn personer fra fattige familier, bl.a. fordi utdanning kan være kostbart. Personer fra familier med høyere inntekt vil kanskje --></p>
+<p>Dette er et eksempel på <strong>utelatt variabelskjevhet</strong>: <!-- er det riktig term? --> Når det er en variabel forskeren ikke observerer, men som er korrelert med både utfalls- og forklaringsvariabelen. Da vil forklaringsvariabelen også fange opp noe av sammenhengen mellom den utelatte variabelen, og altså fange opp <em>mer</em> enn den kausale effekten på utfallet av forklaringsvariabelen.</p>
+<!--
+### Potensielle utfall 
+Potensielle utfall gir oss et rammeverk for å tenke på 
+
+Det finnes ingen sikre tester vi kan bruke for å undersøke om vi har estimert en kausal sammenheng, eller ikke. I stedet må vi vurdere hvert enkelt tilfelle for seg: Er det 
+-->
+</div>
+</div>
+<div id="i-en-ideell-verden-randomiserte-kontrollerte-forsk-rct" class="section level4 hasAnchor" number="6.4.3.2">
+<h4><span class="header-section-number">6.4.3.2</span> I en ideell verden: Randomiserte, kontrollerte forsøk (RCT)<a href="identifikasjon-og-kausalitet.html#i-en-ideell-verden-randomiserte-kontrollerte-forsk-rct" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>I innledende deler av kurset snakket vi om at randomiserte utvalg kan brukes til å trekke generelle konklusjoner om populasjonen (med en viss grad av usikkerhet). Randomiserte studier er også “gullstandarden” når vi ønsker å trekke kausale slutninger: Når en RCT (Randomized Control Trial) gjennomføres riktig, lar den oss sikre at den eneste sammenhengen vi observerer mellom utfalls- og forklaringsvariabel nettopp er den kausale effekten.</p>
+<p>Når vi gjennomfører randomiserte, kontrollerte forsøk gjør vi mer enn å trekke et tilfeldig utvalg fra populasjonen. Vi randomiserer <em>hvilke individer</em> som utsettes for en behandling. Vi kontrollerer også omgivelsene så godt vi kan for å unngå at andre faktorer påvirker utfallet. Det klassiske eksemplet er et labeksperiment. Hvis man forsker på en ny medisin, kan man for eksempel sette opp et laboratorium der man skal teste hvordan forsøkspersonene reagerer. Blant alle deltakerne trekker man så en tilfeldig gruppe av mennesker som er en “behandlingsgruppe”. Resten av forsøkspersonene utgjør kontrollgruppa. Behandlingsgruppa får den nye medisinen, og kontrollgruppa får en placebo-medisin, for å unngå at man bare fanger opp placebo-effekten. Ved å randomisere tildelingen til grupper sikrer man at det ikke er noen seleksjonsskjevhet. Ved å kontrollere omgivelsene, kan man sikre at ingen forstyrrende variasjon oppstår. Man kan til og med sikre at det er balanse i forhåndsbestemte tilstander (for eksempel helsetilstand) ved å sørge for at dette er likt fordelt i behandlings- og kontrollgruppene. Dersom dette gjøres riktig, kan man derfor tilskrive forskjellen i hvordan de to gruppene reagerer til medisinen. Forskerene vil da argumentere for at de har observert en kausal effekt.</p>
+</div>
+<div id="kontrollvariabler" class="section level4 hasAnchor" number="6.4.3.3">
+<h4><span class="header-section-number">6.4.3.3</span> Kontrollvariabler<a href="identifikasjon-og-kausalitet.html#kontrollvariabler" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Dersom vi vet hvordan to variabler <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span> henger sammen, og at de begge påvirkes av en felles, ytre faktor, kan vi kontrollere for denne faktoren:</p>
+<p><img src="bilder/dag.svg" /></p>
+<p>I figuren over ser vi dette tydelig. Dersom A er en felles faktor som påvirker både <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span>, er årsakssammenhengen mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span> i utgangspunktet ikke identifisert. Men dersom vi kan kontrollere for <span class="math inline">\(A\)</span> fordi vi observerer denne i datasettet vårt, kan vi “stenge ned” A-kanalen, og dermed identifisere den kausale sammenhengen!</p>
+<p>Hvis vi skal omformulere diagrammet over til en regresjonsmodell, vil den ta denne formen:
+<span class="math display">\[y_i=\beta_0+\beta_1x_i+\beta_2A_i+\varepsilon_i\]</span>
+Pilen mellom <span class="math inline">\(A_i\)</span> og <span class="math inline">\(x_i\)</span> forteller oss at disse to variablene er korrelerte, og tilsvarende for <span class="math inline">\(A_i\)</span> og <span class="math inline">\(y_i\)</span>. Formelt innebærer dette (generelt) at <span class="math inline">\(\mathbb{E}[A_i x_i]\neq0\)</span> og <span class="math inline">\(\mathbb{E}[A_i y_i]\neq0\)</span>. Se for deg at vi i stedet for å inkludere <span class="math inline">\(A_i\)</span>, hadde kjørt den enkle regresjonen med bare <span class="math inline">\(x_i\)</span> som forklaringsvariabel:
+<span class="math display">\[y_i=\beta_0+\beta_1x_i+\xi_i\qquad \text{der } \xi_i=\beta_2A_i+\varepsilon_i\]</span>
+Fordi det er sammenheng mellom <span class="math inline">\(A\)</span> og <span class="math inline">\(y\)</span>, inneholder det nye restleddet vårt <span class="math inline">\(\xi\)</span> nå også <span class="math inline">\(A\)</span>. I avsnitt <a href="identifikasjon-og-kausalitet.html#ekso">6.4.3</a> så vi at vi trenger <em>eksogenitet</em> for å kunne trekke kausale slutninger, som krevde at det ikke var noen sammenheng mellom forklaringsvariabelen og restleddet (<span class="math inline">\(\mathbb{E}[\varepsilon_i\vert x_i]=0\)</span>). Dette ser vi tydelig at ikke kan være tilfelle når restleddet <span class="math inline">\(\xi_i\)</span> inneholder <span class="math inline">\(A_i\)</span>. <span class="math inline">\(A_i\)</span> er jo korrelert med <span class="math inline">\(x\)</span>, så da blir <span class="math inline">\(\mathbb{E}[\xi_i\vert x_i]\neq0\)</span>, og eksogenitetsbetingelsen er brutt. Dette er en formell illustrasjon av <em>utelatt variabelskjevhet</em>, som vi diskuterte i eksempelet i avsnitt <a href="identifikasjon-og-kausalitet.html#eks2">6.4.3.1.2</a>: Når det er en utelatt variabel som er korrelert med både utfalls- og forklaringsvariabelen vår, fanger <span class="math inline">\(\beta_1\)</span> opp mer enn bare effekten av <span class="math inline">\(x_i\)</span> på <span class="math inline">\(y_i\)</span>.</p>
+<p>Dersom vi observerer <span class="math inline">\(A_i\)</span> kan vi i stedet inkluderer denne som <strong>kontrollvariabel</strong>, som i den multipple regresjonsmodellen over. Da løser vi dette endogenitetsproblemet, og kan lettere tolke <span class="math inline">\(\beta_1\)</span> kausalt. Merk at <span class="math inline">\(A_i\)</span> ikke selv trenger å være eksogen (ukorrelert med restleddet <span class="math inline">\(\varepsilon_i\)</span>) for at vi skal kunne inkludere den som kontrollvariabel – men dersom vi ønsker å gi <span class="math inline">\(\beta_2\)</span> en kausal tolkning, må vi ha like strenge krav til <span class="math inline">\(A_i\)</span> som vi her har stilt til <span class="math inline">\(x_i\)</span>. I praksis er det imidlertid en begrensning at vi ikke alltid observerer alle variabler som påvirker både <span class="math inline">\(x_i\)</span> og <span class="math inline">\(y_i\)</span>. Noen ganger betyr dette at vi må være forsiktige i tolkningene våre – andre ganger kan vi gjøre antakelser som lar oss implisitt kontrollere for uobserverte variabler, for eksempel hvis vi har paneldata. Dette diskuteres mer i neste avsnitt.</p>
+<div id="FE" class="section level5 hasAnchor" number="6.4.3.3.1">
+<h5><span class="header-section-number">6.4.3.3.1</span> Faste effekter<a href="identifikasjon-og-kausalitet.html#FE" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>I modulen om <a href="paneldata">paneldata</a> introduseres et eksempel på faste effekter. Vi satte opp en paneldatamodell med en individkomponent <span class="math inline">\(\alpha_i\)</span> og en tidskomponent <span class="math inline">\(\nu_t\)</span>:
+<span class="math display">\[ y_{it}=\beta_1x_{it}+\nu_t+\alpha_i+\varepsilon_{it}\]</span>
+Her er <span class="math inline">\(\alpha_i\)</span> konstant for samme enhet <span class="math inline">\(i\)</span> (lik for samme enhet over tid), og <span class="math inline">\(\nu_t\)</span> konstant for samme tidsperiode <span class="math inline">\(t\)</span> (lik for alle enheter innad i én periode).
+I <a href="eks2">eksempel 2</a> diskuterte vi at ulike evner kan være korrelert med hvor lang skolegang ulike personer tar, og med lønna de får etter endt skolegang. Hvis vi tenker at evner er noe man er født med, og et slags permanent personlighetstrekk, vil dette fanges opp av <span class="math inline">\(\alpha_i\)</span>, som inneholder alle egenskaper som er konstante ved en person. Tilsvarende kan tids-faste effekter (<span class="math inline">\(\nu_t\)</span>) være nyttige å inkludere, fordi de fanger opp makroøkonomiske sjokk eller generell lønnsvekst, slik at vi får en renere sammenlikning av ulike tidsperioder.</p>
+<p>I litteraturen kalles modeller med både individ- og tidsfaste effekter ofte <em>toveis faste effekter</em> (two-way fixed effects, TWFE), og vi kan estimere dette som faste effekter. Vi bruker datasettet <code>panel_liten.xls</code> fra modulen om <a href="paneldata">paneldata</a> for å illustrere. Her er vi nysgjerrige på sammenhengen mellom lønn (<code>lnwg</code>) og antallet timer en arbeidstaker jobber (<code>lnhr</code>). Også her kan det være rimelig å inkludere individ-faste effekter <span class="math inline">\(\alpha_i\)</span>. Igjen kan disse fange opp noens evner, eller langsiktig arbeidskapasitet, som også vil påvirke lønnsnivå utover effekten på antall arbeidstimer. Tidsfaste effekter vil for eksempel fange opp endringer i lovverket som påvirker hvor mange timer det er lovlig å jobbe, eller hvor mye overtidsbetalt man skal få.</p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="identifikasjon-og-kausalitet.html#cb235-1" tabindex="-1"></a><span class="co"># Starter som i paneldatamodulen ... </span></span>
+<span id="cb235-2"><a href="identifikasjon-og-kausalitet.html#cb235-2" tabindex="-1"></a><span class="co"># Last inn data</span></span>
+<span id="cb235-3"><a href="identifikasjon-og-kausalitet.html#cb235-3" tabindex="-1"></a><span class="fu">library</span>(readr)    <span class="co"># Lese inn csv-filer</span></span>
+<span id="cb235-4"><a href="identifikasjon-og-kausalitet.html#cb235-4" tabindex="-1"></a><span class="fu">library</span>(fixest)   <span class="co"># Faste effekter (effektiv, og håndterer så mange faste effekter vi vil)</span></span>
+<span id="cb235-5"><a href="identifikasjon-og-kausalitet.html#cb235-5" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb235-6"><a href="identifikasjon-og-kausalitet.html#cb235-6" tabindex="-1"></a></span>
+<span id="cb235-7"><a href="identifikasjon-og-kausalitet.html#cb235-7" tabindex="-1"></a><span class="co"># Innlesning av data: </span></span>
+<span id="cb235-8"><a href="identifikasjon-og-kausalitet.html#cb235-8" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="identifikasjon-og-kausalitet.html#cb236-1" tabindex="-1"></a><span class="co"># Lage en enkel regresjonsmodell uten faste effekter for å sammenlikne </span></span>
+<span id="cb236-2"><a href="identifikasjon-og-kausalitet.html#cb236-2" tabindex="-1"></a>ols_model <span class="ot">&lt;-</span> <span class="fu">feols</span>(lnwg <span class="sc">~</span> lnhr, <span class="at">data =</span> df)</span>
+<span id="cb236-3"><a href="identifikasjon-og-kausalitet.html#cb236-3" tabindex="-1"></a></span>
+<span id="cb236-4"><a href="identifikasjon-og-kausalitet.html#cb236-4" tabindex="-1"></a><span class="co"># Sett opp modell:</span></span>
+<span id="cb236-5"><a href="identifikasjon-og-kausalitet.html#cb236-5" tabindex="-1"></a>fe_model <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb236-6"><a href="identifikasjon-og-kausalitet.html#cb236-6" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year, <span class="co"># her er id og year individ- og årsfaste effekter</span></span>
+<span id="cb236-7"><a href="identifikasjon-og-kausalitet.html#cb236-7" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb236-8"><a href="identifikasjon-og-kausalitet.html#cb236-8" tabindex="-1"></a>)</span>
+<span id="cb236-9"><a href="identifikasjon-og-kausalitet.html#cb236-9" tabindex="-1"></a><span class="fu">etable</span>(ols_model, fe_model) <span class="co"># vis resultat</span></span></code></pre></div>
+<pre><code>##                         ols_model        fe_model
+## Dependent Var.:              lnwg            lnwg
+##                                                  
+## Constant        -12.76*** (2.817)                
+## lnhr            2.041*** (0.3698) 0.1822 (0.3174)
+## Fixed-Effects:  ----------------- ---------------
+## id                             No             Yes
+## year                           No             Yes
+## _______________ _________________ _______________
+## S.E. type                     IID             IID
+## Observations                   30              30
+## R2                        0.52114         0.93136
+## Within R2                      --         0.01901
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Tabellen viser tydelig at det er stor forskjell på å kjøre modellen med og uten faste effekter. Modellen uten faste effekter indikerer en sterk, positiv sammenheng mellom arbeidstimer og lønn – 1 % økning i arbeidstid er assosiert med hele 2 % økning i lønn, og estimatet er signifikant på 0.1 %-nivå. Hvis vi i stedet inkluderer faste effekter, får vi et mye mindre estimat (0.18). Dette er heller ikke statistisk signifikant, selv om sammenhengen fortsatt er positiv.</p>
+<p><strong>Flere faste effekter</strong> Vi kan introdusere ytterligere faste effekter, dersom vi ønsker det. Vi kan se for oss at det skjer noe med arbeidstakere når de får barn: De jobber kanskje noe mindre, samtidig som det kan påvirke produktiviteten deres på arbeidsplassen.
+Vi fortsetter på eksempelet over, og legger til en dummy-variabel for hvorvidt arbeidstakeren har barn eller ikke. Vi estimerer dette med faste effekter for <code>has_kids</code>:</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="identifikasjon-og-kausalitet.html#cb238-1" tabindex="-1"></a><span class="co"># Lag en dummy-variabel for hvorvidt noen har barn: </span></span>
+<span id="cb238-2"><a href="identifikasjon-og-kausalitet.html#cb238-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb238-3"><a href="identifikasjon-og-kausalitet.html#cb238-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">has_kids =</span> <span class="fu">as.integer</span>(kids <span class="sc">&gt;</span> <span class="dv">0</span>))</span>
+<span id="cb238-4"><a href="identifikasjon-og-kausalitet.html#cb238-4" tabindex="-1"></a></span>
+<span id="cb238-5"><a href="identifikasjon-og-kausalitet.html#cb238-5" tabindex="-1"></a><span class="co"># Legg til flere faste effekter (her: hvorvidt de har barn)</span></span>
+<span id="cb238-6"><a href="identifikasjon-og-kausalitet.html#cb238-6" tabindex="-1"></a>fe_model2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb238-7"><a href="identifikasjon-og-kausalitet.html#cb238-7" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year <span class="sc">+</span> has_kids, </span>
+<span id="cb238-8"><a href="identifikasjon-og-kausalitet.html#cb238-8" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb238-9"><a href="identifikasjon-og-kausalitet.html#cb238-9" tabindex="-1"></a>)</span>
+<span id="cb238-10"><a href="identifikasjon-og-kausalitet.html#cb238-10" tabindex="-1"></a><span class="fu">etable</span>(ols_model, fe_model, fe_model2) <span class="co"># vis resultat</span></span></code></pre></div>
+<pre><code>##                         ols_model        fe_model        fe_model2
+## Dependent Var.:              lnwg            lnwg             lnwg
+##                                                                   
+## Constant        -12.76*** (2.817)                                 
+## lnhr            2.041*** (0.3698) 0.1822 (0.3174) -0.1646 (0.3041)
+## Fixed-Effects:  ----------------- --------------- ----------------
+## id                             No             Yes              Yes
+## year                           No             Yes              Yes
+## has_kids                       No              No              Yes
+## _______________ _________________ _______________ ________________
+## S.E. type                     IID             IID              IID
+## Observations                   30              30               30
+## R2                        0.52114         0.93136          0.95195
+## Within R2                      --         0.01901          0.01799
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Den nye faste effekten fanger opp effekten mellom arbeidstakeres produktivitet, arbeidstimer og om de har barn. Estimatet endrer fortegn – selv om det heller ikke nå er signifikant ulikt fra null.</p>
+<p>I mange anvendelser kan vi nærmest introdusere så mange dimensjoner av faste effekter vi ønsker. Dersom vi har et datasett bestående av alle norske bedrifter fra 2000 til 2020, kan vi for eksempel trekke ut mange nivå av faste effekter. Hvis vi ønsker å si noe om hvordan en skatteendring påvirket produksjonen i bedriftene, vil vi antakelig både kontrollere for størrelsen på bedriften, makroøkonomiske trender (som finanskrisa), og hvordan etterspørselen etter varer fra hver enkelt næring har endret seg gjennom tidsperioden. Fordi vi observerer mange bedrifter innad i samme næring <span class="math inline">\(k\)</span> og i samme år <span class="math inline">\(t\)</span>, kan vi kontrollere for nærings- og tidsfaste effekter <span class="math inline">\(\eta_{kt}\)</span>:
+<span class="math display">\[ y_{it}=\beta_1x_{it}+\nu_t+\alpha_i+\eta_{kt}+\varepsilon_{it}\]</span>
+Dette betyr at vi lager dummy-variabler for hver næring i hvert enkelt år. Her tilhører hver observasjon <span class="math inline">\(i,t\)</span> én næring <span class="math inline">\(k\)</span> i det aktuelle året <span class="math inline">\(t\)</span>.
+Merk at vi må ha mange observasjoner innad i hver næring og hvert år for å kunne inkludere så mange faste effekter. Formelt trenger vi mange observasjoner, fordi sentralgrenseteoremet må holde innad i næring og år (men vi skal ikke vise dette formelt). Intuitivt kan vi illustrere det med et ekstremt eksempel: Dersom vi i stedet inkluderte en dummy-variabel for tid multiplisert med individ, ville vi absorbert <em>all</em> variasjon i <span class="math inline">\(x_{it}\)</span>. Faktisk ville vi fått perfekt multikollinearitet med med alle andre variabler som varierer på nivået <span class="math inline">\(i,t\)</span>!</p>
+<p>På samme måte som for andre kontrollvariabler, må vi imidlertid være bevisste på at vi bare sitter igjen med residualvariasjonen i analysen vi skal gjennomføre, fordi vi holder de dimensjonene vi bruker faste effekter for, konstante.</p>
+</div>
+</div>
+</div>
+<div id="naturlige-eksperimenter-kvasi-eksperimenter" class="section level3 hasAnchor" number="6.4.4">
+<h3><span class="header-section-number">6.4.4</span> Naturlige eksperimenter (“kvasi-eksperimenter”)<a href="identifikasjon-og-kausalitet.html#naturlige-eksperimenter-kvasi-eksperimenter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I samfunnsforskningen er det sjelden mulig å gjennomføre randomiserte eksperimenter der vi kan kontrollere både hvem som utsettes for en endring (sjokk), og omgivelsene deres. Likevel forekommer det noen “naturlige” sjokk som vi kan benytte oss av, og som kan gjøre det lettere å trekke kausale slutninger. Felles for disse er at én gruppe (individer, bedrifter e.l.) utsettes for en intervensjon, mens en annen gruppe ikke utsettes for denne intervensjonen.</p>
+<div id="differences-in-differences-did" class="section level4 hasAnchor" number="6.4.4.1">
+<h4><span class="header-section-number">6.4.4.1</span> Differences-in-differences (DiD)<a href="identifikasjon-og-kausalitet.html#differences-in-differences-did" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Én vanlig måte å implementere naturlige eksperimenter på er gjennom et såkalt “differences-in-differences”-design, ofte forkortet til DiD eller diff-in-diff. Ideen er at vi kan sammenlikne <em>endringer</em> fra perioden før til perioden etter behandlingstidspunktet dersom noen sentrale antakelser holder. Figuren under illustrerer konseptet:</p>
+<div class="figure"><span style="display:block;" id="fig:did-figur"></span>
+<img src="met4_files/figure-html/did-figur-1.png" alt="Illustrasjon av difference-in-differences. Den stiplede linjen viser det kontrafaktiske utfallet for behandlingsgruppen." width="672" />
+<p class="caption">
+Figur 6.2: Illustrasjon av difference-in-differences. Den stiplede linjen viser det kontrafaktiske utfallet for behandlingsgruppen.
+</p>
+</div>
+<div id="antakelse-parallelle-trender" class="section level5 hasAnchor" number="6.4.4.1.1">
+<h5><span class="header-section-number">6.4.4.1.1</span> Antakelse: Parallelle trender<a href="identifikasjon-og-kausalitet.html#antakelse-parallelle-trender" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Denne antakelsen fanger opp ideen om at behandlingen må tildeles (som om) tilfeldig. I figuren over så vi at vi kan tillate at det er ulikt nivå på utfallet før sjokket inntreffer, men bare dersom vi fortsatt kan bruke kontrollgruppen til å si noe om den kontrafaktiske utviklingen for behandlingsgruppen. Formelt betyr det at vi må anta at <em>behandlingsgruppen (som utsettes for et sjokk) ville fulgt samme utvikling som kontrollgruppen i fravær av behandlingen</em>.</p>
+<p>Dersom dette vilkåret holder, bidrar det til at vi kan tolke resultatet kausalt. Parallelle trender holder bare dersom sjokket er eksogent – dersom det er tilnærmet tilfeldig hvilken individer som utsettes for et sjokk, og hvem som ikke gjør det. Parallelle trender holder heller ikke dersom det er seleksjon inn i behandlingsgruppen, for eksempel dersom mer ressurssterke individer kan velge å teste en ny medisin, eller dersom det er andre, uobserverte karakteristikker som gjør at disse to gruppene ville utviklet seg annerledes uansett.</p>
+<p>I figuren under kommer dette tydelig frem. Her bruker vi kontrollgruppen (den blå linjen) til å <em>anta</em> hvordan behandlingsgruppen ville utviklet seg uten behandling. Dermed er det også tydelig hvorfor vi må anta parallelle trender: Dersom disse <em>uansett</em> ville utviklet seg ulikt, kan vi ikke bruke differansen mellom den kontrafaktiske linjen og det observerte utfallet i 2020 til å si noe om effekten av behandlingen.</p>
+<p>Fordi parallelle trender er en antakelse om den kontrafaktiske utviklingen til behandlingsgruppen, kan den nødvendigvis ikke testes. I mange anvendelser er det likevel vanlig å teste om trendene er parallelle før sjokket inntreffer. Selv om det ikke sikrer at denne utviklingen ville fortsatt, er det lettere å tro at gruppene er såpass like at de antakelig ville fortsatt å utvikle seg likt, hvis disse <em>pre-trendene</em> er like for begge gruppene.</p>
+</div>
+<div id="antakelse-ingen-spillovers-mellom-gruppene-sutva" class="section level5 hasAnchor" number="6.4.4.1.2">
+<h5><span class="header-section-number">6.4.4.1.2</span> Antakelse: Ingen spillovers mellom gruppene (SUTVA)<a href="identifikasjon-og-kausalitet.html#antakelse-ingen-spillovers-mellom-gruppene-sutva" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>SUTVA (Stable Unit Treatment Value Assumption) krever at utfallet til én enhet ikke påvirkes av behandlingsstatusen til andre enheter. Med andre ord må vi sikre at behandlingen ikke på noen måte har påvirket kontrollgruppene – det kan ikke være spillovers mellom gruppene.</p>
+<p>Hvorfor trenger vi denne antakelsen? Når vi sammenligner behandlings- og kontrollgruppen, antar vi at kontrollgruppens utfall viser oss hva som ville skjedd uten behandling. Men hvis behandlingen påvirker kontrollgruppen indirekte, for eksempel gjennom konkurranse, smitteeffekter, eller felles markeder, bryter denne logikken sammen. Da observerer vi ikke lenger det “rene” kontrafaktiske utfallet.</p>
+<p>Se for deg at du vil måle effekten av et jobbsøkerkurs på sannsynligheten for å få jobb. Noen arbeidsledige får kurset, andre ikke. Men hvis de som får kurset konkurrerer om de samme jobbene som kontrollgruppen, kan kurset øke sjansene for behandlingsgruppen og redusere sjansene for kontrollgruppen. Da vil en enkel sammenligning overvurdere effekten av kurset.</p>
+<p>Ofte brytes SUTVA når vi har såkalte generelle likevektseffekter (som i eksempelet over), som gjør at effekten sprer seg fra gruppen som behandles til gruppen som ikke behandles. I andre sammenhenger har vi nettverkseffekter – for eksempel kan vi tenke oss at en behandling som gjør at én elev i en klasse lærer mer, også påvirker læringsutbyttet til andre elever i samme klasse, selv om de ikke mottok behandlingen.</p>
+</div>
+<div id="estimering" class="section level5 hasAnchor" number="6.4.4.1.3">
+<h5><span class="header-section-number">6.4.4.1.3</span> Estimering<a href="identifikasjon-og-kausalitet.html#estimering" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>I de enkleste implementeringene av DiD beregner man gjennomsnittet for de to gruppene før og etter behandling, tar differansen mellom før- og etterperioden for hver gruppe, og deretter differansen i differanser for de to gruppene:
+<span class="math display">\[
+\Delta\mu_{\text{behandling}} = \mu_{\text{behandling(etter)}} - \mu_{\text{behandling(før)}} \\
+\Delta\mu_{\text{kontroll}} = \mu_{\text{kontroll(etter)}} - \mu_{\text{kontroll(før)}} \\
+\text{Behandlingseffekt} = \Delta\mu_{\text{behandling}}-\Delta\mu_{\text{kontroll}}
+\]</span></p>
+I dag estimerer vi som regel DiD med en regresjonsmodell. Spesifikasjonen vi er ute etter tar formen
+<span class="math display">\[
+y_{it}=\beta_0+\beta_1\text{Treat}_i+\beta_2\text{Post}_t+\beta_3(\text{Treat}_i\times\text{Post}_t)+\varepsilon_{it}
+\]</span>
+For å se hvorfor regresjonen gir oss DiD-estimatet direkte, kan vi sette inn for de fire gruppene:
+<table style="border-collapse: collapse; text-align: center; margin: 20px 0;">
+<tr>
+<th style="padding: 8px; text-align: left; border-bottom: 2px solid black;">
+</th>
+<th style="padding: 8px; border-bottom: 2px solid black;">
+Før (Post = 0)
+</th>
+<th style="padding: 8px; border-bottom: 2px solid black;">
+Etter (Post = 1)
+</th>
+<th style="padding: 8px; border-bottom: 2px solid black;">
+Endring
+</th>
+</tr>
+<tr>
+<td style="padding: 8px; text-align: left;">
+Kontroll (Treat = 0)
+</td>
+<td style="padding: 8px;">
+<span class="math inline">\(\beta_0\)</span>
+</td>
+<td style="padding: 8px;">
+<span class="math inline">\(\beta_0 + \beta_2\)</span>
+</td>
+<td style="padding: 8px;">
+<span class="math inline">\(\beta_2\)</span>
+</td>
+</tr>
+<tr>
+<td style="padding: 8px; text-align: left; border-bottom: 1px solid black;">
+Behandling (Treat = 1)
+</td>
+<td style="padding: 8px; border-bottom: 1px solid black;">
+<span class="math inline">\(\beta_0 + \beta_1\)</span>
+</td>
+<td style="padding: 8px; border-bottom: 1px solid black;">
+<span class="math inline">\(\beta_0 + \beta_1 + \beta_2 + \beta_3\)</span>
+</td>
+<td style="padding: 8px; border-bottom: 1px solid black;">
+<span class="math inline">\(\beta_2 + \beta_3\)</span>
+</td>
+</tr>
+</table>
+<p>Dermed blir Difference-in-differences (forskjellen i forskjeller) endringen for behandlingsgruppen minus endringen for kontrollgruppen:
+<span class="math display">\[(\beta_2+\beta_3)-\beta_2=\beta_3\]</span></p>
+<p>Regresjonen gir oss altså <span class="math inline">\(\beta_3\)</span> direkte som DiD-estimatet, samtidig som vi får standardfeil og enkelt kan inkludere kontrollvariabler.</p>
+<p>Den oppmerksomme leser ser kanskje at <span class="math inline">\(\text{Treat}_i\)</span> er en fast effekt på individnivå, og at <span class="math inline">\(\text{Post}_t\)</span> er en fast effekt på tidsperiodenivå (f.eks. årsnivå). Dette betyr at vi enten kan implementere spesifikasjonen over med dummyvariabler, eller at vi rett og slett kan kjøre den som toveis faste effekter (som beskrevet i avsnitt <a href="identifikasjon-og-kausalitet.html#FE">6.4.3.3.1</a>):
+<span class="math display">\[
+y_{it}=\beta_1(\text{Treat}_i\times\text{Post}_t)+\nu_t+\alpha_i+\varepsilon_{it}
+\]</span></p>
+</div>
+<div id="eksempel-card-og-krueger-1994" class="section level5 hasAnchor" number="6.4.4.1.4">
+<h5><span class="header-section-number">6.4.4.1.4</span> Eksempel: <a href="https://davidcard.berkeley.edu/papers/njmin-aer.pdf">Card og Krueger (1994)</a><a href="identifikasjon-og-kausalitet.html#eksempel-card-og-krueger-1994" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Vi skal se på et eksempel fra en forskningsartikkel publisert i <em>American Economic Review</em> i 1994, av økonomene David Card og Alan Krueger. De studerer effekten av økt minstelønn på sysselsetting.</p>
+<p>Grunnleggende økonomisk teori vil predikere at høyere minstelønn gir lavere sysselsetting. Ideen er enkel: Arbeidsgivere vil ansette én ny arbeidstaker så lenge den marginale arbeidstakeren produserer verdi som minst tilsvarer lønna de må betale dem. Når minstelønna øker, øker også denne terskelen, og færre vil få tilbud om jobb. Likevel er det uvisst hvor stor denne effekten er. I studien sammenlikner Card og Krueger hvordan sysselsettingen i fast food-restauranter utvikler seg i to amerikanske delstater, der én stat (New Jersey) innfører høyere minstelønn, mens nabostaten (Pennsylvania) ikke endret minstelønnsnivået. De finner ikke en negativ effekt av minstelønn på sysselsetting. Denne forskningsartikkelen var en av de tidlige som implementerte differences-in-differences i økonomifaget, og bidro samtidig til dagens konsensus om at minstelønnssatser som regel har liten betydning for sysselsettingen.</p>
+<p>For enkelhets skyld skal vi bruke en vasket versjon av fila<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, som du kan laste ned her:
+<a href="datasett/Card_Krueger">Card_Krueger</a></p>
+<p>Vi skal gjøre en forenklet øvelse for å illustrere hvordan DiD kan implementeres på dette datasettet.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="identifikasjon-og-kausalitet.html#cb240-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb240-2"><a href="identifikasjon-og-kausalitet.html#cb240-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb240-3"><a href="identifikasjon-og-kausalitet.html#cb240-3" tabindex="-1"></a></span>
+<span id="cb240-4"><a href="identifikasjon-og-kausalitet.html#cb240-4" tabindex="-1"></a><span class="co"># last inn data</span></span>
+<span id="cb240-5"><a href="identifikasjon-og-kausalitet.html#cb240-5" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Card_Krueger.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="identifikasjon-og-kausalitet.html#cb241-1" tabindex="-1"></a><span class="co"># sett opp dummy-variabler og generer variabel for årsverk (full-time equivalents), </span></span>
+<span id="cb241-2"><a href="identifikasjon-og-kausalitet.html#cb241-2" tabindex="-1"></a>njmin <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
+<span id="cb241-3"><a href="identifikasjon-og-kausalitet.html#cb241-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb241-4"><a href="identifikasjon-og-kausalitet.html#cb241-4" tabindex="-1"></a>    <span class="at">post =</span> <span class="fu">if_else</span>(observation <span class="sc">==</span> <span class="st">&quot;November 1992&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb241-5"><a href="identifikasjon-og-kausalitet.html#cb241-5" tabindex="-1"></a>    <span class="at">treat =</span> <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;New Jersey&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb241-6"><a href="identifikasjon-og-kausalitet.html#cb241-6" tabindex="-1"></a>    <span class="at">fte =</span> empft <span class="sc">+</span> nmgrs <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>emppt</span>
+<span id="cb241-7"><a href="identifikasjon-og-kausalitet.html#cb241-7" tabindex="-1"></a>  )</span>
+<span id="cb241-8"><a href="identifikasjon-og-kausalitet.html#cb241-8" tabindex="-1"></a></span>
+<span id="cb241-9"><a href="identifikasjon-og-kausalitet.html#cb241-9" tabindex="-1"></a><span class="co"># Se på gjennomsnitt over tid og differanser</span></span>
+<span id="cb241-10"><a href="identifikasjon-og-kausalitet.html#cb241-10" tabindex="-1"></a>means_table <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
+<span id="cb241-11"><a href="identifikasjon-og-kausalitet.html#cb241-11" tabindex="-1"></a>  <span class="fu">group_by</span>(state, observation) <span class="sc">%&gt;%</span></span>
+<span id="cb241-12"><a href="identifikasjon-og-kausalitet.html#cb241-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_fte =</span> <span class="fu">mean</span>(fte, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb241-13"><a href="identifikasjon-og-kausalitet.html#cb241-13" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> observation, <span class="at">values_from =</span> mean_fte) <span class="sc">%&gt;%</span></span>
+<span id="cb241-14"><a href="identifikasjon-og-kausalitet.html#cb241-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">endring =</span> <span class="st">`</span><span class="at">November 1992</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">February 1992</span><span class="st">`</span>)</span>
+<span id="cb241-15"><a href="identifikasjon-og-kausalitet.html#cb241-15" tabindex="-1"></a></span>
+<span id="cb241-16"><a href="identifikasjon-og-kausalitet.html#cb241-16" tabindex="-1"></a>did <span class="ot">&lt;-</span> means_table<span class="sc">$</span>endring[means_table<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;New Jersey&quot;</span>] <span class="sc">-</span> </span>
+<span id="cb241-17"><a href="identifikasjon-og-kausalitet.html#cb241-17" tabindex="-1"></a>       means_table<span class="sc">$</span>endring[means_table<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;Pennsylvania&quot;</span>]</span>
+<span id="cb241-18"><a href="identifikasjon-og-kausalitet.html#cb241-18" tabindex="-1"></a></span>
+<span id="cb241-19"><a href="identifikasjon-og-kausalitet.html#cb241-19" tabindex="-1"></a>means_table <span class="sc">%&gt;%</span></span>
+<span id="cb241-20"><a href="identifikasjon-og-kausalitet.html#cb241-20" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">tibble</span>(<span class="at">state =</span> <span class="st">&quot;Difference-in-differences&quot;</span>, <span class="at">endring =</span> did))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 4
+##   state                     `February 1992` `November 1992` endring
+##   &lt;chr&gt;                               &lt;dbl&gt;           &lt;dbl&gt;   &lt;dbl&gt;
+## 1 New Jersey                           20.4            21.0   0.588
+## 2 Pennsylvania                         23.3            21.2  -2.17 
+## 3 Difference-in-differences            NA              NA     2.75</code></pre>
+<p>Her har vi startet med å lage en deskriptiv tabell, som inneholder gjennomsnittlig antall årsverk i fast food-restauranter i New Jersey og Pennsylvania før (februar 1992) og etter (november 1992) minstelønna økte. Vi ser at gjennomsnittlig antall årsverk øker noe i New Jersey, mens det faller i Pennsylvania. Altså er endringen i endring (difference-in-differences) 2,75: Antall årsverk økte med 2,75 i New Jersey relativt til i Pennsylvania. Nå skal vi vise det litt mer formelt, og samtidig teste statistisk signifikans.</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="identifikasjon-og-kausalitet.html#cb243-1" tabindex="-1"></a><span class="fu">library</span>(fixest)</span>
+<span id="cb243-2"><a href="identifikasjon-og-kausalitet.html#cb243-2" tabindex="-1"></a></span>
+<span id="cb243-3"><a href="identifikasjon-og-kausalitet.html#cb243-3" tabindex="-1"></a><span class="co"># Naiv OLS-modell: sammelikn NJ og PA etter endringen </span></span>
+<span id="cb243-4"><a href="identifikasjon-og-kausalitet.html#cb243-4" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb243-5"><a href="identifikasjon-og-kausalitet.html#cb243-5" tabindex="-1"></a>  fte <span class="sc">~</span> treat, </span>
+<span id="cb243-6"><a href="identifikasjon-og-kausalitet.html#cb243-6" tabindex="-1"></a>  <span class="at">data =</span> njmin <span class="sc">%&gt;%</span> <span class="fu">filter</span>(post <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb243-7"><a href="identifikasjon-og-kausalitet.html#cb243-7" tabindex="-1"></a>)</span>
+<span id="cb243-8"><a href="identifikasjon-og-kausalitet.html#cb243-8" tabindex="-1"></a></span>
+<span id="cb243-9"><a href="identifikasjon-og-kausalitet.html#cb243-9" tabindex="-1"></a><span class="co"># Klassisk DiD </span></span>
+<span id="cb243-10"><a href="identifikasjon-og-kausalitet.html#cb243-10" tabindex="-1"></a>did <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb243-11"><a href="identifikasjon-og-kausalitet.html#cb243-11" tabindex="-1"></a>  fte <span class="sc">~</span> treat <span class="sc">+</span> post <span class="sc">+</span> treat<span class="sc">:</span>post, </span>
+<span id="cb243-12"><a href="identifikasjon-og-kausalitet.html#cb243-12" tabindex="-1"></a>  <span class="at">data =</span> njmin</span>
+<span id="cb243-13"><a href="identifikasjon-og-kausalitet.html#cb243-13" tabindex="-1"></a>)</span>
+<span id="cb243-14"><a href="identifikasjon-og-kausalitet.html#cb243-14" tabindex="-1"></a></span>
+<span id="cb243-15"><a href="identifikasjon-og-kausalitet.html#cb243-15" tabindex="-1"></a><span class="co"># DiD implementert som faste effekter</span></span>
+<span id="cb243-16"><a href="identifikasjon-og-kausalitet.html#cb243-16" tabindex="-1"></a>did_fe <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb243-17"><a href="identifikasjon-og-kausalitet.html#cb243-17" tabindex="-1"></a>  fte <span class="sc">~</span> treat<span class="sc">:</span>post <span class="sc">|</span> treat <span class="sc">+</span> post , </span>
+<span id="cb243-18"><a href="identifikasjon-og-kausalitet.html#cb243-18" tabindex="-1"></a>  <span class="at">data =</span> njmin</span>
+<span id="cb243-19"><a href="identifikasjon-og-kausalitet.html#cb243-19" tabindex="-1"></a>)</span>
+<span id="cb243-20"><a href="identifikasjon-og-kausalitet.html#cb243-20" tabindex="-1"></a></span>
+<span id="cb243-21"><a href="identifikasjon-og-kausalitet.html#cb243-21" tabindex="-1"></a><span class="co"># Toveis faste effekter med ID og tid</span></span>
+<span id="cb243-22"><a href="identifikasjon-og-kausalitet.html#cb243-22" tabindex="-1"></a><span class="do">## Merk: Her er &quot;sheet&quot; ID-variabelen for hver fast food-restaurant, og &quot;observation&quot; variabelen som markerer tid </span></span>
+<span id="cb243-23"><a href="identifikasjon-og-kausalitet.html#cb243-23" tabindex="-1"></a>did_twfe <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb243-24"><a href="identifikasjon-og-kausalitet.html#cb243-24" tabindex="-1"></a>  fte <span class="sc">~</span> treat<span class="sc">:</span>post <span class="sc">|</span> sheet <span class="sc">+</span> observation , </span>
+<span id="cb243-25"><a href="identifikasjon-og-kausalitet.html#cb243-25" tabindex="-1"></a>  <span class="at">data =</span> njmin</span>
+<span id="cb243-26"><a href="identifikasjon-og-kausalitet.html#cb243-26" tabindex="-1"></a>)</span>
+<span id="cb243-27"><a href="identifikasjon-og-kausalitet.html#cb243-27" tabindex="-1"></a></span>
+<span id="cb243-28"><a href="identifikasjon-og-kausalitet.html#cb243-28" tabindex="-1"></a><span class="co"># vis resultat</span></span>
+<span id="cb243-29"><a href="identifikasjon-og-kausalitet.html#cb243-29" tabindex="-1"></a><span class="fu">etable</span>(ols, did, did_fe, did_twfe) </span></code></pre></div>
+<pre><code>##                              ols              did        did_fe       did_twfe
+## Dependent Var.:              fte              fte           fte            fte
+##                                                                               
+## Constant        21.17*** (1.038) 23.33*** (1.072)                             
+## treat            -0.1382 (1.156)  -2.892* (1.194)                             
+## post                               -2.166 (1.516)                             
+## treat x post                        2.754 (1.688) 2.754 (1.688) 2.764* (1.148)
+## Fixed-Effects:  ---------------- ---------------- ------------- --------------
+## treat                         No               No           Yes             No
+## post                          No               No           Yes             No
+## sheet                         No               No            No            Yes
+## observation                   No               No            No            Yes
+## _______________ ________________ ________________ _____________ ______________
+## S.E. type                    IID              IID           IID            IID
+## Observations                 396              794           794            768
+## R2                       3.62e-5          0.00740       0.00740        0.77943
+## Within R2                     --               --       0.00336        0.01491
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Her setter vi opp fire ulike regresjonsmodeller. Den første vi setter opp er en slags naïv OLS-modell, <code>ols</code>, som kjører en regresjon med årsverk på venstresiden av likhetstegnet, og en dummy-variabel for New Jersey på høyresiden. Altså sammenlikner den New Jersey med Pennsylvania <em>etter</em> minstelønnen har blitt redusert. Her ser vi at en typisk fast food-restaurant i New Jersey hadde litt færre årsverk enn Pennsylvania i november 1992 (men forskjellen er ikke statistisk signifikant). Den andre modellen, <code>did</code>, implementerer en klassisk difference-in-differences. Her er vi interessert i koeffisienten <code>treat x post</code>. Denne viser at sysselsettingen i fast food-restauranter i New Jersey økte i gjennomsnitt med 2.75 årsverk mer enn i Pennsylvania. <code>did_fe</code> implementerer akkurat samme spesifikasjon, men plasserer <code>treat</code> og <code>post</code> som faste effekter i stedet – og vi ser at alt er uendret, også standardfeilen. Til slutt implementerer vi toveis faste effekter i <code>did_twfe</code>, der vi har faste effekter for restauranten og tidsperioden. Fordi <code>treat</code> er konstant for restauranten (den ligger enten i New Jersey eller i Pennsylvania i både februar og november), og <code>post</code> er lik 0 i februar og 1 i november, fanger disse opp den samme variasjonen som i <code>did_fe</code>. Den fanger imidlertid også opp all annen konstant variasjon for samme restaurant og tidsperiode, som gjør at vi her får et litt mer presist estimat (5 % signifikansnivå)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+</div>
+</div>
+</div>
+<div id="avsluttende-poeng-om-tolkning" class="section level3 hasAnchor" number="6.4.5">
+<h3><span class="header-section-number">6.4.5</span> Avsluttende poeng om tolkning<a href="identifikasjon-og-kausalitet.html#avsluttende-poeng-om-tolkning" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I denne modulen har vi diskutert krav til at en statistisk sammenheng kan tolkes kausalt, dvs. at vi tolker det som at det finnes en årsakssammenheng mellom variabler i dataene våre. Vi har illustrert noen tilfeller der <em>eksogenitetsbetingelsen</em> tydelig ikke holder, for eksempel fordi vi har systematisk seleksjon inn i “behandling” (seleksjonsskjevhet) eller variabler vi ikke kontrollerer for, og som er korrelerte med både utfalls- og forklaringsvariabelen (utelatt variabelskjevhet). Vi har sett på noen løsninger på endogenitetsproblemer, som at vi tildeler behandling tilfeldig, kontrollerer for utelatte variabler, bruker faste effekter eller sammenlikner en behandlings- og kontrollgruppe med “differences-in-differences”.</p>
+<p>Men er dette nok til å trekke en kausal konklusjon? I virkeligheten kan det aldri slås fast med sikkerhet. Som lesere eller forfattere av statistiske analyser må vi vurdere om vi tror at antakelsene som ligger til grunn for slike konklusjoner er rimelige. Dersom vi er bekymret for endogenitet er det viktig at vi er åpne om dette overfor leserne eller tilhørerne våre. Å reflektere rundt hvilken retning parameteren trekkes i av en eventuell skjevhet kan hjelpe oss å vurdere om den sannsynligvis er “for stor” eller “for liten”, og dermed hva vi kan lære av studien, også med noen svakheter. Det er avgjørende at vi <em>ikke</em> bruker kausale begreper som “effekter”, “årsaker”, “påvirkning”, osv. dersom vi ikke tror at vilkårene for å konkludere kausalt er tilstede. I stedet kan vi bruke begreper som “samvariasjon” eller “korrelasjon”, eller “en endring i <span class="math inline">\(x\)</span> er assosiert med en endring i <span class="math inline">\(y\)</span>”. Slik deskriptiv statistikk kan også være nyttig i mange sammenhenger – men i sammenhenger der vi i stedet er interessert i en årsakssammenheng må vi være åpne og ærlige om begrensningene i analysene våre.</p>
+<p><strong>NOTAT OM NULLEFFEKT: </strong> Noen ganger estimerer vi empiriske sammenhenger mellom to variabler, og finner ingen signifikant effekt. I mange anvendelser omtales dette som en “null-effekt”. I slike tilfeller er det viktig å minne oss selv om hva signifikansnivået egentlig tester. At vi ikke kan avvise nullhypotesen om ingen effekt, er ikke det samme som å påvise at det ikke er noen effekt! Dette gjelder <em>også</em> dersom vi har et ideelt forskningsdesign, som gjør det mulig å etablere kausale sammenhenger.</p>
+</div>
+<div id="kontrollsprsmal-7" class="section level3 hasAnchor" number="6.4.6">
+<h3><span class="header-section-number">6.4.6</span> Kontrollspørsmål<a href="identifikasjon-og-kausalitet.html#kontrollsprsmal-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Hva er forskjellen mellom en statistisk sammenheng og en kausal sammenheng?</li>
+<li>Hva menes med at en parameter er identifisert?</li>
+<li>Forklar med egne ord hva eksogenitetsbetingelsen <span class="math inline">\(\mathbb{E}[\varepsilon_i \vert x_i]=0\)</span> innebærer.</li>
+<li>Kan vi teste om eksogenitetsantakelsen holder?<br />
+</li>
+<li>I sykehuseksempelet observerer vi at innlagte pasienter har dårligere helse enn resten av befolkningen. Hvorfor kan vi ikke tolke dette som at sykehusopphold forårsaker dårligere helse?</li>
+<li>Hva er seleksjonsskjevhet? Gi et eksempel.</li>
+<li>Hva er utelatt variabelskjevhet, og hvordan skiller det seg fra seleksjonsskjevhet?</li>
+<li>Hvorfor er randomiserte kontrollerte forsøk (RCT) ansett som “gullstandarden” for å etablere kausale sammenhenger?</li>
+<li>Hva er formålet med å inkludere kontrollvariabler eller faste effekter i en regresjon?</li>
+<li>Hva er et naturlig eksperiment, og hvorfor kan det hjelpe oss å trekke kausale slutninger?</li>
+</ul>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Datasettet vi skal bruke er en forenklet versjon av Angrist og Kruegers replikasjonspakke, som kan hentes <a href="https://economics.mit.edu/people/faculty/josh-angrist/angrist-data-archive">her</a>.<a href="identifikasjon-og-kausalitet.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Den opprinnelige versjonen av datasettet kan lastes ned fra <a href="https://davidcard.berkeley.edu/data_sets">David Cards nettside</a>. Vaskingen er gjennomført av <a href="https://brodrigues.co/posts/2019-05-04-diffindiff_part2.html">Bruno Rodrigues</a>.<a href="identifikasjon-og-kausalitet.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Estimatene våre avviker noe fra den originale artikkelen til Card og Krueger. Det er fordi vi har gjort betydelige forenklinger, og hoppet over noen fornuftige steg for å vaske data og gjøre estimeringen ryddigere. Vi kommer imidlertid til samme kvalitative konklusjon.<a href="identifikasjon-og-kausalitet.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="paneldata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="oppgaver-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section",
+    "toc_depth": 4
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

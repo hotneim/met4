@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="introduksjon-til-maskinlring-med-knn.html"/>
-<link rel="next" href="oppgaver-3.html"/>
+<link rel="next" href="identifikasjon-og-kausalitet.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -211,8 +211,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>6.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="6.2" data-path="introduksjon-til-maskinlring-med-knn.html"><a href="introduksjon-til-maskinlring-med-knn.html"><i class="fa fa-check"></i><b>6.2</b> Introduksjon til maskinlæring med kNN</a></li>
 <li class="chapter" data-level="6.3" data-path="paneldata.html"><a href="paneldata.html"><i class="fa fa-check"></i><b>6.3</b> Paneldata</a></li>
-<li class="chapter" data-level="6.4" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>6.4</b> Oppgaver</a></li>
-<li class="chapter" data-level="6.5" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>6.5</b> Relevante R-kommandoer</a></li>
+<li class="chapter" data-level="6.4" data-path="identifikasjon-og-kausalitet.html"><a href="identifikasjon-og-kausalitet.html"><i class="fa fa-check"></i><b>6.4</b> Identifikasjon og kausalitet</a></li>
+<li class="chapter" data-level="6.5" data-path="oppgaver-3.html"><a href="oppgaver-3.html"><i class="fa fa-check"></i><b>6.5</b> Oppgaver</a></li>
+<li class="chapter" data-level="6.6" data-path="relevante-r-avansert-regresjon.html"><a href="relevante-r-avansert-regresjon.html"><i class="fa fa-check"></i><b>6.6</b> Relevante R-kommandoer</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="datavinger.html"><a href="datavinger.html"><i class="fa fa-check"></i><b>7</b> Dataøvinger</a>
 <ul>
@@ -309,7 +310,7 @@ der vi gjør de vanlige antakelsene om homoskedastisitet, uavhengige feilledd, o
 ## 4 5244 7.72 3.00    0  34     0  1 1982 7.742 3.218 -0.022 -0.218
 ## 5 5245 7.72 2.94    0  35     0  1 1983 7.742 3.218 -0.022 -0.278
 ## 6 5246 7.73 3.12    1  35     0  1 1984 7.742 3.218 -0.012 -0.098</code></pre>
-<p>Her svarer <code>lnwg</code>til responsvariabelen (log) lønn og <code>lnhr</code> til forklaringsvariabelen (log) antall timer jobbet. Legg merke til at det er en egen kolonne med navn <code>id</code> som forteller oss hvilket individ observasjonene gjelder for. Dette svarer til <span class="math inline">\(i\)</span>-indeksen i notasjonen over. Det er også en egen kolonne kalt <code>year</code> som forteller oss hvilket år observasjonen er fra, og dette svarer til <span class="math inline">\(t\)</span>-indeksen. F.eks er første rad observasjoner gjort for individ nr. 1 i år 1979.</p>
+<p>Her svarer <code>lnwg</code> til responsvariabelen (log) lønn og <code>lnhr</code> til forklaringsvariabelen (log) antall timer jobbet. Legg merke til at det er en egen kolonne med navn <code>id</code> som forteller oss hvilket individ observasjonene gjelder for. Dette svarer til <span class="math inline">\(i\)</span>-indeksen i notasjonen over. Det er også en egen kolonne kalt <code>year</code> som forteller oss hvilket år observasjonen er fra, og dette svarer til <span class="math inline">\(t\)</span>-indeksen. F.eks er første rad observasjoner gjort for individ nr. 1 i år 1979.</p>
 </div>
 <div id="hva-ma-vi-ta-hensyn-til" class="section level4 hasAnchor" number="6.3.3.2">
 <h4><span class="header-section-number">6.3.3.2</span> Hva må vi ta hensyn til?<a href="paneldata.html#hva-ma-vi-ta-hensyn-til" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -609,7 +610,7 @@ summary(reg.fe)
         </div>
       </div>
 <a href="introduksjon-til-maskinlring-med-knn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="oppgaver-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="identifikasjon-og-kausalitet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
