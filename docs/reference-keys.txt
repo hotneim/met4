@@ -165,6 +165,8 @@ oppgave-8-gjr-det-samme-for-no5
 dataving-5
 oppgave-1-interaktiv-velse-2
 oppgave-2---maskinlring-logistisk-regresjon-og-k-nrmeste-naboer
+oppgave-3-paneldata-iskaffe-og-varme-dager
+oppgave-4-kausal-identifikasjon-lskatt-og-trafikkddsfall
 seminar
 seminar-1---grunnleggende-statistikk
 seminar-2---hypotesetesting

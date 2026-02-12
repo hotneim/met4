@@ -394,6 +394,143 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb347-2"><a href="dataving-5.html#cb347-2" tabindex="-1"></a>logreg_tot</span></code></pre></div>
 <pre><code>## [1] 0.973</code></pre>
 <p><strong>Oppgave 2.9:</strong> Gjør en tilsvarende klassifisering av kundene i testsettet med knn modellen <code>model4</code> og sammenlign med resultatet over. Hvilken modell foretrekker du? Hvilke egenskaper ved klassifisering tror du kredittgiver vektlegger?</p>
+<hr />
+</div>
+<div id="oppgave-3-paneldata-iskaffe-og-varme-dager" class="section level3 hasAnchor" number="7.5.3">
+<h3><span class="header-section-number">7.5.3</span> Oppgave 3 – Paneldata: Iskaffe og varme dager<a href="dataving-5.html#oppgave-3-paneldata-iskaffe-og-varme-dager" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I denne oppgaven skal vi jobbe med et simulert paneldatasett. En kaffebarkjede har data fra 150 kaffebarer, observert månedlig over tre år (januar 2021 – desember 2023). For hver kaffebar og måned har vi informasjon om antall iskaffe solgt (<code>iskaffe_salg</code>) og antall dager den måneden med temperatur over 20°C (<code>varme_dager</code>). Kjeden ønsker å vite: Hvor mange ekstra iskaffe selger en typisk bar per ekstra varm dag?</p>
+<p>Datasettet er simulert med en <em>kjent, sann effekt</em> – men denne røper vi ikke ennå. Last ned datasettet:</p>
+<p><a href="datasett/kaffebar_panel.csv">kaffebar_panel.csv</a></p>
+<p><strong>Oppgave 3.1</strong></p>
+<p>Les inn datasettet og gjør deg kjent med strukturen:</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="dataving-5.html#cb349-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb349-2"><a href="dataving-5.html#cb349-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb349-3"><a href="dataving-5.html#cb349-3" tabindex="-1"></a></span>
+<span id="cb349-4"><a href="dataving-5.html#cb349-4" tabindex="-1"></a>kaffebar <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;kaffebar_panel.csv&quot;</span>)</span>
+<span id="cb349-5"><a href="dataving-5.html#cb349-5" tabindex="-1"></a></span>
+<span id="cb349-6"><a href="dataving-5.html#cb349-6" tabindex="-1"></a><span class="fu">head</span>(kaffebar)</span>
+<span id="cb349-7"><a href="dataving-5.html#cb349-7" tabindex="-1"></a><span class="fu">dim</span>(kaffebar)</span></code></pre></div>
+<ul>
+<li>Hvor mange kaffebarer er det i datasettet?</li>
+<li>Hvor mange måneder er det observasjoner for?</li>
+<li>Er panelet balansert (like mange observasjoner per bar)? Bruk gjerne <code>count()</code> og <code>summarise()</code> til å sjekke dette.</li>
+</ul>
+<p><strong>Oppgave 3.2</strong></p>
+<p>Vi skal nå utforske datasettet visuelt. Begynn med å beregne gjennomsnittlig iskaffe-salg per måned (over alle barer), og lag et linjeplott:</p>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="dataving-5.html#cb350-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb350-2"><a href="dataving-5.html#cb350-2" tabindex="-1"></a></span>
+<span id="cb350-3"><a href="dataving-5.html#cb350-3" tabindex="-1"></a><span class="co"># beregne gjennomsnitt per måned</span></span>
+<span id="cb350-4"><a href="dataving-5.html#cb350-4" tabindex="-1"></a>gj_snitt <span class="ot">&lt;-</span> kaffebar <span class="sc">%&gt;%</span></span>
+<span id="cb350-5"><a href="dataving-5.html#cb350-5" tabindex="-1"></a>  <span class="fu">group_by</span>(maaned_nr) <span class="sc">%&gt;%</span></span>
+<span id="cb350-6"><a href="dataving-5.html#cb350-6" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">snitt_salg =</span> <span class="fu">mean</span>(iskaffe_salg))</span>
+<span id="cb350-7"><a href="dataving-5.html#cb350-7" tabindex="-1"></a></span>
+<span id="cb350-8"><a href="dataving-5.html#cb350-8" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb350-9"><a href="dataving-5.html#cb350-9" tabindex="-1"></a><span class="fu">ggplot</span>(gj_snitt, <span class="fu">aes</span>(<span class="at">x =</span> maaned_nr, <span class="at">y =</span> snitt_salg)) <span class="sc">+</span></span>
+<span id="cb350-10"><a href="dataving-5.html#cb350-10" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb350-11"><a href="dataving-5.html#cb350-11" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb350-12"><a href="dataving-5.html#cb350-12" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">13</span>, <span class="dv">19</span>, <span class="dv">25</span>, <span class="dv">31</span>),</span>
+<span id="cb350-13"><a href="dataving-5.html#cb350-13" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Jan 2021&quot;</span>, <span class="st">&quot;Juli 2021&quot;</span>, <span class="st">&quot;Jan 2022&quot;</span>, <span class="st">&quot;Juli 2022&quot;</span>, <span class="st">&quot;Jan 2023&quot;</span>, <span class="st">&quot;Juli 2023&quot;</span>)</span>
+<span id="cb350-14"><a href="dataving-5.html#cb350-14" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb350-15"><a href="dataving-5.html#cb350-15" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Maaned&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Gjennomsnittlig iskaffe-salg&quot;</span>)</span></code></pre></div>
+<p>Beskriv hva du ser. Er mønsteret som forventet?</p>
+<p>Lag deretter et plott der du velger ut 5 tilfeldige kaffebarer og fargelegger etter <code>kaffebar_id</code>:</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="dataving-5.html#cb351-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb351-2"><a href="dataving-5.html#cb351-2" tabindex="-1"></a>utvalgte <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">unique</span>(kaffebar<span class="sc">$</span>kaffebar_id), <span class="dv">5</span>)</span>
+<span id="cb351-3"><a href="dataving-5.html#cb351-3" tabindex="-1"></a>kaffebar_utvalg <span class="ot">&lt;-</span> kaffebar <span class="sc">%&gt;%</span> <span class="fu">filter</span>(kaffebar_id <span class="sc">%in%</span> utvalgte)</span>
+<span id="cb351-4"><a href="dataving-5.html#cb351-4" tabindex="-1"></a></span>
+<span id="cb351-5"><a href="dataving-5.html#cb351-5" tabindex="-1"></a><span class="fu">ggplot</span>(kaffebar_utvalg, <span class="fu">aes</span>(<span class="at">x =</span> maaned_nr, <span class="at">y =</span> iskaffe_salg, <span class="at">color =</span> <span class="fu">factor</span>(kaffebar_id))) <span class="sc">+</span></span>
+<span id="cb351-6"><a href="dataving-5.html#cb351-6" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb351-7"><a href="dataving-5.html#cb351-7" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb351-8"><a href="dataving-5.html#cb351-8" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">13</span>, <span class="dv">19</span>, <span class="dv">25</span>, <span class="dv">31</span>),</span>
+<span id="cb351-9"><a href="dataving-5.html#cb351-9" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Jan 2021&quot;</span>, <span class="st">&quot;Juli 2021&quot;</span>, <span class="st">&quot;Jan 2022&quot;</span>, <span class="st">&quot;Juli 2022&quot;</span>, <span class="st">&quot;Jan 2023&quot;</span>, <span class="st">&quot;Juli 2023&quot;</span>)</span>
+<span id="cb351-10"><a href="dataving-5.html#cb351-10" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb351-11"><a href="dataving-5.html#cb351-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Maaned&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Iskaffe solgt&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Kaffebar&quot;</span>)</span></code></pre></div>
+<p>Hva legger du merke til? Følger barene det samme mønsteret? Ligger de på samme nivå?</p>
+<p><strong>Oppgave 3.3</strong></p>
+<p>Estimer en enkel regresjonsmodell (pooled OLS, dvs. uten faste effekter) der <code>iskaffe_salg</code> er utfallsvariabel og <code>varme_dager</code> er forklaringsvariabel. Vi bruker <code>feols</code> fra <code>fixest</code>-pakken fordi vi skal bygge videre med faste effekter i neste deloppgave:</p>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="dataving-5.html#cb352-1" tabindex="-1"></a><span class="fu">library</span>(fixest)</span>
+<span id="cb352-2"><a href="dataving-5.html#cb352-2" tabindex="-1"></a></span>
+<span id="cb352-3"><a href="dataving-5.html#cb352-3" tabindex="-1"></a>pooled <span class="ot">&lt;-</span> <span class="fu">feols</span>(iskaffe_salg <span class="sc">~</span> varme_dager, <span class="at">data =</span> kaffebar)</span>
+<span id="cb352-4"><a href="dataving-5.html#cb352-4" tabindex="-1"></a><span class="fu">summary</span>(pooled)</span></code></pre></div>
+<ul>
+<li>Tolk koeffisienten på <code>varme_dager</code>.</li>
+<li>Tenk tilbake på plottene du laget i 3.2. Kan du se noen grunn til at denne koeffisienten over- eller underestimerer den faktiske effekten av varme dager?</li>
+</ul>
+<p><strong>Oppgave 3.4</strong></p>
+<p>Estimer nå modellen med faste effekter for kaffebar:</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="dataving-5.html#cb353-1" tabindex="-1"></a>fe <span class="ot">&lt;-</span> <span class="fu">feols</span>(iskaffe_salg <span class="sc">~</span> varme_dager <span class="sc">|</span> kaffebar_id, <span class="at">data =</span> kaffebar)</span>
+<span id="cb353-2"><a href="dataving-5.html#cb353-2" tabindex="-1"></a><span class="fu">etable</span>(pooled, fe)</span></code></pre></div>
+<ul>
+<li>Hva har skjedd med koeffisienten?</li>
+<li>Hva kontrollerer kaffebar-faste effekter for? Tenk på hva du så i plottet med de 5 utvalgte barene.</li>
+<li>Hvorfor endrer estimatet seg?</li>
+</ul>
+<p><strong>Oppgave 3.5</strong></p>
+<p>Legg til tidsfaste effekter (for <code>maaned_nr</code>):</p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="dataving-5.html#cb354-1" tabindex="-1"></a>fe_tw <span class="ot">&lt;-</span> <span class="fu">feols</span>(iskaffe_salg <span class="sc">~</span> varme_dager <span class="sc">|</span> kaffebar_id <span class="sc">+</span> maaned_nr, <span class="at">data =</span> kaffebar)</span>
+<span id="cb354-2"><a href="dataving-5.html#cb354-2" tabindex="-1"></a><span class="fu">etable</span>(pooled, fe, fe_tw)</span></code></pre></div>
+<ul>
+<li>Sammenlign koeffisientene fra de tre modellene.</li>
+<li>Hva kan tidsfaste effekter fange opp i denne sammenhengen? Tenk på sesongmønsteret du så i oppgave 3.2.</li>
+</ul>
+<p><strong>Oppgave 3.6</strong></p>
+<p>Datasettet er simulert med en sann effekt lik <span class="math inline">\(\beta_1 = 5\)</span>: Hver ekstra varm dag gir i gjennomsnitt 5 ekstra iskaffe solgt.</p>
+<p>Sammenlign denne sanne verdien med estimatene fra de tre modellene. Hvilken modell kom nærmest, og hvorfor bommer de andre?</p>
+</div>
+<div id="oppgave-4-kausal-identifikasjon-lskatt-og-trafikkddsfall" class="section level3 hasAnchor" number="7.5.4">
+<h3><span class="header-section-number">7.5.4</span> Oppgave 4 – Kausal identifikasjon: Ølskatt og trafikkdødsfall<a href="dataving-5.html#oppgave-4-kausal-identifikasjon-lskatt-og-trafikkddsfall" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>I denne oppgaven bruker vi et ekte datasett med årlige observasjoner for 48 amerikanske delstater fra 1982 til 1988. Datasettet inneholder blant annet informasjon om ølskatt og trafikkdødsfall, og vi ønsker å undersøke sammenhengen mellom disse.</p>
+<p><strong>Oppgave 4.1</strong></p>
+<p>Installer (om nødvendig) og last inn pakken <code>AER</code>, og last inn datasettet <code>Fatalities</code>:</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="dataving-5.html#cb355-1" tabindex="-1"></a><span class="fu">library</span>(AER)</span>
+<span id="cb355-2"><a href="dataving-5.html#cb355-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb355-3"><a href="dataving-5.html#cb355-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Fatalities&quot;</span>)</span></code></pre></div>
+<p>Utforsk datasettet med <code>head()</code>, <code>dim()</code> og <code>str()</code>.</p>
+<ul>
+<li>Hvor mange observasjoner er det?</li>
+<li>Identifiser variablene <code>state</code> og <code>year</code> som definerer panelstrukturen. Hvor mange delstater og år er det?</li>
+<li>Er panelet balansert?</li>
+</ul>
+<p>Vi skal jobbe med dødsraten per innbygger, ikke det absolutte antallet dødsfall. Variablene <code>fatal</code> (antall trafikkdødsfall) og <code>pop</code> (befolkning) finnes i datasettet. Lag en ny variabel <code>frate</code> som måler antall trafikkdødsfall per 10 000 innbyggere:</p>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="dataving-5.html#cb356-1" tabindex="-1"></a>Fatalities <span class="ot">&lt;-</span> Fatalities <span class="sc">%&gt;%</span></span>
+<span id="cb356-2"><a href="dataving-5.html#cb356-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">frate =</span> fatal <span class="sc">/</span> pop <span class="sc">*</span> <span class="dv">10000</span>)</span></code></pre></div>
+<p><strong>Oppgave 4.2</strong></p>
+<p>Lag et spredningsplott med <code>beertax</code> (ølskatt i dollar per kasse) på x-aksen og <code>frate</code> (dødsrate) på y-aksen:</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="dataving-5.html#cb357-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb357-2"><a href="dataving-5.html#cb357-2" tabindex="-1"></a></span>
+<span id="cb357-3"><a href="dataving-5.html#cb357-3" tabindex="-1"></a><span class="fu">ggplot</span>(Fatalities, <span class="fu">aes</span>(<span class="at">x =</span> beertax, <span class="at">y =</span> frate)) <span class="sc">+</span></span>
+<span id="cb357-4"><a href="dataving-5.html#cb357-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb357-5"><a href="dataving-5.html#cb357-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Olskatt (dollar per kasse)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trafikkdodsfall per 10 000 innb.&quot;</span>)</span></code></pre></div>
+<p>Hva slags sammenheng ser du? Stemmer dette med hva du ville forventet?</p>
+<p><strong>Oppgave 4.3</strong></p>
+<p>Estimer en pooled OLS-regresjon:</p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="dataving-5.html#cb358-1" tabindex="-1"></a><span class="fu">library</span>(fixest)</span>
+<span id="cb358-2"><a href="dataving-5.html#cb358-2" tabindex="-1"></a></span>
+<span id="cb358-3"><a href="dataving-5.html#cb358-3" tabindex="-1"></a>pooled <span class="ot">&lt;-</span> <span class="fu">feols</span>(frate <span class="sc">~</span> beertax, <span class="at">data =</span> Fatalities)</span>
+<span id="cb358-4"><a href="dataving-5.html#cb358-4" tabindex="-1"></a><span class="fu">summary</span>(pooled)</span></code></pre></div>
+<ul>
+<li>Tolk koeffisienten. Hva sier den om sammenhengen mellom ølskatt og trafikkdødsfall?</li>
+<li>Gir fortegnet mening? Hva kan forklare resultatet?</li>
+</ul>
+<p><strong>Oppgave 4.4</strong></p>
+<p>Estimer modellen med faste effekter for delstat:</p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="dataving-5.html#cb359-1" tabindex="-1"></a>fe_state <span class="ot">&lt;-</span> <span class="fu">feols</span>(frate <span class="sc">~</span> beertax <span class="sc">|</span> state, <span class="at">data =</span> Fatalities)</span>
+<span id="cb359-2"><a href="dataving-5.html#cb359-2" tabindex="-1"></a><span class="fu">etable</span>(pooled, fe_state)</span></code></pre></div>
+<ul>
+<li>Hva har skjedd med fortegnet på koeffisienten?</li>
+<li>Forklar hva delstatsfaste effekter kontrollerer for. Hva slags forskjeller mellom stater kan ha drevet det positive estimatet i pooled OLS?</li>
+<li>Hva er forskjellen på å sammenligne stater <em>med hverandre</em> (pooled OLS) og å se på endringer <em>innad i</em> samme stat over tid (faste effekter)?</li>
+</ul>
+<p><strong>Oppgave 4.5</strong></p>
+<p>Legg til tidsfaste effekter:</p>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="dataving-5.html#cb360-1" tabindex="-1"></a>fe_tw <span class="ot">&lt;-</span> <span class="fu">feols</span>(frate <span class="sc">~</span> beertax <span class="sc">|</span> state <span class="sc">+</span> year, <span class="at">data =</span> Fatalities)</span>
+<span id="cb360-2"><a href="dataving-5.html#cb360-2" tabindex="-1"></a><span class="fu">etable</span>(pooled, fe_state, fe_tw)</span></code></pre></div>
+<ul>
+<li>Sammenlign de tre modellene.</li>
+<li>Hva kan tidsfaste effekter fange opp her? Tenk på nasjonale trender i perioden 1982–1988.</li>
+</ul>
+<p><strong>Oppgave 4.6</strong></p>
+<p>Refleksjonsoppgave: Er det rimelig å tolke koeffisienten fra modellen med toveis faste effekter som den <em>kausale</em> effekten av ølskatt på trafikkdødsfall? Hva kan eventuelt gjenstå i restleddet som truer en slik tolkning?</p>
 
 </div>
 </div>

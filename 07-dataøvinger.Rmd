@@ -1223,3 +1223,216 @@ logreg_tot
 ```
 
 **Oppgave 2.9:** Gjør en tilsvarende klassifisering av kundene i testsettet med knn modellen `model4` og sammenlign med resultatet over. Hvilken modell foretrekker du? Hvilke egenskaper ved klassifisering tror du kredittgiver vektlegger?
+
+----
+
+### Oppgave 3 --  Paneldata:  Iskaffe og varme dager
+
+I denne oppgaven skal vi jobbe med et simulert paneldatasett. En kaffebarkjede har data fra 150 kaffebarer, observert månedlig over tre år (januar 2021 -- desember 2023). For hver kaffebar og måned har vi informasjon om antall iskaffe solgt (`iskaffe_salg`) og antall dager den måneden med temperatur over 20°C (`varme_dager`). Kjeden ønsker å vite: Hvor mange ekstra iskaffe selger en typisk bar per ekstra varm dag?
+
+Datasettet er simulert med en *kjent, sann effekt* -- men denne røper vi ikke ennå. Last ned datasettet: 
+
+[kaffebar_panel.csv](datasett/kaffebar_panel.csv)
+
+**Oppgave 3.1**
+
+Les inn datasettet og gjør deg kjent med strukturen:
+
+```{r, eval=FALSE}
+library(readr)
+library(dplyr)
+
+kaffebar <- read_csv("kaffebar_panel.csv")
+
+head(kaffebar)
+dim(kaffebar)
+```
+
+* Hvor mange kaffebarer er det i datasettet?
+* Hvor mange måneder er det observasjoner for?
+* Er panelet balansert (like mange observasjoner per bar)? Bruk gjerne `count()` og `summarise()` til å sjekke dette.
+
+**Oppgave 3.2**
+
+Vi skal nå utforske datasettet visuelt. Begynn med å beregne gjennomsnittlig iskaffe-salg per måned (over alle barer), og lag et linjeplott:
+
+```{r, eval=FALSE}
+library(ggplot2)
+
+# beregne gjennomsnitt per måned
+gj_snitt <- kaffebar %>%
+  group_by(maaned_nr) %>%
+  summarise(snitt_salg = mean(iskaffe_salg))
+
+# plot
+ggplot(gj_snitt, aes(x = maaned_nr, y = snitt_salg)) +
+  geom_line() + geom_point() +
+  scale_x_continuous(
+    breaks = c(1, 7, 13, 19, 25, 31),
+    labels = c("Jan 2021", "Juli 2021", "Jan 2022", "Juli 2022", "Jan 2023", "Juli 2023")
+  ) +
+  labs(x = "Maaned", y = "Gjennomsnittlig iskaffe-salg")
+```
+
+Beskriv hva du ser. Er mønsteret som forventet?
+
+Lag deretter et plott der du velger ut 5 tilfeldige kaffebarer og fargelegger etter `kaffebar_id`:
+
+```{r, eval=FALSE}
+set.seed(42)
+utvalgte <- sample(unique(kaffebar$kaffebar_id), 5)
+kaffebar_utvalg <- kaffebar %>% filter(kaffebar_id %in% utvalgte)
+
+ggplot(kaffebar_utvalg, aes(x = maaned_nr, y = iskaffe_salg, color = factor(kaffebar_id))) +
+  geom_line() + geom_point(size = 1) +
+  scale_x_continuous(
+    breaks = c(1, 7, 13, 19, 25, 31),
+    labels = c("Jan 2021", "Juli 2021", "Jan 2022", "Juli 2022", "Jan 2023", "Juli 2023")
+  ) +
+  labs(x = "Maaned", y = "Iskaffe solgt", color = "Kaffebar")
+```
+
+Hva legger du merke til? Følger barene det samme mønsteret? Ligger de på samme nivå?
+
+
+**Oppgave 3.3**
+
+Estimer en enkel regresjonsmodell (pooled OLS, dvs. uten faste effekter) der `iskaffe_salg` er utfallsvariabel og `varme_dager` er forklaringsvariabel. Vi bruker `feols` fra `fixest`-pakken fordi vi skal bygge videre med faste effekter i neste deloppgave:
+
+```{r, eval=FALSE}
+library(fixest)
+
+pooled <- feols(iskaffe_salg ~ varme_dager, data = kaffebar)
+summary(pooled)
+```
+
+* Tolk koeffisienten på `varme_dager`.
+* Tenk tilbake på plottene du laget i 3.2. Kan du se noen grunn til at denne koeffisienten over- eller underestimerer den faktiske effekten av varme dager?
+
+
+**Oppgave 3.4**
+
+Estimer nå modellen med faste effekter for kaffebar:
+
+```{r, eval=FALSE}
+fe <- feols(iskaffe_salg ~ varme_dager | kaffebar_id, data = kaffebar)
+etable(pooled, fe)
+```
+
+* Hva har skjedd med koeffisienten? 
+* Hva kontrollerer kaffebar-faste effekter for? Tenk på hva du så i plottet med de 5 utvalgte barene.
+* Hvorfor endrer estimatet seg?
+
+
+**Oppgave 3.5**
+
+Legg til tidsfaste effekter (for `maaned_nr`):
+
+```{r, eval=FALSE}
+fe_tw <- feols(iskaffe_salg ~ varme_dager | kaffebar_id + maaned_nr, data = kaffebar)
+etable(pooled, fe, fe_tw)
+```
+
+* Sammenlign koeffisientene fra de tre modellene. 
+* Hva kan tidsfaste effekter fange opp i denne sammenhengen? Tenk på sesongmønsteret du så i oppgave 3.2.
+
+
+**Oppgave 3.6**
+
+Datasettet er simulert med en sann effekt lik $\beta_1 = 5$: Hver ekstra varm dag gir i gjennomsnitt 5 ekstra iskaffe solgt. 
+
+Sammenlign denne sanne verdien med estimatene fra de tre modellene. Hvilken modell kom nærmest, og hvorfor bommer de andre?
+
+
+
+
+
+### Oppgave 4 -- Kausal identifikasjon: Ølskatt og trafikkdødsfall
+
+I denne oppgaven bruker vi et ekte datasett med årlige observasjoner for 48 amerikanske delstater fra 1982 til 1988. Datasettet inneholder blant annet informasjon om ølskatt og trafikkdødsfall, og vi ønsker å undersøke sammenhengen mellom disse.
+
+**Oppgave 4.1**
+
+Installer (om nødvendig) og last inn pakken `AER`, og last inn datasettet `Fatalities`:
+
+```{r, eval=FALSE}
+library(AER)
+library(dplyr)
+data("Fatalities")
+```
+
+Utforsk datasettet med `head()`, `dim()` og `str()`. 
+
+* Hvor mange observasjoner er det? 
+* Identifiser variablene `state` og `year` som definerer panelstrukturen. Hvor mange delstater og år er det?
+* Er panelet balansert?
+
+Vi skal jobbe med dødsraten per innbygger, ikke det absolutte antallet dødsfall. Variablene `fatal` (antall trafikkdødsfall) og `pop` (befolkning) finnes i datasettet. Lag en ny variabel `frate` som måler antall trafikkdødsfall per 10 000 innbyggere:
+
+```{r, eval=FALSE}
+Fatalities <- Fatalities %>%
+  mutate(frate = fatal / pop * 10000)
+```
+
+
+**Oppgave 4.2**
+
+Lag et spredningsplott med `beertax` (ølskatt i dollar per kasse) på x-aksen og `frate` (dødsrate) på y-aksen:
+
+```{r, eval=FALSE}
+library(ggplot2)
+
+ggplot(Fatalities, aes(x = beertax, y = frate)) +
+  geom_point() +
+  labs(x = "Olskatt (dollar per kasse)", y = "Trafikkdodsfall per 10 000 innb.")
+```
+
+Hva slags sammenheng ser du? Stemmer dette med hva du ville forventet?
+
+
+**Oppgave 4.3**
+
+Estimer en pooled OLS-regresjon:
+
+```{r, eval=FALSE}
+library(fixest)
+
+pooled <- feols(frate ~ beertax, data = Fatalities)
+summary(pooled)
+```
+
+* Tolk koeffisienten. Hva sier den om sammenhengen mellom ølskatt og trafikkdødsfall?
+* Gir fortegnet mening? Hva kan forklare resultatet?
+
+
+**Oppgave 4.4**
+
+Estimer modellen med faste effekter for delstat:
+
+```{r, eval=FALSE}
+fe_state <- feols(frate ~ beertax | state, data = Fatalities)
+etable(pooled, fe_state)
+```
+
+* Hva har skjedd med fortegnet på koeffisienten?
+* Forklar hva delstatsfaste effekter kontrollerer for. Hva slags forskjeller mellom stater kan ha drevet det positive estimatet i pooled OLS?
+* Hva er forskjellen på å sammenligne stater *med hverandre* (pooled OLS) og å se på endringer *innad i* samme stat over tid (faste effekter)?
+
+
+**Oppgave 4.5**
+
+Legg til tidsfaste effekter:
+
+```{r, eval=FALSE}
+fe_tw <- feols(frate ~ beertax | state + year, data = Fatalities)
+etable(pooled, fe_state, fe_tw)
+```
+
+* Sammenlign de tre modellene. 
+* Hva kan tidsfaste effekter fange opp her? Tenk på nasjonale trender i perioden 1982--1988.
+
+
+**Oppgave 4.6**
+
+Refleksjonsoppgave: Er det rimelig å tolke koeffisienten fra modellen med toveis faste effekter som den *kausale* effekten av ølskatt på trafikkdødsfall? Hva kan eventuelt gjenstå i restleddet som truer en slik tolkning?
+
