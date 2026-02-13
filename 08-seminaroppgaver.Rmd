@@ -224,6 +224,8 @@ Oppgaveformuleringene finner du i seksjon \@ref(skoleeksamen).
 
 ## Seminar 6 - Avansert regresjon og maskinlæring 
 
+### Logistisik regresjon, maskinlæring, paneldata
+
 1. Nevn minst to grunner til at en ønsker å utføre en vanlig regresjonsanalyse. Reflekter så over hva hovedgrunnen er med å lage henholdsvis en KNN-modell og en regresjonsmodell.
 
 2. Diskuter i hvilken grad det er rimelig med komponenten $v_t$ i en paneldatamodell
@@ -242,7 +244,158 @@ d. Kan du komme på en tidsinvariant forklaringsvariabel som er relevant for res
 3. Tegn et sett med observasjoner bestående av en dummy-variabel $Y$ og en kontinuerlig variabel $X$ i et xy-koordinatsystemet
 hvor en ville fått bedre prediksjoner av $Y$ med KNN-metoden enn med logistisk-regresjon.
 
-4. Prøv deg på eksamen H21 oppgave 3
+4. Prøv deg på eksamen H21 oppgave 3. Oppgaveformuleringene finner du i seksjon \@ref(skoleeksamen).
 
-Oppgaveformuleringene finner du i seksjon \@ref(skoleeksamen).
+
+### Paneldata, kausal identifikasjon
+
+**Oppgave 1**
+
+Card og Krueger (1994) undersøkte effekten av en økning i minstelønn på sysselsetting i hurtigmat-restauranter. I april 1992 økte New Jersey (NJ) sin minstelønn fra \$4.25 til \$5.05, mens nabostaten Pennsylvania (PA) beholdt sin minstelønn på $4.25.
+
+Forskerne samlet inn data fra restauranter i begge stater i februar 1992 (før endringen) og november 1992 (etter endringen).
+
+a) Last inn [Card-Krueger-datasettet](datasett/Card_Krueger). Lag først variabelen for heltidsekvivalente ansatte:
+``` {r, eval=F}
+njmin <- njmin %>%
+  mutate(fte = empft + nmgrs + 0.5*emppt)
+```
+Lag deretter en figur som viser gjennomsnittlig `fte` over tid (`observation`), separat for New Jersey og Pennsylvania (`state`). Beskriv hva du ser.
+
+b) Hva ville vi konkludert dersom vi bare sammenlignet sysselsettingsnivået i New Jersey og Pennsylvania i november 1992? Hvorfor er denne sammenligningen problematisk?
+
+**Oppgave 2**
+
+a) Lag først dummy-variabler for behandling:
+``` {r, eval=F}
+njmin <- njmin %>%
+  mutate(
+    treat = if_else(state == "New Jersey", 1, 0),
+    post = if_else(observation == "November 1992", 1, 0)
+  )
+```
+
+Estimer deretter følgende tre modeller (der `fte` er antall årsverk):
+   - Pooled OLS: $\text{fte}_{it} = \beta_0 + \beta_1 \text{treat}_{i} + \beta_2 \text{post}_{t} + \beta_3 (\text{treat}_i \times \text{post}_t) + \varepsilon_{it}$
+   - Delstatsfaste effekter: $\text{fte}_{it} = \alpha_i + \beta_1 \text{post}_{t} + \beta_2 (\text{treat}_i \times \text{post}_t) + \varepsilon_{it}$
+   - Toveis faste effekter: $\text{fte}_{it} = \alpha_i + \nu_t + \beta_1 (\text{treat}_i \times \text{post}_t) + \varepsilon_{it}$
+
+
+Presenter resultatene i en tabell (f.eks. med `etable()`).
+
+b) Forklar hvorfor koeffisienten for interaksjonsleddet $\text{treat}_i \times \text{post}_t$ (behandlingseffekten) er forskjellig i de tre modellene. Hvilken variasjon i dataene bruker hver modell?
+
+c) Hvilken av modellene gir oss det mest troverdige estimatet av effekten av minstelønnsøkningen? Begrunn svaret ditt.
+
+**Oppgave 3**
+
+a) Prøv å estimere en modell med delstatsfaste effekter, men der du *ikke* inkluderer tidsfaste effekter. Hva skjer med koeffisienten for interaksjonsleddet $\text{treat}_i \times \text{post}_t$? 
+
+b) Tenk over hva delstatsfaste effekter gjør: De absorberer all variasjon som er konstant innad i hver delstat over tid. Hvorfor er dette et problem når behandlingen (minstelønnsøkningen) også er konstant innad i delstaten?
+
+c) Forklar med egne ord hvorfor det ikke alltid er lurt å "hive inn flest mulig faste effekter".
+
+
+**Oppgave 4**
+
+En konsulent har analysert data fra 200 butikker i en klesbutikk-kjede. Konsulenten finner at butikker som bruker mer penger på markedsføring har høyere salg, og konkluderer: "Markedsføring øker salget".
+
+a) Forklar hvorfor denne konklusjonen ikke nødvendigvis er riktig. Gi minst ett alternativ scenario som kan forklare sammenhengen.
+
+b) Hva ville det ideelle eksperimentet for å måle effekten av markedsføring sett ut? Beskriv kort hvem som får hva, og hva du ville sammenlignet.
+
+
+**Oppgave 5**
+
+I Card-Krueger-studien sammenligner forskerne *endringen* i sysselsetting i New Jersey med *endringen* i Pennsylvania.
+
+a) Hvorfor er det ikke nok å bare se på endringen i New Jersey fra februar til november?
+
+b) Forklar med egne ord hvorfor vi bruker Pennsylvania som sammenligningsgruppe. Hva antar vi om hvordan sysselsettingen i New Jersey ville utviklet seg dersom minstelønn *ikke* hadde økt?
+
+c) Når ville denne fremgangsmåten gi oss et feil svar? Gi et konkret eksempel på noe som kunne skjedd som ville gjort sammenligningen villedende.
+
+**Oppgave 6**
+
+En forsker ønsker å undersøke om fjernarbeid påvirker produktivitet. Hun samler data fra to bransjer: IT-konsulentselskaper (bransje A) og revisjonsfirmaer (bransje B). I 2021 innførte alle IT-konsulentselskapene full fleksibilitet på hjemmekontor som følge av nye bransjenormer, mens revisjonsfirmaene beholdt kontorplikt.
+
+Forskeren estimerer en modell med toveis faste effekter (bransje og år) og finner at produktiviteten økte mer i bransje A enn i bransje B etter 2021. Hun konkluderer med at fjernarbeid øker produktiviteten.
+
+a) Hvilke sentrale antakelser må holde for at vi skal kunne tolke dette som en kausal effekt? Forklar kort hva hver antakelse betyr i denne konteksten.
+
+b) Vurder om antakelsene du identifiserte i (a) er rimelige. Identifiser minst én konkret trussel mot den kausale tolkningen.
+
+c) Forskeren hevder at de har funnet at fjernarbeid *øker* produktiviteten. Er du enig i denne konklusjonen? Begrunn.
+
+---
+
+#### Tilleggsoppgaver 
+Dette er ekstraoppgaver for den som vil jobbe litt mer med dette materialet. Oppgavene er omtrent på eksamensnivå. De første oppgavene bruker Fatalities-datasettet fra `AER`-pakken.
+
+**Oppgave 7**
+
+Fatalities-datasettet inneholder observasjoner fra 48 amerikanske delstater over perioden 1982-1988. Vi skal undersøke sammenhengen mellom ølskatt (`beertax`) og antall trafikkdødsfall per 10 000 innbyggere (`frate`).
+
+a) Last inn datasettet fra `AER`-pakken med `data("Fatalities")`. Lag først variabelen for dødsfall per 10 000 innbyggere:
+``` {r, eval=F}
+Fatalities <- Fatalities %>%
+  mutate(frate = fatal / pop * 10000)
+```
+Lag deretter et spredningsplott med `beertax` på x-aksen og `frate` på y-aksen. Hva ser du?
+
+b) Estimer en enkel lineær modell: $\text{frate}_{it} = \beta_0 + \beta_1 \text{beertax}_{it} + \varepsilon_{it}$. Tolk koeffisienten. Er resultatet overraskende?
+
+c) Hva kan forklare sammenhengen du ser i (b)? Diskuter mulige utelatte variabler.
+
+**Oppgave 8**
+
+a) Estimer følgende modeller (bruk `state` som delstatsvariabel og `year` som tidsvariabel):
+   - Pooled OLS: $\text{frate}_{it} = \beta_0 + \beta_1 \text{beertax}_{it} + \varepsilon_{it}$
+   - Delstatsfaste effekter: $\text{frate}_{it} = \alpha_i + \beta_1 \text{beertax}_{it} + \varepsilon_{it}$
+   - Toveis faste effekter: $\text{frate}_{it} = \alpha_i + \nu_t + \beta_1 \text{beertax}_{it} + \varepsilon_{it}$
+
+b) Forklar hva som skjer med koeffisienten når du legger til delstatsfaste effekter. Hvorfor endrer fortegnet seg?
+
+c) Hva kontrollerer tidsfaste effekter ($\nu_t$) for? Gi eksempler på faktorer som påvirker trafikkdødsfall på landsbasis over tid.
+
+d) Kan vi tolke koeffisienten fra toveis FE-modellen som kausal? Diskuter kort.
+
+**Oppgave 9 (Vanskeligere)**
+
+a) Sammenlign antall observasjoner, antall koeffisienter estimert (inkludert faste effekter), og frihetsgrader for de tre modellene i oppgave 8. Du kan bruke `summary()` eller inspisere modellobjektene.
+
+b) Sammenlign standardfeilene til koeffisienten for `beertax` på tvers av modellene. Hva skjer med presisjonen når vi legger til flere faste effekter?
+
+c) Prøv å estimere en modell med delstatsfaste effekter, årsfaste effekter, *og* delstat-år-interaksjoner (delstat $\times$ år faste effekter). Hva skjer? Hvorfor?
+
+**Oppgave 10**
+
+En forsker vil undersøke effekten av fysisk trening på inntekt. Hun kjører en regresjon av årsinntekt på antall timer trening per uke (selvrapportert), basert på tverrsnittdata fra 1000 personer.
+
+a) Identifiser minst to utelatte variabler som kan skape problemer for en kausal tolkning. Forklar hvorfor hver av dem er problematisk.
+
+b) For hver av de utelatte variablene du identifiserte: Tror du estimatet av effekten av trening blir for høyt eller for lavt? Begrunn.
+
+c) Dersom folk systematisk underrapporterer hvor mye de trener, hva gjør dette med estimatet? (Hint: Dette er målefeil i forklaringsvariabelen.)
+
+**Oppgave 11**
+
+En by innfører en kampanje mot fyllekjøring i 2020, inkludert strengere kontroller og bøter. Nabokommunen innfører ingen slik kampanje. En forsker vil bruke nabokommunen som kontrollgruppe for å måle effekten av kampanjen på antall trafikkuhell.
+
+a) Forklar ideen bak å bruke nabokommunen som kontrollgruppe. Hva antar vi om hvordan antall uhell i behandlingsbyen ville utviklet seg uten kampanjen?
+
+b) Kan kampanjen i byen påvirke antall trafikkuhell i nabokommunen? Gi minst ett konkret scenario der dette kan skje.
+
+c) Dersom kampanjen faktisk påvirker nabokommunen, hva betyr det for vår estimerte effekt? Vil vi overvurdere eller undervurdere den sanne effekten?
+
+**Oppgave 12**
+
+I mange studier som bruker en "før-etter"-logikk med en behandlings- og en kontrollgruppe, sjekker forskerne om de to gruppene hadde *lik utvikling* i perioden før behandlingen ble innført.
+
+a) Hvorfor er det nyttig å sjekke dette? Hva forteller det oss om gruppene dersom de utviklet seg likt før behandling?
+
+b) Anta at forskerne finner at behandlingsgruppen hadde sterkere vekst enn kontrollgruppen allerede *før* behandlingen. Hva indikerer dette om troverdigheten til studien?
+
+c) Gir en lik utvikling før behandling oss noen *garanti* for at gruppene ville fortsatt å utvikle seg likt uten behandling? Hvorfor/hvorfor ikke?
+
 
