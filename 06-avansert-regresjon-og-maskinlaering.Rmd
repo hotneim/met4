@@ -1,5 +1,5 @@
 
-# Avansert regresjon og maskinlæing 
+# Avansert regresjon og maskinlæring 
 
 I denne modulen tar vi en titt på noen litt mer avanserte statistiske metoder. De to første temaene, logistisk regresjon og "K-nearest-neighbor"-metoden (kNN), har til felles at de kan brukes når responsvariabelen er en kategorisk variabel med kun to kategorier. Begge disse metodene faller inn under det som populært kalles maskinlæring og er således en introduksjon til dette temaet. I det siste temaet, paneldata, skal vi se hvordan vi kan bygge regresjonsmodeller når hvert individ er observert flere ganger etter hverandre i tid. 
 
@@ -752,7 +752,7 @@ Vi skal se på et eksempel fra en forskningsartikkel publisert i *American Econo
 Grunnleggende økonomisk teori vil predikere at høyere minstelønn gir lavere sysselsetting. Ideen er enkel: Arbeidsgivere vil ansette én ny arbeidstaker så lenge den marginale arbeidstakeren produserer verdi som minst tilsvarer lønna de må betale dem. Når minstelønna øker, øker også denne terskelen, og færre vil få tilbud om jobb. Likevel er det uvisst hvor stor denne effekten er. I studien sammenlikner Card og Krueger hvordan sysselsettingen i fast food-restauranter utvikler seg i to amerikanske delstater, der én stat (New Jersey) innfører høyere minstelønn, mens nabostaten (Pennsylvania) ikke endret minstelønnsnivået. De finner ikke en negativ effekt av minstelønn på sysselsetting. Denne forskningsartikkelen var en av de tidlige som implementerte differences-in-differences i økonomifaget, og bidro samtidig til dagens konsensus om at minstelønnssatser som regel har liten betydning for sysselsettingen. 
 
 For enkelhets skyld skal vi bruke en vasket versjon av fila^[Den opprinnelige versjonen av datasettet kan lastes ned fra [David Cards nettside](https://davidcard.berkeley.edu/data_sets). Vaskingen er gjennomført av [Bruno Rodrigues](https://brodrigues.co/posts/2019-05-04-diffindiff_part2.html).], som du kan laste ned her: 
-[Card_Krueger](datasett/Card_Krueger)
+[Card_Krueger](datasett/Card_Krueger.RData)
 
 Vi skal gjøre en forenklet øvelse for å illustrere hvordan DiD kan implementeres på dette datasettet. 
 

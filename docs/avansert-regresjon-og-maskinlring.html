@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.2 Seminar 2 - Hypotesetesting | MET4 - Empiriske Metoder - vår 2026</title>
+  <title> 6 Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - vår 2026</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.2 Seminar 2 - Hypotesetesting | MET4 - Empiriske Metoder - vår 2026" />
+  <meta property="og:title" content=" 6 Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - vår 2026" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.2 Seminar 2 - Hypotesetesting | MET4 - Empiriske Metoder - vår 2026" />
+  <meta name="twitter:title" content=" 6 Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - vår 2026" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="seminar-1---grunnleggende-statistikk.html"/>
-<link rel="next" href="seminar-3---regresjon-i.html"/>
+<link rel="prev" href="relevante-r-tidsrekker.html"/>
+<link rel="next" href="logistisk-regresjon.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -259,30 +259,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="seminar-2---hypotesetesting" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Seminar 2 - Hypotesetesting<a href="seminar-2---hypotesetesting.html#seminar-2---hypotesetesting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ol style="list-style-type: decimal">
-<li><p>Sett opp en generell regel/oppskrift som du kan følge <em>alle</em> gangene du skal gjennomføre en hypotesetest.</p></li>
-<li><p>Tegn opp en figur som viser hvordan de samme verdiene av <span class="math inline">\(\overline{X}\)</span> og <span class="math inline">\(\mu\)</span> i to ett-utvalgs <span class="math inline">\(t\)</span>-tester likevel kan føre til motsatt konklusjon av testen.</p></li>
-<li><p>Det er desverre et stort problem at folk som bruker begrepet <em>p-verdi</em> i ulike sammenhenfer ofte ikke forstår hva begrepet betyr. I den sammenheng publiserte <em>The American Statistical Association</em> i 2016 <a href="https://www.tandfonline.com/doi/pdf/10.1080/00031305.2016.1154108">et skriv som i klare ordelag beskriver problemet</a>. Les gjennom dette skrivet, og spesiel avsnitt 3 “<em>Principles</em>”.</p>
-<ol style="list-style-type: lower-alpha">
-<li>Oversett hver av disse seks overskriftene (prinsippene) til norsk med dine egne ord, og skriv så en setning, igjen med egne ord, om hvordan du forstår hvert av punktene.</li>
-<li>Prøv å definer begrepet <em>p-verdi</em> med så enkle ord som du klarer.</li>
-</ol></li>
-<li><p>Gjør oppgave 11.38 i læreboken: <em>The club professional at a difficult public course boasts that his course is so tough that the average golfer loses a dozen or more golf balls during a round of golf. A dubious golfer sets out to show that the pro is fibbing. He asks a random sample of 15 golfers who just completed their rounds to report the number of golf balls they lost. Assuming that the number of golf balls lost is normally distributed with a standard deviation of 3, can we infer at the 10% significance level that the average (rett ord her er vel egentlig “expected”) number of golf balls lost is less than 12?</em></p>
-<p>Observasjonene er: 1, 14, 8, 15, 17, 10, 12, 6, 14, 21, 15, 9, 11, 4, 8</p></li>
-<li><p>Anta at det sanne forventede antall golfballer som forsvinner i forrige oppgave er 10, hva er da styrken (power) til testen som du gjorde der? Hva er tolkningen til dette tallet?</p></li>
-<li><p>Gjør skoleeksamen V17, oppgave 1a og 1b.</p></li>
-<li><p>Gjør skoleeksamen V19, oppgave 1b.</p></li>
-</ol>
+<div id="avansert-regresjon-og-maskinlring" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number"> 6</span> Avansert regresjon og maskinlæring<a href="avansert-regresjon-og-maskinlring.html#avansert-regresjon-og-maskinlring" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>I denne modulen tar vi en titt på noen litt mer avanserte statistiske metoder. De to første temaene, logistisk regresjon og “K-nearest-neighbor”-metoden (kNN), har til felles at de kan brukes når responsvariabelen er en kategorisk variabel med kun to kategorier. Begge disse metodene faller inn under det som populært kalles maskinlæring og er således en introduksjon til dette temaet. I det siste temaet, paneldata, skal vi se hvordan vi kan bygge regresjonsmodeller når hvert individ er observert flere ganger etter hverandre i tid.</p>
+<p><a href="script-slides/logistisk/Logistisk%20regresjon%20i%20R.R">R-script til “Logistisk Regresjon”</a></p>
+<p><a href="script-slides/logistisk/knn.R">R-script til “KNN”</a></p>
+<p><a href="script-slides/logistisk/Paneldata%20i%20R.R">R-script til “Paneldata”</a></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="seminar-1---grunnleggende-statistikk.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="seminar-3---regresjon-i.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="relevante-r-tidsrekker.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistisk-regresjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

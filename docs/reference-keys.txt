@@ -90,7 +90,7 @@ modellbygging-1
 r-ving-6
 oppgaver-2
 relevante-r-tidsrekker
-avansert-regresjon-og-maskinling
+avansert-regresjon-og-maskinlring
 logistisk-regresjon
 videoforelesninger-9
 kontrollsprsmal-4

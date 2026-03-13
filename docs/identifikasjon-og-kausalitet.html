@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.9" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>5.9</b> Oppgaver</a></li>
 <li class="chapter" data-level="5.10" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.10</b> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinling.html"><a href="avansert-regresjon-og-maskinling.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæing</a>
+<li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinlring.html"><a href="avansert-regresjon-og-maskinlring.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæring</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>6.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="6.2" data-path="introduksjon-til-maskinlring-med-knn.html"><a href="introduksjon-til-maskinlring-med-knn.html"><i class="fa fa-check"></i><b>6.2</b> Introduksjon til maskinlæring med kNN</a></li>
@@ -538,7 +538,7 @@ y_{it}=\beta_1(\text{Treat}_i\times\text{Post}_t)+\nu_t+\alpha_i+\varepsilon_{it
 <p>Vi skal se på et eksempel fra en forskningsartikkel publisert i <em>American Economic Review</em> i 1994, av økonomene David Card og Alan Krueger. De studerer effekten av økt minstelønn på sysselsetting.</p>
 <p>Grunnleggende økonomisk teori vil predikere at høyere minstelønn gir lavere sysselsetting. Ideen er enkel: Arbeidsgivere vil ansette én ny arbeidstaker så lenge den marginale arbeidstakeren produserer verdi som minst tilsvarer lønna de må betale dem. Når minstelønna øker, øker også denne terskelen, og færre vil få tilbud om jobb. Likevel er det uvisst hvor stor denne effekten er. I studien sammenlikner Card og Krueger hvordan sysselsettingen i fast food-restauranter utvikler seg i to amerikanske delstater, der én stat (New Jersey) innfører høyere minstelønn, mens nabostaten (Pennsylvania) ikke endret minstelønnsnivået. De finner ikke en negativ effekt av minstelønn på sysselsetting. Denne forskningsartikkelen var en av de tidlige som implementerte differences-in-differences i økonomifaget, og bidro samtidig til dagens konsensus om at minstelønnssatser som regel har liten betydning for sysselsettingen.</p>
 <p>For enkelhets skyld skal vi bruke en vasket versjon av fila<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, som du kan laste ned her:
-<a href="datasett/Card_Krueger">Card_Krueger</a></p>
+<a href="datasett/Card_Krueger.RData">Card_Krueger</a></p>
 <p>Vi skal gjøre en forenklet øvelse for å illustrere hvordan DiD kan implementeres på dette datasettet.</p>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="identifikasjon-og-kausalitet.html#cb240-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb240-2"><a href="identifikasjon-og-kausalitet.html#cb240-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
