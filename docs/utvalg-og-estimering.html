@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.9" data-path="oppgaver-2.html"><a href="oppgaver-2.html"><i class="fa fa-check"></i><b>5.9</b> Oppgaver</a></li>
 <li class="chapter" data-level="5.10" data-path="relevante-r-tidsrekker.html"><a href="relevante-r-tidsrekker.html"><i class="fa fa-check"></i><b>5.10</b> Relevante R-kommandoer</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinling.html"><a href="avansert-regresjon-og-maskinling.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæing</a>
+<li class="chapter" data-level="6" data-path="avansert-regresjon-og-maskinlring.html"><a href="avansert-regresjon-og-maskinlring.html"><i class="fa fa-check"></i><b>6</b> Avansert regresjon og maskinlæring</a>
 <ul>
 <li class="chapter" data-level="6.1" data-path="logistisk-regresjon.html"><a href="logistisk-regresjon.html"><i class="fa fa-check"></i><b>6.1</b> Logistisk regresjon</a></li>
 <li class="chapter" data-level="6.2" data-path="introduksjon-til-maskinlring-med-knn.html"><a href="introduksjon-til-maskinlring-med-knn.html"><i class="fa fa-check"></i><b>6.2</b> Introduksjon til maskinlæring med kNN</a></li>
@@ -351,8 +351,8 @@ men problemet i praksis er at vi gjerne ikke kjenner <span class="math inline">\
 <p>Som demonstrert i forelesningen kan vi i R simulere standard normalfordelte observasjoner (dvs normalfordelte observasjoner med <span class="math inline">\(\mu = 0\)</span> og <span class="math inline">\(\sigma^2 = 1\)</span>) med kommandoen <code>rnorm(n)</code>, der <code>n</code> er antallet observasjoner vi ønsker. For eksempel kan vi kjøre følgende kode for å generere 10 observasjoner (du vil helt sikkert få andre verdier):</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="utvalg-og-estimering.html#cb23-1" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb23-2"><a href="utvalg-og-estimering.html#cb23-2" tabindex="-1"></a><span class="fu">rnorm</span>(n)</span></code></pre></div>
-<pre><code>##  [1]  0.88428226  1.69464883 -0.61734834 -0.44422790  0.56026028 -0.25279944
-##  [7]  1.07086263  0.02420227  0.10946153  1.28329881</code></pre>
+<pre><code>##  [1]  0.6319376 -0.1015115 -1.4137123 -0.4197738 -0.1178604  1.0456830
+##  [7] -0.7714027 -1.0032962  1.8425887  1.5242581</code></pre>
 <p>Ved å skrive <code>mean(dnorm(n))</code> i stedet regner vi ut gjennomsnittet av observasjonene direkte.</p>
 <p>La oss gjøre dette 100 ganger og notere ned gjennomsnittet hver gang. I stedet for å gjøre det manuelt, kan vi skrive et lite program som gjør dette for oss ved å bruke en for-løkke. Det er ikke nødvendig (eller pensum) å forstå akkurat hvordan dette fungerer, men dersom du kjører følgende linjer vil du få en ny vektor <code>gj.snitt</code> som inneholder 100 slike gjennomsnitt:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="utvalg-og-estimering.html#cb25-1" tabindex="-1"></a>gj.snitt <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>

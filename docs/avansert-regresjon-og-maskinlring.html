@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.5 Mappesti | MET4 - Empiriske Metoder - vår 2026</title>
+  <title> 6 Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - vår 2026</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.5 Mappesti | MET4 - Empiriske Metoder - vår 2026" />
+  <meta property="og:title" content=" 6 Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - vår 2026" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.5 Mappesti | MET4 - Empiriske Metoder - vår 2026" />
+  <meta name="twitter:title" content=" 6 Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - vår 2026" />
   
   <meta name="twitter:description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pakker.html"/>
-<link rel="next" href="innlesing-av-data.html"/>
+<link rel="prev" href="relevante-r-tidsrekker.html"/>
+<link rel="next" href="logistisk-regresjon.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -259,26 +259,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="mappesti" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Mappesti<a href="mappesti.html#mappesti" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<iframe src="https://player.vimeo.com/video/638313346?h=56d3761b80" width="640" height="388" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen>
-</iframe>
-<p>Vi kommer til å forholde oss til <em>filer</em> på flere måter. Vi skal lese inn datafiler, og vi kommer til å produsere ulike former for output, slik som figurer og tabeller. Vi må da ha kontroll på hva R bruker som gjeldende mappesti (“working directory”) der filer som skal leses inn ligger, og der ulike output-filer havner. Vi kan bruke funksjonen <code>getwd()</code> til å sjekke hva som er gjeldende mappesti. For å forandre mappestien kan vi bruke menysystemet (Session -&gt; Set Working Directory -&gt; Choose Directory), eventuelt funksjonen <code>setwd()</code> med ønsket mappesti som argument.</p>
-<p><strong>Oppgave:</strong> Pass på at du har gjort følgende før du går videre til neste leksjon:</p>
-<ul>
-<li>Du har laget en dedikert mappe på datamaskinen din der du skal samle alt materiale som vi bruker i dette kapitlet.</li>
-<li>Du har lastet ned filen <a href="datasett/testdata.xls">testdata.xls</a> og lagt den i den nye mappen din.</li>
-<li>Du har endret gjeldende mappesti til denne mappen.</li>
-<li>Du har <strong>bekreftet</strong> at gjeldende mappesti nå er korrekt.</li>
-</ul>
+<div id="avansert-regresjon-og-maskinlring" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number"> 6</span> Avansert regresjon og maskinlæring<a href="avansert-regresjon-og-maskinlring.html#avansert-regresjon-og-maskinlring" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>I denne modulen tar vi en titt på noen litt mer avanserte statistiske metoder. De to første temaene, logistisk regresjon og “K-nearest-neighbor”-metoden (kNN), har til felles at de kan brukes når responsvariabelen er en kategorisk variabel med kun to kategorier. Begge disse metodene faller inn under det som populært kalles maskinlæring og er således en introduksjon til dette temaet. I det siste temaet, paneldata, skal vi se hvordan vi kan bygge regresjonsmodeller når hvert individ er observert flere ganger etter hverandre i tid.</p>
+<p><a href="script-slides/logistisk/Logistisk%20regresjon%20i%20R.R">R-script til “Logistisk Regresjon”</a></p>
+<p><a href="script-slides/logistisk/knn.R">R-script til “KNN”</a></p>
+<p><a href="script-slides/logistisk/Paneldata%20i%20R.R">R-script til “Paneldata”</a></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="pakker.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="innlesing-av-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="relevante-r-tidsrekker.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistisk-regresjon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
