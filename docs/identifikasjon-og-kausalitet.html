@@ -317,9 +317,9 @@ I gjennomsnitt har en pasient innlagt på sykehus signifikant dårligere helseti
 <span class="math display">\[ \log w_i = \beta_0 + \beta_1 x_i + \varepsilon_i\]</span>
 Dersom <span class="math inline">\(x_i\)</span> er eksogen kan vi tolke <span class="math inline">\(\beta_1\)</span> som at ett års ekstra utdanning fører til at individet får omtrent <span class="math inline">\(\beta_1 \%\)</span> høyere lønn.</p>
 <p>La oss bruke dette datasettet<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
-<p><a href="datasett/Angrist_Krueger_eksempelfil">Angrist_Krueger_eksempelfil</a></p>
+<p><a href="datasett/Angrist_Krueger_eksempelfil.Rdata">Angrist_Krueger_eksempelfil</a></p>
 <div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="identifikasjon-og-kausalitet.html#cb232-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb232-2"><a href="identifikasjon-og-kausalitet.html#cb232-2" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Angrist_Krueger_eksempelfil&quot;</span>)</span></code></pre></div>
+<span id="cb232-2"><a href="identifikasjon-og-kausalitet.html#cb232-2" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Angrist_Krueger_eksempelfil.Rdata&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="identifikasjon-og-kausalitet.html#cb233-1" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm</span>(logwage <span class="sc">~</span> educ, <span class="at">data =</span> AK)</span>
 <span id="cb233-2"><a href="identifikasjon-og-kausalitet.html#cb233-2" tabindex="-1"></a><span class="fu">summary</span>(ols)</span></code></pre></div>
 <pre><code>## 
@@ -538,7 +538,7 @@ y_{it}=\beta_1(\text{Treat}_i\times\text{Post}_t)+\nu_t+\alpha_i+\varepsilon_{it
 <p>Vi skal se på et eksempel fra en forskningsartikkel publisert i <em>American Economic Review</em> i 1994, av økonomene David Card og Alan Krueger. De studerer effekten av økt minstelønn på sysselsetting.</p>
 <p>Grunnleggende økonomisk teori vil predikere at høyere minstelønn gir lavere sysselsetting. Ideen er enkel: Arbeidsgivere vil ansette én ny arbeidstaker så lenge den marginale arbeidstakeren produserer verdi som minst tilsvarer lønna de må betale dem. Når minstelønna øker, øker også denne terskelen, og færre vil få tilbud om jobb. Likevel er det uvisst hvor stor denne effekten er. I studien sammenlikner Card og Krueger hvordan sysselsettingen i fast food-restauranter utvikler seg i to amerikanske delstater, der én stat (New Jersey) innfører høyere minstelønn, mens nabostaten (Pennsylvania) ikke endret minstelønnsnivået. De finner ikke en negativ effekt av minstelønn på sysselsetting. Denne forskningsartikkelen var en av de tidlige som implementerte differences-in-differences i økonomifaget, og bidro samtidig til dagens konsensus om at minstelønnssatser som regel har liten betydning for sysselsettingen.</p>
 <p>For enkelhets skyld skal vi bruke en vasket versjon av fila<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, som du kan laste ned her:
-<a href="datasett/Card_Krueger">Card_Krueger</a></p>
+<a href="datasett/Card_Krueger.Rdata">Card_Krueger</a></p>
 <p>Vi skal gjøre en forenklet øvelse for å illustrere hvordan DiD kan implementeres på dette datasettet.</p>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="identifikasjon-og-kausalitet.html#cb240-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb240-2"><a href="identifikasjon-og-kausalitet.html#cb240-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>

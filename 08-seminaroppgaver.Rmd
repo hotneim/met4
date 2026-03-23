@@ -255,7 +255,7 @@ Card og Krueger (1994) undersøkte effekten av en økning i minstelønn på syss
 
 Forskerne samlet inn data fra restauranter i begge stater i februar 1992 (før endringen) og november 1992 (etter endringen).
 
-a) Last inn [Card-Krueger-datasettet](datasett/Card_Krueger). Lag først variabelen for heltidsekvivalente ansatte:
+a) Last inn [Card-Krueger-datasettet](datasett/Card_Krueger.Rdata). Lag først variabelen for heltidsekvivalente ansatte:
 ``` {r, eval=F}
 njmin <- njmin %>%
   mutate(fte = empft + nmgrs + 0.5*emppt)
