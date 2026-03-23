@@ -1327,6 +1327,7 @@ Skriptfilen som følger denne modulen gir et greit sammendrag for hvilke R-komma
 ```{r, eval = FALSE}
 library(readr)    # Lese inn csv-filer
 library(plm)      # Paneldata
+library(fixest)   # Faste effekter (effektiv, og håndterer så mange faste effekter vi vil)
 
 # Innlesning av data: OBS! Linken i videoen fungerer ikke så du må laste ned
 # panel_liten.csv fra modulen selv og så lese inn på vanlig måte:
@@ -1355,6 +1356,13 @@ summary(reg.re)
 
 # Hausmann-test
 phtest(reg.fe, reg.re)
+
+# Faste effekter (særlig ved mer enn én dimensjon), samt utskrift av sammendrag
+fe_model <- feols(
+  lnwg ~ lnhr | id + year, # her er id og year individ- og årsfaste effekter
+  data = df
+)
+etable(fe_model) # vis resultat
 
 ```
 
