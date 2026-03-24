@@ -1040,17 +1040,197 @@ d. $Y_t = u_1 + u_2 + \dots + u_t$
 
 ## Relevante R-kommandoer {#relevante-r-tidsrekker}
 
+Under følger en liste over hvilke oppgaver du skal klare i R fra denne modulen. Vår policy  er at R-kommandoene under er *tilstrekkelige* for å løse oppgavene i datalabber og eksamen i MET4. Det er med andre ord ikke nødvendig å lære seg teknikker utover det som er listet opp eksplisitt i listen under. Eventuelle nye teknikker som trengs for å løse en bestemt oppgave vil bli oppgitt og forklart dersom det er nødvendig. Det antas i tillegg at du kan den grunnleggende R-syntaksen som er dekket under [Introduksjon til R].
+
 ### Antakelser om datasettet {-}
 
-Vi skal nå ha rimelig grei kontroll på de ulike datastrukturene i R, og det er bra, fordi i denne siste modulen om tidsrekker så er vi nødt til å kunne administrere data i litt forskjellige formater. I hovedtrekke må vi kunne:
+Du kan gjøre de samme antakelsene om datasettet som i [den tilsvarende oversikten i forrige modul](#relevante-r-regresjon): Datasettene er inneholdt i Excel-filer (`.xls` eller `xslx`) eller `.csv`-filer, som kolonner av variabler, med variabelnavn i første rad. I tillegg må vi i tidsrekkemodulen håndtere følgende:
 
-- Lese inn data fra en Excel- eller `.csv`-fil til en data frame på samme måte som tidligere, der vi i tidsrekker typisk vil ha en kolonne for dato eller tidspunkt, og en eller flere kolonner med tidsrekker nedover.
-- Hente ut tidsrekkene i en data frame som en vektor.
-- Akseptere at en del tidsrekkedata (spesielt de som følger med ulike pakker i R) er lagret i andre typer mer spesialiserte datatyper.
+- Tidsrekkedata vil typisk ha en kolonne for dato eller tidspunkt, og en eller flere kolonner med tidsrekker nedover.
+- Vi må kunne hente ut en enkelt kolonne fra en data frame som en vektor, f.eks `pris <- equinor$Siste`.
+- Noen tidsrekkedata (spesielt de som følger med ulike pakker i R) er lagret i spesialiserte datatyper (for eksempel klassen `ts`). Vi trenger ikke lage slike objekter selv, men vi må kunne bruke dem som input til funksjoner som `stl()`, `Arima()` og `forecast()`.
 
-Equinordatafilen ([equinor.xlsx](datasett/equinor.xlsx)) følger den første formen og kan leses inn på vanlig måte ved hjelp av `read_excel()` i `readxl`-pakken. `ausbeer`-datasettet fra `fpp`-pakken, derimot, har en spesiell tidsrekke-klasse (prøv å skrive `class(ausbeer)` i konsollen), noe vi ser ved å bare skrive ut tidsrekken i konsollen. Da ser vi at datasettet er på en slags matrisestruktur, men kvartal kolonnevis og år radvis.
+### Plotte en tidsrekke {-}
 
-### Nødvendige R-funksjoner {-}
+Vi må kunne lage et enkelt plott av en tidsrekke. For en vektor med observasjoner bruker vi `plot()` med argumentet `type = "l"` for å tegne en linje:
 
-Nødvendige R-funksjoner for denne modulen sammenfaller eksakt med gjennomgangen under forelesningsvideoene, så det er ikke nødvendig å gjenta det her. 
+```{r, eval = FALSE}
+plot(pris, type = "l")
+```
 
+Alternativt kan vi bruke `autoplot()` fra `forecast`-pakken, som er spesialdesignet for tidsrekkeobjekter:
+
+```{r, eval = FALSE}
+library(forecast)
+autoplot(ausbeer)
+```
+
+### Glidende gjennomsnitt {-}
+
+For å regne ut et glidende gjennomsnitt bruker vi `rollmean()` fra `zoo`-pakken. Argumentet `k` angir vindusstørrelsen, og `fill = NA` sørger for at resultatet har like mange elementer som den opprinnelige tidsrekken:
+
+```{r, eval = FALSE}
+library(zoo)
+
+# Glidende gjennomsnitt med vindusstørrelse 5 (sentrert)
+pris_glatt <- rollmean(pris, k = 5, fill = NA)
+
+# Glidende gjennomsnitt som kun bruker tidligere observasjoner
+pris_glatt_bak <- rollmean(pris, k = 200, fill = NA, align = "right")
+```
+
+Vi kan tegne den glattede versjonen inn i et eksisterende plott ved hjelp av `lines()`:
+
+```{r, eval = FALSE}
+plot(pris, type = "l")
+lines(pris_glatt, col = "red")
+```
+
+### Eksponensiell glatting {-}
+
+For eksponensiell glatting bruker vi `HoltWinters()`. Glattefaktoren $w$ styres gjennom argumentet `alpha`. Vi setter `beta = FALSE` og `gamma = FALSE` for enkel eksponensiell glatting:
+
+```{r, eval = FALSE}
+pris_exp <- HoltWinters(pris, alpha = 0.5, beta = FALSE, gamma = FALSE)
+
+# Hente ut den glattede versjonen:
+pris_exp$fitted[, "xhat"]
+```
+
+### Dekomponering i trend, sesong og residualer {-}
+
+Funksjonen `stl()` dekomponerer en tidsrekke i tre komponenter: trend, sesong og tilfeldig variasjon. Den krever at input er et tidsrekkeobjekt av klassen `ts`. Vi bruker `autoplot()` for å plotte dekomponeringen:
+
+```{r, eval = FALSE}
+library(forecast)
+
+dekomponert <- stl(ausbeer, s.window = "periodic")
+
+# Plotte de tre komponentene:
+autoplot(dekomponert)
+
+# Hente ut komponentene (trend, sesong, residualer):
+dekomponert$time.series
+```
+
+### Differensiering {-}
+
+For å differensiere en tidsrekke (dvs. beregne $\Delta Y_t = Y_t - Y_{t-1}$) bruker vi funksjonen `diff()`:
+
+```{r, eval = FALSE}
+diff_pris <- diff(pris)
+```
+
+
+### Autokorrelasjonsplott (ACF) {-}
+
+For å lage et autokorrelasjonsplott bruker vi `acf()`:
+
+```{r, eval = FALSE}
+# Autokorrelasjonsplott av en tidsrekke
+acf(pris)
+
+# Autokorrelasjonsplott av residualene fra en estimert modell
+acf(modell$residuals)
+```
+
+Plottet kan pyntes med de vanlige argumentene, som `main`, `xlab` og `ylab`.
+
+### Estimere ARIMA-modeller {-}
+
+Vi bruker `Arima()` fra `forecast`-pakken til å estimere AR-, MA-, ARMA- og ARIMA-modeller. Modellen spesifiseres gjennom argumentet `order = c(p, d, q)`, der `p` er antall AR-ledd, `d` er antall ganger tidsrekken differensieres, og `q` er antall MA-ledd:
+
+```{r, eval = FALSE}
+library(forecast)
+
+# AR(1)-modell:
+Arima(pris, order = c(1, 0, 0))
+
+# MA(1)-modell:
+Arima(pris, order = c(0, 0, 1))
+
+# ARMA(1,1)-modell:
+Arima(pris, order = c(1, 0, 1))
+
+# ARIMA(1,1,1)-modell (én differensiering):
+Arima(pris, order = c(1, 1, 1))
+```
+
+### Automatisk modellvalg {-}
+
+Funksjonen `auto.arima()` prøver mange kombinasjoner av $p$, $d$ og $q$, og velger den modellen som har lavest AIC:
+
+```{r, eval = FALSE}
+beste_modell <- auto.arima(pris)
+summary(beste_modell)
+```
+
+### Predikering {-}
+
+For å predikere fremtidige verdier bruker vi `forecast()`. Argumentet `h` angir hvor mange tidssteg frem i tid vi ønsker å predikere, og `level` angir dekningsgraden til prediksjonsintervallet:
+
+```{r, eval = FALSE}
+# Estimer en modell og prediker 10 steg frem
+modell <- Arima(pris, order = c(1, 1, 1))
+prediksjon <- forecast(modell, h = 10, level = 0.95)
+
+# Plott tidsrekken med prediksjoner og prediksjonsintervall
+autoplot(prediksjon)
+
+# Begrens antall historiske observasjoner som vises i plottet
+autoplot(prediksjon, include = 100)
+```
+
+Prediksjon kan også gjøres direkte fra en dekomponering. Her kan vi i tillegg spesifisere at residualtidsrekken skal modelleres med en ARIMA-modell:
+
+```{r, eval = FALSE}
+dekomponert <- stl(tidsrekke, s.window = "periodic")
+prediksjon  <- forecast(dekomponert, method = "arima", h = 24, level = 95)
+autoplot(prediksjon)
+```
+
+### Dele opp i trenings- og testsett {-}
+
+For å vurdere en modells prediksjonsevne kan vi dele tidsrekken i et treningssett og et testsett. For en vanlig vektor gjør vi dette med `head()` og `tail()`:
+
+```{r, eval = FALSE}
+trening <- head(pris, length(pris) - 10)
+test    <- tail(pris, 10)
+```
+
+For tidsrekkeobjekter av klassen `ts` kan vi bruke `window()`:
+
+```{r, eval = FALSE}
+trening <- window(tidsrekke, start = c(1, 0), end = c(263, 23))
+test    <- window(tidsrekke, start = c(264, 0), end = c(264, 23))
+```
+
+### Out-of-sample vurdering {-}
+
+Etter at vi har estimert en modell på treningssettet og predikert testsettet, kan vi bruke `accuracy()` fra `forecast`-pakken til å sammenligne prediksjonene med de faktiske verdiene:
+
+```{r, eval = FALSE}
+modell     <- auto.arima(trening)
+prediksjon <- forecast(modell, h = length(test))
+accuracy(prediksjon, test)
+```
+
+Det er raden "Test set" i utskriften som viser out-of-sample egenskapene. Jo lavere verdiene er (spesielt RMSE), desto bedre er modellens prediksjonsevne.
+
+### Simulere tidsrekker {-}
+
+Funksjonen `arima.sim()` kan brukes til å simulere tidsrekker fra ulike modeller. Det er nyttig for å forstå egenskapene til ulike modeller:
+
+```{r, eval = FALSE}
+# Hvit støy
+hvit_støy <- rnorm(100)
+
+# AR(1) med phi = 0.95
+ar1 <- arima.sim(model = list(ar = 0.95), n = 100)
+
+# MA(1) med theta = 0.5
+ma1 <- arima.sim(model = list(ma = 0.5), n = 100)
+
+# ARMA(2,2) med phi_1 = 0.2, phi_2 = 0.1, theta_1 = 0.3, theta_2 = 0.4
+arma22 <- arima.sim(model = list(ar = c(0.2, 0.1), ma = c(0.3, 0.4)), n = 100)
+```

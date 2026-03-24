@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.4 Identifikasjon og kausalitet | MET4 - Empiriske Metoder - vår 2026</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.4 Identifikasjon og kausalitet | MET4 - Empiriske Metoder - vår 2026" />
   <meta property="og:type" content="book" />
@@ -318,10 +318,10 @@ I gjennomsnitt har en pasient innlagt på sykehus signifikant dårligere helseti
 Dersom <span class="math inline">\(x_i\)</span> er eksogen kan vi tolke <span class="math inline">\(\beta_1\)</span> som at ett års ekstra utdanning fører til at individet får omtrent <span class="math inline">\(\beta_1 \%\)</span> høyere lønn.</p>
 <p>La oss bruke dette datasettet<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
 <p><a href="datasett/Angrist_Krueger_eksempelfil.Rdata">Angrist_Krueger_eksempelfil</a></p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="identifikasjon-og-kausalitet.html#cb232-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb232-2"><a href="identifikasjon-og-kausalitet.html#cb232-2" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Angrist_Krueger_eksempelfil.Rdata&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="identifikasjon-og-kausalitet.html#cb233-1" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm</span>(logwage <span class="sc">~</span> educ, <span class="at">data =</span> AK)</span>
-<span id="cb233-2"><a href="identifikasjon-og-kausalitet.html#cb233-2" tabindex="-1"></a><span class="fu">summary</span>(ols)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="identifikasjon-og-kausalitet.html#cb252-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb252-2"><a href="identifikasjon-og-kausalitet.html#cb252-2" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Angrist_Krueger_eksempelfil.Rdata&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="identifikasjon-og-kausalitet.html#cb253-1" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm</span>(logwage <span class="sc">~</span> educ, <span class="at">data =</span> AK)</span>
+<span id="cb253-2"><a href="identifikasjon-og-kausalitet.html#cb253-2" tabindex="-1"></a><span class="fu">summary</span>(ols)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = logwage ~ educ, data = AK)
@@ -373,23 +373,23 @@ Fordi det er sammenheng mellom <span class="math inline">\(A\)</span> og <span c
 Her er <span class="math inline">\(\alpha_i\)</span> konstant for samme enhet <span class="math inline">\(i\)</span> (lik for samme enhet over tid), og <span class="math inline">\(\nu_t\)</span> konstant for samme tidsperiode <span class="math inline">\(t\)</span> (lik for alle enheter innad i én periode).
 I <a href="identifikasjon-og-kausalitet.html#eks2">eksempel 2</a> diskuterte vi at ulike evner kan være korrelert med hvor lang skolegang ulike personer tar, og med lønna de får etter endt skolegang. Hvis vi tenker at evner er noe man er født med, og et slags permanent personlighetstrekk, vil dette fanges opp av <span class="math inline">\(\alpha_i\)</span>, som inneholder alle egenskaper som er konstante ved en person. Tilsvarende kan tids-faste effekter (<span class="math inline">\(\nu_t\)</span>) være nyttige å inkludere, fordi de fanger opp makroøkonomiske sjokk eller generell lønnsvekst, slik at vi får en renere sammenlikning av ulike tidsperioder.</p>
 <p>I litteraturen kalles modeller med både individ- og tidsfaste effekter ofte <em>toveis faste effekter</em> (two-way fixed effects, TWFE), og vi kan estimere dette som faste effekter. Vi bruker datasettet <code>panel_liten.xls</code> fra modulen om <a href="paneldata.html#paneldata">paneldata</a> for å illustrere. Her er vi nysgjerrige på sammenhengen mellom lønn (<code>lnwg</code>) og antallet timer en arbeidstaker jobber (<code>lnhr</code>). Også her kan det være rimelig å inkludere individ-faste effekter <span class="math inline">\(\alpha_i\)</span>. Igjen kan disse fange opp noens evner, eller langsiktig arbeidskapasitet, som også vil påvirke lønnsnivå utover effekten på antall arbeidstimer. Tidsfaste effekter vil for eksempel fange opp endringer i lovverket som påvirker hvor mange timer det er lovlig å jobbe, eller hvor mye overtidsbetalt man skal få.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="identifikasjon-og-kausalitet.html#cb235-1" tabindex="-1"></a><span class="co"># Starter som i paneldatamodulen ... </span></span>
-<span id="cb235-2"><a href="identifikasjon-og-kausalitet.html#cb235-2" tabindex="-1"></a><span class="co"># Last inn data</span></span>
-<span id="cb235-3"><a href="identifikasjon-og-kausalitet.html#cb235-3" tabindex="-1"></a><span class="fu">library</span>(readr)    <span class="co"># Lese inn csv-filer</span></span>
-<span id="cb235-4"><a href="identifikasjon-og-kausalitet.html#cb235-4" tabindex="-1"></a><span class="fu">library</span>(fixest)   <span class="co"># Faste effekter (effektiv, og håndterer så mange faste effekter vi vil)</span></span>
-<span id="cb235-5"><a href="identifikasjon-og-kausalitet.html#cb235-5" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb235-6"><a href="identifikasjon-og-kausalitet.html#cb235-6" tabindex="-1"></a></span>
-<span id="cb235-7"><a href="identifikasjon-og-kausalitet.html#cb235-7" tabindex="-1"></a><span class="co"># Innlesning av data: </span></span>
-<span id="cb235-8"><a href="identifikasjon-og-kausalitet.html#cb235-8" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="identifikasjon-og-kausalitet.html#cb236-1" tabindex="-1"></a><span class="co"># Lage en enkel regresjonsmodell uten faste effekter for å sammenlikne </span></span>
-<span id="cb236-2"><a href="identifikasjon-og-kausalitet.html#cb236-2" tabindex="-1"></a>ols_model <span class="ot">&lt;-</span> <span class="fu">feols</span>(lnwg <span class="sc">~</span> lnhr, <span class="at">data =</span> df)</span>
-<span id="cb236-3"><a href="identifikasjon-og-kausalitet.html#cb236-3" tabindex="-1"></a></span>
-<span id="cb236-4"><a href="identifikasjon-og-kausalitet.html#cb236-4" tabindex="-1"></a><span class="co"># Sett opp modell:</span></span>
-<span id="cb236-5"><a href="identifikasjon-og-kausalitet.html#cb236-5" tabindex="-1"></a>fe_model <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb236-6"><a href="identifikasjon-og-kausalitet.html#cb236-6" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year, <span class="co"># her er id og year individ- og årsfaste effekter</span></span>
-<span id="cb236-7"><a href="identifikasjon-og-kausalitet.html#cb236-7" tabindex="-1"></a>  <span class="at">data =</span> df</span>
-<span id="cb236-8"><a href="identifikasjon-og-kausalitet.html#cb236-8" tabindex="-1"></a>)</span>
-<span id="cb236-9"><a href="identifikasjon-og-kausalitet.html#cb236-9" tabindex="-1"></a><span class="fu">etable</span>(ols_model, fe_model) <span class="co"># vis resultat</span></span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="identifikasjon-og-kausalitet.html#cb255-1" tabindex="-1"></a><span class="co"># Starter som i paneldatamodulen ... </span></span>
+<span id="cb255-2"><a href="identifikasjon-og-kausalitet.html#cb255-2" tabindex="-1"></a><span class="co"># Last inn data</span></span>
+<span id="cb255-3"><a href="identifikasjon-og-kausalitet.html#cb255-3" tabindex="-1"></a><span class="fu">library</span>(readr)    <span class="co"># Lese inn csv-filer</span></span>
+<span id="cb255-4"><a href="identifikasjon-og-kausalitet.html#cb255-4" tabindex="-1"></a><span class="fu">library</span>(fixest)   <span class="co"># Faste effekter (effektiv, og håndterer så mange faste effekter vi vil)</span></span>
+<span id="cb255-5"><a href="identifikasjon-og-kausalitet.html#cb255-5" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb255-6"><a href="identifikasjon-og-kausalitet.html#cb255-6" tabindex="-1"></a></span>
+<span id="cb255-7"><a href="identifikasjon-og-kausalitet.html#cb255-7" tabindex="-1"></a><span class="co"># Innlesning av data: </span></span>
+<span id="cb255-8"><a href="identifikasjon-og-kausalitet.html#cb255-8" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="identifikasjon-og-kausalitet.html#cb256-1" tabindex="-1"></a><span class="co"># Lage en enkel regresjonsmodell uten faste effekter for å sammenlikne </span></span>
+<span id="cb256-2"><a href="identifikasjon-og-kausalitet.html#cb256-2" tabindex="-1"></a>ols_model <span class="ot">&lt;-</span> <span class="fu">feols</span>(lnwg <span class="sc">~</span> lnhr, <span class="at">data =</span> df)</span>
+<span id="cb256-3"><a href="identifikasjon-og-kausalitet.html#cb256-3" tabindex="-1"></a></span>
+<span id="cb256-4"><a href="identifikasjon-og-kausalitet.html#cb256-4" tabindex="-1"></a><span class="co"># Sett opp modell:</span></span>
+<span id="cb256-5"><a href="identifikasjon-og-kausalitet.html#cb256-5" tabindex="-1"></a>fe_model <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb256-6"><a href="identifikasjon-og-kausalitet.html#cb256-6" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year, <span class="co"># her er id og year individ- og årsfaste effekter</span></span>
+<span id="cb256-7"><a href="identifikasjon-og-kausalitet.html#cb256-7" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb256-8"><a href="identifikasjon-og-kausalitet.html#cb256-8" tabindex="-1"></a>)</span>
+<span id="cb256-9"><a href="identifikasjon-og-kausalitet.html#cb256-9" tabindex="-1"></a><span class="fu">etable</span>(ols_model, fe_model) <span class="co"># vis resultat</span></span></code></pre></div>
 <pre><code>##                         ols_model        fe_model
 ## Dependent Var.:              lnwg            lnwg
 ##                                                  
@@ -408,16 +408,16 @@ I <a href="identifikasjon-og-kausalitet.html#eks2">eksempel 2</a> diskuterte vi 
 <p>Tabellen viser tydelig at det er stor forskjell på å kjøre modellen med og uten faste effekter. Modellen uten faste effekter indikerer en sterk, positiv sammenheng mellom arbeidstimer og lønn – 1 % økning i arbeidstid er assosiert med hele 2 % økning i lønn, og estimatet er signifikant på 0.1 %-nivå. Hvis vi i stedet inkluderer faste effekter, får vi et mye mindre estimat (0.18). Dette er heller ikke statistisk signifikant, selv om sammenhengen fortsatt er positiv.</p>
 <p><strong>Flere faste effekter</strong> Vi kan introdusere ytterligere faste effekter, dersom vi ønsker det. Vi kan se for oss at det skjer noe med arbeidstakere når de får barn: De jobber kanskje noe mindre, samtidig som det kan påvirke produktiviteten deres på arbeidsplassen.
 Vi fortsetter på eksempelet over, og legger til en dummy-variabel for hvorvidt arbeidstakeren har barn eller ikke. Vi estimerer dette med faste effekter for <code>has_kids</code>:</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="identifikasjon-og-kausalitet.html#cb238-1" tabindex="-1"></a><span class="co"># Lag en dummy-variabel for hvorvidt noen har barn: </span></span>
-<span id="cb238-2"><a href="identifikasjon-og-kausalitet.html#cb238-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb238-3"><a href="identifikasjon-og-kausalitet.html#cb238-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">has_kids =</span> <span class="fu">as.integer</span>(kids <span class="sc">&gt;</span> <span class="dv">0</span>))</span>
-<span id="cb238-4"><a href="identifikasjon-og-kausalitet.html#cb238-4" tabindex="-1"></a></span>
-<span id="cb238-5"><a href="identifikasjon-og-kausalitet.html#cb238-5" tabindex="-1"></a><span class="co"># Legg til flere faste effekter (her: hvorvidt de har barn)</span></span>
-<span id="cb238-6"><a href="identifikasjon-og-kausalitet.html#cb238-6" tabindex="-1"></a>fe_model2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb238-7"><a href="identifikasjon-og-kausalitet.html#cb238-7" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year <span class="sc">+</span> has_kids, </span>
-<span id="cb238-8"><a href="identifikasjon-og-kausalitet.html#cb238-8" tabindex="-1"></a>  <span class="at">data =</span> df</span>
-<span id="cb238-9"><a href="identifikasjon-og-kausalitet.html#cb238-9" tabindex="-1"></a>)</span>
-<span id="cb238-10"><a href="identifikasjon-og-kausalitet.html#cb238-10" tabindex="-1"></a><span class="fu">etable</span>(ols_model, fe_model, fe_model2) <span class="co"># vis resultat</span></span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="identifikasjon-og-kausalitet.html#cb258-1" tabindex="-1"></a><span class="co"># Lag en dummy-variabel for hvorvidt noen har barn: </span></span>
+<span id="cb258-2"><a href="identifikasjon-og-kausalitet.html#cb258-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb258-3"><a href="identifikasjon-og-kausalitet.html#cb258-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">has_kids =</span> <span class="fu">as.integer</span>(kids <span class="sc">&gt;</span> <span class="dv">0</span>))</span>
+<span id="cb258-4"><a href="identifikasjon-og-kausalitet.html#cb258-4" tabindex="-1"></a></span>
+<span id="cb258-5"><a href="identifikasjon-og-kausalitet.html#cb258-5" tabindex="-1"></a><span class="co"># Legg til flere faste effekter (her: hvorvidt de har barn)</span></span>
+<span id="cb258-6"><a href="identifikasjon-og-kausalitet.html#cb258-6" tabindex="-1"></a>fe_model2 <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb258-7"><a href="identifikasjon-og-kausalitet.html#cb258-7" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year <span class="sc">+</span> has_kids, </span>
+<span id="cb258-8"><a href="identifikasjon-og-kausalitet.html#cb258-8" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb258-9"><a href="identifikasjon-og-kausalitet.html#cb258-9" tabindex="-1"></a>)</span>
+<span id="cb258-10"><a href="identifikasjon-og-kausalitet.html#cb258-10" tabindex="-1"></a><span class="fu">etable</span>(ols_model, fe_model, fe_model2) <span class="co"># vis resultat</span></span></code></pre></div>
 <pre><code>##                         ols_model        fe_model        fe_model2
 ## Dependent Var.:              lnwg            lnwg             lnwg
 ##                                                                   
@@ -540,31 +540,31 @@ y_{it}=\beta_1(\text{Treat}_i\times\text{Post}_t)+\nu_t+\alpha_i+\varepsilon_{it
 <p>For enkelhets skyld skal vi bruke en vasket versjon av fila<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, som du kan laste ned her:
 <a href="datasett/Card_Krueger.Rdata">Card_Krueger</a></p>
 <p>Vi skal gjøre en forenklet øvelse for å illustrere hvordan DiD kan implementeres på dette datasettet.</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="identifikasjon-og-kausalitet.html#cb240-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb240-2"><a href="identifikasjon-og-kausalitet.html#cb240-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb240-3"><a href="identifikasjon-og-kausalitet.html#cb240-3" tabindex="-1"></a></span>
-<span id="cb240-4"><a href="identifikasjon-og-kausalitet.html#cb240-4" tabindex="-1"></a><span class="co"># last inn data</span></span>
-<span id="cb240-5"><a href="identifikasjon-og-kausalitet.html#cb240-5" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Card_Krueger.RData&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="identifikasjon-og-kausalitet.html#cb241-1" tabindex="-1"></a><span class="co"># sett opp dummy-variabler og generer variabel for årsverk (full-time equivalents), </span></span>
-<span id="cb241-2"><a href="identifikasjon-og-kausalitet.html#cb241-2" tabindex="-1"></a>njmin <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
-<span id="cb241-3"><a href="identifikasjon-og-kausalitet.html#cb241-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb241-4"><a href="identifikasjon-og-kausalitet.html#cb241-4" tabindex="-1"></a>    <span class="at">post =</span> <span class="fu">if_else</span>(observation <span class="sc">==</span> <span class="st">&quot;November 1992&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb241-5"><a href="identifikasjon-og-kausalitet.html#cb241-5" tabindex="-1"></a>    <span class="at">treat =</span> <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;New Jersey&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb241-6"><a href="identifikasjon-og-kausalitet.html#cb241-6" tabindex="-1"></a>    <span class="at">fte =</span> empft <span class="sc">+</span> nmgrs <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>emppt</span>
-<span id="cb241-7"><a href="identifikasjon-og-kausalitet.html#cb241-7" tabindex="-1"></a>  )</span>
-<span id="cb241-8"><a href="identifikasjon-og-kausalitet.html#cb241-8" tabindex="-1"></a></span>
-<span id="cb241-9"><a href="identifikasjon-og-kausalitet.html#cb241-9" tabindex="-1"></a><span class="co"># Se på gjennomsnitt over tid og differanser</span></span>
-<span id="cb241-10"><a href="identifikasjon-og-kausalitet.html#cb241-10" tabindex="-1"></a>means_table <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
-<span id="cb241-11"><a href="identifikasjon-og-kausalitet.html#cb241-11" tabindex="-1"></a>  <span class="fu">group_by</span>(state, observation) <span class="sc">%&gt;%</span></span>
-<span id="cb241-12"><a href="identifikasjon-og-kausalitet.html#cb241-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_fte =</span> <span class="fu">mean</span>(fte, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb241-13"><a href="identifikasjon-og-kausalitet.html#cb241-13" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> observation, <span class="at">values_from =</span> mean_fte) <span class="sc">%&gt;%</span></span>
-<span id="cb241-14"><a href="identifikasjon-og-kausalitet.html#cb241-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">endring =</span> <span class="st">`</span><span class="at">November 1992</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">February 1992</span><span class="st">`</span>)</span>
-<span id="cb241-15"><a href="identifikasjon-og-kausalitet.html#cb241-15" tabindex="-1"></a></span>
-<span id="cb241-16"><a href="identifikasjon-og-kausalitet.html#cb241-16" tabindex="-1"></a>did <span class="ot">&lt;-</span> means_table<span class="sc">$</span>endring[means_table<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;New Jersey&quot;</span>] <span class="sc">-</span> </span>
-<span id="cb241-17"><a href="identifikasjon-og-kausalitet.html#cb241-17" tabindex="-1"></a>       means_table<span class="sc">$</span>endring[means_table<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;Pennsylvania&quot;</span>]</span>
-<span id="cb241-18"><a href="identifikasjon-og-kausalitet.html#cb241-18" tabindex="-1"></a></span>
-<span id="cb241-19"><a href="identifikasjon-og-kausalitet.html#cb241-19" tabindex="-1"></a>means_table <span class="sc">%&gt;%</span></span>
-<span id="cb241-20"><a href="identifikasjon-og-kausalitet.html#cb241-20" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">tibble</span>(<span class="at">state =</span> <span class="st">&quot;Difference-in-differences&quot;</span>, <span class="at">endring =</span> did))</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="identifikasjon-og-kausalitet.html#cb260-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb260-2"><a href="identifikasjon-og-kausalitet.html#cb260-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb260-3"><a href="identifikasjon-og-kausalitet.html#cb260-3" tabindex="-1"></a></span>
+<span id="cb260-4"><a href="identifikasjon-og-kausalitet.html#cb260-4" tabindex="-1"></a><span class="co"># last inn data</span></span>
+<span id="cb260-5"><a href="identifikasjon-og-kausalitet.html#cb260-5" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;Card_Krueger.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="identifikasjon-og-kausalitet.html#cb261-1" tabindex="-1"></a><span class="co"># sett opp dummy-variabler og generer variabel for årsverk (full-time equivalents), </span></span>
+<span id="cb261-2"><a href="identifikasjon-og-kausalitet.html#cb261-2" tabindex="-1"></a>njmin <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
+<span id="cb261-3"><a href="identifikasjon-og-kausalitet.html#cb261-3" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb261-4"><a href="identifikasjon-og-kausalitet.html#cb261-4" tabindex="-1"></a>    <span class="at">post =</span> <span class="fu">if_else</span>(observation <span class="sc">==</span> <span class="st">&quot;November 1992&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb261-5"><a href="identifikasjon-og-kausalitet.html#cb261-5" tabindex="-1"></a>    <span class="at">treat =</span> <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;New Jersey&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb261-6"><a href="identifikasjon-og-kausalitet.html#cb261-6" tabindex="-1"></a>    <span class="at">fte =</span> empft <span class="sc">+</span> nmgrs <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>emppt</span>
+<span id="cb261-7"><a href="identifikasjon-og-kausalitet.html#cb261-7" tabindex="-1"></a>  )</span>
+<span id="cb261-8"><a href="identifikasjon-og-kausalitet.html#cb261-8" tabindex="-1"></a></span>
+<span id="cb261-9"><a href="identifikasjon-og-kausalitet.html#cb261-9" tabindex="-1"></a><span class="co"># Se på gjennomsnitt over tid og differanser</span></span>
+<span id="cb261-10"><a href="identifikasjon-og-kausalitet.html#cb261-10" tabindex="-1"></a>means_table <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
+<span id="cb261-11"><a href="identifikasjon-og-kausalitet.html#cb261-11" tabindex="-1"></a>  <span class="fu">group_by</span>(state, observation) <span class="sc">%&gt;%</span></span>
+<span id="cb261-12"><a href="identifikasjon-og-kausalitet.html#cb261-12" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_fte =</span> <span class="fu">mean</span>(fte, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb261-13"><a href="identifikasjon-og-kausalitet.html#cb261-13" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> observation, <span class="at">values_from =</span> mean_fte) <span class="sc">%&gt;%</span></span>
+<span id="cb261-14"><a href="identifikasjon-og-kausalitet.html#cb261-14" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">endring =</span> <span class="st">`</span><span class="at">November 1992</span><span class="st">`</span> <span class="sc">-</span> <span class="st">`</span><span class="at">February 1992</span><span class="st">`</span>)</span>
+<span id="cb261-15"><a href="identifikasjon-og-kausalitet.html#cb261-15" tabindex="-1"></a></span>
+<span id="cb261-16"><a href="identifikasjon-og-kausalitet.html#cb261-16" tabindex="-1"></a>did <span class="ot">&lt;-</span> means_table<span class="sc">$</span>endring[means_table<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;New Jersey&quot;</span>] <span class="sc">-</span> </span>
+<span id="cb261-17"><a href="identifikasjon-og-kausalitet.html#cb261-17" tabindex="-1"></a>       means_table<span class="sc">$</span>endring[means_table<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;Pennsylvania&quot;</span>]</span>
+<span id="cb261-18"><a href="identifikasjon-og-kausalitet.html#cb261-18" tabindex="-1"></a></span>
+<span id="cb261-19"><a href="identifikasjon-og-kausalitet.html#cb261-19" tabindex="-1"></a>means_table <span class="sc">%&gt;%</span></span>
+<span id="cb261-20"><a href="identifikasjon-og-kausalitet.html#cb261-20" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">tibble</span>(<span class="at">state =</span> <span class="st">&quot;Difference-in-differences&quot;</span>, <span class="at">endring =</span> did))</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 4
 ##   state                     `February 1992` `November 1992` endring
 ##   &lt;chr&gt;                               &lt;dbl&gt;           &lt;dbl&gt;   &lt;dbl&gt;
@@ -572,35 +572,35 @@ y_{it}=\beta_1(\text{Treat}_i\times\text{Post}_t)+\nu_t+\alpha_i+\varepsilon_{it
 ## 2 Pennsylvania                         23.3            21.2  -2.17 
 ## 3 Difference-in-differences            NA              NA     2.75</code></pre>
 <p>Her har vi startet med å lage en deskriptiv tabell, som inneholder gjennomsnittlig antall årsverk i fast food-restauranter i New Jersey og Pennsylvania før (februar 1992) og etter (november 1992) minstelønna økte. Vi ser at gjennomsnittlig antall årsverk øker noe i New Jersey, mens det faller i Pennsylvania. Altså er endringen i endring (difference-in-differences) 2,75: Antall årsverk økte med 2,75 i New Jersey relativt til i Pennsylvania. Nå skal vi vise det litt mer formelt, og samtidig teste statistisk signifikans.</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="identifikasjon-og-kausalitet.html#cb243-1" tabindex="-1"></a><span class="fu">library</span>(fixest)</span>
-<span id="cb243-2"><a href="identifikasjon-og-kausalitet.html#cb243-2" tabindex="-1"></a></span>
-<span id="cb243-3"><a href="identifikasjon-og-kausalitet.html#cb243-3" tabindex="-1"></a><span class="co"># Naiv OLS-modell: sammelikn NJ og PA etter endringen </span></span>
-<span id="cb243-4"><a href="identifikasjon-og-kausalitet.html#cb243-4" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb243-5"><a href="identifikasjon-og-kausalitet.html#cb243-5" tabindex="-1"></a>  fte <span class="sc">~</span> treat, </span>
-<span id="cb243-6"><a href="identifikasjon-og-kausalitet.html#cb243-6" tabindex="-1"></a>  <span class="at">data =</span> njmin <span class="sc">%&gt;%</span> <span class="fu">filter</span>(post <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb243-7"><a href="identifikasjon-og-kausalitet.html#cb243-7" tabindex="-1"></a>)</span>
-<span id="cb243-8"><a href="identifikasjon-og-kausalitet.html#cb243-8" tabindex="-1"></a></span>
-<span id="cb243-9"><a href="identifikasjon-og-kausalitet.html#cb243-9" tabindex="-1"></a><span class="co"># Klassisk DiD </span></span>
-<span id="cb243-10"><a href="identifikasjon-og-kausalitet.html#cb243-10" tabindex="-1"></a>did <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb243-11"><a href="identifikasjon-og-kausalitet.html#cb243-11" tabindex="-1"></a>  fte <span class="sc">~</span> treat <span class="sc">+</span> post <span class="sc">+</span> treat<span class="sc">:</span>post, </span>
-<span id="cb243-12"><a href="identifikasjon-og-kausalitet.html#cb243-12" tabindex="-1"></a>  <span class="at">data =</span> njmin</span>
-<span id="cb243-13"><a href="identifikasjon-og-kausalitet.html#cb243-13" tabindex="-1"></a>)</span>
-<span id="cb243-14"><a href="identifikasjon-og-kausalitet.html#cb243-14" tabindex="-1"></a></span>
-<span id="cb243-15"><a href="identifikasjon-og-kausalitet.html#cb243-15" tabindex="-1"></a><span class="co"># DiD implementert som faste effekter</span></span>
-<span id="cb243-16"><a href="identifikasjon-og-kausalitet.html#cb243-16" tabindex="-1"></a>did_fe <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb243-17"><a href="identifikasjon-og-kausalitet.html#cb243-17" tabindex="-1"></a>  fte <span class="sc">~</span> treat<span class="sc">:</span>post <span class="sc">|</span> treat <span class="sc">+</span> post , </span>
-<span id="cb243-18"><a href="identifikasjon-og-kausalitet.html#cb243-18" tabindex="-1"></a>  <span class="at">data =</span> njmin</span>
-<span id="cb243-19"><a href="identifikasjon-og-kausalitet.html#cb243-19" tabindex="-1"></a>)</span>
-<span id="cb243-20"><a href="identifikasjon-og-kausalitet.html#cb243-20" tabindex="-1"></a></span>
-<span id="cb243-21"><a href="identifikasjon-og-kausalitet.html#cb243-21" tabindex="-1"></a><span class="co"># Toveis faste effekter med ID og tid</span></span>
-<span id="cb243-22"><a href="identifikasjon-og-kausalitet.html#cb243-22" tabindex="-1"></a><span class="do">## Merk: Her er &quot;sheet&quot; ID-variabelen for hver fast food-restaurant, og &quot;observation&quot; variabelen som markerer tid </span></span>
-<span id="cb243-23"><a href="identifikasjon-og-kausalitet.html#cb243-23" tabindex="-1"></a>did_twfe <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb243-24"><a href="identifikasjon-og-kausalitet.html#cb243-24" tabindex="-1"></a>  fte <span class="sc">~</span> treat<span class="sc">:</span>post <span class="sc">|</span> sheet <span class="sc">+</span> observation , </span>
-<span id="cb243-25"><a href="identifikasjon-og-kausalitet.html#cb243-25" tabindex="-1"></a>  <span class="at">data =</span> njmin</span>
-<span id="cb243-26"><a href="identifikasjon-og-kausalitet.html#cb243-26" tabindex="-1"></a>)</span>
-<span id="cb243-27"><a href="identifikasjon-og-kausalitet.html#cb243-27" tabindex="-1"></a></span>
-<span id="cb243-28"><a href="identifikasjon-og-kausalitet.html#cb243-28" tabindex="-1"></a><span class="co"># vis resultat</span></span>
-<span id="cb243-29"><a href="identifikasjon-og-kausalitet.html#cb243-29" tabindex="-1"></a><span class="fu">etable</span>(ols, did, did_fe, did_twfe) </span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="identifikasjon-og-kausalitet.html#cb263-1" tabindex="-1"></a><span class="fu">library</span>(fixest)</span>
+<span id="cb263-2"><a href="identifikasjon-og-kausalitet.html#cb263-2" tabindex="-1"></a></span>
+<span id="cb263-3"><a href="identifikasjon-og-kausalitet.html#cb263-3" tabindex="-1"></a><span class="co"># Naiv OLS-modell: sammelikn NJ og PA etter endringen </span></span>
+<span id="cb263-4"><a href="identifikasjon-og-kausalitet.html#cb263-4" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb263-5"><a href="identifikasjon-og-kausalitet.html#cb263-5" tabindex="-1"></a>  fte <span class="sc">~</span> treat, </span>
+<span id="cb263-6"><a href="identifikasjon-og-kausalitet.html#cb263-6" tabindex="-1"></a>  <span class="at">data =</span> njmin <span class="sc">%&gt;%</span> <span class="fu">filter</span>(post <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb263-7"><a href="identifikasjon-og-kausalitet.html#cb263-7" tabindex="-1"></a>)</span>
+<span id="cb263-8"><a href="identifikasjon-og-kausalitet.html#cb263-8" tabindex="-1"></a></span>
+<span id="cb263-9"><a href="identifikasjon-og-kausalitet.html#cb263-9" tabindex="-1"></a><span class="co"># Klassisk DiD </span></span>
+<span id="cb263-10"><a href="identifikasjon-og-kausalitet.html#cb263-10" tabindex="-1"></a>did <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb263-11"><a href="identifikasjon-og-kausalitet.html#cb263-11" tabindex="-1"></a>  fte <span class="sc">~</span> treat <span class="sc">+</span> post <span class="sc">+</span> treat<span class="sc">:</span>post, </span>
+<span id="cb263-12"><a href="identifikasjon-og-kausalitet.html#cb263-12" tabindex="-1"></a>  <span class="at">data =</span> njmin</span>
+<span id="cb263-13"><a href="identifikasjon-og-kausalitet.html#cb263-13" tabindex="-1"></a>)</span>
+<span id="cb263-14"><a href="identifikasjon-og-kausalitet.html#cb263-14" tabindex="-1"></a></span>
+<span id="cb263-15"><a href="identifikasjon-og-kausalitet.html#cb263-15" tabindex="-1"></a><span class="co"># DiD implementert som faste effekter</span></span>
+<span id="cb263-16"><a href="identifikasjon-og-kausalitet.html#cb263-16" tabindex="-1"></a>did_fe <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb263-17"><a href="identifikasjon-og-kausalitet.html#cb263-17" tabindex="-1"></a>  fte <span class="sc">~</span> treat<span class="sc">:</span>post <span class="sc">|</span> treat <span class="sc">+</span> post , </span>
+<span id="cb263-18"><a href="identifikasjon-og-kausalitet.html#cb263-18" tabindex="-1"></a>  <span class="at">data =</span> njmin</span>
+<span id="cb263-19"><a href="identifikasjon-og-kausalitet.html#cb263-19" tabindex="-1"></a>)</span>
+<span id="cb263-20"><a href="identifikasjon-og-kausalitet.html#cb263-20" tabindex="-1"></a></span>
+<span id="cb263-21"><a href="identifikasjon-og-kausalitet.html#cb263-21" tabindex="-1"></a><span class="co"># Toveis faste effekter med ID og tid</span></span>
+<span id="cb263-22"><a href="identifikasjon-og-kausalitet.html#cb263-22" tabindex="-1"></a><span class="do">## Merk: Her er &quot;sheet&quot; ID-variabelen for hver fast food-restaurant, og &quot;observation&quot; variabelen som markerer tid </span></span>
+<span id="cb263-23"><a href="identifikasjon-og-kausalitet.html#cb263-23" tabindex="-1"></a>did_twfe <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb263-24"><a href="identifikasjon-og-kausalitet.html#cb263-24" tabindex="-1"></a>  fte <span class="sc">~</span> treat<span class="sc">:</span>post <span class="sc">|</span> sheet <span class="sc">+</span> observation , </span>
+<span id="cb263-25"><a href="identifikasjon-og-kausalitet.html#cb263-25" tabindex="-1"></a>  <span class="at">data =</span> njmin</span>
+<span id="cb263-26"><a href="identifikasjon-og-kausalitet.html#cb263-26" tabindex="-1"></a>)</span>
+<span id="cb263-27"><a href="identifikasjon-og-kausalitet.html#cb263-27" tabindex="-1"></a></span>
+<span id="cb263-28"><a href="identifikasjon-og-kausalitet.html#cb263-28" tabindex="-1"></a><span class="co"># vis resultat</span></span>
+<span id="cb263-29"><a href="identifikasjon-og-kausalitet.html#cb263-29" tabindex="-1"></a><span class="fu">etable</span>(ols, did, did_fe, did_twfe) </span></code></pre></div>
 <pre><code>##                              ols              did        did_fe       did_twfe
 ## Dependent Var.:              fte              fte           fte            fte
 ##                                                                               
@@ -675,43 +675,43 @@ y_{it}=\beta_1(\text{Treat}_i\times\text{Post}_t)+\nu_t+\alpha_i+\varepsilon_{it
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "toc_depth": 4
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
 });
 });
 </script>

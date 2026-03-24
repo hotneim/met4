@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5.10 Relevante R-kommandoer | MET4 - Empiriske Metoder - vår 2026</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5.10 Relevante R-kommandoer | MET4 - Empiriske Metoder - vår 2026" />
   <meta property="og:type" content="book" />
@@ -261,19 +261,145 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="relevante-r-tidsrekker" class="section level2 hasAnchor" number="5.10">
 <h2><span class="header-section-number">5.10</span> Relevante R-kommandoer<a href="relevante-r-tidsrekker.html#relevante-r-tidsrekker" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Under følger en liste over hvilke oppgaver du skal klare i R fra denne modulen. Vår policy er at R-kommandoene under er <em>tilstrekkelige</em> for å løse oppgavene i datalabber og eksamen i MET4. Det er med andre ord ikke nødvendig å lære seg teknikker utover det som er listet opp eksplisitt i listen under. Eventuelle nye teknikker som trengs for å løse en bestemt oppgave vil bli oppgitt og forklart dersom det er nødvendig. Det antas i tillegg at du kan den grunnleggende R-syntaksen som er dekket under <a href="introduksjon-til-r.html#introduksjon-til-r">Introduksjon til R</a>.</p>
 <div id="antakelser-om-datasettet" class="section level3 unnumbered hasAnchor">
 <h3>Antakelser om datasettet<a href="relevante-r-tidsrekker.html#antakelser-om-datasettet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Vi skal nå ha rimelig grei kontroll på de ulike datastrukturene i R, og det er bra, fordi i denne siste modulen om tidsrekker så er vi nødt til å kunne administrere data i litt forskjellige formater. I hovedtrekke må vi kunne:</p>
+<p>Du kan gjøre de samme antakelsene om datasettet som i <a href="relevante-r-regresjon.html#relevante-r-regresjon">den tilsvarende oversikten i forrige modul</a>: Datasettene er inneholdt i Excel-filer (<code>.xls</code> eller <code>xslx</code>) eller <code>.csv</code>-filer, som kolonner av variabler, med variabelnavn i første rad. I tillegg må vi i tidsrekkemodulen håndtere følgende:</p>
 <ul>
-<li>Lese inn data fra en Excel- eller <code>.csv</code>-fil til en data frame på samme måte som tidligere, der vi i tidsrekker typisk vil ha en kolonne for dato eller tidspunkt, og en eller flere kolonner med tidsrekker nedover.</li>
-<li>Hente ut tidsrekkene i en data frame som en vektor.</li>
-<li>Akseptere at en del tidsrekkedata (spesielt de som følger med ulike pakker i R) er lagret i andre typer mer spesialiserte datatyper.</li>
+<li>Tidsrekkedata vil typisk ha en kolonne for dato eller tidspunkt, og en eller flere kolonner med tidsrekker nedover.</li>
+<li>Vi må kunne hente ut en enkelt kolonne fra en data frame som en vektor, f.eks <code>pris &lt;- equinor$Siste</code>.</li>
+<li>Noen tidsrekkedata (spesielt de som følger med ulike pakker i R) er lagret i spesialiserte datatyper (for eksempel klassen <code>ts</code>). Vi trenger ikke lage slike objekter selv, men vi må kunne bruke dem som input til funksjoner som <code>stl()</code>, <code>Arima()</code> og <code>forecast()</code>.</li>
 </ul>
-<p>Equinordatafilen (<a href="datasett/equinor.xlsx">equinor.xlsx</a>) følger den første formen og kan leses inn på vanlig måte ved hjelp av <code>read_excel()</code> i <code>readxl</code>-pakken. <code>ausbeer</code>-datasettet fra <code>fpp</code>-pakken, derimot, har en spesiell tidsrekke-klasse (prøv å skrive <code>class(ausbeer)</code> i konsollen), noe vi ser ved å bare skrive ut tidsrekken i konsollen. Da ser vi at datasettet er på en slags matrisestruktur, men kvartal kolonnevis og år radvis.</p>
 </div>
-<div id="ndvendige-r-funksjoner" class="section level3 unnumbered hasAnchor">
-<h3>Nødvendige R-funksjoner<a href="relevante-r-tidsrekker.html#ndvendige-r-funksjoner" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Nødvendige R-funksjoner for denne modulen sammenfaller eksakt med gjennomgangen under forelesningsvideoene, så det er ikke nødvendig å gjenta det her.</p>
+<div id="plotte-en-tidsrekke" class="section level3 unnumbered hasAnchor">
+<h3>Plotte en tidsrekke<a href="relevante-r-tidsrekker.html#plotte-en-tidsrekke" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vi må kunne lage et enkelt plott av en tidsrekke. For en vektor med observasjoner bruker vi <code>plot()</code> med argumentet <code>type = "l"</code> for å tegne en linje:</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="relevante-r-tidsrekker.html#cb218-1" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<p>Alternativt kan vi bruke <code>autoplot()</code> fra <code>forecast</code>-pakken, som er spesialdesignet for tidsrekkeobjekter:</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="relevante-r-tidsrekker.html#cb219-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb219-2"><a href="relevante-r-tidsrekker.html#cb219-2" tabindex="-1"></a><span class="fu">autoplot</span>(ausbeer)</span></code></pre></div>
+</div>
+<div id="glidende-gjennomsnitt" class="section level3 unnumbered hasAnchor">
+<h3>Glidende gjennomsnitt<a href="relevante-r-tidsrekker.html#glidende-gjennomsnitt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For å regne ut et glidende gjennomsnitt bruker vi <code>rollmean()</code> fra <code>zoo</code>-pakken. Argumentet <code>k</code> angir vindusstørrelsen, og <code>fill = NA</code> sørger for at resultatet har like mange elementer som den opprinnelige tidsrekken:</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="relevante-r-tidsrekker.html#cb220-1" tabindex="-1"></a><span class="fu">library</span>(zoo)</span>
+<span id="cb220-2"><a href="relevante-r-tidsrekker.html#cb220-2" tabindex="-1"></a></span>
+<span id="cb220-3"><a href="relevante-r-tidsrekker.html#cb220-3" tabindex="-1"></a><span class="co"># Glidende gjennomsnitt med vindusstørrelse 5 (sentrert)</span></span>
+<span id="cb220-4"><a href="relevante-r-tidsrekker.html#cb220-4" tabindex="-1"></a>pris_glatt <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="cn">NA</span>)</span>
+<span id="cb220-5"><a href="relevante-r-tidsrekker.html#cb220-5" tabindex="-1"></a></span>
+<span id="cb220-6"><a href="relevante-r-tidsrekker.html#cb220-6" tabindex="-1"></a><span class="co"># Glidende gjennomsnitt som kun bruker tidligere observasjoner</span></span>
+<span id="cb220-7"><a href="relevante-r-tidsrekker.html#cb220-7" tabindex="-1"></a>pris_glatt_bak <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(pris, <span class="at">k =</span> <span class="dv">200</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">align =</span> <span class="st">&quot;right&quot;</span>)</span></code></pre></div>
+<p>Vi kan tegne den glattede versjonen inn i et eksisterende plott ved hjelp av <code>lines()</code>:</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="relevante-r-tidsrekker.html#cb221-1" tabindex="-1"></a><span class="fu">plot</span>(pris, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
+<span id="cb221-2"><a href="relevante-r-tidsrekker.html#cb221-2" tabindex="-1"></a><span class="fu">lines</span>(pris_glatt, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+</div>
+<div id="eksponensiell-glatting" class="section level3 unnumbered hasAnchor">
+<h3>Eksponensiell glatting<a href="relevante-r-tidsrekker.html#eksponensiell-glatting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For eksponensiell glatting bruker vi <code>HoltWinters()</code>. Glattefaktoren <span class="math inline">\(w\)</span> styres gjennom argumentet <code>alpha</code>. Vi setter <code>beta = FALSE</code> og <code>gamma = FALSE</code> for enkel eksponensiell glatting:</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="relevante-r-tidsrekker.html#cb222-1" tabindex="-1"></a>pris_exp <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(pris, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">beta =</span> <span class="cn">FALSE</span>, <span class="at">gamma =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb222-2"><a href="relevante-r-tidsrekker.html#cb222-2" tabindex="-1"></a></span>
+<span id="cb222-3"><a href="relevante-r-tidsrekker.html#cb222-3" tabindex="-1"></a><span class="co"># Hente ut den glattede versjonen:</span></span>
+<span id="cb222-4"><a href="relevante-r-tidsrekker.html#cb222-4" tabindex="-1"></a>pris_exp<span class="sc">$</span>fitted[, <span class="st">&quot;xhat&quot;</span>]</span></code></pre></div>
+</div>
+<div id="dekomponering-i-trend-sesong-og-residualer" class="section level3 unnumbered hasAnchor">
+<h3>Dekomponering i trend, sesong og residualer<a href="relevante-r-tidsrekker.html#dekomponering-i-trend-sesong-og-residualer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Funksjonen <code>stl()</code> dekomponerer en tidsrekke i tre komponenter: trend, sesong og tilfeldig variasjon. Den krever at input er et tidsrekkeobjekt av klassen <code>ts</code>. Vi bruker <code>autoplot()</code> for å plotte dekomponeringen:</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="relevante-r-tidsrekker.html#cb223-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb223-2"><a href="relevante-r-tidsrekker.html#cb223-2" tabindex="-1"></a></span>
+<span id="cb223-3"><a href="relevante-r-tidsrekker.html#cb223-3" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(ausbeer, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span>
+<span id="cb223-4"><a href="relevante-r-tidsrekker.html#cb223-4" tabindex="-1"></a></span>
+<span id="cb223-5"><a href="relevante-r-tidsrekker.html#cb223-5" tabindex="-1"></a><span class="co"># Plotte de tre komponentene:</span></span>
+<span id="cb223-6"><a href="relevante-r-tidsrekker.html#cb223-6" tabindex="-1"></a><span class="fu">autoplot</span>(dekomponert)</span>
+<span id="cb223-7"><a href="relevante-r-tidsrekker.html#cb223-7" tabindex="-1"></a></span>
+<span id="cb223-8"><a href="relevante-r-tidsrekker.html#cb223-8" tabindex="-1"></a><span class="co"># Hente ut komponentene (trend, sesong, residualer):</span></span>
+<span id="cb223-9"><a href="relevante-r-tidsrekker.html#cb223-9" tabindex="-1"></a>dekomponert<span class="sc">$</span>time.series</span></code></pre></div>
+</div>
+<div id="differensiering" class="section level3 unnumbered hasAnchor">
+<h3>Differensiering<a href="relevante-r-tidsrekker.html#differensiering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For å differensiere en tidsrekke (dvs. beregne <span class="math inline">\(\Delta Y_t = Y_t - Y_{t-1}\)</span>) bruker vi funksjonen <code>diff()</code>:</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="relevante-r-tidsrekker.html#cb224-1" tabindex="-1"></a>diff_pris <span class="ot">&lt;-</span> <span class="fu">diff</span>(pris)</span></code></pre></div>
+</div>
+<div id="autokorrelasjonsplott-acf" class="section level3 unnumbered hasAnchor">
+<h3>Autokorrelasjonsplott (ACF)<a href="relevante-r-tidsrekker.html#autokorrelasjonsplott-acf" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For å lage et autokorrelasjonsplott bruker vi <code>acf()</code>:</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="relevante-r-tidsrekker.html#cb225-1" tabindex="-1"></a><span class="co"># Autokorrelasjonsplott av en tidsrekke</span></span>
+<span id="cb225-2"><a href="relevante-r-tidsrekker.html#cb225-2" tabindex="-1"></a><span class="fu">acf</span>(pris)</span>
+<span id="cb225-3"><a href="relevante-r-tidsrekker.html#cb225-3" tabindex="-1"></a></span>
+<span id="cb225-4"><a href="relevante-r-tidsrekker.html#cb225-4" tabindex="-1"></a><span class="co"># Autokorrelasjonsplott av residualene fra en estimert modell</span></span>
+<span id="cb225-5"><a href="relevante-r-tidsrekker.html#cb225-5" tabindex="-1"></a><span class="fu">acf</span>(modell<span class="sc">$</span>residuals)</span></code></pre></div>
+<p>Plottet kan pyntes med de vanlige argumentene, som <code>main</code>, <code>xlab</code> og <code>ylab</code>.</p>
+</div>
+<div id="estimere-arima-modeller" class="section level3 unnumbered hasAnchor">
+<h3>Estimere ARIMA-modeller<a href="relevante-r-tidsrekker.html#estimere-arima-modeller" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Vi bruker <code>Arima()</code> fra <code>forecast</code>-pakken til å estimere AR-, MA-, ARMA- og ARIMA-modeller. Modellen spesifiseres gjennom argumentet <code>order = c(p, d, q)</code>, der <code>p</code> er antall AR-ledd, <code>d</code> er antall ganger tidsrekken differensieres, og <code>q</code> er antall MA-ledd:</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="relevante-r-tidsrekker.html#cb226-1" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb226-2"><a href="relevante-r-tidsrekker.html#cb226-2" tabindex="-1"></a></span>
+<span id="cb226-3"><a href="relevante-r-tidsrekker.html#cb226-3" tabindex="-1"></a><span class="co"># AR(1)-modell:</span></span>
+<span id="cb226-4"><a href="relevante-r-tidsrekker.html#cb226-4" tabindex="-1"></a><span class="fu">Arima</span>(pris, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb226-5"><a href="relevante-r-tidsrekker.html#cb226-5" tabindex="-1"></a></span>
+<span id="cb226-6"><a href="relevante-r-tidsrekker.html#cb226-6" tabindex="-1"></a><span class="co"># MA(1)-modell:</span></span>
+<span id="cb226-7"><a href="relevante-r-tidsrekker.html#cb226-7" tabindex="-1"></a><span class="fu">Arima</span>(pris, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb226-8"><a href="relevante-r-tidsrekker.html#cb226-8" tabindex="-1"></a></span>
+<span id="cb226-9"><a href="relevante-r-tidsrekker.html#cb226-9" tabindex="-1"></a><span class="co"># ARMA(1,1)-modell:</span></span>
+<span id="cb226-10"><a href="relevante-r-tidsrekker.html#cb226-10" tabindex="-1"></a><span class="fu">Arima</span>(pris, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb226-11"><a href="relevante-r-tidsrekker.html#cb226-11" tabindex="-1"></a></span>
+<span id="cb226-12"><a href="relevante-r-tidsrekker.html#cb226-12" tabindex="-1"></a><span class="co"># ARIMA(1,1,1)-modell (én differensiering):</span></span>
+<span id="cb226-13"><a href="relevante-r-tidsrekker.html#cb226-13" tabindex="-1"></a><span class="fu">Arima</span>(pris, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div>
+</div>
+<div id="automatisk-modellvalg" class="section level3 unnumbered hasAnchor">
+<h3>Automatisk modellvalg<a href="relevante-r-tidsrekker.html#automatisk-modellvalg" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Funksjonen <code>auto.arima()</code> prøver mange kombinasjoner av <span class="math inline">\(p\)</span>, <span class="math inline">\(d\)</span> og <span class="math inline">\(q\)</span>, og velger den modellen som har lavest AIC:</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="relevante-r-tidsrekker.html#cb227-1" tabindex="-1"></a>beste_modell <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(pris)</span>
+<span id="cb227-2"><a href="relevante-r-tidsrekker.html#cb227-2" tabindex="-1"></a><span class="fu">summary</span>(beste_modell)</span></code></pre></div>
+</div>
+<div id="predikering" class="section level3 unnumbered hasAnchor">
+<h3>Predikering<a href="relevante-r-tidsrekker.html#predikering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For å predikere fremtidige verdier bruker vi <code>forecast()</code>. Argumentet <code>h</code> angir hvor mange tidssteg frem i tid vi ønsker å predikere, og <code>level</code> angir dekningsgraden til prediksjonsintervallet:</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="relevante-r-tidsrekker.html#cb228-1" tabindex="-1"></a><span class="co"># Estimer en modell og prediker 10 steg frem</span></span>
+<span id="cb228-2"><a href="relevante-r-tidsrekker.html#cb228-2" tabindex="-1"></a>modell <span class="ot">&lt;-</span> <span class="fu">Arima</span>(pris, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb228-3"><a href="relevante-r-tidsrekker.html#cb228-3" tabindex="-1"></a>prediksjon <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modell, <span class="at">h =</span> <span class="dv">10</span>, <span class="at">level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb228-4"><a href="relevante-r-tidsrekker.html#cb228-4" tabindex="-1"></a></span>
+<span id="cb228-5"><a href="relevante-r-tidsrekker.html#cb228-5" tabindex="-1"></a><span class="co"># Plott tidsrekken med prediksjoner og prediksjonsintervall</span></span>
+<span id="cb228-6"><a href="relevante-r-tidsrekker.html#cb228-6" tabindex="-1"></a><span class="fu">autoplot</span>(prediksjon)</span>
+<span id="cb228-7"><a href="relevante-r-tidsrekker.html#cb228-7" tabindex="-1"></a></span>
+<span id="cb228-8"><a href="relevante-r-tidsrekker.html#cb228-8" tabindex="-1"></a><span class="co"># Begrens antall historiske observasjoner som vises i plottet</span></span>
+<span id="cb228-9"><a href="relevante-r-tidsrekker.html#cb228-9" tabindex="-1"></a><span class="fu">autoplot</span>(prediksjon, <span class="at">include =</span> <span class="dv">100</span>)</span></code></pre></div>
+<p>Prediksjon kan også gjøres direkte fra en dekomponering. Her kan vi i tillegg spesifisere at residualtidsrekken skal modelleres med en ARIMA-modell:</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="relevante-r-tidsrekker.html#cb229-1" tabindex="-1"></a>dekomponert <span class="ot">&lt;-</span> <span class="fu">stl</span>(tidsrekke, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span>
+<span id="cb229-2"><a href="relevante-r-tidsrekker.html#cb229-2" tabindex="-1"></a>prediksjon  <span class="ot">&lt;-</span> <span class="fu">forecast</span>(dekomponert, <span class="at">method =</span> <span class="st">&quot;arima&quot;</span>, <span class="at">h =</span> <span class="dv">24</span>, <span class="at">level =</span> <span class="dv">95</span>)</span>
+<span id="cb229-3"><a href="relevante-r-tidsrekker.html#cb229-3" tabindex="-1"></a><span class="fu">autoplot</span>(prediksjon)</span></code></pre></div>
+</div>
+<div id="dele-opp-i-trenings--og-testsett" class="section level3 unnumbered hasAnchor">
+<h3>Dele opp i trenings- og testsett<a href="relevante-r-tidsrekker.html#dele-opp-i-trenings--og-testsett" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For å vurdere en modells prediksjonsevne kan vi dele tidsrekken i et treningssett og et testsett. For en vanlig vektor gjør vi dette med <code>head()</code> og <code>tail()</code>:</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="relevante-r-tidsrekker.html#cb230-1" tabindex="-1"></a>trening <span class="ot">&lt;-</span> <span class="fu">head</span>(pris, <span class="fu">length</span>(pris) <span class="sc">-</span> <span class="dv">10</span>)</span>
+<span id="cb230-2"><a href="relevante-r-tidsrekker.html#cb230-2" tabindex="-1"></a>test    <span class="ot">&lt;-</span> <span class="fu">tail</span>(pris, <span class="dv">10</span>)</span></code></pre></div>
+<p>For tidsrekkeobjekter av klassen <code>ts</code> kan vi bruke <code>window()</code>:</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="relevante-r-tidsrekker.html#cb231-1" tabindex="-1"></a>trening <span class="ot">&lt;-</span> <span class="fu">window</span>(tidsrekke, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="at">end =</span> <span class="fu">c</span>(<span class="dv">263</span>, <span class="dv">23</span>))</span>
+<span id="cb231-2"><a href="relevante-r-tidsrekker.html#cb231-2" tabindex="-1"></a>test    <span class="ot">&lt;-</span> <span class="fu">window</span>(tidsrekke, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">264</span>, <span class="dv">0</span>), <span class="at">end =</span> <span class="fu">c</span>(<span class="dv">264</span>, <span class="dv">23</span>))</span></code></pre></div>
+</div>
+<div id="out-of-sample-vurdering" class="section level3 unnumbered hasAnchor">
+<h3>Out-of-sample vurdering<a href="relevante-r-tidsrekker.html#out-of-sample-vurdering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Etter at vi har estimert en modell på treningssettet og predikert testsettet, kan vi bruke <code>accuracy()</code> fra <code>forecast</code>-pakken til å sammenligne prediksjonene med de faktiske verdiene:</p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="relevante-r-tidsrekker.html#cb232-1" tabindex="-1"></a>modell     <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(trening)</span>
+<span id="cb232-2"><a href="relevante-r-tidsrekker.html#cb232-2" tabindex="-1"></a>prediksjon <span class="ot">&lt;-</span> <span class="fu">forecast</span>(modell, <span class="at">h =</span> <span class="fu">length</span>(test))</span>
+<span id="cb232-3"><a href="relevante-r-tidsrekker.html#cb232-3" tabindex="-1"></a><span class="fu">accuracy</span>(prediksjon, test)</span></code></pre></div>
+<p>Det er raden “Test set” i utskriften som viser out-of-sample egenskapene. Jo lavere verdiene er (spesielt RMSE), desto bedre er modellens prediksjonsevne.</p>
+</div>
+<div id="simulere-tidsrekker" class="section level3 unnumbered hasAnchor">
+<h3>Simulere tidsrekker<a href="relevante-r-tidsrekker.html#simulere-tidsrekker" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Funksjonen <code>arima.sim()</code> kan brukes til å simulere tidsrekker fra ulike modeller. Det er nyttig for å forstå egenskapene til ulike modeller:</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="relevante-r-tidsrekker.html#cb233-1" tabindex="-1"></a><span class="co"># Hvit støy</span></span>
+<span id="cb233-2"><a href="relevante-r-tidsrekker.html#cb233-2" tabindex="-1"></a>hvit_støy <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb233-3"><a href="relevante-r-tidsrekker.html#cb233-3" tabindex="-1"></a></span>
+<span id="cb233-4"><a href="relevante-r-tidsrekker.html#cb233-4" tabindex="-1"></a><span class="co"># AR(1) med phi = 0.95</span></span>
+<span id="cb233-5"><a href="relevante-r-tidsrekker.html#cb233-5" tabindex="-1"></a>ar1 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fl">0.95</span>), <span class="at">n =</span> <span class="dv">100</span>)</span>
+<span id="cb233-6"><a href="relevante-r-tidsrekker.html#cb233-6" tabindex="-1"></a></span>
+<span id="cb233-7"><a href="relevante-r-tidsrekker.html#cb233-7" tabindex="-1"></a><span class="co"># MA(1) med theta = 0.5</span></span>
+<span id="cb233-8"><a href="relevante-r-tidsrekker.html#cb233-8" tabindex="-1"></a>ma1 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ma =</span> <span class="fl">0.5</span>), <span class="at">n =</span> <span class="dv">100</span>)</span>
+<span id="cb233-9"><a href="relevante-r-tidsrekker.html#cb233-9" tabindex="-1"></a></span>
+<span id="cb233-10"><a href="relevante-r-tidsrekker.html#cb233-10" tabindex="-1"></a><span class="co"># ARMA(2,2) med phi_1 = 0.2, phi_2 = 0.1, theta_1 = 0.3, theta_2 = 0.4</span></span>
+<span id="cb233-11"><a href="relevante-r-tidsrekker.html#cb233-11" tabindex="-1"></a>arma22 <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">ar =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>), <span class="at">ma =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.4</span>)), <span class="at">n =</span> <span class="dv">100</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -298,43 +424,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "toc_depth": 4
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
 });
 });
 </script>

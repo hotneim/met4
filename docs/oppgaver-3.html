@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.5 Oppgaver | MET4 - Empiriske Metoder - vår 2026</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.5 Oppgaver | MET4 - Empiriske Metoder - vår 2026" />
   <meta property="og:type" content="book" />
@@ -312,39 +312,39 @@ Den predikerte <em>sannsynligheten</em> er gitt ved følgende sammenheng:</p>
 <table>
 <caption><span id="tab:knn">Tabell 6.1: </span>Datasett</caption>
 <thead>
-<tr class="header">
+<tr>
 <th align="right">y</th>
 <th align="right">x1</th>
 <th align="right">x2</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">4</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="right">0</td>
 <td align="right">4</td>
 <td align="right">5</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="right">1</td>
 <td align="right">5</td>
 <td align="right">3</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">6</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="right">1</td>
 <td align="right">4</td>
 <td align="right">3</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="right">1</td>
 <td align="right">6</td>
 <td align="right">2</td>
@@ -367,7 +367,7 @@ d((3,3), (3,4)) = \sqrt{(3 - 3)^2 + (3 - 4)^2} = 1
 <table>
 <caption><span id="tab:knnfasit">Tabell 6.2: </span>Utregnede avstander</caption>
 <thead>
-<tr class="header">
+<tr>
 <th align="right">y</th>
 <th align="right">x1</th>
 <th align="right">x2</th>
@@ -375,37 +375,37 @@ d((3,3), (3,4)) = \sqrt{(3 - 3)^2 + (3 - 4)^2} = 1
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">4</td>
 <td align="right">1.000</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="right">0</td>
 <td align="right">4</td>
 <td align="right">5</td>
 <td align="right">2.236</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="right">1</td>
 <td align="right">5</td>
 <td align="right">3</td>
 <td align="right">2.000</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">6</td>
 <td align="right">3.000</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="right">1</td>
 <td align="right">4</td>
 <td align="right">3</td>
 <td align="right">1.000</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="right">1</td>
 <td align="right">6</td>
 <td align="right">2</td>
@@ -468,15 +468,15 @@ Løsning
 <ol style="list-style-type: lower-alpha">
 <li>Setter opp modellen (bruker pakken <code>fixest</code> og <code>feols</code> fordi vi skal bruke disse i senere deloppgaver):</li>
 </ol>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="oppgaver-3.html#cb245-1" tabindex="-1"></a><span class="fu">library</span>(readr)    <span class="co"># Lese inn csv-filer</span></span>
-<span id="cb245-2"><a href="oppgaver-3.html#cb245-2" tabindex="-1"></a><span class="fu">library</span>(fixest)   <span class="co"># Faste effekter (effektiv, og håndterer så mange faste effekter vi vil)</span></span>
-<span id="cb245-3"><a href="oppgaver-3.html#cb245-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="oppgaver-3.html#cb246-1" tabindex="-1"></a><span class="co"># kjører først modellen uten faste effekter</span></span>
-<span id="cb246-2"><a href="oppgaver-3.html#cb246-2" tabindex="-1"></a>re <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb246-3"><a href="oppgaver-3.html#cb246-3" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr , </span>
-<span id="cb246-4"><a href="oppgaver-3.html#cb246-4" tabindex="-1"></a>  <span class="at">data =</span> df</span>
-<span id="cb246-5"><a href="oppgaver-3.html#cb246-5" tabindex="-1"></a>)</span>
-<span id="cb246-6"><a href="oppgaver-3.html#cb246-6" tabindex="-1"></a><span class="fu">etable</span>(re)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="oppgaver-3.html#cb265-1" tabindex="-1"></a><span class="fu">library</span>(readr)    <span class="co"># Lese inn csv-filer</span></span>
+<span id="cb265-2"><a href="oppgaver-3.html#cb265-2" tabindex="-1"></a><span class="fu">library</span>(fixest)   <span class="co"># Faste effekter (effektiv, og håndterer så mange faste effekter vi vil)</span></span>
+<span id="cb265-3"><a href="oppgaver-3.html#cb265-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;panel_liten.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="oppgaver-3.html#cb266-1" tabindex="-1"></a><span class="co"># kjører først modellen uten faste effekter</span></span>
+<span id="cb266-2"><a href="oppgaver-3.html#cb266-2" tabindex="-1"></a>re <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb266-3"><a href="oppgaver-3.html#cb266-3" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr , </span>
+<span id="cb266-4"><a href="oppgaver-3.html#cb266-4" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb266-5"><a href="oppgaver-3.html#cb266-5" tabindex="-1"></a>)</span>
+<span id="cb266-6"><a href="oppgaver-3.html#cb266-6" tabindex="-1"></a><span class="fu">etable</span>(re)</span></code></pre></div>
 <pre><code>##                                re
 ## Dependent Var.:              lnwg
 ##                                  
@@ -494,14 +494,14 @@ Løsning
 <li><p>Vi bør være forsiktige med å tolke dette som at flere arbeidstimer fører til høyere lønn. Fra modulen om OLS-betingelser husker vi at eksogenitet krever at det ikke er noen systematisk sammenheng mellom forklaringsvariabelen og restleddet. Her kan vi tenke oss at personer som jobber mange timer er systematisk annerledes enn de som jobber få timer – de kan ha høyere utdanning, mer erfaring, eller jobbe i andre typer stillinger. Slike egenskaper påvirker trolig også lønna, og ligger i restleddet. Da er eksogenitetsbetingelsen sannsynligvis brutt, og koeffisienten plukker opp mer enn bare sammenhengen mellom arbeidstimer og lønn.</p></li>
 <li><p>Kjører først modellen med faste effekter (fortsetter her videre fra deloppgave a)):</p></li>
 </ol>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="oppgaver-3.html#cb248-1" tabindex="-1"></a><span class="co"># legger først til individ-FE</span></span>
-<span id="cb248-2"><a href="oppgaver-3.html#cb248-2" tabindex="-1"></a>fe_id <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb248-3"><a href="oppgaver-3.html#cb248-3" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id , <span class="co"># her er id individfaste effekter</span></span>
-<span id="cb248-4"><a href="oppgaver-3.html#cb248-4" tabindex="-1"></a>  <span class="at">data =</span> df</span>
-<span id="cb248-5"><a href="oppgaver-3.html#cb248-5" tabindex="-1"></a>)</span>
-<span id="cb248-6"><a href="oppgaver-3.html#cb248-6" tabindex="-1"></a></span>
-<span id="cb248-7"><a href="oppgaver-3.html#cb248-7" tabindex="-1"></a><span class="co"># skriv ut tabell</span></span>
-<span id="cb248-8"><a href="oppgaver-3.html#cb248-8" tabindex="-1"></a><span class="fu">etable</span>(re, fe_id)</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="oppgaver-3.html#cb268-1" tabindex="-1"></a><span class="co"># legger først til individ-FE</span></span>
+<span id="cb268-2"><a href="oppgaver-3.html#cb268-2" tabindex="-1"></a>fe_id <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb268-3"><a href="oppgaver-3.html#cb268-3" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id , <span class="co"># her er id individfaste effekter</span></span>
+<span id="cb268-4"><a href="oppgaver-3.html#cb268-4" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb268-5"><a href="oppgaver-3.html#cb268-5" tabindex="-1"></a>)</span>
+<span id="cb268-6"><a href="oppgaver-3.html#cb268-6" tabindex="-1"></a></span>
+<span id="cb268-7"><a href="oppgaver-3.html#cb268-7" tabindex="-1"></a><span class="co"># skriv ut tabell</span></span>
+<span id="cb268-8"><a href="oppgaver-3.html#cb268-8" tabindex="-1"></a><span class="fu">etable</span>(re, fe_id)</span></code></pre></div>
 <pre><code>##                                re           fe_id
 ## Dependent Var.:              lnwg            lnwg
 ##                                                  
@@ -520,12 +520,12 @@ Løsning
 <ol start="4" style="list-style-type: lower-alpha">
 <li>Fortsetter videre på koden, og legger til tidsfaste effekter:</li>
 </ol>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="oppgaver-3.html#cb250-1" tabindex="-1"></a><span class="co"># legger også til års-FE</span></span>
-<span id="cb250-2"><a href="oppgaver-3.html#cb250-2" tabindex="-1"></a>fe_id_t <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
-<span id="cb250-3"><a href="oppgaver-3.html#cb250-3" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year, <span class="co"># her er id og year individ- og årsfaste effekter</span></span>
-<span id="cb250-4"><a href="oppgaver-3.html#cb250-4" tabindex="-1"></a>  <span class="at">data =</span> df</span>
-<span id="cb250-5"><a href="oppgaver-3.html#cb250-5" tabindex="-1"></a>)</span>
-<span id="cb250-6"><a href="oppgaver-3.html#cb250-6" tabindex="-1"></a><span class="fu">etable</span>(re, fe_id, fe_id_t)</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="oppgaver-3.html#cb270-1" tabindex="-1"></a><span class="co"># legger også til års-FE</span></span>
+<span id="cb270-2"><a href="oppgaver-3.html#cb270-2" tabindex="-1"></a>fe_id_t <span class="ot">&lt;-</span> <span class="fu">feols</span>(</span>
+<span id="cb270-3"><a href="oppgaver-3.html#cb270-3" tabindex="-1"></a>  lnwg <span class="sc">~</span> lnhr <span class="sc">|</span> id <span class="sc">+</span> year, <span class="co"># her er id og year individ- og årsfaste effekter</span></span>
+<span id="cb270-4"><a href="oppgaver-3.html#cb270-4" tabindex="-1"></a>  <span class="at">data =</span> df</span>
+<span id="cb270-5"><a href="oppgaver-3.html#cb270-5" tabindex="-1"></a>)</span>
+<span id="cb270-6"><a href="oppgaver-3.html#cb270-6" tabindex="-1"></a><span class="fu">etable</span>(re, fe_id, fe_id_t)</span></code></pre></div>
 <pre><code>##                                re           fe_id         fe_id_t
 ## Dependent Var.:              lnwg            lnwg            lnwg
 ##                                                                  
@@ -683,43 +683,43 @@ der <span class="math inline">\(\beta_3\)</span> er DiD-estimatet som måler den
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "toc_depth": 4
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
 });
 });
 </script>

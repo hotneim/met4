@@ -937,43 +937,66 @@ Di kan gjøre de samme antakelsene om datasettet som i [den tilsvarende oversikt
 ### $t$-tester {-}
 
 Du må kunne gjøre de ulike $t$-testene ved hjelp av `t.test()`-funksjonen. vi bruker eksempeldatasettet [testdata.xls](datasett/testdata.xls) som illustrasjon, som inneholder de to kolonnene `X1` og `X2`. I bunn og grunn handler det om å hente ut de relevante kolonnene i datasettet som vektorer, og så å sette argumentene i `t.test()`-funksjonen riktig.
-
 ```{r, echo = FALSE}
 testdata <- readxl::read_excel("datasett/testdata.xls")
 ```
-
 ```{r, eval = FALSE}
-# Tosidig, ett-utvalgs $t$-test for om forventningen til `X1` er lik 100:
+# Tosidig, ett-utvalgs t-test for om forventningen til X1 er lik 100:
 t.test(testdata$X1, mu = 100)
 
-# Samme testen, men ensidig med alternativhypotese om at $\mu > 100$
+# Samme testen, men ensidig med alternativhypotese om at mu > 100
 t.test(testdata$X1, mu = 100, alternative = "greater")
 
-# For å gjøre ensidig test den andre veien bytter du ut `"greater"` med `"less"`.
+# For å gjøre ensidig test den andre veien bytter du ut "greater" med "less".
 
-# Vanlig to-utvalgs $t$-test for om forventningen til `X1` og `X2` er like:
+# Vanlig to-utvalgs t-test for om forventningen til X1 og X2 er like:
 t.test(testdata$X1, testdata$X2)
 
 # Vanlig to-utvalgs t-test der vi antar at variansen i de to populasjonene er like:
 t.test(testdata$X1, testdata$X2, var.equal = TRUE)
 
-# Parret to-utvalgs $t$-test, som bare gir mening dersom de to vektorene med
+# Parret to-utvalgs t-test, som bare gir mening dersom de to vektorene med
 # observasjoner er like lange, og dersom observasjonene er matchet opp slik at
-# første element i den første vektoren skal matches mot første elemenet i den
-# andre vektoret etc.:
+# første element i den første vektoren skal matches mot første element i den
+# andre vektoren etc.:
 t.test(testdata$X1, testdata$X2, paired = TRUE)
 ```
 
 Vi kan bytte ut alternativhypotesen til ensidige tester over alt ved å sette `alternative = ` til ønskelig verdi.
 
-Videre kan vi tenke oss tilfeller der observasjonsvektorene ikke er like lange, og for eksempel kommer i en excel-fil slik som [denne](datasett/ulik-lengde.xlsx) der den ene kolonnen inneholder flere tall enn den andre. Det gjør ingenting. Vi kan lese inn datasettet på vanlig måte, og legger merke til at de "tomme" plassene i tabellen blir fylt med `NA`. Vi kan kjøre $t$-testene på vanlig måte.
+#### Ensidige to-utvalgs tester: Hvilken vei tester vi? {-}
 
+Når du gjør en ensidig to-utvalgs $t$-test er det viktig å forstå hva `alternative = "greater"` og `alternative = "less"` faktisk betyr. Funksjonen `t.test()` ser alltid på differansen mellom *første* og *andre* argument. Altså:
+
+- `t.test(x, y, alternative = "greater")` tester $H_1: \mu_x - \mu_y > 0$, dvs. at gjennomsnittet i `x` er *høyere* enn i `y`.
+- `t.test(x, y, alternative = "less")` tester $H_1: \mu_x - \mu_y < 0$, dvs. at gjennomsnittet i `x` er *lavere* enn i `y`.
+
+Det betyr at du kan snu på resultatet ved å bytte rekkefølgen på argumentene. Følgende to tester er ekvivalente:
+```{r, eval = FALSE}
+t.test(testdata$X1, testdata$X2, alternative = "greater")
+t.test(testdata$X2, testdata$X1, alternative = "less")
+```
+
+**Tips:** Sjekk alltid R-utskriften! Den skriver eksplisitt ut hva alternativhypotesen er, for eksempel: `"alternative hypothesis: true difference in means is greater than 0"`. Da ser du at testen samsvarer med det du ønsker å teste.
+
+#### Bruke formel-syntaks med `~` {-}
+
+I mange praktiske situasjoner har vi et datasett der en kategorisk variabel angir gruppemedlemskap. Da kan vi bruke formelsyntaksen `variabel ~ gruppe` i stedet for å filtrere ut to separate vektorer. La oss si at vi har et datasett `df` med en numerisk variabel `verdi` og en kategorisk variabel `gruppe` med nivåene `"A"` og `"B"`:
+```{r, eval = FALSE}
+t.test(verdi ~ gruppe, data = df)
+```
+
+**Viktig:** Når du bruker `~`-syntaksen, bestemmes rekkefølgen av *nivårekkefølgen* til den kategoriske variabelen (alfabetisk som standard). Det betyr at R ser på differansen mellom det *første* nivået og det *andre* nivået. Dersom nivåene er `"No"` og `"Yes"`, vil R teste differansen `No - Yes`, fordi `"No"` kommer før `"Yes"` alfabetisk. Utskriften fra `t.test()` vil alltid vise dette eksplisitt, for eksempel: `"alternative hypothesis: true difference in means between group No and group Yes is less than 0"`. For ensidige tester må du derfor tilpasse `alternative`-argumentet til denne rekkefølgen: Dersom du ønsker å teste om gruppe `"Yes"` har *høyere* gjennomsnitt enn gruppe `"No"`, tester du om differansen `No - Yes` er *negativ*, altså bruker du `alternative = "less"`. Tilsvarende, hvis du tror at `"No"` har høyest gjennomsnitt, bruker du `alternative = "greater"`.
+
+
+#### Ulike utvalgsstørrelser {-}
+
+Videre kan vi tenke oss tilfeller der observasjonsvektorene ikke er like lange, og for eksempel kommer i en excel-fil slik som [denne](datasett/ulik-lengde.xlsx) der den ene kolonnen inneholder flere tall enn den andre. Det gjør ingenting. Vi kan lese inn datasettet på vanlig måte, og legger merke til at de "tomme" plassene i tabellen blir fylt med `NA`. Vi kan kjøre $t$-testene på vanlig måte.
 ```{r, eval = FALSE}
 testdata2 <- readxl::read_excel("ulik-lengde.xlsx")
 testdata2
 t.test(testdata2$X1, testdata2$X2)
 ```
-
 ```{r, echo = FALSE}
 testdata2 <- readxl::read_excel("datasett/ulik-lengde.xlsx")
 testdata2
@@ -1153,32 +1176,42 @@ Alternativt er det bare å pugge tallene $1.64$ og $1.96$.
 
 #### Kritiske verdier i $\chi^2$-fordelingen {-}
 
+$\chi^2$-fordelingen brukes i to ulike sammenhenger i MET4: varianstester og kjikvadrattester (goodness-of-fit og uavhengighet). For **kjikvadrattestene** er det kun den øvre halen som er relevant, fordi en stor testobservator betyr at de observerte frekvensene er langt fra de forventede. For **varianstester** kan vi derimot trenge nedre hale, øvre hale eller begge, avhengig av alternativhypotesen.
 
+**Varianstester:**
+
+Dersom du tester $H_0: \sigma^2 = \sigma_0^2$ mot $H_1: \sigma^2 < \sigma_0^2$ (variansen er *mindre* enn påstått), forkaster du i nedre hale:
 ```{r, eval = TRUE}
-
 # Kritisk verdi, 5% nivå, ensidig test, nedre hale, 30 frihetsgrader
-
 qchisq(0.05, df = 30)
-
 ```
 og du forkaster dersom testobservatoren er mindre enn dette tallet.
 
+Dersom du tester mot $H_1: \sigma^2 > \sigma_0^2$ (variansen er *større* enn påstått), forkaster du i øvre hale:
 ```{r, eval = TRUE}
-
 # Kritisk verdi, 5% nivå, ensidig test, øvre hale, 30 frihetsgrader
-
 qchisq(1 - 0.05, df = 30)
 ```
 og du forkaster dersom testobservatoren er større enn dette tallet.
 
+For en tosidig test ($H_1: \sigma^2 \neq \sigma_0^2$) trenger du begge grensene:
 ```{r, eval = TRUE}
 # Kritisk verdi, 5% nivå, tosidig test, 30 frihetsgrader
-
 L <- qchisq(0.05/2, df = 30)
 U <- qchisq(1 - 0.05/2, df = 30)
 c(L, U)
 ```
 og du forkaster nullhypotesen dersom testobservatoren havner utenfor dette intervallet.
+
+**Kjikvadrattester (goodness-of-fit og uavhengighet):**
+
+Her forkaster vi alltid i øvre hale, og trenger kun:
+```{r, eval = TRUE}
+# Kritisk verdi, 5% nivå, k = 3 kategorier (k - 1 frihetsgrader)
+qchisq(1 - 0.05, df = 2)
+```
+og du forkaster dersom testobservatoren er større enn dette tallet.
+
 
 #### Kritiske verdier i F-fordelingen {-}
 F-fordelingen trenger vi når vi skal teste om to varianser er like. Skal du gjøre denne testen manuelt er det lurt å sette den største variansen i telleren av testobservatoren

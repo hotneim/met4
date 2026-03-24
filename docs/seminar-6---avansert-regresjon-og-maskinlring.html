@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.6 Seminar 6 - Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - vår 2026</title>
   <meta name="description" content="Dette er hjemmesiden til kurset MET4 - Empiriske Metoder, som gis på bachelorstudiet ved Norges Handelshøyskole." />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.6 Seminar 6 - Avansert regresjon og maskinlæring | MET4 - Empiriske Metoder - vår 2026" />
   <meta property="og:type" content="book" />
@@ -289,8 +289,8 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <ol style="list-style-type: lower-alpha">
 <li>Last inn <a href="datasett/Card_Krueger.Rdata">Card-Krueger-datasettet</a>. Lag først variabelen for heltidsekvivalente ansatte:</li>
 </ol>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb363-1" tabindex="-1"></a>njmin <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
-<span id="cb363-2"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb363-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fte =</span> empft <span class="sc">+</span> nmgrs <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>emppt)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb384-1" tabindex="-1"></a>njmin <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
+<span id="cb384-2"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb384-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fte =</span> empft <span class="sc">+</span> nmgrs <span class="sc">+</span> <span class="fl">0.5</span><span class="sc">*</span>emppt)</span></code></pre></div>
 <p>Lag deretter en figur som viser gjennomsnittlig <code>fte</code> over tid (<code>observation</code>), separat for New Jersey og Pennsylvania (<code>state</code>). Beskriv hva du ser.</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li>Hva ville vi konkludert dersom vi bare sammenlignet sysselsettingsnivået i New Jersey og Pennsylvania i november 1992? Hvorfor er denne sammenligningen problematisk?</li>
@@ -299,11 +299,11 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <ol style="list-style-type: lower-alpha">
 <li>Lag først dummy-variabler for behandling:</li>
 </ol>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb364-1" tabindex="-1"></a>njmin <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
-<span id="cb364-2"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb364-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb364-3"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb364-3" tabindex="-1"></a>    <span class="at">treat =</span> <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;New Jersey&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb364-4"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb364-4" tabindex="-1"></a>    <span class="at">post =</span> <span class="fu">if_else</span>(observation <span class="sc">==</span> <span class="st">&quot;November 1992&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb364-5"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb364-5" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb385-1" tabindex="-1"></a>njmin <span class="ot">&lt;-</span> njmin <span class="sc">%&gt;%</span></span>
+<span id="cb385-2"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb385-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb385-3"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb385-3" tabindex="-1"></a>    <span class="at">treat =</span> <span class="fu">if_else</span>(state <span class="sc">==</span> <span class="st">&quot;New Jersey&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb385-4"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb385-4" tabindex="-1"></a>    <span class="at">post =</span> <span class="fu">if_else</span>(observation <span class="sc">==</span> <span class="st">&quot;November 1992&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb385-5"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb385-5" tabindex="-1"></a>  )</span></code></pre></div>
 <p>Estimer deretter følgende tre modeller (der <code>fte</code> er antall årsverk):
 - Pooled OLS: <span class="math inline">\(\text{fte}_{it} = \beta_0 + \beta_1 \text{treat}_{i} + \beta_2 \text{post}_{t} + \beta_3 (\text{treat}_i \times \text{post}_t) + \varepsilon_{it}\)</span>
 - Delstatsfaste effekter: <span class="math inline">\(\text{fte}_{it} = \alpha_i + \beta_1 \text{post}_{t} + \beta_2 (\text{treat}_i \times \text{post}_t) + \varepsilon_{it}\)</span>
@@ -349,8 +349,8 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <ol style="list-style-type: lower-alpha">
 <li>Last inn datasettet fra <code>AER</code>-pakken med <code>data("Fatalities")</code>. Lag først variabelen for dødsfall per 10 000 innbyggere:</li>
 </ol>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb365-1" tabindex="-1"></a>Fatalities <span class="ot">&lt;-</span> Fatalities <span class="sc">%&gt;%</span></span>
-<span id="cb365-2"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb365-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">frate =</span> fatal <span class="sc">/</span> pop <span class="sc">*</span> <span class="dv">10000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-1" tabindex="-1"></a>Fatalities <span class="ot">&lt;-</span> Fatalities <span class="sc">%&gt;%</span></span>
+<span id="cb386-2"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">frate =</span> fatal <span class="sc">/</span> pop <span class="sc">*</span> <span class="dv">10000</span>)</span></code></pre></div>
 <p>Lag deretter et spredningsplott med <code>beertax</code> på x-aksen og <code>frate</code> på y-aksen. Hva ser du?</p>
 <ol start="2" style="list-style-type: lower-alpha">
 <li><p>Estimer en enkel lineær modell: <span class="math inline">\(\text{frate}_{it} = \beta_0 + \beta_1 \text{beertax}_{it} + \varepsilon_{it}\)</span>. Tolk koeffisienten. Er resultatet overraskende?</p></li>
@@ -420,43 +420,43 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-  "sharing": {
-    "github": false,
-    "facebook": true,
-    "twitter": true,
-    "linkedin": false,
-    "weibo": false,
-    "instapaper": false,
-    "vk": false,
-    "whatsapp": false,
-    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-  },
-  "fontsettings": {
-    "theme": "white",
-    "family": "sans",
-    "size": 2
-  },
-  "edit": {
-    "link": null,
-    "text": null
-  },
-  "history": {
-    "link": null,
-    "text": null
-  },
-  "view": {
-    "link": null,
-    "text": null
-  },
-  "download": null,
-  "search": {
-    "engine": "fuse",
-    "options": null
-  },
-  "toc": {
-    "collapse": "section",
-    "toc_depth": 4
-  }
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"toc_depth": 4
+}
 });
 });
 </script>
