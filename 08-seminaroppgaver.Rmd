@@ -224,7 +224,7 @@ Oppgaveformuleringene finner du i seksjon \@ref(skoleeksamen).
 
 ## Seminar 6 - Avansert regresjon og maskinlæring 
 
-### Logistisik regresjon, maskinlæring, paneldata
+### Logistisk regresjon, maskinlæring, paneldata
 
 1. Nevn minst to grunner til at en ønsker å utføre en vanlig regresjonsanalyse. Reflekter så over hva hovedgrunnen er med å lage henholdsvis en KNN-modell og en regresjonsmodell.
 
@@ -247,7 +247,7 @@ hvor en ville fått bedre prediksjoner av $Y$ med KNN-metoden enn med logistisk-
 4. Prøv deg på eksamen H21 oppgave 3. Oppgaveformuleringene finner du i seksjon \@ref(skoleeksamen).
 
 
-### Paneldata, kausal identifikasjon
+### Paneldata og kausal identifikasjon
 
 **Oppgave 1**
 
@@ -255,7 +255,7 @@ Card og Krueger (1994) undersøkte effekten av en økning i minstelønn på syss
 
 Forskerne samlet inn data fra restauranter i begge stater i februar 1992 (før endringen) og november 1992 (etter endringen).
 
-a) Last inn [Card-Krueger-datasettet](datasett/Card_Krueger.Rdata). Lag først variabelen for heltidsekvivalente ansatte:
+a) Last inn [Card-Krueger-datasettet](datasett/Card_Krueger.Rdata). Lag først variabelen for årsverk (FTE), der `empft` er antall fulltidsansatte, `nmgrs` er antall ledere, og `emppt` er antall deltidsansatte (som teller halvparten):
 ``` {r, eval=F}
 njmin <- njmin %>%
   mutate(fte = empft + nmgrs + 0.5*emppt)
@@ -266,7 +266,13 @@ b) Hva ville vi konkludert dersom vi bare sammenlignet sysselsettingsnivået i N
 
 **Oppgave 2**
 
-a) Lag først dummy-variabler for behandling:
+I Card-Krueger-studien sammenligner forskerne *endringen* i sysselsetting i New Jersey med *endringen* i Pennsylvania. Vi skal nå bygge oss opp til dette steg for steg.
+
+a) Hvorfor er det ikke nok å bare se på endringen i New Jersey fra februar til november?
+
+b) Forklar med egne ord hvorfor vi bruker Pennsylvania som sammenligningsgruppe. Hva antar vi om hvordan sysselsettingen i New Jersey ville utviklet seg dersom minstelønnen *ikke* hadde økt?
+
+c) Lag dummy-variabler for behandling:
 ``` {r, eval=F}
 njmin <- njmin %>%
   mutate(
@@ -275,26 +281,20 @@ njmin <- njmin %>%
   )
 ```
 
-Estimer deretter følgende tre modeller (der `fte` er antall årsverk):
-   - Pooled OLS: $\text{fte}_{it} = \beta_0 + \beta_1 \text{treat}_{i} + \beta_2 \text{post}_{t} + \beta_3 (\text{treat}_i \times \text{post}_t) + \varepsilon_{it}$
-   - Delstatsfaste effekter: $\text{fte}_{it} = \alpha_i + \beta_1 \text{post}_{t} + \beta_2 (\text{treat}_i \times \text{post}_t) + \varepsilon_{it}$
-   - Toveis faste effekter: $\text{fte}_{it} = \alpha_i + \nu_t + \beta_1 (\text{treat}_i \times \text{post}_t) + \varepsilon_{it}$
+Estimer deretter tre modeller som bygger opp til difference-in-differences-estimatet:
+
+   1. **Naiv sammenligning:** Bruk kun data fra november 1992 (`post == 1`), og estimer $\text{fte}_i = \beta_0 + \beta_1 \text{treat}_i + \varepsilon_i$
+   2. **Før-etter:** Bruk kun data fra New Jersey (`treat == 1`), og estimer $\text{fte}_t = \beta_0 + \beta_1 \text{post}_t + \varepsilon_t$
+   3. **Difference-in-differences:** Bruk hele datasettet: $\text{fte}_{it} = \beta_0 + \beta_1 \text{treat}_i + \beta_2 \text{post}_t + \beta_3 (\text{treat}_i \times \text{post}_t) + \varepsilon_{it}$
+
+Presenter resultatene i en tabell (f.eks. med `etable()`). Tolk koeffisientene i hver modell — hva måler de, og hva er svakheten med de to første?
+
+d) Gi et konkret eksempel på noe som kunne ha skjedd som ville gjort DiD-sammenligningen villedende.
+
+e) Forklar med egne ord hvorfor det ikke alltid er lurt å "hive inn flest mulig faste effekter". (Hint: Hva skjer med `treat`-variabelen i den naive modellen fra 2c dersom du også inkluderer delstatsfaste effekter?)
 
 
-Presenter resultatene i en tabell (f.eks. med `etable()`).
-
-b) Forklar hvorfor koeffisienten for interaksjonsleddet $\text{treat}_i \times \text{post}_t$ (behandlingseffekten) er forskjellig i de tre modellene. Hvilken variasjon i dataene bruker hver modell?
-
-c) Hvilken av modellene gir oss det mest troverdige estimatet av effekten av minstelønnsøkningen? Begrunn svaret ditt.
-
-**Oppgave 3**
-
-a) Prøv å estimere en modell med delstatsfaste effekter, men der du *ikke* inkluderer tidsfaste effekter. Hva skjer med koeffisienten for interaksjonsleddet $\text{treat}_i \times \text{post}_t$? 
-
-b) Tenk over hva delstatsfaste effekter gjør: De absorberer all variasjon som er konstant innad i hver delstat over tid. Hvorfor er dette et problem når behandlingen (minstelønnsøkningen) også er konstant innad i delstaten?
-
-c) Forklar med egne ord hvorfor det ikke alltid er lurt å "hive inn flest mulig faste effekter".
-
+*(Merk: tidligere oppgave 3 og 5 er bakt inn i oppgave 2.)*
 
 **Oppgave 4**
 
@@ -304,16 +304,6 @@ a) Forklar hvorfor denne konklusjonen ikke nødvendigvis er riktig. Gi minst ett
 
 b) Hva ville det ideelle eksperimentet for å måle effekten av markedsføring sett ut? Beskriv kort hvem som får hva, og hva du ville sammenlignet.
 
-
-**Oppgave 5**
-
-I Card-Krueger-studien sammenligner forskerne *endringen* i sysselsetting i New Jersey med *endringen* i Pennsylvania.
-
-a) Hvorfor er det ikke nok å bare se på endringen i New Jersey fra februar til november?
-
-b) Forklar med egne ord hvorfor vi bruker Pennsylvania som sammenligningsgruppe. Hva antar vi om hvordan sysselsettingen i New Jersey ville utviklet seg dersom minstelønn *ikke* hadde økt?
-
-c) Når ville denne fremgangsmåten gi oss et feil svar? Gi et konkret eksempel på noe som kunne skjedd som ville gjort sammenligningen villedende.
 
 **Oppgave 6**
 
@@ -331,6 +321,8 @@ c) Forskeren hevder at de har funnet at fjernarbeid *øker* produktiviteten. Er 
 
 #### Tilleggsoppgaver 
 Dette er ekstraoppgaver for den som vil jobbe litt mer med dette materialet. Oppgavene er omtrent på eksamensnivå. De første oppgavene bruker Fatalities-datasettet fra `AER`-pakken.
+
+<!-- NB: Oppgave 7-8 er svært lik dataøving 4 (Fatalities/ølskatt). Bør oppdateres for å unngå overlapp. -->
 
 **Oppgave 7**
 
@@ -397,5 +389,3 @@ a) Hvorfor er det nyttig å sjekke dette? Hva forteller det oss om gruppene ders
 b) Anta at forskerne finner at behandlingsgruppen hadde sterkere vekst enn kontrollgruppen allerede *før* behandlingen. Hva indikerer dette om troverdigheten til studien?
 
 c) Gir en lik utvikling før behandling oss noen *garanti* for at gruppene ville fortsatt å utvikle seg likt uten behandling? Hvorfor/hvorfor ikke?
-
-

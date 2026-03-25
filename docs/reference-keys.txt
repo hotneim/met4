@@ -174,8 +174,8 @@ seminar-3---regresjon-i
 seminar-4---regresjon-ii
 seminar-5---tidsrekker
 seminar-6---avansert-regresjon-og-maskinlring
-logistisik-regresjon-maskinlring-paneldata
-paneldata-kausal-identifikasjon
+logistisk-regresjon-maskinlring-paneldata
+paneldata-og-kausal-identifikasjon
 tilleggsoppgaver
 eksamensoppgaver
 skoleeksamen
