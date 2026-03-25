@@ -1012,7 +1012,7 @@ Prøv deg på Oppgave 2 i den individuelle hjemmeeksamen H2020 som du finner i k
 
 Vi fortsetter å bruke datasettet `panel_liten`, som du kan laste ned lenger opp på denne siden.
 
-a) Kjør en regresjon med lønn (`lnwg`) som utfallsvariabel og arbeidstimer (`lnhr`) som forklaringsvariabel, der du antar tilfeldige effekter. Tolk koeffisienten på arbeidstimer. 
+a) Kjør en regresjon med lønn (`lnwg`) som utfallsvariabel og arbeidstimer (`lnhr`) som forklaringsvariabel, der du antar ingen faste effekter. Tolk koeffisienten på arbeidstimer. 
 
 b) Er det noen grunn til å være bekymret for om koeffisienten fra modellen over fanger opp noe annet eller mer enn *effekten* av å jobbe flere arbeidstimer på lønn? 
 
