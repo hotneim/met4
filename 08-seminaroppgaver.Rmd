@@ -246,7 +246,6 @@ hvor en ville fått bedre prediksjoner av $Y$ med KNN-metoden enn med logistisk-
 
 4. Prøv deg på eksamen H21 oppgave 3. Oppgaveformuleringene finner du i seksjon \@ref(skoleeksamen).
 
-
 ### Paneldata og kausal identifikasjon
 
 **Oppgave 1**
@@ -319,7 +318,7 @@ c) Forskeren hevder at de har funnet at fjernarbeid *øker* produktiviteten. Er 
 
 ---
 
-#### Tilleggsoppgaver 
+#### Tilleggsoppgaver
 Dette er ekstraoppgaver for den som vil jobbe litt mer med dette materialet. Oppgavene er omtrent på eksamensnivå. De første oppgavene bruker Fatalities-datasettet fra `AER`-pakken.
 
 <!-- NB: Oppgave 7-8 er svært lik dataøving 4 (Fatalities/ølskatt). Bør oppdateres for å unngå overlapp. -->
@@ -339,6 +338,40 @@ b) Estimer en enkel lineær modell: $\text{frate}_{it} = \beta_0 + \beta_1 \text
 
 c) Hva kan forklare sammenhengen du ser i (b)? Diskuter mulige utelatte variabler.
 
+<details><summary>Løsning</summary>
+
+**a)**
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(dplyr)
+library(ggplot2)
+library(fixest)
+library(AER)
+```
+
+```{r, eval=T}
+data("Fatalities")
+Fatalities <- Fatalities %>% mutate(frate = fatal / pop * 10000)
+
+ggplot(Fatalities, aes(x = beertax, y = frate)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Ølskatt (dollar per kasse)", y = "Trafikkdødsfall per 10 000 innbyggere") +
+  theme_minimal()
+```
+Spredningsplottet viser en **positiv** sammenheng mellom ølskatt og trafikkdødsfall — overraskende og kontraintuitivt.
+
+**b)**
+```{r, eval=T}
+pooled <- feols(frate ~ beertax, data = Fatalities)
+summary(pooled)
+```
+Koeffisienten er positiv og signifikant: høyere ølskatt er assosiert med *flere* trafikkdødsfall. Dette er svært overraskende — vi ville forventet det motsatte.
+
+**c)** Mulige utelatte variabler: Delstater med høy ølskatt er gjerne urbane stater med høy trafikktetthet, noe som i seg selv gir flere ulykker. Fattigere delstater har lavere skatter og færre biler per innbygger. Disse tidskonstante forskjellene mellom delstater forvrenger den enkle sammenhengen.
+
+</details>
+
 **Oppgave 8**
 
 a) Estimer følgende modeller (bruk `state` som delstatsvariabel og `year` som tidsvariabel):
@@ -352,6 +385,24 @@ c) Hva kontrollerer tidsfaste effekter ($\nu_t$) for? Gi eksempler på faktorer 
 
 d) Kan vi tolke koeffisienten fra toveis FE-modellen som kausal? Diskuter kort.
 
+<details><summary>Løsning</summary>
+
+**a)**
+```{r, eval=T}
+pooled   <- feols(frate ~ beertax, data = Fatalities)
+state_fe <- feols(frate ~ beertax | state, data = Fatalities)
+twfe     <- feols(frate ~ beertax | state + year, data = Fatalities)
+etable(pooled, state_fe, twfe)
+```
+
+**b)** Fortegnet snur fra positivt til negativt. Delstatsfaste effekter fjerner all variasjon *mellom* delstater og bruker kun variasjon *innad i* hver delstat over tid. Pooled OLS var forvrengt av tidskonstante forskjeller (urbane vs. rurale osv.). Når vi kontrollerer for disse, ser vi den mer troverdige sammenhengen: innad i en delstat faller trafikkdødsfall når ølskatten øker.
+
+**c)** Tidsfaste effekter kontrollerer for faktorer som treffer alle delstater likt i et gitt år: bedre bilteknologi (airbags, antiskrens), nasjonale promillekampanjer, føderale lover om bilbeltepåbud, makroøkonomiske svingninger.
+
+**d)** Toveis FE er bedre enn de to første modellene, men ikke nødvendigvis kausal. Den kontrollerer ikke for tidsvarierende, delstatsspesifikke faktorer — f.eks. kan en delstat som øker ølskatten samtidig innføre strengere promillegrenser. Da fanger vi opp hele pakken av tiltak, ikke bare ølskatten. Omvendt kausalitet er heller ikke utelukket.
+
+</details>
+
 **Oppgave 9 (Vanskeligere)**
 
 a) Sammenlign antall observasjoner, antall koeffisienter estimert (inkludert faste effekter), og frihetsgrader for de tre modellene i oppgave 8. Du kan bruke `summary()` eller inspisere modellobjektene.
@@ -359,6 +410,26 @@ a) Sammenlign antall observasjoner, antall koeffisienter estimert (inkludert fas
 b) Sammenlign standardfeilene til koeffisienten for `beertax` på tvers av modellene. Hva skjer med presisjonen når vi legger til flere faste effekter?
 
 c) Prøv å estimere en modell med delstatsfaste effekter, årsfaste effekter, *og* delstat-år-interaksjoner (delstat $\times$ år faste effekter). Hva skjer? Hvorfor?
+
+<details><summary>Løsning</summary>
+
+**a)**
+```{r, eval=T}
+summary(pooled)    # N=336, K=2, df=334
+summary(state_fe)  # N=336, K=49, df=287
+summary(twfe)      # N=336, K=56, df=280
+```
+Antall observasjoner er likt (336), men antall estimerte koeffisienter øker og frihetsgrader synker for hver modell.
+
+**b)** Standardfeilen for `beertax` øker (presisjonen synker) når vi legger til faste effekter. Faste effekter absorberer variasjon og reduserer effektive frihetsgrader — vi betaler for bedre kontroll med lavere presisjon.
+
+**c)**
+```{r, eval=F}
+feols(frate ~ beertax | state + year + state:year, data = Fatalities)
+```
+Modellen kan ikke estimeres. Vi har 48 × 7 = 336 delstat-år-kombinasjoner og nøyaktig 336 observasjoner. En fast effekt per kombinasjon gir perfekt kollinearitet — ingen variasjon gjenstår til å estimere effekten av `beertax`.
+
+</details>
 
 **Oppgave 10**
 
@@ -370,6 +441,16 @@ b) For hver av de utelatte variablene du identifiserte: Tror du estimatet av eff
 
 c) Dersom folk systematisk underrapporterer hvor mye de trener, hva gjør dette med estimatet? (Hint: Dette er målefeil i forklaringsvariabelen.)
 
+<details><summary>Løsning</summary>
+
+**a)** To viktige utelatte variabler: (1) *Helse* — friske personer trener mer og tjener mer (produktivitet, lavt sykefravær). (2) *Utdanning/yrkestype* — høyt utdannede har høyere inntekt og mer fleksible jobber som gir tid til trening. (3) *Selvkontroll/disiplin* — disiplinerte personer presterer bedre i karrieren og trener mer.
+
+**b)** Alle tre korrelerer positivt med både trening og inntekt → estimatet trekkes **oppover**. Vi overvurderer effekten av trening.
+
+**c)** Systematisk underrapportering er klassisk målefeil i forklaringsvariabelen, som **demper** (attenuerer) estimatet mot null. De to kreftene trekker i motsatt retning: utelatt variabelskjevhet oppover, målefeil mot null. Utelatt variabelskjevhet er trolig sterkere.
+
+</details>
+
 **Oppgave 11**
 
 En by innfører en kampanje mot fyllekjøring i 2020, inkludert strengere kontroller og bøter. Nabokommunen innfører ingen slik kampanje. En forsker vil bruke nabokommunen som kontrollgruppe for å måle effekten av kampanjen på antall trafikkuhell.
@@ -380,6 +461,16 @@ b) Kan kampanjen i byen påvirke antall trafikkuhell i nabokommunen? Gi minst et
 
 c) Dersom kampanjen faktisk påvirker nabokommunen, hva betyr det for vår estimerte effekt? Vil vi overvurdere eller undervurdere den sanne effekten?
 
+<details><summary>Løsning</summary>
+
+**a)** Nabokommunen viser oss den kontrafaktiske utviklingen — hva som ville skjedd i behandlingsbyen uten kampanjen. Vi antar parallelle trender: uten kampanjen ville endringen i uhell vært lik i begge kommuner.
+
+**b)** Eksempel på brudd på SUTVA: Folk i behandlingsbyen vet om strengere kontroller og drar til nabokommunen for å drikke, og kjører tilbake beruset — flere uhell i nabokommunen. Alternativt: Kampanjen får medieoppmerksomhet og folk i nabokommunen endrer atferd også — færre uhell der.
+
+**c)** Avhenger av retningen. Hvis kampanjen *reduserer* uhell i nabokommunen også: DiD undervurderer den sanne effekten (kontrollgruppen "hjelper til" og skjuler deler av nedgangen). Hvis kampanjen *øker* uhell i nabokommunen: DiD overvurderer effekten.
+
+</details>
+
 **Oppgave 12**
 
 I mange studier som bruker en "før-etter"-logikk med en behandlings- og en kontrollgruppe, sjekker forskerne om de to gruppene hadde *lik utvikling* i perioden før behandlingen ble innført.
@@ -389,3 +480,13 @@ a) Hvorfor er det nyttig å sjekke dette? Hva forteller det oss om gruppene ders
 b) Anta at forskerne finner at behandlingsgruppen hadde sterkere vekst enn kontrollgruppen allerede *før* behandlingen. Hva indikerer dette om troverdigheten til studien?
 
 c) Gir en lik utvikling før behandling oss noen *garanti* for at gruppene ville fortsatt å utvikle seg likt uten behandling? Hvorfor/hvorfor ikke?
+
+<details><summary>Løsning</summary>
+
+**a)** Dette er en pre-trend test. Vi kan ikke teste om gruppene ville utviklet seg likt *etter* behandling (det er kontrafaktisk), men vi kan teste om de gjorde det *før*. Like pre-trends styrker troen på at parallelle trender-antakelsen holder, og at kontrollgruppen er en god match.
+
+**b)** Et rødt flagg: Det kan tyde på seleksjon (behandling ble innført i grupper som allerede var på vei opp) eller divergerende trender. Parallelle trender-antakelsen holder trolig ikke, og DiD-estimatet vil overvurdere effekten.
+
+**c)** Nei — ingen garanti. Noe kan endre seg akkurat ved behandlingstidspunktet som gjør at gruppene begynner å divergere (strukturelle brudd, sjokk som treffer dem ulikt). Like pre-trends er et nødvendig men ikke tilstrekkelig vilkår — det gir støttende bevis, ikke bevis.
+
+</details>

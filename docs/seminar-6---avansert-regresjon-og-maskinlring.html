@@ -350,6 +350,36 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <li><p>Estimer en enkel lineær modell: <span class="math inline">\(\text{frate}_{it} = \beta_0 + \beta_1 \text{beertax}_{it} + \varepsilon_{it}\)</span>. Tolk koeffisienten. Er resultatet overraskende?</p></li>
 <li><p>Hva kan forklare sammenhengen du ser i (b)? Diskuter mulige utelatte variabler.</p></li>
 </ol>
+<details>
+<summary>
+Løsning
+</summary>
+<p><strong>a)</strong></p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Fatalities&quot;</span>)</span>
+<span id="cb386-2"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-2" tabindex="-1"></a>Fatalities <span class="ot">&lt;-</span> Fatalities <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">frate =</span> fatal <span class="sc">/</span> pop <span class="sc">*</span> <span class="dv">10000</span>)</span>
+<span id="cb386-3"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-3" tabindex="-1"></a></span>
+<span id="cb386-4"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-4" tabindex="-1"></a><span class="fu">ggplot</span>(Fatalities, <span class="fu">aes</span>(<span class="at">x =</span> beertax, <span class="at">y =</span> frate)) <span class="sc">+</span></span>
+<span id="cb386-5"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-5" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb386-6"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-6" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb386-7"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Ølskatt (dollar per kasse)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trafikkdødsfall per 10 000 innbyggere&quot;</span>) <span class="sc">+</span></span>
+<span id="cb386-8"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb386-8" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="met4_files/figure-html/unnamed-chunk-343-1.png" width="672" />
+Spredningsplottet viser en <strong>positiv</strong> sammenheng mellom ølskatt og trafikkdødsfall — overraskende og kontraintuitivt.</p>
+<p><strong>b)</strong></p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb387-1" tabindex="-1"></a>pooled <span class="ot">&lt;-</span> <span class="fu">feols</span>(frate <span class="sc">~</span> beertax, <span class="at">data =</span> Fatalities)</span>
+<span id="cb387-2"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb387-2" tabindex="-1"></a><span class="fu">summary</span>(pooled)</span></code></pre></div>
+<pre><code>## OLS estimation, Dep. Var.: frate
+## Observations: 336
+## Standard-errors: IID 
+##             Estimate Std. Error  t value   Pr(&gt;|t|)    
+## (Intercept) 1.853308   0.043567 42.53913  &lt; 2.2e-16 ***
+## beertax     0.364605   0.062170  5.86467 1.0822e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## RMSE: 0.542116   Adj. R2: 0.090648</code></pre>
+<p>Koeffisienten er positiv og signifikant: høyere ølskatt er assosiert med <em>flere</em> trafikkdødsfall. Dette er svært overraskende — vi ville forventet det motsatte.</p>
+<p><strong>c)</strong> Mulige utelatte variabler: Delstater med høy ølskatt er gjerne urbane stater med høy trafikktetthet, noe som i seg selv gir flere ulykker. Fattigere delstater har lavere skatter og færre biler per innbygger. Disse tidskonstante forskjellene mellom delstater forvrenger den enkle sammenhengen.</p>
+</details>
 <p><strong>Oppgave 8</strong></p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Estimer følgende modeller (bruk <code>state</code> som delstatsvariabel og <code>year</code> som tidsvariabel):</p>
@@ -362,12 +392,83 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <li><p>Hva kontrollerer tidsfaste effekter (<span class="math inline">\(\nu_t\)</span>) for? Gi eksempler på faktorer som påvirker trafikkdødsfall på landsbasis over tid.</p></li>
 <li><p>Kan vi tolke koeffisienten fra toveis FE-modellen som kausal? Diskuter kort.</p></li>
 </ol>
+<details>
+<summary>
+Løsning
+</summary>
+<p><strong>a)</strong></p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb389-1" tabindex="-1"></a>pooled   <span class="ot">&lt;-</span> <span class="fu">feols</span>(frate <span class="sc">~</span> beertax, <span class="at">data =</span> Fatalities)</span>
+<span id="cb389-2"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb389-2" tabindex="-1"></a>state_fe <span class="ot">&lt;-</span> <span class="fu">feols</span>(frate <span class="sc">~</span> beertax <span class="sc">|</span> state, <span class="at">data =</span> Fatalities)</span>
+<span id="cb389-3"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb389-3" tabindex="-1"></a>twfe     <span class="ot">&lt;-</span> <span class="fu">feols</span>(frate <span class="sc">~</span> beertax <span class="sc">|</span> state <span class="sc">+</span> year, <span class="at">data =</span> Fatalities)</span>
+<span id="cb389-4"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb389-4" tabindex="-1"></a><span class="fu">etable</span>(pooled, state_fe, twfe)</span></code></pre></div>
+<pre><code>##                             pooled            state_fe               twfe
+## Dependent Var.:              frate               frate              frate
+##                                                                          
+## Constant         1.853*** (0.0436)                                       
+## beertax         0.3646*** (0.0622) -0.6559*** (0.1878) -0.6400** (0.1974)
+## Fixed-Effects:  ------------------ ------------------- ------------------
+## state                           No                 Yes                Yes
+## year                            No                  No                Yes
+## _______________ __________________ ___________________ __________________
+## S.E. type                      IID                 IID                IID
+## Observations                   336                 336                336
+## R2                         0.09336             0.90501            0.90893
+## Within R2                       --             0.04075            0.03606
+## ---
+## Signif. codes: 0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>b)</strong> Fortegnet snur fra positivt til negativt. Delstatsfaste effekter fjerner all variasjon <em>mellom</em> delstater og bruker kun variasjon <em>innad i</em> hver delstat over tid. Pooled OLS var forvrengt av tidskonstante forskjeller (urbane vs. rurale osv.). Når vi kontrollerer for disse, ser vi den mer troverdige sammenhengen: innad i en delstat faller trafikkdødsfall når ølskatten øker.</p>
+<p><strong>c)</strong> Tidsfaste effekter kontrollerer for faktorer som treffer alle delstater likt i et gitt år: bedre bilteknologi (airbags, antiskrens), nasjonale promillekampanjer, føderale lover om bilbeltepåbud, makroøkonomiske svingninger.</p>
+<p><strong>d)</strong> Toveis FE er bedre enn de to første modellene, men ikke nødvendigvis kausal. Den kontrollerer ikke for tidsvarierende, delstatsspesifikke faktorer — f.eks. kan en delstat som øker ølskatten samtidig innføre strengere promillegrenser. Da fanger vi opp hele pakken av tiltak, ikke bare ølskatten. Omvendt kausalitet er heller ikke utelukket.</p>
+</details>
 <p><strong>Oppgave 9 (Vanskeligere)</strong></p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Sammenlign antall observasjoner, antall koeffisienter estimert (inkludert faste effekter), og frihetsgrader for de tre modellene i oppgave 8. Du kan bruke <code>summary()</code> eller inspisere modellobjektene.</p></li>
 <li><p>Sammenlign standardfeilene til koeffisienten for <code>beertax</code> på tvers av modellene. Hva skjer med presisjonen når vi legger til flere faste effekter?</p></li>
 <li><p>Prøv å estimere en modell med delstatsfaste effekter, årsfaste effekter, <em>og</em> delstat-år-interaksjoner (delstat <span class="math inline">\(\times\)</span> år faste effekter). Hva skjer? Hvorfor?</p></li>
 </ol>
+<details>
+<summary>
+Løsning
+</summary>
+<p><strong>a)</strong></p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb391-1" tabindex="-1"></a><span class="fu">summary</span>(pooled)    <span class="co"># N=336, K=2, df=334</span></span></code></pre></div>
+<pre><code>## OLS estimation, Dep. Var.: frate
+## Observations: 336
+## Standard-errors: IID 
+##             Estimate Std. Error  t value   Pr(&gt;|t|)    
+## (Intercept) 1.853308   0.043567 42.53913  &lt; 2.2e-16 ***
+## beertax     0.364605   0.062170  5.86467 1.0822e-08 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## RMSE: 0.542116   Adj. R2: 0.090648</code></pre>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb393-1" tabindex="-1"></a><span class="fu">summary</span>(state_fe)  <span class="co"># N=336, K=49, df=287</span></span></code></pre></div>
+<pre><code>## OLS estimation, Dep. Var.: frate
+## Observations: 336
+## Fixed-effects: state: 48
+## Standard-errors: IID 
+##          Estimate Std. Error  t value   Pr(&gt;|t|)    
+## beertax -0.655874    0.18785 -3.49148 0.00055597 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## RMSE: 0.17547     Adj. R2: 0.889129
+##                 Within R2: 0.040745</code></pre>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb395-1" tabindex="-1"></a><span class="fu">summary</span>(twfe)      <span class="co"># N=336, K=56, df=280</span></span></code></pre></div>
+<pre><code>## OLS estimation, Dep. Var.: frate
+## Observations: 336
+## Fixed-effects: state: 48,  year: 7
+## Standard-errors: IID 
+##         Estimate Std. Error  t value Pr(&gt;|t|)    
+## beertax -0.63998   0.197377 -3.24243 0.001328 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## RMSE: 0.171819     Adj. R2: 0.891425
+##                  Within R2: 0.036065</code></pre>
+<p>Antall observasjoner er likt (336), men antall estimerte koeffisienter øker og frihetsgrader synker for hver modell.</p>
+<p><strong>b)</strong> Standardfeilen for <code>beertax</code> øker (presisjonen synker) når vi legger til faste effekter. Faste effekter absorberer variasjon og reduserer effektive frihetsgrader — vi betaler for bedre kontroll med lavere presisjon.</p>
+<p><strong>c)</strong></p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="seminar-6---avansert-regresjon-og-maskinlring.html#cb397-1" tabindex="-1"></a><span class="fu">feols</span>(frate <span class="sc">~</span> beertax <span class="sc">|</span> state <span class="sc">+</span> year <span class="sc">+</span> state<span class="sc">:</span>year, <span class="at">data =</span> Fatalities)</span></code></pre></div>
+<p>Modellen kan ikke estimeres. Vi har 48 × 7 = 336 delstat-år-kombinasjoner og nøyaktig 336 observasjoner. En fast effekt per kombinasjon gir perfekt kollinearitet — ingen variasjon gjenstår til å estimere effekten av <code>beertax</code>.</p>
+</details>
 <p><strong>Oppgave 10</strong></p>
 <p>En forsker vil undersøke effekten av fysisk trening på inntekt. Hun kjører en regresjon av årsinntekt på antall timer trening per uke (selvrapportert), basert på tverrsnittdata fra 1000 personer.</p>
 <ol style="list-style-type: lower-alpha">
@@ -375,6 +476,14 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <li><p>For hver av de utelatte variablene du identifiserte: Tror du estimatet av effekten av trening blir for høyt eller for lavt? Begrunn.</p></li>
 <li><p>Dersom folk systematisk underrapporterer hvor mye de trener, hva gjør dette med estimatet? (Hint: Dette er målefeil i forklaringsvariabelen.)</p></li>
 </ol>
+<details>
+<summary>
+Løsning
+</summary>
+<p><strong>a)</strong> To viktige utelatte variabler: (1) <em>Helse</em> — friske personer trener mer og tjener mer (produktivitet, lavt sykefravær). (2) <em>Utdanning/yrkestype</em> — høyt utdannede har høyere inntekt og mer fleksible jobber som gir tid til trening. (3) <em>Selvkontroll/disiplin</em> — disiplinerte personer presterer bedre i karrieren og trener mer.</p>
+<p><strong>b)</strong> Alle tre korrelerer positivt med både trening og inntekt → estimatet trekkes <strong>oppover</strong>. Vi overvurderer effekten av trening.</p>
+<p><strong>c)</strong> Systematisk underrapportering er klassisk målefeil i forklaringsvariabelen, som <strong>demper</strong> (attenuerer) estimatet mot null. De to kreftene trekker i motsatt retning: utelatt variabelskjevhet oppover, målefeil mot null. Utelatt variabelskjevhet er trolig sterkere.</p>
+</details>
 <p><strong>Oppgave 11</strong></p>
 <p>En by innfører en kampanje mot fyllekjøring i 2020, inkludert strengere kontroller og bøter. Nabokommunen innfører ingen slik kampanje. En forsker vil bruke nabokommunen som kontrollgruppe for å måle effekten av kampanjen på antall trafikkuhell.</p>
 <ol style="list-style-type: lower-alpha">
@@ -382,6 +491,14 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <li><p>Kan kampanjen i byen påvirke antall trafikkuhell i nabokommunen? Gi minst ett konkret scenario der dette kan skje.</p></li>
 <li><p>Dersom kampanjen faktisk påvirker nabokommunen, hva betyr det for vår estimerte effekt? Vil vi overvurdere eller undervurdere den sanne effekten?</p></li>
 </ol>
+<details>
+<summary>
+Løsning
+</summary>
+<p><strong>a)</strong> Nabokommunen viser oss den kontrafaktiske utviklingen — hva som ville skjedd i behandlingsbyen uten kampanjen. Vi antar parallelle trender: uten kampanjen ville endringen i uhell vært lik i begge kommuner.</p>
+<p><strong>b)</strong> Eksempel på brudd på SUTVA: Folk i behandlingsbyen vet om strengere kontroller og drar til nabokommunen for å drikke, og kjører tilbake beruset — flere uhell i nabokommunen. Alternativt: Kampanjen får medieoppmerksomhet og folk i nabokommunen endrer atferd også — færre uhell der.</p>
+<p><strong>c)</strong> Avhenger av retningen. Hvis kampanjen <em>reduserer</em> uhell i nabokommunen også: DiD undervurderer den sanne effekten (kontrollgruppen “hjelper til” og skjuler deler av nedgangen). Hvis kampanjen <em>øker</em> uhell i nabokommunen: DiD overvurderer effekten.</p>
+</details>
 <p><strong>Oppgave 12</strong></p>
 <p>I mange studier som bruker en “før-etter”-logikk med en behandlings- og en kontrollgruppe, sjekker forskerne om de to gruppene hadde <em>lik utvikling</em> i perioden før behandlingen ble innført.</p>
 <ol style="list-style-type: lower-alpha">
@@ -389,6 +506,14 @@ hvor en ville fått bedre prediksjoner av <span class="math inline">\(Y\)</span>
 <li><p>Anta at forskerne finner at behandlingsgruppen hadde sterkere vekst enn kontrollgruppen allerede <em>før</em> behandlingen. Hva indikerer dette om troverdigheten til studien?</p></li>
 <li><p>Gir en lik utvikling før behandling oss noen <em>garanti</em> for at gruppene ville fortsatt å utvikle seg likt uten behandling? Hvorfor/hvorfor ikke?</p></li>
 </ol>
+<details>
+<summary>
+Løsning
+</summary>
+<p><strong>a)</strong> Dette er en pre-trend test. Vi kan ikke teste om gruppene ville utviklet seg likt <em>etter</em> behandling (det er kontrafaktisk), men vi kan teste om de gjorde det <em>før</em>. Like pre-trends styrker troen på at parallelle trender-antakelsen holder, og at kontrollgruppen er en god match.</p>
+<p><strong>b)</strong> Et rødt flagg: Det kan tyde på seleksjon (behandling ble innført i grupper som allerede var på vei opp) eller divergerende trender. Parallelle trender-antakelsen holder trolig ikke, og DiD-estimatet vil overvurdere effekten.</p>
+<p><strong>c)</strong> Nei — ingen garanti. Noe kan endre seg akkurat ved behandlingstidspunktet som gjør at gruppene begynner å divergere (strukturelle brudd, sjokk som treffer dem ulikt). Like pre-trends er et nødvendig men ikke tilstrekkelig vilkår — det gir støttende bevis, ikke bevis.</p>
+</details>
 
 </div>
 </div>
