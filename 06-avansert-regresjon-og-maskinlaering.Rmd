@@ -1037,11 +1037,11 @@ df <- read_csv("datasett/panel_liten.csv")
 
 ```{r, message=FALSE, warning=FALSE}
 # kjører først modellen uten faste effekter
-re <- feols(
+pols <- feols(
   lnwg ~ lnhr , 
   data = df
 )
-etable(re)
+etable(pols)
 ```
 
 Modellen uten faste effekter gir en koeffisient på `lnhr` lik 2.04, som er statistisk signifikant på 0,1 %-nivå. Fordi både lønn og arbeidstimer er log-transformerte, tolker vi dette som en elastisitet: En økning i arbeidstimer på 1 % er assosiert med en økning i timelønn på omtrent 2 %. 
@@ -1058,7 +1058,7 @@ fe_id <- feols(
 )
 
 # skriv ut tabell
-etable(re, fe_id)
+etable(pols, fe_id)
 ```
 
 
@@ -1072,7 +1072,7 @@ fe_id_t <- feols(
   lnwg ~ lnhr | id + year, # her er id og year individ- og årsfaste effekter
   data = df
 )
-etable(re, fe_id, fe_id_t)
+etable(pols, fe_id, fe_id_t)
 ```
 Når vi i tillegg legger til tidsfaste effekter faller koeffisienten ytterligere, til 0,18, og er fortsatt ikke statistisk signifikant. Tidsfaste effekter kontrollerer for alt som er felles for alle individer i et gitt år, for eksempel generell lønnsvekst eller makroøkonomiske svingninger. At koeffisienten faller litt videre tyder på at noe av den gjenværende sammenhengen var drevet av felles tidstrender: I gode år jobber folk mer og tjener mer, uten at det nødvendigvis er arbeidstimene som driver lønna. Etter å ha kontrollert for både individ- og tidseffekter er den estimerte sammenhengen mellom arbeidstimer og timelønn liten og ikke statistisk signifikant.
 </details>
